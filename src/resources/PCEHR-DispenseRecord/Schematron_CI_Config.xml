@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<schematron_ci>
+	<working_set>
+		<repository>
+			<server>svn+ssh</server>
+			<user>SiuYuenChan@192.168.46.11</user>
+			<path>/projects/smi/subversion/repos/CCA</path>
+			<timeout>60</timeout>
+		</repository>
+
+		<!--
+		<src_path>C:\Hudson-Jenkins\Workspace\CCA</src_path>
+		-->
+		<src_path>C:\CCA</src_path>
+
+		<branch name="CDAValidate">
+
+			<products revision = "12. WIP">
+
+				<product>
+					<name>PCEHR Dispense Record</name>
+					<levels>
+						<level name="1A"/>
+						<level name="1B"/>
+						<level name="2" />
+						<level name="3A"/>
+					</levels>
+					<jar>CDAValidate.jar</jar>
+				</product>
+
+			</products>
+		</branch>
+	</working_set>
+
+	<compilation>
+		<!--
+		<workspace>C:\Hudson-Jenkins\Workspace</workspace>
+		-->
+		<workspace>C:\CCA\Development\Releases\Neg_Xml_Generator\Schematron_CI_Workspace</workspace>
+		<log>compile.log</log>
+	</compilation>
+
+	<mail_report>
+		<!--
+		<report_path>C:\Hudson-Jenkins\Workspace\CCA\CI_PDR_Test_Result.html</report_path>
+		-->
+		<report_path>C:\CCA\Development\Development_Tests\PCEHR Dispense Record\Results\CI_PDR_Test_Result.html</report_path>
+		<server>smtp.gmail.com</server>
+		<port>587</port>
+		<login>NehtaCCAHudson@gmail.com</login>
+		<password>tatungtatung</password>
+		<mailfrom>SiuYuen.Chan@nehta.gov.au</mailfrom>
+		<mailto>SiuYuen.Chan@nehta.gov.au</mailto>
+	</mail_report>
+</schematron_ci>
+

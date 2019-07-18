@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<schematron_ci>
+	<working_set>
+
+		<src_path>C:\CCA</src_path>
+
+		<branch name="CDAValidate">
+
+			<products revision = "12. WIP">
+
+				<product>
+					<name>e-Prescription</name>
+					<levels>
+						<level name="1A"/>
+						<level name="1B"/>
+						<level name="2" />
+						<level name="3A"/>
+						<!--
+						<level name="3B"/>
+						-->
+					</levels>
+					<jar>CDAValidate.jar</jar>
+				</product>
+
+			</products>
+		</branch>
+	</working_set>
+
+	<compilation>
+		<workspace>C:\CCA\Development\Releases\Neg_Xml_Generator\Schematron_CI_Workspace</workspace>
+		<log>compile.log</log>
+	</compilation>
+
+	<mail_report>
+		<report_path>C:\CCA\Development\Development_Tests\e-Prescription\Results\CI_e_Test_Result.html</report_path>
+		<server>smtp.gmail.com</server>
+		<port>587</port>
+		<login>NehtaCCAHudson@gmail.com</login>
+		<password>tatungtatung</password>
+		<mailfrom>Uday.Chandrupatla@nehta.gov.au</mailfrom>
+		<mailto>Sunanda.Veeraganti@nehta.gov.au</mailto>
+		<mailto>Uday.Chandrupatla@nehta.gov.au</mailto>
+		<mailto>Vikas.Mittal@nehta.gov.au</mailto>
+	</mail_report>
+</schematron_ci>
+

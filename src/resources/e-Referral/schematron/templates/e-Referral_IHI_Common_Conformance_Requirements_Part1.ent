@@ -1,0 +1,220 @@
+<!--
+_________________________________________________________________________________________________________________________________________________________________________________________
+                  Generated File - Do Not Edit File Directly                                                                                                                             
+                  __________________________________________
+
+                  Generated          : 17/08/2015 10:18:17 AM
+
+                  Product            : e-Referral
+                  Release            : CDA_Implementation_Guide_v1.0
+                  Generator Version  : 
+                                                                                                                                                                                         
+_________________________________________________________________________________________________________________________________________________________________________________________
+-->
+    <pattern name="p-e-Referral_IHI_Common_Conformance_Requirements_Part1-errors"
+        id="p-e-Referral_IHI_Common_Conformance_Requirements_Part1-errors"
+        see="#p-e-Referral_IHI_Common_Conformance_Requirements_Part1-errors">
+
+
+<!-- Refer to 3.4.10 of the Common Conformance Profile -->
+
+        <rule context="/cda:ClinicalDocument/cda:recordTarget/cda:patientRole/cda:patient/ext:asEntityIdentifier"> 
+            
+            <assert test="not(ext:id) or (ext:id/@root)">Error: e-Referral - 6.1.2 SUBJECT OF CARE -
+                "ext:asEntityIdentifier/ext:id" tag - The 'ext:id' tag 'root'
+                attribute is missing. Refer to "023876 - Local identifier
+                details for a person in an Entity Identifier element" of the
+                Clinical_Documents_Common_Conformance_Profile_v1.6 and
+                "section 6.1.2 SUBJECT OF CARE" of the e-Referral_CDA_Implementation_Guide_v2.2.</assert>
+
+            <report
+                test="(ext:id[starts-with(@root, '1.2.36.1.2001.1003.0.800360')]) and (ext:code/@codeSystem='2.16.840.1.113883.12.203')"
+                >Error: e-Referral - 6.1.2 SUBJECT OF CARE - The 'asEntityIdentifier' tag shall
+                have a National Identifier or a Local Identifier but not both. Refer to "023876 - Local identifier
+                details for a person in an Entity Identifier element" of the
+                Clinical_Documents_Common_Conformance_Profile_v1.6 and
+                "section 6.1.2 SUBJECT OF CARE" of the e-Referral_CDA_Implementation_Guide_v2.2.</report>
+
+            <!-- added the below test as per RPSA-2077 HPI-I and HPI-O should not be allowed for Subject of Care, also if Australian National Healthcare Identifier exists then the arc shall be IHI only -->
+            
+            <report
+                test="(ext:id[starts-with(@root, '1.2.36.1.2001.1003.0.')]) and not(ext:id[starts-with(@root, '1.2.36.1.2001.1003.0.800360')])"
+                >Error: e-Referral - 6.1.2 SUBJECT OF CARE - The 'asEntityIdentifier' tag shall not
+                have a National Identifier other than an IHI. Refer to "023876 - Local identifier
+                details for a person in an Entity Identifier element" of the
+                Clinical_Documents_Common_Conformance_Profile_v1.6 and
+                "section 6.1.2 SUBJECT OF CARE" of the e-Referral_CDA_Implementation_Guide_v2.2.</report>            
+            
+            <report
+                test="(ext:id[@root = '1.2.36.1.2001.1003.0']) and not(ext:id[starts-with(@root, '1.2.36.1.2001.1003.0.800360')])"
+                >Error: e-Referral - 6.1.2 SUBJECT OF CARE - The 'asEntityIdentifier' tag shall not
+                have a National Identifier other than an IHI. Refer to "023876 - Local identifier
+                details for a person in an Entity Identifier element" of the
+                Clinical_Documents_Common_Conformance_Profile_v1.6 and
+                "section 6.1.2 SUBJECT OF CARE" of the e-Referral_CDA_Implementation_Guide_v2.2.</report>
+
+            <report
+                test="(ext:id[starts-with(@root, '1.2.36.1.2001.1005.41.') or (@root = '1.2.36.1.2001.1005.41')])"
+                >Error: e-Referral - 6.1.2 SUBJECT OF CARE - The 'asEntityIdentifier' tag for
+                Subject of Care shall not have the local identifier of the
+                Healthcare Provider Individual or Legal Authenticator. 
+                Refer to "023876 - Local identifier
+                details for a person in an Entity Identifier element" of the
+                Clinical_Documents_Common_Conformance_Profile_v1.6 and
+                "section 6.1.2 SUBJECT OF CARE" of the e-Referral_CDA_Implementation_Guide_v2.2.</report>
+            
+            <report
+                test="(ext:code/@codeSystem='2.16.840.1.113883.12.203') and (ext:id/@assigningAuthorityName) and normalize-space(ext:id/@assigningAuthorityName) != '' and (((ext:id/@assigningAuthorityName) = 'IHI') 
+                or ((ext:id/@assigningAuthorityName) = 'HPI-I') or ((ext:id/@assigningAuthorityName) = 'HPI-O') or ((ext:id/@assigningAuthorityName) = 'PAI-D') or ((ext:id/@assigningAuthorityName) = 'PAI-O') 
+                or ((ext:id/@assigningAuthorityName) = 'PAI-R'))"
+                >Error: e-Referral - 6.1.2 SUBJECT OF CARE - The 'ext:id/@assigningAuthorityName'
+                attribute where 'asEntityIdentifier' tag is having a Local Identifier shall not have
+                National Identifier values. Refer to "023876 - Local identifier
+                details for a person in an Entity Identifier element" of the
+                Clinical_Documents_Common_Conformance_Profile_v1.6 and
+                "section 6.1.2 SUBJECT OF CARE" of the e-Referral_CDA_Implementation_Guide_v2.2.</report>     
+            
+        </rule>           
+           
+
+
+        <rule context="/cda:ClinicalDocument/cda:recordTarget/cda:patientRole/cda:patient/ext:asEntityIdentifier/ext:id[starts-with(@root, '1.2.36.1.2001.1005.29.') or (@root = '1.2.36.1.2001.1005.29')]">
+
+            <assert test="not(@root) or (starts-with(@root, '1.2.36.1.2001.1005.29.800362'))">Error: 
+                e-Referral - 6.1.2 SUBJECT OF CARE - The 'ext:id' tag 'root' attribute SHALL be 
+                the OID 1.2.36.1.2001.1005.29 followed by the national healthcare identifier 
+                of the organisation that maintains the local identifier. 
+                Refer to "023876 - Local identifier
+                details for a person in an Entity Identifier element" of the
+                Clinical_Documents_Common_Conformance_Profile_v1.6 and
+                "section 6.1.2 SUBJECT OF CARE" of the e-Referral_CDA_Implementation_Guide_v2.2.</assert>
+
+            <report
+                test="(@root) and (starts-with(@root, '1.2.36.1.2001.1005.29.800362')) and not(string-length(@root) &gt;= 38)"
+                >Error: e-Referral - 6.1.2 SUBJECT OF CARE - The 'ext:id' tag 'root' attribute SHALL be 
+                the OID 1.2.36.1.2001.1005.29 followed by the national healthcare identifier 
+                of the organisation that maintains the local identifier. 
+                Refer to "023876 - Local identifier
+                details for a person in an Entity Identifier element" of the
+                Clinical_Documents_Common_Conformance_Profile_v1.6 and
+                "section 6.1.2 SUBJECT OF CARE" of the e-Referral_CDA_Implementation_Guide_v2.2.</report>
+            
+            <report
+                test="(@root) and (starts-with(@root, '1.2.36.1.2001.1005.29.800362')) and (string-length(@root) &gt;= 38) and contains(substring(@root, 23, 16), '.')"
+                >Error: e-Referral - 6.1.2 SUBJECT OF CARE - The 'ext:id' tag 'root' attribute SHALL be 
+                the OID 1.2.36.1.2001.1005.29 followed by the national healthcare identifier 
+                of the organisation that maintains the local identifier. 
+                Refer to "023876 - Local identifier
+                details for a person in an Entity Identifier element" of the
+                Clinical_Documents_Common_Conformance_Profile_v1.6 and
+                "section 6.1.2 SUBJECT OF CARE" of the e-Referral_CDA_Implementation_Guide_v2.2.</report>
+            
+            <report
+                test="(@root) and (substring(@root, string-length(@root), 1) = '.')"
+                >Error: e-Referral - 6.1.2 SUBJECT OF CARE - The 'ext:id' tag 'root' attribute SHALL be 
+                the OID 1.2.36.1.2001.1005.29 followed by the national healthcare identifier 
+                of the organisation that maintains the local identifier and SHALL NOT end with a dot (.). 
+                Refer to "023876 - Local identifier
+                details for a person in an Entity Identifier element" of the
+                Clinical_Documents_Common_Conformance_Profile_v1.6 and
+                "section 6.1.2 SUBJECT OF CARE" of the e-Referral_CDA_Implementation_Guide_v2.2.</report>
+
+            <report
+                test="(@root) and (starts-with(@root, '1.2.36.1.2001.1005.29.800362')) and (string-length(@root) &gt; 38) and substring(@root, 39, 1) != '.'"
+                >Error: e-Referral - 6.1.2 SUBJECT OF CARE - The 'ext:id' tag 'root' attribute SHALL be 
+                the OID 1.2.36.1.2001.1005.29 followed by the national healthcare identifier 
+                of the organisation that maintains the local identifier. 
+                Refer to "023876 - Local identifier
+                details for a person in an Entity Identifier element" of the
+                Clinical_Documents_Common_Conformance_Profile_v1.6 and
+                "section 6.1.2 SUBJECT OF CARE" of the e-Referral_CDA_Implementation_Guide_v2.2.</report>
+
+            <report
+                test="(@root) and (number(translate(@root, '0123456789.', '00000000000')) != 0)"
+                >Error: e-Referral - 6.1.2 SUBJECT OF CARE - The 'ext:id' tag 'root' attribute SHALL be 
+                a valid OID. Refer to "023876 - Local identifier
+                details for a person in an Entity Identifier element" of the
+                Clinical_Documents_Common_Conformance_Profile_v1.6 and
+                "section 6.1.2 SUBJECT OF CARE" of the e-Referral_CDA_Implementation_Guide_v2.2.</report>
+
+            <report
+                test="(@root) and (starts-with(@root, '1.2.36.1.2001.1005.29.800362')) and not(
+        (
+        number(substring(string(2 * 8), 1, 1)) + number(substring(string(2 * 8), 2, 1)) +
+        0 +
+        2 * 0 +
+        3 +
+        number(substring(string(2 * 6), 1, 1)) + number(substring(string(2 * 6), 2, 1)) +
+        number(substring(substring-after(@root, '80036'), 1, 1)) +
+        number(substring(string(2 * substring(substring-after(@root, '80036'), 2, 1)), string-length(string(2 * substring(substring-after(@root, '80036'), 2, 1))), 1)) +
+        number(substring(string(number(substring(substring-after(@root, '80036'), 2, 1)) div 5), 1, 1)) +
+        number(substring(substring-after(@root, '80036'), 3, 1)) +
+        number(substring(string(2 * substring(substring-after(@root, '80036'), 4, 1)), string-length(string(2 * substring(substring-after(@root, '80036'), 4, 1))), 1)) +
+        number(substring(string(number(substring(substring-after(@root, '80036'), 4, 1)) div 5), 1, 1)) +
+        number(substring(substring-after(@root, '80036'), 5, 1)) +
+        number(substring(string(2 * substring(substring-after(@root, '80036'), 6, 1)), string-length(string(2 * substring(substring-after(@root, '80036'), 6, 1))), 1)) +
+        number(substring(string(number(substring(substring-after(@root, '80036'), 6, 1)) div 5), 1, 1)) +
+        number(substring(substring-after(@root, '80036'), 7, 1)) +
+        number(substring(string(2 * substring(substring-after(@root, '80036'), 8, 1)), string-length(string(2 * substring(substring-after(@root, '80036'), 8, 1))), 1)) +
+        number(substring(string(number(substring(substring-after(@root, '80036'), 8, 1)) div 5), 1, 1)) +
+        number(substring(substring-after(@root, '80036'), 9, 1)) +
+        number(substring(string(2 * substring(substring-after(@root, '80036'),10, 1)), string-length(string(2 * substring(substring-after(@root, '80036'),10, 1))), 1)) +
+        number(substring(string(number(substring(substring-after(@root, '80036'),10, 1)) div 5), 1, 1)) +
+        number(substring(substring-after(@root, '80036'), 11, 1))
+        ) mod 10 = 0)"
+                >Error: e-Referral - 6.1.2 SUBJECT OF CARE - The 'ext:id' tag 'root' attribute having 
+                the OID 1.2.36.1.2001.1005.29 followed by the national healthcare identifier 
+                of the organisation that maintains the local identifier SHALL have a valid Luhn check digit. 
+                Refer to "023876 - Local identifier
+                details for a person in an Entity Identifier element" of the
+                Clinical_Documents_Common_Conformance_Profile_v1.6 and
+                "section 6.1.2 SUBJECT OF CARE" of the e-Referral_CDA_Implementation_Guide_v2.2.</report>
+            
+        </rule>
+
+
+
+        <rule context="/cda:ClinicalDocument/cda:recordTarget/cda:patientRole/cda:patient/ext:asEntityIdentifier[not(ext:id[starts-with(@root, '1.2.36.1.2001.1003.0.') or (@root = '1.2.36.1.2001.1003.0')])]/ext:code">
+
+            <assert test="@code">Error: e-Referral - 6.1.2 SUBJECT OF CARE - The 'ext:code' tag 'code' 
+                attribute is missing. Refer to "023876 - Local identifier
+                details for a person in an Entity Identifier element" of the
+                Clinical_Documents_Common_Conformance_Profile_v1.6 and
+                "section 6.1.2 SUBJECT OF CARE" of the e-Referral_CDA_Implementation_Guide_v2.2.</assert>
+
+
+            <assert test="@codeSystem">Error: e-Referral - 6.1.2 SUBJECT OF CARE - The 'ext:code' tag 'codeSystem' 
+                attribute is missing. Refer to "023876 - Local identifier
+                details for a person in an Entity Identifier element" of the
+                Clinical_Documents_Common_Conformance_Profile_v1.6 and
+                "section 6.1.2 SUBJECT OF CARE" of the e-Referral_CDA_Implementation_Guide_v2.2.</assert>
+
+            <assert test="not(@codeSystem) or normalize-space(@codeSystem) = '' or @codeSystem='2.16.840.1.113883.12.203'"
+                >Error: e-Referral - 6.1.2 SUBJECT OF CARE - 
+                The 'ext:code' tag 'codeSystem' attribute shall contain the value '2.16.840.1.113883.12.203'. 
+                Refer to "023876 - Local identifier
+                details for a person in an Entity Identifier element" of the
+                Clinical_Documents_Common_Conformance_Profile_v1.6 and
+                "section 6.1.2 SUBJECT OF CARE" of the e-Referral_CDA_Implementation_Guide_v2.2.</assert>
+
+            <assert test="@codeSystemName">Error: e-Referral - 6.1.2 SUBJECT OF CARE - The 'ext:code' tag 'codeSystemName' 
+                attribute is missing. Refer to "023876 - Local identifier
+                details for a person in an Entity Identifier element" of the
+                Clinical_Documents_Common_Conformance_Profile_v1.6 and
+                "section 6.1.2 SUBJECT OF CARE" of the e-Referral_CDA_Implementation_Guide_v2.2.</assert>
+
+            <assert test="not(@codeSystemName) or normalize-space(@codeSystemName) = '' or @codeSystemName='Identifier Type (HL7)'"
+                >Error: e-Referral - 6.1.2 SUBJECT OF CARE - 
+                The 'ext:code' tag 'codeSystemName' attribute shall contain the value 'Identifier Type (HL7)'. 
+                Refer to "023876 - Local identifier
+                details for a person in an Entity Identifier element" of the
+                Clinical_Documents_Common_Conformance_Profile_v1.6 and
+                "section 6.1.2 SUBJECT OF CARE" of the e-Referral_CDA_Implementation_Guide_v2.2.</assert>
+
+
+        </rule>
+
+
+
+    </pattern>
+

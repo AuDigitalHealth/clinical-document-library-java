@@ -1,0 +1,52 @@
+    <pattern name="p-Diagnostic_Imaging_Report_Participation_Period-errors"
+        id="p-Diagnostic_Imaging_Report_Participation_Period-errors"
+        see="#p-Diagnostic_Imaging_Report_Participation_Period-errors">
+
+
+        <!-- Refer to RPSA-1999 -->
+
+        <rule context="cda:author/cda:time  | cda:participant/cda:time">
+
+            <assert
+                test="(@value) or ((cda:high/@value) and (cda:low/@value) and (@xsi:type='IVL_TS'))"
+                >Error: Diagnostic Imaging Report - "Participation Period" - The 'time' tag shall
+                have a 'value' attribute OR 'xsi:type' attribute having the value 'IVL_TS' along
+                with both the 'high' and 'low' tags with corresponding 'value' attributes. Refer to
+                the section 6.1.2 and/or 6.1.4 and/or 7.1.1.2 of the
+                Diagnostic_Imaging_Report_CDA_Implementation_Guide_v1.0.</assert>
+
+            <!-- the @nullFlavor NON Existence test is added to the SMT tool -->
+
+            <!--<assert
+                test="(@nullFlavor) or (@value) or ((cda:high/@value) and (cda:low/@value) and (@xsi:type='IVL_TS'))"
+                >Error: Diagnostic Imaging Report - "Participation Period" - The 'time' tag shall
+                have a 'nullFlavor' attribute OR a 'value' attribute OR 'xsi:type' attribute having
+                the value 'IVL_TS' along with both the 'high' and 'low' tags with corresponding
+                'value' attributes. Refer to the section 6.1.2 and/or 6.1.4 and/or 7.1.1.2 of the
+                Diagnostic_Imaging_Report_CDA_Implementation_Guide_v1.0.</assert>-->
+
+            <!--<report test="(@nullFlavor) and (@value)">Error: Diagnostic Imaging Report -
+                "Participation Period" - The 'time' tag shall not have both a 'nullFlavor' attribute
+                and a 'value' attribute. Refer to the section 6.1.2 and/or 6.1.4 and/or 7.1.1.2 of the
+                Diagnostic_Imaging_Report_CDA_Implementation_Guide_v1.0.</report>-->
+
+            <report test="(@value) and ((cda:high) or (cda:low))">Error: Diagnostic Imaging Report -
+                "Participation Period" - The 'time' tag shall not have both a 'value' attribute and
+                the 'high' and/or 'low' tag(s). Refer to the section 6.1.2 and/or 6.1.4 and/or
+                7.1.1.2 of the Diagnostic_Imaging_Report_CDA_Implementation_Guide_v1.0.</report>
+
+            <!--<report test="((cda:high) or (cda:low)) and (@nullFlavor)">Error: Diagnostic Imaging
+                Report - "Participation Period" - The 'time' tag shall not have both a 'nullFlavor'
+                attribute and the 'high' and/or 'low' tag(s). Refer to the section 6.1.2 and/or 6.1.4 and/or 7.1.1.2 of the
+                Diagnostic_Imaging_Report_CDA_Implementation_Guide_v1.0.</report>-->
+
+            <report test="(cda:high/@nullFlavor) or (cda:low/@nullFlavor)">Error: Diagnostic Imaging
+                Report - "Participation Period" - The 'time' tag shall not have the 'high' and/or
+                'low' tag(s) with corresponding 'nullFlavor' attribute(s). Refer to the section
+                6.1.2 and/or 6.1.4 and/or 7.1.1.2 of the
+                Diagnostic_Imaging_Report_CDA_Implementation_Guide_v1.0.</report>
+
+        </rule>
+
+    </pattern>
+

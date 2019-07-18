@@ -1,0 +1,67 @@
+<?xml version = "1.0" encoding = "UTF-8"?>
+<!--
+_________________________________________________________________________________________________________________________________________________________________________________________
+                  Generated File - Do Not Edit File Directly                                                                                                                             
+                  __________________________________________
+
+                  Generated          : 15/01/2015 4:08:15 PM
+
+                  Product            : Shared Health Summary
+                  Release            : CDA_Implementation_Guide_v1.0
+                  Generator Version  : 
+                                                                                                                                                                                         
+_________________________________________________________________________________________________________________________________________________________________________________________
+-->
+
+<schema xmlns="http://www.ascc.net/xml/schematron">
+    <ns prefix = "cda" uri = "urn:hl7-org:v3"/>
+    <ns prefix = "ext" uri = "http://ns.electronichealth.net.au/Ci/Cda/Extensions/3.0"/>
+    <ns prefix = "xs" uri = "http://www.w3.org/2001/XMLSchema"/>
+    <ns prefix = "xsi" uri = "http://www.w3.org/2001/XMLSchema-instance"/>
+
+    <pattern name="p-Shared_Health_Summary_ANZSCO_Checks_Revision1-errors"
+        id="p-Shared_Health_Summary_ANZSCO_Checks_Revision1-errors"
+        see="#p-Shared_Health_Summary_ANZSCO_Checks_Revision1-errors">
+
+
+
+
+        <rule context="*[@codeSystem='2.16.840.1.113883.13.62']">
+            
+            
+            <assert test="number(@code) = floor(@code)">Error: Shared Health Summary - ANZSCO code
+                check for "*[@codeSystem='2.16.840.1.113883.13.62']/@code" attribute - The 'code' attribute
+                ANZSCO code value shall be a number.
+                Check all such 'code' attributes to find the incorrect attribute(s). Refer to section 8.1 of the
+                Shared_Health_Summary_CDA_Implementation_Guide_v1.4.</assert>
+            
+            <assert test="string-length(@code) = 6">Error: Shared Health Summary - ANZSCO code check for "*[@codeSystem='2.16.840.1.113883.13.62']/@code" attribute - The 'code' attribute
+                ANZSCO code value shall have 6 digits.
+                Check all such 'code' attributes to find the incorrect attribute(s). Refer to section 8.1 of the
+                Shared_Health_Summary_CDA_Implementation_Guide_v1.4.</assert>
+            
+          <!--  Removed all Schematron rules from template packages that currently enforce the presence and/or the value of @codeSystemName attributes on the basis of current CDA IG content.-->
+            
+           <!-- <assert test="@codeSystemName"
+                >Error: Shared Health Summary - ANZSCO code
+                check for "*[@codeSystem='2.16.840.1.113883.13.62']/@codeSystemName" attribute - The ANZSCO  'codeSystemName' attribute is missing.
+                Refer to section 8.1 of the
+                Shared_Health_Summary_CDA_Implementation_Guide_v1.4.</assert>
+            
+            <assert test="
+                not(@codeSystemName) or normalize-space(@codeSystemName) = '' or @codeSystemName = '1220.0 - ANZSCO - Australian and New Zealand Standard Classification of Occupations, First Edition, Revision 1'"
+                >Error: Shared Health Summary - ANZSCO code
+                check for "*[@codeSystem='2.16.840.1.113883.13.62']/@codeSystemName" attribute - The ANZSCO  'codeSystemName' attribute shall contain the value '1220.0 - ANZSCO - Australian and New Zealand Standard Classification of Occupations, First Edition, Revision 1'.
+                Refer to section 8.1 of the
+                Shared_Health_Summary_CDA_Implementation_Guide_v1.4.</assert>-->
+            
+           
+            
+        </rule>
+
+
+   
+
+    </pattern>
+
+</schema>

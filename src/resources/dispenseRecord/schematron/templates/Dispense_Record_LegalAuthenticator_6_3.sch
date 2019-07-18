@@ -1,0 +1,293 @@
+<?xml version = "1.0" encoding = "UTF-8"?>
+<!--
+_________________________________________________________________________________________________________________________________________________________________________________________
+                  Generated File - Do Not Edit File Directly                                                                                                                             
+                  __________________________________________
+
+                  Generated          : 30/09/2013 2:25:58 PM
+
+                  Product            : Dispense Record
+                  Release            : CDA_Implementation_Guide_v1.0
+                  IG Guide Reference : 6.3
+                  IG Guide Title     : Legal Authenticator
+                  Generator Version  : 2.27
+                                                                                                                                                                                         
+_________________________________________________________________________________________________________________________________________________________________________________________
+-->
+
+<schema xmlns="http://www.ascc.net/xml/schematron">
+    <ns prefix = "cda" uri = "urn:hl7-org:v3"/>
+    <ns prefix = "ext" uri = "http://ns.electronichealth.net.au/Ci/Cda/Extensions/3.0"/>
+    <ns prefix = "xs" uri = "http://www.w3.org/2001/XMLSchema"/>
+    <ns prefix = "xsi" uri = "http://www.w3.org/2001/XMLSchema-instance"/>
+
+    <pattern name="p-Dispense_Record_LegalAuthenticator_6_3-errors"
+        id="p-Dispense_Record_LegalAuthenticator_6_3-errors"
+        see="#p-Dispense_Record_LegalAuthenticator_6_3-errors">
+
+
+        <rule context="/cda:ClinicalDocument">
+
+            <report test="count(cda:legalAuthenticator) > 1"
+                >Error: Dispense Record - 6.3 Legal Authenticator -
+                "LegalAuthenticator" -
+                The 'legalAuthenticator' tag shall appear only once.
+                Refer to section 6.3 of the
+                Dispense_Record_CDA_Implementation_Guide_v0.4.</report>
+
+            <assert test="cda:legalAuthenticator"
+                >Error: Dispense Record - 6.3 Legal Authenticator -
+                "LegalAuthenticator" -
+                The 'legalAuthenticator' tag is missing.
+                Refer to section 6.3 of the
+                Dispense_Record_CDA_Implementation_Guide_v0.4.</assert>
+
+        </rule>
+
+
+        <rule context="/cda:ClinicalDocument/cda:legalAuthenticator">
+
+            <assert test="cda:time"
+                >Error: Dispense Record - 6.3 Legal Authenticator -
+                "LegalAuthenticator/time" -
+                The 'time' tag is missing.
+                Refer to section 6.3 of the
+                Dispense_Record_CDA_Implementation_Guide_v0.4.</assert>
+
+            <report test="count(cda:time) > 1"
+                >Error: Dispense Record - 6.3 Legal Authenticator -
+                "LegalAuthenticator/time" -
+                The 'time' tag shall appear only once.
+                Refer to section 6.3 of the
+                Dispense_Record_CDA_Implementation_Guide_v0.4.</report>
+
+            <assert test="cda:signatureCode"
+                >Error: Dispense Record - 6.3 Legal Authenticator -
+                "LegalAuthenticator/signatureCode" -
+                The 'signatureCode' tag is missing.
+                Refer to section 6.3 of the
+                Dispense_Record_CDA_Implementation_Guide_v0.4.</assert>
+
+            <report test="count(cda:signatureCode) > 1"
+                >Error: Dispense Record - 6.3 Legal Authenticator -
+                "LegalAuthenticator/signatureCode" -
+                The 'signatureCode' tag shall appear only once.
+                Refer to section 6.3 of the
+                Dispense_Record_CDA_Implementation_Guide_v0.4.</report>
+
+            <report test="count(cda:assignedEntity) > 1"
+                >Error: Dispense Record - 6.3 Legal Authenticator -
+                "LegalAuthenticator/assignedEntity" -
+                The 'assignedEntity' tag shall appear only once.
+                Refer to section 6.3 of the
+                Dispense_Record_CDA_Implementation_Guide_v0.4.</report>
+
+            <assert test="cda:assignedEntity"
+                >Error: Dispense Record - 6.3 Legal Authenticator -
+                "LegalAuthenticator/assignedEntity" -
+                The 'assignedEntity' tag is missing.
+                Refer to section 6.3 of the
+                Dispense_Record_CDA_Implementation_Guide_v0.4.</assert>
+
+        </rule>
+
+
+        <rule context="/cda:ClinicalDocument/cda:legalAuthenticator/cda:time">
+
+            <assert test="@value"
+                >Error: Dispense Record - 6.3 Legal Authenticator -
+                "LegalAuthenticator/time" -
+                The 'time' tag 'value' attribute is missing.
+                Refer to section 6.3 of the
+                Dispense_Record_CDA_Implementation_Guide_v0.4.</assert>
+
+            <assert test="not(@value) or normalize-space(@value) != ''"
+                >Error: Dispense Record - 6.3 Legal Authenticator -
+                "LegalAuthenticator/time" -
+                The 'time' tag 'value' attribute shall contain a value.
+                Refer to section 6.3 of the
+                Dispense_Record_CDA_Implementation_Guide_v0.4.</assert>
+
+        </rule>
+
+
+        <rule context="/cda:ClinicalDocument/cda:legalAuthenticator/cda:signatureCode">
+
+            <assert test="@code"
+                >Error: Dispense Record - 6.3 Legal Authenticator -
+                "LegalAuthenticator/signatureCode" -
+                The 'signatureCode' tag 'code' attribute is missing.
+                Refer to section 6.3 of the
+                Dispense_Record_CDA_Implementation_Guide_v0.4.</assert>
+
+            <assert test="
+                not(@code) or normalize-space(@code) = '' or @code = 'S'"
+                >Error: Dispense Record - 6.3 Legal Authenticator -
+                "LegalAuthenticator/signatureCode" -
+                The 'signatureCode' tag 'code' attribute shall contain the value 'S'.
+                Refer to section 6.3 of the
+                Dispense_Record_CDA_Implementation_Guide_v0.4.</assert>
+
+            <assert test="not(@code) or normalize-space(@code) != ''"
+                >Error: Dispense Record - 6.3 Legal Authenticator -
+                "LegalAuthenticator/signatureCode" -
+                The 'signatureCode' tag 'code' attribute shall contain a value.
+                Refer to section 6.3 of the
+                Dispense_Record_CDA_Implementation_Guide_v0.4.</assert>
+
+        </rule>
+
+
+        <rule context="/cda:ClinicalDocument/cda:legalAuthenticator/cda:assignedEntity">
+
+            <report test="count(cda:code) > 1"
+                >Error: Dispense Record - 6.3 Legal Authenticator -
+                "LegalAuthenticator/assignedEntity/code" -
+                The 'code' tag shall appear only once.
+                Refer to section 6.3 of the
+                Dispense_Record_CDA_Implementation_Guide_v0.4.</report>
+
+            <assert test="cda:id"
+                >Error: Dispense Record - 6.3 Legal Authenticator -
+                "LegalAuthenticator/assignedEntity/id" -
+                The 'id' tag is missing.
+                Refer to section 6.3 of the
+                Dispense_Record_CDA_Implementation_Guide_v0.4.</assert>
+
+            <report test="count(cda:id) > 1"
+                >Error: Dispense Record - 6.3 Legal Authenticator -
+                "LegalAuthenticator/assignedEntity/id" -
+                The 'id' tag shall appear only once.
+                Refer to section 6.3 of the
+                Dispense_Record_CDA_Implementation_Guide_v0.4.</report>
+
+            <report test="count(cda:assignedPerson) > 1"
+                >Error: Dispense Record - 6.3 Legal Authenticator -
+                "LegalAuthenticator/assignedEntity/assignedPerson" -
+                The 'assignedPerson' tag shall appear only once.
+                Refer to section 6.3 of the
+                Dispense_Record_CDA_Implementation_Guide_v0.4.</report>
+
+            <assert test="cda:assignedPerson"
+                >Error: Dispense Record - 6.3 Legal Authenticator -
+                "LegalAuthenticator/assignedEntity/assignedPerson" -
+                The 'assignedPerson' tag is missing.
+                Refer to section 6.3 of the
+                Dispense_Record_CDA_Implementation_Guide_v0.4.</assert>
+
+            <report test="count(cda:representedOrganization) > 1"
+                >Error: Dispense Record - 6.3 Legal Authenticator -
+                "LegalAuthenticator/assignedEntity/representedOrganization" -
+                The 'representedOrganization' tag shall appear only once.
+                Refer to section 6.3 of the
+                Dispense_Record_CDA_Implementation_Guide_v0.4.</report>
+
+            <assert test="cda:representedOrganization"
+                >Error: Dispense Record - 6.3 Legal Authenticator -
+                "LegalAuthenticator/assignedEntity/representedOrganization" -
+                The 'representedOrganization' tag is missing.
+                Refer to section 6.3 of the
+                Dispense_Record_CDA_Implementation_Guide_v0.4.</assert>
+
+        </rule>
+
+
+        <rule context="/cda:ClinicalDocument/cda:legalAuthenticator/cda:assignedEntity/cda:id">
+
+            <report test="
+                contains(@root, '-') and not(
+                string-length(@root) = 36 and
+                substring(@root,  9, 1) = '-' and substring(@root, 14, 1) = '-' and
+                substring(@root, 19, 1) = '-' and substring(@root, 24, 1) = '-' and
+                translate(substring(@root,  1,  8), '0123456789ABCDEFabcdef', '0000000000000000000000') = '00000000' and
+                translate(substring(@root, 10,  4), '0123456789ABCDEFabcdef', '0000000000000000000000') = '0000' and
+                translate(substring(@root, 15,  4), '0123456789ABCDEFabcdef', '0000000000000000000000') = '0000' and
+                translate(substring(@root, 20,  4), '0123456789ABCDEFabcdef', '0000000000000000000000') = '0000' and
+                translate(substring(@root, 25, 12), '0123456789ABCDEFabcdef', '0000000000000000000000') = '000000000000')"
+                >Error: Dispense Record - 6.3 Legal Authenticator -
+                "LegalAuthenticator/assignedEntity/id" -
+                The 'id' tag 'root' attribute shall be a valid UUID.
+                Refer to section 6.3 of the
+                Dispense_Record_CDA_Implementation_Guide_v0.4.</report>
+
+        </rule>
+
+
+        <rule context="/cda:ClinicalDocument/cda:legalAuthenticator/cda:assignedEntity/cda:assignedPerson">
+
+            <assert test="ext:asEntityIdentifier"
+                >Error: Dispense Record - 6.3 Legal Authenticator -
+                "LegalAuthenticator/assignedEntity/assignedPerson/Entity Identifier" -
+                The 'asEntityIdentifier' tag is missing.
+                Refer to section 6.3 of the
+                Dispense_Record_CDA_Implementation_Guide_v0.4.</assert>
+
+            <report test="count(ext:asEntityIdentifier) > 1"
+                >Error: Dispense Record - 6.3 Legal Authenticator -
+                "LegalAuthenticator/assignedEntity/assignedPerson/Entity Identifier" -
+                The 'asEntityIdentifier' tag shall appear only once.
+                Refer to section 6.3 of the
+                Dispense_Record_CDA_Implementation_Guide_v0.4.</report>
+
+            <assert test="not(ext:asEntityIdentifier) or ext:asEntityIdentifier/ext:id[starts-with(@root, '1.2.36.1.2001.1003.0.800361')]"
+                >Error: Dispense Record - 6.3 Legal Authenticator -
+                "LegalAuthenticator/assignedEntity/assignedPerson/Entity Identifier" -
+                The 'asEntityIdentifier' tag for 'HPI-I' is missing.
+                "The value of one Entity Identifier SHALL be an Australian HPI-I." although there could be multiple Entity Identifiers.
+                Refer to section 6.3 of the
+                Dispense_Record_CDA_Implementation_Guide_v0.4.</assert>
+
+            <assert test="cda:name"
+                >Error: Dispense Record - 6.3 Legal Authenticator -
+                "LegalAuthenticator/assignedEntity/assignedPerson/Person Name" -
+                The 'name' tag is missing.
+                Refer to section 6.3 of the
+                Dispense_Record_CDA_Implementation_Guide_v0.4.</assert>
+
+        </rule>
+
+
+        <rule context="/cda:ClinicalDocument/cda:legalAuthenticator/cda:assignedEntity/cda:representedOrganization">
+
+            <assert test="ext:asEntityIdentifier"
+                >Error: Dispense Record - 6.3 Legal Authenticator -
+                "LegalAuthenticator/assignedEntity/representedOrganization/Entity Identifier" -
+                The 'asEntityIdentifier' tag is missing.
+                Refer to section 6.3 of the
+                Dispense_Record_CDA_Implementation_Guide_v0.4.</assert>
+
+            <report test="count(ext:asEntityIdentifier) > 1"
+                >Error: Dispense Record - 6.3 Legal Authenticator -
+                "LegalAuthenticator/assignedEntity/representedOrganization/Entity Identifier" -
+                The 'asEntityIdentifier' tag shall appear only once.
+                Refer to section 6.3 of the
+                Dispense_Record_CDA_Implementation_Guide_v0.4.</report>
+
+            <assert test="not(ext:asEntityIdentifier) or ext:asEntityIdentifier/ext:id[starts-with(@root, '1.2.36.1.2001.1003.0.800362')]"
+                >Error: Dispense Record - 6.3 Legal Authenticator -
+                "LegalAuthenticator/assignedEntity/representedOrganization/Entity Identifier" -
+                The 'asEntityIdentifier' tag for 'HPI-O' is missing.
+                "The value of one Entity Identifier SHALL be an Australian HPI-O." although there could be multiple Entity Identifiers.
+                Refer to section 6.3 of the
+                Dispense_Record_CDA_Implementation_Guide_v0.4.</assert>
+
+            <report test="cda:name and normalize-space(cda:name) = ''"
+                >Error: Dispense Record - 6.3 Legal Authenticator -
+                "LegalAuthenticator/assignedEntity/representedOrganization/name" -
+                The 'name' tag shall contain a value.
+                Refer to section 6.3 of the
+                Dispense_Record_CDA_Implementation_Guide_v0.4.</report>
+
+            <report test="count(cda:name) > 1"
+                >Error: Dispense Record - 6.3 Legal Authenticator -
+                "LegalAuthenticator/assignedEntity/representedOrganization/name" -
+                The 'name' tag shall appear only once.
+                Refer to section 6.3 of the
+                Dispense_Record_CDA_Implementation_Guide_v0.4.</report>
+
+        </rule>
+
+
+    </pattern>
+
+</schema>

@@ -1,0 +1,114 @@
+<?xml version = "1.0" encoding = "UTF-8"?>
+
+
+<schema xmlns="http://www.ascc.net/xml/schematron">
+    <ns prefix="cda" uri="urn:hl7-org:v3"/>
+    <ns prefix="ext" uri="http://ns.electronichealth.net.au/Ci/Cda/Extensions/3.0"/>
+    <ns prefix="xs" uri="http://www.w3.org/2001/XMLSchema"/>
+    <ns prefix="xsi" uri="http://www.w3.org/2001/XMLSchema-instance"/>
+
+
+    <!-- e-Referral Clinical Document:  6.1.2 Subject of Care Custom -->
+
+    <!-- Context: ClinicalDocument/Subject of Care -->
+
+    <!-- Status: Last Reviewed: 
+        Status: Last Updated: 04/10/2013 -->
+
+    <pattern name="p-e-Referral_3A_SUBJECTOFCARE_6_1_2_custom-errors" id="p-e-Referral_3A_SUBJECTOFCARE_6_1_2_custom-errors" see="#p-e-Referral_3A_SUBJECTOFCARE_6_1_2_custom-errors">
+
+
+        <!--  Date of Birth is Calculated From Age :  The value shall be either 'true' or 'false'   -->
+
+        <rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code='102.16080']/cda:entry/cda:observation[cda:code/@code='103.16233']/cda:value">
+
+            <assert
+                test="
+			    translate(@value , 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ') = 'TRUE' or 
+			    translate(@value , 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ') = 'FALSE'"
+                >Error: e-Referral - 6.1.2 Subject of Care - "Subject of Care / Participant / Person or Organisation or Device / Person / Demographic Data / Date of Birth Detail / Date of Birth is
+                Calculated From Age" - The 'value' tag 'value' attribute shall contain the value 'true' or 'false'. Refer to section 6.1.2 of the e-Referral_CDA_Implementation_Guide_v2.2.</assert>
+
+        </rule>
+
+
+        <rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code='102.16080']/cda:entry/cda:observation[cda:code/@code='103.16249']/cda:value">
+
+            <assert test="not(@value) or number(@value) > 0">Error: e-Referral - 6.1.2 SUBJECT OF CARE - "Subject of Care / Participant / Person or Organisation or Device / Person / Demographic Data /
+                Birth Plurality" - The 'value' tag 'value' attribute shall be an integer greater than equal to 1. Refer to "section 2.57 Birth Plurality of
+                NEHTA_0794_2011_Participation_Data_Specification_v3.2" and section 6.1.2 of the e-Referral_CDA_Implementation_Guide_v2.2.</assert>
+
+            <report test="@value and normalize-space(@value) != '' and number(@value) != floor(@value)">Error: e-Referral - 6.1.2 SUBJECT OF CARE - "Subject of Care / Participant / Person or
+                Organisation or Device / Person / Demographic Data / Birth Plurality" - The 'value' tag 'value' attribute shall contain an integer value. Refer to "section 2.57 Birth Plurality of
+                NEHTA_0794_2011_Participation_Data_Specification_v3.2" and section 6.1.2 of the e-Referral_CDA_Implementation_Guide_v2.2.</report>
+
+        </rule>
+
+
+        <!-- AGE code = 103.20109 -->
+
+
+        <rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code='102.16080']/cda:entry/cda:observation[cda:code/@code='103.20109']/cda:value">
+
+            <assert test="not(@value) or number(@value) >= 0">Error: e-Referral - 6.1.2 SUBJECT OF CARE - "Subject of Care / Participant / Person or Organisation or Device / Person / Demographic Data
+                / Age Detail / Age" - The 'value' tag 'value' attribute shall be an integer greater than equal to 0. Refer to "section 2.55 Age of
+                NEHTA_0794_2011_Participation_Data_Specification_v3.2" and section 6.1.2 of the e-Referral_CDA_Implementation_Guide_v2.2.</assert>
+
+            <report test="@value and normalize-space(@value) != '' and number(@value) != floor(@value)">Error: e-Referral - 6.1.2
+                SUBJECT OF CARE - "Subject of Care / Participant / Person or Organisation or Device / Person / Demographic Data / Age Detail / Age" - The 'value' tag 'value' attribute shall contain an
+                integer value. Refer to "section 2.55 Age of NEHTA_0794_2011_Participation_Data_Specification_v3.2" and section 6.1.2 of the e-Referral_CDA_Implementation_Guide_v2.2.</report>
+
+            <assert test="not(@unit) or (@unit = 'd') or (@unit = 'wk') or (@unit = 'mo') or (@unit = 'a')">Error: e-Referral - 6.1.2 SUBJECT OF CARE - "Subject of Care / Participant / Person or
+                Organisation or Device / Person / Demographic Data / Age Detail / Age" - The 'unit' tag 'unit' attribute shall be 'd' or 'wk' or 'mo' or 'a'. Refer to "section 2.55 Age of
+                NEHTA_0794_2011_Participation_Data_Specification_v3.2" and section 6.1.2 of the e-Referral_CDA_Implementation_Guide_v2.2.</assert>
+
+        </rule>
+        
+        
+        <rule
+            context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code='102.16080']/ext:coverage2/ext:entitlement/ext:participant[@typeCode = 'BEN']/ext:participantRole[@classCode = 'PAT']/ext:id">
+            
+            <assert
+                test="
+                not(@root) or normalize-space(@root) = ''
+                or not(/cda:ClinicalDocument/cda:recordTarget/cda:patientRole[@classCode = 'PAT']/cda:id/@root)
+                or normalize-space(/cda:ClinicalDocument/cda:recordTarget/cda:patientRole[@classCode = 'PAT']/cda:id/@root) = ''
+                or (@root) = normalize-space(/cda:ClinicalDocument/cda:recordTarget/cda:patientRole[@classCode = 'PAT']/cda:id/@root)"
+                >Error: e-Referral - 6.1.2 Subject Of Care - "Participant / Entitlement" - The 'ext:id' tag 'root' attribute shall be holding the same value as
+                ClinicalDocument/recordTarget/patientRole/id/@root. Refer to section 6.1.2 of the e-Referral_CDA_Implementation_Guide_v2.2.</assert>
+            
+        </rule>
+
+
+
+        <rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code = '102.16080']/ext:coverage2/ext:entitlement/ext:participant">
+
+            <assert test="@typeCode">Error: e-Referral - 6.1.2 SUBJECT OF CARE - "Subject of Care / Participant / Entitlement" - The 'ext:participant' tag 'typeCode' attribute is missing. Refer to
+                section 6.1.2 of the e-Referral_CDA_Implementation_Guide_v2.2.</assert>
+
+            <assert test="
+                not(@typeCode) or normalize-space(@typeCode) = '' or @typeCode = 'BEN'">Error: e-Referral - 6.1.2 SUBJECT OF CARE - "Subject of Care / Participant /
+                Entitlement" - The 'ext:participant' tag 'typeCode' attribute shall contain the value 'BEN'. Refer to section 6.1.2 of the e-Referral_CDA_Implementation_Guide_v2.2.</assert>
+
+            <assert test="not(@typeCode) or normalize-space(@typeCode) != ''">Error: e-Referral - 6.1.2 SUBJECT OF CARE - "Subject of Care / Participant / Entitlement" - The 'ext:participant' tag
+                'typeCode' attribute shall contain a value. Refer to section 6.1.2 of the e-Referral_CDA_Implementation_Guide_v2.2.</assert>
+
+        </rule>
+
+
+        <!-- added the following test based on RPSA-1177 -->
+        <rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code='102.16080']/cda:entry/cda:observation[cda:code/@code='103.16279']/cda:value">
+
+            <assert
+                test="
+			    translate(@value , 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ') = 'TRUE' or 
+			    translate(@value , 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ') = 'FALSE'"
+                >Error: e-Referral - 6.1.2 Subject of Care - "Subject of Care / Participant / Person or Organisation or Device / Person / Demographic Data / Age Detail / Age Accuracy Indicator" - The
+                'value' tag 'value' attribute shall contain the value 'true' or 'false'. Refer to section 6.1.2 of the e-Referral_CDA_Implementation_Guide_v2.2.</assert>
+
+        </rule>
+        
+
+    </pattern>
+
+</schema>

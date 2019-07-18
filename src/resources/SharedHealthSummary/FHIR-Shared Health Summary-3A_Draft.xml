@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Bundle 
+    xmlns="http://hl7.org/fhir" 
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://hl7.org/fhir file:///C:\Users\vikasmittal\Desktop\ALL_MY_DATA\data_folder\all_data\Education\Other_Studies\FHIR_HL7\fhir-single.xsd">
+    
+    <type value="document"/>
+    
+    
+    
+    
+</Bundle>

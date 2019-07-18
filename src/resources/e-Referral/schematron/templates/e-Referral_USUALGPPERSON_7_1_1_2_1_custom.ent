@@ -1,0 +1,16 @@
+    <pattern name="p-e-Referral_USUALGPPERSON_7_1_1_2_1_custom-errors"
+        id="p-e-Referral_USUALGPPERSON_7_1_1_2_1_custom-errors"
+        see="#p-e-Referral_USUALGPPERSON_7_1_1_2_1_custom-errors">
+
+        <rule context="/cda:ClinicalDocument/cda:participant[@typeCode = 'PART']/cda:associatedEntity[cda:associatedPerson]/cda:addr">
+            
+            <assert test="document('TEMPLATE/VALDN/CDAValidate_Vocabs.xml', .)/systems/system[@codeSystemName = 'ISO3166-1']/code[translate(@displayName, 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ') = translate(current()/cda:country, 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ')]/@code = 'AU'"
+                >Error: e-Referral - 7.1.1.2.1 USUAL GP PERSON - "Usual GP / Participant / Address /
+                Australia or International Address / International Address / Country" - The
+                'country' tag shall contain the value 'Australia'. Refer to section 7.1.1.2.1 of the
+                e-Referral_CDA_Implementation_Guide_v2.2.</assert>    
+            
+        </rule>
+
+    </pattern>
+

@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<schematron_ci>
+	<working_set>
+
+		<src_path>C:\CCA</src_path>
+
+		<branch name="CDAValidate">
+
+			<products revision = "12. WIP">
+
+				<product>
+					<name>Pathology Report</name>
+					<levels>
+						<level name="1A">
+							<input_xml_dir continue_schema_error="true">C:\CCA\CDAValidate\12. WIP\Test Documents - Negative_Testing\curr\Pathology Report\1A</input_xml_dir>
+						</level>
+						<level name="1B">
+							<input_xml_dir continue_schema_error="true">C:\CCA\CDAValidate\12. WIP\Test Documents - Negative_Testing\curr\Pathology Report\1B</input_xml_dir>
+						</level>
+						<level name="2" >
+							<input_xml_dir continue_schema_error="true">C:\CCA\CDAValidate\12. WIP\Test Documents - Negative_Testing\curr\Pathology Report\2</input_xml_dir>
+						</level>
+						<level name="3A">
+							<input_xml_dir continue_schema_error="true">C:\CCA\CDAValidate\12. WIP\Test Documents - Negative_Testing\curr\Pathology Report\3A</input_xml_dir>
+						</level>
+						<level name="3B">
+							<input_xml_dir continue_schema_error="true">C:\CCA\CDAValidate\12. WIP\Test Documents - Negative_Testing\curr\Pathology Report\3B</input_xml_dir>
+						</level>
+					</levels>
+					<jar>CDAValidate.jar</jar>
+				</product>
+
+			</products>
+		</branch>
+	</working_set>
+
+	<compilation>
+		<workspace>C:\CCA\Development\Releases\Neg_Xml_Generator\Schematron_CI_Workspace</workspace>
+		<log>compile.log</log>
+	</compilation>
+
+	<mail_report>
+		<report_path>C:\CCA\Development\Development_Tests\Pathology Report\Results\CI_PR_Negative_Test_Result.html</report_path>
+		<report_title>Negative Test Report</report_title>
+		<server>smtp.gmail.com</server>
+		<port>587</port>
+		<login>NehtaCCAHudson@gmail.com</login>
+		<password>tatungtatung</password>
+		<mailfrom>Uday.Chandrupatla@nehta.gov.au</mailfrom>
+		<mailto>Sunanda.Veeraganti@nehta.gov.au</mailto>
+		<mailto>Uday.Chandrupatla@nehta.gov.au</mailto>
+		<mailto>Vikas.Mittal@nehta.gov.au</mailto>
+	</mail_report>
+</schematron_ci>
+

@@ -1,0 +1,521 @@
+<?xml version="1.0"?>
+<!DOCTYPE project>
+<project name="nehta-vendorlibrary-java-cdalibrary"
+         basedir="."
+         default="dist">
+
+  <property file="${basedir}/build.properties"/>
+  <property name="artifact.file" value="${target.dir}/${jar.file}"/>
+  <property name="artifact.sources.file" value="${target.dir}/${src.jar.file}"/>
+  <property name="artifact.javadocs.file" value="${target.dir}/${javadocs.jar.file}"/>
+  <property name="artifact.schematron.file" value="${target.dir}/${schematron.resource.file}"/>
+	
+	
+  <property name="force.tests.file" value="test.failed.file"/>
+
+  <fileset id="test.unit.fileset" dir="${test.src.dir}">
+    <include name="**/*Test.java"/>
+  </fileset>
+	
+	<taskdef classpath="${lib.test.dir}/cobertura.jar" resource="tasks.properties"/>
+	
+    <path id="lib.tasks.path">
+        <fileset dir="${tasklibs.dir}">
+            <exclude name="**/*.xml"/>
+            <exclude name="**/*.icns"/>
+        </fileset>
+    </path>
+
+    <path id="lib.findbugs.path">
+        <fileset dir="${findbugs.lib.dir}"/>
+    </path>
+
+    <path id="test.class.path">
+        <fileset dir="${classes.dir}"
+                 includes="**/AllTests.jar"/>
+    </path>
+
+    <path id="lib.test.path">
+        <fileset dir="${lib.test.dir}" includes="**/*.jar"/>
+    </path>
+
+
+  <path id="lib.tasks.path">
+    <fileset dir="${tasks.lib.dir}">
+    <exclude name="*.xsl"/>
+    </fileset>
+  </path>
+
+  <target name="--clean">
+    <delete dir="${target.dir}"/>
+    <delete><fileset dir="${dist.dir}" includes="**"/></delete>
+  </target>
+
+  <target name="--check-force-clean">
+    <available file="${project.root.dir}/downstream.modules.needs.rebuilding" property="force.clean"/>
+  </target>
+
+  <target name="--force-clean" depends="--check-force-clean" if="force.clean">
+    <delete dir="${target.dir}"/>
+  </target>
+
+  <target name="--prepare" depends="--force-clean">
+    <!-- Create target directories -->
+    <mkdir dir="${target.dir}"/>
+    <mkdir dir="${target.dir}/endorsed"/>
+    <mkdir dir="${classes.dir}"/>
+    <mkdir dir="${coverage.classes.dir}"/>
+    <mkdir dir="${test.classes.dir}"/>
+  	<mkdir dir="${test.resources.dir}" />
+    <mkdir dir="${test.results.dir}"/>
+    <mkdir dir="${test.reports.dir}"/>
+    <mkdir dir="${docs.dir}"/>
+    <mkdir dir="${javadocs.dir}"/>
+    <mkdir dir="${dist.dir}"/>
+    <mkdir dir="${dist.dir}"/>
+ 
+    <!-- Environment variables -->
+    <property environment="env"/>
+
+    <!-- Class paths -->
+    <path id="compile.classpath">
+         <fileset dir="${lib.provided.dir}" includes="**/*.jar" />
+    </path>
+    <path id="runtime.classpath">
+      <pathelement location="${lib.compile.dir}"/>
+      <pathelement location="${lib.runtime.dir}"/>
+    </path>
+    <path id="test.classpath">
+      <pathelement location="${lib.runtime.dir}"/>
+      <pathelement location="${classes.dir}"/>
+      <pathelement location="${test.classes.dir}"/>
+      <fileset dir="${lib.test.dir}" includes="**/*.jar" />
+      <fileset dir="${lib.provided.dir}" includes="**/*.jar" />
+    </path>
+
+      <!-- determine if any artifacts used during testing has changed
+            or if the last tests failed -->
+       <condition property="tests.uptodate">
+         <and>
+           <!-- has any production code changed? -->
+           <uptodate>
+             <srcfiles dir="${src.dir}" includes="**/*.java"/>
+             <mapper type="glob" from="*.java"
+                                 to="${classes.dir}/*.class" />
+           </uptodate>
+
+           <!-- has any test code changed? -->
+           <uptodate>
+             <srcfiles dir="${test.src.dir}" includes="**/*.java"/>
+             <mapper type="glob" from="*.java"
+                                 to="${test.classes.dir}/*.class" />
+           </uptodate>
+
+           <!-- have any test data files changed? -->
+           <uptodate>
+             <srcfiles dir="${test.resources.dir}" excludes="**/*.java"/>
+             <mapper type="glob" from="*" to="${test.classes.dir}/*" />
+           </uptodate>
+
+           <!-- did our last build fail tests? -->
+           <not>
+             <available file="${basedir}/${force.tests.file}"/>
+           </not>
+
+           <!-- are the test results up to date with test cases? -->
+           <uptodate>
+             <!-- when we solve the known bad test scenario, the
+                  excludes need to be here also -->
+             <srcfiles dir="${test.src.dir}" includes="**/*.java"
+                       excludes="org/example/antbook/KnownBadTest.java"/>
+             <mapper type="package"
+                     from="*Test.java" to="${test.results.dir}/TEST-*Test.xml"/>
+           </uptodate>
+         </and>
+       </condition>
+  </target>
+
+  <target name="--compile">
+    <javac destdir="${classes.dir}"
+           srcdir="${src.dir}"
+           debug="true"
+           fork="true"
+           classpathref="compile.classpath"
+           includeAntRuntime="no"
+           updatedproperty="compiled.src"/>
+  </target>
+
+  <target name="--compile-test">
+    <javac destdir="${test.classes.dir}"
+           srcdir="${test.src.dir}"
+           debug="true"
+           fork="true"
+           classpathref="test.classpath"
+           includeAntRuntime="no"
+           updatedproperty="compiled.tests"/>
+  </target>
+
+	<target name="corbertura2">
+	<cobertura-instrument datafile="${coverage.db.file}" todir="${coverage.classes.dir}">
+	    <fileset dir="${classes.dir}">
+	        <include name="**/*.class"/>
+	    	 <exclude name="**/*Test.class"/>
+	    </fileset>
+	</cobertura-instrument>
+		<junit fork="yes">
+		    <classpath location="${build.instrumented.dir}"/>
+		    <classpath location="${build.classes.dir}"/>
+		   
+		</junit>
+	</target>
+	
+  <target name="--process-test-resources">
+    <copy todir="${test.classes.dir}" overwrite="true">
+      <filterchain>
+        <expandproperties/>
+      </filterchain>
+      <fileset dir="${test.resources.dir}" includes="**/*" excludes="**/.svn/*,**/*.jks"/>
+    </copy>
+    <copy todir="${test.classes.dir}" overwrite="true">
+      <fileset dir="${test.resources.dir}" includes="**/*.jks"/>
+    </copy>
+  	 <copy todir="${test.classes.dir}/META-INF" overwrite="true">
+  	      <fileset dir="${src.dir}/META-INF" includes="**/*.*"/>
+    </copy>
+  </target>
+
+  <target name="--docs">
+    <!-- Javadocs: API documentation -->
+    <javadoc useexternalfile="true"  destdir="${javadocs.dir}" classpathref="compile.classpath">
+      <fileset dir="${src.dir}">
+        <include name="**/*.java"/>
+      </fileset>
+    </javadoc>
+  </target>
+
+  <target name="--checkstyle-report">
+  <!-- todo -->
+  <!--  <taskdef resource="checkstyletask.properties" classpathref="lib.tasks.path"/> 
+    <mkdir dir="${target.dir}/checkstyle"/>
+    <checkstyle config="${project.root.dir}/nehta_checks.xml"
+                failonviolation="false"
+                failureProperty="has.errors"
+                maxErrors="${module.checkstyle.max.errors}"
+                maxWarnings="${module.checkstyle.max.warnings}"
+                classpathref="test.classpath">
+      <fileset dir="${src.dir}" includes="**/*.java"/>
+      <formatter type="xml" toFile="${target.dir}/checkstyle/checkstyle.xml"/>
+    </checkstyle>
+    <xslt in="${target.dir}/checkstyle/checkstyle.xml"
+          out="${target.dir}/checkstyle/index.html"
+          style="${tasks.lib.dir}/checkstyle-noframes-severity-sorted.xsl">
+    </xslt>
+    <fail if="has.errors" message="Checkstyle has too many errors"/>
+    -->
+  </target>
+
+  <target name="--cobertura-report">
+    <taskdef id="cobertura" resource="tasks.properties" classpathref="lib.tasks.path"/>
+    <mkdir dir="${target.dir}/coverage"/>
+    <cobertura-report datafile="${coverage.db.file}"
+                      srcdir="${src.dir}"
+                      format="html" destdir="${target.dir}/coverage"/>
+    <cobertura-report datafile="${coverage.db.file}"
+                      srcdir="${src.dir}"
+                      format="xml" destdir="${target.dir}/coverage"/>
+  </target>
+
+  <target name="--coverage.instrument">
+    <!-- This property is set to make all the tests fork a JVM, currently we do not fork the jvm
+         for unit tests as this makes them very quick, but you HAVE to fork them for coverage recording -->
+    <property name="forked.tests" value="true"/>
+    <taskdef id="cobertura" resource="tasks.properties" classpathref="lib.tasks.path"/>
+    <delete file="${coverage.db.file}"/>
+    <mkdir dir="${coverage.classes.dir}"/>
+    <cobertura-instrument datafile="${coverage.db.file}" todir="${coverage.classes.dir}">
+      <fileset dir="${classes.dir}">
+        <include name="**/*.class"/>
+        <exclude name="**/*Test.class"/>
+      </fileset>
+    </cobertura-instrument>
+    <path id="coverage.classpath">
+      <path location="${coverage.classes.dir}"/>
+      <path refid="lib.tasks.path"/>
+    </path>
+  </target>
+
+  <target name="--test">
+    <property name="forked.tests" value="false"/>
+    <antcall target="--common-targets-private-dotests" inheritall="true" inheritrefs="true">
+      <param name="forked" value="${forked.tests}"/>
+    </antcall>
+  </target>
+
+  <target name="--cleanup-build-tmp-files">
+     <delete file="${project.root.dir}/downstream.modules.needs.rebuilding"/>
+  </target>
+
+  <target name="--common-targets-private-dotests"
+            unless="tests.uptodate">
+
+    <path id="lib.tasks.cobertura.runtime.path">
+      <!-- This path is required because if you add all the jars from the tasks.lib.dir then
+           you will add an incompatible apache xpath jar from PMD which breaks a test case -->
+      <fileset dir="${tasks.lib.dir}">
+        <include name="cobertura*.jar"/>
+        <include name="asm*.jar"/>
+        <include name="oro*.jar"/>
+      </fileset>
+    </path>
+    <!-- Run tests -->
+    <junit printsummary="on"
+           errorproperty="has.unit.errors"
+           failureproperty="has.unit.errors"
+           fork="${forked}"
+           dir="${basedir}">
+      <sysproperty key="net.sourceforge.cobertura.datafile" file="${coverage.db.file}"/>
+      <sysproperty key="java.endorsed.dirs" file="${target.dir}/endorsed"/>
+
+      <classpath>
+        <path location="${coverage.classes.dir}"/>
+        <path refid="test.classpath"/>
+        <path location="${test.classes.dir}"/>
+      </classpath>
+
+      <classpath refid="lib.tasks.cobertura.runtime.path"/>
+
+      <formatter type="xml"/>
+      <jvmarg value="-ea"/>
+
+      <batchtest todir="${test.results.dir}">
+        <fileset refid="test.unit.fileset"/>
+      </batchtest>
+    </junit>
+
+    <junit printsummary="on"
+           errorproperty="has.integration.errors"
+           failureproperty="has.integration.errors"
+           fork="yes"
+           dir="${basedir}">
+      <sysproperty key="net.sourceforge.cobertura.datafile" file="${coverage.db.file}"/>
+      <sysproperty key="java.endorsed.dirs" file="${target.dir}/endorsed"/>
+
+      <classpath>
+        <path location="${coverage.classes.dir}"/>
+        <path refid="test.classpath"/>
+        <path location="${test.classes.dir}"/>
+      </classpath>
+
+      <classpath refid="lib.tasks.cobertura.runtime.path"/>
+
+      <formatter type="xml"/>
+      <jvmarg value="-ea"/>
+    </junit>
+
+    <!-- Generate report -->
+    <junitreport todir="${test.results.dir}">
+      <fileset dir="${test.results.dir}" includes="TEST-*.xml"/>
+      <report todir="${test.reports.dir}" format="frames"/>
+    </junitreport>
+
+    <!--create a file to indicate that the tests failed-->
+    <echo message="last build failed tests"
+              file="${force.tests.file}"/>
+
+    <!-- Exit if there are errors or failures -->
+    <fail message="There were errors/failures in the unit tests - see ${test.reports.dir}/index.html."
+      if="has.unit.errors"/>
+    <fail message="There were errors/failures in the unit tests - see ${test.reports.dir}/index.html."
+      if="has.integration.errors"/>
+
+    <!--If the tests pass we can delete this file to indicate that the tests should not have to run again-->
+    <delete file="${force.tests.file}"/>
+
+    <!--create a file to indicate that the tests failed-->
+    <echo message="a module was built"
+          file="${project.root.dir}/downstream.modules.needs.rebuilding"/>
+
+  </target>
+
+  <target name="--test-precheckin">
+    <antcall target="--common-targets-private-dotests" inheritall="true" inheritrefs="true"/>
+  </target>
+
+  <target name="--lib-clean">
+    <delete dir="${lib.compile.dir}"/>
+    <mkdir dir="${lib.compile.dir}"/>
+
+    <delete dir="${lib.provided.dir}"/>
+    <mkdir dir="${lib.provided.dir}"/>
+
+    <delete dir="${lib.runtime.dir}"/>
+    <mkdir dir="${lib.runtime.dir}"/>
+
+    <delete dir="${lib.test.dir}"/>
+    <mkdir dir="${lib.test.dir}"/>
+  </target>
+
+  <target name="checkstyle" depends="
+          --prepare,
+          --compile,
+          --checkstyle-report"
+          description="Runs checkstyle"/>
+
+  <target name="clean" depends="
+          --clean"
+    description="Deletes generated files and directories"/>
+
+  <target name="docs" depends="
+          --prepare,
+          --docs"
+    description="Generates the documentation"/>
+
+  <target name="test" depends="
+          --prepare,
+          --compile,
+          --process-test-resources,
+          --compile-test,
+          --test"
+    description="Runs the unit tests"/>
+
+  <target name="package" depends="
+          --prepare,
+          --compile,
+          --docs,
+          --package"
+    description="Packages the compiled code into a jar"/>
+
+  <target name="precheckin" depends="
+          --prepare,
+          --compile,
+          --checkstyle-report,
+          --process-test-resources,
+          --compile-test,
+          --test-precheckin"
+          description="Runs a minimal set of tests and checks as a pre-cursor to checking the code changes into svn"/>
+
+  <target name="dist" depends="
+          --prepare,
+          --compile,
+          --checkstyle-report,
+          --process-test-resources,
+          --compile-test,
+          --test,
+          --docs,
+          --package,
+          --dist,
+  		  findbugs,
+          --cleanup-build-tmp-files"
+          description="Builds a distribution"/>
+
+  <target name="--package">
+    <!-- Get timestamp -->
+    <tstamp>
+      <format property="current.time" pattern="dd-MMM-yyyy hh:mm aa"/>
+    </tstamp>
+
+    <!-- Create jar file with compiled classes -->
+    <jar destfile="${artifact.file}" compress="false">
+      <fileset dir="${classes.dir}">
+        <include name="**/*.*"/>
+      </fileset>
+      <manifest>
+        <attribute name="Implementation-Title" value="${project.title}"/>
+        <attribute name="Implementation-Version" value="${project.version}"/>
+        <attribute name="Implementation-Vendor"
+                   value="${project.organisation}"/>
+        <attribute name="Generated-On" value="${current.time}"/>
+      </manifest>
+    </jar>
+
+    <!-- Create jar file with source files -->
+    <jar destfile="${artifact.sources.file}" compress="false">
+      <fileset dir="${src.dir}">
+        <include name="**/*.java"/>
+      </fileset>
+      <manifest>
+        <attribute name="Implementation-Title" value="${project.title}"/>
+        <attribute name="Implementation-Version" value="${project.version}"/>
+        <attribute name="Implementation-Vendor"
+                   value="${project.organisation}"/>
+        <attribute name="Generated-On" value="${current.time}"/>
+      </manifest>
+    </jar>
+
+    <!-- Create jar file with javadoc files -->
+    <jar destfile="${artifact.javadocs.file}" compress="false">
+      <fileset dir="${javadocs.dir}">
+        <include name="**/*"/>
+      </fileset>
+      <manifest>
+        <attribute name="Implementation-Title" value="${project.title}"/>
+        <attribute name="Implementation-Version" value="${project.version}"/>
+        <attribute name="Implementation-Vendor"
+                   value="${project.organisation}"/>
+        <attribute name="Generated-On" value="${current.time}"/>
+      </manifest>
+    </jar>
+  	
+  	
+    <!-- Create jar file with schematron resources files -->
+      <jar destfile="${artifact.schematron.file}" compress="true" >
+        <fileset dir="">
+          <include name="resources/**/*"/>
+        </fileset>
+        <manifest>
+          <attribute name="Implementation-Title" value="${project.title}"/>
+          <attribute name="Implementation-Version" value="${project.version}"/>
+          <attribute name="Implementation-Vendor"
+                     value="${project.organisation}"/>
+          <attribute name="Generated-On" value="${current.time}"/>
+        </manifest>
+      </jar>
+  </target>
+	
+    <target name="findbugs"
+            depends="--compile"
+            description="Generates a report of FindBugs violations.">
+        <taskdef name="findbugs"
+                 classpathref="lib.findbugs.path"
+                 classname="edu.umd.cs.findbugs.anttask.FindBugsTask"/>
+        <mkdir dir="${findbugs.dir}"/>
+        <findbugs home="${findbugs.lib.dir}"
+                  output="xml"
+                  outputFile="${findbugs.dir}/${findbugs.report.file}"
+                  failOnError="true">
+            <sourcePath path="${src.dir}"/>
+            <class location="${classes.dir}"/>
+            <auxClasspath path="${lib.provided.dir}/nehta-rpvis-compiled-xsd-cda-common-2.1.jar"/>
+        	 <auxClasspath path="${lib.provided.dir}/nehta-schematron-check-1.0.jar"/>
+        	 <auxClasspath path="${lib.provided.dir}/joda-time-1.6.2.jar"/>
+        	 <auxClasspath path="${lib.provided.dir}/nehta-vendorlibrary-java-common-1.0.1.jar"/>
+        	<auxClasspath path="${lib.provided.dir}/nehta-smi-common-utils-1.2.jar"/>
+        </findbugs>
+    </target>
+
+  <target name="--dist">
+    <zip destfile="${dist.dir}/${dist.file}">
+            <zipfileset dir="${basedir}">
+                <include name="${license.file}"/>
+                <include name="${readme.file}"/>
+            </zipfileset>
+
+            <zipfileset dir="${target.dir}">
+                <include name="${jar.file}"/>
+                <include name="${src.jar.file}"/>
+                <include name="${javadocs.jar.file}"/>
+            </zipfileset>
+
+            <zipfileset dir="${lib.provided.dir}" prefix="lib/">
+                <include name="**/*.jar" />
+            </zipfileset>
+    	 	<zipfileset dir="src/main/sample" prefix="sample/">
+    	                <include name="**/*.*" />
+        	</zipfileset>
+    	
+    		<zipfileset dir="resources" prefix="resources/">
+    	                 <include name="**/*.*" />
+    	    </zipfileset>
+    </zip>
+  </target>
+</project>

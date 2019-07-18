@@ -1,0 +1,415 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ClinicalDocument xmlns    ="urn:hl7-org:v3"
+                  xmlns:ext="http://ns.electronichealth.net.au/Ci/Cda/Extensions/3.0"
+                  xmlns:xs ="http://www.w3.org/2001/XMLSchema"
+                  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+    <typeId     extension="POCD_HD000040"
+                root     ="2.16.840.1.113883.1.3"/>
+    <templateId root     ="1.2.36.1.2001.1001.101.100.1002.120"
+                extension="1.4"/>
+    <templateId root     ="1.2.36.1.2001.1001.100.149"
+                extension="1.0"/>
+    <id         root     ="8BC3406A-B93F-11DE-8A2B-6A1C56D89593"/>
+    <code       code          ="60591-5"
+                codeSystem    ="2.16.840.1.113883.6.1"
+                codeSystemName="LOINC"
+                displayName   ="Patient summary"/>
+    <effectiveTime       value     ="201111010800+1000"/>
+    <confidentialityCode nullFlavor="NA"/>
+<!-- Removed just for Shared Health Summary.
+     Leave this comment in so QA check will pass.
+-->
+<!--
+    <setId               root      ="6C6BA56C-BC92-11DE-A170-D85556D89593"/>
+    <versionNumber       value="1"/>
+-->
+    <languageCode        code      ="en-AU"/>
+    <setId               root      ="6C6BA56C-BC92-11DE-A170-D85556D89593"/>
+
+    <versionNumber       value="1"/>
+    <ext:completionCode  code          ="F"
+                         codeSystem    ="1.2.36.1.2001.1001.101.104.20104"
+                         codeSystemName="NCTIS Document Status Values"
+                         displayName   ="Final"/>
+    
+    
+    
+    <!-- BEGIN Part 1A -->
+    
+    <!-- Begin - Subject of Care (Patient) - Header Part -->
+    <recordTarget typeCode="RCT">
+        <patientRole classCode="PAT">
+
+            <!-- Required CDA element. If there are any entitlements for Subject of Care this value MUST be the same as: ClinicalDocument/component/structuredBody/component[admin_obs]/section/entry/act/participant/participantRole/id where participantRole/@classCode="PAT". -->
+            <id root="7AA0BAAC-0CD0-11E0-9516-4350DFD72085"/>
+
+            <addr use="H">
+                <streetAddressLine>1 Clinician Street</streetAddressLine>
+                <state>QLD</state>
+                <postalCode>5555</postalCode>
+                <country>Australia</country>
+                <unitType>Apt</unitType>
+                <unitID>3A</unitID>
+                <additionalLocator>Complex Building</additionalLocator>
+                <houseNumber>A9221</houseNumber>
+                <streetName>health</streetName>
+                <streetNameType>Crn</streetNameType>
+                <direction>W</direction>
+                <deliveryAddressLine>Care PO</deliveryAddressLine>
+                <city>Brisbane</city>
+            </addr>
+
+            <telecom use="H" value="tel:0499999999"/>
+
+            <patient>
+
+                <name use="L">
+                    <family>Doctor</family>
+                    <given>Good</given>
+                    <prefix>Dr</prefix>
+                    <suffix>Jr</suffix>
+                </name>
+
+                <administrativeGenderCode code="F" codeSystem="2.16.840.1.113883.13.68"
+                    codeSystemName="AS 5017-2006 Health Care Client Identifier Sex"
+                    displayName="Female"/>
+
+                <birthTime value="19560824"/>
+
+                <ethnicGroupCode code="4" codeSystem="2.16.840.1.113883.3.879.291036"
+                    codeSystemName="METeOR Indigenous Status"
+                    displayName="Neither Aboriginal nor Torres Strait Islander origin"/>
+
+                <ext:multipleBirthInd value="true"/>
+
+                <ext:multipleBirthOrderNumber value="2"/>
+
+                <ext:deceasedInd value="true"/>
+
+                <ext:deceasedTime value="20101201"/>
+
+                <birthplace>
+                    <place>
+                        <addr>
+                            <country>Australia</country>
+                            <state>QLD</state>
+                        </addr>
+                    </place>
+                </birthplace>
+
+                <ext:asEntityIdentifier classCode="IDENT">
+
+                    <!-- The value of one Entity Identifier SHALL be an Australian IHI. -->
+                    <ext:id root="1.2.36.1.2001.1003.0.8003601234567894"
+                            assigningAuthorityName="IHI"/>
+                    <ext:code code="24576" codeSystem="2.162"
+                        codeSystemName="Classification of Names" displayName="a relevant name">
+                        <originalText>patient</originalText>
+                    </ext:code>
+                    <ext:assigningGeographicArea classCode="PLC">
+                        <ext:name>National Identifier</ext:name>
+                    </ext:assigningGeographicArea>
+
+                </ext:asEntityIdentifier>
+
+            </patient>
+
+        </patientRole>
+    </recordTarget>
+    <!-- End - Subject of Care (Patient) - Header Part -->
+
+
+    <!-- Begin - Document Author -->
+    <author typeCode="AUT">
+
+        <!-- This element will hold the same value as Shared Health Summary/DateTime Attested (ClinicalDocument/legalAuthenticator/time) -->
+        <time value="200910201235+1000"/>
+        <!-- Please see more about time in the CDA IG as it says that it is NOT a time interval even though it is written like that -->
+
+        <assignedAuthor>
+
+            <id root="7FCB0EC4-0CD0-11E0-9DFC-8F50DFD72085"/>
+
+            <code code="253317" codeSystem="2.16.840.1.113883.13.62"
+                codeSystemName="1220.0 - ANZSCO - Australian and New Zealand Standard Classification of Occupations, First Edition, Revision 1"
+                displayName="Intensive Care Specialist">
+                <originalText>intensive care specialist</originalText>
+            </code>
+
+            <!-- AUSTRALIAN OR INTERNATIONAL ADDRESS - MUST be instantiated as an AUSTRALIAN ADDRESS. -->
+            <addr use="WP">
+                <streetAddressLine>1 Clinician Street</streetAddressLine>
+                <state>QLD</state>
+                <postalCode>5555</postalCode>
+                <country>Australia</country>
+                <unitType>Apt</unitType>
+                <unitID>3A</unitID>
+                <additionalLocator>Complex Building</additionalLocator>
+                <houseNumber>A9221</houseNumber>
+                <streetName>health</streetName>
+                <streetNameType>Crn</streetNameType>
+                <direction>W</direction>
+                <deliveryAddressLine>Care PO</deliveryAddressLine>
+                <city>Brisbane</city>
+            </addr>
+
+            <telecom value="tel:0712341234" use="WP"/>
+
+            <assignedPerson>
+
+                <name use="L">
+                    <family>Doctor</family>
+                    <given>Good</given>
+                    <prefix>Dr</prefix>
+                    <suffix>Jr</suffix>
+                </name>
+
+                <ext:asEntityIdentifier classCode="IDENT">
+
+                    <ext:id root="1.2.36.1.2001.1003.0.8003611234567893"
+                            assigningAuthorityName="HPI-I"/>
+
+                    <ext:assigningGeographicArea classCode="PLC">
+                        <ext:name>National Identifier</ext:name>
+                    </ext:assigningGeographicArea>
+
+                </ext:asEntityIdentifier>
+                
+                <!-- BEGIN: Employment Details -->
+                <ext:asEmployment classCode="EMP">
+                    
+                    <!-- Position In Organisation -->
+                    <ext:code code="code.value"
+                        codeSystem="2.16.840.1.1126583.13.33"
+                        codeSystemName="codesystemname.value"
+                        displayName="code display name"/>
+                    
+                    <!-- Occupation (Refers to Vocabs.xml File) -->
+                    <ext:jobCode code="253314" codeSystem="2.16.840.1.113883.13.62"
+                        codeSystemName="1220.0 - ANZSCO - Australian and New Zealand Standard Classification of Occupations, First Edition, Revision 1"
+                        displayName="Medical Oncologist"/>
+                    
+                    <!-- Employment Type -->
+                    <ext:jobClassCode code="FT"
+                        codeSystem="2.16.840.1.113883.5.1059"
+                        codeSystemName="HL7:EmployeeJobClass"
+                        displayName="full-time"/>
+                    
+                    <!-- Employer Organisation -->
+                    <ext:employerOrganization>
+                        
+                        <!-- Department/Unit -->
+                        <name>GP Clinic</name>
+                        
+                        <asOrganizationPartOf>
+                            <wholeOrganization>
+                                
+                                <!-- Organisation Name -->
+                                <name use="ORGB">Acme Hospital Group</name>                                
+                                
+                                <telecom value="mailto:authen@globalauthens.com" use="WP" />
+                                
+                                <addr use="H">
+                                    <country>Australia</country>
+                                    <state>QLD</state>
+                                    <city>Nehtaville</city>
+                                    <postalCode>5555</postalCode>
+                                    <streetAddressLine>1 Clinician Street</streetAddressLine>
+                                    <additionalLocator>32568931</additionalLocator>
+                                </addr>
+                                
+                                <!-- Entity Identifier -->
+                                <ext:asEntityIdentifier classCode="IDENT">   
+                                    
+                                    <ext:id root="1.2.36.1.2001.1003.0.8003621234576547" assigningAuthorityName="HPI-O"/>
+                                    
+                                    <ext:code code="code.value"
+                                        codeSystem="2.16.840.1.1126583.13.33"
+                                        codeSystemName="codesystemname.value"
+                                        displayName="code display name"/>
+                                    
+                                    <ext:assigningGeographicArea classCode="PLC">
+                                        <ext:name>National Identifier</ext:name>
+                                    </ext:assigningGeographicArea>
+                                    
+                                </ext:asEntityIdentifier>
+                                
+                            </wholeOrganization>
+                        </asOrganizationPartOf>
+                        
+                    </ext:employerOrganization>
+                </ext:asEmployment>
+                <!-- END: Employment Details -->
+                
+                <ext:asQualifications classCode="QUAL">
+                    <ext:code>
+                        <originalText>M.B.B.S</originalText>
+                    </ext:code>
+                </ext:asQualifications>
+                
+            </assignedPerson>
+
+        </assignedAuthor>
+
+    </author>
+    <!-- End - Document Author -->
+
+
+    <!-- Begin - Custodian -->
+    <custodian>
+        <assignedCustodian>
+            <representedCustodianOrganization>
+
+                <id root="8464C6BE-0CD0-11E0-B45A-9250DFD72085"/>
+
+                <name>Oz Health Clinic</name>
+
+                <telecom value="tel:0712341234" use="WP"/>
+
+                <addr use="H">
+                    <streetAddressLine>1 Clinician Street</streetAddressLine>
+                    <state>QLD</state>
+                    <postalCode>5555</postalCode>
+                    <country>Australia</country>
+                    <unitType>Apt</unitType>
+                    <unitID>3A</unitID>
+                    <additionalLocator>Complex Building</additionalLocator>
+                    <houseNumber>A9221</houseNumber>
+                    <streetName>health</streetName>
+                    <streetNameType>Crn</streetNameType>
+                    <direction>W</direction>
+                    <deliveryAddressLine>Care PO</deliveryAddressLine>
+                    <deliveryAddressLine>1234567890</deliveryAddressLine>
+                    <city>Brisbane</city>
+                </addr>
+
+                <ext:asEntityIdentifier classCode="IDENT">
+
+                    <ext:id root="1.2.36.1.2001.1003.0.8003621234576547"
+                            assigningAuthorityName="HPI-O"/>
+
+                    <ext:assigningGeographicArea classCode="PLC">
+                        <ext:name>National Identifier</ext:name>
+                    </ext:assigningGeographicArea>
+
+                </ext:asEntityIdentifier>
+
+            </representedCustodianOrganization>
+        </assignedCustodian>
+    </custodian>
+    <!-- End - Custodian -->
+
+
+    <!-- Begin - LegalAuthenticator -->
+    <legalAuthenticator>
+
+        <time value="200910201235+1000"/>
+
+        <signatureCode code="S"/>
+
+        <assignedEntity>
+
+            <id root="62040223-79e2-47f5-a635-ea1c19c5a9af"/>
+
+            <code code="253111" codeSystem="1.2.36.1.2001.1001.101"
+                codeSystemName="NCTIS Data Components" displayName="General Medical Practitioner">
+                <originalText>general medical practitioner</originalText>
+            </code>
+
+            <addr use="WP">
+                <streetAddressLine>1 Clinician Street</streetAddressLine>
+                <state>QLD</state>
+                <postalCode>5555</postalCode>
+                <country>Australia</country>
+                <unitType>Apt</unitType>
+                <unitID>3A</unitID>
+                <additionalLocator>Complex Building</additionalLocator>
+                <houseNumber>A9221</houseNumber>
+                <streetName>health</streetName>
+                <streetNameType>Crn</streetNameType>
+                <direction>W</direction>
+                <deliveryAddressLine>Care PO</deliveryAddressLine>
+                <city>Brisbane</city>
+            </addr>
+
+            <telecom value="tel:0712341234" use="WP"/>
+
+            <assignedPerson>
+
+                <name use="L">
+                    <family>Doctor</family>
+                    <given>Good</given>
+                    <prefix>Dr</prefix>
+                    <suffix>Jr</suffix>
+                </name>
+
+                <ext:asEntityIdentifier classCode="IDENT">
+
+                    <ext:id root="1.2.36.1.2001.1003.0.8003611234567893"
+                            assigningAuthorityName="HPI-I"/>
+
+                    <ext:assigningGeographicArea classCode="PLC">
+                        <ext:name>National Identifier</ext:name>
+                    </ext:assigningGeographicArea>
+
+                </ext:asEntityIdentifier>
+
+            </assignedPerson>
+
+            <representedOrganization>
+
+                <name>Oz Health Clinic</name>
+
+                <ext:asEntityIdentifier classCode="IDENT">
+
+                    <ext:id root="1.2.36.1.2001.1003.0.8003621234576547"
+                            assigningAuthorityName="HPI-O"/>
+
+                    <ext:assigningGeographicArea classCode="PLC">
+                        <ext:name>National Identifier</ext:name>
+                    </ext:assigningGeographicArea>
+
+                </ext:asEntityIdentifier>
+
+            </representedOrganization>
+
+        </assignedEntity>
+
+    </legalAuthenticator>
+    <!-- End - LegalAuthenticator -->
+
+    <!-- END - Part 1A -->
+
+    <!-- Begin - CDA Body -->
+   <component>
+    <structuredBody>
+      <component>
+        <section>
+          <title>Structured Body File</title>
+          <text mediaType="text/x-hl7-text+xml">
+            <renderMultiMedia referencedObject="mm001">
+              <caption>Structured Body File</caption>
+            </renderMultiMedia>
+          </text>
+          <entry>
+            <observationMedia ID="mm001" classCode="OBS" moodCode="EVN">
+              <id root="a829f083-440a-4499-a679-cdd71b5fde6e" />
+              <value mediaType="application/pdf" integrityCheck="IiZNlyLY4gyewfICeWhFe2NcDDw=">
+                <reference value="attachment.pdf" />
+              </value>
+            </observationMedia>
+          </entry>
+        </section>
+      </component>
+    </structuredBody>
+  </component>
+    
+    <!-- End - CDA Body -->
+
+
+	
+</ClinicalDocument>
+
+

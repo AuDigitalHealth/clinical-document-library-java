@@ -1,0 +1,228 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ClinicalDocument xmlns="urn:hl7-org:v3"
+                  xmlns:ns2="http://ns.electronichealth.net.au/Ci/Cda/Extensions/3.0">
+   <typeId extension="POCD_HD000040" root="2.16.840.1.113883.1.3"/>
+   <templateId extension="2.2" root="1.2.36.1.2001.1001.101.100.1002.2"/>
+   <templateId extension="1.0" root="1.2.36.1.2001.1001.100.149"/>
+   <id root="2.25.31079045776716937329377271924234444490"/>
+   <code code="57133-1" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"
+         displayName="Referral note"/>
+   <title>e-Referral</title>
+   <effectiveTime value="20190718162102+1000"/>
+   <confidentialityCode nullFlavor="NA"/>
+   <languageCode code="en-AU"/>
+   <setId root="c201994d-b4c4-4590-ba8a-5e38ae49764d"/>
+   <versionNumber value="1"/>
+   <ns2:completionCode code="F" codeSystem="1.2.36.1.2001.1001.101.104.20104"
+                       codeSystemName="NCTIS Document Status Values"
+                       displayName="Final"/>
+   <recordTarget typeCode="RCT">
+      <patientRole classCode="PAT">
+         <id root="ec35ddf5-9ab7-43f5-89b2-438433e54b98"/>
+         <addr use="H">
+            <streetAddressLine>10 browning st</streetAddressLine>
+            <postalCode>4101</postalCode>
+            <city>West End</city>
+            <state>QLD</state>
+            <country>Australia</country>
+         </addr>
+         <telecom use="H" value="tel:0712345678"/>
+         <telecom use="H" value="mailto:frank.harding@electronichealth.net.au"/>
+         <patient>
+            <name use="L">
+               <prefix>Mister</prefix>
+               <family>Harding</family>
+               <given>Frank</given>
+               <suffix>Junior</suffix>
+            </name>
+            <administrativeGenderCode code="M" codeSystem="2.16.840.1.113883.13.68"
+                                      codeSystemName="AS 5017-2006 Health Care Client Identifier Sex"
+                                      displayName="Male"/>
+            <birthTime value="19821128"/>
+            <ethnicGroupCode code="9" codeSystem="2.16.840.1.113883.3.879.291036"
+                             codeSystemName="METeOR Indigenous Status"
+                             displayName="Not stated/inadequately described"/>
+            <ns2:multipleBirthInd value="true"/>
+            <ns2:multipleBirthOrderNumber value="2"/>
+            <ns2:asEntityIdentifier classCode="IDENT">
+               <ns2:id assigningAuthorityName="IHI" root="1.2.36.1.2001.1003.0.8003600300001283"/>
+               <ns2:assigningGeographicArea classCode="PLC">
+                  <ns2:name>National Identifier</ns2:name>
+               </ns2:assigningGeographicArea>
+            </ns2:asEntityIdentifier>
+            <ns2:asEntityIdentifier classCode="IDENT">
+               <ns2:id assigningAuthorityName="Medicare Card Number" extension="4324567871"
+                       root="1.2.36.1.5001.1.0.7.1"/>
+               <ns2:code code="MC" codeSystem="2.16.840.1.113883.12.203"
+                         codeSystemName="Identifier Type (HL7)"/>
+            </ns2:asEntityIdentifier>
+         </patient>
+      </patientRole>
+   </recordTarget>
+   <author typeCode="AUT">
+      <time value="20190718162102+1000"/>
+      <assignedAuthor>
+         <id root="011d9a7b-8190-4305-a1c4-f45ade6ec829"/>
+         <code code="253111" codeSystem="2.16.840.1.113883.13.62"
+               codeSystemName="1220.0 - ANZSCO - Australian and New Zealand Standard Classification of Occupations, First Edition, 2006"
+               displayName="General Medical Practitioner"/>
+         <addr use="WP">
+            <streetAddressLine>Level 1, 10 Browning street</streetAddressLine>
+            <postalCode>4101</postalCode>
+            <city>West End</city>
+            <state>QLD</state>
+            <country>Australia</country>
+         </addr>
+         <telecom use="WP" value="mailto:info@some-gp.com.au"/>
+         <telecom use="WP" value="fax:0212345678"/>
+         <telecom use="WP" value="tel:0212345679"/>
+         <assignedPerson>
+            <name>
+               <prefix>Mister</prefix>
+               <prefix>Professor</prefix>
+               <family>Practicioner</family>
+               <given>Gerry</given>
+               <given>Medical</given>
+               <suffix>Member of Parliament</suffix>
+               <suffix>First</suffix>
+            </name>
+            <ns2:asEntityIdentifier classCode="IDENT">
+               <ns2:id assigningAuthorityName="HPI-I" root="1.2.36.1.2001.1003.0.8003610000001145"/>
+               <ns2:assigningGeographicArea classCode="PLC">
+                  <ns2:name>National Identifier</ns2:name>
+               </ns2:assigningGeographicArea>
+            </ns2:asEntityIdentifier>
+            <ns2:asEmployment classCode="EMP">
+               <ns2:code>
+                  <originalText>Counter Staff</originalText>
+               </ns2:code>
+               <ns2:jobCode code="599915" codeSystem="2.16.840.1.113883.13.62"
+                            codeSystemName="1220.0 - ANZSCO - Australian and New Zealand Standard Classification of Occupations, First Edition, Revision 1"
+                            displayName="Clinical Coder"/>
+               <ns2:jobClassCode>
+                  <originalText>Permanent/Full Time</originalText>
+               </ns2:jobClassCode>
+               <ns2:employerOrganization>
+                  <name>Front Office</name>
+                  <asOrganizationPartOf>
+                     <wholeOrganization>
+                        <name>Pete's Pathologies</name>
+                        <ns2:asEntityIdentifier classCode="IDENT">
+                           <ns2:id assigningAuthorityName="HPI-O" root="1.2.36.1.2001.1003.0.8003621231167886"/>
+                           <ns2:assigningGeographicArea classCode="PLC">
+                              <ns2:name>National Identifier</ns2:name>
+                           </ns2:assigningGeographicArea>
+                        </ns2:asEntityIdentifier>
+                     </wholeOrganization>
+                  </asOrganizationPartOf>
+               </ns2:employerOrganization>
+            </ns2:asEmployment>
+            <ns2:asQualifications classCode="QUAL">
+               <ns2:code>
+                  <originalText>M.B.B.S., F.R.A.C.S.</originalText>
+               </ns2:code>
+            </ns2:asQualifications>
+         </assignedPerson>
+      </assignedAuthor>
+   </author>
+   <custodian>
+      <assignedCustodian>
+         <representedCustodianOrganization>
+            <id root="62e6b709-85b9-4622-9b04-58972b7948ed"/>
+            <id root="c201994d-b4c4-4590-ba8a-5e38ae49764d"/>
+            <name>Custodian organisation</name>
+            <telecom use="WP" value="mailto:example@custodian.com.au"/>
+            <addr use="PST">
+               <streetAddressLine>99 Clinician Street</streetAddressLine>
+               <postalCode>5555</postalCode>
+               <city>Nehtaville</city>
+               <state>QLD</state>
+               <country>Australia</country>
+               <additionalLocator>32568931</additionalLocator>
+            </addr>
+            <ns2:asEntityIdentifier classCode="IDENT">
+               <ns2:id assigningAuthorityName="HPI-O" root="1.2.36.1.2001.1003.0.8003621231167886"/>
+               <ns2:assigningGeographicArea classCode="PLC">
+                  <ns2:name>National Identifier</ns2:name>
+               </ns2:assigningGeographicArea>
+            </ns2:asEntityIdentifier>
+         </representedCustodianOrganization>
+      </assignedCustodian>
+   </custodian>
+   <participant typeCode="REFT">
+      <associatedEntity classCode="PROV">
+         <id root="1c795cfc-59fe-4219-8b8b-be69dff344fb"/>
+         <code nullFlavor="ASKU"/>
+         <addr use="WP">
+            <streetAddressLine>The Lodge</streetAddressLine>
+            <streetAddressLine>10 Browning St</streetAddressLine>
+            <postalCode>4101</postalCode>
+            <city>West End</city>
+            <state>QLD</state>
+            <country>Australia</country>
+         </addr>
+         <telecom use="WP" value="fax:0212345678"/>
+         <telecom use="WP" value="tel:0212345678"/>
+         <associatedPerson>
+            <name use="L">
+               <family>SpecialistSurname</family>
+            </name>
+            <ns2:asEntityIdentifier classCode="IDENT">
+               <ns2:id assigningAuthorityName="HPI-I" root="1.2.36.1.2001.1003.0.8003610000001145"/>
+               <ns2:assigningGeographicArea classCode="PLC">
+                  <ns2:name>National Identifier</ns2:name>
+               </ns2:assigningGeographicArea>
+            </ns2:asEntityIdentifier>
+            <ns2:asEmployment classCode="EMP">
+               <ns2:employerOrganization>
+                  <id root="68c39923-db5c-462d-90b4-f1966f7395ac"/>
+                  <asOrganizationPartOf>
+                     <wholeOrganization>
+                        <name>Sam's Specialist Clinic</name>
+                        <ns2:asEntityIdentifier classCode="IDENT">
+                           <ns2:id assigningAuthorityName="HPI-O" root="1.2.36.1.2001.1003.0.8003620000045562"/>
+                           <ns2:assigningGeographicArea classCode="PLC">
+                              <ns2:name>National Identifier</ns2:name>
+                           </ns2:assigningGeographicArea>
+                        </ns2:asEntityIdentifier>
+                     </wholeOrganization>
+                  </asOrganizationPartOf>
+               </ns2:employerOrganization>
+            </ns2:asEmployment>
+         </associatedPerson>
+      </associatedEntity>
+   </participant>
+   <component>
+      <structuredBody>
+         <component>
+            <section>
+               <title>Attached Content</title>
+               <text mediaType="text/x-hl7-text+xml">
+                  <renderMultiMedia referencedObject="attachement1">
+                     <caption>Structured Body File</caption>
+                  </renderMultiMedia>
+               </text>
+               <entry>
+                  <observationMedia ID="attachement1" classCode="OBS" moodCode="EVN">
+                     <id root="283e3e41-b629-45ed-84b0-0c88fe923897"/>
+                     <value integrityCheck="2jmj7l5rSw0yVb/vlWAYkK/YBwk=" mediaType="application/pdf">
+                        <reference value="ReferralDocument.pdf"/>
+                     </value>
+                  </observationMedia>
+               </entry>
+            </section>
+         </component>
+         <component>
+            <section>
+               <code code="102.16080" codeSystem="1.2.36.1.2001.1001.101"
+                     codeSystemName="NCTIS Data Components"
+                     displayName="Administrative Observations"/>
+               <title>Administrative Observations</title>
+               <text mediaType="text/x-hl7-text+xml">
+                  <content>This section contains no entries.</content>
+               </text>
+            </section>
+         </component>
+      </structuredBody>
+   </component>
+</ClinicalDocument>

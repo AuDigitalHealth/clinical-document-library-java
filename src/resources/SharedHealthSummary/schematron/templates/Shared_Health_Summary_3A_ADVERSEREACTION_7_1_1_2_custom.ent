@@ -1,0 +1,87 @@
+    <pattern name="p-Shared_Health_Summary_3A_ADVERSEREACTION_7_1_1_2_custom-errors"
+        id="p-Shared_Health_Summary_3A_ADVERSEREACTION_7_1_1_2_custom-errors"
+        see="#p-Shared_Health_Summary_3A_ADVERSEREACTION_7_1_1_2_custom-errors">
+
+
+
+
+        <rule
+            context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component
+            /cda:section[cda:code/@code = '101.20113']/cda:entry
+            /cda:act[cda:code/@code = '102.15517']/cda:entryRelationship
+            /cda:observation[cda:code/@code = '102.16474']
+            /cda:entryRelationship[translate(@typeCode, 'abcdefghijklmnopqrstuvwxyz', 
+            'ABCDEFGHIJKLMNOPQRSTUVWXYZ') = 'MFST']">
+
+            <!-- entry/act/entryRelationship/observation/entryRelationship/observation -->
+
+            <assert test="cda:observation">Error: Shared Health Summary - 7.1.1.2 Adverse Reaction -
+                "Adverse Reaction / Reaction Event / Manifestation" - The 'observation' tag is
+                missing. Refer to section 7.1.1.2 of the
+                Shared_Health_Summary_CDA_Implementation_Guide_v1.4.</assert>
+
+        </rule>
+
+        <rule
+            context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code='101.20113']/cda:entry/cda:act[cda:code/@code='102.15517']/cda:entryRelationship/cda:observation[cda:code/@code='102.16474']/cda:entryRelationship[translate(@typeCode, 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ')='MFST']/cda:observation">
+
+            <!-- entry/act/entryRelationship/observation/entryRelationship/observation/@classCode-->
+
+            <assert test="@classCode">Error: Shared Health Summary - 7.1.1.2 Adverse Reaction -
+                "Adverse Reaction / Reaction Event / Manifestation" - The 'observation' tag
+                'classCode' attribute is missing. Refer to section 7.1.1.2 of the
+                Shared_Health_Summary_CDA_Implementation_Guide_v1.4.</assert>
+
+            <assert test="not(@classCode) or normalize-space(@classCode) != ''">Error: Shared Health
+                Summary - 7.1.1.2 Adverse Reaction - "Adverse Reaction / Reaction Event /
+                Manifestation" - The 'observation' tag 'classCode' attribute shall contain a value.
+                Refer to section 7.1.1.2 of the
+                Shared_Health_Summary_CDA_Implementation_Guide_v1.4.</assert>
+
+            <assert
+                test="
+                not(@classCode) or
+                normalize-space(@classCode) = '' or
+                @classCode = 'OBS'
+                "
+                >Error: Shared Health Summary - 7.1.1.2 Adverse Reaction - "Adverse Reaction /
+                Reaction Event / Manifestation" - The 'observation' tag 'classCode' attribute shall
+                contain the value 'OBS'. Refer to section 7.1.1.2 of the
+                Shared_Health_Summary_CDA_Implementation_Guide_v1.4.</assert>
+
+        </rule>
+
+        <rule
+            context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code = '101.20113']/cda:entry/cda:act[cda:code/@code = '102.15517']/cda:entryRelationship/cda:observation[cda:code/@code = '102.16474']/cda:value">
+
+            <assert
+                test="
+                not(@xsi:type) or normalize-space(@xsi:type) = '' or 
+                normalize-space(@xsi:type) = 'CD' or
+                (substring-before(normalize-space(@xsi:type), ':') != '' and
+                substring-after(normalize-space(@xsi:type), ':') = 'CD') or 
+                normalize-space(@xsi:type) = 'CE' or
+                (substring-before(normalize-space(@xsi:type), ':') != '' and
+                substring-after(normalize-space(@xsi:type), ':') = 'CE')"
+                > Error: Shared Health Summary - 7.1.1.2 Adverse Reaction - "ADVERSE REACTION /
+                REACTION EVENT / Reaction Type" - The 'value' tag 'xsi:type' attribute shall contain
+                the value 'CD' or 'CE'. Refer to section 7.1.1.2 of the
+                Shared_Health_Summary_CDA_Implementation_Guide_v1.4.</assert>
+
+
+
+            <assert
+                test="(@code and @codeSystem = '2.16.840.1.113883.6.96') or (cda:originalText and @nullFlavor = 'OTH' and @codeSystem = '2.16.840.1.113883.6.96')"
+                >Error: Shared Health Summary - 7.1.1.2 Adverse Reaction - "ADVERSE REACTION /
+                REACTION EVENT / Reaction Type" - The 'value' tag shall have 'code' and 'codeSystem'
+                attribute with a value '2.16.840.1.113883.6.96' or 'originalText' tag, 'codeSystem'
+                attribute with a value '2.16.840.1.113883.6.96' and 'nullFlavor' attribute with a
+                value 'OTH'. Refer to the HL7 data types specification section 2.6.2 and section
+                7.1.1.2 of the Shared_Health_Summary_CDA_Implementation_Guide_v1.4.</assert>
+
+
+
+        </rule>
+
+    </pattern>
+

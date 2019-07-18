@@ -1,0 +1,364 @@
+<?xml version = "1.0" encoding = "UTF-8"?>
+<!--
+_________________________________________________________________________________________________________________________________________________________________________________________
+                  Generated File - Do Not Edit File Directly                                                                                                                             
+                  __________________________________________
+
+                  Generated          : 14/04/2015 11:53:41 AM
+
+                  Product            : Diagnostic Imaging Report
+                  Release            : CDA_Implementation_Guide_v1.0
+                  IG Guide Reference : 7.1.1.1.2
+                  IG Guide Title     : Related Images (RELATED INFORMATION)
+                  Generator Version  : 2.28
+                                                                                                                                                                                         
+_________________________________________________________________________________________________________________________________________________________________________________________
+-->
+
+<schema xmlns="http://www.ascc.net/xml/schematron">
+    <ns prefix = "cda" uri = "urn:hl7-org:v3"/>
+    <ns prefix = "ext" uri = "http://ns.electronichealth.net.au/Ci/Cda/Extensions/3.0"/>
+    <ns prefix = "xs" uri = "http://www.w3.org/2001/XMLSchema"/>
+    <ns prefix = "xsi" uri = "http://www.w3.org/2001/XMLSchema-instance"/>
+
+    <pattern name="p-Diagnostic_Imaging_Report_3A_RelatedImages_RELATEDINFORMATION_7_1_1_1_2-errors"
+        id="p-Diagnostic_Imaging_Report_3A_RelatedImages_RELATEDINFORMATION_7_1_1_1_2-errors"
+        see="#p-Diagnostic_Imaging_Report_3A_RelatedImages_RELATEDINFORMATION_7_1_1_1_2-errors">
+
+
+        <rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code = '101.16945']/cda:component/cda:section[cda:code/@code = '102.16145']/cda:entry/cda:observation[@classCode = 'OBS']">
+
+            <report test="count(cda:entryRelationship[cda:act/cda:code/@code = '102.16692']) > 1"
+                >Error: Diagnostic Imaging Report - 7.1.1.1.2 Related Images (RELATED INFORMATION) -
+                "Related Images (RELATED INFORMATION)" -
+                The 'entryRelationship' tag shall appear only once for 'Related Images (RELATED INFORMATION)'.
+                Refer to section 7.1.1.1.2 of the
+                Diagnostic_Imaging_Report_CDA_Implementation_Guide_v1.0.</report>
+
+        </rule>
+
+
+        <rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code = '101.16945']/cda:component/cda:section[cda:code/@code = '102.16145']/cda:entry/cda:observation[@classCode = 'OBS']/cda:entryRelationship[cda:act/cda:code/@code = '102.16692']">
+
+            <assert test="@typeCode"
+                >Error: Diagnostic Imaging Report - 7.1.1.1.2 Related Images (RELATED INFORMATION) -
+                "Related Images (RELATED INFORMATION)" -
+                The 'entryRelationship' tag 'typeCode' attribute is missing.
+                Refer to section 7.1.1.1.2 of the
+                Diagnostic_Imaging_Report_CDA_Implementation_Guide_v1.0.</assert>
+
+            <assert test="not(@typeCode) or normalize-space(@typeCode) != ''"
+                >Error: Diagnostic Imaging Report - 7.1.1.1.2 Related Images (RELATED INFORMATION) -
+                "Related Images (RELATED INFORMATION)" -
+                The 'entryRelationship' tag 'typeCode' attribute shall contain a value.
+                Refer to section 7.1.1.1.2 of the
+                Diagnostic_Imaging_Report_CDA_Implementation_Guide_v1.0.</assert>
+
+            <assert test="
+                not(@typeCode) or normalize-space(@typeCode) = '' or @typeCode = 'COMP'"
+                >Error: Diagnostic Imaging Report - 7.1.1.1.2 Related Images (RELATED INFORMATION) -
+                "Related Images (RELATED INFORMATION)" -
+                The 'entryRelationship' tag 'typeCode' attribute shall contain the value 'COMP'.
+                Refer to section 7.1.1.1.2 of the
+                Diagnostic_Imaging_Report_CDA_Implementation_Guide_v1.0.</assert>
+
+            <report test="count(cda:act) > 1"
+                >Error: Diagnostic Imaging Report - 7.1.1.1.2 Related Images (RELATED INFORMATION) -
+                "Related Images (RELATED INFORMATION)" -
+                The 'act' tag shall appear only once.
+                Refer to section 7.1.1.1.2 of the
+                Diagnostic_Imaging_Report_CDA_Implementation_Guide_v1.0.</report>
+
+        </rule>
+
+
+        <rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code = '101.16945']/cda:component/cda:section[cda:code/@code = '102.16145']/cda:entry/cda:observation[@classCode = 'OBS']/cda:entryRelationship/cda:act[cda:code/@code = '102.16692']">
+
+            <assert test="@classCode"
+                >Error: Diagnostic Imaging Report - 7.1.1.1.2 Related Images (RELATED INFORMATION) -
+                "Related Images (RELATED INFORMATION)" -
+                The 'act' tag 'classCode' attribute is missing.
+                Refer to section 7.1.1.1.2 of the
+                Diagnostic_Imaging_Report_CDA_Implementation_Guide_v1.0.</assert>
+
+            <assert test="not(@classCode) or normalize-space(@classCode) != ''"
+                >Error: Diagnostic Imaging Report - 7.1.1.1.2 Related Images (RELATED INFORMATION) -
+                "Related Images (RELATED INFORMATION)" -
+                The 'act' tag 'classCode' attribute shall contain a value.
+                Refer to section 7.1.1.1.2 of the
+                Diagnostic_Imaging_Report_CDA_Implementation_Guide_v1.0.</assert>
+
+            <assert test="
+                not(@classCode) or normalize-space(@classCode) = '' or @classCode = 'ACT'"
+                >Error: Diagnostic Imaging Report - 7.1.1.1.2 Related Images (RELATED INFORMATION) -
+                "Related Images (RELATED INFORMATION)" -
+                The 'act' tag 'classCode' attribute shall contain the value 'ACT'.
+                Refer to section 7.1.1.1.2 of the
+                Diagnostic_Imaging_Report_CDA_Implementation_Guide_v1.0.</assert>
+
+            <assert test="@moodCode"
+                >Error: Diagnostic Imaging Report - 7.1.1.1.2 Related Images (RELATED INFORMATION) -
+                "Related Images (RELATED INFORMATION)" -
+                The 'act' tag 'moodCode' attribute is missing.
+                Refer to section 7.1.1.1.2 of the
+                Diagnostic_Imaging_Report_CDA_Implementation_Guide_v1.0.</assert>
+
+            <assert test="not(@moodCode) or normalize-space(@moodCode) != ''"
+                >Error: Diagnostic Imaging Report - 7.1.1.1.2 Related Images (RELATED INFORMATION) -
+                "Related Images (RELATED INFORMATION)" -
+                The 'act' tag 'moodCode' attribute shall contain a value.
+                Refer to section 7.1.1.1.2 of the
+                Diagnostic_Imaging_Report_CDA_Implementation_Guide_v1.0.</assert>
+
+            <assert test="
+                not(@moodCode) or normalize-space(@moodCode) = '' or @moodCode = 'EVN'"
+                >Error: Diagnostic Imaging Report - 7.1.1.1.2 Related Images (RELATED INFORMATION) -
+                "Related Images (RELATED INFORMATION)" -
+                The 'act' tag 'moodCode' attribute shall contain the value 'EVN'.
+                Refer to section 7.1.1.1.2 of the
+                Diagnostic_Imaging_Report_CDA_Implementation_Guide_v1.0.</assert>
+
+            <report test="count(cda:id) > 1"
+                >Error: Diagnostic Imaging Report - 7.1.1.1.2 Related Images (RELATED INFORMATION) -
+                "Related Images (RELATED INFORMATION)" -
+                The 'id' tag shall appear only once.
+                Refer to section 7.1.1.1.2 of the
+                Diagnostic_Imaging_Report_CDA_Implementation_Guide_v1.0.</report>
+
+            <assert test="cda:id"
+                >Error: Diagnostic Imaging Report - 7.1.1.1.2 Related Images (RELATED INFORMATION) -
+                "Related Images (RELATED INFORMATION)" -
+                The 'id' tag is missing.
+                Refer to section 7.1.1.1.2 of the
+                Diagnostic_Imaging_Report_CDA_Implementation_Guide_v1.0.</assert>
+
+            <report test="count(cda:code) > 1"
+                >Error: Diagnostic Imaging Report - 7.1.1.1.2 Related Images (RELATED INFORMATION) -
+                "Related Images (RELATED INFORMATION)" -
+                The 'code' tag shall appear only once.
+                Refer to section 7.1.1.1.2 of the
+                Diagnostic_Imaging_Report_CDA_Implementation_Guide_v1.0.</report>
+
+            <assert test="cda:reference"
+                >Error: Diagnostic Imaging Report - 7.1.1.1.2 Related Images (RELATED INFORMATION) -
+                "Related Images (RELATED INFORMATION) / Link Nature" -
+                The 'reference' tag is missing.
+                Refer to section 7.1.1.1.2 of the
+                Diagnostic_Imaging_Report_CDA_Implementation_Guide_v1.0.</assert>
+
+            <report test="count(cda:reference) > 1"
+                >Error: Diagnostic Imaging Report - 7.1.1.1.2 Related Images (RELATED INFORMATION) -
+                "Related Images (RELATED INFORMATION) / Link Nature" -
+                The 'reference' tag shall appear only once.
+                Refer to section 7.1.1.1.2 of the
+                Diagnostic_Imaging_Report_CDA_Implementation_Guide_v1.0.</report>
+
+        </rule>
+
+
+        <rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code = '101.16945']/cda:component/cda:section[cda:code/@code = '102.16145']/cda:entry/cda:observation[@classCode = 'OBS']/cda:entryRelationship/cda:act[cda:code/@code = '102.16692']/cda:id">
+
+            <report test="
+                contains(@root, '-') and not(
+                string-length(@root) = 36 and
+                substring(@root,  9, 1) = '-' and substring(@root, 14, 1) = '-' and
+                substring(@root, 19, 1) = '-' and substring(@root, 24, 1) = '-' and
+                translate(substring(@root,  1,  8), '0123456789ABCDEFabcdef', '0000000000000000000000') = '00000000' and
+                translate(substring(@root, 10,  4), '0123456789ABCDEFabcdef', '0000000000000000000000') = '0000' and
+                translate(substring(@root, 15,  4), '0123456789ABCDEFabcdef', '0000000000000000000000') = '0000' and
+                translate(substring(@root, 20,  4), '0123456789ABCDEFabcdef', '0000000000000000000000') = '0000' and
+                translate(substring(@root, 25, 12), '0123456789ABCDEFabcdef', '0000000000000000000000') = '000000000000')"
+                >Error: Diagnostic Imaging Report - 7.1.1.1.2 Related Images (RELATED INFORMATION) -
+                "Related Images (RELATED INFORMATION)" -
+                The 'id' tag 'root' attribute shall be a valid UUID.
+                Refer to section 7.1.1.1.2 of the
+                Diagnostic_Imaging_Report_CDA_Implementation_Guide_v1.0.</report>
+
+        </rule>
+
+
+        <rule context="cda:code[@code = '102.16692']">
+
+            <assert test="
+                count(/cda:ClinicalDocument//cda:code[@code = '102.16692']) =
+                count(/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code='101.16945']/cda:component/cda:section[cda:code/@code='102.16145']/cda:entry/cda:observation[@classCode = 'OBS']/cda:entryRelationship/cda:act/cda:code[@code='102.16692'])"
+                >Error: Diagnostic Imaging Report - 7.1.1.1.2 Related Images (RELATED INFORMATION) -
+                "Related Images (RELATED INFORMATION)" -
+                The '/ClinicalDocument/component/structuredBody/component/section[code/@code = '101.16945']/component/section[code/@code = '102.16145']/entry/observation[@classCode = 'OBS']/entryRelationship/act/code[@code = '102.16692']' path -
+                1 or more tags are missing.
+                Refer to section 7.1.1.1.2 of the
+                Diagnostic_Imaging_Report_CDA_Implementation_Guide_v1.0.</assert>
+
+            <assert test="@codeSystem"
+                >Error: Diagnostic Imaging Report - 7.1.1.1.2 Related Images (RELATED INFORMATION) -
+                "Related Images (RELATED INFORMATION)" -
+                The 'code' tag 'codeSystem' attribute is missing.
+                Refer to section 7.1.1.1.2 of the
+                Diagnostic_Imaging_Report_CDA_Implementation_Guide_v1.0.</assert>
+
+            <assert test="
+                not(@codeSystem) or normalize-space(@codeSystem) = '' or @codeSystem = '1.2.36.1.2001.1001.101'"
+                >Error: Diagnostic Imaging Report - 7.1.1.1.2 Related Images (RELATED INFORMATION) -
+                "Related Images (RELATED INFORMATION)" -
+                The 'code' tag 'codeSystem' attribute shall contain the value '1.2.36.1.2001.1001.101'.
+                Refer to section 7.1.1.1.2 of the
+                Diagnostic_Imaging_Report_CDA_Implementation_Guide_v1.0.</assert>
+
+            <assert test="@displayName"
+                >Error: Diagnostic Imaging Report - 7.1.1.1.2 Related Images (RELATED INFORMATION) -
+                "Related Images (RELATED INFORMATION)" -
+                The 'code' tag 'displayName' attribute is missing.
+                Refer to section 7.1.1.1.2 of the
+                Diagnostic_Imaging_Report_CDA_Implementation_Guide_v1.0.</assert>
+
+            <assert test="
+                not(@displayName) or normalize-space(@displayName) = '' or @displayName = 'Related Information'"
+                >Error: Diagnostic Imaging Report - 7.1.1.1.2 Related Images (RELATED INFORMATION) -
+                "Related Images (RELATED INFORMATION)" -
+                The 'code' tag 'displayName' attribute shall contain the value 'Related Information'.
+                Refer to section 7.1.1.1.2 of the
+                Diagnostic_Imaging_Report_CDA_Implementation_Guide_v1.0.</assert>
+
+            <assert test="not(cda:translation)"
+                >Error: Diagnostic Imaging Report - 7.1.1.1.2 Related Images (RELATED INFORMATION) -
+                "Related Images (RELATED INFORMATION)" -
+                The 'translation' tag shall not be present within 'code'.
+                Refer to section 7.1.1.1.2 of the
+                Diagnostic_Imaging_Report_CDA_Implementation_Guide_v1.0.</assert>
+        </rule>
+
+
+        <rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code = '101.16945']/cda:component/cda:section[cda:code/@code = '102.16145']/cda:entry/cda:observation[@classCode = 'OBS']/cda:entryRelationship/cda:act[cda:code/@code = '102.16692']/cda:reference">
+
+            <assert test="@typeCode"
+                >Error: Diagnostic Imaging Report - 7.1.1.1.2 Related Images (RELATED INFORMATION) -
+                "Related Images (RELATED INFORMATION) / Link Nature" -
+                The 'reference' tag 'typeCode' attribute is missing.
+                Refer to section 7.1.1.1.2 of the
+                Diagnostic_Imaging_Report_CDA_Implementation_Guide_v1.0.</assert>
+
+            <assert test="not(@typeCode) or normalize-space(@typeCode) != ''"
+                >Error: Diagnostic Imaging Report - 7.1.1.1.2 Related Images (RELATED INFORMATION) -
+                "Related Images (RELATED INFORMATION) / Link Nature" -
+                The 'reference' tag 'typeCode' attribute shall contain a value.
+                Refer to section 7.1.1.1.2 of the
+                Diagnostic_Imaging_Report_CDA_Implementation_Guide_v1.0.</assert>
+
+            <assert test="
+                not(@typeCode) or normalize-space(@typeCode) = '' or @typeCode = 'REFR'"
+                >Error: Diagnostic Imaging Report - 7.1.1.1.2 Related Images (RELATED INFORMATION) -
+                "Related Images (RELATED INFORMATION) / Link Nature" -
+                The 'reference' tag 'typeCode' attribute shall contain the value 'REFR'.
+                Refer to section 7.1.1.1.2 of the
+                Diagnostic_Imaging_Report_CDA_Implementation_Guide_v1.0.</assert>
+
+            <assert test="cda:seperatableInd"
+                >Error: Diagnostic Imaging Report - 7.1.1.1.2 Related Images (RELATED INFORMATION) -
+                "Related Images (RELATED INFORMATION) / Link Nature" -
+                The 'seperatableInd' tag is missing.
+                Refer to section 7.1.1.1.2 of the
+                Diagnostic_Imaging_Report_CDA_Implementation_Guide_v1.0.</assert>
+
+            <report test="count(cda:seperatableInd) > 1"
+                >Error: Diagnostic Imaging Report - 7.1.1.1.2 Related Images (RELATED INFORMATION) -
+                "Related Images (RELATED INFORMATION) / Link Nature" -
+                The 'seperatableInd' tag shall appear only once.
+                Refer to section 7.1.1.1.2 of the
+                Diagnostic_Imaging_Report_CDA_Implementation_Guide_v1.0.</report>
+
+            <assert test="cda:externalAct"
+                >Error: Diagnostic Imaging Report - 7.1.1.1.2 Related Images (RELATED INFORMATION) -
+                "Related Images (RELATED INFORMATION) / Image Location (Target)" -
+                The 'externalAct' tag is missing.
+                Refer to section 7.1.1.1.2 of the
+                Diagnostic_Imaging_Report_CDA_Implementation_Guide_v1.0.</assert>
+
+            <report test="count(cda:externalAct) > 1"
+                >Error: Diagnostic Imaging Report - 7.1.1.1.2 Related Images (RELATED INFORMATION) -
+                "Related Images (RELATED INFORMATION) / Image Location (Target)" -
+                The 'externalAct' tag shall appear only once.
+                Refer to section 7.1.1.1.2 of the
+                Diagnostic_Imaging_Report_CDA_Implementation_Guide_v1.0.</report>
+
+        </rule>
+
+
+        <rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code = '101.16945']/cda:component/cda:section[cda:code/@code = '102.16145']/cda:entry/cda:observation[@classCode = 'OBS']/cda:entryRelationship/cda:act[cda:code/@code = '102.16692']/cda:reference/cda:seperatableInd">
+
+            <assert test="@value"
+                >Error: Diagnostic Imaging Report - 7.1.1.1.2 Related Images (RELATED INFORMATION) -
+                "Related Images (RELATED INFORMATION) / Link Nature" -
+                The 'seperatableInd' tag 'value' attribute is missing.
+                Refer to section 7.1.1.1.2 of the
+                Diagnostic_Imaging_Report_CDA_Implementation_Guide_v1.0.</assert>
+
+            <assert test="not(@value) or normalize-space(@value) != ''"
+                >Error: Diagnostic Imaging Report - 7.1.1.1.2 Related Images (RELATED INFORMATION) -
+                "Related Images (RELATED INFORMATION) / Link Nature" -
+                The 'seperatableInd' tag 'value' attribute shall contain a value.
+                Refer to section 7.1.1.1.2 of the
+                Diagnostic_Imaging_Report_CDA_Implementation_Guide_v1.0.</assert>
+
+            <assert test="
+                not(@value) or normalize-space(@value) = '' or @value = 'true'"
+                >Error: Diagnostic Imaging Report - 7.1.1.1.2 Related Images (RELATED INFORMATION) -
+                "Related Images (RELATED INFORMATION) / Link Nature" -
+                The 'seperatableInd' tag 'value' attribute shall contain the value 'true'.
+                Refer to section 7.1.1.1.2 of the
+                Diagnostic_Imaging_Report_CDA_Implementation_Guide_v1.0.</assert>
+
+        </rule>
+
+
+        <rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code = '101.16945']/cda:component/cda:section[cda:code/@code = '102.16145']/cda:entry/cda:observation[@classCode = 'OBS']/cda:entryRelationship/cda:act[cda:code/@code = '102.16692']/cda:reference/cda:externalAct">
+
+            <report test="@classCode and normalize-space(@classCode) = ''"
+                >Error: Diagnostic Imaging Report - 7.1.1.1.2 Related Images (RELATED INFORMATION) -
+                "Related Images (RELATED INFORMATION) / Image Location (Target)" -
+                The 'externalAct' tag 'classCode' attribute shall contain a value.
+                Refer to section 7.1.1.1.2 of the
+                Diagnostic_Imaging_Report_CDA_Implementation_Guide_v1.0.</report>
+
+            <report test="
+                @classCode and normalize-space(@classCode) != '' and @classCode != 'ACT'"
+                >Error: Diagnostic Imaging Report - 7.1.1.1.2 Related Images (RELATED INFORMATION) -
+                "Related Images (RELATED INFORMATION) / Image Location (Target)" -
+                The 'externalAct' tag 'classCode' attribute shall contain the value 'ACT'.
+                Refer to section 7.1.1.1.2 of the
+                Diagnostic_Imaging_Report_CDA_Implementation_Guide_v1.0.</report>
+
+            <report test="@moodCode and normalize-space(@moodCode) = ''"
+                >Error: Diagnostic Imaging Report - 7.1.1.1.2 Related Images (RELATED INFORMATION) -
+                "Related Images (RELATED INFORMATION) / Image Location (Target)" -
+                The 'externalAct' tag 'moodCode' attribute shall contain a value.
+                Refer to section 7.1.1.1.2 of the
+                Diagnostic_Imaging_Report_CDA_Implementation_Guide_v1.0.</report>
+
+            <report test="
+                @moodCode and normalize-space(@moodCode) != '' and @moodCode != 'EVN'"
+                >Error: Diagnostic Imaging Report - 7.1.1.1.2 Related Images (RELATED INFORMATION) -
+                "Related Images (RELATED INFORMATION) / Image Location (Target)" -
+                The 'externalAct' tag 'moodCode' attribute shall contain the value 'EVN'.
+                Refer to section 7.1.1.1.2 of the
+                Diagnostic_Imaging_Report_CDA_Implementation_Guide_v1.0.</report>
+
+            <assert test="cda:text"
+                >Error: Diagnostic Imaging Report - 7.1.1.1.2 Related Images (RELATED INFORMATION) -
+                "Related Images (RELATED INFORMATION) / Image Location (Target)" -
+                The 'text' tag is missing.
+                Refer to section 7.1.1.1.2 of the
+                Diagnostic_Imaging_Report_CDA_Implementation_Guide_v1.0.</assert>
+
+            <report test="count(cda:text) > 1"
+                >Error: Diagnostic Imaging Report - 7.1.1.1.2 Related Images (RELATED INFORMATION) -
+                "Related Images (RELATED INFORMATION) / Image Location (Target)" -
+                The 'text' tag shall appear only once.
+                Refer to section 7.1.1.1.2 of the
+                Diagnostic_Imaging_Report_CDA_Implementation_Guide_v1.0.</report>
+
+        </rule>
+
+
+    </pattern>
+
+</schema>

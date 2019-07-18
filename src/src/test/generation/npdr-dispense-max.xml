@@ -1,0 +1,380 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ClinicalDocument xmlns="urn:hl7-org:v3"
+                  xmlns:ns2="http://ns.electronichealth.net.au/Ci/Cda/Extensions/3.0">
+   <typeId extension="POCD_HD000040" root="2.16.840.1.113883.1.3"/>
+   <templateId extension="1.0" root="1.2.36.1.2001.1001.100.1002.171"/>
+   <templateId extension="1.0" root="1.2.36.1.2001.1001.100.149"/>
+   <id root="2.25.228280011048754043219360373084342655942"/>
+   <code code="100.16765" codeSystem="1.2.36.1.2001.1001.101"
+         codeSystemName="NCTIS Data Components"
+         displayName="PCEHR Dispense Record"/>
+   <title>Dispense Document</title>
+   <effectiveTime value="20190718162103+1000"/>
+   <confidentialityCode nullFlavor="NA"/>
+   <languageCode code="en-AU"/>
+   <setId root="2.3.1234535353"/>
+   <versionNumber value="2"/>
+   <recordTarget typeCode="RCT">
+      <patientRole classCode="PAT">
+         <id root="306e6168-215d-4f16-8883-5bfed06817f9"/>
+         <addr use="H">
+            <streetAddressLine>Desk-40, Level 2, 10 Browning street</streetAddressLine>
+            <postalCode>4101</postalCode>
+            <city>West End</city>
+            <state>QLD</state>
+            <country>Australia</country>
+         </addr>
+         <patient>
+            <name use="M">
+               <prefix>Mister</prefix>
+               <family>Example</family>
+               <given>I'm an</given>
+               <suffix>Junior</suffix>
+            </name>
+            <administrativeGenderCode code="M" codeSystem="2.16.840.1.113883.13.68"
+                                      codeSystemName="AS 5017-2006 Health Care Client Identifier Sex"
+                                      displayName="Male"/>
+            <birthTime value="19821128"/>
+            <ns2:multipleBirthInd value="false"/>
+            <ns2:asEntityIdentifier classCode="IDENT">
+               <ns2:id assigningAuthorityName="IHI" root="1.2.36.1.2001.1003.0.8003604444567894"/>
+               <ns2:assigningGeographicArea classCode="PLC">
+                  <ns2:name>National Identifier</ns2:name>
+               </ns2:assigningGeographicArea>
+            </ns2:asEntityIdentifier>
+         </patient>
+      </patientRole>
+   </recordTarget>
+   <author typeCode="AUT">
+      <time value="20190718162103+1000"/>
+      <assignedAuthor>
+         <id root="51605a0d-7c16-4b5e-a021-4279f5aa4fc0"/>
+         <code code="2515" codeSystem="2.16.840.1.113883.13.62"
+               codeSystemName="1220.0 - ANZSCO - Australian and New Zealand Standard Classification of Occupations, First Edition, 2006"
+               displayName="Pharmacists"/>
+         <addr use="WP">
+            <streetAddressLine>chemical wherehouse 10 Browning street</streetAddressLine>
+            <postalCode>4101</postalCode>
+            <city>West End</city>
+            <state>QLD</state>
+            <country>Australia</country>
+         </addr>
+         <assignedPerson>
+            <name>
+               <family>Davo</family>
+            </name>
+            <ns2:asEntityIdentifier classCode="IDENT">
+               <ns2:id assigningAuthorityName="HPI-I" root="1.2.36.1.2001.1003.0.8003610000010401"/>
+               <ns2:assigningGeographicArea classCode="PLC">
+                  <ns2:name>National Identifier</ns2:name>
+               </ns2:assigningGeographicArea>
+            </ns2:asEntityIdentifier>
+         </assignedPerson>
+      </assignedAuthor>
+   </author>
+   <custodian>
+      <assignedCustodian>
+         <representedCustodianOrganization>
+            <id root="2a78f476-7008-4543-a17a-5f66c3ad21db"/>
+            <id root="a6dc216e-6c66-4a86-b9d9-86ca0bb35556"/>
+            <name>Mal's Practice</name>
+            <ns2:asEntityIdentifier classCode="IDENT">
+               <ns2:id assigningAuthorityName="HPI-O" root="1.2.36.1.2001.1003.0.8003620000030333"/>
+               <ns2:assigningGeographicArea classCode="PLC">
+                  <ns2:name>National Identifier</ns2:name>
+               </ns2:assigningGeographicArea>
+            </ns2:asEntityIdentifier>
+         </representedCustodianOrganization>
+      </assignedCustodian>
+   </custodian>
+   <legalAuthenticator>
+      <time value="20190718162103+1000"/>
+      <signatureCode code="S"/>
+      <assignedEntity>
+         <id root="a0627675-1692-4f9f-9e4a-835eda1cc556"/>
+         <assignedPerson>
+            <name>
+               <family>Jones</family>
+            </name>
+            <ns2:asEntityIdentifier classCode="IDENT">
+               <ns2:id assigningAuthorityName="HPI-I" root="1.2.36.1.2001.1003.0.8003610000010401"/>
+               <ns2:assigningGeographicArea classCode="PLC">
+                  <ns2:name>National Identifier</ns2:name>
+               </ns2:assigningGeographicArea>
+            </ns2:asEntityIdentifier>
+         </assignedPerson>
+         <representedOrganization>
+            <ns2:asEntityIdentifier classCode="IDENT">
+               <ns2:id assigningAuthorityName="HPI-O" root="1.2.36.1.2001.1003.0.1234687901234561"/>
+               <ns2:assigningGeographicArea classCode="PLC">
+                  <ns2:name>National Identifier</ns2:name>
+               </ns2:assigningGeographicArea>
+            </ns2:asEntityIdentifier>
+         </representedOrganization>
+      </assignedEntity>
+   </legalAuthenticator>
+   <relatedDocument typeCode="XFRM">
+      <parentDocument>
+         <id root="2.25.209176398093063523736482277259798143590"/>
+         <setId root="a094e0be-c0db-434a-b37c-f092990282e3"/>
+         <versionNumber value="1"/>
+      </parentDocument>
+   </relatedDocument>
+   <componentOf>
+      <encompassingEncounter>
+         <effectiveTime nullFlavor="NA"/>
+         <location>
+            <healthCareFacility>
+               <id root="98db2998-9811-4038-a47b-2a62acb23a78"/>
+               <code code="PHARM" codeSystem="2.16.840.1.113883.1.11.17660"
+                     codeSystemName="HL7 ServiceDeliveryLocationRoleType"
+                     displayName="Pharmacy"/>
+               <serviceProviderOrganization>
+                  <id root="bf37a12e-b149-43fd-bff6-9205701e0d92"/>
+                  <asOrganizationPartOf>
+                     <wholeOrganization>
+                        <name>London Drugs</name>
+                        <telecom use="WP" value="mailto:info@londondrugs.com.au"/>
+                        <telecom use="WP" value="tel:0512345678"/>
+                        <addr use="WP">
+                           <streetAddressLine>Desk-40, Level 2, 10 Browning street</streetAddressLine>
+                           <postalCode>4101</postalCode>
+                           <city>West End</city>
+                           <state>QLD</state>
+                           <country>Australia</country>
+                        </addr>
+                        <ns2:asEntityIdentifier classCode="IDENT">
+                           <ns2:id assigningAuthorityName="HPI-O" root="1.2.36.1.2001.1003.0.8003620000030333"/>
+                           <ns2:assigningGeographicArea classCode="PLC">
+                              <ns2:name>National Identifier</ns2:name>
+                           </ns2:assigningGeographicArea>
+                        </ns2:asEntityIdentifier>
+                     </wholeOrganization>
+                  </asOrganizationPartOf>
+               </serviceProviderOrganization>
+            </healthCareFacility>
+         </location>
+      </encompassingEncounter>
+   </componentOf>
+   <component>
+      <structuredBody>
+         <component>
+            <section>
+               <code code="102.16210" codeSystem="1.2.36.1.2001.1001.101"
+                     codeSystemName="NCTIS Data Components"
+                     displayName="Dispense Item"/>
+               <title>Dispense Item</title>
+               <text>
+                  <table>
+                     <caption>Dispense Item</caption>
+                     <thead>
+                        <tr>
+                           <th>Field</th>
+                           <th>Value</th>
+                        </tr>
+                     </thead>
+                     <tbody>
+                        <tr>
+                           <td>Status</td>
+                           <td>completed</td>
+                        </tr>
+                        <tr>
+                           <td>Dispense Item Identifier</td>
+                           <td>123456</td>
+                        </tr>
+                        <tr>
+                           <td>Date and Time of Dispense Event</td>
+                           <td>18 Jul 2019 16:21:03+1000</td>
+                        </tr>
+                        <tr>
+                           <td>Prescription Item Identifier</td>
+                           <td>123457</td>
+                        </tr>
+                        <tr>
+                           <td>Therapeutic Good Identification</td>
+                           <td>FLUCONAZOLE</td>
+                        </tr>
+                        <tr>
+                           <td>Brand Substitution Occurred</td>
+                           <td>Yes</td>
+                        </tr>
+                        <tr>
+                           <td>Maximum number of Repeats</td>
+                           <td>5</td>
+                        </tr>
+                        <tr>
+                           <td>Number of this Dispense</td>
+                           <td>1</td>
+                        </tr>
+                        <tr>
+                           <td>Claim Category Type</td>
+                           <td>G - General benefit.</td>
+                        </tr>
+                        <tr>
+                           <td>Subject of Care Entitlements</td>
+                           <td>123456789-2 (Type: Medicare Benefits) (Duration: 18 Jul 2019)</td>
+                        </tr>
+                     </tbody>
+                  </table>
+                  <table>
+                     <caption>Quantity To Dispense</caption>
+                     <thead>
+                        <tr>
+                           <th>Field</th>
+                           <th>Value</th>
+                        </tr>
+                     </thead>
+                     <tbody>
+                        <tr>
+                           <td>Quantity</td>
+                           <td>3</td>
+                        </tr>
+                        <tr>
+                           <td>Dispensing Unit</td>
+                           <td>bottles</td>
+                        </tr>
+                     </tbody>
+                  </table>
+               </text>
+               <entry typeCode="DRIV">
+                  <substanceAdministration classCode="SBADM" moodCode="RQO">
+                     <id extension="123457" root="1.22.33.444"/>
+                     <statusCode code="active"/>
+                     <repeatNumber>
+                        <high value="6"/>
+                     </repeatNumber>
+                     <consumable>
+                        <manufacturedProduct>
+                           <manufacturedMaterial>
+                              <code code="1471K" codeSystem="1.2.36.1.2001.1005.22"
+                                    codeSystemName="Australian PBS Code"
+                                    displayName="FLUCONAZOLE"/>
+                           </manufacturedMaterial>
+                        </manufacturedProduct>
+                     </consumable>
+                     <entryRelationship typeCode="COMP">
+                        <sequenceNumber value="1"/>
+                        <supply classCode="SPLY" moodCode="EVN">
+                           <id extension="123456" root="1.22.33.444"/>
+                           <effectiveTime value="20190718162103+1000"/>
+                           <independentInd value="false"/>
+                           <quantity unit="bottles" value="3"/>
+                           <product>
+                              <manufacturedProduct>
+                                 <manufacturedMaterial>
+                                    <code code="1471K" codeSystem="1.2.36.1.2001.1005.22"
+                                          codeSystemName="Australian PBS Code"
+                                          displayName="FLUCONAZOLE"/>
+                                 </manufacturedMaterial>
+                              </manufacturedProduct>
+                           </product>
+                           <entryRelationship typeCode="COMP">
+                              <observation classCode="OBS" moodCode="EVN">
+                                 <code code="103.16064" codeSystem="1.2.36.1.2001.1001.101"
+                                       codeSystemName="NCTIS Data Components"
+                                       displayName="Brand Substitution Occurred"/>
+                                 <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" value="true" xsi:type="BL"/>
+                              </observation>
+                           </entryRelationship>
+                           <ns2:coverage typeCode="COVBY">
+                              <ns2:policyOrAccount classCode="COV" moodCode="PERM">
+                                 <ns2:code code="1" codeSystem="1.2.36.1.2001.1001.101.104.16060"
+                                           codeSystemName="Claim Category Type Values"
+                                           displayName="G - General benefit."/>
+                              </ns2:policyOrAccount>
+                           </ns2:coverage>
+                        </supply>
+                     </entryRelationship>
+                  </substanceAdministration>
+               </entry>
+               <ns2:coverage2 typeCode="COVBY">
+                  <ns2:entitlement classCode="COV" moodCode="EVN">
+                     <ns2:id assigningAuthorityName="Medicare Card Number" extension="123456789-2"
+                             root="1.2.36.1.5001.1.0.7.1"/>
+                     <ns2:code code="1" codeSystem="1.2.36.1.2001.1001.101.104.16047"
+                               codeSystemName="NCTIS Entitlement Type Values"
+                               displayName="Medicare Benefits">
+                        <originalText>Medicare Benefits</originalText>
+                     </ns2:code>
+                     <ns2:effectiveTime>
+                        <high value="20190718"/>
+                     </ns2:effectiveTime>
+                     <ns2:participant typeCode="BEN">
+                        <ns2:participantRole classCode="PAT">
+                           <ns2:id root="306e6168-215d-4f16-8883-5bfed06817f9"/>
+                        </ns2:participantRole>
+                     </ns2:participant>
+                  </ns2:entitlement>
+               </ns2:coverage2>
+            </section>
+         </component>
+         <component>
+            <section>
+               <code code="102.16080" codeSystem="1.2.36.1.2001.1001.101"
+                     codeSystemName="NCTIS Data Components"
+                     displayName="Administrative Observations"/>
+               <title>Administrative Observations</title>
+               <text>
+                  <table>
+                     <caption>Demographic Data</caption>
+                     <thead>
+                        <tr>
+                           <th>Name</th>
+                           <th>Value</th>
+                        </tr>
+                     </thead>
+                     <tbody>
+                        <tr>
+                           <td>Date of Birth Accuracy Indicator</td>
+                           <td>AAA</td>
+                        </tr>
+                        <tr>
+                           <td>Age Accuracy Indicator</td>
+                           <td>Yes</td>
+                        </tr>
+                        <tr>
+                           <td>Age</td>
+                           <td>36</td>
+                        </tr>
+                     </tbody>
+                  </table>
+               </text>
+               <entry typeCode="DRIV">
+                  <observation classCode="OBS" moodCode="EVN">
+                     <id root="e8fd0a78-ff1b-4ff3-882f-d96d3d970bb9"/>
+                     <code xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" code="102.16234"
+                           codeSystem="1.2.36.1.2001.1001.101"
+                           codeSystemName="NCTIS Data Components"
+                           displayName="Date of Birth Accuracy Indicator"
+                           xsi:type="CE"/>
+                     <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" code="AAA" xsi:type="CS"/>
+                  </observation>
+               </entry>
+               <entry typeCode="DRIV">
+                  <observation classCode="OBS" moodCode="EVN">
+                     <id root="138b28a3-5b12-451e-a895-ddb4fc11a3c6"/>
+                     <code xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" code="103.20109"
+                           codeSystem="1.2.36.1.2001.1001.101"
+                           codeSystemName="NCTIS Data Components"
+                           displayName="Age"
+                           xsi:type="CE"/>
+                     <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" unit="a" value="36"
+                            xsi:type="PQ"/>
+                  </observation>
+               </entry>
+               <entry typeCode="DRIV">
+                  <observation classCode="OBS" moodCode="EVN">
+                     <id root="2269eb4e-16ea-4c0a-8bd0-216b904ddea5"/>
+                     <code xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" code="103.16279"
+                           codeSystem="1.2.36.1.2001.1001.101"
+                           codeSystemName="NCTIS Data Components"
+                           displayName="Age Accuracy Indicator"
+                           xsi:type="CE"/>
+                     <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" value="true" xsi:type="BL"/>
+                  </observation>
+               </entry>
+            </section>
+         </component>
+      </structuredBody>
+   </component>
+</ClinicalDocument>

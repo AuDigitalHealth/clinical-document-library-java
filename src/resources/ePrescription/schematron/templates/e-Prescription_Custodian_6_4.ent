@@ -1,0 +1,155 @@
+<!--
+_________________________________________________________________________________________________________________________________________________________________________________________
+                  Generated File - Do Not Edit File Directly                                                                                                                             
+                  __________________________________________
+
+                  Generated          : 8/08/2013 2:03:32 PM
+
+                  Product            : e-Prescription
+                  Release            : CDA_Implementation_Guide_v1.0
+                  IG Guide Reference : 6.4
+                  IG Guide Title     : Custodian
+                  Generator Version  : 2.27
+                                                                                                                                                                                         
+_________________________________________________________________________________________________________________________________________________________________________________________
+-->
+    <pattern name="p-e-Prescription_Custodian_6_4-errors"
+        id="p-e-Prescription_Custodian_6_4-errors"
+        see="#p-e-Prescription_Custodian_6_4-errors">
+
+
+        <rule context="/cda:ClinicalDocument">
+
+            <assert test="cda:custodian"
+                >Error: e-Prescription - 6.4 Custodian -
+                "custodian" -
+                The 'custodian' tag is missing.
+                Refer to section 6.4 of the
+                e-Prescription_CDA_Implementation_Guide_v0.3.</assert>
+
+            <report test="count(cda:custodian) > 1"
+                >Error: e-Prescription - 6.4 Custodian -
+                "custodian" -
+                The 'custodian' tag shall appear only once.
+                Refer to section 6.4 of the
+                e-Prescription_CDA_Implementation_Guide_v0.3.</report>
+
+        </rule>
+
+
+        <rule context="/cda:ClinicalDocument/cda:custodian">
+
+            <assert test="cda:assignedCustodian"
+                >Error: e-Prescription - 6.4 Custodian -
+                "custodian/assignedCustodian" -
+                The 'assignedCustodian' tag is missing.
+                Refer to section 6.4 of the
+                e-Prescription_CDA_Implementation_Guide_v0.3.</assert>
+
+            <report test="count(cda:assignedCustodian) > 1"
+                >Error: e-Prescription - 6.4 Custodian -
+                "custodian/assignedCustodian" -
+                The 'assignedCustodian' tag shall appear only once.
+                Refer to section 6.4 of the
+                e-Prescription_CDA_Implementation_Guide_v0.3.</report>
+
+        </rule>
+
+
+        <rule context="/cda:ClinicalDocument/cda:custodian/cda:assignedCustodian">
+
+            <assert test="cda:representedCustodianOrganization"
+                >Error: e-Prescription - 6.4 Custodian -
+                "custodian/assignedCustodian/representedCustodianOrganization" -
+                The 'representedCustodianOrganization' tag is missing.
+                Refer to section 6.4 of the
+                e-Prescription_CDA_Implementation_Guide_v0.3.</assert>
+
+            <report test="count(cda:representedCustodianOrganization) > 1"
+                >Error: e-Prescription - 6.4 Custodian -
+                "custodian/assignedCustodian/representedCustodianOrganization" -
+                The 'representedCustodianOrganization' tag shall appear only once.
+                Refer to section 6.4 of the
+                e-Prescription_CDA_Implementation_Guide_v0.3.</report>
+
+        </rule>
+
+
+        <rule context="/cda:ClinicalDocument/cda:custodian/cda:assignedCustodian/cda:representedCustodianOrganization">
+
+            <assert test="cda:id"
+                >Error: e-Prescription - 6.4 Custodian -
+                "custodian/assignedCustodian/representedCustodianOrganization/id" -
+                The 'id' tag is missing.
+                Refer to section 6.4 of the
+                e-Prescription_CDA_Implementation_Guide_v0.3.</assert>
+
+            <assert test="ext:asEntityIdentifier"
+                >Error: e-Prescription - 6.4 Custodian -
+                "custodian/assignedCustodian/representedCustodianOrganization/Entity Identifier" -
+                The 'asEntityIdentifier' tag is missing.
+                Refer to section 6.4 of the
+                e-Prescription_CDA_Implementation_Guide_v0.3.</assert>
+
+            <report test="count(ext:asEntityIdentifier) > 1"
+                >Error: e-Prescription - 6.4 Custodian -
+                "custodian/assignedCustodian/representedCustodianOrganization/Entity Identifier" -
+                The 'asEntityIdentifier' tag shall appear only once.
+                Refer to section 6.4 of the
+                e-Prescription_CDA_Implementation_Guide_v0.3.</report>
+
+            <assert test="not(ext:asEntityIdentifier) or ext:asEntityIdentifier/ext:id[starts-with(@root, '1.2.36.1.2001.1003.0.800362')]"
+                >Error: e-Prescription - 6.4 Custodian -
+                "custodian/assignedCustodian/representedCustodianOrganization/Entity Identifier" -
+                The 'asEntityIdentifier' tag for 'HPI-O' is missing.
+                "The value of one Entity Identifier SHALL be an Australian HPI-O." although there could be multiple Entity Identifiers.
+                Refer to section 6.4 of the
+                e-Prescription_CDA_Implementation_Guide_v0.3.</assert>
+
+            <report test="count(cda:name) > 1"
+                >Error: e-Prescription - 6.4 Custodian -
+                "custodian/assignedCustodian/representedCustodianOrganization/name" -
+                The 'name' tag shall appear only once.
+                Refer to section 6.4 of the
+                e-Prescription_CDA_Implementation_Guide_v0.3.</report>
+
+            <report test="count(cda:telecom) > 1"
+                >Error: e-Prescription - 6.4 Custodian -
+                "custodian/assignedCustodian/representedCustodianOrganization/Electronic Communication Detail" -
+                The 'telecom' tag shall appear only once.
+                Refer to section 6.4 of the
+                e-Prescription_CDA_Implementation_Guide_v0.3.</report>
+
+            <report test="count(cda:addr) > 1"
+                >Error: e-Prescription - 6.4 Custodian -
+                "custodian/assignedCustodian/representedCustodianOrganization/Address" -
+                The 'addr' tag shall appear only once.
+                Refer to section 6.4 of the
+                e-Prescription_CDA_Implementation_Guide_v0.3.</report>
+
+        </rule>
+
+
+        <rule context="/cda:ClinicalDocument/cda:custodian/cda:assignedCustodian/cda:representedCustodianOrganization/cda:id">
+
+            <report test="
+                contains(@root, '-') and not(
+                string-length(@root) = 36 and
+                substring(@root,  9, 1) = '-' and substring(@root, 14, 1) = '-' and
+                substring(@root, 19, 1) = '-' and substring(@root, 24, 1) = '-' and
+                translate(substring(@root,  1,  8), '0123456789ABCDEFabcdef', '0000000000000000000000') = '00000000' and
+                translate(substring(@root, 10,  4), '0123456789ABCDEFabcdef', '0000000000000000000000') = '0000' and
+                translate(substring(@root, 15,  4), '0123456789ABCDEFabcdef', '0000000000000000000000') = '0000' and
+                translate(substring(@root, 20,  4), '0123456789ABCDEFabcdef', '0000000000000000000000') = '0000' and
+                translate(substring(@root, 25, 12), '0123456789ABCDEFabcdef', '0000000000000000000000') = '000000000000')"
+                >Error: e-Prescription - 6.4 Custodian -
+                "custodian/assignedCustodian/representedCustodianOrganization/id" -
+                The 'id' tag 'root' attribute shall be a valid UUID.
+                Refer to section 6.4 of the
+                e-Prescription_CDA_Implementation_Guide_v0.3.</report>
+
+        </rule>
+
+
+    </pattern>
+

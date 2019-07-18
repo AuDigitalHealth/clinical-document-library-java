@@ -1,0 +1,182 @@
+<?xml version = "1.0" encoding = "UTF-8"?>
+<!--
+_________________________________________________________________________________________________________________________________________________________________________________________
+                  Generated File - Do Not Edit File Directly                                                                                                                             
+                  __________________________________________
+
+                  Generated          : 03-10-2013 18:40:35
+
+                  Product            : Prescription Request
+                  Release            : CDA_Implementation_Guide_v1.0
+                  IG Guide Reference : 8.2
+                  IG Guide Title     : Prescriber Instruction Detail
+                  Generator Version  : 2.27
+                                                                                                                                                                                         
+_________________________________________________________________________________________________________________________________________________________________________________________
+-->
+
+<schema xmlns="http://www.ascc.net/xml/schematron">
+    <ns prefix = "cda" uri = "urn:hl7-org:v3"/>
+    <ns prefix = "ext" uri = "http://ns.electronichealth.net.au/Ci/Cda/Extensions/3.0"/>
+    <ns prefix = "xs" uri = "http://www.w3.org/2001/XMLSchema"/>
+    <ns prefix = "xsi" uri = "http://www.w3.org/2001/XMLSchema-instance"/>
+
+    <pattern name="p-Prescription_Request_2_PrescriberInstructionDetail_8_2-errors"
+        id="p-Prescription_Request_2_PrescriberInstructionDetail_8_2-errors"
+        see="#p-Prescription_Request_2_PrescriberInstructionDetail_8_2-errors">
+
+
+        <rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody">
+
+            <assert test="cda:component[cda:section/cda:code/@code = '102.16290']"
+                >Error: Prescription Request - 8.2 Prescriber Instruction Detail -
+                "Prescriber Instruction Detail" -
+                The 'component' tag is missing for 'Prescriber Instruction Detail'.
+                Refer to section 8.2 of the
+                Prescription_Request_CDA_Implementation_Guide_v0.5.</assert>
+
+            <report test="count(cda:component[cda:section/cda:code/@code = '102.16290']) > 1"
+                >Error: Prescription Request - 8.2 Prescriber Instruction Detail -
+                "Prescriber Instruction Detail" -
+                The 'component' tag shall appear only once for 'Prescriber Instruction Detail'.
+                Refer to section 8.2 of the
+                Prescription_Request_CDA_Implementation_Guide_v0.5.</report>
+
+        </rule>
+
+
+        <rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component[cda:section/cda:code/@code = '102.16290']">
+
+            <report test="count(cda:section) > 1"
+                >Error: Prescription Request - 8.2 Prescriber Instruction Detail -
+                "Prescriber Instruction Detail" -
+                The 'section' tag shall appear only once.
+                Refer to section 8.2 of the
+                Prescription_Request_CDA_Implementation_Guide_v0.5.</report>
+
+        </rule>
+
+
+        <rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code = '102.16290']">
+
+            <report test="count(cda:code) > 1"
+                >Error: Prescription Request - 8.2 Prescriber Instruction Detail -
+                "Prescriber Instruction Detail" -
+                The 'code' tag shall appear only once.
+                Refer to section 8.2 of the
+                Prescription_Request_CDA_Implementation_Guide_v0.5.</report>
+
+            <assert test="cda:title"
+                >Error: Prescription Request - 8.2 Prescriber Instruction Detail -
+                "Prescriber Instruction Detail" -
+                The 'title' tag is missing.
+                Refer to section 8.2 of the
+                Prescription_Request_CDA_Implementation_Guide_v0.5.</assert>
+
+            <report test="count(cda:title) > 1"
+                >Error: Prescription Request - 8.2 Prescriber Instruction Detail -
+                "Prescriber Instruction Detail" -
+                The 'title' tag shall appear only once.
+                Refer to section 8.2 of the
+                Prescription_Request_CDA_Implementation_Guide_v0.5.</report>
+
+            <assert test="not(cda:title) or normalize-space(cda:title) != ''"
+                >Error: Prescription Request - 8.2 Prescriber Instruction Detail -
+                "Prescriber Instruction Detail" -
+                The 'title' tag shall contain a value.
+                Refer to section 8.2 of the
+                Prescription_Request_CDA_Implementation_Guide_v0.5.</assert>
+
+            <assert test="
+                not(cda:title) or normalize-space(cda:title) = '' or
+                cda:title = 'Prescriber Instruction Detail'"
+                >Error: Prescription Request - 8.2 Prescriber Instruction Detail -
+                "Prescriber Instruction Detail" -
+                The 'title' tag shall contain the value 'Prescriber Instruction Detail'.
+                Refer to section 8.2 of the
+                Prescription_Request_CDA_Implementation_Guide_v0.5.</assert>
+
+            <assert test="cda:text"
+                >Error: Prescription Request - 8.2 Prescriber Instruction Detail -
+                "Prescriber Instruction Detail" -
+                The 'text' tag is missing.
+                Refer to section 8.2 of the
+                Prescription_Request_CDA_Implementation_Guide_v0.5.</assert>
+
+            <report test="count(cda:text) > 1"
+                >Error: Prescription Request - 8.2 Prescriber Instruction Detail -
+                "Prescriber Instruction Detail" -
+                The 'text' tag shall appear only once.
+                Refer to section 8.2 of the
+                Prescription_Request_CDA_Implementation_Guide_v0.5.</report>
+
+            <assert test="not(cda:text) or normalize-space(cda:text) != ''"
+                >Error: Prescription Request - 8.2 Prescriber Instruction Detail -
+                "Prescriber Instruction Detail" -
+                The 'text' tag shall contain a value.
+                Refer to section 8.2 of the
+                Prescription_Request_CDA_Implementation_Guide_v0.5.</assert>
+
+        </rule>
+
+
+        <rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section/cda:code[@code = '102.16290']">
+
+            <assert test="@codeSystem"
+                >Error: Prescription Request - 8.2 Prescriber Instruction Detail -
+                "Prescriber Instruction Detail" -
+                The 'code' tag 'codeSystem' attribute is missing.
+                Refer to section 8.2 of the
+                Prescription_Request_CDA_Implementation_Guide_v0.5.</assert>
+
+            <assert test="
+                not(@codeSystem) or normalize-space(@codeSystem) = '' or @codeSystem = '1.2.36.1.2001.1001.101'"
+                >Error: Prescription Request - 8.2 Prescriber Instruction Detail -
+                "Prescriber Instruction Detail" -
+                The 'code' tag 'codeSystem' attribute shall contain the value '1.2.36.1.2001.1001.101'.
+                Refer to section 8.2 of the
+                Prescription_Request_CDA_Implementation_Guide_v0.5.</assert>
+
+            <report test="@codeSystemName and normalize-space(@codeSystemName) = ''"
+                >Error: Prescription Request - 8.2 Prescriber Instruction Detail -
+                "Prescriber Instruction Detail" -
+                The 'code' tag 'codeSystemName' attribute shall contain a value.
+                Refer to section 8.2 of the
+                Prescription_Request_CDA_Implementation_Guide_v0.5.</report>
+
+            <report test="
+                @codeSystemName and normalize-space(@codeSystemName) != '' and @codeSystemName != 'NCTIS Data Components'"
+                >Error: Prescription Request - 8.2 Prescriber Instruction Detail -
+                "Prescriber Instruction Detail" -
+                The 'code' tag 'codeSystemName' attribute shall contain the value 'NCTIS Data Components'.
+                Refer to section 8.2 of the
+                Prescription_Request_CDA_Implementation_Guide_v0.5.</report>
+
+            <report test="@displayName and normalize-space(@displayName) = ''"
+                >Error: Prescription Request - 8.2 Prescriber Instruction Detail -
+                "Prescriber Instruction Detail" -
+                The 'code' tag 'displayName' attribute shall contain a value.
+                Refer to section 8.2 of the
+                Prescription_Request_CDA_Implementation_Guide_v0.5.</report>
+
+            <report test="
+                @displayName and normalize-space(@displayName) != '' and @displayName != 'Prescriber Instruction Detail'"
+                >Error: Prescription Request - 8.2 Prescriber Instruction Detail -
+                "Prescriber Instruction Detail" -
+                The 'code' tag 'displayName' attribute shall contain the value 'Prescriber Instruction Detail'.
+                Refer to section 8.2 of the
+                Prescription_Request_CDA_Implementation_Guide_v0.5.</report>
+
+            <assert test="not(cda:translation)"
+                >Error: Prescription Request - 8.2 Prescriber Instruction Detail -
+                "Prescriber Instruction Detail" -
+                The 'translation' tag shall not be present within 'code'.
+                Refer to section 8.2 of the
+                Prescription_Request_CDA_Implementation_Guide_v0.5.</assert>
+
+        </rule>
+
+
+    </pattern>
+
+</schema>

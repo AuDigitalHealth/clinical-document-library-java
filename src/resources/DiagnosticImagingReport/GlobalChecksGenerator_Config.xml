@@ -1,0 +1,87 @@
+<global_checks_schematron>
+    <src_path>C:\CCA</src_path>
+
+    <package revision = "12. WIP"
+             name="Diagnostic Imaging Report"
+             guide="Diagnostic_Imaging_Report_CDA_Implementation_Guide_v1.0">
+
+        <!-- ref_level - 1..* -->
+        <!-- ref_level/section - 1..* -->
+        <!-- ref_level/section/id - 1..* -->
+        
+        <!--
+            <ref_level name="1A_Only">
+            <section name="narrativeChecks">
+            <id>0.0</id>
+            </section>
+            </ref_level>
+        -->
+        
+        <ref_level name="1A">
+            <section name="code">
+                <id>8.1</id>
+            </section>
+            <section name="id">
+                <id>8.2</id>
+            </section>
+            <section name="time">
+                <id>8.3</id>
+            </section>
+            <section name="asEntityIdentifier">
+                <id>8.4</id>
+            </section>
+            <section name="name">
+                <id>8.5</id>
+            </section>
+            <section name="addr">
+                <id>8.6</id>
+            </section>
+            <section name="telecom">
+                <id>8.7</id>
+            </section>
+            <section name="mediaType">
+                <id>0.0</id>
+            </section>
+            
+            <!-- asEmployement section has been decided to place at Diagnostic_Imaging_Report_CommonSectionsEmployment_6_1_2_and_or_7_1_1_2_custom.sch -->
+            <!--<section name="asEmployment">
+                <id>8.8</id>
+            </section>-->
+        </ref_level>
+        
+        <ref_level name="3A">
+            <section name="targetSiteCode">
+                <id>7.1.1.1</id>
+            </section>           
+           <!-- <section name="linkHtml">
+                
+                <id>8.9</id>
+            </section>-->
+        </ref_level>
+        
+        <ref_level name="DataType">
+            <section name="value_BL">
+                <id>'Reference List [NEHT2010c]'</id>
+            </section>
+            <section name="value_CD">
+                <id>'Reference List [NEHT2010c]'</id>
+            </section>
+            <section name="value_CS">
+                <id>'Reference List [NEHT2010c]'</id>
+            </section>
+            <section name="value_INT">
+                <id>'Reference List [NEHT2010c]'</id>
+            </section>
+            <section name="value_PN">
+                <id>'Reference List [NEHT2010c]'</id>
+            </section>
+            <section name="value_PQ">
+                <id>'Reference List [NEHT2010c]'</id>
+            </section>
+            <section name="value_TS">
+                <id>'Reference List [NEHT2010c]'</id>
+            </section>
+        </ref_level>
+        
+    </package>
+</global_checks_schematron>

@@ -1,0 +1,917 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" xmlns="http://www.w3.org/1999/xhtml" href="NEHTA_Generic_CDA_Stylesheet.xsl"?>
+
+<ClinicalDocument xmlns:ext="http://ns.electronichealth.net.au/Ci/Cda/Extensions/3.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="urn:hl7-org:v3">
+  <typeId root="2.16.840.1.113883.1.3" extension="POCD_HD000040" />
+  <templateId root="1.2.36.1.2001.1001.101.100.1002.74" extension="2.1" />
+  <templateId root="1.2.36.1.2001.1001.100.149" extension="1.0" />
+  <id root="2.25.149499043588410604097716583925306612158" />
+  <code code="64287-6" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" displayName="Prescription Document" />
+  <title>Prescription Document</title>
+  <effectiveTime value="20130524114822+1000" />
+  <confidentialityCode nullFlavor="NA" />
+  <languageCode code="en-AU" />
+  <setId root="ca1c1176-9cf4-4540-8aed-75513119ebe8" />
+  <versionNumber value="1" />
+  
+  <!-- BEGIN CDA Header -->
+  <!-- BEGIN Part 1A -->
+  
+  <!-- BEGIN Record Target, Subject of Care -->
+  
+  <recordTarget typeCode="RCT">
+        <patientRole classCode="PAT">
+      <id root="979e373f-dfa0-4d68-82b1-2132816be3e9" />
+      <addr use="H">
+        <streetAddressLine>1 Clinician Street</streetAddressLine>
+        <state>QLD</state>
+        <postalCode>5555</postalCode>
+        <country>Australia</country>
+        <unitType>Apt</unitType>
+        <unitID>3A</unitID>
+        <additionalLocator>Complex Building</additionalLocator>
+        <houseNumber>A9221</houseNumber>
+        <streetName>health</streetName>
+        <streetNameType>Crn</streetNameType>
+        <direction>W</direction>
+        <deliveryAddressLine>Care PO</deliveryAddressLine>
+        <city>Brisbane</city>
+      </addr>
+      <telecom value="tel:0345754566" use="WP" />
+      <telecom value="mailto:authen@globalauthens.com" use="WP" />
+      <patient>
+        <!-- Person Name -->
+        <name use="L">
+          <family>Grant</family>
+          <given>Sally</given>
+          <given>Wally</given>
+          <prefix>Miss</prefix>
+        </name>
+        
+        <!-- Sex -->
+        <administrativeGenderCode code="F" codeSystem="2.16.840.1.113883.13.68" codeSystemName="AS 5017-2006 Health Care Client Identifier Sex" displayName="Female" />
+        
+        <!-- Date of Birth -->
+        <birthTime value="19560824"/>
+        
+        <!-- Indigenous Status -->
+        <ethnicGroupCode code="4" codeSystem="2.16.840.1.113883.3.879.291036"
+          codeSystemName="METeOR Indigenous Status"
+          displayName="Neither Aboriginal nor Torres Strait Islander origin"/>
+        
+        <!-- Multiple Birth Indicator -->
+        <ext:multipleBirthInd value="true" />
+        <ext:multipleBirthOrderNumber value="2" />
+       
+        <!-- Entity Identifier -->
+        <ext:asEntityIdentifier classCode="IDENT">
+          <ext:id assigningAuthorityName="IHI"
+            root="1.2.36.1.2001.1003.0.8003601234567894"/>
+          <ext:code code="24576" codeSystem="2.162"
+            codeSystemName="Classification of Names" displayName="a relevant name">
+            <originalText>patient</originalText>
+          </ext:code>
+          <ext:assigningGeographicArea classCode="PLC">
+            <ext:name>National Identifier</ext:name>
+          </ext:assigningGeographicArea>
+        </ext:asEntityIdentifier>
+        
+      
+        <ext:asEntityIdentifier classCode="IDENT">
+          <ext:id root="1.22.333.444.55555" extension="457456" assigningAuthorityName="SampleAuthority" />
+          <ext:code code="1.1.1.1.1.1" codeSystem="1.2.36.1.2001.1001.101" codeSystemName="NCTIS Data Components" displayName="DisplayName">
+            <originalText>Original Text</originalText>
+          </ext:code>
+          <ext:assigningGeographicArea classCode="PLC">
+            <ext:name>State or Territory Identifier</ext:name>
+          </ext:assigningGeographicArea>
+          
+        </ext:asEntityIdentifier>
+      </patient>
+    </patientRole>
+  </recordTarget>
+  
+  <!-- END Record Target, Subject of Care -->
+  
+  <!-- BEGIN Prescriber (Document Author) -->
+  
+  <author typeCode="AUT">
+    <time value="200910201235+1000"/>
+    <assignedAuthor>
+      <id root="7fca92a0-c29f-49f3-85d3-ef95f3651134" />
+      
+      <!-- Role -->
+      <code code="253317" codeSystem="2.16.840.1.113883.13.62"
+        codeSystemName="1220.0 - ANZSCO - Australian and New Zealand Standard Classification of Occupations, First Edition, 2006"
+        displayName="Intensive Care Specialist"/>
+      
+     <!-- Address-->
+      
+      <addr use="WP">
+        <streetAddressLine>1 Clinician Street</streetAddressLine>
+        <state>QLD</state>
+        <postalCode>5555</postalCode>
+        <country>Australia</country>
+        <unitType>Apt</unitType>
+        <unitID>3A</unitID>
+        <additionalLocator>Complex Building</additionalLocator>
+        <houseNumber>A9221</houseNumber>
+        <streetName>health</streetName>
+        <streetNameType>Crn</streetNameType>
+        <direction>W</direction>
+        <deliveryAddressLine>Care PO</deliveryAddressLine>
+        <city>Brisbane</city>
+      </addr>
+      
+      <!-- Electronic Communication Detail -->
+      <telecom use="WP" value="tel:0712341234"/>
+      
+      <!-- Participant -->
+      <assignedPerson>
+        
+        <!-- Person Name -->
+        <name use="L">
+          <prefix>Dr.</prefix>
+          <given>Good</given>
+          <family>Doctor</family> 
+        </name>
+        
+        <!-- Entity Identifier -->
+        <ext:asEntityIdentifier classCode="IDENT">
+          <ext:id assigningAuthorityName="HPI-I"
+            root="1.2.36.1.2001.1003.0.8003611234567893"/>
+          <ext:assigningGeographicArea classCode="PLC">
+            <ext:name>National Identifier</ext:name>
+          </ext:assigningGeographicArea>
+        </ext:asEntityIdentifier>
+        
+        <!-- BEGIN: Employment Details -->
+        <ext:asEmployment classCode="EMP">
+          <!-- Occupation (Refers to Vocabs.xml File) -->
+         
+          <ext:jobCode code="253314" codeSystem="2.16.840.1.113883.13.62"
+            codeSystemName="1220.0 - ANZSCO - Australian and New Zealand Standard Classification of Occupations, First Edition, 2006"
+            displayName="Medical Oncologist"/>
+          
+        </ext:asEmployment>
+        <ext:asQualifications classCode="QUAL">
+          <ext:code>
+            <originalText>M.B.B.S., F.R.A.C.S.</originalText>
+          </ext:code>
+        </ext:asQualifications>
+      </assignedPerson>
+    </assignedAuthor>
+  </author>
+  
+  <!-- END Document Author -->
+  
+  <!-- Begin - Custodian -->
+  
+  <custodian>
+    <assignedCustodian>
+      <representedCustodianOrganization>
+        <id root="8ea28b8d-5cbc-4cd0-843d-1ee48ec458c6" />
+        
+        <!-- Organisation Name -->
+        <name>Oz Health Clinic</name>
+       
+        <!-- Electronic Communication Detail -->
+        <telecom use="WP" value="tel:0712341234"/>
+        
+        <!-- Address -->
+        <addr use="H">
+          <streetAddressLine>1 Clinician Street</streetAddressLine>
+          <state>QLD</state>
+          <postalCode>5555</postalCode>
+          <country>Australia</country>
+          <unitType>Apt</unitType>
+          <unitID>3A</unitID>
+          <additionalLocator>Complex Building</additionalLocator>
+          <houseNumber>A9221</houseNumber>
+          <streetName>health</streetName>
+          <streetNameType>Crn</streetNameType>
+          <direction>W</direction>
+          <deliveryAddressLine>Care PO</deliveryAddressLine>
+          <city>Brisbane</city>
+        </addr>
+        
+        <!-- Entity Identifier -->
+        <ext:asEntityIdentifier classCode="IDENT">
+          <ext:id assigningAuthorityName="HPI-O"
+          root="1.2.36.1.2001.1003.0.8003621234576547"/>
+          <ext:assigningGeographicArea classCode="PLC">
+            <ext:name>National Identifier</ext:name>
+          </ext:assigningGeographicArea>
+        </ext:asEntityIdentifier>
+        
+      </representedCustodianOrganization>
+      
+    </assignedCustodian>
+  </custodian>
+ 
+  <!-- End - Custodian -->
+  
+  <!--BEGIN - legalAuthenticator-->
+  
+  <legalAuthenticator>
+    
+    <time value="201305241148+1000" />
+    <signatureCode code="S" />
+    <assignedEntity>
+      <id root="79049dd7-d8f7-446e-9579-5d6da1923dce" />
+      
+      
+      <code code="253111" codeSystem="2.16.840.1.113883.13.62"
+        codeSystemName="1220.0 - ANZSCO - Australian and New Zealand Standard Classification
+        of Occupations, First Edition, 2006"
+        displayName="General Medical Practitioner"/>
+     
+    <!--  Address-->
+      <addr use="H">
+        <streetAddressLine>1 Clinician Street</streetAddressLine>
+        <state>QLD</state>
+        <postalCode>5555</postalCode>
+        <country>Australia</country>
+        <unitType>Apt</unitType>
+        <unitID>3A</unitID>
+        <additionalLocator>Complex Building</additionalLocator>
+        <houseNumber>A9221</houseNumber>
+        <streetName>health</streetName>
+        <streetNameType>Crn</streetNameType>
+        <direction>W</direction>
+        <deliveryAddressLine>Care PO</deliveryAddressLine>
+        <city>Brisbane</city>
+      </addr>
+      
+      <!-- Electronic Communication Detail -->
+      <telecom use="WP" value="tel:0712341234"/>
+      <telecom value="mailto:authen@globalauthens.com" use="WP" />
+      
+      <assignedPerson>
+        <!-- Person Name -->
+        <name use="L">
+          <prefix>Dr.</prefix>
+          <given>Prescribing</given>
+          <family>Doctor</family>
+          <suffix>Jr</suffix>
+        </name>
+        
+       
+        <ext:asEntityIdentifier classCode="IDENT">
+          <ext:id root="1.2.36.1.2001.1003.0.8003610000001145" assigningAuthorityName="HPI-I" />
+          <ext:assigningGeographicArea classCode="PLC">
+            <ext:name>National Identifier</ext:name>
+          </ext:assigningGeographicArea>
+        </ext:asEntityIdentifier>
+      </assignedPerson>
+      <representedOrganization>
+        <!-- Organisation Name -->
+        <name>Primary Healthcare Clinic Name</name>
+        
+        <ext:asEntityIdentifier classCode="IDENT">
+          <ext:id root="1.2.36.1.2001.1003.0.8003620000001144" assigningAuthorityName="HPI-O" />
+          <ext:assigningGeographicArea classCode="PLC">
+            <ext:name>National Identifier</ext:name>
+          </ext:assigningGeographicArea>
+        </ext:asEntityIdentifier>
+      </representedOrganization>
+    </assignedEntity>
+  </legalAuthenticator>
+  
+  <!--END - legalAuthenticator --> 
+  
+  <!-- Begin Encounter Period -->
+  <componentOf>
+    <encompassingEncounter>
+      <effectiveTime nullFlavor = "NA">
+        <low value="201112141100+1000"/>
+        <high value="201112141130+1000"/>
+      </effectiveTime>
+      
+      <!-- End Encounter Period -->
+      
+      
+      <!--Begin Prescriber Organization-->
+      
+      <location>
+        
+        <healthCareFacility>
+          <id root="7fc777d2-e2cb-48aa-927a-c16bb4045aa5" />
+          <code code="254412" codeSystem="2.16.840.1.113883.13.62" codeSystemName="1220.0 - ANZSCO - Australian and New Zealand Standard Classification of Occupations, First Edition, 2006" displayName="Registered Nurse (Aged Care)" />
+          <serviceProviderOrganization>
+            <id root="3e696251-be6d-4aea-b7f7-7f70b460a684" />
+            <name>General Health</name>
+            <asOrganizationPartOf>
+              <wholeOrganization>
+                <name use="ORGL">West End Healthiness</name>
+                
+                <!--Telecom-->
+                <telecom value="tel:0712341234" use="WP" />
+                
+                <!-- Address-->
+                <addr use="WP">
+                  <streetAddressLine>1 Clinician Street</streetAddressLine>
+                  <state>QLD</state>
+                  <postalCode>5555</postalCode>
+                  <country>Australia</country>
+                  <unitType>Apt</unitType>
+                  <unitID>3A</unitID>
+                  <additionalLocator>Complex Building</additionalLocator>
+                  <houseNumber>A9221</houseNumber>
+                  <streetName>health</streetName>
+                  <streetNameType>Crn</streetNameType>
+                  <direction>W</direction>
+                  <deliveryAddressLine>Care PO</deliveryAddressLine>
+                  <city>Brisbane</city>
+                </addr>
+                
+                <!--EntityIdentifier-->
+                <ext:asEntityIdentifier classCode="IDENT">
+                  <ext:id root="1.2.36.1.2001.1003.0.8003620006000702" assigningAuthorityName="HPI-O" />
+                  <ext:assigningGeographicArea classCode="PLC">
+                    <ext:name>National Identifier</ext:name>
+                  </ext:assigningGeographicArea>
+                </ext:asEntityIdentifier>
+                
+              </wholeOrganization>
+            </asOrganizationPartOf>
+          </serviceProviderOrganization>
+        </healthCareFacility>
+      </location>
+   
+      <!--Begin Prescriber Organization-->
+      
+    </encompassingEncounter>
+  </componentOf>
+  
+  <!-- End CDA Header -->
+  
+  <!-- Begin CDA Body -->
+  
+ <component>
+    <structuredBody>
+      
+      <!-- Begin Administrative Observations section -->
+      <!--0..1-->
+      
+      <component>
+        <section>
+          
+          <id root="87c25693-c110-40c4-a2c2-79b307517cd7" />
+          <code code="102.16080" codeSystem="1.2.36.1.2001.1001.101" codeSystemName="NCTIS Data Components" displayName="Administrative Observations" />
+          <title>Administrative Observations</title>
+          <text mediaType="text/x-hl7-text+xml">
+            <table>
+              <caption>Demographic Data</caption>
+              <thead>
+                <tr>
+                  <th>Field</th>
+                  <th>Value</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Date of Birth is Calculated From Age</td>
+                  <td>True</td>
+                </tr>
+                <tr>
+                  <td>Date of Birth Accuracy Indicator</td>
+                  <td>AAA</td>
+                </tr>
+                <tr>
+                  <td>Age Accuracy Indicator</td>
+                  <td>True</td>
+                </tr>
+                <tr>
+                  <td>Birth Plurality</td>
+                  <td>3</td>
+                </tr>
+                <tr>
+                  <td>Age</td>
+                  <td>54y</td>
+                </tr>
+              </tbody>
+            </table>
+          </text>
+          <entry typeCode="DRIV">
+            <observation classCode="OBS" moodCode="EVN">
+              <id root="2229c8d8-432d-478d-869b-2a37212bd2f2" />
+              <code code="103.16233" codeSystem="1.2.36.1.2001.1001.101" codeSystemName="NCTIS Data Components" displayName="Date of Birth is Calculated From Age" />
+              <value xsi:type="BL" value="true" />
+            </observation>
+          </entry>
+          <entry typeCode="DRIV">
+            <observation classCode="OBS" moodCode="EVN">
+              <id root="30684457-f673-4dac-944a-0e7041b3f7e7" />
+              <code code="102.16234" codeSystem="1.2.36.1.2001.1001.101" codeSystemName="NCTIS Data Components" displayName="Date of Birth Accuracy Indicator" />
+              <value xsi:type="CS" code="AAA" />
+            </observation>
+          </entry>
+          <entry typeCode="DRIV">
+            <observation classCode="OBS" moodCode="EVN">
+              <id root="08454c27-8f65-49b4-89f0-eeb53a627b1c" />
+              <code code="103.16279" codeSystem="1.2.36.1.2001.1001.101" codeSystemName="NCTIS Data Components" displayName="Age Accuracy Indicator" />
+              <value xsi:type="BL" value="true" />
+            </observation>
+          </entry>
+          <entry typeCode="DRIV">
+            <observation classCode="OBS" moodCode="EVN">
+              <id root="ff33b076-2d1b-44f0-a43e-5d7d0d1693f0" />
+              <code code="103.16249" codeSystem="1.2.36.1.2001.1001.101" codeSystemName="NCTIS Data Components" displayName="Birth Plurality" />
+              <value xsi:type="INT" value="3" />
+            </observation>
+          </entry>
+          <entry typeCode="DRIV">
+            <observation classCode="OBS" moodCode="EVN">
+              <id root="915294c7-5d1e-4beb-ba95-7488b32df14f" />
+              <code code="103.20109" codeSystem="1.2.36.1.2001.1001.101" codeSystemName="NCTIS Data Components" displayName="Age" />
+              <value xsi:type="PQ" value="54" unit="a" />
+            </observation>
+          </entry>
+        </section>
+      </component>
+      
+      <!-- End Administrative Observations section -->
+      
+      <!--Begin 8.2 Prescription Item-->
+      
+      <component>
+        <section>
+          <id root="9a276247-4609-444c-bddd-ded194d84b62" />
+          <code code="102.16211" codeSystem="1.2.36.1.2001.1001.101" codeSystemName="NCTIS Data Components" displayName="Prescription Item" />
+          <title>Prescription Item</title>
+          <text>Prescription Item</text>        
+          
+         <!--Begin Error raised in EPM - 68-->
+          
+          <author>
+            <time value="200910201235+1000"/>
+            <assignedAuthor>
+              <id root="7fca92a0-c29f-49f3-85d3-ef95f3651134" />
+            </assignedAuthor>
+          </author>
+          
+          <!--End Error raised in EPM - 68-->
+          
+          <!--Begin DateTime Prescription Expires-->
+          
+          <entry typeCode="DRIV">
+            <observation classCode="OBS" moodCode="EVN">
+              <id root="243950f2-ff49-4efe-9d61-b57c2af1b85f" />
+              <code code="103.10104" codeSystem="1.2.36.1.2001.1001.101" codeSystemName="NCTIS Data Components" displayName="DateTime Prescription Expires" />
+              <effectiveTime value="20120322" />
+            </observation>
+          </entry>
+          
+          <!--End DateTime Prescription Expires-->
+          
+          <entry typeCode="DRIV">
+            <substanceAdministration classCode="SBADM" moodCode="RQO">
+              
+              <!-- Prescription Item > Prescription Item Identifier-->
+              <id root="0a1b602b-7563-40ca-8231-044bc7a5c90b" extension="Prescription Item Identifier" />
+              <!-- Prescription Item > Prescription Item Identifier-->
+              
+              <!-- Prescription Item > Directions-->
+              <text xsi:type="ST">Take only after meals</text>
+              <!-- Prescription Item > Directions-->
+              <statusCode code="active" />
+              
+              
+              <!--Maximum Numebr of repeats -->
+              <repeatNumber>
+                <high value="12" />
+              </repeatNumber>
+              <!--Maximum Numebr of repeats -->
+              
+             <!-- Medication Delivery Method-->
+              <ext:methodCode code="1.1.11245.1" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED CT-AU" displayName="MedicationDeliveryMethod" />
+              <!-- Medication Delivery Method-->
+              <!--Begin Route-->
+              <routeCode code="1.2.31.41" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED CT-AU" displayName="Sample Route" />
+              <!--Begin Route-->
+              <!--Begin Anatomical Site-->
+              <approachSiteCode code="1.222145.1.1" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED CT-AU" displayName="AnatomicalSite" />
+              <!--Begin Anatomical Site-->
+              
+             <!-- Begin Dose Unit-->
+              <!--<doseQuantity value="87" unit="mg" />-->
+              <doseQuantity value="87" />
+              <!-- End Dose Unit-->
+              
+              <!--Number of Administrations-->
+              <maxDoseQuantity>
+                <numerator value="4" unit="wk" />
+                <denominator value="90" unit="wk" />
+              </maxDoseQuantity>
+              <!--Number of Administrations-->
+              
+                          
+              <!--Begin Prescription Item > Therapeutic Good Identification-->
+              <consumable>
+                <manufacturedProduct>
+                  <manufacturedMaterial>                   
+                    
+                    <!--AMT-->
+                    <code code="23641011000036102" codeSystem="1.2.36.1.2001.1004.100" codeSystemName="Australian Medicines Terminology (AMT)" displayName="paracetamol 500 mg + codeine phosphate 30 mg tablet">
+                      <originalText>paracetamol 500 mg + codeine phosphate 30 mg tablet</originalText>
+                      <translation code="100221.02" codeSystem="1.2.36.1.2001.1001.101" codeSystemName="NCTIS Data Components" displayName="PBSRPBSItemCode">
+                       
+                      </translation>
+                    </code>
+                    <!--AMT-->
+              <!--End Prescription Item > Therapeutic Good Identification-->
+                    
+                    <!--Begin Prescription Item > Extemporaneous Preparation Description > PBS Extemporaneous Ingredient-->
+                    
+                    <ext:asIngredient classCode="INGR">
+                      <ext:ingredientManufacturedMaterial classCode="MMAT" determinerCode="KIND">
+                        
+                   <!--Begin Prescription Item > Extemporaneous Preparation Description > PBS Extemporaneous Ingredient-->
+                        
+                        <!--Begin Prescription Item > Extemporaneous Preparation Description > PBS Extemporaneous Ingredient > PBS Extemporaneous Ingredient Name -->
+                        <ext:code code="1.1.1.1.1.1" codeSystem="1.2.36.1.2001.1001.101" codeSystemName="NCTIS Data Components" displayName="PBS Extemporaneous Ingredient Name">
+                          <originalText>Original Text</originalText>
+                        </ext:code>
+                        <!--End Prescription Item > Extemporaneous Preparation Description > PBS Extemporaneous Ingredient > PBS Extemporaneous Ingredient Name -->
+                        
+                        <!--Begin Prescription Item > Extemporaneous Preparation Description > PBS Extemporaneous Ingredient > PBS Extemporaneous Ingredient Quantity -->
+                        <ext:quantity xsi:type="RTO_PQ_PQ">
+                          <numerator xsi:type = "PQ" value="5" unit="mg"/>
+                          <denominator  value="1"/>
+                        </ext:quantity>
+                        <!--End Prescription Item > Extemporaneous Preparation Description > PBS Extemporaneous Ingredient > PBS Extemporaneous Ingredient Quantity -->
+                      </ext:ingredientManufacturedMaterial>
+                    </ext:asIngredient>   
+                    
+                    
+                    <!-- Begin Structured Dose > Quantity (If not provided as UCUM unit) -->
+                    <ext:formCode code = "32570641000036102" codeSystem = "2.16.840.1.113883.6.96" codeSystemName = "SNOMED CT-AU" displayName = "Dose Unit Reference Set"/>
+                  </manufacturedMaterial>
+                  
+                  <!--Begin Prescription Item > Grounds for Concurrent Supply-->
+                  <ext:subjectOf1>
+                    <ext:policy classCode="JURISPOL" moodCode="PERM">
+                      <ext:code code="1" codeSystem="1.2.36.1.2001.1001.101.104.16085" codeSystemName="NCTIS Concurrent Supply Grounds Values" displayName="Pursuant to Regulation 24"/>
+                    </ext:policy>
+                  </ext:subjectOf1>
+                  <!--End Prescription Item > Grounds for Concurrent Supply-->
+                  
+                  <!--Begin Prescription Item > State Authority Number-->
+                  <ext:subjectOf1>
+                    <ext:policy classCode="JURISPOL" moodCode="PERM">
+                      <ext:id root="d557492e-2f18-4149-8bcb-5bacc69aaa7c" extension="StateAuthorityNumber-Extention" />
+                      <ext:code code="103.16018" codeSystem="1.2.36.1.2001.1001.101" codeSystemName="NCTIS Data Components" displayName="State Authority Number" />
+                    </ext:policy>
+                  </ext:subjectOf1>
+                  <!--Begin Prescription Item > State Authority Number-->
+               
+                  
+                  <!--Begin Prescription Item > PBS/RPBS Authority Prescription Number-->
+                  <ext:subjectOf1>
+                    <ext:policy classCode="JURISPOL" moodCode="PERM">
+                      <ext:id root="1.2.36.1.5001.1.1.3.2.2" extension="something" />
+                      <ext:code code="103.16719" codeSystem="1.2.36.1.2001.1001.101" codeSystemName="NCTIS Data Components" displayName="PBS/RPBS Authority Prescription Number" />
+                    </ext:policy>
+                  </ext:subjectOf1>
+                  <!--End Prescription Item > PBS/RPBS Authority Prescription Number-->
+                  
+                  <!--Begin Prescription Item > Streamlined Authority Approval Number-->
+                  <!--Shall be classCode="JURISPOL" as per the schema the IG has classCode="COV"-->
+                  <ext:subjectOf1>
+                    <ext:policy classCode="JURISPOL" moodCode="PERM">
+                      <ext:id root="1.2.36.1.2001.1005.24" extension="Can be StreamlinedAuthorityApprovalNumber" />
+                      <ext:code code="103.16718" codeSystem="1.2.36.1.2001.1001.101" codeSystemName="NCTIS Data Components" displayName="Streamlined Authority Approval Number" />
+                    </ext:policy>
+                  </ext:subjectOf1>
+                  <!--Begin Prescription Item > Streamlined Authority Approval Number-->
+                  
+                </manufacturedProduct>
+              </consumable>
+              
+              <!--Long-Term-->
+              <entryRelationship typeCode="COMP">
+                <observation classCode="OBS" moodCode="EVN">
+                  <id root="932da485-e4e7-4e38-b394-41d92cfc6070" />
+                  <code code="103.16440" codeSystem="1.2.36.1.2001.1001.101" codeSystemName="NCTIS Data Components" displayName="Long-Term" />
+                  <value xsi:type="BL" value="true" />
+                </observation>
+              </entryRelationship>
+              <!--Long-Term-->
+              
+            
+              <!-- Begin Prescription Item > Formula-->
+              <entryRelationship typeCode="COMP">
+                <act classCode="INFRM" moodCode="RQO">
+                  <id root="2eaba572-8f5e-4e50-838c-11492ac6327e" />
+                  <code code="103.16272" codeSystem="1.2.36.1.2001.1001.101" codeSystemName="NCTIS Data Components" displayName="Formula" />
+                  <text xsi:type="ST">BORIC ACID, OLIVE OIL AND ZINC OXIDE (BOZ) Ointment: Boric Acid 1% in Paraffin Ointment B.P. 25 Olive Oil 25 Zinc Oxide Ointment to 100</text>
+                </act>
+              </entryRelationship>
+              <!-- End Prescription Item > Formula-->
+              
+             
+            
+              <entryRelationship typeCode="COMP">
+                <supply classCode="SPLY" moodCode="RQO">
+                  
+                  <!--Begin Prescription Item > Dispense Item Identifier-->
+                  <id root="91f4c1a4-1168-41be-a5c6-9043edb0da25"/>
+                  <!--Begin Prescription Item > Dispense Item Identifier-->
+                  
+                  <!--Begin Prescription Item > Minimum Interval Between Repeats-->
+                  <effectiveTime xsi:type="PIVL_TS">
+                    
+                      <!-- This update per ID:55 
+                        <numerator xsi:type="URG_PQ" value="8" unit="wk" />
+                        <denominator xsi:type="INT" value="1" />-->
+                      <period value="7" unit="d" />
+                    
+                  </effectiveTime>
+                  <!--End Prescription Item > Minimum Interval Between Repeats-->
+                  
+                  <!-- Begin Prescription Item > QUANTITY TO DISPENSE > Quantity/Unit -->
+                  <quantity value = "10"/>
+                  <!--<quantity value = "10" unit = "mg" />-->
+                  <!-- End Prescription Item > QUANTITY TO DISPENSE > Quantity/Unit -->
+                  
+                  <!--Begin Prescription Item > PBS/RPBS Manufacturer Code-->
+                  <product>
+                    <manufacturedProduct>
+                      <manufacturedMaterial >
+                        <ext:formCode code = "32570641000036102" codeSystem = "2.16.840.1.113883.6.96" codeSystemName = "SNOMED CT-AU" displayName = "Dispensing Unit Reference Set"/>
+                      </manufacturedMaterial>
+                      <manufacturerOrganization>
+                        <id root="1.2.36.1.2001.1005.23" extension="AB" />
+                      </manufacturerOrganization>
+                    </manufacturedProduct>
+                  </product>
+                  <!--End Prescription Item > PBS/RPBS Manufacturer Code-->
+                  
+                  
+                  
+                  <!--Quantity Description-->
+                  <!--<entryRelationship typeCode="COMP">
+                    <act classCode="INFRM" moodCode="INT">
+                      <id root="559e5bba-da18-45f4-8ece-c44d8e4deef6" />
+                      <code code="246205007" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED CT-AU" displayName="Quantity" />
+                      <text>QuantityDescription</text>
+                    </act>
+                  </entryRelationship>-->
+                  <!--Quantity Description-->
+                  
+                  <!--Begin Prescription Item > Brand Substitute Not Allowed-->
+                  <ext:subjectOf2>
+                    <ext:substitutionPermission classCode="SUBST" moodCode="PERM">
+                      <ext:code code="N" codeSystem="2.16.840.1.113883.5.1070" codeSystemName="HL7:SubstanceAdminSubstitution" displayName="Therapeutic" />
+                    </ext:substitutionPermission>
+                  </ext:subjectOf2>
+                  <!--End Prescription Item > Brand Substitute Not Allowed-->
+                  
+                  <!--PBS Prescription Type-->
+                  <ext:coverage typeCode="COVBY">
+                    <ext:policyOrAccount classCode="COV" moodCode="PERM">
+                      <ext:code code="6" codeSystem="1.2.36.1.5001.1.1.3.2.6" codeSystemName="Prescription Type Values" displayName="PBS/RPBS Nurse Practitioner and Midwives Prescription" />
+                    </ext:policyOrAccount>
+                  </ext:coverage>
+                  <!--PBS Prescription Type-->
+                  
+                  <!--Begin Prescription Item > Medical Benefit Category Type-->
+                  <ext:coverage typeCode="COVBY">
+                    <ext:policyOrAccount classCode="COV" moodCode="PERM">
+                      <ext:code code="1" codeSystem="1.2.36.1.2001.1001.101.104.16095" codeSystemName="NCTIS Medical Benefit Category Type Values" displayName="PBS" />
+                    </ext:policyOrAccount>
+                  </ext:coverage>
+                  <!--End Prescription Item > Medical Benefit Category Type-->
+                  
+                  <!--Begin Prescription Item > PBS Close the Gap Benefit-->
+                  <ext:coverage typeCode="COVBY">
+                    <ext:policyOrAccount classCode="COV" moodCode="PERM">
+                      <ext:id root="4ebcaf96-f7f6-4162-a42e-c440b60b49a4" extension="CTG06X" />
+                      <ext:code code="103.16095.3" codeSystem="1.2.36.1.2001.1001.101" codeSystemName="NCTIS Data Components" displayName="PBS Close the Gap Benefit" />
+                    </ext:policyOrAccount>
+                  </ext:coverage>
+                  <!--End Prescription Item > PBS Close the Gap Benefit-->
+                  
+                  <!--Prescription Item > PBS/RPBS Authority Approval Number-->
+                  <ext:coverage typeCode="COVBY">
+                    <ext:policyOrAccount classCode="COV" moodCode="PERM">
+                      <ext:id root="1.2.36.1.5001.1.1.3.2.3" extension="something" />
+                      <ext:code code="103.10159" codeSystem="1.2.36.1.2001.1001.101" codeSystemName="NCTIS Data Components" displayName="PBS/RPBS Authority Approval Number" />
+                    </ext:policyOrAccount>
+                  </ext:coverage>
+                  <!--Prescription Item > PBS/RPBS Authority Approval Number-->
+                </supply>
+              </entryRelationship>
+              
+              <!--Timing Description-->
+              <entryRelationship typeCode="COMP">
+                <act classCode="ACT" moodCode="EVN">
+                  <code code="246512002" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED CT" displayName="Timing" />
+                  <text>Can be Timing Description</text>
+                </act>
+              </entryRelationship>
+              <!--Timing Description-->
+              
+              <entryRelationship typeCode="COMP">
+                <act classCode="ACT" moodCode="EVN">
+                  <code code="246205007" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED CT" displayName="Quantity" />
+                  <text>quantityDescription</text>
+                </act>
+              </entryRelationship>
+              
+              <!--Begin Prescription Item > Reason for Therapeutic Good-->
+              <entryRelationship typeCode="RSON">
+                <act classCode="INFRM" moodCode="RQO">
+                  <code code="103.10141" codeSystem="1.2.36.1.2001.1001.101" codeSystemName="NCTIS Data Components" displayName="Reason for Therapeutic Good" />
+                  <text xsi:type="ST">Stomach pains</text>
+                </act>
+              </entryRelationship>
+              <!--End Prescription Item > Reason for Therapeutic Good-->
+              
+             <!-- Begin Prescription Item > Additional Comments-->
+              <entryRelationship typeCode="COMP">
+                <act classCode="INFRM" moodCode="EVN">
+                  <id root="464159fa-4d42-4164-a180-011f6a85e259" />
+                  <code code="103.16044" codeSystem="1.2.36.1.2001.1001.101" codeSystemName="NCTIS Data Components" displayName="Additional Comments" />
+                  <text xsi:type="ST">Don't take too much</text>
+                </act>
+              </entryRelationship>
+              <!-- Begin Prescription Item > Additional Comments-->
+              
+              <!--Start Criterion-->
+              <entryRelationship typeCode="COMP">
+                <ext:controlAct classCode="CACT" moodCode="EVN">
+                  <ext:code code="103.16436" codeSystem="1.2.36.1.2001.1001.101" codeSystemName="NCTIS Data Components" displayName="Start Criterion" />
+                  <!--Start Date-->
+                  <ext:effectiveTime value="20130524114822+1000" />
+                  <!--Start Date-->
+                </ext:controlAct>
+              </entryRelationship>
+              <!--Start Criterion-->
+              
+              <!--Stop Criterion-->
+              <entryRelationship typeCode="COMP">
+                <ext:controlAct classCode="CACT" moodCode="EVN">
+                  <ext:code code="103.16434" codeSystem="1.2.36.1.2001.1001.101" codeSystemName="NCTIS Data Components" displayName="Stop Criterion" />
+                  <!--Stop Date-->
+                  <ext:effectiveTime value="20130529114822+1000" />
+                  <!--Stop Date-->                  
+                </ext:controlAct>
+              </entryRelationship>
+              <!--Stop Criterion-->
+              
+              <!--Begin Prescription Item > Medication Instuction Identifier-->
+              <reference typeCode="SPRT">
+                <seperatableInd value="true" />
+                <externalAct moodCode="EVN" classCode="ACT">
+                  <id root="ec9dc6ad-5554-4279-b921-8c909a5a69ec" extension="can be displayName" />
+                  <code code="103.16444" codeSystem="1.2.36.1.2001.1001.101" codeSystemName="NCTIS Data Components" displayName="Medication Instruction Identifier" />
+                </externalAct>
+              </reference>
+              <!--Begin Prescription Item > Medication Instuction Identifier-->
+              
+              <!--PRN-->
+              <precondition>
+                <criterion>
+                  <value xsi:type="BL" value="true" />
+                </criterion>
+              </precondition>
+              <!--PRN-->
+              
+            </substanceAdministration>
+          </entry>
+          
+         <!-- Begin 8.6 Prescription Note Detail-->
+          <entry typeCode="DRIV">
+            <act classCode="INFRM" moodCode="EVN">
+              <id root="650deaba-668e-410f-8f03-ebec6c654f54" />
+              <code code="102.16212" codeSystem="1.2.36.1.2001.1001.101" codeSystemName="NCTIS Data Components" displayName="Prescription Note Detail" />
+              <text xsi:type="ST">No more details on this medication</text>
+            </act>
+          </entry>
+          <!-- End 8.6 Prescription Note Detail-->
+          
+          <!--Begin SOC > Participant > Entitlement-->
+          <ext:coverage2 typeCode="COVBY">
+            <ext:entitlement classCode="COV" moodCode="EVN">
+              <ext:id root="1.2.36.174030967.0.5" extension="1234567892"
+                assigningAuthorityName="Australian Medicare number"/>
+              <ext:code code="1" codeSystem="1.2.36.1.2001.1001.101.104.16047" codeSystemName="NCTIS Entitlement Type Values" displayName="Medicare Benefits">
+                <originalText>Medicare Benefits</originalText>
+              </ext:code>
+              <ext:effectiveTime>
+                <high value="20110101"/>
+              </ext:effectiveTime>
+              <ext:participant typeCode="BEN">
+                <ext:participantRole classCode="PAT">
+                  <ext:id root="7AA0BAAC-0CD0-11E0-9516-4350DFD72085" />
+                </ext:participantRole>
+              </ext:participant>
+            </ext:entitlement>
+          </ext:coverage2>
+          <!--End SOC > Participant > Entitlement-->        
+          
+          <!--Begin  Prescriber Organization > Participant > Entitlement-->
+          <ext:coverage2 typeCode="COVBY">
+            <ext:entitlement classCode="COV" moodCode="EVN">
+              <ext:id root="1.2.36.1.5001.1.1.3.2.4" extension="01234567"
+                assigningAuthorityName="Medicare Australia"/>
+              <ext:code code="10" codeSystem="1.2.36.1.2001.1001.101.104.16047" codeSystemName="NCTIS Entitlement Type Values" displayName="Medicare Prescriber Number">
+                <originalText>Medicare Prescriber Number</originalText>
+              </ext:code>
+              <ext:effectiveTime>
+                <low value = "200501010101"/>
+                <high value="202501010101"/>
+              </ext:effectiveTime>
+              <ext:participant typeCode="HLD">
+                <ext:participantRole classCode="ASSIGNED">
+                  <ext:id root="7AA0BAAC-0CD0-11E0-9516-4350DFD72085" />
+                </ext:participantRole>
+              </ext:participant>
+            </ext:entitlement>
+          </ext:coverage2>
+          <!--End Prescriber Organization > Participant > Entitlement-->
+          
+          <!--Begin Prescriber > Participant > Entitlement -->
+          <ext:coverage2 typeCode="COVBY">
+            <ext:entitlement classCode="COV" moodCode="EVN">
+              <ext:id root="1.2.36.1.5001.1.1.3.2.4" extension="01234567"
+                assigningAuthorityName="Medicare Australia"/>
+              <ext:code code="10" codeSystem="1.2.36.1.2001.1001.101.104.16047" codeSystemName="NCTIS Entitlement Type Values" displayName="Medicare Prescriber Number">
+                <originalText>Medicare Prescriber Number</originalText>
+              </ext:code>
+              <ext:effectiveTime>
+                <low value = "200501010101"/>
+                <high value="202501010101"/>
+              </ext:effectiveTime>
+              <ext:participant typeCode="HLD">
+                <ext:participantRole classCode="ASSIGNED">
+                  <ext:id root="7AA0BAAC-0CD0-11E0-9516-4350DFD72085" />
+                </ext:participantRole>
+              </ext:participant>
+            </ext:entitlement>
+          </ext:coverage2>
+          <!--End Prescriber > Participant > Entitlement -->
+          
+        </section>
+      </component>
+      
+      <!--End 8.2 Prescription Item-->
+      
+      <!-- Begin 8.3 Observations-->
+      <component>
+        
+        <section>
+          <id root="31ec7b0b-d431-4b7d-ac1a-0db0d60d225d" />
+          <code code="101.16280" codeSystem="1.2.36.1.2001.1001.101" codeSystemName="NCTIS Data Components" displayName="Observations" />
+          <title>Observations</title>
+          <text>Observations</text>          
+          
+          <!--Begin 8.4 Body Weight -->         
+          <entry typeCode="DRIV">
+            <observation classCode="OBS" moodCode="EVN">
+              <id root="1bce0df6-5ba4-40c4-b557-0daf14ea1974" />
+              <code code="27113001" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED CT-AU" displayName="Body Weight" codeSystemVersion = "20101130">
+                <originalText>Body Weight</originalText>
+              </code>
+              <effectiveTime value="20110501000000+1000" />
+              <value xsi:type="PQ" value="89" unit="kg" />
+            </observation>
+          </entry>
+          <!--End 8.4 Body Weight -->
+          
+          <!--Begin 8.5 Body Height-->
+          <entry typeCode="DRIV">
+            <observation classCode="OBS" moodCode="EVN">
+              <id root="2a79e14a-c50b-4652-a739-e9d2efc1007e" />
+              <code code="50373000" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED CT-AU" displayName="Body Height" codeSystemVersion = "20101130">
+                <originalText>Body Height</originalText>
+              </code>
+              <effectiveTime value="20110501000000+1000" />
+              <value xsi:type="PQ" value="67" unit="cm" />
+            </observation>
+          </entry>
+          <!--End 8.5 Body Height-->        
+          
+          
+        </section>
+      </component>
+      
+      <!-- End 8.3 Observations-->     
+      
+      <component>
+        <section>
+          <entry>
+            <observationMedia ID="LOGO" classCode="OBS" moodCode="EVN">
+              <id root="6214083a-87cd-49d2-92ee-b6e0cc59f8a7" />
+              <value mediaType="image/png" integrityCheck="9YrohydDw1atoMapcwcQdUBWcek=">
+                <reference value="logo.png" />
+              </value>
+            </observationMedia>
+          </entry>
+        </section>
+      </component>
+    </structuredBody>
+  </component>
+</ClinicalDocument>
