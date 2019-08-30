@@ -1,5 +1,9 @@
 # Change Log/Revision History
 
+  = 1.0.1 = 
+  =======
+  + Updated constructor for shs/es allowing for non snomed codes to be used in coded field.
+
   = 1.0 = Event Summary Document
   =======
 

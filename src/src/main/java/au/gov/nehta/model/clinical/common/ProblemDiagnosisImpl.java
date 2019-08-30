@@ -2,7 +2,6 @@ package au.gov.nehta.model.clinical.common;
 
 import au.gov.nehta.common.utils.ArgumentUtils;
 import au.gov.nehta.model.cda.common.code.Coded;
-import au.gov.nehta.model.cda.common.code.SNOMED_AU_Code;
 import au.gov.nehta.model.cda.common.time.PreciseDate;
 import au.gov.nehta.model.clinical.common.types.UniqueIdentifier;
 import au.gov.nehta.model.clinical.common.types.UniqueIdentifierImpl;
@@ -21,7 +20,8 @@ public class ProblemDiagnosisImpl implements ProblemDiagnosis {
 
 
   /**
-   * @param identification Identification of the problem or diagnosis. a snomed ct-au code
+   * @param identification Identification of the problem or diagnosis. a <i>(preferably but not
+   * mandatory a <b>SNOMED CT-AU</b>) </i> code
    * @param dateOfOnset optional Estimated or actual date the Problem/Diagnosis began, in the
    * opinion of the clinician.
    * @param remissionDate optional Estimated or actual date the Problem/Diagnosis began, in the
@@ -31,7 +31,7 @@ public class ProblemDiagnosisImpl implements ProblemDiagnosis {
    * The date or estimated date that the problem/diagnosis resolved or went into remission, as
    * indicated/identified by the clinician.
    */
-  public ProblemDiagnosisImpl(SNOMED_AU_Code identification, PreciseDate dateOfOnset,
+  public ProblemDiagnosisImpl(Coded identification, PreciseDate dateOfOnset,
       PreciseDate remissionDate, String comment) {
     ArgumentUtils.checkNotNull(identification, "identification");
     this.identification = identification;
@@ -92,9 +92,29 @@ public class ProblemDiagnosisImpl implements ProblemDiagnosis {
     return id;
   }
 
-
+  @Override
   public void setID(UniqueIdentifier id) {
     this.id = id;
+  }
+
+  @Override
+  public void setIdentification(Coded identification) {
+    this.identification = identification;
+  }
+
+  @Override
+  public void setDateOfOnset(PreciseDate dateOfOnset) {
+    this.dateOfOnset = dateOfOnset;
+  }
+
+  @Override
+  public void setRemissionDate(PreciseDate remissionDate) {
+    this.remissionDate = remissionDate;
+  }
+
+  @Override
+  public void setComment(String comment) {
+    this.comment = comment;
   }
 
 }

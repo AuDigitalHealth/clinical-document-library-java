@@ -44,4 +44,15 @@ public interface ProblemDiagnosis {
 	 * used.
 	 */
     UniqueIdentifier getID();
+
+	void setID(UniqueIdentifier id);
+
+	void setIdentification(Coded identification);
+
+	void setDateOfOnset(PreciseDate dateOfOnset);
+
+	void setRemissionDate(PreciseDate remissionDate);
+
+	void setComment(String comment);
+
 }
