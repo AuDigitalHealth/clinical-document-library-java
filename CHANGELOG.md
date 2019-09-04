@@ -1,5 +1,10 @@
 # Change Log/Revision History
 
+
+  = 1.0.2 = 
+  =======
+  + Updated nehta-schematron-check Jar to use File.pathSeparator
+
   = 1.0.1 = 
   =======
   + Updated constructor for shs/es allowing for non snomed codes to be used in coded field.
