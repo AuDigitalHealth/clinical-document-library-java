@@ -5,7 +5,6 @@ import au.gov.nehta.model.cda.common.id.AsEntityIdentifier;
 import au.gov.nehta.model.cda.common.person_org.PersonHealthcareProvider;
 import au.gov.nehta.model.clinical.common.address.Address;
 import au.gov.nehta.model.clinical.common.participation.Organisation;
-
 import java.util.List;
 
 public interface ServiceProvider {
@@ -30,8 +29,9 @@ public interface ServiceProvider {
 
     void setHealthCareProvider(PersonHealthcareProvider person);
 
+    Class getExecutingClass();
 
+    void setExecutingClass(Class executingClass);
 
-    //TODO Misssing validation
 
 }

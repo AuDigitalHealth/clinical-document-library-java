@@ -1,0 +1,32 @@
+    <pattern name="p-Service_Referral_PRIMARY_CARE_PROVIDER_6_1_4_custom-errors"
+        id="p-Service_Referral_PRIMARY_CARE_PROVIDER_6_1_4_custom-errors"
+        see="#p-Service_Referral_PRIMARY_CARE_PROVIDER_6_1_4_custom-errors">
+
+
+
+
+        <rule context="/cda:ClinicalDocument">
+
+            <report test="cda:participant[@typeCode = 'PART']/cda:associatedEntity/cda:associatedPerson and
+                    cda:participant[@typeCode = 'PART']/cda:associatedEntity/cda:scopingOrganization">Error: Service Referral - 6.1.4 PRIMARY CARE PROVIDER - Each instance of
+                PRIMARY CARE PROVIDER shall have either PRIMARY CARE PROVIDER as a PERSON (or)
+                PRIMARY CARE PROVIDER as an ORGANISATION but not both. Refer to section 6.1.4 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</report>
+
+        </rule>
+
+
+        <rule context="/cda:ClinicalDocument/cda:participant[@typeCode = 'PART']/cda:associatedEntity">
+            
+            <assert test="cda:associatedPerson or cda:scopingOrganization"
+                >Error: Service Referral - 6.1.4 PRIMARY CARE PROVIDER - Each instance of
+                PRIMARY CARE PROVIDER shall have either 'associatedPerson' or
+                'scopingOrganization'. Refer to section 6.1.4 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</assert>
+            
+        </rule>
+        
+
+
+    </pattern>
+

@@ -8,9 +8,13 @@ public class DiagnosticInvestigationsImpl implements DiagnosticInvestigations {
   private List<PathologyTestResult> pathologyTestResults;
   private List<ImagingExaminationResult> imagingExaminationResults;
   private List<RequestedService> requestedServices;
-  private StrucDocText customNarrativeDiagnosticInvestigations;
   private List<OtherTestResult> otherTestResults;
-
+  private StrucDocText customNarrative;
+  private StrucDocText pathologyCustomNarrative;
+  private StrucDocText imagingExaminationResultCustomNarrative;
+  private StrucDocText requestedServicesCustomNarrative;
+  private StrucDocText otherTestResultsCustomNarrative;
+  private List<au.gov.nehta.model.clinical.sr.RequestedService> requestedServiceServiceReferral;
 
   @Override
   public List<PathologyTestResult> getPathologyTestResults() {
@@ -28,8 +32,8 @@ public class DiagnosticInvestigationsImpl implements DiagnosticInvestigations {
   }
 
   @Override
-  public StrucDocText getCustomNarrativeDiagnosticInvestigations() {
-    return customNarrativeDiagnosticInvestigations;
+  public StrucDocText getCustomNarrative() {
+    return customNarrative;
   }
 
   @Override
@@ -60,8 +64,63 @@ public class DiagnosticInvestigationsImpl implements DiagnosticInvestigations {
   }
 
   @Override
-  public void customNarrativeDiagnosticInvestigations(
-      StrucDocText customNarrativeDiagnosticInvestigations) {
-    this.customNarrativeDiagnosticInvestigations = customNarrativeDiagnosticInvestigations;
+  public void setCustomNarrative(
+      StrucDocText customNarrative) {
+    this.customNarrative = customNarrative;
+  }
+
+  @Override
+  public DiagnosticInvestigations addPathologySectionAsNarrative(StrucDocText narrative) {
+    this.pathologyCustomNarrative = narrative;
+    return this;
+  }
+
+  @Override
+  public DiagnosticInvestigations addImagingExaminationSectionAsNarrative(StrucDocText narrative) {
+    this.imagingExaminationResultCustomNarrative = narrative;
+    return this;
+  }
+
+  @Override
+  public DiagnosticInvestigations addRequestedServicesSectionAsNarrative(StrucDocText narrative) {
+    this.requestedServicesCustomNarrative = narrative;
+    return this;
+  }
+
+  @Override
+  public DiagnosticInvestigations addOtherTestResultsAsNarrative(StrucDocText narrative) {
+    this.otherTestResultsCustomNarrative = narrative;
+    return this;
+  }
+
+  @Override
+  public StrucDocText getPathologyCustomNarrative() {
+    return pathologyCustomNarrative;
+  }
+
+  @Override
+  public StrucDocText getImagingExaminationResultCustomNarrative() {
+    return imagingExaminationResultCustomNarrative;
+  }
+
+  @Override
+  public StrucDocText getRequestedServicesCustomNarrative() {
+    return requestedServicesCustomNarrative;
+  }
+
+  @Override
+  public StrucDocText getOtherTestResultsCustomNarrative() {
+    return otherTestResultsCustomNarrative;
+  }
+
+  @Override
+  public List<au.gov.nehta.model.clinical.sr.RequestedService> getRequestedServicesServiceReferral() {
+    return requestedServiceServiceReferral;
+  }
+
+  @Override
+  public void setRequestedServicesServiceReferral(
+      List<au.gov.nehta.model.clinical.sr.RequestedService> requestedServicesServiceReferral) {
+    this.requestedServiceServiceReferral = requestedServicesServiceReferral;
   }
 }

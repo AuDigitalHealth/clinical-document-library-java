@@ -11,5 +11,4 @@ public interface AdverseReaction {
 
     void setReactionEvent(ReactionEvent reactionEvent);
 
-    //TODO Require Validation
 }

@@ -14,7 +14,7 @@ public class LegalAuthenticatorImpl implements LegalAuthenticator {
 
 	public static LegalAuthenticator getInstance( DateTime authenticationTime, AssignedEntity assignedEntity ) {
 
-		return (LegalAuthenticator) new LegalAuthenticatorImpl( authenticationTime, assignedEntity );
+		return new LegalAuthenticatorImpl(authenticationTime, assignedEntity);
 	}
 
 	public DateTime getAuthenticationTime() {

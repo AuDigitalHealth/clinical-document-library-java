@@ -1,0 +1,85 @@
+
+    <!-- e-Discharge_Summary Clinical Document:  7.1.2.1 CURRENT MEDICATIONS ON DISCHARGE -->
+
+    <!-- Context: ClinicalDocument/component/structuredBody/component[meds]/section -->
+
+    <!-- Status: Last Reviewed: 13/2/12
+        Status: Last Updated : 09/04/2012 -->
+
+
+
+    <pattern name="p-e-Discharge_Summary_2_Current_Medications_On_Discharge-errors"
+        id="p-e-Discharge_Summary_2_Current_Medications_On_Discharge-errors"
+        see="#p-e-Discharge_Summary_2_Current_Medications_On_Discharge-errors">
+
+        <!-- Current Medications on Discharge - 1..1-->
+
+        <rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[(cda:code/@code = '101.16022') and (cda:component/cda:section/cda:code/@code = '101.16146.4.1.1')]">
+
+            <report test="count(cda:component[cda:section/cda:code/@code = '101.16146.4.1.1']) > 1"
+                >Error: e-Discharge Summary - 7.1.2.1 Current Medications On Discharge - The
+                'component' tag shall appear only once. Refer to section 7.1.2.1 of the
+                e-Discharge_Summary_CDA_Implementation_Guide_v3.4.</report>
+
+        </rule>
+
+        <rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code = '101.16022']/cda:component[cda:section/cda:code/@code = '101.16146.4.1.1']">
+
+            <report test="count(cda:section[cda:code/@code = '101.16146.4.1.1']) > 1">Error:
+                e-Discharge Summary - 7.1.2.1 Current Medications On Discharge - The 'section' tag shall appear only once.
+                Refer to section 7.1.2.1
+                of the e-Discharge_Summary_CDA_Implementation_Guide_v3.4.</report>
+
+        </rule>
+
+        <rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code = '101.16022']/cda:component/cda:section[cda:code/@code = '101.16146.4.1.1']">
+
+            <report test="count(cda:code[@code = '101.16146.4.1.1']) > 1">Error: e-Discharge Summary -
+                7.1.2.1 Current Medications On Discharge - The 'code' tag shall appear only once.
+                Refer to section 7.1.2.1 of the
+                e-Discharge_Summary_CDA_Implementation_Guide_v3.4.</report>
+
+            <!-- Updated RV 06/04/2012 Mantis Id - 3038 -->
+            <assert test="cda:title">Error: e-Discharge Summary -
+                7.1.2.1 Current Medications On Discharge - The 'title' tag is missing.
+                Refer to section 7.1.2.1 of the e-Discharge_Summary_CDA_Implementation_Guide_v3.4.</assert>
+
+            <report test="cda:title and not(translate(cda:title, 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ') = 'CURRENT MEDICATIONS ON DISCHARGE')">
+                Error: e-Discharge Summary -
+                7.1.2.1 Current Medications On Discharge - The 'title' tag shall contain the value 'CURRENT MEDICATIONS ON DISCHARGE'.
+                Refer to section 7.1.2.1 of the e-Discharge_Summary_CDA_Implementation_Guide_v3.4.</report>
+            <!-- Update ended - Mantis Id - 3038 -->
+
+        </rule>
+
+        <rule context="cda:code[@code = '101.16146.4.1.1']">
+
+            <assert test="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code = '101.16022']/cda:component/cda:section/cda:code[@code = '101.16146.4.1.1']"
+                >Error: e-Discharge Summary - 7.1.2.1 Current Medications On Discharge -
+                The "/ClinicalDocument/component/structuredBody/component/section[code/@code = '101.16022']/component/section/code[@code = '101.16146.4.1.1']" path -
+                1 or more tags are missing. Refer to section 7.1.2.1 of the
+                e-Discharge_Summary_CDA_Implementation_Guide_v3.4.</assert>
+
+            <assert test="@codeSystem = '1.2.36.1.2001.1001.101'">Error: e-Discharge Summary - 7.1.2.1
+                Current Medications On Discharge - The 'code' tag 'codeSystem' attribute shall be
+                '1.2.36.1.2001.1001.101'. Refer to section 7.1.2.1 of the
+                e-Discharge_Summary_CDA_Implementation_Guide_v3.4.</assert>
+
+            <assert
+                test="translate(@codeSystemName, 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ') = 'NCTIS DATA COMPONENTS'"
+                >Error: e-Discharge Summary - 7.1.2.1 Current Medications On Discharge - The 'code'
+                tag 'codeSystemName' attribute shall contain the value 'NCTIS Data Components'. Refer to section
+                7.1.2.1 of the e-Discharge_Summary_CDA_Implementation_Guide_v3.4.</assert>
+
+            <assert
+                test="translate(@displayName, 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ') = 'CURRENT MEDICATIONS ON DISCHARGE'"
+                >Error: e-Discharge Summary - 7.1.2.1 Current Medications On Discharge - The 'code'
+                tag 'displayName' attribute shall contain the value 'Current Medications on Discharge'. Refer to
+                section 7.1.2.1 of the
+                e-Discharge_Summary_CDA_Implementation_Guide_v3.4.</assert>
+
+        </rule>
+
+    </pattern>
+
+

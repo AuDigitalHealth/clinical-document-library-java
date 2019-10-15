@@ -9,6 +9,7 @@ import au.gov.nehta.model.cda.common.telecom.Telecom;
 import au.gov.nehta.model.clinical.common.participation.PersonName;
 import au.net.electronichealth.ns.cda._2_0.AD;
 import au.net.electronichealth.ns.cda._2_0.II;
+import au.net.electronichealth.ns.cda._2_0.ObjectFactory;
 import au.net.electronichealth.ns.cda._2_0.POCDMT000040AssignedCustodian;
 import au.net.electronichealth.ns.cda._2_0.POCDMT000040AssignedEntity;
 import au.net.electronichealth.ns.cda._2_0.POCDMT000040CustodianOrganization;
@@ -23,9 +24,11 @@ import java.util.Objects;
 
 public class CDAModelConverter {
 
+  private static ObjectFactory objectFactory = new ObjectFactory();
+
   public static POCDMT000040AssignedEntity convertAssignedEntity(
       AssignedEntity cdaModelAssignedEntity) {
-    POCDMT000040AssignedEntity assignedEntity = new POCDMT000040AssignedEntity();
+    POCDMT000040AssignedEntity assignedEntity = objectFactory.createPOCDMT000040AssignedEntity();
     assignedEntity.getId().add(CDATypeUtil.getII(cdaModelAssignedEntity.getId()));
 
     if (cdaModelAssignedEntity.getCode() != null) {
@@ -51,7 +54,7 @@ public class CDAModelConverter {
   }
 
   private static POCDMT000040Person convertPerson(Person cdaModelPerson) {
-    POCDMT000040Person assignedPerson = new POCDMT000040Person();
+    POCDMT000040Person assignedPerson = objectFactory.createPOCDMT000040Person();
     assignedPerson.getAsEntityIdentifier().addAll(
         Collections.singletonList(Converter.convert(cdaModelPerson.getAsEntityIdentifier())));
 
@@ -83,7 +86,7 @@ public class CDAModelConverter {
   }
 
   private static POCDMT000040Organization convertOrganization(Organization cdaModelOrganisation) {
-    POCDMT000040Organization organization = new POCDMT000040Organization();
+    POCDMT000040Organization organization = objectFactory.createPOCDMT000040Organization();
     if (null != cdaModelOrganisation.getAsEntityIdentifier()) {
       organization.getAsEntityIdentifier()
           .add(Converter.convert(cdaModelOrganisation.getAsEntityIdentifier()));
@@ -98,8 +101,10 @@ public class CDAModelConverter {
 
   public static POCDMT000040AssignedCustodian convertAssignedCustodian(
       CustodianOrganization custodianOrg) {
-    POCDMT000040AssignedCustodian assignedCustodian = new POCDMT000040AssignedCustodian();
-    POCDMT000040CustodianOrganization assignedCustodianOrganization = new POCDMT000040CustodianOrganization();
+    POCDMT000040AssignedCustodian assignedCustodian = objectFactory
+        .createPOCDMT000040AssignedCustodian();
+    POCDMT000040CustodianOrganization assignedCustodianOrganization = objectFactory
+        .createPOCDMT000040CustodianOrganization();
     assignedCustodianOrganization.getId()
         .addAll(getCustodianAssignedCustodianRepresentedOrganizationId(custodianOrg));
 

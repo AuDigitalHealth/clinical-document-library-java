@@ -9,16 +9,28 @@ import au.gov.nehta.model.clinical.common.types.UniqueIdentifier;
  */
 public interface ExclusionStatement {
 
+    /*
+     * Used for Specialist Letter implementation
+     */
+		Coded getGlobalStatement();
+
+    /*
+     * Used for Specialist Letter implementation
+     */
+		void setGlobalStatement(Coded globalStatement);
+
 	/* 
 	 * The statement about the absence or exclusion of a data item
 	 * Usual an NCTISGlobalStatement code
 	 */
-	public Coded getExclusionStatement();
-	
+	Coded getExclusionStatement();
+
+	void setExclusionStatement(Coded exclusionStatement);
+
 	/*
 	 * UUID This is a technical identifier that is used for system purposes such
 	 * as matching. If a suitable internal key is not available, a UUID may be
 	 * used.
 	 */
-	public UniqueIdentifier getID();
+	UniqueIdentifier getID();
 }

@@ -1,0 +1,262 @@
+<!--
+_________________________________________________________________________________________________________________________________________________________________________________________
+                  Generated File - Do Not Edit File Directly                                                                                                                             
+                  __________________________________________
+
+                  Generated          : 30/05/2017 1:48:02 PM
+
+                  Product            : Service Referral
+                  Release            : CDA_Implementation_Guide_v1.0
+                  IG Guide Reference : 6.1.4.2
+                  IG Guide Title     : PRIMARY CARE PROVIDER as an ORGANISATION
+                  Generator Version  : 2.28
+                                                                                                                                                                                         
+_________________________________________________________________________________________________________________________________________________________________________________________
+-->
+    <pattern name="p-Service_Referral_PRIMARYCAREPROVIDERasanORGANISATION_6_1_4_2-errors"
+        id="p-Service_Referral_PRIMARYCAREPROVIDERasanORGANISATION_6_1_4_2-errors"
+        see="#p-Service_Referral_PRIMARYCAREPROVIDERasanORGANISATION_6_1_4_2-errors">
+
+
+        <rule context="/cda:ClinicalDocument">
+
+            <report test="count(cda:participant[@typeCode != 'IRCP'][cda:associatedEntity/cda:scopingOrganization]) > 1"
+                >Error: Service Referral - 6.1.4.2 PRIMARY CARE PROVIDER as an ORGANISATION -
+                "PRIMARY CARE PROVIDER" -
+                The 'participant' tag shall appear only once for 'PRIMARY CARE PROVIDER'.
+                Refer to section 6.1.4.2 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</report>
+
+        </rule>
+
+
+        <rule context="/cda:ClinicalDocument/cda:participant[@typeCode != 'IRCP'][cda:associatedEntity/cda:scopingOrganization]">
+
+            <assert test="not(@typeCode) or normalize-space(@typeCode) != ''"
+                >Error: Service Referral - 6.1.4.2 PRIMARY CARE PROVIDER as an ORGANISATION -
+                "PRIMARY CARE PROVIDER" -
+                The 'participant' tag 'typeCode' attribute shall contain a value.
+                Refer to section 6.1.4.2 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</assert>
+
+            <assert test="
+                not(@typeCode) or normalize-space(@typeCode) = '' or @typeCode = 'PART'"
+                >Error: Service Referral - 6.1.4.2 PRIMARY CARE PROVIDER as an ORGANISATION -
+                "PRIMARY CARE PROVIDER" -
+                The 'participant' tag 'typeCode' attribute shall contain the value 'PART'.
+                Refer to section 6.1.4.2 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</assert>
+
+            <assert test="not(cda:time)"
+                >Error: Service Referral - 6.1.4.2 PRIMARY CARE PROVIDER as an ORGANISATION -
+                "PRIMARY CARE PROVIDER / Participation period" -
+                The 'time' tag shall not be present.
+                Refer to section 6.1.4.2 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</assert>
+
+            <assert test="cda:functionCode"
+                >Error: Service Referral - 6.1.4.2 PRIMARY CARE PROVIDER as an ORGANISATION -
+                "PRIMARY CARE PROVIDER / Participation Type" -
+                The 'functionCode' tag is missing.
+                Refer to section 6.1.4.2 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</assert>
+
+            <report test="count(cda:functionCode) > 1"
+                >Error: Service Referral - 6.1.4.2 PRIMARY CARE PROVIDER as an ORGANISATION -
+                "PRIMARY CARE PROVIDER / Participation Type" -
+                The 'functionCode' tag shall appear only once.
+                Refer to section 6.1.4.2 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</report>
+
+            <report test="count(cda:associatedEntity) > 1"
+                >Error: Service Referral - 6.1.4.2 PRIMARY CARE PROVIDER as an ORGANISATION -
+                "PRIMARY CARE PROVIDER / Role" -
+                The 'associatedEntity' tag shall appear only once.
+                Refer to section 6.1.4.2 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</report>
+
+        </rule>
+
+
+        <rule context="/cda:ClinicalDocument/cda:participant[@typeCode != 'IRCP'][cda:associatedEntity/cda:scopingOrganization]/cda:functionCode">
+
+            <assert test="@code"
+                >Error: Service Referral - 6.1.4.2 PRIMARY CARE PROVIDER as an ORGANISATION -
+                "PRIMARY CARE PROVIDER / Participation Type" -
+                The 'functionCode' tag 'code' attribute is missing.
+                Refer to section 6.1.4.2 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</assert>
+
+            <assert test="not(@code) or normalize-space(@code) != ''"
+                >Error: Service Referral - 6.1.4.2 PRIMARY CARE PROVIDER as an ORGANISATION -
+                "PRIMARY CARE PROVIDER / Participation Type" -
+                The 'functionCode' tag 'code' attribute shall contain a value.
+                Refer to section 6.1.4.2 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</assert>
+
+            <assert test="
+                not(@code) or normalize-space(@code) = '' or @code = 'PCP'"
+                >Error: Service Referral - 6.1.4.2 PRIMARY CARE PROVIDER as an ORGANISATION -
+                "PRIMARY CARE PROVIDER / Participation Type" -
+                The 'functionCode' tag 'code' attribute shall contain the value 'PCP'.
+                Refer to section 6.1.4.2 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</assert>
+
+        </rule>
+
+
+        <rule context="/cda:ClinicalDocument/cda:participant[@typeCode != 'IRCP']/cda:associatedEntity[cda:scopingOrganization]">
+
+            <assert test="@classCode"
+                >Error: Service Referral - 6.1.4.2 PRIMARY CARE PROVIDER as an ORGANISATION -
+                "PRIMARY CARE PROVIDER / Role" -
+                The 'associatedEntity' tag 'classCode' attribute is missing.
+                Refer to section 6.1.4.2 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</assert>
+
+            <assert test="not(@classCode) or normalize-space(@classCode) != ''"
+                >Error: Service Referral - 6.1.4.2 PRIMARY CARE PROVIDER as an ORGANISATION -
+                "PRIMARY CARE PROVIDER / Role" -
+                The 'associatedEntity' tag 'classCode' attribute shall contain a value.
+                Refer to section 6.1.4.2 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</assert>
+
+            <assert test="
+                not(@classCode) or normalize-space(@classCode) = '' or
+                document('TEMPLATE/VALDN/CDAValidate_Vocabs.xml', .)/systems/system[@codeSystemName = 'RoleClassAssociative']/code[(@code = current()/@classCode)]"
+                >Error: Service Referral - 6.1.4.2 PRIMARY CARE PROVIDER as an ORGANISATION -
+                "PRIMARY CARE PROVIDER / Role" -
+                The 'associatedEntity' tag 'classCode' attribute shall be as per HL7:RoleClassAssociative.
+                Refer to section 6.1.4.2 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</assert>
+
+            <assert test="cda:code"
+                >Error: Service Referral - 6.1.4.2 PRIMARY CARE PROVIDER as an ORGANISATION -
+                "PRIMARY CARE PROVIDER / Role" -
+                The 'code' tag is missing.
+                Refer to section 6.1.4.2 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</assert>
+
+            <report test="count(cda:code) > 1"
+                >Error: Service Referral - 6.1.4.2 PRIMARY CARE PROVIDER as an ORGANISATION -
+                "PRIMARY CARE PROVIDER / Role" -
+                The 'code' tag shall appear only once.
+                Refer to section 6.1.4.2 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</report>
+
+            <report test="count(cda:id) > 1"
+                >Error: Service Referral - 6.1.4.2 PRIMARY CARE PROVIDER as an ORGANISATION -
+                "PRIMARY CARE PROVIDER / Role" -
+                The 'id' tag shall appear only once.
+                Refer to section 6.1.4.2 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</report>
+
+        </rule>
+
+
+        <rule context="/cda:ClinicalDocument/cda:participant[@typeCode != 'IRCP']/cda:associatedEntity/cda:scopingOrganization">
+
+            <assert test="cda:asOrganizationPartOf"
+                >Error: Service Referral - 6.1.4.2 PRIMARY CARE PROVIDER as an ORGANISATION -
+                "PRIMARY CARE PROVIDER / Participant / Entity Identifier" -
+                The 'asOrganizationPartOf' tag is missing.
+                Refer to section 6.1.4.2 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</assert>
+
+            <report test="count(cda:asOrganizationPartOf) > 1"
+                >Error: Service Referral - 6.1.4.2 PRIMARY CARE PROVIDER as an ORGANISATION -
+                "PRIMARY CARE PROVIDER / Participant / Entity Identifier" -
+                The 'asOrganizationPartOf' tag shall appear only once.
+                Refer to section 6.1.4.2 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</report>
+
+            <report test="count(cda:name) > 1"
+                >Error: Service Referral - 6.1.4.2 PRIMARY CARE PROVIDER as an ORGANISATION -
+                "PRIMARY CARE PROVIDER / Participant / Person or Organisation or Device / Organisation / Depatment/Unit" -
+                The 'name' tag shall appear only once.
+                Refer to section 6.1.4.2 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</report>
+
+        </rule>
+
+
+        <rule context="/cda:ClinicalDocument/cda:participant[@typeCode != 'IRCP']/cda:associatedEntity/cda:scopingOrganization/cda:asOrganizationPartOf">
+
+            <assert test="cda:wholeOrganization"
+                >Error: Service Referral - 6.1.4.2 PRIMARY CARE PROVIDER as an ORGANISATION -
+                "PRIMARY CARE PROVIDER / Participant / Entity Identifier" -
+                The 'wholeOrganization' tag is missing.
+                Refer to section 6.1.4.2 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</assert>
+
+            <report test="count(cda:wholeOrganization) > 1"
+                >Error: Service Referral - 6.1.4.2 PRIMARY CARE PROVIDER as an ORGANISATION -
+                "PRIMARY CARE PROVIDER / Participant / Entity Identifier" -
+                The 'wholeOrganization' tag shall appear only once.
+                Refer to section 6.1.4.2 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</report>
+
+        </rule>
+
+
+        <rule context="/cda:ClinicalDocument/cda:participant[@typeCode != 'IRCP']/cda:associatedEntity/cda:scopingOrganization/cda:asOrganizationPartOf/cda:wholeOrganization">
+
+            <assert test="ext:asEntityIdentifier"
+                >Error: Service Referral - 6.1.4.2 PRIMARY CARE PROVIDER as an ORGANISATION -
+                "PRIMARY CARE PROVIDER / Participant / Entity Identifier" -
+                The 'asEntityIdentifier' tag is missing.
+                Refer to section 6.1.4.2 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</assert>
+
+            <assert test="not(ext:asEntityIdentifier) or ext:asEntityIdentifier/ext:id[starts-with(@root, '1.2.36.1.2001.1003.0.800362')]"
+                >Error: Service Referral - 6.1.4.2 PRIMARY CARE PROVIDER as an ORGANISATION -
+                "PRIMARY CARE PROVIDER / Participant / Entity Identifier" -
+                The 'asEntityIdentifier' tag for 'HPI-O' is missing.
+                "The value of one Entity Identifier SHALL be an Australian HPI-O." although there could be multiple Entity Identifiers.
+                Refer to section 6.1.4.2 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</assert>
+
+            <assert test="cda:name"
+                >Error: Service Referral - 6.1.4.2 PRIMARY CARE PROVIDER as an ORGANISATION -
+                "PRIMARY CARE PROVIDER / Participant / Person or Organisation or Device / Organisation / Organisation Name" -
+                The 'name' tag is missing.
+                Refer to section 6.1.4.2 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</assert>
+
+            <report test="count(cda:name) > 1"
+                >Error: Service Referral - 6.1.4.2 PRIMARY CARE PROVIDER as an ORGANISATION -
+                "PRIMARY CARE PROVIDER / Participant / Person or Organisation or Device / Organisation / Organisation Name" -
+                The 'name' tag shall appear only once.
+                Refer to section 6.1.4.2 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</report>
+
+        </rule>
+
+
+        <rule context="/cda:ClinicalDocument/cda:participant[@typeCode != 'IRCP']/cda:associatedEntity/cda:scopingOrganization/cda:asOrganizationPartOf/cda:wholeOrganization/cda:name">
+
+            <report test="@use and normalize-space(@use) = ''"
+                >Error: Service Referral - 6.1.4.2 PRIMARY CARE PROVIDER as an ORGANISATION -
+                "PRIMARY CARE PROVIDER / Participant / Person or Organisation or Device / Organisation / Organisation Name" -
+                The 'name' tag 'use' attribute shall contain a value.
+                Refer to section 6.1.4.2 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</report>
+
+            <report test="
+                @use and normalize-space(@use) != '' and
+                not(document('TEMPLATE/VALDN/CDAValidate_Vocabs.xml', .)/systems/system[@codeSystemName = 'Health_Care_Provider_Organisation_Name_Usage']/code[
+                    (@code = current()/@use) or
+                    (@alternativeCode = current()/@use) or
+                    (@hl7Code = current()/@use)
+                ])"
+                >Error: Service Referral - 6.1.4.2 PRIMARY CARE PROVIDER as an ORGANISATION -
+                "PRIMARY CARE PROVIDER / Participant / Person or Organisation or Device / Organisation / Organisation Name" -
+                The 'name' tag 'use' attribute shall be as per AS 4846-2006: Health Care Provider Organisation Name Usage.
+                Refer to section 6.1.4.2 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</report>
+
+        </rule>
+
+
+    </pattern>
+

@@ -1,0 +1,98 @@
+    <pattern name="p-Event_Summary_DocumentAuthor_6_1_1_custom-errors"
+        id="p-Event_Summary_DocumentAuthor_6_1_1_custom-errors"
+        see="#p-Event_Summary_DocumentAuthor_6_1_1_custom-errors">
+       
+
+        <rule context="/cda:ClinicalDocument/cda:author/cda:time">
+            
+            <!-- Refer to CCAS-145 for author / time -->
+
+            <assert test="(@value) or ((cda:high/@value) and (cda:low/@value))">Error: Event Summary
+                - 6.1.1 Document Author - "Document Author / Participation Period" - The 'time' tag
+                shall have a 'value' attribute or both the 'high' and 'low' tags with corresponding
+                'value' attributes. Refer to section 6.1.1 of the
+                Event_Summary_CDA_Implementation_Guide_v1.3.</assert>
+
+            <report test="(@value) and ((cda:high) or (cda:low))">Error: Event Summary - 6.1.1
+                Document Author - "Document Author / Participation Period" - The 'time' tag shall
+                not have both a 'value' attribute and the 'high' and/or 'low' tag(s). Refer to
+                section 6.1.1 of the Event_Summary_CDA_Implementation_Guide_v1.3.</report>
+
+            <report test="(cda:high/@nullFlavor) or (cda:low/@nullFlavor)">Error: Event Summary -
+                6.1.1 Document Author - "Document Author / Participation Period" - The 'time' tag
+                shall not have the 'high' and/or 'low' tag(s) with corresponding 'nullFlavor'
+                attribute(s). Refer to section 6.1.1 of the
+                Event_Summary_CDA_Implementation_Guide_v1.3.</report>
+
+        </rule>
+
+
+
+
+        <rule context="/cda:ClinicalDocument/cda:author/cda:assignedAuthor/cda:addr">
+
+            <!-- Address - country -  0..1 -->
+
+            <assert
+                test="not(cda:country) or document ('TEMPLATE/VALDN/CDAValidate_Vocabs.xml', .)/systems/system[@codeSystemName = 'ISO3166-1']/code[translate(@displayName, 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ') = translate(current()/cda:country, 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ')]/@code = 'AU'"
+                >Error: Event Summary - 6.1.1 Document Author - "Document Author / Participant /
+                Address / Australia or International Address / International Address / Country" -
+                The 'country' tag shall contain the value 'Australia'. Refer to section 6.1.1 of the
+                Event_Summary_CDA_Implementation_Guide_v1.3.</assert>
+
+            <report
+                test="
+                @use and normalize-space(@use) != '' and not(@use = 'WP')"
+                >Error: Event Summary - 6.1.1 Document Author - "Document Author / Participant /
+                Address" - The 'addr' tag 'use' attribute shall be set to Business see AS 5017-2006:
+                HealthCare Client Identifier Address Purpose. Refer to section 6.1.1 of the
+                Event_Summary_CDA_Implementation_Guide_v1.3.</report>
+
+        </rule>
+
+
+        <rule
+            context="/cda:ClinicalDocument/cda:author/cda:assignedAuthor[cda:assignedPerson]/cda:telecom">
+
+            <assert test="not(@use) or normalize-space(@use) = '' or  @use='WP' ">Error: Event
+                Summary - 6.1.1 Document Author - "Document Author / Participant / Electronic
+                Communication Detail" - The 'telecom' tag 'use' attribute shall be set to Workplace
+                see HL7 v3: TelecommunicationAddressUse. Refer to section 6.1.1 of the
+                Event_Summary_CDA_Implementation_Guide_v1.3.</assert>
+
+        </rule>
+
+        <rule
+            context="/cda:ClinicalDocument/cda:author/cda:assignedAuthor/cda:assignedPerson/ext:asEmployment/ext:employerOrganization/cda:asOrganizationPartOf/cda:wholeOrganization/cda:addr">
+
+            <!-- Address - country -  0..1 -->
+
+            <assert
+                test="not(cda:country) or document ('TEMPLATE/VALDN/CDAValidate_Vocabs.xml', .)/systems/system[@codeSystemName = 'ISO3166-1']/code[translate(@displayName, 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ') = translate(current()/cda:country, 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ')]/@code = 'AU'"
+                >Error: Event Summary - 6.1.1 Document Author - "DOCUMENT AUTHOR / Participant /
+                Person or Organisation or Device / Person / Employment Detail / Employer
+                Organisation / Address / Australia or International Address / International Address
+                / Country" - The 'country' tag shall contain the value 'Australia'. Refer to section
+                6.1.1 of the Event_Summary_CDA_Implementation_Guide_v1.3.</assert>
+
+        </rule>
+        
+        
+        <rule context = "/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code='102.16080']/ext:coverage2/ext:entitlement/ext:participant[@typeCode = 'HLD']/ext:participantRole[@classCode = 'ASSIGNED']/ext:id">
+            
+            <assert test = "
+                not(@root) or normalize-space(@root) = ''
+                or not(/cda:ClinicalDocument/cda:author/cda:assignedAuthor/cda:id/@root)
+                or normalize-space(/cda:ClinicalDocument/cda:author/cda:assignedAuthor/cda:id/@root) = ''
+                or (@root) = normalize-space(/cda:ClinicalDocument/cda:author/cda:assignedAuthor/cda:id/@root)"
+                >Error: Event Summary - 6.1.1 Document Author -
+                "Participant / Entitlement" -
+                The 'ext:id' tag 'root' attribute shall be holding the same value as ClinicalDocument/author/assignedAuthor/id/@root.
+                Refer to section 6.1.1 of the
+                Event_Summary_CDA_Implementation_Guide_v1.3.</assert>
+            
+        </rule>  
+
+
+    </pattern>
+

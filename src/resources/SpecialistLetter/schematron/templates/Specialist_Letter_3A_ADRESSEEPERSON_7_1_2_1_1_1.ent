@@ -1,0 +1,155 @@
+<!--
+_________________________________________________________________________________________________________________________________________________________________________________________
+                  Generated File - Do Not Edit File Directly                                                                                                                             
+                  __________________________________________
+
+                  Generated          : 26/08/2014 2:05:27 PM
+
+                  Product            : Specialist Letter
+                  Release            : CDA_Implementation_Guide_v1.0
+                  IG Guide Reference : 7.1.2.1.1.1
+                  IG Guide Title     : ADRESSEE PERSON
+                  Generator Version  : 2.27
+                                                                                                                                                                                         
+_________________________________________________________________________________________________________________________________________________________________________________________
+-->
+    <pattern name="p-Specialist_Letter_3A_ADRESSEEPERSON_7_1_2_1_1_1-errors"
+        id="p-Specialist_Letter_3A_ADRESSEEPERSON_7_1_2_1_1_1-errors"
+        see="#p-Specialist_Letter_3A_ADRESSEEPERSON_7_1_2_1_1_1-errors">
+
+
+        <rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code = '101.16606']/cda:entry/cda:act[cda:code/@code = '102.20016']">
+
+            <report test="count(cda:performer[cda:assignedEntity/cda:assignedPerson]) > 1"
+                >Error: Specialist Letter - 7.1.2.1.1.1 ADRESSEE PERSON -
+                "Addressee (Person)" -
+                The 'performer' tag shall appear only once for 'Addressee (Person)'.
+                Refer to section 7.1.2.1.1.1 of the
+                Specialist_Letter_CDA_Implementation_Guide_v1.3.</report>
+
+        </rule>
+
+
+        <rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code = '101.16606']/cda:entry/cda:act[cda:code/@code = '102.20016']/cda:performer[cda:assignedEntity/cda:assignedPerson]">
+
+            <assert test="@typeCode"
+                >Error: Specialist Letter - 7.1.2.1.1.1 ADRESSEE PERSON -
+                "Addressee (Person)" -
+                The 'performer' tag 'typeCode' attribute is missing.
+                Refer to section 7.1.2.1.1.1 of the
+                Specialist_Letter_CDA_Implementation_Guide_v1.3.</assert>
+
+            <assert test="not(@typeCode) or normalize-space(@typeCode) != ''"
+                >Error: Specialist Letter - 7.1.2.1.1.1 ADRESSEE PERSON -
+                "Addressee (Person)" -
+                The 'performer' tag 'typeCode' attribute shall contain a value.
+                Refer to section 7.1.2.1.1.1 of the
+                Specialist_Letter_CDA_Implementation_Guide_v1.3.</assert>
+
+            <assert test="
+                not(@typeCode) or normalize-space(@typeCode) = '' or @typeCode = 'PRF'"
+                >Error: Specialist Letter - 7.1.2.1.1.1 ADRESSEE PERSON -
+                "Addressee (Person)" -
+                The 'performer' tag 'typeCode' attribute shall contain the value 'PRF'.
+                Refer to section 7.1.2.1.1.1 of the
+                Specialist_Letter_CDA_Implementation_Guide_v1.3.</assert>
+
+            <report test="count(cda:assignedEntity) > 1"
+                >Error: Specialist Letter - 7.1.2.1.1.1 ADRESSEE PERSON -
+                "Addressee (Person)" -
+                The 'assignedEntity' tag shall appear only once.
+                Refer to section 7.1.2.1.1.1 of the
+                Specialist_Letter_CDA_Implementation_Guide_v1.3.</report>
+
+        </rule>
+
+
+        <rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code = '101.16606']/cda:entry/cda:act[cda:code/@code = '102.20016']/cda:performer/cda:assignedEntity[cda:assignedPerson]">
+
+            <assert test="cda:code"
+                >Error: Specialist Letter - 7.1.2.1.1.1 ADRESSEE PERSON -
+                "Addressee (Person) / Role" -
+                The 'code' tag is missing.
+                Refer to section 7.1.2.1.1.1 of the
+                Specialist_Letter_CDA_Implementation_Guide_v1.3.</assert>
+
+            <report test="count(cda:code) > 1"
+                >Error: Specialist Letter - 7.1.2.1.1.1 ADRESSEE PERSON -
+                "Addressee (Person) / Role" -
+                The 'code' tag shall appear only once.
+                Refer to section 7.1.2.1.1.1 of the
+                Specialist_Letter_CDA_Implementation_Guide_v1.3.</report>
+
+            <assert test="cda:id"
+                >Error: Specialist Letter - 7.1.2.1.1.1 ADRESSEE PERSON -
+                "Addressee (Person) / id" -
+                The 'id' tag is missing.
+                Refer to section 7.1.2.1.1.1 of the
+                Specialist_Letter_CDA_Implementation_Guide_v1.3.</assert>
+
+            <report test="count(cda:id) > 1"
+                >Error: Specialist Letter - 7.1.2.1.1.1 ADRESSEE PERSON -
+                "Addressee (Person) / id" -
+                The 'id' tag shall appear only once.
+                Refer to section 7.1.2.1.1.1 of the
+                Specialist_Letter_CDA_Implementation_Guide_v1.3.</report>
+
+            <report test="count(cda:assignedPerson) > 1"
+                >Error: Specialist Letter - 7.1.2.1.1.1 ADRESSEE PERSON -
+                "Addressee (Person) / Participant" -
+                The 'assignedPerson' tag shall appear only once.
+                Refer to section 7.1.2.1.1.1 of the
+                Specialist_Letter_CDA_Implementation_Guide_v1.3.</report>
+
+        </rule>
+
+
+        <rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code = '101.16606']/cda:entry/cda:act[cda:code/@code = '102.20016']/cda:performer/cda:assignedEntity[cda:assignedPerson]/cda:id">
+
+            <report test="
+                contains(@root, '-') and not(
+                string-length(@root) = 36 and
+                substring(@root,  9, 1) = '-' and substring(@root, 14, 1) = '-' and
+                substring(@root, 19, 1) = '-' and substring(@root, 24, 1) = '-' and
+                translate(substring(@root,  1,  8), '0123456789ABCDEFabcdef', '0000000000000000000000') = '00000000' and
+                translate(substring(@root, 10,  4), '0123456789ABCDEFabcdef', '0000000000000000000000') = '0000' and
+                translate(substring(@root, 15,  4), '0123456789ABCDEFabcdef', '0000000000000000000000') = '0000' and
+                translate(substring(@root, 20,  4), '0123456789ABCDEFabcdef', '0000000000000000000000') = '0000' and
+                translate(substring(@root, 25, 12), '0123456789ABCDEFabcdef', '0000000000000000000000') = '000000000000')"
+                >Error: Specialist Letter - 7.1.2.1.1.1 ADRESSEE PERSON -
+                "Addressee (Person) / id" -
+                The 'id' tag 'root' attribute shall be a valid UUID.
+                Refer to section 7.1.2.1.1.1 of the
+                Specialist_Letter_CDA_Implementation_Guide_v1.3.</report>
+
+        </rule>
+
+
+        <rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code = '101.16606']/cda:entry/cda:act[cda:code/@code = '102.20016']/cda:performer/cda:assignedEntity[cda:assignedPerson]/cda:assignedPerson">
+
+            <assert test="ext:asEntityIdentifier"
+                >Error: Specialist Letter - 7.1.2.1.1.1 ADRESSEE PERSON -
+                "Addressee (Person) / Participant / Entity Identifier" -
+                The 'asEntityIdentifier' tag is missing.
+                Refer to section 7.1.2.1.1.1 of the
+                Specialist_Letter_CDA_Implementation_Guide_v1.3.</assert>
+
+            <assert test="cda:name"
+                >Error: Specialist Letter - 7.1.2.1.1.1 ADRESSEE PERSON -
+                "Addressee (Person) / Participant / Person or Organisation or Device / Person / Person Name" -
+                The 'name' tag is missing.
+                Refer to section 7.1.2.1.1.1 of the
+                Specialist_Letter_CDA_Implementation_Guide_v1.3.</assert>
+
+            <report test="count(ext:asEmployment) > 1"
+                >Error: Specialist Letter - 7.1.2.1.1.1 ADRESSEE PERSON -
+                "Addressee (Person) / Participant / Person or Organisation or Device / Person / Employment Detail" -
+                The 'asEmployment' tag shall appear only once.
+                Refer to section 7.1.2.1.1.1 of the
+                Specialist_Letter_CDA_Implementation_Guide_v1.3.</report>
+
+        </rule>
+
+
+    </pattern>
+

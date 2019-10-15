@@ -1,0 +1,51 @@
+    <!-- e-Discharge Summary Clinical Document:  6.1.2 Subject of Care -->
+
+    <!-- Context: ClinicalDocument/Subject of Care -->
+
+    <!-- Status: Last Reviewed: Not reviewed.
+        Status: Last Updated : 24/04/2012 -->
+
+    <pattern name = "p-e-Discharge_Summary_Subject_Of_Care_Patient_Role-errors"
+        id = "p-e-Discharge_Summary_Subject_Of_Care_Patient_Role-errors"
+        see = "#p-e-Discharge_Summary_Subject_Of_Care_Patient_Role-errors">
+
+        <rule context = "/cda:ClinicalDocument">
+
+            <!-- Subject of Care - 1..1 -->
+                                 
+            <!-- add "assert" & "count" test for "recordTarget". See Mantis task 3350 -->
+            
+            <assert test = "cda:recordTarget">Error: e-Discharge Summary - 6.1.2 Subject of Care -
+                The 'recordTarget' tag is missing. Refer to section 6.1.2 Subject of Care of the
+                e-Discharge_Summary_CDA_Implementation_Guide_v3.4.</assert>
+            
+            <report test = "count(cda:recordTarget) > 1">Error: e-Discharge Summary - 6.1.2 Subject of Care - The 
+                'recordTarget' tag shall appear only once. Refer to section 6.1.2 Subject of Care of the 
+                e-Discharge_Summary_CDA_Implementation_Guide_v3.4.</report>
+            
+            <report test = "cda:recordTarget[@typeCode] and cda:recordTarget[@typeCode !=  'RCT']">Error:
+                e-Discharge Summary - 6.1.2 Subject of Care - The 'recordTarget' tag 'typeCode'
+                attribute shall contain the value 'RCT'. Refer to section 6.1.2 of the
+                e-Discharge_Summary_CDA_Implementation_Guide_v3.4.</report>
+
+        </rule>
+
+        <rule context = "/cda:ClinicalDocument/cda:recordTarget">
+
+            <assert test = "cda:patientRole">Error: e-Discharge Summary - 6.1.2 Subject of Care -
+                "Subject of Care" - The 'patientRole' tag is missing. Refer to section 6.1.2 of the
+                e-Discharge_Summary_CDA_Implementation_Guide_v3.4.</assert>
+
+            <report test = "count(cda:patientRole) > 1">Error: e-Discharge Summary - 6.1.2 Subject of
+                Care - "Subject of Care" - The 'patientRole' tag shall appear only once. Refer to
+                section 6.1.2 Subject of Care of the
+                e-Discharge_Summary_CDA_Implementation_Guide_v3.4.</report>
+
+            <report test = "cda:patientRole[@classCode] and cda:patientRole[@classCode !=  'PAT']">Error:
+                e-Discharge Summary - 6.1.2 Subject of Care - The value of the 'patientRole' tag
+                'classCode' attribute shall contain the value 'PAT'. Refer to section 6.1.2 of the
+                e-Discharge_Summary_CDA_Implementation_Guide_v3.4.</report>
+
+        </rule>
+        
+    </pattern>

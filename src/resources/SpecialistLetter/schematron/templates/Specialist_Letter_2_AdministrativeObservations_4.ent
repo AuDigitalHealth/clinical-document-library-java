@@ -1,0 +1,194 @@
+<!--
+_________________________________________________________________________________________________________________________________________________________________________________________
+                  Generated File - Do Not Edit File Directly                                                                                                                             
+                  __________________________________________
+
+                  Generated          : 27/08/2014 10:13:45 AM
+
+                  Product            : Specialist Letter
+                  Release            : CDA_Implementation_Guide_v1.0
+                  IG Guide Reference : 4
+                  IG Guide Title     : Administrative Observations
+                  Generator Version  : 2.27
+                                                                                                                                                                                         
+_________________________________________________________________________________________________________________________________________________________________________________________
+-->
+    <pattern name="p-Specialist_Letter_2_AdministrativeObservations_4-errors"
+        id="p-Specialist_Letter_2_AdministrativeObservations_4-errors"
+        see="#p-Specialist_Letter_2_AdministrativeObservations_4-errors">
+
+
+        <rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody">
+
+            <report test="count(cda:component[cda:section/cda:code/@code = '102.16080']) > 1"
+                >Error: Specialist Letter - 4 Administrative Observations -
+                "Administrative Observations" -
+                The 'component' tag shall appear only once for 'Administrative Observations'.
+                Refer to section 4 of the
+                Specialist_Letter_CDA_Implementation_Guide_v1.3.</report>
+
+            <assert test="cda:component[cda:section/cda:code/@code = '102.16080']"
+                >Error: Specialist Letter - 4 Administrative Observations -
+                "Administrative Observations" -
+                The 'component' tag is missing for 'Administrative Observations'.
+                Refer to section 4 of the
+                Specialist_Letter_CDA_Implementation_Guide_v1.3.</assert>
+
+        </rule>
+
+
+        <rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component[cda:section/cda:code/@code = '102.16080']">
+
+            <report test="count(cda:section) > 1"
+                >Error: Specialist Letter - 4 Administrative Observations -
+                "Administrative Observations" -
+                The 'section' tag shall appear only once.
+                Refer to section 4 of the
+                Specialist_Letter_CDA_Implementation_Guide_v1.3.</report>
+
+        </rule>
+
+
+        <rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code = '102.16080']">
+
+            <report test="count(cda:code) > 1"
+                >Error: Specialist Letter - 4 Administrative Observations -
+                "Administrative Observations" -
+                The 'code' tag shall appear only once.
+                Refer to section 4 of the
+                Specialist_Letter_CDA_Implementation_Guide_v1.3.</report>
+
+            <report test="count(cda:title) > 1"
+                >Error: Specialist Letter - 4 Administrative Observations -
+                "Administrative Observations" -
+                The 'title' tag shall appear only once.
+                Refer to section 4 of the
+                Specialist_Letter_CDA_Implementation_Guide_v1.3.</report>
+
+            <report test="cda:text and not(cda:title)"
+                >Error: Specialist Letter - 4 Administrative Observations -
+                "Administrative Observations" -
+                The 'title' tag is missing for the existence of 'text'.
+                Refer to section 4 of the 
+                Specialist_Letter_CDA_Implementation_Guide_v1.3.</report>
+
+            <report test="cda:title and normalize-space(cda:title) = ''"
+                >Error: Specialist Letter - 4 Administrative Observations -
+                "Administrative Observations" -
+                The 'title' tag shall contain a value.
+                Refer to section 4 of the
+                Specialist_Letter_CDA_Implementation_Guide_v1.3.</report>
+
+            <report test="
+                cda:title and normalize-space(cda:title) != '' and
+                translate(cda:title, 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ') != 'ADMINISTRATIVE OBSERVATIONS'"
+                >Error: Specialist Letter - 4 Administrative Observations -
+                "Administrative Observations" -
+                The 'title' tag shall contain the value 'Administrative Observations'.
+                Refer to section 4 of the
+                Specialist_Letter_CDA_Implementation_Guide_v1.3.</report>
+
+            <report test="count(cda:text) > 1"
+                >Error: Specialist Letter - 4 Administrative Observations -
+                "Administrative Observations" -
+                The 'text' tag shall appear only once.
+                Refer to section 4 of the
+                Specialist_Letter_CDA_Implementation_Guide_v1.3.</report>
+
+            <report test="cda:text and normalize-space(cda:text) = ''"
+                >Error: Specialist Letter - 4 Administrative Observations -
+                "Administrative Observations" -
+                The 'text' tag shall contain a value.
+                Refer to section 4 of the
+                Specialist_Letter_CDA_Implementation_Guide_v1.3.</report>
+
+            <report test="count(cda:id) > 1"
+                >Error: Specialist Letter - 4 Administrative Observations -
+                "Administrative Observations / id" -
+                The 'id' tag shall appear only once.
+                Refer to section 4 of the
+                Specialist_Letter_CDA_Implementation_Guide_v1.3.</report>
+
+        </rule>
+
+
+        <rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section/cda:code[@code = '102.16080']">
+
+            <assert test="@codeSystem"
+                >Error: Specialist Letter - 4 Administrative Observations -
+                "Administrative Observations" -
+                The 'code' tag 'codeSystem' attribute is missing.
+                Refer to section 4 of the
+                Specialist_Letter_CDA_Implementation_Guide_v1.3.</assert>
+
+            <assert test="
+                not(@codeSystem) or normalize-space(@codeSystem) = '' or @codeSystem = '1.2.36.1.2001.1001.101'"
+                >Error: Specialist Letter - 4 Administrative Observations -
+                "Administrative Observations" -
+                The 'code' tag 'codeSystem' attribute shall contain the value '1.2.36.1.2001.1001.101'.
+                Refer to section 4 of the
+                Specialist_Letter_CDA_Implementation_Guide_v1.3.</assert>
+
+            <assert test="@codeSystemName"
+                >Error: Specialist Letter - 4 Administrative Observations -
+                "Administrative Observations" -
+                The 'code' tag 'codeSystemName' attribute is missing.
+                Refer to section 4 of the
+                Specialist_Letter_CDA_Implementation_Guide_v1.3.</assert>
+
+            <assert test="
+                not(@codeSystemName) or normalize-space(@codeSystemName) = '' or translate(@codeSystemName, 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ') = &quot;NCTIS DATA COMPONENTS&quot;"
+                >Error: Specialist Letter - 4 Administrative Observations -
+                "Administrative Observations" -
+                The 'code' tag 'codeSystemName' attribute shall contain the value 'NCTIS Data Components'.
+                Refer to section 4 of the
+                Specialist_Letter_CDA_Implementation_Guide_v1.3.</assert>
+
+            <assert test="@displayName"
+                >Error: Specialist Letter - 4 Administrative Observations -
+                "Administrative Observations" -
+                The 'code' tag 'displayName' attribute is missing.
+                Refer to section 4 of the
+                Specialist_Letter_CDA_Implementation_Guide_v1.3.</assert>
+
+            <assert test="
+                not(@displayName) or normalize-space(@displayName) = '' or translate(@displayName, 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ') = &quot;ADMINISTRATIVE OBSERVATIONS&quot;"
+                >Error: Specialist Letter - 4 Administrative Observations -
+                "Administrative Observations" -
+                The 'code' tag 'displayName' attribute shall contain the value 'Administrative Observations'.
+                Refer to section 4 of the
+                Specialist_Letter_CDA_Implementation_Guide_v1.3.</assert>
+
+            <assert test="not(cda:translation)"
+                >Error: Specialist Letter - 4 Administrative Observations -
+                "Administrative Observations" -
+                The 'translation' tag shall not be present within 'code'.
+                Refer to section 4 of the
+                Specialist_Letter_CDA_Implementation_Guide_v1.3.</assert>
+
+        </rule>
+
+
+        <rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code = '102.16080']/cda:id">
+
+            <report test="
+                contains(@root, '-') and not(
+                string-length(@root) = 36 and
+                substring(@root,  9, 1) = '-' and substring(@root, 14, 1) = '-' and
+                substring(@root, 19, 1) = '-' and substring(@root, 24, 1) = '-' and
+                translate(substring(@root,  1,  8), '0123456789ABCDEFabcdef', '0000000000000000000000') = '00000000' and
+                translate(substring(@root, 10,  4), '0123456789ABCDEFabcdef', '0000000000000000000000') = '0000' and
+                translate(substring(@root, 15,  4), '0123456789ABCDEFabcdef', '0000000000000000000000') = '0000' and
+                translate(substring(@root, 20,  4), '0123456789ABCDEFabcdef', '0000000000000000000000') = '0000' and
+                translate(substring(@root, 25, 12), '0123456789ABCDEFabcdef', '0000000000000000000000') = '000000000000')"
+                >Error: Specialist Letter - 4 Administrative Observations -
+                "Administrative Observations / id" -
+                The 'id' tag 'root' attribute shall be a valid UUID.
+                Refer to section 4 of the
+                Specialist_Letter_CDA_Implementation_Guide_v1.3.</report>
+
+        </rule>
+
+
+    </pattern>
+

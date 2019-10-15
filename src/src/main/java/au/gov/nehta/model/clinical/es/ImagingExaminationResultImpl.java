@@ -2,9 +2,7 @@ package au.gov.nehta.model.clinical.es;
 
 import au.gov.nehta.model.cda.common.code.Coded;
 import au.gov.nehta.model.cda.common.time.PreciseDate;
-import au.gov.nehta.model.clinical.etp.common.item.AttachedMedia;
 import au.net.electronichealth.ns.cda._2_0.StrucDocText;
-
 import java.util.List;
 
 public class ImagingExaminationResultImpl implements ImagingExaminationResult {
@@ -19,7 +17,7 @@ public class ImagingExaminationResultImpl implements ImagingExaminationResult {
   private String examinationResultRepresentation;
   private List<ExaminationRequestDetails> examinationRequestDetails;
   private PreciseDate observationDateTime;
-  private StrucDocText customNarrativeImagingExaminationResult;
+  private StrucDocText customNarrative;
 
   @Override
   public Coded getImagingExaminationResultName() {
@@ -117,8 +115,8 @@ public class ImagingExaminationResultImpl implements ImagingExaminationResult {
   }
 
   @Override
-  public StrucDocText getCustomNarrativeImagingExaminationResult() {
-    return this.customNarrativeImagingExaminationResult;
+  public StrucDocText getCustomNarrative() {
+    return this.customNarrative;
   }
 
   @Override
@@ -127,8 +125,9 @@ public class ImagingExaminationResultImpl implements ImagingExaminationResult {
   }
 
   @Override
-  public void setCustomNarrativeImagingExaminationResult(StrucDocText customNarrativeImagingExaminationResult) {
-    this.customNarrativeImagingExaminationResult = customNarrativeImagingExaminationResult;
+  public void setCustomNarrative(
+      StrucDocText customNarrative) {
+    this.customNarrative = customNarrative;
   }
 
   @Override

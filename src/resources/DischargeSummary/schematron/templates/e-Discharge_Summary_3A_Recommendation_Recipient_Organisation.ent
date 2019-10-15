@@ -1,0 +1,216 @@
+
+
+
+    <!-- e-Discharge Summary Clinical Document:  7.1.4.2.1.1.2 RECOMMENDATION RECIPIENT(Organisation) -->
+
+    <!-- Context: ClinicalDocument/component/structuredBody/component[plan]/section/component[rec]/section/entry[rec_prov]/act -->
+
+
+    <!-- Status: Last Reviewed:
+         Status: Last Updated : 30/07/2012 -->
+
+
+    <pattern name="p-e-Discharge_Summary_3A_Recommendation_Recipient_Organisation-errors"
+        id="p-e-Discharge_Summary_3A_Recommendation_Recipient_Organisation-errors"
+        see="#p-e-Discharge_Summary_3A_Recommendation_Recipient_Organisation-errors">
+
+
+        <!-- RECOMMENDATION RECIPIENT(Organisation) -->
+        <!-- performer - 1..1 -->
+
+        <rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code='101.16020']/cda:component/cda:section[cda:code/@code='101.20016']/cda:entry/cda:act[cda:code/@code='102.20016.4.1.1']">
+
+            <!--Recommendation Recipient > Participation Type - 1..1-->
+
+            <report test="count(cda:performer[cda:assignedEntity/cda:representedOrganization]) > 1"
+                >Error: e-Discharge Summary - 7.1.4.2.1.1.2 - Recommendation Recipient
+                (Organisation) - "Recommendation Recipient / Participation Type" - The 'performer'
+                tag shall appear only once. Refer to section 7.1.4.2.1.1.2 Recommendation Recipient
+                (Organisation) of the
+                e-Discharge_Summary_CDA_Implementation_Guide_v3.4.</report>
+
+        </rule>
+
+        <rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code='101.16020']/cda:component/cda:section[cda:code/@code='101.20016']/cda:entry/cda:act[cda:code/@code='102.20016.4.1.1']/cda:performer[cda:assignedEntity/cda:representedOrganization]">
+
+            <assert test="@typeCode">Error: e-Discharge Summary - 7.1.4.2.1.1.2 - Recommendation
+                Recipient (Organisation) "Recommendation Recipient / Participation Type" - The
+                'performer' tag 'typeCode' attribute is missing. Refer to section 7.1.4.2.1.1.2
+                Recommendation Recipient (Organisation) of the
+                e-Discharge_Summary_CDA_Implementation_Guide_v3.4.</assert>
+
+            <assert test="@typeCode = 'PRF'">Error: e-Discharge Summary - 7.1.4.2.1.1.2 -
+                Recommendation Recipient (Organisation) "Recommendation Recipient / Participation
+                Type" - The 'performer' tag 'typeCode' attribute shall contain the value 'PRF'.
+                Refer to section 7.1.4.2.1.1.2 Recommendation Recipient (Organisation) of the
+                e-Discharge_Summary_CDA_Implementation_Guide_v3.4.</assert>
+
+            <!--Commented out count because this tag has no cardinality in the IG-->
+            <!--
+            <report test="count(cda:assignedEntity) > 1">Error: e-Discharge Summary - 7.1.4.2.1.1.2 -
+                Recommendation Recipient (Organisation) "Recommendation Recipient / Role" - The 'assignedEntity'
+                tag shall appear only once. Refer to section 7.1.4.2.1.1.2 Recommendation Recipient
+                (Organisation) of the
+                e-Discharge_Summary_CDA_Implementation_Guide_v3.4.</report>-->
+
+        </rule>
+
+        <rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code='101.16020']/cda:component/cda:section[cda:code/@code='101.20016']/cda:entry/cda:act[cda:code/@code='102.20016.4.1.1']/cda:performer/cda:assignedEntity[cda:representedOrganization]">
+
+            <!-- RECOMMENDATION RECIPIENT(Organisation) / ROLE 1..1 -->
+
+            <assert test="cda:code">Error: e-Discharge Summary - 7.1.4.2.1.1.2 - Recommendation
+                Recipient (Organisation) - "Recommendation Recipient / Role" - The 'code' tag is
+                missing. Refer to section 7.1.4.2.1.1.2 Recommendation Recipient (Organisation) in
+                the e-Discharge_Summary_CDA_Implementation_Guide_v3.4.</assert>
+
+            <report test="count(cda:code) > 1">Error: e-Discharge Summary - 7.1.4.2.1.1.2 -
+                Recommendation Recipient (Organisation) - "Recommendation Recipient / Role" - The
+                'code' tag shall appear only once. Refer to section 7.1.4.2.1.1.2 Recommendation
+                Recipient (Organisation) of the
+                e-Discharge_Summary_CDA_Implementation_Guide_v3.4.</report>
+
+
+            <!-- The attributes of "cda:code" are being tested by e-Discharge_Summary_Global_Checks.sch. -->
+
+            <!-- id - 1..1 -->
+
+            <assert test="cda:id">Error: e-Discharge Summary - 7.1.4.2.1.1.2 - Recommendation
+                Recipient (Organisation) - "Performer / Assigned Entity / id" - The 'id' tag is
+                missing. Refer to section 7.1.4.2.1.1.2 Recommendation Recipient (Organisation) in
+                the e-Discharge_Summary_CDA_Implementation_Guide_v3.4.</assert>
+
+            <report test="count(cda:id) > 1">Error: e-Discharge Summary - 7.1.4.2.1.1.2 -
+                Recommendation Recipient (Organisation) - "Performer / Assigned Entity / id" - The
+                'id' tag shall appear only once. Refer to section 7.1.4.2.1.1.2 Recommendation
+                Recipient (Organisation) of the
+                e-Discharge_Summary_CDA_Implementation_Guide_v3.4.</report>
+
+            <!-- RECOMMENDATION RECIPIENT(Organisation) / PARTICIPANT - 1..1 -->
+
+            <report test="count(cda:representedOrganization) > 1">Error: e-Discharge Summary -
+                7.1.4.2.1.1.2 - Recommendation Recipient (Organisation) - "Recommendation Recipient
+                / Participant" - The 'representedOrganization' tag shall appear only once. Refer to
+                section 7.1.4.2.1.1.2 Recommendation Recipient (Organisation) of the
+                e-Discharge_Summary_CDA_Implementation_Guide_v3.4.</report>
+
+
+            <!-- Address - 0..* -->
+            <!-- For 'Address' tag see below context:
+                <rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section/cda:component/cda:section/cda:entry/cda:act[@classCode='INFRM']/cda:performer/cda:assignedEntity[cda:representedOrganization]/cda:addr[@use]"> -->
+
+
+            <!-- Electronic Communication Details - 0..* -->
+            <!-- The tags and attributes of "cda:telecom" are being tested by e-Discharge_Summary_Global_Checks.sch. -->
+
+        </rule>
+
+
+        <!-- RECOMMENDATION RECIPIENT(Organisation) / PARTICIPANT / ADDRESS - 0..* -->
+
+        <rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code='101.16020']/cda:component/cda:section[cda:code/@code='101.20016']/cda:entry/cda:act[cda:code/@code='102.20016.4.1.1']/cda:performer/cda:assignedEntity[cda:representedOrganization]/cda:addr[@use]">
+
+            <!-- Address - country -  0..1 -->
+
+            <assert
+                test="document('TEMPLATE/VALDN/CDAValidate_Vocabs.xml', .)/systems/system[@codeSystemName = 'ISO3166-1']/code[translate(@displayName, 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ') = translate(current()/cda:country, 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ')]/@code = 'AU'"
+                >Error: e-Discharge Summary - 7.1.4.2.1.1.2 Recommendation Recipient (Organization)
+                - "Recommendation Recipient (Organization) / Participant / Address / Australia or
+                International Address / International Address / Country" - The 'country' tag shall
+                contain the value 'Australia'. Refer to section 8.6 of the
+                e-Discharge_Summary_CDA_Implementation_Guide_v3.4.</assert>
+
+            <!-- Other tags and attributes of "cda:addr" are being tested by e-Discharge_Summary_Global_Checks.sch. -->
+
+        </rule>
+
+        <rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code='101.16020']/cda:component/cda:section[cda:code/@code='101.20016']/cda:entry/cda:act[cda:code/@code='102.20016.4.1.1']/cda:performer/cda:assignedEntity/cda:representedOrganization">
+
+            <!-- Department/Unit - 0..1 -->
+
+            <report test="count(cda:name)>1">Error: e-Discharge Summary - 7.1.4.2.1.1.2 -
+                Recommendation Recipient (Organisation) - "Recommendation Recipient / Participant /
+                Person or Organisation or Device / Organisation / Department/Unit" - The 'name' tag
+                shall appear only once. Refer to section 7.1.4.2.1.1.2 Recommendation Recipient
+                (Organisation) of the
+                e-Discharge_Summary_CDA_Implementation_Guide_v3.4.</report>
+
+            <report test="normalize-space(cda:name) =''">Error: e-Discharge Summary - 7.1.4.2.1.1.2
+                - Recommendation Recipient (Organisation) - "Recommendation Recipient / Participant
+                / Person or Organisation or Device / Organisation / Department/Unit" - The 'name'
+                tag shall contain a value. Refer to section 8.8 of the
+                e-Discharge_Summary_CDA_Implementation_Guide_v3.4.</report>
+
+        </rule>
+
+        <rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code='101.16020']/cda:component/cda:section[cda:code/@code='101.20016']/cda:entry/cda:act[cda:code/@code='102.20016.4.1.1']/cda:performer/cda:assignedEntity/cda:representedOrganization/cda:asOrganizationPartOf/cda:wholeOrganization">
+
+
+            <!--Recommendation Recipient > Participant > Entity Identifier 1..* -->
+
+            <assert test="ext:asEntityIdentifier"> Error: e-Discharge Summary - 7.1.4.2.1.1.2 -
+                Recommendation Recipient (Organisation) - "Recommendation Recipient / Participant /
+                Entity Identifier" - The 'asEntityIdentifier' tag is missing.
+                Refer to section 7.1.4.2.1.1.2 of the
+                e-Discharge_Summary_CDA_Implementation_Guide_v3.4.</assert>
+
+            <assert test="ext:asEntityIdentifier/ext:id[starts-with(@root, '1.2.36.1.2001.1003.0.800362')]">  Error:
+                e-Discharge Summary - 7.1.4.2.1.1.1 Recommendation Recipient (Organisation) -
+                "Recommendation Recipient / Participant / Entity Identifier" - The 'HPI-O
+                asEntityIdentifier' tag is missing. "The value of one Entity Identifier SHALL be an
+                Australian HPI-O." although there could be multiple Entity Identifiers.
+                Refer to section 7.1.4.2.1.1.2 of the
+                e-Discharge_Summary_CDA_Implementation_Guide_v3.4.</assert>
+
+        
+
+            <!-- The tags and attributes of 'ext:asEntityIdentifier' are being tested in 'e-Discharge_Summary_Global_Checks.sch'. -->
+
+
+            <!--Recommendation Recipient > Participant > Person or Organisation or Device > Organisation > Organisation Name - 1..1-->
+
+            <assert test="cda:name"> Error: e-Discharge Summary - 7.1.4.2.1.1.2 - Recommendation
+                Recipient (Organisation) - "Recommendation Recipient / Participant / Person or
+                Organisation or Device / Organisation / Organisation Name" - The 'name' tag is
+                missing. Refer to section 8.6 of the
+                e-Discharge_Summary_CDA_Implementation_Guide_v3.4.</assert>
+
+            <report test="count(cda:name)>1"> Error: e-Discharge Summary - 7.1.4.2.1.1.2 -
+                Recommendation Recipient (Organisation) - "Recommendation Recipient / Participant /
+                Person or Organisation or Device / Organisation / Organisation Name" - The 'name'
+                tag shall appear only once. Refer to section 8.6 of the
+                e-Discharge_Summary_CDA_Implementation_Guide_v3.4.</report>
+
+            <report test="normalize-space(cda:name) =''">Error: e-Discharge Summary - 7.1.4.2.1.1.2
+                - Recommendation Recipient (Organisation) - "Recommendation Recipient / Participant
+                / Person or Organisation or Device / Organisation / Organisation Name" - The 'name'
+                tag shall contain a value. Refer to section 8.8 of the
+                e-Discharge_Summary_CDA_Implementation_Guide_v3.4.</report>
+
+            <report
+                test="cda:name[@use] and not(document('TEMPLATE/VALDN/CDAValidate_Vocabs.xml', .)/systems/system[@codeSystemName = 'Health_Care_Provider_Organisation_Name_Usage']/code[(@code = current()/cda:name/@use) or (@alternativeCode = current()/cda:name/@use) or (@hl7Code = current()/cda:name/@use)])"
+                >Error: e-Discharge Summary - 7.1.4.2.1.1.2 - Recommendation Recipient
+                (Organisation) - "Recommendation Recipient / Participant / Person or Organisation or
+                Device / Organisation / Organisation Name" - The 'name' tag 'use' attribute shall be
+                as per AS 4846-2006: Health Care Provider Organisation Name Usage. Refer to section
+                8.8 and 10.4 of the
+                e-Discharge_Summary_CDA_Implementation_Guide_v3.4.</report>
+
+        </rule>
+
+        <rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code='101.16020']/cda:component/cda:section[cda:code/@code='101.20016']
+                       /cda:entry/cda:act[cda:code/@code='102.20016.4.1.1']/cda:performer/cda:assignedEntity
+                       /cda:representedOrganization/cda:asOrganizationPartOf/cda:wholeOrganization/cda:name">
+            
+            <assert test="not(@nullFlavor)">Error: e-Discharge Summary - 7.1.4.2.1.1.2 "Recommendation Recipient
+                > Participant > Person or Organisation or Device > Organisation > Organisation Name" - The 
+                'name' tag 'nullFlavor' attribute shall not be present. Refer to requirements in the NullFlavor Usage Clarification FAQ 
+                and section 7.1.4.2.1.1.2 of the e-Discharge_Summary_CDA_Implementation_Guide_v3.4 </assert>
+            
+        </rule>
+
+      
+
+    </pattern>
+
+

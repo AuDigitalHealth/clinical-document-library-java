@@ -1,0 +1,40 @@
+
+    <!-- e-Referral Clinical Document:  7.1.1.2.2 Usual GP - Department/Unit Name -->
+
+    <!-- Context: cda:ClinicalDocument/cda:participant[translate(@typeCode, 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ') = 'PART']/cda:associatedEntity/cda:scopingOrganization -->
+
+    <!-- Status: Last Reviewed: Not reviewed
+         Status: Last Updated : 28/05/2011
+ -->
+
+
+    <pattern name="p-e-Referral_Usual_GP_Organisation_Name-errors"
+        id="p-e-Referral_Usual_GP_Organisation_Name-errors"
+        see="#p-e-Referral_Usual_GP_Organisation_Name-errors">
+
+
+        <!-- scopingOrganization - 0..1 -->
+
+        <rule
+            context="/cda:ClinicalDocument/cda:participant[translate(@typeCode, 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ') = 'PART']/cda:associatedEntity/cda:scopingOrganization">
+            
+            <!-- Department/Unit Name - 0..1 -->
+
+
+            <report test="count(cda:name) > 1">Error: e-Referral - 7.1.1.2 Usual GP - "Participant /
+                Person or Organisation or Device / Person / Employer Organisation / Organisation /
+                Organisation Name" - The 'name' tag shall appear only once. Refer to section 7.1.1.2
+                of the e-Referral_CDA_Implementation_Guide_v2.2.</report>
+
+            <!-- updated as per mantis id 3553 -->
+            <assert test="cda:name and normalize-space(cda:name) !=  ''">Error: e-Referral - 7.1.1.2 Usual GP
+                - "Participant / Person or Organisation or Device / Person / Employer Organisation /
+                Organisation / Organisation Name" - The 'name' tag shall contain a value. Refer to
+                section 7.1.1.2 of the e-Referral_CDA_Implementation_Guide_v2.2.</assert>
+            
+            <!-- update ended mantis id 3553 -->
+            
+
+        </rule>
+
+    </pattern>

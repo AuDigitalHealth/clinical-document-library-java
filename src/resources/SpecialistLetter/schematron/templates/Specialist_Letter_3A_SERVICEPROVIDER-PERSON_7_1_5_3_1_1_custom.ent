@@ -1,0 +1,35 @@
+    <pattern name="p-Specialist_Letter_3A_SERVICEPROVIDER-PERSON_7_1_5_3_1_1_custom-errors"
+        id="p-Specialist_Letter_3A_SERVICEPROVIDER-PERSON_7_1_5_3_1_1_custom-errors"
+        see="#p-Specialist_Letter_3A_SERVICEPROVIDER-PERSON_7_1_5_3_1_1_custom-errors">
+
+        <!-- IG page 263 - To avoid duplicate rule context issue -->
+        <rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code = '101.20117']/cda:component/cda:section[cda:code/@code = '102.20158']/cda:entry/cda:act[@classCode = 'ACT']">
+
+          <report test="count(cda:performer/cda:assignedEntity/cda:assignedPerson) > 1"
+                >Error: Specialist Letter - 7.1.5.3.1.1 SERVICE PROVIDER - PERSON -
+                "Service Provider / Participant" -
+                The 'assignedPerson' tag shall appear only once.
+                Refer to section 7.1.5.3.1.1 of the
+                Specialist_Letter_CDA_Implementation_Guide_v1.3.</report>
+
+        </rule>
+
+        <!-- IG Page 264 -->
+        <rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code = '101.20117']/cda:component/cda:section[cda:code/@code = '102.20158']/cda:entry/cda:act[@classCode = 'ACT']/cda:performer/cda:assignedEntity[cda:assignedPerson]/cda:addr[@use]">
+            
+            <!-- AUSTRALIAN OR INTERNATIONAL ADDRESS SHALL be instantiated as an AUSTRALIAN ADDRESS. -->
+            
+            <assert
+                test="not(cda:country) or document('CDAValidate_Vocabs.xml')/systems/system[@codeSystemName = 'ISO3166-1']/code[translate(@displayName, 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ') = translate(current()/cda:country, 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ')]/@code = 'AU'"
+                >Error: Specialist Letter - 7.1.5.3.1.1 SERVICE PROVIDER - PERSON -
+                "Service Provider / Participant / Address" -
+                The 'country' tag shall contain the value 'Australia'. Refer to section 7.1.5.3.1.1 of the
+                Specialist_Letter_CDA_Implementation_Guide_v1.3.</assert>
+            
+            
+            
+        </rule>
+
+
+    </pattern>
+

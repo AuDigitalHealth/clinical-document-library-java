@@ -1,0 +1,509 @@
+<!--
+_________________________________________________________________________________________________________________________________________________________________________________________
+                  Generated File - Do Not Edit File Directly                                                                                                                             
+                  __________________________________________
+
+                  Generated          : 30/05/2017 1:47:55 PM
+
+                  Product            : Service Referral
+                  Release            : CDA_Implementation_Guide_v1.0
+                  IG Guide Reference : 6.1.1
+                  IG Guide Title     : SUBJECT OF CARE
+                  Generator Version  : 2.28
+                                                                                                                                                                                         
+_________________________________________________________________________________________________________________________________________________________________________________________
+-->
+    <pattern name="p-Service_Referral_SUBJECTOFCARE_6_1_1-errors"
+        id="p-Service_Referral_SUBJECTOFCARE_6_1_1-errors"
+        see="#p-Service_Referral_SUBJECTOFCARE_6_1_1-errors">
+
+
+        <rule context="/cda:ClinicalDocument">
+
+            <assert test="cda:recordTarget"
+                >Error: Service Referral - 6.1.1 SUBJECT OF CARE -
+                "SUBJECT OF CARE" -
+                The 'recordTarget' tag is missing.
+                Refer to section 6.1.1 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</assert>
+
+            <report test="count(cda:recordTarget) > 1"
+                >Error: Service Referral - 6.1.1 SUBJECT OF CARE -
+                "SUBJECT OF CARE" -
+                The 'recordTarget' tag shall appear only once.
+                Refer to section 6.1.1 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</report>
+
+        </rule>
+
+
+        <rule context="/cda:ClinicalDocument/cda:recordTarget">
+
+            <report test="@typeCode  and normalize-space(@typeCode ) = ''"
+                >Error: Service Referral - 6.1.1 SUBJECT OF CARE -
+                "SUBJECT OF CARE" -
+                The 'recordTarget' tag 'typeCode ' attribute shall contain a value.
+                Refer to section 6.1.1 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</report>
+
+            <report test="
+                @typeCode  and normalize-space(@typeCode ) != '' and @typeCode  != 'RCT'"
+                >Error: Service Referral - 6.1.1 SUBJECT OF CARE -
+                "SUBJECT OF CARE" -
+                The 'recordTarget' tag 'typeCode ' attribute shall contain the value 'RCT'.
+                Refer to section 6.1.1 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</report>
+
+            <assert test="cda:patientRole"
+                >Error: Service Referral - 6.1.1 SUBJECT OF CARE -
+                "SUBJECT OF CARE" -
+                The 'patientRole' tag is missing.
+                Refer to section 6.1.1 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</assert>
+
+            <report test="count(cda:patientRole) > 1"
+                >Error: Service Referral - 6.1.1 SUBJECT OF CARE -
+                "SUBJECT OF CARE" -
+                The 'patientRole' tag shall appear only once.
+                Refer to section 6.1.1 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</report>
+
+        </rule>
+
+
+        <rule context="/cda:ClinicalDocument/cda:recordTarget/cda:patientRole">
+
+            <assert test="@classCode "
+                >Error: Service Referral - 6.1.1 SUBJECT OF CARE -
+                "SUBJECT OF CARE" -
+                The 'patientRole' tag 'classCode ' attribute is missing.
+                Refer to section 6.1.1 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</assert>
+
+            <assert test="not(@classCode ) or normalize-space(@classCode ) != ''"
+                >Error: Service Referral - 6.1.1 SUBJECT OF CARE -
+                "SUBJECT OF CARE" -
+                The 'patientRole' tag 'classCode ' attribute shall contain a value.
+                Refer to section 6.1.1 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</assert>
+
+            <assert test="
+                not(@classCode ) or normalize-space(@classCode ) = '' or @classCode  = 'PAT'"
+                >Error: Service Referral - 6.1.1 SUBJECT OF CARE -
+                "SUBJECT OF CARE" -
+                The 'patientRole' tag 'classCode ' attribute shall contain the value 'PAT'.
+                Refer to section 6.1.1 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</assert>
+
+            <assert test="cda:id"
+                >Error: Service Referral - 6.1.1 SUBJECT OF CARE -
+                "SUBJECT OF CARE / id" -
+                The 'id' tag is missing.
+                Refer to section 6.1.1 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</assert>
+
+            <report test="count(cda:id) > 1"
+                >Error: Service Referral - 6.1.1 SUBJECT OF CARE -
+                "SUBJECT OF CARE / id" -
+                The 'id' tag shall appear only once.
+                Refer to section 6.1.1 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</report>
+
+            <assert test="cda:patient"
+                >Error: Service Referral - 6.1.1 SUBJECT OF CARE -
+                "SUBJECT OF CARE / Participant" -
+                The 'patient' tag is missing.
+                Refer to section 6.1.1 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</assert>
+
+            <report test="count(cda:patient) > 1"
+                >Error: Service Referral - 6.1.1 SUBJECT OF CARE -
+                "SUBJECT OF CARE / Participant" -
+                The 'patient' tag shall appear only once.
+                Refer to section 6.1.1 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</report>
+
+            <assert test="cda:addr"
+                >Error: Service Referral - 6.1.1 SUBJECT OF CARE -
+                "SUBJECT OF CARE / Participant / Address" -
+                The 'addr' tag is missing.
+                Refer to section 6.1.1 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</assert>
+
+        </rule>
+
+
+        <rule context="/cda:ClinicalDocument/cda:recordTarget/cda:patientRole/cda:patient">
+
+            <assert test="ext:asEntityIdentifier"
+                >Error: Service Referral - 6.1.1 SUBJECT OF CARE -
+                "SUBJECT OF CARE / Participant / Entity Identifier" -
+                The 'asEntityIdentifier' tag is missing.
+                Refer to section 6.1.1 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</assert>
+
+            <assert test="cda:name"
+                >Error: Service Referral - 6.1.1 SUBJECT OF CARE -
+                "SUBJECT OF CARE / Participant / Person or Organisation or Device / Person / Person Name" -
+                The 'name' tag is missing.
+                Refer to section 6.1.1 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</assert>
+
+            <assert test="not(ext:asEmployment)"
+                >Error: Service Referral - 6.1.1 SUBJECT OF CARE -
+                "SUBJECT OF CARE / Participant / Person or Organisation or Device / Person / Employment Detail" -
+                The 'asEmployment' tag shall not be present.
+                Refer to section 6.1.1 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</assert>
+
+            <report test="count(cda:administrativeGenderCode) > 1"
+                >Error: Service Referral - 6.1.1 SUBJECT OF CARE -
+                "SUBJECT OF CARE / Participant / Person or Organisation or Device / Person / Demographic Data / Sex" -
+                The 'administrativeGenderCode' tag shall appear only once.
+                Refer to section 6.1.1 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</report>
+
+            <assert test="cda:administrativeGenderCode"
+                >Error: Service Referral - 6.1.1 SUBJECT OF CARE -
+                "SUBJECT OF CARE / Participant / Person or Organisation or Device / Person / Demographic Data / Sex" -
+                The 'administrativeGenderCode' tag is missing.
+                Refer to section 6.1.1 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</assert>
+
+            <report test="count(cda:birthTime) > 1"
+                >Error: Service Referral - 6.1.1 SUBJECT OF CARE -
+                "SUBJECT OF CARE / Participant / Person or Organisation or Device / Person / Demographic Data / Date of Birth Detail / Date of Birth" -
+                The 'birthTime' tag shall appear only once.
+                Refer to section 6.1.1 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</report>
+
+            <assert test="cda:birthTime"
+                >Error: Service Referral - 6.1.1 SUBJECT OF CARE -
+                "SUBJECT OF CARE / Participant / Person or Organisation or Device / Person / Demographic Data / Date of Birth Detail / Date of Birth" -
+                The 'birthTime' tag is missing.
+                Refer to section 6.1.1 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</assert>
+
+            <report test="count(ext:multipleBirthInd) > 1"
+                >Error: Service Referral - 6.1.1 SUBJECT OF CARE -
+                "SUBJECT OF CARE / Participant / Person or Organisation or Device / Person / Demographic Data / Birth Order" -
+                The 'multipleBirthInd' tag shall appear only once.
+                Refer to section 6.1.1 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</report>
+
+            <report test="count(ext:multipleBirthOrderNumber) > 1"
+                >Error: Service Referral - 6.1.1 SUBJECT OF CARE -
+                "SUBJECT OF CARE / Participant / Person or Organisation or Device / Person / Demographic Data / Birth Order" -
+                The 'multipleBirthOrderNumber' tag shall appear only once.
+                Refer to section 6.1.1 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</report>
+
+            <report test="count(ext:deceasedInd) > 1"
+                >Error: Service Referral - 6.1.1 SUBJECT OF CARE -
+                "SUBJECT OF CARE / Participant / Person or Organisation or Device / Person / Demographic Data / Date of Death Detail / Date of Death" -
+                The 'deceasedInd' tag shall appear only once.
+                Refer to section 6.1.1 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</report>
+
+            <report test="count(ext:deceasedTime) > 1"
+                >Error: Service Referral - 6.1.1 SUBJECT OF CARE -
+                "SUBJECT OF CARE / Participant / Person or Organisation or Device / Person / Demographic Data / Date of Death Detail / Date of Death" -
+                The 'deceasedTime' tag shall appear only once.
+                Refer to section 6.1.1 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</report>
+
+            <report test="count(cda:birthplace) > 1"
+                >Error: Service Referral - 6.1.1 SUBJECT OF CARE -
+                "SUBJECT OF CARE / Participant / Person or Organisation or Device / Person / Demographic Data / Country of Birth" -
+                The 'birthplace' tag shall appear only once.
+                Refer to section 6.1.1 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</report>
+
+            <report test="count(cda:ethnicGroupCode) > 1"
+                >Error: Service Referral - 6.1.1 SUBJECT OF CARE -
+                "SUBJECT OF CARE / Participant / Person or Organisation or Device / Person / Demographic Data / Indigenous Status" -
+                The 'ethnicGroupCode' tag shall appear only once.
+                Refer to section 6.1.1 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</report>
+
+            <assert test="cda:ethnicGroupCode"
+                >Error: Service Referral - 6.1.1 SUBJECT OF CARE -
+                "SUBJECT OF CARE / Participant / Person or Organisation or Device / Person / Demographic Data / Indigenous Status" -
+                The 'ethnicGroupCode' tag is missing.
+                Refer to section 6.1.1 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</assert>
+
+        </rule>
+
+
+        <rule context="/cda:ClinicalDocument/cda:recordTarget/cda:patientRole/cda:patient/cda:administrativeGenderCode">
+
+            <assert test="not(@code) or normalize-space(@code) != ''"
+                >Error: Service Referral - 6.1.1 SUBJECT OF CARE -
+                "SUBJECT OF CARE / Participant / Person or Organisation or Device / Person / Demographic Data / Sex" -
+                The 'administrativeGenderCode' tag 'code' attribute shall contain a value.
+                Refer to section 6.1.1 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</assert>
+
+            <assert test="@code"
+                >Error: Service Referral - 6.1.1 SUBJECT OF CARE -
+                "SUBJECT OF CARE / Participant / Person or Organisation or Device / Person / Demographic Data / Sex" -
+                The 'administrativeGenderCode' tag 'code' attribute is missing.
+                Refer to section 6.1.1 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</assert>
+
+            <assert test = "not(@code) or normalize-space(@code) = '' or 
+                document('TEMPLATE/VALDN/CDAValidate_Vocabs.xml', .)/systems/system[@codeSystemName = 'AS_5017-2006_Health_Care_Client_Identifier_Sex']/code[(@code = current()/@code)]"
+                >Error: Service Referral - 6.1.1 SUBJECT OF CARE -
+                "SUBJECT OF CARE / Participant / Person or Organisation or Device / Person / Demographic Data / Sex" -
+                The 'administrativeGenderCode' tag 'code' attribute shall be as per AS 5017-2006 Health Care Client Identifier Sex.
+                Refer to section 6.1.1 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</assert>
+
+            <assert test="not(@codeSystem) or normalize-space(@codeSystem) != ''"
+                >Error: Service Referral - 6.1.1 SUBJECT OF CARE -
+                "SUBJECT OF CARE / Participant / Person or Organisation or Device / Person / Demographic Data / Sex" -
+                The 'administrativeGenderCode' tag 'codeSystem' attribute shall contain a value.
+                Refer to section 6.1.1 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</assert>
+
+            <assert test="
+                not(@codeSystem) or normalize-space(@codeSystem) = '' or @codeSystem = '2.16.840.1.113883.13.68'"
+                >Error: Service Referral - 6.1.1 SUBJECT OF CARE -
+                "SUBJECT OF CARE / Participant / Person or Organisation or Device / Person / Demographic Data / Sex" -
+                The 'administrativeGenderCode' tag 'codeSystem' attribute shall contain the value '2.16.840.1.113883.13.68'.
+                Refer to section 6.1.1 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</assert>
+
+            <assert test="@codeSystem"
+                >Error: Service Referral - 6.1.1 SUBJECT OF CARE -
+                "SUBJECT OF CARE / Participant / Person or Organisation or Device / Person / Demographic Data / Sex" -
+                The 'administrativeGenderCode' tag 'codeSystem' attribute is missing.
+                Refer to section 6.1.1 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</assert>
+
+            <report test="@displayName and normalize-space(@displayName) = ''"
+                >Error: Service Referral - 6.1.1 SUBJECT OF CARE -
+                "SUBJECT OF CARE / Participant / Person or Organisation or Device / Person / Demographic Data / Sex" -
+                The 'administrativeGenderCode' tag 'displayName' attribute shall contain a value.
+                Refer to section 6.1.1 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</report>
+
+            <report test="@code and normalize-space(@code) != '' and
+                @displayName and normalize-space(@displayName) != '' and
+                not(document('TEMPLATE/VALDN/CDAValidate_Vocabs.xml', .)/systems/system [@codeSystemName = 'AS_5017-2006_Health_Care_Client_Identifier_Sex']/code[
+                    (@code = current()/@code) and (
+                    translate(@displayName,  'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ') =
+                    translate(current()/@displayName, 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'))])"
+                >Error: Service Referral - 6.1.1 SUBJECT OF CARE -
+                "SUBJECT OF CARE / Participant / Person or Organisation or Device / Person / Demographic Data / Sex" -
+                The 'administrativeGenderCode' tag 'code' and 'displayName' attributes shall match as per AS 5017-2006 Health Care Client Identifier Sex.
+                Refer to section 6.1.1 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</report>
+
+            <assert test="not(@nullFlavor)"
+                >Error: Service Referral - 6.1.1 SUBJECT OF CARE -
+                "SUBJECT OF CARE / Participant / Person or Organisation or Device / Person / Demographic Data / Sex" -
+                The 'administrativeGenderCode' tag 'nullFlavor' attribute shall not be present.
+                Refer to section 6.1.1 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</assert>
+
+            <assert test="not(cda:translation)"
+                >Error: Service Referral - 6.1.1 SUBJECT OF CARE -
+                "SUBJECT OF CARE / Participant / Person or Organisation or Device / Person / Demographic Data / Sex" -
+                The 'translation' tag shall not be present.
+                Refer to section 6.1.1 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</assert>
+
+        </rule>
+
+
+        <rule context="/cda:ClinicalDocument/cda:recordTarget/cda:patientRole/cda:patient/ext:multipleBirthInd">
+
+            <report test="@value and normalize-space(@value) = ''"
+                >Error: Service Referral - 6.1.1 SUBJECT OF CARE -
+                "SUBJECT OF CARE / Participant / Person or Organisation or Device / Person / Demographic Data / Birth Order" -
+                The 'multipleBirthInd' tag 'value' attribute shall contain a value.
+                Refer to section 6.1.1 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</report>
+
+        </rule>
+
+
+        <rule context="/cda:ClinicalDocument/cda:recordTarget/cda:patientRole/cda:patient/ext:multipleBirthOrderNumber">
+
+            <report test="@value and normalize-space(@value) = ''"
+                >Error: Service Referral - 6.1.1 SUBJECT OF CARE -
+                "SUBJECT OF CARE / Participant / Person or Organisation or Device / Person / Demographic Data / Birth Order" -
+                The 'multipleBirthOrderNumber' tag 'value' attribute shall contain a value.
+                Refer to section 6.1.1 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</report>
+
+        </rule>
+
+
+        <rule context="/cda:ClinicalDocument/cda:recordTarget/cda:patientRole/cda:patient/ext:deceasedInd">
+
+            <assert test="not(@nullFlavor)"
+                >Error: Service Referral - 6.1.1 SUBJECT OF CARE -
+                "SUBJECT OF CARE / Participant / Person or Organisation or Device / Person / Demographic Data / Date of Death Detail / Date of Death" -
+                The 'deceasedInd' tag 'nullFlavor' attribute shall not be present.
+                Refer to section 6.1.1 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</assert>
+
+        </rule>
+
+
+        <rule context="/cda:ClinicalDocument/cda:recordTarget/cda:patientRole/cda:patient/ext:deceasedTime">
+
+            <assert test="not(@nullFlavor)"
+                >Error: Service Referral - 6.1.1 SUBJECT OF CARE -
+                "SUBJECT OF CARE / Participant / Person or Organisation or Device / Person / Demographic Data / Date of Death Detail / Date of Death" -
+                The 'deceasedTime' tag 'nullFlavor' attribute shall not be present.
+                Refer to section 6.1.1 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</assert>
+
+        </rule>
+
+
+        <rule context="/cda:ClinicalDocument/cda:recordTarget/cda:patientRole/cda:patient/cda:birthplace">
+
+            <report test="count(cda:place) > 1"
+                >Error: Service Referral - 6.1.1 SUBJECT OF CARE -
+                "SUBJECT OF CARE / Participant / Person or Organisation or Device / Person / Demographic Data / Country of Birth" -
+                The 'place' tag shall appear only once.
+                Refer to section 6.1.1 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</report>
+
+            <assert test="cda:place"
+                >Error: Service Referral - 6.1.1 SUBJECT OF CARE -
+                "SUBJECT OF CARE / Participant / Person or Organisation or Device / Person / Demographic Data / Country of Birth" -
+                The 'place' tag is missing.
+                Refer to section 6.1.1 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</assert>
+
+        </rule>
+
+
+        <rule context="/cda:ClinicalDocument/cda:recordTarget/cda:patientRole/cda:patient/cda:birthplace/cda:place">
+
+            <report test="count(cda:addr) > 1"
+                >Error: Service Referral - 6.1.1 SUBJECT OF CARE -
+                "SUBJECT OF CARE / Participant / Person or Organisation or Device / Person / Demographic Data / Country of Birth" -
+                The 'addr' tag shall appear only once.
+                Refer to section 6.1.1 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</report>
+
+            <assert test="cda:addr"
+                >Error: Service Referral - 6.1.1 SUBJECT OF CARE -
+                "SUBJECT OF CARE / Participant / Person or Organisation or Device / Person / Demographic Data / Country of Birth" -
+                The 'addr' tag is missing.
+                Refer to section 6.1.1 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</assert>
+
+        </rule>
+
+
+        <rule context="/cda:ClinicalDocument/cda:recordTarget/cda:patientRole/cda:patient/cda:birthplace/cda:place/cda:addr">
+
+            <report test="count(cda:country) > 1"
+                >Error: Service Referral - 6.1.1 SUBJECT OF CARE -
+                "SUBJECT OF CARE / Participant / Person or Organisation or Device / Person / Demographic Data / Country of Birth" -
+                The 'country' tag shall appear only once.
+                Refer to section 6.1.1 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</report>
+
+            <report test="count(cda:state) > 1"
+                >Error: Service Referral - 6.1.1 SUBJECT OF CARE -
+                "SUBJECT OF CARE / Participant / Person or Organisation or Device / Person / Demographic Data / State/Territory of Birth" -
+                The 'state' tag shall appear only once.
+                Refer to section 6.1.1 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</report>
+
+        </rule>
+
+
+        <rule context="/cda:ClinicalDocument/cda:recordTarget/cda:patientRole/cda:patient/cda:ethnicGroupCode">
+
+            <assert test="@code"
+                >Error: Service Referral - 6.1.1 SUBJECT OF CARE -
+                "SUBJECT OF CARE / Participant / Person or Organisation or Device / Person / Demographic Data / Indigenous Status" -
+                The 'ethnicGroupCode' tag 'code' attribute is missing.
+                Refer to section 6.1.1 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</assert>
+
+            <assert test = "not(@code) or normalize-space(@code) = '' or 
+                document('TEMPLATE/VALDN/CDAValidate_Vocabs.xml', .)/systems/system[@codeSystemName = 'METeOR_Indigenous_Status']/code[(@code = current()/@code)]"
+                >Error: Service Referral - 6.1.1 SUBJECT OF CARE -
+                "SUBJECT OF CARE / Participant / Person or Organisation or Device / Person / Demographic Data / Indigenous Status" -
+                The 'ethnicGroupCode' tag 'code' attribute shall be as per METeOR 291036: Indigenous Status.
+                Refer to section 6.1.1 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</assert>
+
+            <assert test="not(@code) or normalize-space(@code) != ''"
+                >Error: Service Referral - 6.1.1 SUBJECT OF CARE -
+                "SUBJECT OF CARE / Participant / Person or Organisation or Device / Person / Demographic Data / Indigenous Status" -
+                The 'ethnicGroupCode' tag 'code' attribute shall contain a value.
+                Refer to section 6.1.1 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</assert>
+
+            <assert test="
+                not(@codeSystem) or normalize-space(@codeSystem) = '' or @codeSystem = '2.16.840.1.113883.3.879.291036'"
+                >Error: Service Referral - 6.1.1 SUBJECT OF CARE -
+                "SUBJECT OF CARE / Participant / Person or Organisation or Device / Person / Demographic Data / Indigenous Status" -
+                The 'ethnicGroupCode' tag 'codeSystem' attribute shall contain the value '2.16.840.1.113883.3.879.291036'.
+                Refer to section 6.1.1 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</assert>
+
+            <assert test="not(@codeSystem) or normalize-space(@codeSystem) != ''"
+                >Error: Service Referral - 6.1.1 SUBJECT OF CARE -
+                "SUBJECT OF CARE / Participant / Person or Organisation or Device / Person / Demographic Data / Indigenous Status" -
+                The 'ethnicGroupCode' tag 'codeSystem' attribute shall contain a value.
+                Refer to section 6.1.1 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</assert>
+
+            <assert test="@codeSystem"
+                >Error: Service Referral - 6.1.1 SUBJECT OF CARE -
+                "SUBJECT OF CARE / Participant / Person or Organisation or Device / Person / Demographic Data / Indigenous Status" -
+                The 'ethnicGroupCode' tag 'codeSystem' attribute is missing.
+                Refer to section 6.1.1 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</assert>
+
+            <report test="@displayName and normalize-space(@displayName) = ''"
+                >Error: Service Referral - 6.1.1 SUBJECT OF CARE -
+                "SUBJECT OF CARE / Participant / Person or Organisation or Device / Person / Demographic Data / Indigenous Status" -
+                The 'ethnicGroupCode' tag 'displayName' attribute shall contain a value.
+                Refer to section 6.1.1 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</report>
+
+            <report test="@code and normalize-space(@code) != '' and
+                @displayName and normalize-space(@displayName) != '' and
+                not(document('TEMPLATE/VALDN/CDAValidate_Vocabs.xml', .)/systems/system [@codeSystemName = 'METeOR_Indigenous_Status']/code[
+                    (@code = current()/@code) and (
+                    translate(@displayName,  'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ') =
+                    translate(current()/@displayName, 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'))])"
+                >Error: Service Referral - 6.1.1 SUBJECT OF CARE -
+                "SUBJECT OF CARE / Participant / Person or Organisation or Device / Person / Demographic Data / Indigenous Status" -
+                The 'ethnicGroupCode' tag 'code' and 'displayName' attributes shall match as per METeOR 291036: Indigenous Status.
+                Refer to section 6.1.1 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</report>
+
+            <assert test="not(@nullFlavor)"
+                >Error: Service Referral - 6.1.1 SUBJECT OF CARE -
+                "SUBJECT OF CARE / Participant / Person or Organisation or Device / Person / Demographic Data / Indigenous Status" -
+                The 'ethnicGroupCode' tag 'nullFlavor' attribute shall not be present.
+                Refer to section 6.1.1 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</assert>
+
+            <assert test="not(cda:translation)"
+                >Error: Service Referral - 6.1.1 SUBJECT OF CARE -
+                "SUBJECT OF CARE / Participant / Person or Organisation or Device / Person / Demographic Data / Indigenous Status" -
+                The 'translation' tag shall not be present.
+                Refer to section 6.1.1 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</assert>
+
+        </rule>
+
+
+    </pattern>
+

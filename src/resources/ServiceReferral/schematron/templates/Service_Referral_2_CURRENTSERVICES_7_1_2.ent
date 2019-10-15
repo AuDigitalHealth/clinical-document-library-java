@@ -1,0 +1,180 @@
+<!--
+_________________________________________________________________________________________________________________________________________________________________________________________
+                  Generated File - Do Not Edit File Directly                                                                                                                             
+                  __________________________________________
+
+                  Generated          : 30/05/2017 1:48:13 PM
+
+                  Product            : Service Referral
+                  Release            : CDA_Implementation_Guide_v1.0
+                  IG Guide Reference : 7.1.2
+                  IG Guide Title     : CURRENT SERVICES
+                  Generator Version  : 2.28
+                                                                                                                                                                                         
+_________________________________________________________________________________________________________________________________________________________________________________________
+-->
+    <pattern name="p-Service_Referral_2_CURRENTSERVICES_7_1_2-errors"
+        id="p-Service_Referral_2_CURRENTSERVICES_7_1_2-errors"
+        see="#p-Service_Referral_2_CURRENTSERVICES_7_1_2-errors">
+
+
+        <rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody">
+
+            <report test="count(cda:component[cda:section/cda:code/@code = '101.21021']) > 1"
+                >Error: Service Referral - 7.1.2 CURRENT SERVICES -
+                "CURRENT SERVICES" -
+                The 'component' tag shall appear only once for 'CURRENT SERVICES'.
+                Refer to section 7.1.2 having SCS Data Component 'CURRENT SERVICES / Section Type' with the code/@code value '101.21021' and section 7.1.2 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</report>
+
+        </rule>
+
+
+        <rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component[cda:section/cda:code/@code = '101.21021']">
+
+            <report test="count(cda:section) > 1"
+                >Error: Service Referral - 7.1.2 CURRENT SERVICES -
+                "CURRENT SERVICES" -
+                The 'section' tag shall appear only once.
+                Refer to section 7.1.2 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</report>
+
+        </rule>
+
+
+        <rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code = '101.21021']">
+
+            <report test="count(cda:title) > 1"
+                >Error: Service Referral - 7.1.2 CURRENT SERVICES -
+                "CURRENT SERVICES" -
+                The 'title' tag shall appear only once.
+                Refer to section 7.1.2 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</report>
+
+            <assert test="not(cda:title) or normalize-space(cda:title) != ''"
+                >Error: Service Referral - 7.1.2 CURRENT SERVICES -
+                "CURRENT SERVICES" -
+                The 'title' tag shall contain a value.
+                Refer to section 7.1.2 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</assert>
+
+            <assert test="
+                not(cda:title) or normalize-space(cda:title) = '' or
+                cda:title = 'Current Services'"
+                >Error: Service Referral - 7.1.2 CURRENT SERVICES -
+                "CURRENT SERVICES" -
+                The 'title' tag shall contain the value 'Current Services'.
+                Refer to section 7.1.2 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</assert>
+
+            <report test="count(cda:text) > 1"
+                >Error: Service Referral - 7.1.2 CURRENT SERVICES -
+                "CURRENT SERVICES" -
+                The 'text' tag shall appear only once.
+                Refer to section 7.1.2 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</report>
+
+            <assert test="not(cda:text) or normalize-space(cda:text) != ''"
+                >Error: Service Referral - 7.1.2 CURRENT SERVICES -
+                "CURRENT SERVICES" -
+                The 'text' tag shall contain a value.
+                Refer to section 7.1.2 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</assert>
+
+            <report test="count(cda:id) > 1"
+                >Error: Service Referral - 7.1.2 CURRENT SERVICES -
+                "CURRENT SERVICES / Current Services Instance Identifier" -
+                The 'id' tag shall appear only once.
+                Refer to section 7.1.2 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</report>
+
+            <report test="count(cda:code) > 1"
+                >Error: Service Referral - 7.1.2 CURRENT SERVICES -
+                "CURRENT SERVICES / Section Type" -
+                The 'code' tag shall appear only once.
+                Refer to section 7.1.2 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</report>
+
+        </rule>
+
+
+        <rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code = '101.21021']/cda:id">
+
+            <assert test="not(@nullFlavor)"
+                >Error: Service Referral - 7.1.2 CURRENT SERVICES -
+                "CURRENT SERVICES / Current Services Instance Identifier" -
+                The 'id' tag 'nullFlavor' attribute shall not be present.
+                Refer to section 7.1.2 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</assert>
+
+        </rule>
+
+
+        <rule context="cda:code[@code = '101.21021']">
+
+            <assert test="
+                count(/cda:ClinicalDocument//cda:code[@code = '101.21021']) =
+                count(/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section/cda:code[@code='101.21021'])"
+                >Error: Service Referral - 7.1.2 CURRENT SERVICES -
+                "CURRENT SERVICES / Section Type" -
+                The '/ClinicalDocument/component/structuredBody/component/section/code[@code = '101.21021']' path -
+                1 or more tags are missing.
+                Refer to section 7.1.2 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</assert>
+
+            <assert test="not(@nullFlavor)"
+                >Error: Service Referral - 7.1.2 CURRENT SERVICES -
+                "CURRENT SERVICES / Section Type" -
+                The 'code' tag 'nullFlavor' attribute shall not be present.
+                Refer to section 7.1.2 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</assert>
+
+            <assert test="@codeSystem"
+                >Error: Service Referral - 7.1.2 CURRENT SERVICES -
+                "CURRENT SERVICES / Section Type" -
+                The 'code' tag 'codeSystem' attribute is missing.
+                Refer to section 7.1.2 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</assert>
+
+            <assert test="
+                not(@codeSystem) or normalize-space(@codeSystem) = '' or @codeSystem = '1.2.36.1.2001.1001.101'"
+                >Error: Service Referral - 7.1.2 CURRENT SERVICES -
+                "CURRENT SERVICES / Section Type" -
+                The 'code' tag 'codeSystem' attribute shall contain the value '1.2.36.1.2001.1001.101'.
+                Refer to section 7.1.2 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</assert>
+
+            <assert test="not(@displayName) or normalize-space(@displayName) != ''"
+                >Error: Service Referral - 7.1.2 CURRENT SERVICES -
+                "CURRENT SERVICES / Section Type" -
+                The 'code' tag 'displayName' attribute shall contain a value.
+                Refer to section 7.1.2 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</assert>
+
+            <assert test="
+                not(@displayName) or normalize-space(@displayName) = '' or translate(@displayName, 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ') = &quot;CURRENT SERVICES&quot;"
+                >Error: Service Referral - 7.1.2 CURRENT SERVICES -
+                "CURRENT SERVICES / Section Type" -
+                The 'code' tag 'displayName' attribute shall contain the value 'Current Services'.
+                Refer to section 7.1.2 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</assert>
+
+            <assert test="@displayName"
+                >Error: Service Referral - 7.1.2 CURRENT SERVICES -
+                "CURRENT SERVICES / Section Type" -
+                The 'code' tag 'displayName' attribute is missing.
+                Refer to section 7.1.2 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</assert>
+
+            <assert test="not(cda:translation)"
+                >Error: Service Referral - 7.1.2 CURRENT SERVICES -
+                "CURRENT SERVICES / Section Type" -
+                The 'translation' tag shall not be present.
+                Refer to section 7.1.2 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</assert>
+
+        </rule>
+
+
+    </pattern>
+

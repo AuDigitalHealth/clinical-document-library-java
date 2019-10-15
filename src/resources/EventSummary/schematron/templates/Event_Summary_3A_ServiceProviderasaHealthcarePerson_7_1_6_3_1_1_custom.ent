@@ -1,0 +1,107 @@
+    <pattern name="p-Event_Summary_3A_ServiceProviderasaHealthcarePerson_7_1_6_3_1_1_custom-errors"
+        id="p-Event_Summary_3A_ServiceProviderasaHealthcarePerson_7_1_6_3_1_1_custom-errors"
+        see="#p-Event_Summary_3A_ServiceProviderasaHealthcarePerson_7_1_6_3_1_1_custom-errors">
+
+
+
+        <rule context="cda:performer/cda:assignedEntity[cda:assignedPerson]/cda:code">
+            
+            <assert test="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code = '101.20117']/cda:component/cda:section[cda:code/@code = '102.20158']/cda:entry/cda:act[@classCode='ACT']/
+                cda:performer/cda:assignedEntity[cda:assignedPerson]/cda:code"
+                >Error: Event Summary - 7.1.6.3.1.1 Service Provider as a Healthcare Person -
+                "SERVICE PROVIDER / Role" -
+                The '/ClinicalDocument/component/structuredBody/component/section[code/@code = '101.20117']/component/section[code/@code = '102.20158']/entry/act[@classCode = 'ACT']/performer/assignedEntity[assignedPerson]/code' path -
+                1 or more tags are missing.
+                Refer to section 7.1.6.3.1.1 of the
+                Event_Summary_CDA_Implementation_Guide_v1.3.</assert>
+            
+        </rule>
+        
+        <rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code = '101.20117']/
+            cda:component/cda:section[cda:code/@code = '102.20158']/
+            cda:entry/cda:act[@classCode='ACT']/
+            cda:performer/cda:assignedEntity[cda:assignedPerson]/
+            cda:addr">
+            
+            
+            
+            <assert test="not(cda:country) or document('TEMPLATE/VALDN/CDAValidate_Vocabs.xml', .)/systems/system[@codeSystemName = 'ISO3166-1']/code[translate(@displayName, 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ') = translate(current()/cda:country, 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ')]/@code = 'AU'"
+                >Error: Event Summary - 7.1.6.3.1.1 Service Provider as a Healthcare Person - "SERVICE PROVIDER /
+                Participant / Address / Australia or International Address / International Address /
+                Country" - The 'country' tag shall contain the value 'Australia'. Refer to section
+                7.1.6.3.1.1 of the Event_Summary_CDA_Implementation_Guide_v1.3.</assert>
+            
+            
+            <report
+                test="
+                @use and normalize-space(@use) != '' and not(@use = 'WP')"
+                >Error: Event Summary - 7.1.6.3.1.1 Service Provider as a Healthcare Person - "SERVICE PROVIDER /
+                Participant / Address" - The 'addr' tag 'use' attribute shall be set to Business see AS 5017-2006:
+                HealthCare Client Identifier Address Purpose. Refer to section 7.1.6.3.1.1 of the
+                Event_Summary_CDA_Implementation_Guide_v1.3.</report>
+           
+            
+        </rule>
+        
+        
+        <rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code = '101.20117']/
+            cda:component/cda:section[cda:code/@code = '102.20158']/
+            cda:entry/cda:act[@classCode='ACT']/
+            cda:performer/cda:assignedEntity[cda:assignedPerson]/
+            cda:telecom">
+            
+            <assert test="not(@use) or normalize-space(@use) = '' or  @use='WP' ">Error: Event
+                Summary - 7.1.6.3.1.1 Service Provider as a Healthcare Person - "SERVICE PROVIDER / Participant / Electronic
+                Communication Detail" - The 'telecom' tag 'use' attribute shall be set to Workplace
+                see HL7 v3: TelecommunicationAddressUse. Refer to section 7.1.6.3.1.1 of the
+                Event_Summary_CDA_Implementation_Guide_v1.3.</assert>
+            
+        </rule>    
+            
+        
+        <rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code = '101.20117']/cda:component/cda:section[cda:code/@code = '102.20158']/ext:coverage2/ext:entitlement/ext:participant">
+            
+            <assert test="@typeCode"
+                >Error: Event Summary - 7.1.6.3.1.1 Service Provider as a Healthcare Person -
+                "SERVICE PROVIDER / Participant / Entitlement" -
+                The 'participant' tag 'typeCode' attribute is missing.
+                Refer to section 7.1.6.3.1.1 of the
+                Event_Summary_CDA_Implementation_Guide_v1.3.</assert>
+            
+            <assert test="not(@typeCode) or normalize-space(@typeCode) != ''"
+                >Error: Event Summary - 7.1.6.3.1.1 Service Provider as a Healthcare Person -
+                "SERVICE PROVIDER / Participant / Entitlement" -
+                The 'participant' tag 'typeCode' attribute shall contain a value.
+                Refer to section 7.1.6.3.1.1 of the
+                Event_Summary_CDA_Implementation_Guide_v1.3.</assert>
+            
+            <assert test="
+                not(@typeCode) or normalize-space(@typeCode) = '' or @typeCode = 'HLD'"
+                >Error: Event Summary - 7.1.6.3.1.1 Service Provider as a Healthcare Person -
+                "SERVICE PROVIDER / Participant / Entitlement" -
+                The 'participant' tag 'typeCode' attribute shall contain the value 'HLD'.
+                Refer to section 7.1.6.3.1.1 of the
+                Event_Summary_CDA_Implementation_Guide_v1.3.</assert>
+            
+        </rule>
+        
+        
+        <rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code = '101.20117']/cda:component/cda:section[cda:code/@code = '102.20158']/ext:coverage2/ext:entitlement/ext:participant[@typeCode = 'HLD']/ext:participantRole/ext:id">
+            
+            <assert test = "
+                not(@root) or normalize-space(@root) = ''
+                or not(/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code = '101.20117']/cda:component/cda:section[cda:code/@code = '102.20158']/cda:entry/cda:act[@classCode = 'ACT']/cda:performer/cda:assignedEntity[cda:assignedPerson]/cda:id/@root)
+                or normalize-space(/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code = '101.20117']/cda:component/cda:section[cda:code/@code = '102.20158']/cda:entry/cda:act[@classCode = 'ACT']/cda:performer/cda:assignedEntity[cda:assignedPerson]/cda:id/@root) = ''
+                or (@root) = normalize-space(/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code = '101.20117']/cda:component/cda:section[cda:code/@code = '102.20158']/cda:entry/cda:act[@classCode = 'ACT']/cda:performer/cda:assignedEntity[cda:assignedPerson]/cda:id/@root)"
+                >Error: Event Summary - 7.1.6.3.1.1 Service Provider as a Healthcare Person -
+                "Participant / Entitlement" -
+                The 'ext:id' tag 'root' attribute shall be holding the same value as ClinicalDocument/component/structuredBody/component/section[code/@code = '101.20117']/component/section[code/@code = '102.20158']/entry/act[@classCode = 'ACT']/performer/assignedEntity[assignedPerson]/id/@root.
+                Refer to section 7.1.6.3.1.1 of the
+                Event_Summary_CDA_Implementation_Guide_v1.3.</assert>
+            
+        </rule>  
+        
+
+
+    </pattern>
+

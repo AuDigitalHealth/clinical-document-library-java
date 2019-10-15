@@ -10,6 +10,17 @@ public class ProcedureImpl implements Procedure {
   private RestrictedTimeInterval procedureDateTime;
   private String comment;
 
+  public ProcedureImpl(Coded procedureName, RestrictedTimeInterval procedureDateTime,
+      String comment) {
+    this.comment = comment;
+    this.procedureName = procedureName;
+    this.procedureDateTime = procedureDateTime;
+  }
+
+  public ProcedureImpl() {
+
+  }
+
   @Override
   public boolean isShowOngoingInNarrative() {
     return showOngoingNarrative;

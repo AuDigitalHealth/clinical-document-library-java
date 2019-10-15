@@ -1,0 +1,113 @@
+
+    
+    
+    <!-- Discharge Summary Clinical Document:  7.1.4.1 Arranged Services -->
+    
+    <!-- Context: ClinicalDocument/component/structuredBody/component[plan]/section -->
+    
+    <!-- Status: Last Reviewed: 
+        Status: Last Updated : 03/08/2012 -->
+    
+    <pattern name="p-e-Discharge_Summary_3A_Arranged_Service-errors"
+        id="p-e-Discharge_Summary_3A_Arranged_Service-errors"
+        see="#p-e-Discharge_Summary_3A_Arranged_Service-errors">
+       
+
+
+                <!--Arranged Service 1..*-->
+
+        <rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code = '101.16020']
+            /cda:component/cda:section[cda:code/@code = '101.16021']">
+
+            <assert test = "cda:entry">Error: e-Discharge Summary - 7.1.4.1 Arranged_Service -
+                "Arranged Services / Arranged_Service" - The 'entry' tag is missing.
+                Refer to section 7.1.4.1 of the
+                e-Discharge_Summary_CDA_Implementation_Guide_v3.4.</assert>
+
+        </rule>
+
+
+        <rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code = '101.16020']
+            /cda:component/cda:section[cda:code/@code = '101.16021']/cda:entry">
+            
+            <assert test = "cda:act">Error: e-Discharge Summary - 7.1.4.1 Arranged_Service -
+                "Arranged Services / Arranged_Service" - The 'act' tag is missing.
+                Refer to section 7.1.4.1 of the
+                e-Discharge_Summary_CDA_Implementation_Guide_v3.4.</assert>
+            
+            <report test="count(cda:act) > 1">Error: e-Discharge
+                Summary - 7.1.4.1 Arranged Services - "Arranged Services / Arranged_Service" - The 'act' tag shall appear only once. Refer to section
+                7.1.4.1 of the e-Discharge_Summary_CDA_Implementation_Guide_v3.4.</report>
+            
+            
+        </rule>
+        
+
+
+
+        <rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code = '101.16020']
+                       /cda:component/cda:section[cda:code/@code = '101.16021']/cda:entry/cda:act">
+            
+            <assert test="@classCode = 'ACT'">Error: e-Discharge Summary - 7.1.4.1 Arranged_Service - "Arranged Services / Arranged_Service" - The 'act' tag 'classCode' attribute shall contain the value
+                'ACT'. Refer to section 7.1.4.1  of the
+                e-Discharge_Summary_CDA_Implementation_Guide_v3.4.</assert>
+             
+             
+            <assert test = "cda:id">Error: e-Discharge Summary - 7.1.4.1 Arranged_Service -
+                "Arranged Services / Arranged_Service" - The 'id' tag is missing.
+                Refer to section 7.1.4.1 of the
+                e-Discharge_Summary_CDA_Implementation_Guide_v3.4.</assert>
+            
+           <!-- code 1..1-->
+            
+            <assert test = "cda:code">Error: e-Discharge Summary - 7.1.4.1 Arranged_Service -
+                "Arranged_Services / Arranged_Service / Arranged Service Description" - The 'code' tag is missing.
+                Refer to section 7.1.4.1 of the
+                e-Discharge_Summary_CDA_Implementation_Guide_v3.4.</assert>
+            
+            <report test="count(cda:code) > 1">Error: e-Discharge
+                Summary - 7.1.4.1 Arranged Services - "Arranged Services / Arranged_Service / Arranged Service Description" - The 'code' tag shall appear only once. Refer to section
+                7.1.4.1 of the e-Discharge_Summary_CDA_Implementation_Guide_v3.4.</report>
+            
+            
+            <report test="count(cda:effectiveTime) > 1">Error: e-Discharge
+                Summary - 7.1.4.1 Arranged Services - "Arranged Services / Arranged_Service / Service Commencement Window" - The 'effectiveTime' tag shall appear only once. Refer to section
+                7.1.4.1 of the e-Discharge_Summary_CDA_Implementation_Guide_v3.4.</report>
+        
+            <assert test="not(@nullFlavor)">Error: e-Discharge Summary - 7.1.4.1 "Arranged Services
+                / Arranged Service / Service Booking Status" - The 'act' tag 'nullFlavor' attribute
+                shall not be present. Refer to requirements in the NullFlavor Usage Clarification FAQ and section 7.1.4.1 of the
+                e-Discharge_Summary_CDA_Implementation_Guide_v3.4 </assert>
+            
+            <assert test="@moodCode">Error: e-Discharge Summary - 7.1.4.1 "Arranged Services
+                / Arranged Service / Service Booking Status" - The 'act' tag 'moodCode' attribute is missing.
+                 Refer to section 7.1.4.1  of the
+                 e-Discharge_Summary_CDA_Implementation_Guide_v3.4.</assert>
+            
+            <assert
+                test = "document('TEMPLATE/VALDN/CDAValidate_Vocabs.xml', .)/systems/system[@codeSystemName = 'CDA-Act.moodCode']/code[(@code = current()/@moodCode) ]"
+                >Error: e-Discharge Summary - 7.1.4.1 "Arranged Services
+                / Arranged Service / Service Booking Status" -  The 'act' tag 'moodCode' attribute shall be as per HL7 v3 CDA: Act.moodCode.
+                Refer to section 10.19 of the e-Discharge_Summary_CDA_Implementation_Guide_v3.4.</assert>
+            
+        </rule>
+       
+        <!-- Start Mantis 3220 -->
+        <!--<rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code = '101.16020']
+            /cda:component/cda:section[cda:code/@code = '101.16021']/cda:entry/cda:act[@classCode='ACT']/cda:code">-->
+       
+       <rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code = '101.16020']
+                /cda:component/cda:section[cda:code/@code = '101.16021']/cda:entry/cda:act[@classCode='ACT']/cda:code">
+        <!-- End Mantis 3220 -->
+                
+            <assert test="not(@nullFlavor)">Error: e-Discharge Summary - 7.1.4.1 "Arranged Services
+                / Arranged Service / Arranged Service Description" - The 'code' tag 'nullFlavor' attribute
+                shall not be present. Refer to requirements in the NullFlavor Usage Clarification FAQ and section 7.1.4.1 of the
+                e-Discharge_Summary_CDA_Implementation_Guide_v3.4 </assert>
+            
+        </rule>
+              
+        
+    </pattern>
+    
+

@@ -1,12 +1,11 @@
 package au.gov.nehta.model.clinical.diagnostic.imaging;
 
-import java.util.List;
-
 import au.gov.nehta.common.utils.ArgumentUtils;
 import au.gov.nehta.model.cda.common.code.Coded;
 import au.gov.nehta.model.cda.common.time.PreciseDate;
 import au.gov.nehta.model.clinical.common.types.UniqueIdentifier;
 import au.gov.nehta.model.clinical.common.types.UniqueIdentifierImpl;
+import java.util.List;
 
 /**
  * ImagingExaminationResult
@@ -54,7 +53,7 @@ public class ImagingExaminationResultImpl implements ImagingExaminationResult {
 		ArgumentUtils.checkNotNull( overallResult, "overallResult" );
 	    ArgumentUtils.checkNotNull( imagingResultName, "imagingResultName" );
         ArgumentUtils.checkNotNull( modality, "modality" );
-        ArgumentUtils.checkNotNull( anatomicalRegion, "anatomicalRegion" );
+//        ArgumentUtils.checkNotNull( anatomicalRegion, "anatomicalRegion" );
         ArgumentUtils.checkNotNull( imageDateTime, "imageDateTime" );
         ArgumentUtils.checkNotNullNorBlank( examinationProcedure, "examinationProcedure" );
 	
@@ -127,7 +126,7 @@ public class ImagingExaminationResultImpl implements ImagingExaminationResult {
         ArgumentUtils.checkNotNull( overallResult, "overallResult" );
         ArgumentUtils.checkNotNull( imageDateTime, "imageDateTime" );
         ArgumentUtils.checkNotNullNorBlank( examinationProcedure, "examinationProcedure" );
-        ArgumentUtils.checkNotNull( anatomicalRegion, "anatomicalRegion" );
+        /*ArgumentUtils.checkNotNull( anatomicalRegion, "anatomicalRegion" );*/
         
         ImagingExaminationResultImpl result = new ImagingExaminationResultImpl();
         

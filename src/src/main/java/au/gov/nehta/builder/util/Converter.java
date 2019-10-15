@@ -5,6 +5,7 @@ import au.gov.nehta.model.cda.common.address.PostalAddress;
 import au.gov.nehta.model.cda.common.code.Coded;
 import au.gov.nehta.model.cda.common.id.AsEntityIdentifier;
 import au.gov.nehta.model.cda.common.org.OrganizationName;
+import au.gov.nehta.model.cda.common.participant.EmploymentOrganization;
 import au.gov.nehta.model.cda.common.person.PersonNameUseEnum;
 import au.gov.nehta.model.cda.common.telecom.Telecom;
 import au.gov.nehta.model.cda.common.time.EventRelatedTimeInterval;
@@ -65,6 +66,8 @@ import java.math.BigInteger;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
+import java.util.Objects;
+import java.util.stream.Collectors;
 import javax.xml.bind.JAXBElement;
 import org.joda.time.DateTime;
 import org.joda.time.format.DateTimeFormat;
@@ -75,6 +78,9 @@ import org.joda.time.format.DateTimeFormatter;
  */
 public class Converter {
 
+  private static ObjectFactory objectFactory = new ObjectFactory();
+  private static au.net.electronichealth.ns.ci.cda.extensions._3.ObjectFactory objectFactoryExt = new au.net.electronichealth.ns.ci.cda.extensions._3.ObjectFactory();
+  private static final String DATE_PATTERN_MILLIS = "yyyyMMddHHmmss.SSSSZ";
   private static final String HL7_DATE_TIME_FORMAT = "yyyyMMddHHmmssZ";
   // joda date time formatters are threadsafe
   public static final DateTimeFormatter HL7_DATE_TIME_FORMATTER =
@@ -84,7 +90,7 @@ public class Converter {
       DateTimeFormat.forPattern(HL7_DATE_ONLY_FORMAT);
 
   public static ON getOrganizationNameAndUse(Organisation scsOrganisation) {
-    ON organizationName = new ON();
+    ON organizationName = objectFactory.createON();
 
     if (scsOrganisation.getOrganisationName() != null) {
       organizationName.getContent().add(scsOrganisation.getOrganisationName());
@@ -98,8 +104,20 @@ public class Converter {
     return organizationName;
   }
 
+  public static ON getOrganizationNameAndUse(EmploymentOrganization employmentOrganisation) {
+    ON organizationName = objectFactory.createON();
+    if (employmentOrganisation.getName() != null) {
+      organizationName.getContent().add(employmentOrganisation.getName());
+      if (employmentOrganisation.getOrganisationNameUsage() != null) {
+        organizationName.getUse()
+            .add(getEntityOrganisationNameUse(employmentOrganisation.getOrganisationNameUsage()));
+      }
+    }
+    return organizationName;
+  }
+
   public static ON getOrganizationNameAndUse(String name) {
-    ON organizationName = new ON();
+    ON organizationName = objectFactory.createON();
     organizationName.getContent().add(name);
     return organizationName;
   }
@@ -148,17 +166,11 @@ public class Converter {
   public static Collection<? extends TEL> convertElectronicCommunicationDetail(
       List<ElectronicCommunicationDetail> electronicCommunicationDetails) {
     if (electronicCommunicationDetails == null) {
-      return new ArrayList<>(1);
+      return new ArrayList<>();
     }
 
-    List<TEL> telecom = new ArrayList<>();
-
-    for (ElectronicCommunicationDetail ecd : electronicCommunicationDetails) {
-      TEL tel = convertEcd(ecd);
-      telecom.add(tel);
-    }
-
-    return telecom;
+    return electronicCommunicationDetails.stream().filter(Objects::nonNull)
+        .map(Converter::convertEcd).collect(Collectors.toList());
   }
 
   public static List<TEL> convert(List<? extends Telecom> telecoms) {
@@ -177,13 +189,13 @@ public class Converter {
   }
 
   public static IVLTS convert(DateTime date) {
-    IVLTS result = new IVLTS();
+    IVLTS result = objectFactory.createIVLTS();
     result.setValue(HL7_DATE_TIME_FORMATTER.print(date));
     return result;
   }
 
   public static IVLTS convert(PreciseDate date) {
-    IVLTS result = new IVLTS();
+    IVLTS result = objectFactory.createIVLTS();
 
     // use the internal formatter to print to the correct precision
     result.setValue(date.toString());
@@ -192,13 +204,13 @@ public class Converter {
   }
 
   public static IVLTS convertScsDateToIVLTSWithoutTime(DateTime date) {
-    IVLTS result = new IVLTS();
+    IVLTS result = objectFactory.createIVLTS();
     result.setValue(HL7_DATE_ONLY_FORMATTER.print(date));
     return result;
   }
 
   public static TEL convert(Telecom ecd) {
-    TEL telecom = new TEL();
+    TEL telecom = objectFactory.createTEL();
     String telecomValuePrefix;
 
     switch (ecd.getTelecomMedium()) {
@@ -250,7 +262,7 @@ public class Converter {
    * New converter for electronic communication detail
    */
   private static TEL convertEcd(ElectronicCommunicationDetail ecd) {
-    TEL telecom = new TEL();
+    TEL telecom = objectFactory.createTEL();
     String telecomValuePrefix;
 
     switch (ecd.getMedium()) {
@@ -304,18 +316,18 @@ public class Converter {
    * @return PIVLTS elements
    */
   public static PIVLTS convertURG_PQ_Minimal_interval(PeriodicIntervalTime interval) {
-    PIVLTS time = new PIVLTS();
+    PIVLTS time = objectFactory.createPIVLTS();
 
     TimeQuantity frequency = interval.getFrequency();
     if (frequency != null) {
-      RTO rto = new RTO();
+      RTO rto = objectFactory.createRTO();
 
       if (interval.getDenominator() != null) {
-        INT denominator = new INT();
+        INT denominator = objectFactory.createINT();
         denominator.setValue(BigInteger.valueOf(interval.getDenominator()));
         rto.setDenominator(denominator);
       }
-      URGPQ numerator = new URGPQ();
+      URGPQ numerator = objectFactory.createURGPQ();
       numerator.setUnit(frequency.getUnit());
       numerator.setValue(frequency.getValue());
       rto.setNumerator(numerator);
@@ -328,7 +340,7 @@ public class Converter {
 
     if (interval.getPeriod() != null) {
 
-      PQ period = new PQ();
+      PQ period = objectFactory.createPQ();
       period.setUnit(interval.getCycleAlignment().getCode());
       period.setValue(interval.getPeriod().toString());
       time.setPeriod(period);
@@ -338,18 +350,18 @@ public class Converter {
   }
 
   public static PIVLTS convert(PeriodicIntervalTime interval) {
-    PIVLTS time = new PIVLTS();
+    PIVLTS time = objectFactory.createPIVLTS();
 
     TimeQuantity frequency = interval.getFrequency();
     if (frequency != null) {
-      RTO rto = new RTO();
+      RTO rto = objectFactory.createRTO();
 
       if (interval.getDenominator() != null) {
-        PQ denominator = new PQ();
+        PQ denominator = objectFactory.createPQ();
         denominator.setValue(Integer.toString(interval.getDenominator()));
         rto.setDenominator(denominator);
       }
-      PQ numerator = new PQ();
+      PQ numerator = objectFactory.createPQ();
       numerator.setUnit(frequency.getUnit());
       numerator.setValue(frequency.getValue());
       rto.setNumerator(numerator);
@@ -362,7 +374,7 @@ public class Converter {
 
     if (interval.getPeriod() != null) {
 
-      PQ period = new PQ();
+      PQ period = objectFactory.createPQ();
       period.setUnit(interval.getCycleAlignment().getCode());
       period.setValue(interval.getPeriod().toString());
       time.setPeriod(period);
@@ -372,18 +384,18 @@ public class Converter {
   }
 
   public static PIVLTS convertPIVLWithPeriod(PeriodicIntervalTime interval) {
-    PIVLTS time = new PIVLTS();
+    PIVLTS time = objectFactory.createPIVLTS();
 
     TimeQuantity frequency = interval.getFrequency();
     if (frequency != null) {
-      RTO rto = new RTO();
+      RTO rto = objectFactory.createRTO();
 
       if (interval.getDenominator() != null) {
-        PQ denominator = new PQ();
+        PQ denominator = objectFactory.createPQ();
         denominator.setValue(Integer.toString(interval.getDenominator()));
         rto.setDenominator(denominator);
       }
-      PQ numerator = new PQ();
+      PQ numerator = objectFactory.createPQ();
       numerator.setUnit(frequency.getUnit());
       numerator.setValue(frequency.getValue());
       rto.setNumerator(numerator);
@@ -396,7 +408,7 @@ public class Converter {
 
     if (interval.getPeriod() != null) {
 
-      PQ period = new PQ();
+      PQ period = objectFactory.createPQ();
       period.setUnit(interval.getCycleAlignment().getCode());
       period.setValue(interval.getPeriod().toString());
       time.setPeriod(period);
@@ -406,10 +418,10 @@ public class Converter {
   }
 
   public static PIVLTS convert(SimplifiedPeriodicIntervalTime time) {
-    PIVLTS ivlTime = new PIVLTS();
+    PIVLTS ivlTime = objectFactory.createPIVLTS();
 
     if (time != null) {
-      PQ pq = new PQ();
+      PQ pq = objectFactory.createPQ();
       pq.setValue(time.getPeriod());
       pq.setUnit(time.getUnit());
       ivlTime.setPeriod(pq);
@@ -419,38 +431,85 @@ public class Converter {
   }
 
   public static IVLTS convert(RestrictedTimeInterval ivl) {
-    IVLTS ivlts = new IVLTS();
+    IVLTS ivlts = objectFactory.createIVLTS();
 
     // must add low before High!
     if (ivl.getLow() != null) {
-      IVXBPQ low = new IVXBPQ();
+      IVXBPQ low = objectFactory.createIVXBPQ();
       low.setValue(ivl.getLow().toString());
-      JAXBElement<IVXBPQ> pqLow = new ObjectFactory().createIVLPQLow(low);
+      JAXBElement<IVXBPQ> pqLow = objectFactory.createIVLPQLow(low);
       ivlts.getRest().add(pqLow);
     }
 
+    processWidth(ivl, ivlts);
+
+    if (ivl.getCenter() != null) {
+      PQ centre = objectFactory.createPQ();
+      centre.setValue(ivl.getCenter().toString());
+      JAXBElement<PQ> pqCentre = objectFactory.createIVLPQCenter(centre);
+      ivlts.getRest().add(pqCentre);
+    }
+
+    if (ivl.getHigh() != null) {
+      IVXBPQ high = objectFactory.createIVXBPQ();
+      high.setValue(ivl.getHigh().toString());
+      JAXBElement<IVXBPQ> pqHigh = objectFactory.createIVLPQHigh(high);
+      ivlts.getRest().add(pqHigh);
+    }
+
+    return ivlts;
+  }
+
+  private static void processWidth(RestrictedTimeInterval ivl, IVLTS ivlts) {
     if (ivl.getWidth() != null) {
-      PQ width = new PQ();
+      PQ width = objectFactory.createPQ();
       TimeQuantity ivlWidth = ivl.getWidth();
       width.setUnit(ivlWidth.getUnit());
       if (ivlWidth.getValue() != null) {
         width.setValue(ivlWidth.getValue());
       }
-      JAXBElement<PQ> pqWidth = new ObjectFactory().createIVLPQWidth(width);
+      JAXBElement<PQ> pqWidth = objectFactory.createIVLPQWidth(width);
       ivlts.getRest().add(pqWidth);
     }
+  }
+
+  public static IVLTS convert(RestrictedTimeInterval ivl, boolean excludeTimeInLow,
+      boolean excludeTimeInHigh, boolean excludeTimeInCenter) {
+    IVLTS ivlts = objectFactory.createIVLTS();
+
+    // must add low before High!
+    if (ivl.getLow() != null) {
+      IVXBPQ low = objectFactory.createIVXBPQ();
+      if (excludeTimeInLow) {
+        low.setValue(ivl.getLow().toString());
+      } else {
+        low.setValue(ivl.getLow().getDateTime().toString(DATE_PATTERN_MILLIS));
+      }
+      JAXBElement<IVXBPQ> pqLow = objectFactory.createIVLPQLow(low);
+      ivlts.getRest().add(pqLow);
+    }
+
+    processWidth(ivl, ivlts);
 
     if (ivl.getCenter() != null) {
-      PQ centre = new PQ();
-      centre.setValue(ivl.getCenter().toString());
-      JAXBElement<PQ> pqCentre = new ObjectFactory().createIVLPQCenter(centre);
+      PQ centre = objectFactory.createPQ();
+      if (excludeTimeInCenter) {
+        centre.setValue(ivl.getCenter().getDateTime().toString());
+      } else {
+        centre.setValue(ivl.getCenter().getDateTime().toString(DATE_PATTERN_MILLIS));
+      }
+      JAXBElement<PQ> pqCentre = objectFactory.createIVLPQCenter(centre);
       ivlts.getRest().add(pqCentre);
     }
 
     if (ivl.getHigh() != null) {
-      IVXBPQ high = new IVXBPQ();
-      high.setValue(ivl.getHigh().toString());
-      JAXBElement<IVXBPQ> pqHigh = new ObjectFactory().createIVLPQHigh(high);
+      IVXBPQ high = objectFactory.createIVXBPQ();
+      if (excludeTimeInHigh) {
+        high.setValue(ivl.getHigh().toString());
+      } else {
+        high.setValue(ivl.getHigh().getDateTime().toString(DATE_PATTERN_MILLIS));
+      }
+      JAXBElement<IVXBPQ> pqHigh = objectFactory.createIVLPQHigh(high);
       ivlts.getRest().add(pqHigh);
     }
 
@@ -471,7 +530,7 @@ public class Converter {
       return convert((SimplifiedPeriodicIntervalTime) time);
     }
 
-    SXCMTS s = new SXCMTS();
+    SXCMTS s = objectFactory.createSXCMTS();
 
     if (null == time) {
       s.setNullFlavor(NullFlavor.NA);
@@ -483,7 +542,7 @@ public class Converter {
   }
 
   public static SXPRTS convert(SetParentheticTime time) {
-    SXPRTS s = new SXPRTS();
+    SXPRTS s = objectFactory.createSXPRTS();
 
     if (null == time) {
       s.setNullFlavor(NullFlavor.NA);
@@ -502,20 +561,20 @@ public class Converter {
   }
 
   public static EIVLTS convert(EventRelatedTimeInterval time) {
-    EIVLTS e = new EIVLTS();
+    EIVLTS e = objectFactory.createEIVLTS();
 
     if (null == time) {
       e.setNullFlavor(NullFlavor.NA);
     } else {
 
       if (null != time.getCode()) {
-        EIVLEvent ce = new EIVLEvent();
+        EIVLEvent ce = objectFactory.createEIVLEvent();
         ce.setCode(time.getCode().getCode());
         e.setEvent(ce);
       }
 
       if (null != time.getOffset()) {
-        IVLPQ pq = new IVLPQ();
+        IVLPQ pq = objectFactory.createIVLPQ();
         pq.setUnit(time.getOffset().getUnit());
         pq.setValue(time.getOffset().getValue());
         e.setOffset(pq);
@@ -531,7 +590,7 @@ public class Converter {
   }
 
   public static PQ convert(Quantity quantity) {
-    PQ pq = new PQ();
+    PQ pq = objectFactory.createPQ();
     if (quantity.getUnit() != null) {
       pq.setUnit(quantity.getUnit());
     }
@@ -543,20 +602,20 @@ public class Converter {
   }
 
   public static CS convertScsAccuracyIndicator(DateAccuracy dateOfBirthAccuracyIndicator) {
-    CS result = new CS();
+    CS result = objectFactory.createCS();
     result.setCode(dateOfBirthAccuracyIndicator.toString());
     return result;
   }
 
   public static INT convertIntegerToINT(Integer integer) {
-    INT result = new INT();
+    INT result = objectFactory.createINT();
     result.setValue(new BigInteger(String.valueOf(integer)));
 
     return result;
   }
 
   public static CE convert(Sex sex) {
-    CE administrativeGenderCode = new CE();
+    CE administrativeGenderCode = objectFactory.createCE();
     administrativeGenderCode.setCodeSystem("2.16.840.1.113883.13.68");
     administrativeGenderCode.setCodeSystemName("AS 5017-2006 Health Care Client Identifier Sex");
 
@@ -631,38 +690,38 @@ public class Converter {
   }
 
   public static PN getPersonName(PersonName scsPersonName) {
-    PN personName = new PN();
+    PN personName = objectFactory.createPN();
 
     if (scsPersonName.getNameTitle() != null) {
       for (String nameTitle : scsPersonName.getNameTitle()) {
-        EnPrefix prefix = new EnPrefix();
+        EnPrefix prefix = objectFactory.createEnPrefix();
         prefix.getContent().add(nameTitle);
-        JAXBElement<EnPrefix> jaxbPrefix = new ObjectFactory().createENPrefix(prefix);
+        JAXBElement<EnPrefix> jaxbPrefix = objectFactory.createENPrefix(prefix);
         personName.getContent().add(jaxbPrefix);
       }
     }
 
     if (scsPersonName.getFamilyName() != null) {
-      EnFamily family = new EnFamily();
+      EnFamily family = objectFactory.createEnFamily();
       family.getContent().add(scsPersonName.getFamilyName());
-      JAXBElement<EnFamily> jaxbFamily = new ObjectFactory().createENFamily(family);
+      JAXBElement<EnFamily> jaxbFamily = objectFactory.createENFamily(family);
       personName.getContent().add(jaxbFamily);
     }
 
     if (scsPersonName.getGivenName() != null) {
       for (String givenName : scsPersonName.getGivenName()) {
-        EnGiven given = new EnGiven();
+        EnGiven given = objectFactory.createEnGiven();
         given.getContent().add(givenName);
-        JAXBElement<EnGiven> jaxbGiven = new ObjectFactory().createENGiven(given);
+        JAXBElement<EnGiven> jaxbGiven = objectFactory.createENGiven(given);
         personName.getContent().add(jaxbGiven);
       }
     }
 
     if (scsPersonName.getNameSuffix() != null) {
       for (String nameSuffix : scsPersonName.getNameSuffix()) {
-        EnSuffix suffix = new EnSuffix();
+        EnSuffix suffix = objectFactory.createEnSuffix();
         suffix.getContent().add(nameSuffix);
-        JAXBElement<EnSuffix> jaxbSuffix = new ObjectFactory().createENSuffix(suffix);
+        JAXBElement<EnSuffix> jaxbSuffix = objectFactory.createENSuffix(suffix);
         personName.getContent().add(jaxbSuffix);
       }
     }
@@ -703,12 +762,13 @@ public class Converter {
       if (value.getOriginalText() != null) {
         ce.setOriginalText(CDATypeUtil.getED(value.getOriginalText()));
       }
-      for (Coded code : value.getTranslations()) {
-        ce.getTranslation().add(convertToCDCode(code));
+      if (null != value.getCodeSystemVersion()) {
+        ce.setCodeSystemVersion(value.getCodeSystemVersion());
       }
+      processTranslations(value, ce);
 
     } else {
-      ce = new CE();
+      ce = objectFactory.createCE();
       ce.setOriginalText(CDATypeUtil.getED(value.getOriginalText()));
       if (value.getDisplayName() != null) {
         ce.setDisplayName(value.getDisplayName());
@@ -724,14 +784,39 @@ public class Converter {
       if (value.getOriginalText() != null) {
         cd.setOriginalText(CDATypeUtil.getED(value.getOriginalText()));
       }
+      if (null != value.getCodeSystemVersion()) {
+        cd.setCodeSystemVersion(value.getCodeSystemVersion());
+      }
+      processTranslations(value, cd);
+
     } else {
-      cd = new CD();
+      cd = objectFactory.createCD();
       cd.setOriginalText(CDATypeUtil.getED(value.getOriginalText()));
       if (value.getDisplayName() != null) {
         cd.setDisplayName(value.getDisplayName());
       }
     }
     return cd;
+  }
+
+  private static void processTranslations(Coded value, CD cd) {
+    if (null != value.getTranslations()) {
+      value.getTranslations().stream().filter(Objects::nonNull).forEach(translationObj -> {
+        if (null != translationObj.getCode() && null != translationObj.getCodeSystem()
+            && (null == translationObj.getOriginalText() || translationObj.getOriginalText()
+            .isEmpty())) {
+          cd.getTranslation().add(new CD() {{
+            setCode(translationObj.getCode());
+            setCodeSystem(translationObj.getCodeSystem());
+            setCodeSystemName(translationObj.getCodeSystemName());
+            setDisplayName(translationObj.getDisplayName());
+          }});
+        } else {
+          throw new RuntimeException(
+              "Invalid translation object: A translation cannot have an originalText attribute. It must have a code and codeSystem while codeSystemName and displayName are both optional.");
+        }
+      });
+    }
   }
 
   public static CV convertToCVCode(Coded value) {
@@ -746,8 +831,11 @@ public class Converter {
       if (value.getOriginalText() != null) {
         cv.setOriginalText(CDATypeUtil.getED(value.getOriginalText()));
       }
+      if (null != value.getCodeSystemVersion()) {
+        cv.setCodeSystemVersion(value.getCodeSystemVersion());
+      }
     } else {
-      cv = new CV();
+      cv = objectFactory.createCV();
       cv.setOriginalText(CDATypeUtil.getED(value.getOriginalText()));
       if (value.getDisplayName() != null) {
         cv.setDisplayName(value.getDisplayName());
@@ -758,7 +846,7 @@ public class Converter {
 
   static ON getOrganizationName(
       OrganizationName cdaModelLegalAuthenticatorAssignedEntityRepresentedOrganizationName) {
-    ON organizationName = new ON();
+    ON organizationName = objectFactory.createON();
     organizationName
         .getContent()
         .add(cdaModelLegalAuthenticatorAssignedEntityRepresentedOrganizationName.getValue());
@@ -814,7 +902,7 @@ public class Converter {
   }
 
   public static II getII(UniqueIdentifier uid) {
-    II ii = new II();
+    II ii = objectFactory.createII();
 
     if (uid.getRoot() != null) {
       ii.setRoot(uid.getRoot());
@@ -832,7 +920,7 @@ public class Converter {
       ii.setDisplayable(uid.getDisplayable());
     }
 
-    if (uid.getNullFlavour() != null) { // omgwtfbbq!
+    if (uid.getNullFlavour() != null) {
       ii.setNullFlavor(uid.getNullFlavour());
     }
 
@@ -861,24 +949,24 @@ public class Converter {
     // if we have a null falvour, override the value and just print the null
     // flavour
     if (asEntityIdentifier.getNullFlavour() != null) {
-      II id = new II();
+      II id = objectFactory.createII();
       id.setNullFlavor(asEntityIdentifier.getNullFlavour());
       entityIdentifier.setId(id);
       return entityIdentifier;
     }
 
-    II id = new II();
+    II id = objectFactory.createII();
     id.setRoot(asEntityIdentifier.getRoot());
     id.setExtension(asEntityIdentifier.getExtension());
     id.setAssigningAuthorityName(asEntityIdentifier.getAssigningAuthorityName());
     entityIdentifier.setId(id);
 
     if (null != asEntityIdentifier.getAssigningGeographicAreaName()) {
-      GeographicArea geographicArea = new GeographicArea();
+      GeographicArea geographicArea = objectFactoryExt.createGeographicArea();
       EntityClass entityClass =
           EntityClass.fromValue(asEntityIdentifier.getAssigningGeographicAreaClassCode());
       geographicArea.setClassCode(entityClass);
-      ST geographicAreaName = new ST();
+      ST geographicAreaName = objectFactory.createST();
       geographicAreaName.getContent().add(asEntityIdentifier.getAssigningGeographicAreaName());
       geographicArea.setName(geographicAreaName);
 
@@ -893,28 +981,36 @@ public class Converter {
   }
 
   public static TS getTS(DateTime date) {
-    TS time = new TS();
+    TS time = objectFactory.createTS();
     time.setValue(HL7_DATE_TIME_FORMATTER.print(date));
+    return time;
+  }
 
+  public static TS getTS(DateTime date, boolean dateOnly) {
+    TS time = objectFactory.createTS();
+    if (dateOnly) {
+      time.setValue(HL7_DATE_ONLY_FORMATTER.print(date));
+    } else {
+      time.setValue(HL7_DATE_TIME_FORMATTER.print(date));
+    }
     return time;
   }
 
   public static TS getTS(PreciseDate date) {
-    TS time = new TS();
+    TS time = objectFactory.createTS();
     time.setValue(date.toString());
-
     return time;
   }
 
   public static RTOPQPQ convert(Ratio ratio) {
-    RTOPQPQ rto = new RTOPQPQ();
+    RTOPQPQ rto = objectFactory.createRTOPQPQ();
     rto.setDenominator(Converter.convert(ratio.getDenominator()));
     rto.setNumerator(Converter.convert(ratio.getNumerator()));
     return rto;
   }
 
   public static EN convert(String s) {
-    EN en = new EN();
+    EN en = objectFactory.createEN();
     en.getContent().add(s);
 
     return en;
@@ -935,29 +1031,29 @@ public class Converter {
 
   public static SXCMTS convertToSxcmts(org.joda.time.DateTime dateTime) {
 
-    SXCMTS sxcmts = new SXCMTS();
+    SXCMTS sxcmts = objectFactory.createSXCMTS();
     sxcmts.setValue(Converter.HL7_DATE_TIME_FORMATTER.print(dateTime));
     return sxcmts;
   }
 
   public static SXCMTS convertToSxcmts(PreciseDate preciseDate) {
 
-    SXCMTS sxcmts = new SXCMTS();
+    SXCMTS sxcmts = objectFactory.createSXCMTS();
     sxcmts.setValue(Converter.HL7_DATE_TIME_FORMATTER.print(preciseDate.getDateTime()));
     return sxcmts;
   }
 
   public static IVLPQ convert(ReferenceRange referenceRange) {
-    IVLPQ referenceRangeValue = new IVLPQ();
+    IVLPQ referenceRangeValue = objectFactory.createIVLPQ();
     if (null != referenceRange) {
-      IVXBPQ low = new IVXBPQ();
+      IVXBPQ low = objectFactory.createIVXBPQ();
       low.setValue(Double.toString(referenceRange.getReferenceRange().getLow()));
-      JAXBElement<IVXBPQ> lowValue = new ObjectFactory().createIVLPQLow(low);
+      JAXBElement<IVXBPQ> lowValue = objectFactory.createIVLPQLow(low);
       referenceRangeValue.getRest().add(lowValue);
 
-      IVXBPQ high = new IVXBPQ();
+      IVXBPQ high = objectFactory.createIVXBPQ();
       high.setValue(Double.toString(referenceRange.getReferenceRange().getHigh()));
-      JAXBElement<IVXBPQ> highValue = new ObjectFactory().createIVLPQHigh(high);
+      JAXBElement<IVXBPQ> highValue = objectFactory.createIVLPQHigh(high);
       referenceRangeValue.getRest().add(highValue);
 
       referenceRangeValue.setUnit(referenceRange.getReferenceRange().getUnits());
@@ -965,28 +1061,12 @@ public class Converter {
     return referenceRangeValue;
   }
 
-  /* public static Collection<? extends TEL> convertElectronicCommsDetail(
-      List<ElectronicCommunicationDetail> electronicCommunicationDetails) {
-
-    List<TEL> telList = new ArrayList<>();
-
-    if (electronicCommunicationDetails != null && !electronicCommunicationDetails.isEmpty()) {
-      electronicCommunicationDetails
-          .parallelStream()
-          .forEach(
-              electronicCommunicationDetail -> {
-                TEL tel = new TEL();
-              });
-    }
-    return telList;
-  }*/
-
   public static IVLTS convertIVLTSwithLow(PreciseDate preciseDate) {
-    IVLTS ivlts = new IVLTS();
+    IVLTS ivlts = objectFactory.createIVLTS();
     if (preciseDate != null) {
-      IVXBPQ low = new IVXBPQ();
+      IVXBPQ low = objectFactory.createIVXBPQ();
       low.setValue(HL7_DATE_ONLY_FORMATTER.print(preciseDate.getDateTime()));
-      JAXBElement<IVXBPQ> pqLow = new ObjectFactory().createIVLPQLow(low);
+      JAXBElement<IVXBPQ> pqLow = objectFactory.createIVLPQLow(low);
       ivlts.getRest().add(pqLow);
     }
     return ivlts;

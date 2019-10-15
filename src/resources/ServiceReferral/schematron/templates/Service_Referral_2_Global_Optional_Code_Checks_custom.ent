@@ -1,0 +1,89 @@
+    <pattern name="p-Service_Referral_2_Global_Optional_Code_Checks_custom-errors"
+        id="p-Service_Referral_2_Global_Optional_Code_Checks_custom-errors"
+        see="#p-Service_Referral_2_Global_Optional_Code_Checks_custom-errors">
+        
+
+        <!--  4 :: Administrative Observations -->
+        
+        <rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section/cda:code[(translate(@displayName , 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ') ='ADMINISTRATIVE OBSERVATIONS')]">
+            
+            <assert test="@code = '102.16080'"
+                >Error: Service Referral - Administrative Observations- The 'code' tag 'code' attribute shall be '102.16080'. 
+                Refer to section '4. Service Referral' of the Service_Referral_CDA_Implementation_Guide_v1.1.</assert>
+            
+        </rule>
+        
+              
+        <!--  7.1.2 :: CURRENT SERVICES -->
+        
+        <rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section/cda:code[(translate(@displayName , 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ') ='CURRENT SERVICES')]">
+
+            <assert test="@code = '101.21021'"
+                >Error: Service Referral - CURRENT SERVICES / Section Type - The 'code' tag 'code' attribute shall be '101.21021'. 
+                Refer to section '7.1.2. CURRENT SERVICES' of the Service_Referral_CDA_Implementation_Guide_v1.1.</assert>
+            
+        </rule>
+        
+        
+        <!--  7.1.3 :: ADVERSE REACTIONS -->
+        
+        <rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section/cda:code[(translate(@displayName , 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ') ='ADVERSE REACTIONS')]">
+
+            <assert test="@code = '101.20113'"
+                >Error: Service Referral - ADVERSE REACTIONS / Section Type - The 'code' tag 'code' attribute shall be '101.20113'. 
+                Refer to section '7.1.3. ADVERSE REACTIONS' of the Service_Referral_CDA_Implementation_Guide_v1.1.</assert>
+            
+        </rule>
+        
+        <!--  7.1.4 :: Medications (MEDICATION ORDERS) -->
+        
+        <rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section/cda:code[(translate(@displayName , 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ') ='MEDICATION ORDERS')]">
+            
+            <assert test="@code = '101.16146'"
+                >Error: Service Referral - Medications (MEDICATION ORDERS) / Section Type - The 'code' tag 'code' attribute shall be '101.16146'. 
+                Refer to section '7.1.4. Medications (MEDICATION ORDERS)' of the Service_Referral_CDA_Implementation_Guide_v1.1.</assert>
+            
+        </rule>
+        
+        <!--  7.1.5 :: Past and Current Medical History (MEDICAL HISTORY) -->
+        
+        <rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section/cda:code[(translate(@displayName , 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ') ='MEDICAL HISTORY')]">
+            
+            <assert test="@code = '101.16117'"
+                >Error: Service Referral - Past and Current Medical History (MEDICAL HISTORY) / Section Type - The 'code' tag 'code' attribute shall be '101.16117'. 
+                Refer to section '7.1.5. Past and Current Medical History (MEDICAL HISTORY)' of the Service_Referral_CDA_Implementation_Guide_v1.1.</assert>
+            
+        </rule>
+        
+        <!--  7.1.6 :: DIAGNOSTIC INVESTIGATIONS -->
+        
+        <rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section/cda:code[(translate(@displayName , 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ') ='DIAGNOSTIC INVESTIGATIONS')]">
+            
+            <assert test="@code = '101.20117'"
+                >Error: Service Referral - DIAGNOSTIC INVESTIGATIONS / Section Type - The 'code' tag 'code' attribute shall be '101.20117'. 
+                Refer to section '7.1.6. DIAGNOSTIC INVESTIGATIONS' of the Service_Referral_CDA_Implementation_Guide_v1.1.</assert>
+            
+        </rule>
+        
+        <!--  7.1.6.1 :: PATHOLOGY TEST RESULT -->
+        
+        <rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section/cda:code[(translate(@displayName , 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ') ='PATHOLOGY TEST RESULT')]">
+            
+            <assert test="@code = '102.16144'"
+                >Error: Service Referral - PATHOLOGY TEST RESULT / Section Type - The 'code' tag 'code' attribute shall be '102.16144'. 
+                Refer to section '7.1.6.1. PATHOLOGY TEST RESULT' of the Service_Referral_CDA_Implementation_Guide_v1.1.</assert>
+            
+        </rule>
+        
+        <!--  7.1.6.2 :: IMAGING EXAMINATION RESULT -->
+        
+        <rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section/cda:code[(translate(@displayName , 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ') ='IMAGING EXAMINATION RESULT')]">
+            
+            <assert test="@code = '102.16145'"
+                >Error: Service Referral - IMAGING EXAMINATION RESULT / Detailed Clinical Model Identifier - The 'code' tag 'code' attribute shall be '102.16145'. 
+                Refer to section '7.1.6.2. IMAGING EXAMINATION RESULT' of the Service_Referral_CDA_Implementation_Guide_v1.1.</assert>
+            
+        </rule>
+        
+    </pattern>
+

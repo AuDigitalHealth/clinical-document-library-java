@@ -1,0 +1,170 @@
+<!--
+_________________________________________________________________________________________________________________________________________________________________________________________
+                  Generated File - Do Not Edit File Directly                                                                                                                             
+                  __________________________________________
+
+                  Generated          : 30/05/2017 1:48:14 PM
+
+                  Product            : Service Referral
+                  Release            : CDA_Implementation_Guide_v1.0
+                  IG Guide Reference : 7.1.1.4
+                  IG Guide Title     : OTHER ALERTS (ALERT)
+                  Generator Version  : 2.28
+                                                                                                                                                                                         
+_________________________________________________________________________________________________________________________________________________________________________________________
+-->
+    <pattern name="p-Service_Referral_3A_OTHERALERTS_ALERT_7_1_1_4-errors"
+        id="p-Service_Referral_3A_OTHERALERTS_ALERT_7_1_1_4-errors"
+        see="#p-Service_Referral_3A_OTHERALERTS_ALERT_7_1_1_4-errors">
+
+
+        <rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code = '101.17032']/cda:entry[cda:observation/@classCode = 'ALRT']">
+
+            <report test="count(cda:observation) > 1"
+                >Error: Service Referral - 7.1.1.4 OTHER ALERTS (ALERT) -
+                "Other Alerts (ALERT)" -
+                The 'observation' tag shall appear only once.
+                Refer to section 7.1.1.4 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</report>
+
+        </rule>
+
+
+        <rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code = '101.17032']/cda:entry/cda:observation[@classCode = 'ALRT']">
+
+            <assert test="@moodCode"
+                >Error: Service Referral - 7.1.1.4 OTHER ALERTS (ALERT) -
+                "Other Alerts (ALERT)" -
+                The 'observation' tag 'moodCode' attribute is missing.
+                Refer to section 7.1.1.4 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</assert>
+
+            <assert test="not(@moodCode) or normalize-space(@moodCode) != ''"
+                >Error: Service Referral - 7.1.1.4 OTHER ALERTS (ALERT) -
+                "Other Alerts (ALERT)" -
+                The 'observation' tag 'moodCode' attribute shall contain a value.
+                Refer to section 7.1.1.4 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</assert>
+
+            <assert test="
+                not(@moodCode) or normalize-space(@moodCode) = '' or @moodCode = 'EVN'"
+                >Error: Service Referral - 7.1.1.4 OTHER ALERTS (ALERT) -
+                "Other Alerts (ALERT)" -
+                The 'observation' tag 'moodCode' attribute shall contain the value 'EVN'.
+                Refer to section 7.1.1.4 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</assert>
+
+            <assert test="cda:code"
+                >Error: Service Referral - 7.1.1.4 OTHER ALERTS (ALERT) -
+                "Other Alerts (ALERT) / Alert Type" -
+                The 'code' tag is missing.
+                Refer to section 7.1.1.4 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</assert>
+
+            <report test="count(cda:code) > 1"
+                >Error: Service Referral - 7.1.1.4 OTHER ALERTS (ALERT) -
+                "Other Alerts (ALERT) / Alert Type" -
+                The 'code' tag shall appear only once.
+                Refer to section 7.1.1.4 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</report>
+
+            <assert test="cda:value"
+                >Error: Service Referral - 7.1.1.4 OTHER ALERTS (ALERT) -
+                "Other Alerts (ALERT) / Alert Description" -
+                The 'value' tag is missing.
+                Refer to section 7.1.1.4 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</assert>
+
+            <report test="count(cda:value) > 1"
+                >Error: Service Referral - 7.1.1.4 OTHER ALERTS (ALERT) -
+                "Other Alerts (ALERT) / Alert Description" -
+                The 'value' tag shall appear only once.
+                Refer to section 7.1.1.4 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</report>
+
+            <report test="count(cda:id) > 1"
+                >Error: Service Referral - 7.1.1.4 OTHER ALERTS (ALERT) -
+                "Other Alerts (ALERT) / Alert Instance Identifier" -
+                The 'id' tag shall appear only once.
+                Refer to section 7.1.1.4 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</report>
+
+        </rule>
+
+
+        <rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code = '101.17032']/cda:entry/cda:observation[@classCode = 'ALRT']/cda:code">
+
+            <report test="@nullFlavor and normalize-space(@nullFlavor) = ''"
+                >Error: Service Referral - 7.1.1.4 OTHER ALERTS (ALERT) -
+                "Other Alerts (ALERT) / Alert Type" -
+                The 'code' tag 'nullFlavor' attribute shall contain a value.
+                Refer to section 7.1.1.4 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</report>
+
+            <report test="@nullFlavor and normalize-space(@nullFlavor) != '' and
+                (document('TEMPLATE/VALDN/CDAValidate_Vocabs.xml', .)/systems/system [@codeSystemName = 'Coded_DataType_NullFlavor_Absent_Values']/code[
+                    (@code = current()/@nullFlavor) ])"
+                >Error: Service Referral - 7.1.1.4 OTHER ALERTS (ALERT) -
+                "Other Alerts (ALERT) / Alert Type" -
+                The 'code' tag 'nullFlavor' attribute shall not be "NI","UNK","ASKU", "NAV", "NASK","MSK", or "NA"..
+                Refer to section 7.1.1.4 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</report>
+
+        </rule>
+
+
+        <rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code = '101.17032']/cda:entry/cda:observation[@classCode = 'ALRT']/cda:value">
+
+            <report test="@nullFlavor and normalize-space(@nullFlavor) = ''"
+                >Error: Service Referral - 7.1.1.4 OTHER ALERTS (ALERT) -
+                "Other Alerts (ALERT) / Alert Description" -
+                The 'value' tag 'nullFlavor' attribute shall contain a value.
+                Refer to section 7.1.1.4 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</report>
+
+            <report test="@nullFlavor and normalize-space(@nullFlavor) != '' and
+                (document('TEMPLATE/VALDN/CDAValidate_Vocabs.xml', .)/systems/system [@codeSystemName = 'Coded_DataType_NullFlavor_Absent_Values']/code[
+                    (@code = current()/@nullFlavor) ])"
+                >Error: Service Referral - 7.1.1.4 OTHER ALERTS (ALERT) -
+                "Other Alerts (ALERT) / Alert Description" -
+                The 'value' tag 'nullFlavor' attribute shall not be "NI","UNK","ASKU", "NAV", "NASK","MSK", or "NA"..
+                Refer to section 7.1.1.4 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</report>
+
+            <report test="@xsi:type and normalize-space(@xsi:type) = ''"
+                >Error: Service Referral - 7.1.1.4 OTHER ALERTS (ALERT) -
+                "Other Alerts (ALERT) / Alert Description" -
+                The 'value' tag 'xsi:type' attribute shall contain a value.
+                Refer to section 7.1.1.4 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</report>
+
+            <assert test="
+                not(@xsi:type) or normalize-space(@xsi:type) = '' or 
+                normalize-space(@xsi:type) = 'CD' or
+                (substring-before(normalize-space(@xsi:type), ':') != '' and
+                substring-after(normalize-space(@xsi:type), ':') = 'CD') or 
+                normalize-space(@xsi:type) = 'CE' or
+                (substring-before(normalize-space(@xsi:type), ':') != '' and
+                substring-after(normalize-space(@xsi:type), ':') = 'CE')"
+                >Error: Service Referral - 7.1.1.4 OTHER ALERTS (ALERT) -
+            	"Other Alerts (ALERT) / Alert Description" - The 'value' tag 'xsi:type' attribute shall
+                contain the value 'CD' or 'CE'. Refer to section 7.1.1.4 of the
+            	Service_Referral_CDA_Implementation_Guide_v1.1.</assert>
+
+        </rule>
+
+
+        <rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code = '101.17032']/cda:entry/cda:observation[@classCode = 'ALRT']/cda:id">
+
+            <assert test="not(@nullFlavor)"
+                >Error: Service Referral - 7.1.1.4 OTHER ALERTS (ALERT) -
+                "Other Alerts (ALERT) / Alert Instance Identifier" -
+                The 'id' tag 'nullFlavor' attribute shall not be present.
+                Refer to section 7.1.1.4 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</assert>
+
+        </rule>
+
+
+    </pattern>
+

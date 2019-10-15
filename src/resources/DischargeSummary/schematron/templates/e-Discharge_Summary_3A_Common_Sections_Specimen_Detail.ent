@@ -1,0 +1,1027 @@
+
+    <!-- Context: ClinicalDocument/component/structuredBody/component[diag_inv]/section/component[path_test_res]/section -->
+    <!-- Context: ClinicalDocument/component/structuredBody/component[diag_inv]/section/component[path_test]/section/entryRelationship[res_gp]/organizer -->
+
+    <!-- eDischarge Summary Clinical Document:  7.1.1.5.1.1 TEST SPECIMEN DETAIL           and
+                                                7.1.1.5.1.2.1 Result Group Specimen Detail -->
+
+    <!-- Status: Last Reviewed:
+         Status: Last Updated : 12/07/2012
+ -->
+
+
+    <pattern name="p-e-Discharge_Summary_3A_Common_Sections_Specimen_Detail-errors"
+        id="p-e-Discharge_Summary_3A_Common_Sections_Specimen_Detail-errors"
+        see="#p-e-Discharge_Summary_3A_Common_Sections_Specimen_Detail-errors">
+
+
+        <!--Result Group Specimen Detail - 0..1-->
+        <rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code = '101.16006']/cda:component/cda:section[cda:code/@code = '101.20117']/cda:component/cda:section[cda:code/@code = '102.16144']/cda:entry/cda:observation[@classCode='OBS']/cda:entryRelationship[cda:observation/cda:code/@code = '102.16156.2.2.1']">
+
+            <report test="count(cda:observation) > 1">Error: e-Discharge Summary - 7.1.1.5.1.1 Test
+                Specimen Detail and/or 7.1.1.5.1.2.1 Result Group Specimen Detail - "Test Specimen
+                Detail" and/or "Result Group Specimen Detail" - The 'observation' tag shall appear
+                only once. Refer to section 7.1.1.5.1.1 of the
+                e-Discharge_Summary_CDA_Implementation_Guide_v3.4.</report>
+
+            <assert test="@typeCode = 'SUBJ'">Error: e-Discharge Summary - 7.1.1.5.1.1 Test Specimen
+                Detail - The 'entryRelationship' tag 'typeCode' attribute shall contain the value
+                'SUBJ'. Refer to section 7.1.1.5.1.1 of the
+                e-Discharge_Summary_CDA_Implementation_Guide_v3.4.</assert>
+
+        </rule>
+
+        <rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code = '101.16006']/cda:component/cda:section[cda:code/@code = '101.20117']/cda:component/cda:section[cda:code/@code = '102.16144']/cda:entry/cda:observation[@classCode='OBS']/cda:entryRelationship/cda:organizer[@classCode='BATTERY']/cda:component[cda:observation/cda:code/@code = '102.16156.2.2.2']">
+
+            <report test="count(cda:observation) > 1">Error: e-Discharge Summary - 7.1.1.5.1.1 Test
+                Specimen Detail and/or 7.1.1.5.1.2.1 Result Group Specimen Detail - "Test Specimen
+                Detail" and/or "Result Group Specimen Detail" - The 'observation' tag shall appear
+                only once. Refer to section 7.1.1.5.1.1 of the
+                e-Discharge_Summary_CDA_Implementation_Guide_v3.4.</report>
+
+        </rule>
+
+        <rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code = '101.16006']/cda:component/cda:section[cda:code/@code = '101.20117']/cda:component/cda:section[cda:code/@code = '102.16144']/cda:entry/cda:observation[@classCode='OBS']/cda:entryRelationship/cda:observation[cda:code/@code = '102.16156.2.2.1'] |
+                       /cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code = '101.16006']/cda:component/cda:section[cda:code/@code = '101.20117']/cda:component/cda:section[cda:code/@code = '102.16144']/cda:entry/cda:observation[@classCode='OBS']/cda:entryRelationship/cda:organizer[@classCode='BATTERY']/cda:component/cda:observation[cda:code/@code = '102.16156.2.2.2']">
+
+            <assert test="@classCode = 'OBS'">Error: e-Discharge Summary - 7.1.1.5.1.1 Test Specimen
+                Detail and/or 7.1.1.5.1.2.1 Result Group Specimen Detail - "Test Specimen Detail"
+                and/or "Result Group Specimen Detail" - The 'observation' tag 'classCode' attribute
+                shall be 'OBS'. Refer to section 7.1.1.5.1.1 of the
+                e-Discharge_Summary_CDA_Implementation_Guide_v3.4.</assert>
+
+            <assert test="@moodCode = 'EVN'">Error: e-Discharge Summary - 7.1.1.5.1.1 Test Specimen
+                Detail and/or 7.1.1.5.1.2.1 Result Group Specimen Detail - "Test Specimen Detail"
+                and/or "Result Group Specimen Detail" - The 'observation' tag 'moodCode' attribute
+                shall be 'EVN'. Refer to section 7.1.1.5.1.1 of the
+                e-Discharge_Summary_CDA_Implementation_Guide_v3.4.</assert>
+
+            <report test="count(cda:code) > 1">Error: e-Discharge Summary - 7.1.1.5.1.1 Test
+                Specimen Detail and/or 7.1.1.5.1.2.1 Result Group Specimen Detail - "Test Specimen
+                Detail" and/or "Result Group Specimen Detail" - The 'code' tag shall appear only
+                once. Refer to section 7.1.1.5.1.1 of the
+                e-Discharge_Summary_CDA_Implementation_Guide_v3.4.</report>
+
+            <!--Collection Procedure - 0..1-->
+
+            <report test="count(cda:methodCode) > 1">Error: e-Discharge Summary - 7.1.1.5.1.1 Test
+                Specimen Detail and/or 7.1.1.5.1.2.1 Result Group Specimen Detail - "Test Specimen
+                Detail" and/or "Result Group Specimen Detail" - The 'methodCode' tag shall appear
+                only once. Refer to section 7.1.1.5.1.1 of the
+                e-Discharge_Summary_CDA_Implementation_Guide_v3.4.</report>
+
+            <!--Anatomical Location Name - 0..*(Cardinality taken from parent)-->
+
+            <!-- <report test="count(cda:targetSiteCode) > 1">Error: e-Discharge Summary - 7.1.1.5.1.1 Test
+                Specimen Detail and/or 7.1.1.5.1.2.1 Result Group Specimen Detail - "Test Specimen
+                Detail" and/or "Result Group Specimen Detail" - The 'targetSiteCode' tag shall
+                appear only once. Refer to section 7.1.1.5.1.1 of the
+                e-Discharge_Summary_CDA_Implementation_Guide_v3.4.</report>-->
+
+            <!--methodCode and targetSiteCode child tags and attributes are tested in Global Checks-->
+
+            <!-- 12/07/2012 Mantis task 3802 - Updated the cardinality of effectiveTime to 1..1as per the new IG ver3.4 -->
+            <!-- Collection DateTime - 1..1-->
+
+            <assert test="cda:effectiveTime">xxError: e-Discharge Summary - 7.1.1.5.1.1
+                Test Specimen Detail and/or 7.1.1.5.1.2.1 Result Group Specimen Detail - "Test
+                Specimen Detail" and/or "Result Group Specimen Detail" - The 'effectiveTime' tag
+                is missing. Refer to section 7.1.1.5.1.1 of the
+                e-Discharge_Summary_CDA_Implementation_Guide_v3.4.</assert>
+
+            <!-- End of update -->
+
+            <report test="count(cda:effectiveTime) > 1">xxError: e-Discharge Summary - 7.1.1.5.1.1
+                Test Specimen Detail and/or 7.1.1.5.1.2.1 Result Group Specimen Detail - "Test
+                Specimen Detail" and/or "Result Group Specimen Detail" - The 'effectiveTime' tag
+                shall appear only once. Refer to section 7.1.1.5.1.1 of the
+                e-Discharge_Summary_CDA_Implementation_Guide_v3.4.</report>
+
+        </rule>
+
+        <rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code = '101.16006']/cda:component/cda:section[cda:code/@code = '101.20117']/cda:component/cda:section[cda:code/@code = '102.16144']/cda:entry/cda:observation[@classCode='OBS']/cda:entryRelationship/cda:observation[cda:code/@code = '102.16156.2.2.1']/cda:effectiveTime" >
+
+           <assert test="not(@nullFlavor)">Error: e-Discharge Summary - 7.1.1.5.1.1
+                Test Specimen Detail  - The 'effectiveTime' tag 'nullFlavor' attribute shall not be
+                present. Refer to requirements in the NullFlavor Usage Clarification FAQ and section 6.1.2 of the
+                e-Discharge_Summary_CDA_Implementation_Guide_v3.4. </assert>
+
+        </rule>
+
+
+
+        <rule context="cda:code[@code = '102.16156.2.2.1']">
+
+            <assert test="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code = '101.16006']/cda:component/cda:section[cda:code/@code = '101.20117']/cda:component/cda:section[cda:code/@code = '102.16144']/cda:entry/cda:observation[@classCode='OBS']/cda:entryRelationship[cda:observation/cda:code/@code = '102.16156.2.2.1']"
+                >Error: e-Discharge Summary - 7.1.1.5.1.1 Test Specimen Detail and/or 7.1.1.5.1.2.1 Result Group Specimen Detail - "Test Specimen Detail" and/or "Result Group Specimen Detail" -
+                The '/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code = '101.16006']/cda:component/cda:section[cda:code/@code = '101.20117']/cda:component/cda:section[cda:code/@code = '102.16144']/cda:entry/cda:observation[@classCode='OBS']/cda:entryRelationship[cda:observation/cda:code/@code = "102.16156.2.2.1"]' path -
+                1 or more tags are missing. Refer to section 7.1.1.5.1.1 and/or 7.1.1.5.1.2.1 of the
+                e-Discharge_Summary_CDA_Implementation_Guide_v3.4.</assert>
+
+            <assert test="@codeSystem = '1.2.36.1.2001.1001.101'">Error: e-Discharge Summary -
+                7.1.1.5.1.1 Test Specimen Detail and/or 7.1.1.5.1.2.1 Result Group Specimen Detail -
+                "Test Specimen Detail" and/or "Result Group Specimen Detail" - The 'code' tag
+                'codeSystem' attribute shall contain the value '1.2.36.1.2001.1001.101'. Refer to
+                section 7.1.1.5.1.1 and/or 7.1.1.5.1.2.1 of the
+                e-Discharge_Summary_CDA_Implementation_Guide_v3.4.</assert>
+
+            <assert test="translate(@codeSystemName, 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ') = 'NCTIS DATA COMPONENTS'"
+                >Error: e-Discharge Summary - 7.1.1.5.1.1 Test Specimen Detail and/or 7.1.1.5.1.2.1
+                Result Group Specimen Detail - "Test Specimen Detail" and/or "Result Group Specimen
+                Detail" - The 'code' tag 'codeSystemName' attribute shall contain the value 'NCTIS
+                Data Components'. Refer to section 7.1.1.5.1.1 and/or 7.1.1.5.1.2.1 of the
+                e-Discharge_Summary_CDA_Implementation_Guide_v3.4.</assert>
+
+            <assert test="translate(@displayName, 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ') = 'TEST SPECIMEN DETAIL'"
+                >Error: e-Discharge Summary - 7.1.1.5.1.1 Test Specimen Detail and/or 7.1.1.5.1.2.1
+                Result Group Specimen Detail - "Test Specimen Detail" and/or "Result Group Specimen
+                Detail" - The 'code' tag 'displayName' attribute shall contain the value 'Test
+                Specimen Detail'. Refer to section 7.1.1.5.1.1 and/or 7.1.1.5.1.2.1 of the
+                e-Discharge_Summary_CDA_Implementation_Guide_v3.4.</assert>
+
+        </rule>
+
+        <rule context="cda:code[@code = '102.16156.2.2.2']">
+
+            <assert test="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code = '101.16006']/cda:component/cda:section[cda:code/@code = '101.20117']/cda:component/cda:section[cda:code/@code = '102.16144']/cda:entry/cda:observation[@classCode='OBS']/cda:entryRelationship/cda:organizer[@classCode='BATTERY']/cda:component[cda:observation/cda:code/@code = '102.16156.2.2.2']"
+                >Error: e-Discharge Summary - 7.1.1.5.1.1 Test Specimen Detail and/or 7.1.1.5.1.2.1 Result Group Specimen Detail - "Test Specimen Detail" and/or "Result Group Specimen Detail" -
+                The '/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code = '101.16006']/cda:component/cda:section[cda:code/@code = '101.20117']/cda:component/cda:section[cda:code/@code = '102.16144']/cda:entry/cda:observation[@classCode='OBS']/cda:entryRelationship/cda:organizer[@classCode='BATTERY']/cda:component[cda:observation/cda:code/@code = "102.16156.2.2.2"]' path -
+                1 or more tags are missing. Refer to section 7.1.1.5.1.1 and/or 7.1.1.5.1.2.1 of the
+                e-Discharge_Summary_CDA_Implementation_Guide_v3.4.</assert>
+
+            <assert test="@codeSystem = '1.2.36.1.2001.1001.101'">Error: e-Discharge Summary -
+                7.1.1.5.1.1 Test Specimen Detail and/or 7.1.1.5.1.2.1 Result Group Specimen Detail -
+                "Test Specimen Detail" and/or "Result Group Specimen Detail" - The 'code' tag
+                'codeSystem' attribute shall contain the value '1.2.36.1.2001.1001.101'. Refer to
+                section 7.1.1.5.1.1 and/or 7.1.1.5.1.2.1 of the
+                e-Discharge_Summary_CDA_Implementation_Guide_v3.4.</assert>
+
+            <assert test="translate(@codeSystemName, 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ') = 'NCTIS DATA COMPONENTS'"
+                >Error: e-Discharge Summary - 7.1.1.5.1.1 Test Specimen Detail and/or 7.1.1.5.1.2.1
+                Result Group Specimen Detail - "Test Specimen Detail" and/or "Result Group Specimen
+                Detail" - The 'code' tag 'codeSystemName' attribute shall contain the value 'NCTIS
+                Data Components'. Refer to section 7.1.1.5.1.1 and/or 7.1.1.5.1.2.1 of the
+                e-Discharge_Summary_CDA_Implementation_Guide_v3.4.</assert>
+
+            <assert test="translate(@displayName, 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ') = 'RESULT GROUP SPECIMEN DETAIL'"
+                >Error: e-Discharge Summary - 7.1.1.5.1.1 Test Specimen Detail and/or 7.1.1.5.1.2.1
+                Result Group Specimen Detail - "Test Specimen Detail" and/or "Result Group Specimen
+                Detail" - The 'code' tag 'displayName' attribute shall contain the value 'Result
+                Group Specimen Detail'. Refer to section 7.1.1.5.1.1 and/or 7.1.1.5.1.2.1 of the
+                e-Discharge_Summary_CDA_Implementation_Guide_v3.4.</assert>
+
+        </rule>
+
+
+        <!-- Test Specimen Detail - Anatomical Location Image - 0..* & Image 0..1-->
+        <!-- Result Group Specimen Detail - Anatomical Location Image - 0..* & Image 0..1-->
+        <rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code = '101.16006']/cda:component/cda:section[cda:code/@code = '101.20117']/cda:component/cda:section[cda:code/@code = '102.16144']/cda:entry/cda:observation[@classCode='OBS']/cda:entryRelationship/cda:observation[cda:code/@code='102.16156.2.2.1']/cda:entryRelationship[@typeCode = 'SPRT'] |
+                      /cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code = '101.16006']/cda:component/cda:section[cda:code/@code = '101.20117']/cda:component/cda:section[cda:code/@code = '102.16144']/cda:entry/cda:observation[@classCode='OBS']/cda:entryRelationship/cda:organizer[@classCode='BATTERY']/cda:component/cda:observation[@classCode='OBS']/cda:entryRelationship[@typeCode = 'SPRT']">
+
+            <assert test="cda:observationMedia">Error: e-Discharge Summary - 7.1.1.5.1.1 Test Specimen
+                Detail and/or 7.1.1.5.1.2.1 Result Group Specimen Detail - "Test Specimen Detail /
+                Anatomical Site / Anatomical Location Image" and/or "Test Specimen Detail / Physical
+                Details / Image" and/or "Result Group Specimen Detail / Anatomical Site / Anatomical
+                Location Image" and/or "Result Group Specimen Detail / Physical Details / Image" -
+                The 'observationMedia' tag is missing. Refer to section 7.1.1.5.1.1
+                and/or7.1.1.5.1.2.1 of the
+                e-Discharge_Summary_CDA_Implementation_Guide_v3.4.</assert>
+
+        </rule>
+
+        <rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code = '101.16006']/cda:component/cda:section[cda:code/@code = '101.20117']/cda:component/cda:section[cda:code/@code = '102.16144']/cda:entry/cda:observation[@classCode='OBS']/cda:entryRelationship/cda:observation[cda:code/@code='102.16156.2.2.1']/cda:entryRelationship[@typeCode = 'SPRT']/cda:observationMedia |
+                       /cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code = '101.16006']/cda:component/cda:section[cda:code/@code = '101.20117']/cda:component/cda:section[cda:code/@code = '102.16144']/cda:entry/cda:observation[@classCode='OBS']/cda:entryRelationship/cda:organizer[@classCode='BATTERY']/cda:component/cda:observation[@classCode='OBS']/cda:entryRelationship[@typeCode = 'SPRT']/cda:observationMedia">
+
+            <assert test="@classCode = 'OBS'">Error: e-Discharge Summary - 7.1.1.5.1.1 Test Specimen
+                Detail and/or 7.1.1.5.1.2.1 Result Group Specimen Detail - "Test Specimen Detail /
+                Anatomical Site / Anatomical Location Image" and/or "Test Specimen Detail / Physical
+                Details / Image" and/or "Result Group Specimen Detail / Anatomical Site / Anatomical
+                Location Image" and/or "Result Group Specimen Detail / Physical Details / Image" -
+                The 'observation' tag 'classCode' attribute shall contain the value 'OBS'. Refer to
+                section 7.1.1.5.1.1 and/or 7.1.1.5.1.2.1 of the
+                e-Discharge_Summary_CDA_Implementation_Guide_v3.4.</assert>
+
+            <assert test="@moodCode = 'EVN'">Error: e-Discharge Summary - 7.1.1.5.1.1 Test Specimen
+                Detail and/or 7.1.1.5.1.2.1 Result Group Specimen Detail - "Test Specimen Detail /
+                Anatomical Site / Anatomical Location Image" and/or "Test Specimen Detail / Physical
+                Details / Image" and/or "Result Group Specimen Detail / Anatomical Site / Anatomical
+                Location Image" and/or "Result Group Specimen Detail / Physical Details / Image" -
+                The 'observation' tag 'moodCode' attribute shall contain the value 'EVN'. Refer to
+                section 7.1.1.5.1.1 and/or 7.1.1.5.1.2.1 of the
+                e-Discharge_Summary_CDA_Implementation_Guide_v3.4.</assert>
+
+            <assert test="cda:id">Error: e-Discharge Summary - 7.1.1.5.1.1 Test Specimen Detail and/or
+                7.1.1.5.1.2.1 Result Group Specimen Detail - "Test Specimen Detail / Anatomical Site
+                / Anatomical Location Image" and/or "Test Specimen Detail / Physical Details /
+                Image" and/or "Result Group Specimen Detail / Anatomical Site / Anatomical Location
+                Image" and/or "Result Group Specimen Detail / Physical Details / Image" - The 'id'
+                tag is missing. Refer to section 7.1.1.5.1.1 and/or 7.1.1.5.1.2.1 of the
+                e-Discharge_Summary_CDA_Implementation_Guide_v3.4.</assert>
+
+            <assert test="cda:value">Error: e-Discharge Summary - 7.1.1.5.1.1 Test Specimen Detail
+                and/or 7.1.1.5.1.2.1 Result Group Specimen Detail - "Test Specimen Detail /
+                Anatomical Site / Anatomical Location Image" and/or "Test Specimen Detail / Physical
+                Details / Image" and/or "Result Group Specimen Detail / Anatomical Site / Anatomical
+                Location Image" and/or "Result Group Specimen Detail / Physical Details / Image" -
+                The 'value' tag is missing. Refer to section 7.1.1.5.1.1 and/or 7.1.1.5.1.2.1 of the
+                e-Discharge_Summary_CDA_Implementation_Guide_v3.4.</assert>
+
+        </rule>
+
+
+        <!-- Test Specimen Detail - Physical Details - 0..* -->
+        <!-- Result Group Specimen Detail - Physical Details - 0..* -->
+        <rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code = '101.16006']/cda:component/cda:section[cda:code/@code = '101.20117']/cda:component/cda:section[cda:code/@code = '102.16144']/cda:entry/cda:observation[@classCode='OBS']/cda:entryRelationship/cda:observation[cda:code/@code='102.16156.2.2.1']/cda:specimen/cda:specimenRole/cda:specimenPlayingEntity |
+                       /cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code = '101.16006']/cda:component/cda:section[cda:code/@code = '101.20117']/cda:component/cda:section[cda:code/@code = '102.16144']/cda:entry/cda:observation[@classCode='OBS']/cda:entryRelationship/cda:organizer[@classCode='BATTERY']/cda:component/cda:observation[@classCode='OBS']/cda:specimen/cda:specimenRole/cda:specimenPlayingEntity">
+
+            <!--Weight or Volume - 0..1-->
+
+            <report test="count(cda:quantity) > 1">Error: e-Discharge Summary - 7.1.1.5.1.1 Test
+                Specimen Detail and/or 7.1.1.5.1.2.1 Result Group Specimen Detail - "Test Specimen
+                Detail / Physical Details / Weight or Volume" and/or "Result Group Specimen Detail /
+                Physical Details / Weight or Volume" - The 'quantity' tag shall appear only once.
+                Refer to section 7.1.1.5.1.1 and/or 7.1.1.5.1.2.1 of the
+                e-Discharge_Summary_CDA_Implementation_Guide_v3.4.</report>
+
+            <!--Description - 0..1-->
+
+            <report test="count(cda:desc) > 1">Error: e-Discharge Summary - 7.1.1.5.1.1 Test
+                Specimen Detail and/or 7.1.1.5.1.2.1 Result Group Specimen Detail - "Test Specimen
+                Detail / Description" and/or "Result Group Specimen Detail / Physical Details /
+                Description" - The 'desc' tag shall appear only once. Refer to section 7.1.1.5.1.1
+                and/or 7.1.1.5.1.2.1 of the
+                e-Discharge_Summary_CDA_Implementation_Guide_v3.4.</report>
+
+            <!--Container Identifier - 0..1-->
+
+            <report test="count(ext:asSpecimenInContainer) > 1">Error: e-Discharge Summary -
+                7.1.1.5.1.1 Test Specimen Detail and/or 7.1.1.5.1.2.1 Result Group Specimen Detail -
+                "Test Specimen Detail / Identifiers / Container Identifier" and/or "Result Group
+                Specimen Detail / Identifiers / Container Identifier" - The
+                'ext:asSpecimenInContainer' tag shall appear only once. Refer to section 7.1.1.5.1.1
+                and/or 7.1.1.5.1.2.1 of the
+                e-Discharge_Summary_CDA_Implementation_Guide_v3.4.</report>
+
+        </rule>
+
+        <rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code = '101.16006']/cda:component/cda:section[cda:code/@code = '101.20117']/cda:component/cda:section[cda:code/@code = '102.16144']/cda:entry/cda:observation[@classCode='OBS']/cda:entryRelationship/cda:observation[cda:code/@code='102.16156.2.2.1']/cda:specimen/cda:specimenRole/cda:specimenPlayingEntity/cda:desc |
+                       /cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code = '101.16006']/cda:component/cda:section[cda:code/@code = '101.20117']/cda:component/cda:section[cda:code/@code = '102.16144']/cda:entry/cda:observation[@classCode='OBS']/cda:entryRelationship/cda:organizer[@classCode='BATTERY']/cda:component/cda:observation[@classCode='OBS']/cda:specimen/cda:specimenRole/cda:specimenPlayingEntity/cda:desc">
+
+            <!-- Start Mantis Task 2782 -->
+            <assert test="@xsi:type">
+                Error: e-Discharge Summary - 7.1.1.5.1.1 Test Specimen Detail and/or 7.1.1.5.1.2.1 Result Group
+                Specimen Detail - "Test Specimen Detail / Description" and/or "Result Group Specimen
+                Detail / Description" - The 'desc' tag 'xsi:type' attribute is missing.
+                Refer to section 7.1.1.5.1.1 and/or 7.1.1.5.1.2.1 of the
+                e-Discharge_Summary_CDA_Implementation_Guide_v3.4.
+            </assert>
+
+            <assert test="not(@xsi:type) or normalize-space(@xsi:type) !=  ''">
+                Error: e-Discharge Summary - 7.1.1.5.1.1 Test Specimen Detail and/or 7.1.1.5.1.2.1 Result Group
+                Specimen Detail - "Test Specimen Detail / Description" and/or "Result Group Specimen
+                Detail / Description" - The 'desc' tag 'xsi:type' attribute shall contain a value.
+                Refer to section 7.1.1.5.1.1 and/or 7.1.1.5.1.2.1 of the
+                e-Discharge_Summary_CDA_Implementation_Guide_v3.4.
+            </assert>
+            <!-- End Mantis Task 2782 -->
+
+            <assert test="normalize-space(@xsi:type) =  'ST'">Error: e-Discharge
+                Summary - 7.1.1.5.1.1 Test Specimen Detail and/or 7.1.1.5.1.2.1 Result Group
+                Specimen Detail - "Test Specimen Detail / Description" and/or "Result Group Specimen
+                Detail / Description" - The 'desc' tag 'xsi:type' attribute shall contain the value
+                'CD'. Refer to section 7.1.1.5.1.1 and/or 7.1.1.5.1.2.1 of the
+                e-Discharge_Summary_CDA_Implementation_Guide_v3.4.</assert>
+
+        </rule>
+
+
+        <!-- Test Specimen Detail - Sampling Preconditions - 0..1 -->
+        <!-- Result Group Specimen Detail - Sampling Preconditions - 0..1 -->
+        <rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code = '101.16006']/cda:component/cda:section[cda:code/@code = '101.20117']/cda:component/cda:section[cda:code/@code = '102.16144']/cda:entry/cda:observation[@classCode='OBS']/cda:entryRelationship/cda:observation[cda:code/@code='102.16156.2.2.1']/cda:entryRelationship[cda:observation/cda:code/@code = '103.16171'] |
+                       /cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code = '101.16006']/cda:component/cda:section[cda:code/@code = '101.20117']/cda:component/cda:section[cda:code/@code = '102.16144']/cda:entry/cda:observation[@classCode='OBS']/cda:entryRelationship/cda:organizer[@classCode='BATTERY']/cda:component/cda:observation[@classCode='OBS']/cda:entryRelationship[cda:observation/cda:code/@code = '103.16171']">
+
+            <assert test="@typeCode = 'COMP'">Error: e-Discharge Summary - 7.1.1.5.1.1 Test Specimen
+                Detail and/or 7.1.1.5.1.2.1 Result Group Specimen Detail - "Test Specimen Detail /
+                Collection and handling / Sampling Preconditions" and/or "Result Group Specimen
+                Detail / Collection and handling / Sampling Preconditions" - The 'entryRelationship'
+                tag 'typeCode' attribute shall contain the value 'COMP' . Refer to section
+                7.1.1.5.1.1 and/or 7.1.1.5.1.2.1 of the
+                e-Discharge_Summary_CDA_Implementation_Guide_v3.4.</assert>
+
+            <report test="count(cda:observation) > 1">Error: e-Discharge Summary - 7.1.1.5.1.1 Test
+                Specimen Detail and/or 7.1.1.5.1.2.1 Result Group Specimen Detail - "Test Specimen
+                Detail / Collection and handling / Sampling Preconditions" and/or "Result Group
+                Specimen Detail / Collection and handling / Sampling Preconditions" - The
+                'observation' tag shall appear only once. Refer to section 7.1.1.5.1.1 and/or
+                7.1.1.5.1.2.1 of the
+                e-Discharge_Summary_CDA_Implementation_Guide_v3.4.</report>
+
+        </rule>
+
+        <rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code = '101.16006']/cda:component/cda:section[cda:code/@code = '101.20117']/cda:component/cda:section[cda:code/@code = '102.16144']/cda:entry/cda:observation[@classCode='OBS']/cda:entryRelationship/cda:observation[cda:code/@code='102.16156.2.2.1']/cda:entryRelationship/cda:observation[cda:code/@code = '103.16171'] |
+                       /cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code = '101.16006']/cda:component/cda:section[cda:code/@code = '101.20117']/cda:component/cda:section[cda:code/@code = '102.16144']/cda:entry/cda:observation[@classCode='OBS']/cda:entryRelationship/cda:organizer[@classCode='BATTERY']/cda:component/cda:observation[@classCode='OBS']/cda:entryRelationship/cda:observation[cda:code/@code = '103.16171']">
+
+            <assert test="@classCode = 'OBS'">Error: e-Discharge Summary - 7.1.1.5.1.1 Test Specimen
+                Detail and/or 7.1.1.5.1.2.1 Result Group Specimen Detail - "Test Specimen Detail /
+                Collection and handling / Sampling Preconditions" and/or "Result Group Specimen
+                Detail / Collection and handling / Sampling Preconditions" - The 'observation' tag
+                'classCode' attribute shall contain the value 'OBS'. Refer to section 7.1.1.5.1.1
+                and/or 7.1.1.5.1.2.1 of the
+                e-Discharge_Summary_CDA_Implementation_Guide_v3.4.</assert>
+
+            <assert test="@moodCode = 'EVN'">Error: e-Discharge Summary - 7.1.1.5.1.1 Test Specimen
+                Detail and/or 7.1.1.5.1.2.1 Result Group Specimen Detail - "Test Specimen Detail /
+                Collection and handling / Sampling Preconditions" and/or "Result Group Specimen
+                Detail / Collection and handling / Sampling Preconditions" - The 'observation' tag
+                'moodCode' attribute shall contain the value 'EVN'. Refer to section 7.1.1.5.1.1
+                and/or 7.1.1.5.1.2.1 of the
+                e-Discharge_Summary_CDA_Implementation_Guide_v3.4.</assert>
+
+            <report test="count(cda:code) > 1">Error: e-Discharge Summary - 7.1.1.5.1.1 Test
+                Specimen Detail and/or 7.1.1.5.1.2.1 Result Group Specimen Detail - "Test Specimen
+                Detail / Collection and handling / Sampling Preconditions" and/or "Result Group
+                Specimen Detail / Collection and handling / Sampling Preconditions" - The 'code' tag
+                shall appear only once. Refer to section 7.1.1.5.1.1 and/or 7.1.1.5.1.2.1 of the
+                e-Discharge_Summary_CDA_Implementation_Guide_v3.4.</report>
+
+            <assert test="cda:value">Error: e-Discharge Summary - 7.1.1.5.1.1 Test Specimen Detail
+                and/or 7.1.1.5.1.2.1 Result Group Specimen Detail - "Test Specimen Detail /
+                Collection and handling / Sampling Preconditions" and/or "Result Group Specimen
+                Detail / Collection and handling / Sampling Preconditions" - The 'value' tag is
+                missing. Refer to section 7.1.1.5.1.1 and/or 7.1.1.5.1.2.1 of the
+                e-Discharge_Summary_CDA_Implementation_Guide_v3.4.</assert>
+
+            <report test="count(cda:value) > 1">Error: e-Discharge Summary - 7.1.1.5.1.1 Test
+                Specimen Detail and/or 7.1.1.5.1.2.1 Result Group Specimen Detail - "Test Specimen
+                Detail / Collection and handling / Sampling Preconditions" and/or "Result Group
+                Specimen Detail / Collection and handling / Sampling Preconditions" - The 'value'
+                tag shall appear only once. Refer to section 7.1.1.5.1.1 and/or 7.1.1.5.1.2.1 of the
+                e-Discharge_Summary_CDA_Implementation_Guide_v3.4.</report>
+
+            <!-- For 'value' tag, see below rule context
+                        <rule context = "/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code = '101.16006']/cda:component/cda:section[cda:code/@code = '101.20117']/cda:component/cda:section[cda:code/@code = '102.16144']/cda:entry/cda:observation[@classCode='OBS']/cda:entryRelationship/cda:observation/cda:entryRelationship/cda:observation[cda:code/@code = '103.16171']/cda:value |
+                                         /cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code = '101.16006']/cda:component/cda:section[cda:code/@code = '101.20117']/cda:component/cda:section[cda:code/@code = '102.16144']/cda:entry/cda:observation[@classCode='OBS']/cda:entryRelationship/cda:organizer[@classCode='BATTERY']/cda:component/cda:observation/cda:entryRelationship/cda:observation[cda:code/@code = '103.16171']/cda:value">
+            -->
+
+        </rule>
+
+        <!-- Test Specimen Detail - Sampling Preconditions - 0..1 -->
+        <!-- Result Group Specimen Detail - Sampling Preconditions - 0..1 -->
+        <rule context="cda:code[@code = '103.16171']">
+            <assert test="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code = '101.16006']/cda:component/cda:section[cda:code/@code = '101.20117']/cda:component/cda:section[cda:code/@code = '102.16144']/cda:entry/cda:observation[@classCode='OBS']/cda:entryRelationship/cda:observation/cda:entryRelationship/cda:observation/cda:code[@code = '103.16171'] |
+                          /cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code = '101.16006']/cda:component/cda:section[cda:code/@code = '101.20117']/cda:component/cda:section[cda:code/@code = '102.16144']/cda:entry/cda:observation[@classCode='OBS']/cda:entryRelationship/cda:organizer[@classCode='BATTERY']/cda:component/cda:observation/cda:entryRelationship/cda:observation/cda:code[@code = '103.16171']"
+                >Error: e-Discharge Summary - 7.1.1.5.1.1 Test Specimen Detail and/or 7.1.1.5.1.2.1 Result Group Specimen Detail - "Test Specimen Detail / Collection and handling / Sampling Preconditions" and/or "Result Group Specimen Detail / Collection and handling / Sampling Preconditions" -
+                The '/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code = '101.16006']/cda:component/cda:section[cda:code/@code = '101.20117']/cda:component/cda:section[cda:code/@code = '102.16144']/cda:entry/cda:observation[@classCode='OBS']/cda:entryRelationship/cda:observation/cda:entryRelationship/cda:observation/cda:code[@code = "103.16171"]
+                or   /cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code = '101.16006']/cda:component/cda:section[cda:code/@code = '101.20117']/cda:component/cda:section[cda:code/@code = '102.16144']/cda:entry/cda:observation[@classCode='OBS']/cda:entryRelationship/cda:organizer[@classCode='BATTERY']/cda:component/cda:observation/cda:entryRelationship/cda:observation/cda:code[@code = "103.16171"]' path -
+                1 or more tags are missing. Refer to section 7.1.1.5.1.1 and/or 7.1.1.5.1.2.1
+                of the e-Discharge_Summary_CDA_Implementation_Guide_v3.4.</assert>
+
+     <!--  <assert test = "/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code = '101.16006']/cda:component/cda:section[cda:code/@code = '101.20117']/cda:component/cda:section[cda:code/@code = '102.16144']/cda:entry/cda:observation[@classCode='OBS']/cda:entryRelationship/cda:observation/cda:entryRelationship/cda:observation/cda:code[@code = '103.16171']">Error: e-Discharge Summary - 7.1.1.5.1.1
+                Test Specimen Detail and/or 7.1.1.5.1.2.1 Result Group Specimen Detail - "Test
+                Specimen Detail / Collection and handling / Sampling Preconditions" and/or "Result
+                Group Specimen Detail / Collection and handling / Sampling Preconditions" - The
+                "/ClinicalDocument/component/structuredBody/component/section[cda:code/@code = '101.16006']/component/section[cda:code/@code = '101.20117']/component/section[cda:code/@code = '102.16144']/entry/observation[@classCode='OBS']/entryRelationship/observation/entryRelationship/observation/code[@code = '103.16171']" path -
+                1 or more tags are missing. Refer to section 7.1.1.5.1.1 and/or 7.1.1.5.1.2.1 of the
+                e-Discharge_Summary_CDA_Implementation_Guide_v3.4.</assert>-->
+
+            <assert test="@codeSystem = '1.2.36.1.2001.1001.101'">Error: e-Discharge Summary -
+                7.1.1.5.1.1 Test Specimen Detail and/or 7.1.1.5.1.2.1 Result Group Specimen Detail -
+                "Test Specimen Detail / Collection and handling / Sampling Preconditions" and/or
+                "Result Group Specimen Detail / Collection and handling / Sampling Preconditions" -
+                The 'code' tag 'codeSystem' attribute shall contain the value
+                '1.2.36.1.2001.1001.101'. Refer to section 7.1.1.5.1.1 and/or 7.1.1.5.1.2.1 of the
+                e-Discharge_Summary_CDA_Implementation_Guide_v3.4.</assert>
+
+            <assert
+                test="translate(@codeSystemName, 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ') = 'NCTIS DATA COMPONENTS'"
+                >Error: e-Discharge Summary - 7.1.1.5.1.1 Test Specimen Detail and/or 7.1.1.5.1.2.1
+                Result Group Specimen Detail - "Test Specimen Detail / Collection and handling /
+                Sampling Preconditions" and/or "Result Group Specimen Detail / Collection and
+                handling / Sampling Preconditions" - The 'code' tag 'codeSystemName' attribute shall
+                be 'NCTIS Data Components'. Refer to section 7.1.1.5.1.1 and/or 7.1.1.5.1.2.1 of the
+                e-Discharge_Summary_CDA_Implementation_Guide_v3.4.</assert>
+
+            <assert
+                test="translate(@displayName, 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ') = 'SAMPLING PRECONDITIONS'"
+                >Error: e-Discharge Summary - 7.1.1.5.1.1 Test Specimen Detail and/or 7.1.1.5.1.2.1
+                Result Group Specimen Detail - "Test Specimen Detail / Collection and handling /
+                Sampling Preconditions" and/or "Result Group Specimen Detail / Collection and
+                handling / Sampling Preconditions" - The 'code' tag 'displayName' attribute shall be
+                'Sampling Preconditions'. Refer to section 7.1.1.5.1.1 and/or 7.1.1.5.1.2.1 of the
+                e-Discharge_Summary_CDA_Implementation_Guide_v3.4.</assert>
+
+        </rule>
+
+        <!-- Test Specimen Detail - Sampling Preconditions - 0..1 -->
+        <!-- Result Group Specimen Detail - Sampling Preconditions - 0..1 -->
+        <rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code = '101.16006']/cda:component/cda:section[cda:code/@code = '101.20117']/cda:component/cda:section[cda:code/@code = '102.16144']/cda:entry/cda:observation[@classCode='OBS']/cda:entryRelationship/cda:observation[cda:code/@code='102.16156.2.2.1']/cda:entryRelationship/cda:observation[cda:code/@code = '103.16171']/cda:value |
+                       /cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code = '101.16006']/cda:component/cda:section[cda:code/@code = '101.20117']/cda:component/cda:section[cda:code/@code = '102.16144']/cda:entry/cda:observation[@classCode='OBS']/cda:entryRelationship/cda:organizer[@classCode='BATTERY']/cda:component/cda:observation[@classCode='OBS']/cda:entryRelationship/cda:observation[cda:code/@code = '103.16171']/cda:value">
+
+            <assert test="cda:originalText or cda:translation or (@code and @codeSystem) or @nullFlavor"
+                >Error: e-Discharge Summary - 7.1.1.5.1.1 Test Specimen Detail and/or 7.1.1.5.1.2.1 Result Group Specimen Detail -
+                "Test Specimen Detail / Collection and handling / Sampling Preconditions" and/or
+                "Result Group Specimen Detail / Collection and handling / Sampling Preconditions" - The 'value' tag shall have 'originalText' or 'translation' tag or
+                'code and codeSystem' or 'nullFlavor' attribute. Refer to section 8.1 of the
+                e-Discharge_Summary_CDA_Implementation_Guide_v3.4.</assert>
+
+            <report test="count(cda:originalText) > 1"
+                >Error: e-Discharge Summary - 7.1.1.5.1.1 Test Specimen Detail and/or 7.1.1.5.1.2.1 Result Group Specimen Detail -
+                "Test Specimen Detail / Collection and handling / Sampling Preconditions" and/or
+                "Result Group Specimen Detail / Collection and handling / Sampling Preconditions" - The 'originalText' tag shall appear only once. Refer to section 8.1 of the
+                e-Discharge_Summary_CDA_Implementation_Guide_v3.4.</report>
+
+            <report test="@code and normalize-space(@code) = ''">Error: e-Discharge Summary -
+                7.1.1.5.1.1 Test Specimen Detail and/or 7.1.1.5.1.2.1 Result Group Specimen Detail -
+                "Test Specimen Detail / Collection and handling / Sampling Preconditions" and/or
+                "Result Group Specimen Detail / Collection and handling / Sampling Preconditions" -
+                The 'value' tag 'code' attribute shall contain a value. Refer to section 7.1.1.5.1.1
+                and/or 7.1.1.5.1.2.1 of the
+                e-Discharge_Summary_CDA_Implementation_Guide_v3.4.</report>
+
+            <report test="@codeSystem and normalize-space(@codeSystem) = ''">Error: e-Discharge
+                Summary - 7.1.1.5.1.1 Test Specimen Detail and/or 7.1.1.5.1.2.1 Result Group
+                Specimen Detail - "Test Specimen Detail / Collection and handling / Sampling
+                Preconditions" and/or "Result Group Specimen Detail / Collection and handling /
+                Sampling Preconditions" - The 'value' tag 'codeSystem' attribute shall contain a
+                value. Refer to section 7.1.1.5.1.1 and/or 7.1.1.5.1.2.1 of the
+                e-Discharge_Summary_CDA_Implementation_Guide_v3.4.</report>
+
+            <report test="@codeSystemName and normalize-space(@codeSystemName) = ''">Error:
+                e-Discharge Summary - 7.1.1.5.1.1 Test Specimen Detail and/or 7.1.1.5.1.2.1 Result
+                Group Specimen Detail - "Test Specimen Detail / Collection and handling / Sampling
+                Preconditions" and/or "Result Group Specimen Detail / Collection and handling /
+                Sampling Preconditions" - The 'value' tag 'codeSystemName' attribute shall contain a
+                value. Refer to section 7.1.1.5.1.1 and/or 7.1.1.5.1.2.1 of the
+                e-Discharge_Summary_CDA_Implementation_Guide_v3.4.</report>
+
+            <report test="@displayName and normalize-space(@displayName) = ''">Error: e-Discharge
+                Summary - 7.1.1.5.1.1 Test Specimen Detail and/or 7.1.1.5.1.2.1 Result Group
+                Specimen Detail - "Test Specimen Detail / Collection and handling / Sampling
+                Preconditions" and/or "Result Group Specimen Detail / Collection and handling /
+                Sampling Preconditions" - The 'value' tag 'displayName' attribute shall contain a
+                value. Refer to section 7.1.1.5.1.1 and/or 7.1.1.5.1.2.1 of the
+                e-Discharge_Summary_CDA_Implementation_Guide_v3.4.</report>
+
+            <report test="cda:originalText and normalize-space(cda:originalText) = ''">Error:
+                e-Discharge Summary - 7.1.1.5.1.1 Test Specimen Detail and/or 7.1.1.5.1.2.1 Result
+                Group Specimen Detail - "Test Specimen Detail / Collection and handling / Sampling
+                Preconditions" and/or "Result Group Specimen Detail / Collection and handling /
+                Sampling Preconditions" - The 'originalText' tag shall contain a value. Refer to
+                section 7.1.1.5.1.1 and/or 7.1.1.5.1.2.1 of the
+                e-Discharge_Summary_CDA_Implementation_Guide_v3.4.</report>
+
+            <report test="cda:translation and normalize-space(cda:translation) = ''">Error: e-Discharge
+                Summary - 7.1.1.5.1.1 Test Specimen Detail and/or 7.1.1.5.1.2.1 Result Group
+                Specimen Detail - "Test Specimen Detail / Collection and handling / Sampling
+                Preconditions" and/or "Result Group Specimen Detail / Collection and handling /
+                Sampling Preconditions" - The 'translation' tag shall contain a
+                value. Refer to section 7.1.1.5.1.1 and/or 7.1.1.5.1.2.1 of the
+                e-Discharge_Summary_CDA_Implementation_Guide_v3.4.</report>
+
+            <!-- Start Mantis Task 2782 -->
+            <assert test="@xsi:type">
+                Error: e-Discharge Summary - 7.1.1.5.1.1 Test Specimen Detail and/or 7.1.1.5.1.2.1 Result Group
+                Specimen Detail - "Test Specimen Detail / Collection and handling / Sampling
+                Preconditions" and/or "Result Group Specimen Detail / Collection and handling /
+                Sampling Preconditions" - The 'value' tag 'xsi:type' attribute is missing.
+                Refer to section section 7.1.1.5.1.1 and/or 7.1.1.5.1.2.1 of the e-Discharge_Summary_CDA_Implementation_Guide_v3.4.
+            </assert>
+
+            <assert test="not(@xsi:type) or normalize-space(@xsi:type) !=  ''">
+                Error: e-Discharge Summary - 7.1.1.5.1.1 Test Specimen Detail and/or 7.1.1.5.1.2.1 Result Group
+                Specimen Detail - "Test Specimen Detail / Collection and handling / Sampling
+                Preconditions" and/or "Result Group Specimen Detail / Collection and handling /
+                Sampling Preconditions" - The 'value' tag 'xsi:type' attribute shall contain a value.
+                Refer to section section 7.1.1.5.1.1 and/or 7.1.1.5.1.2.1 of the e-Discharge_Summary_CDA_Implementation_Guide_v3.4.
+            </assert>
+
+            <assert test="normalize-space(@xsi:type) = 'CD'">
+                Error: e-Discharge Summary - 7.1.1.5.1.1 Test Specimen Detail and/or 7.1.1.5.1.2.1 Result Group
+                Specimen Detail - "Test Specimen Detail / Collection and handling / Sampling
+                Preconditions" and/or "Result Group Specimen Detail / Collection and handling /
+                Sampling Preconditions" - The 'value' tag 'xsi:type' attribute shall contain the value 'ST'.
+                Refer to section section 7.1.1.5.1.1 and/or 7.1.1.5.1.2.1 of the e-Discharge_Summary_CDA_Implementation_Guide_v3.4.
+            </assert>
+
+
+            <!--
+            <report test="@xsi:type and normalize-space(@xsi:type) !=  'CD'">Error: e-Discharge
+                Summary - 7.1.1.5.1.1 Test Specimen Detail and/or 7.1.1.5.1.2.1 Result Group
+                Specimen Detail - "Test Specimen Detail / Collection and handling / Sampling
+                Preconditions" and/or "Result Group Specimen Detail / Collection and handling /
+                Sampling Preconditions" - The 'value' tag 'xsi:type' attribute shall contain the
+                value 'CD'. Refer to section 7.1.1.5.1.1 and/or 7.1.1.5.1.2.1 of the
+                e-Discharge_Summary_CDA_Implementation_Guide_v3.4.</report>-->
+            <!-- End Mantis Task 2782 -->
+        </rule>
+
+
+        <!-- Test Specimen Detail - Collection Setting - 0..1 -->
+        <!-- Result Group Specimen Detail - Collection Setting - 0..1 -->
+        <rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code = '101.16006']/cda:component/cda:section[cda:code/@code = '101.20117']/cda:component/cda:section[cda:code/@code = '102.16144']/cda:entry/cda:observation[@classCode='OBS']/cda:entryRelationship/cda:observation[cda:code/@code='102.16156.2.2.1']/cda:entryRelationship[cda:observation/cda:code/@code = '103.16529'] |
+                       /cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code = '101.16006']/cda:component/cda:section[cda:code/@code = '101.20117']/cda:component/cda:section[cda:code/@code = '102.16144']/cda:entry/cda:observation[@classCode='OBS']/cda:entryRelationship/cda:organizer[@classCode='BATTERY']/cda:component/cda:observation[@classCode='OBS']/cda:entryRelationship[cda:observation/cda:code/@code = '103.16529']">
+
+            <assert test="@typeCode = 'COMP'">Error: e-Discharge Summary - 7.1.1.5.1.1 Test Specimen
+                Detail and/or 7.1.1.5.1.2.1 Result Group Specimen Detail - "Test Specimen Detail /
+                Collection and handling / Handling and Processing / Collection Setting" and/or
+                "Result Group Specimen Detail / Handling and Processing / Collection Setting" - The
+                'entryRelationship' tag 'typeCode' attribute shall contain the value 'COMP' . Refer
+                to section 7.1.1.5.1.1 and/or 7.1.1.5.1.2.1 of the
+                e-Discharge_Summary_CDA_Implementation_Guide_v3.4.</assert>
+
+            <report test="count(cda:observation) > 1">Error: e-Discharge Summary - 7.1.1.5.1.1 Test
+                Specimen Detail and/or 7.1.1.5.1.2.1 Result Group Specimen Detail - "Test Specimen
+                Detail / Collection and handling / Handling and Processing / Collection Setting"
+                and/or "Result Group Specimen Detail / Handling and Processing / Collection Setting"
+                - The 'observation' tag shall appear only once. Refer to section 7.1.1.5.1.1 and/or
+                7.1.1.5.1.2.1 of the
+                e-Discharge_Summary_CDA_Implementation_Guide_v3.4.</report>
+
+        </rule>
+
+        <rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code = '101.16006']/cda:component/cda:section[cda:code/@code = '101.20117']/cda:component/cda:section[cda:code/@code = '102.16144']/cda:entry/cda:observation[@classCode='OBS']/cda:entryRelationship/cda:observation[cda:code/@code='102.16156.2.2.1']/cda:entryRelationship/cda:observation[cda:code/@code = '103.16529'] |
+                       /cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code = '101.16006']/cda:component/cda:section[cda:code/@code = '101.20117']/cda:component/cda:section[cda:code/@code = '102.16144']/cda:entry/cda:observation[@classCode='OBS']/cda:entryRelationship/cda:organizer[@classCode='BATTERY']/cda:component/cda:observation[@classCode='OBS']/cda:entryRelationship/cda:observation[cda:code/@code = '103.16529']">
+
+            <assert test="@classCode = 'OBS'">Error: e-Discharge Summary - 7.1.1.5.1.1 Test Specimen
+                Detail and/or 7.1.1.5.1.2.1 Result Group Specimen Detail - "Test Specimen Detail /
+                Collection and handling / Handling and Processing / Collection Setting" and/or
+                "Result Group Specimen Detail / Handling and Processing / Collection Setting" - The
+                'observation' tag 'classCode' attribute shall contain the value 'OBS'. Refer to
+                section 7.1.1.5.1.1 and/or 7.1.1.5.1.2.1 of the
+                e-Discharge_Summary_CDA_Implementation_Guide_v3.4.</assert>
+
+            <assert test="@moodCode = 'EVN'">Error: e-Discharge Summary - 7.1.1.5.1.1 Test Specimen
+                Detail and/or 7.1.1.5.1.2.1 Result Group Specimen Detail - "Test Specimen Detail /
+                Collection and handling / Handling and Processing / Collection Setting" and/or
+                "Result Group Specimen Detail / Handling and Processing / Collection Setting" - The
+                'observation' tag 'moodCode' attribute shall contain the value 'EVN'. Refer to
+                section 7.1.1.5.1.1 and/or 7.1.1.5.1.2.1 of the
+                e-Discharge_Summary_CDA_Implementation_Guide_v3.4.</assert>
+
+            <report test="count(cda:code) > 1">Error: e-Discharge Summary - 7.1.1.5.1.1 Test
+                Specimen Detail and/or 7.1.1.5.1.2.1 Result Group Specimen Detail - "Test Specimen
+                Detail / Collection and handling / Handling and Processing / Collection Setting"
+                and/or "Result Group Specimen Detail / Handling and Processing / Collection Setting"
+                - The 'code' tag shall appear only once. Refer to section 7.1.1.5.1.1 and/or
+                7.1.1.5.1.2.1 of the
+                e-Discharge_Summary_CDA_Implementation_Guide_v3.4.</report>
+
+            <!-- PL - Updated - 25/02/2012 - Mantis ID 0002301 -->
+
+            <assert test="cda:value">Error: e-Discharge Summary - 7.1.1.5.1.1 Test Specimen Detail
+                and/or 7.1.1.5.1.2.1 Result Group Specimen Detail - "Test Specimen Detail /
+                Collection and handling / Handling and Processing / Collection Setting" and/or
+                "Result Group Specimen Detail / Handling and Processing / Collection Setting" - The
+                'value' tag is missing. Refer to section 7.1.1.5.1.1 and/or 7.1.1.5.1.2.1 of the
+                e-Discharge_Summary_CDA_Implementation_Guide_v3.4.</assert>
+
+            <report test="count(cda:value) > 1">Error: e-Discharge Summary - 7.1.1.5.1.1 Test
+                Specimen Detail and/or 7.1.1.5.1.2.1 Result Group Specimen Detail - "Test Specimen
+                Detail / Collection and handling / Handling and Processing / Collection Setting"
+                and/or "Result Group Specimen Detail / Handling and Processing / Collection Setting"
+                - The 'value' tag shall appear only once. Refer to section 7.1.1.5.1.1 and/or
+                7.1.1.5.1.2.1 of the
+                e-Discharge_Summary_CDA_Implementation_Guide_v3.4.</report>
+
+            <!--<assert test="normalize-space(cda:text) !=  ''">Error: e-Discharge Summary - 7.1.1.5.1.1
+                Test Specimen Detail and/or 7.1.1.5.1.2.1 Result Group Specimen Detail - "Test
+                Specimen Detail / Collection and handling / Handling and Processing / Collection
+                Setting" and/or "Result Group Specimen Detail / Handling and Processing / Collection
+                Setting" - The 'text' tag shall contain a value. Refer to section 7.1.1.5.1.1 and/or
+                7.1.1.5.1.2.1 of the
+                e-Discharge_Summary_CDA_Implementation_Guide_v3.4.</assert>
+
+            <report test="@xsi:type and normalize-space(@xsi:type) !=  'ST'">Error: e-Discharge
+                Summary - 7.1.1.5.1.1 Test Specimen Detail and/or 7.1.1.5.1.2.1 Result Group Specimen
+                Detail - "Test Specimen Detail / Collection and handling / Handling and Processing /
+                Collection Setting" and/or "Result Group Specimen Detail / Handling and Processing /
+                Collection Setting" - The 'value' tag 'xsi:type' attribute shall contain the value 'ST'. Refer to
+                section 7.1.1.5.1.1 and/or 7.1.1.5.1.2.1 of the
+                e-Discharge_Summary_CDA_Implementation_Guide_v3.4.</report>-->
+
+            <!--End of PL's - Update - 25/02/2012 - Mantis ID 0002301 -->
+        </rule>
+
+        <!-- PL - Updated - 25/02/2012 - Mantis ID 0002301 -->
+        <rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code = '101.16006']/cda:component/cda:section[cda:code/@code = '101.20117']/cda:component/cda:section[cda:code/@code = '102.16144']/cda:entry/cda:observation[@classCode='OBS']/cda:entryRelationship/cda:observation[cda:code/@code='102.16156.2.2.1']/cda:entryRelationship/cda:observation[cda:code/@code = '103.16529']/cda:value |
+                       /cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code = '101.16006']/cda:component/cda:section[cda:code/@code = '101.20117']/cda:component/cda:section[cda:code/@code = '102.16144']/cda:entry/cda:observation[@classCode='OBS']/cda:entryRelationship/cda:organizer[@classCode='BATTERY']/cda:component/cda:observation[@classCode='OBS']/cda:entryRelationship/cda:observation[cda:code/@code = '103.16529']/cda:value">
+
+            <assert test="@xsi:type">Error: e-Discharge Summary - 7.1.1.5.1.1 Test Specimen Detail
+                and/or 7.1.1.5.1.2.1 Result Group Specimen Detail - "Test Specimen Detail /
+                Collection and handling / Handling and Processing / Collection Setting" and/or
+                "Result Group Specimen Detail / Handling and Processing / Collection Setting" - The
+                'value' tag 'xsi:type' attribute is missing. Refer to section 7.1.1.5.1.1 and/or
+                7.1.1.5.1.2.1 of the
+                e-Discharge_Summary_CDA_Implementation_Guide_v3.4.</assert>
+
+            <!-- Start Mantis Task 2782 -->
+            <assert test="not(@xsi:type) or normalize-space(@xsi:type) !=  ''">
+                Error: e-Discharge Summary - 7.1.1.5.1.1 Test Specimen
+                Detail and/or 7.1.1.5.1.2.1 Result Group Specimen Detail - "Test Specimen Detail /
+                Collection and handling / Handling and Processing / Collection Setting" and/or
+                "Result Group Specimen Detail / Handling and Processing / Collection Setting" - The 'value' tag 'xsi:type' attribute shall contain a value.
+                Refer to section
+                7.1.1.5.1.1 and/or 7.1.1.5.1.2.1 of the
+                e-Discharge_Summary_CDA_Implementation_Guide_v3.4.
+            </assert>
+
+            <assert test="normalize-space(@xsi:type) = 'ST'">
+                Error: e-Discharge Summary - 7.1.1.5.1.1 Test Specimen
+                Detail and/or 7.1.1.5.1.2.1 Result Group Specimen Detail - "Test Specimen Detail /
+                Collection and handling / Handling and Processing / Collection Setting" and/or
+                "Result Group Specimen Detail / Handling and Processing / Collection Setting" - The 'value' tag 'xsi:type' attribute shall contain the value 'ST'.
+                Refer to section
+                7.1.1.5.1.1 and/or 7.1.1.5.1.2.1 of the
+                e-Discharge_Summary_CDA_Implementation_Guide_v3.4.
+            </assert>
+            <!-- End Mantis Task 2782 -->
+
+            <!--<assert test="@xsi:type = 'ST'">Error: e-Discharge Summary - 7.1.1.5.1.1 Test Specimen
+                Detail and/or 7.1.1.5.1.2.1 Result Group Specimen Detail - "Test Specimen Detail /
+                Collection and handling / Handling and Processing / Collection Setting" and/or
+                "Result Group Specimen Detail / Handling and Processing / Collection Setting" - The
+                'value' tag 'xsi:type' attribute shall contain the value 'ST'. Refer to section
+                7.1.1.5.1.1 and/or 7.1.1.5.1.2.1 of the
+                e-Discharge_Summary_CDA_Implementation_Guide_v3.4.</assert>-->
+
+        </rule>
+        <!--End of PL's - Update - 25/02/2012 - Mantis ID 0002301 -->
+
+        <!-- Test Specimen Detail - Collection Setting - 0..1 -->
+        <!-- Result Group Specimen Detail - Collection Setting - 0..1 -->
+        <rule context="cda:code[@code = '103.16529']">
+
+            <assert test="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code = '101.16006']/cda:component/cda:section[cda:code/@code = '101.20117']/cda:component/cda:section[cda:code/@code = '102.16144']/cda:entry/cda:observation[@classCode='OBS']/cda:entryRelationship/cda:observation/cda:entryRelationship/cda:observation/cda:code[@code = '103.16529'] |
+                          /cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code = '101.16006']/cda:component/cda:section[cda:code/@code = '101.20117']/cda:component/cda:section[cda:code/@code = '102.16144']/cda:entry/cda:observation[@classCode='OBS']/cda:entryRelationship/cda:organizer[@classCode='BATTERY']/cda:component[2]/cda:observation/cda:entryRelationship/cda:observation/cda:code[@code = '103.16529']"
+                >Error: e-Discharge Summary - 7.1.1.5.1.1 Test Specimen Detail and/or 7.1.1.5.1.2.1 Result Group Specimen Detail - "Test Specimen Detail / Collection and handling / Sampling Preconditions" and/or "Result Group Specimen Detail / Collection and handling / Sampling Preconditions" -
+                The '/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code = '101.16006']/cda:component/cda:section[cda:code/@code = '101.20117']/cda:component/cda:section[cda:code/@code = '102.16144']/cda:entry/cda:observation[@classCode='OBS']/cda:entryRelationship/cda:observation/cda:entryRelationship/cda:observation/cda:code[@code = "103.16529"]
+                or   /cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code = '101.16006']/cda:component/cda:section[cda:code/@code = '101.20117']/cda:component/cda:section[cda:code/@code = '102.16144']/cda:entry/cda:observation[@classCode='OBS']/cda:entryRelationship/cda:organizer[@classCode='BATTERY']/cda:component[2]/cda:observation/cda:entryRelationship/cda:observation/cda:code[@code = "103.16529"]' path -
+                1 or more tags are missing. Refer to section 7.1.1.5.1.1 and/or 7.1.1.5.1.2.1
+                of the e-Discharge_Summary_CDA_Implementation_Guide_v3.4.</assert>
+
+     <!--  <assert test = "/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code = '101.16006']/cda:component/cda:section[cda:code/@code = '101.20117']/cda:component/cda:section[cda:code/@code = '102.16144']/cda:entry/cda:observation[@classCode='OBS']/cda:entryRelationship/cda:organizer[@classCode='BATTERY']/cda:component/cda:observation/cda:entryRelationship/cda:observation/cda:code[@code = '103.16529']">Error: e-Discharge Summary - 7.1.1.5.1.1
+                Test Specimen Detail and/or 7.1.1.5.1.2.1 Result Group Specimen Detail - "Test
+                Specimen Detail / Collection and handling / Sampling Preconditions" and/or "Result
+                Group Specimen Detail / Collection and handling / Sampling Preconditions" - The
+                '/ClinicalDocument/component/structuredBody/component/section/component/section/entry/observation/entryRelationship/organizer/component/observation/entryRelationship/observation/code' path - 1 or more tags are missing. Refer to section 7.1.1.5.1.1 and/or 7.1.1.5.1.2.1 of the
+                e-Discharge_Summary_CDA_Implementation_Guide_v3.4.</assert>-->
+
+            <assert test="@codeSystem = '1.2.36.1.2001.1001.101'">Error: e-Discharge Summary -
+                7.1.1.5.1.1 Test Specimen Detail and/or 7.1.1.5.1.2.1 Result Group Specimen Detail -
+                "Test Specimen Detail / Collection and handling / Handling and Processing /
+                Collection Setting" and/or "Result Group Specimen Detail / Handling and Processing /
+                Collection Setting" - The 'code' tag 'codeSystem' attribute shall be
+                '1.2.36.1.2001.1001.101'. Refer to section 7.1.1.5.1.1 and/or 7.1.1.5.1.2.1 of the
+                e-Discharge_Summary_CDA_Implementation_Guide_v3.4.</assert>
+
+            <assert
+                test="translate(@codeSystemName, 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ') = 'NCTIS DATA COMPONENTS'"
+                >Error: e-Discharge Summary - 7.1.1.5.1.1 Test Specimen Detail and/or 7.1.1.5.1.2.1
+                Result Group Specimen Detail - Test Specimen Detail / Collection and handling /
+                Handling and Processing / Collection Setting" and/or "Result Group Specimen Detail /
+                Handling and Processing / Collection Setting" - The 'code' tag 'codeSystemName'
+                attribute shall contain the value 'NCTIS Data Components'. Refer to section
+                7.1.1.5.1.1 and/or 7.1.1.5.1.2.1 of the
+                e-Discharge_Summary_CDA_Implementation_Guide_v3.4.</assert>
+
+            <assert
+                test="translate(@displayName, 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ') = 'COLLECTION SETTING'"
+                >Error: e-Discharge Summary - 7.1.1.5.1.1 Test Specimen Detail and/or 7.1.1.5.1.2.1
+                Result Group Specimen Detail - "Test Specimen Detail / Collection and handling /
+                Handling and Processing / Collection Setting" and/or "Result Group Specimen Detail /
+                Handling and Processing / Collection Setting" - The 'code' tag 'displayName'
+                attribute shall contain the value 'Collection Setting'. Refer to section 7.1.1.5.1.1
+                and/or 7.1.1.5.1.2.1 of the
+                e-Discharge_Summary_CDA_Implementation_Guide_v3.4.</assert>
+
+        </rule>
+
+
+        <!-- Test Specimen Detail - DateTime Received - 0..1 -->
+        <!-- Result Group Specimen Detail - DateTime Received - 0..1 -->
+        <rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code = '101.16006']/cda:component/cda:section[cda:code/@code = '101.20117']/cda:component/cda:section[cda:code/@code = '102.16144']/cda:entry/cda:observation[@classCode='OBS']/cda:entryRelationship/cda:observation[cda:code/@code='102.16156.2.2.1']/cda:entryRelationship[cda:observation/cda:code/@code = '103.11014'] |
+                       /cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code = '101.16006']/cda:component/cda:section[cda:code/@code = '101.20117']/cda:component/cda:section[cda:code/@code = '102.16144']/cda:entry/cda:observation[@classCode='OBS']/cda:entryRelationship/cda:organizer[@classCode='BATTERY']/cda:component/cda:observation[@classCode='OBS']/cda:entryRelationship[cda:observation/cda:code/@code = '103.11014']">
+
+            <assert test="@typeCode = 'COMP'">Error: e-Discharge Summary - 7.1.1.5.1.1 Test Specimen
+                Detail and/or 7.1.1.5.1.2.1 Result Group Specimen Detail - "Result Group Specimen
+                Detail / Handling and Processing / DateTime Received" and/or "Test Specimen Detail /
+                Collection and handling / Handling and Processing / DateTime Received" - The
+                'entryRelationship' tag 'typeCode' attribute shall contain the value 'COMP' . Refer
+                to section 7.1.1.5.1.1 and/or 7.1.1.5.1.2.1 of the
+                e-Discharge_Summary_CDA_Implementation_Guide_v3.4.</assert>
+
+            <report test="count(cda:observation) > 1">Error: e-Discharge Summary - 7.1.1.5.1.1 Test
+                Specimen Detail and/or 7.1.1.5.1.2.1 Result Group Specimen Detail - "Result Group
+                Specimen Detail / Handling and Processing / DateTime Received" and/or "Test Specimen
+                Detail / Collection and handling / Handling and Processing / DateTime Received" -
+                The 'act' tag shall appear only once. Refer to section 7.1.1.5.1.1 and/or
+                7.1.1.5.1.2.1 of the
+                e-Discharge_Summary_CDA_Implementation_Guide_v3.4.</report>
+
+        </rule>
+
+        <rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code = '101.16006']/cda:component/cda:section[cda:code/@code = '101.20117']/cda:component/cda:section[cda:code/@code = '102.16144']/cda:entry/cda:observation[@classCode='OBS']/cda:entryRelationship/cda:observation[cda:code/@code='102.16156.2.2.1']/cda:entryRelationship/cda:observation[cda:code/@code = '103.11014'] |
+                       /cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code = '101.16006']/cda:component/cda:section[cda:code/@code = '101.20117']/cda:component/cda:section[cda:code/@code = '102.16144']/cda:entry/cda:observation[@classCode='OBS']/cda:entryRelationship/cda:organizer[@classCode='BATTERY']/cda:component/cda:observation[@classCode='OBS']/cda:entryRelationship/cda:observation[cda:code/@code = '103.11014']">
+
+            <assert test="@classCode = 'OBS'">Error: e-Discharge Summary - 7.1.1.5.1.1 Test Specimen
+                Detail and/or 7.1.1.5.1.2.1 Result Group Specimen Detail - "Result Group Specimen
+                Detail / Handling and Processing / DateTime Received" and/or "Test Specimen Detail /
+                Collection and handling / Handling and Processing / DateTime Received" - The 'act'
+                tag 'classCode' attribute shall contain the value 'OBS'. Refer to section
+                7.1.1.5.1.1 and/or 7.1.1.5.1.2.1 of the
+                e-Discharge_Summary_CDA_Implementation_Guide_v3.4.</assert>
+
+            <assert test="@moodCode = 'EVN'">Error: e-Discharge Summary - 7.1.1.5.1.1 Test Specimen
+                Detail and/or 7.1.1.5.1.2.1 Result Group Specimen Detail - "Result Group Specimen
+                Detail / Handling and Processing / DateTime Received" and/or "Test Specimen Detail /
+                Collection and handling / Handling and Processing / DateTime Received" - The
+                'observation' tag 'moodCode' attribute shall contain the value 'EVN'. Refer to
+                section 7.1.1.5.1.1 and/or 7.1.1.5.1.2.1 of the
+                e-Discharge_Summary_CDA_Implementation_Guide_v3.4.</assert>
+
+            <report test="count(cda:code) > 1">Error: e-Discharge Summary - 7.1.1.5.1.1 Test
+                Specimen Detail and/or 7.1.1.5.1.2.1 Result Group Specimen Detail - "Result Group
+                Specimen Detail / Handling and Processing / DateTime Received" and/or "Test Specimen
+                Detail / Collection and handling / Handling and Processing / DateTime Received" -
+                The 'code' tag shall appear only once. Refer to section 7.1.1.5.1.1 and/or
+                7.1.1.5.1.2.1 of the
+                e-Discharge_Summary_CDA_Implementation_Guide_v3.4.</report>
+
+            <assert test="cda:value">Error: e-Discharge Summary - 7.1.1.5.1.1 Test Specimen Detail
+                and/or 7.1.1.5.1.2.1 Result Group Specimen Detail - "Result Group Specimen Detail /
+                Handling and Processing / DateTime Received" and/or "Test Specimen Detail /
+                Collection and handling / Handling and Processing / DateTime Received" - The 'value'
+                tag is missing. Refer to section 7.1.1.5.1.1 and/or 7.1.1.5.1.2.1 of the
+                e-Discharge_Summary_CDA_Implementation_Guide_v3.4.</assert>
+
+            <report test="count(cda:value) > 1">Error: e-Discharge Summary - 7.1.1.5.1.1 Test
+                Specimen Detail and/or 7.1.1.5.1.2.1 Result Group Specimen Detail - "Result Group
+                Specimen Detail / Handling and Processing / DateTime Received" and/or "Test Specimen
+                Detail / Collection and handling / Handling and Processing / DateTime Received" -
+                The 'value' tag shall appear only once. Refer to section 7.1.1.5.1.1 and/or
+                7.1.1.5.1.2.1 of the
+                e-Discharge_Summary_CDA_Implementation_Guide_v3.4.</report>
+
+        </rule>
+
+        <!-- Test Specimen Detail - DateTime Received - 0..1 -->
+        <!-- Result Group Specimen Detail - DateTime Received - 0..1 -->
+        <rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code = '101.16006']/cda:component/cda:section[cda:code/@code = '101.20117']/cda:component/cda:section[cda:code/@code = '102.16144']/cda:entry/cda:observation[@classCode='OBS']/cda:entryRelationship/cda:observation[cda:code/@code='102.16156.2.2.1']/cda:entryRelationship/cda:observation[cda:code/@code = '103.11014']/cda:value |
+                       /cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code = '101.16006']/cda:component/cda:section[cda:code/@code = '101.20117']/cda:component/cda:section[cda:code/@code = '102.16144']/cda:entry/cda:observation[@classCode='OBS']/cda:entryRelationship/cda:organizer[@classCode='BATTERY']/cda:component/cda:observation[@classCode='OBS']/cda:entryRelationship/cda:observation[cda:code/@code = '103.11014']/cda:value">
+
+            <report test="@value and normalize-space(@value) = ''">Error: e-Discharge Summary -
+                7.1.1.5.1.1 Test Specimen Detail and/or 7.1.1.5.1.2.1 Result Group Specimen Detail -
+                "Result Group Specimen Detail / Handling and Processing / DateTime Received" and/or
+                "Test Specimen Detail / Collection and handling / Handling and Processing / DateTime
+                Received" - The 'value' tag 'value' attribute shall contain a value. Refer to
+                section 7.1.1.5.1.1 and/or 7.1.1.5.1.2.1 of the
+                e-Discharge_Summary_CDA_Implementation_Guide_v3.4.</report>
+
+            <!-- Start Mantis Task 2782 -->
+            <assert test="@xsi:type">
+                Error: e-Discharge Summary - 7.1.1.5.1.1 Test Specimen
+                Detail and/or 7.1.1.5.1.2.1 Result Group Specimen Detail - "Result Group Specimen
+                Detail / Handling and Processing / DateTime Received" and/or "Test Specimen Detail /
+                Collection and handling / Handling and Processing / DateTime Received" - The 'value' tag 'xsi:type' attribute is missing.
+                Refer to section 7.1.1.5.1.1
+                and/or 7.1.1.5.1.2.1 of the
+                e-Discharge_Summary_CDA_Implementation_Guide_v3.4.
+            </assert>
+
+            <assert test="not(@xsi:type) or normalize-space(@xsi:type) !=  ''">
+                Error: e-Discharge Summary - 7.1.1.5.1.1 Test Specimen
+                Detail and/or 7.1.1.5.1.2.1 Result Group Specimen Detail - "Result Group Specimen
+                Detail / Handling and Processing / DateTime Received" and/or "Test Specimen Detail /
+                Collection and handling / Handling and Processing / DateTime Received" - The 'value' tag 'xsi:type' attribute shall contain a value.
+                Refer to section 7.1.1.5.1.1
+                and/or 7.1.1.5.1.2.1 of the
+                e-Discharge_Summary_CDA_Implementation_Guide_v3.4.
+            </assert>
+
+            <assert test="normalize-space(@xsi:type) = 'TS'">
+                Error: e-Discharge Summary - 7.1.1.5.1.1 Test Specimen
+                Detail and/or 7.1.1.5.1.2.1 Result Group Specimen Detail - "Result Group Specimen
+                Detail / Handling and Processing / DateTime Received" and/or "Test Specimen Detail /
+                Collection and handling / Handling and Processing / DateTime Received" - The 'value' tag 'xsi:type' attribute shall contain the value 'TS'.
+                Refer to section 7.1.1.5.1.1
+                and/or 7.1.1.5.1.2.1 of the
+                e-Discharge_Summary_CDA_Implementation_Guide_v3.4.
+            </assert>
+            <!-- End Mantis Task 2782 -->
+
+            <!--<assert test="@xsi:type = 'TS'">Error: e-Discharge Summary - 7.1.1.5.1.1 Test Specimen
+                Detail and/or 7.1.1.5.1.2.1 Result Group Specimen Detail - "Result Group Specimen
+                Detail / Handling and Processing / DateTime Received" and/or "Test Specimen Detail /
+                Collection and handling / Handling and Processing / DateTime Received" - The 'value'
+                tag 'xsi:type' attribute shall contain the value 'TS'. Refer to section 7.1.1.5.1.1
+                and/or 7.1.1.5.1.2.1 of the
+                e-Discharge_Summary_CDA_Implementation_Guide_v3.4.</assert>-->
+
+        </rule>
+
+        <!-- Test Specimen Detail - DateTime Received - 0..1 -->
+        <!-- Result Group Specimen Detail - DateTime Received - 0..1 -->
+        <rule context="cda:code[@code = '103.11014']">
+
+            <assert test="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code = '101.16006']/cda:component/cda:section[cda:code/@code = '101.20117']/cda:component/cda:section[cda:code/@code = '102.16144']/cda:entry/cda:observation[@classCode='OBS']/cda:entryRelationship/cda:observation/cda:entryRelationship/cda:observation/cda:code[@code = '103.11014'] |
+                          /cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code = '101.16006']/cda:component/cda:section[cda:code/@code = '101.20117']/cda:component/cda:section[cda:code/@code = '102.16144']/cda:entry/cda:observation[@classCode='OBS']/cda:entryRelationship/cda:organizer[@classCode='BATTERY']/cda:component/cda:observation/cda:entryRelationship/cda:observation/cda:code[@code = '103.11014']"
+                >Error: e-Discharge Summary - 7.1.1.5.1.1 Test Specimen Detail and/or 7.1.1.5.1.2.1 Result Group Specimen Detail - "Test Specimen Detail / Collection and handling / Sampling Preconditions" and/or "Result Group Specimen Detail / Collection and handling / Sampling Preconditions" -
+                The "/ClinicalDocument/component/structuredBody/component/section[code/@code = '101.16006']/component/section[code/@code = '101.20117']/component/section[code/@code = '102.16144']/entry/observation[@classCode='OBS']/entryRelationship/observation/entryRelationship/observation/code[@code = '103.11014'] or
+                     /ClinicalDocument/component/structuredBody/component/section[code/@code = '101.16006']/component/section[code/@code = '101.20117']/component/section[code/@code = '102.16144']/entry/observation[@classCode='OBS']/entryRelationship/organizer[@classCode='BATTERY']/component/observation/entryRelationship/observation/code[@code = '103.11014']" path -
+                1 or more tags are missing. Refer to section 7.1.1.5.1.1 and/or 7.1.1.5.1.2.1
+                of the e-Discharge_Summary_CDA_Implementation_Guide_v3.4.</assert>
+
+       <!-- <assert test = "/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code = '101.16006']/cda:component/cda:section[cda:code/@code = '101.20117']/cda:component/cda:section[cda:code/@code = '102.16144']/cda:entry/cda:observation[@classCode='OBS']/cda:entryRelationship/cda:organizer[@classCode='BATTERY']/cda:component/cda:observation/cda:entryRelationship/cda:observation/cda:code[@code = '103.11014']">Error: e-Discharge Summary - 7.1.1.5.1.1
+                Test Specimen Detail and/or 7.1.1.5.1.2.1 Result Group Specimen Detail - "Test
+                Specimen Detail / Collection and handling / Sampling Preconditions" and/or "Result
+                Group Specimen Detail / Collection and handling / Sampling Preconditions" - The
+                '/ClinicalDocument/component/structuredBody/component/section/component/section/entry/observation/entryRelationship/organizer/component/observation/entryRelationship/observation/code' path - 1 or more tags are missing. Refer to section 7.1.1.5.1.1 and/or 7.1.1.5.1.2.1 of the
+                e-Discharge_Summary_CDA_Implementation_Guide_v3.4.</assert>-->
+
+            <assert test="@codeSystem = '1.2.36.1.2001.1001.101'">Error: e-Discharge Summary -
+                7.1.1.5.1.1 Test Specimen Detail and/or 7.1.1.5.1.2.1 Result Group Specimen Detail -
+                "Result Group Specimen Detail / Handling and Processing / DateTime Received" and/or
+                "Test Specimen Detail / Collection and handling / Handling and Processing / DateTime
+                Received" - The 'code' tag 'codeSystem' attribute shall contain the value
+                '1.2.36.1.2001.1001.101'. Refer to section 7.1.1.5.1.1 and/or 7.1.1.5.1.2.1 of the
+                e-Discharge_Summary_CDA_Implementation_Guide_v3.4.</assert>
+
+            <assert test="translate(@codeSystemName, 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ') = 'NCTIS DATA COMPONENTS'"
+                >Error: e-Discharge Summary - 7.1.1.5.1.1 Test Specimen Detail and/or 7.1.1.5.1.2.1
+                Result Group Specimen Detail - "Result Group Specimen Detail / Handling and
+                Processing / DateTime Received" and/or "Test Specimen Detail / Collection and
+                handling / Handling and Processing / DateTime Received" - The 'code' tag
+                'codeSystemName' attribute shall contain the value 'NCTIS Data Components'. Refer to
+                section 7.1.1.5.1.1 and/or 7.1.1.5.1.2.1 of the
+                e-Discharge_Summary_CDA_Implementation_Guide_v3.4.</assert>
+
+            <assert test="translate(@displayName, 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ') = 'DATETIME RECEIVED'"
+                >Error: e-Discharge Summary - 7.1.1.5.1.1 Test Specimen Detail and/or 7.1.1.5.1.2.1
+                Result Group Specimen Detail - "Result Group Specimen Detail / Handling and
+                Processing / DateTime Received" and/or "Test Specimen Detail / Collection and
+                handling / Handling and Processing / DateTime Received" - The 'code' tag
+                'displayName' attribute shall contain the value 'DateTime Received'. Refer to
+                section 7.1.1.5.1.1 and/or 7.1.1.5.1.2.1 of the
+                e-Discharge_Summary_CDA_Implementation_Guide_v3.4.</assert>
+
+        </rule>
+
+
+        <!-- Test Specimen Detail - Parent Specimen Identifier - 0..1 -->
+        <!-- Result Group Specimen Detail - Parent Specimen Identifier - 0..1 -->
+        <rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code = '101.16006']/cda:component/cda:section[cda:code/@code = '101.20117']/cda:component/cda:section[cda:code/@code = '102.16144']/cda:entry/cda:observation[@classCode='OBS']/cda:entryRelationship/cda:observation[cda:code/@code='102.16156.2.2.1']/cda:entryRelationship[cda:observation/cda:code/@code = '103.16187'] |
+                       /cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code = '101.16006']/cda:component/cda:section[cda:code/@code = '101.20117']/cda:component/cda:section[cda:code/@code = '102.16144']/cda:entry/cda:observation[@classCode='OBS']/cda:entryRelationship/cda:organizer[@classCode='BATTERY']/cda:component/cda:observation/cda:entryRelationship[cda:observation/cda:code/@code = '103.16187']">
+
+            <assert test="@typeCode = 'COMP'">Error: e-Discharge Summary - 7.1.1.5.1.1 Test Specimen
+                Detail and/or 7.1.1.5.1.2.1 Result Group Specimen Detail - "Result Group Specimen
+                Detail / Identifiers / Parent Specimen Identifier" and/or "Test Specimen Detail /
+                Identifiers / Parent Specimen Identifier" - The 'entryRelationship' tag 'typeCode'
+                attribute shall contain the value 'COMP' . Refer to section 7.1.1.5.1.1 and/or
+                7.1.1.5.1.2.1 of the
+                e-Discharge_Summary_CDA_Implementation_Guide_v3.4.</assert>
+
+
+            <report test="count(cda:observation) > 1">Error: e-Discharge Summary - 7.1.1.5.1.1 Test
+                Specimen Detail and/or 7.1.1.5.1.2.1 Result Group Specimen Detail - "Result Group
+                Specimen Detail / Identifiers / Parent Specimen Identifier" and/or "Test Specimen
+                Detail / Identifiers / Parent Specimen Identifier" - The 'observation' tag shall
+                appear only once. Refer to section 7.1.1.5.1.1 and/or 7.1.1.5.1.2.1 of the
+                e-Discharge_Summary_CDA_Implementation_Guide_v3.4.</report>
+
+        </rule>
+
+        <rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code = '101.16006']/cda:component/cda:section[cda:code/@code = '101.20117']/cda:component/cda:section[cda:code/@code = '102.16144']/cda:entry/cda:observation[@classCode='OBS']/cda:entryRelationship/cda:observation[cda:code/@code='102.16156.2.2.1']/cda:entryRelationship/cda:observation[cda:code/@code = '103.16187'] |
+                       /cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code = '101.16006']/cda:component/cda:section[cda:code/@code = '101.20117']/cda:component/cda:section[cda:code/@code = '102.16144']/cda:entry/cda:observation[@classCode='OBS']/cda:entryRelationship/cda:organizer[@classCode='BATTERY']/cda:component/cda:observation[@classCode='OBS']/cda:entryRelationship/cda:observation[cda:code/@code = '103.16187']">
+
+            <assert test="@classCode = 'OBS'">Error: e-Discharge Summary - 7.1.1.5.1.1 Test Specimen
+                Detail and/or 7.1.1.5.1.2.1 Result Group Specimen Detail - "Result Group Specimen
+                Detail / Identifiers / Parent Specimen Identifier" and/or "Test Specimen Detail /
+                Identifiers / Parent Specimen Identifier" - The 'observation' tag 'classCode'
+                attribute shall contain the value 'OBS'. Refer to section 7.1.1.5.1.1 and/or
+                7.1.1.5.1.2.1 of the
+                e-Discharge_Summary_CDA_Implementation_Guide_v3.4.</assert>
+
+            <assert test="@moodCode = 'EVN'">Error: e-Discharge Summary - 7.1.1.5.1.1 Test Specimen
+                Detail and/or 7.1.1.5.1.2.1 Result Group Specimen Detail - "Result Group Specimen
+                Detail / Identifiers / Parent Specimen Identifier" and/or "Test Specimen Detail /
+                Identifiers / Parent Specimen Identifier" - The 'observation' tag 'moodCode'
+                attribute shall contain the value 'EVN'. Refer to section 7.1.1.5.1.1 and/or
+                7.1.1.5.1.2.1 of the
+                e-Discharge_Summary_CDA_Implementation_Guide_v3.4.</assert>
+
+            <report test="count(cda:code) > 1">Error: e-Discharge Summary - 7.1.1.5.1.1 Test
+                Specimen Detail and/or 7.1.1.5.1.2.1 Result Group Specimen Detail - "Result Group
+                Specimen Detail / Identifiers / Parent Specimen Identifier" and/or "Test Specimen
+                Detail / Identifiers / Parent Specimen Identifier" - The 'code' tag shall appear
+                only once. Refer to section 7.1.1.5.1.1 and/or 7.1.1.5.1.2.1 of the
+                e-Discharge_Summary_CDA_Implementation_Guide_v3.4.</report>
+
+        </rule>
+
+        <!-- Test Specimen Detail - Parent Specimen Identifier - 0..1 -->
+        <!-- Result Group Specimen Detail - Parent Specimen Identifier - 0..1 -->
+        <rule context="cda:code[@code = '103.16187']">
+
+            <assert test="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code = '101.16006']/cda:component/cda:section[cda:code/@code = '101.20117']/cda:component/cda:section[cda:code/@code = '102.16144']/cda:entry/cda:observation[@classCode='OBS']/cda:entryRelationship/cda:observation/cda:entryRelationship/cda:observation/cda:code[@code = '103.16187'] |
+                          /cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code = '101.16006']/cda:component/cda:section[cda:code/@code = '101.20117']/cda:component/cda:section[cda:code/@code = '102.16144']/cda:entry/cda:observation[@classCode='OBS']/cda:entryRelationship/cda:organizer[@classCode='BATTERY']/cda:component/cda:observation/cda:entryRelationship/cda:observation/cda:code[@code = '103.16187']"
+                >Error: e-Discharge Summary - 7.1.1.5.1.1 Test Specimen Detail and/or 7.1.1.5.1.2.1 Result Group Specimen Detail - "Test Specimen Detail / Collection and handling / Sampling Preconditions" and/or "Result Group Specimen Detail / Collection and handling / Sampling Preconditions" -
+                The '/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code = '101.16006']/cda:component/cda:section[cda:code/@code = '101.20117']/cda:component/cda:section[cda:code/@code = '102.16144']/cda:entry/cda:observation[@classCode='OBS']/cda:entryRelationship/cda:observation/cda:entryRelationship/cda:observation/cda:code[@code = "103.16187"]
+                or   /cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code = '101.16006']/cda:component/cda:section[cda:code/@code = '101.20117']/cda:component/cda:section[cda:code/@code = '102.16144']/cda:entry/cda:observation[@classCode='OBS']/cda:entryRelationship/cda:organizer[@classCode='BATTERY']/cda:component/cda:observation/cda:entryRelationship/cda:observation/cda:code[@code = "103.16187"]' path -
+                1 or more tags are missing. Refer to section 7.1.1.5.1.1 and/or 7.1.1.5.1.2.1
+                of the e-Discharge_Summary_CDA_Implementation_Guide_v3.4.</assert>
+
+      <!--  <assert test = "/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code = '101.16006']/cda:component/cda:section[cda:code/@code = '101.20117']/cda:component/cda:section[cda:code/@code = '102.16144']/cda:entry/cda:observation[@classCode='OBS']/cda:entryRelationship/cda:organizer[@classCode='BATTERY']/cda:component/cda:observation/cda:entryRelationship/cda:observation/cda:code[@code = '103.16187']">Error: e-Discharge Summary - 7.1.1.5.1.1
+                Test Specimen Detail and/or 7.1.1.5.1.2.1 Result Group Specimen Detail - "Test
+                Specimen Detail / Collection and handling / Sampling Preconditions" and/or "Result
+                Group Specimen Detail / Collection and handling / Sampling Preconditions" - The
+                '/ClinicalDocument/component/structuredBody/component/section/component/section/entry/observation/entryRelationship/organizer/component/observation/entryRelationship/observation/code' path - 1 or more tags are missing. Refer to section 7.1.1.5.1.1 and/or 7.1.1.5.1.2.1 of the
+                e-Discharge_Summary_CDA_Implementation_Guide_v3.4.</assert>-->
+
+            <assert test="@codeSystem = '1.2.36.1.2001.1001.101'">Error: e-Discharge Summary -
+                7.1.1.5.1.1 Test Specimen Detail and/or 7.1.1.5.1.2.1 Result Group Specimen Detail -
+                "Result Group Specimen Detail / Identifiers / Parent Specimen Identifier" and/or
+                "Test Specimen Detail / Identifiers / Parent Specimen Identifier" - The 'code' tag
+                'codeSystem' attribute shall contain the value '1.2.36.1.2001.1001.101'. Refer to
+                section 7.1.1.5.1.1 and/or 7.1.1.5.1.2.1 of the
+                e-Discharge_Summary_CDA_Implementation_Guide_v3.4.</assert>
+
+            <assert
+                test="translate(@codeSystemName, 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ') = 'NCTIS DATA COMPONENTS'"
+                >Error: e-Discharge Summary - 7.1.1.5.1.1 Test Specimen Detail and/or 7.1.1.5.1.2.1
+                Result Group Specimen Detail - "Result Group Specimen Detail / Identifiers / Parent
+                Specimen Identifier" and/or "Test Specimen Detail / Identifiers / Parent Specimen
+                Identifier" - The 'code' tag 'codeSystemName' attribute shall contain the value
+                'NCTIS Data Components'. Refer to section 7.1.1.5.1.1 and/or 7.1.1.5.1.2.1 of the
+                e-Discharge_Summary_CDA_Implementation_Guide_v3.4.</assert>
+
+            <assert
+                test="translate(@displayName, 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ') = 'PARENT SPECIMEN IDENTIFIER'"
+                >Error: e-Discharge Summary - 7.1.1.5.1.1 Test Specimen Detail and/or 7.1.1.5.1.2.1
+                Result Group Specimen Detail - "Result Group Specimen Detail / Identifiers / Parent
+                Specimen Identifier" and/or "Test Specimen Detail / Identifiers / Parent Specimen
+                Identifier" - The 'code' tag 'displayName' attribute shall contain the value
+                'DateTime Received'. Refer to section 7.1.1.5.1.1 and/or 7.1.1.5.1.2.1 of the
+                e-Discharge_Summary_CDA_Implementation_Guide_v3.4.</assert>
+
+        </rule>
+
+
+        <rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code = '101.16006']/cda:component/cda:section[cda:code/@code = '101.20117']/cda:component/cda:section[cda:code/@code = '102.16144']/cda:entry/cda:observation[@classCode='OBS']/cda:entryRelationship/cda:observation[cda:code/@code='102.16156.2.2.1']/cda:entryRelationship/cda:observation[cda:code/@code = '103.16187']/cda:specimen/cda:specimenRole |
+                       /cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code = '101.16006']/cda:component/cda:section[cda:code/@code = '101.20117']/cda:component/cda:section[cda:code/@code = '102.16144']/cda:entry/cda:observation[@classCode='OBS']/cda:entryRelationship/cda:organizer[@classCode='BATTERY']/cda:component/cda:observation[@classCode='OBS']/cda:entryRelationship/cda:observation[cda:code/@code = '103.16187']/cda:specimen/cda:specimenRole">
+
+            <assert test="cda:id">Error: e-Discharge Summary - 7.1.1.5.1.1 Test Specimen Detail
+                and/or 7.1.1.5.1.2.1 Result Group Specimen Detail - "Result Group Specimen Detail /
+                Identifiers / Parent Specimen Identifier" and/or "Test Specimen Detail / Identifiers
+                / Parent Specimen Identifier" - The 'id' tag is missing. Refer to section
+                7.1.1.5.1.1 and/or 7.1.1.5.1.2.1 of the
+                e-Discharge_Summary_CDA_Implementation_Guide_v3.4.</assert>
+
+            <report test="count(cda:id) > 1">Error: e-Discharge Summary - 7.1.1.5.1.1 Test Specimen
+                Detail and/or 7.1.1.5.1.2.1 Result Group Specimen Detail - "Result Group Specimen
+                Detail / Identifiers / Parent Specimen Identifier" and/or "Test Specimen Detail /
+                Identifiers / Parent Specimen Identifier" - The 'id' tag shall appear only once.
+                Refer to section 7.1.1.5.1.1 and/or 7.1.1.5.1.2.1 of the
+                e-Discharge_Summary_CDA_Implementation_Guide_v3.4.</report>
+
+
+            <!-- The 'id' tag is being tested by "e-Discharge_Summary_Global_Checks" ent file. -->
+
+        </rule>
+
+
+        <!--Container Identifier - 0..1-->
+        <rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code = '101.16006']/cda:component/cda:section[cda:code/@code = '101.20117']/cda:component/cda:section[cda:code/@code = '102.16144']/cda:entry/cda:observation[@classCode='OBS']/cda:entryRelationship/cda:observation[cda:code/@code='102.16156.2.2.1']/cda:specimen/cda:specimenRole/cda:specimenPlayingEntity/ext:asSpecimenInContainer |
+                       /cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code = '101.16006']/cda:component/cda:section[cda:code/@code = '101.20117']/cda:component/cda:section[cda:code/@code = '102.16144']/cda:entry/cda:observation[@classCode='OBS']/cda:entryRelationship/cda:organizer[@classCode='BATTERY']/cda:component/cda:observation[@classCode='OBS']/cda:specimen/cda:specimenRole/cda:specimenPlayingEntity/ext:asSpecimenInContainer">
+
+            <assert test="@classCode = 'CONT'">Error: e-Discharge Summary - 7.1.1.5.1.1 Test
+                Specimen Detail and/or 7.1.1.5.1.2.1 Result Group Specimen Detail - "Result Group
+                Specimen Detail / Identifiers / Container Identifier" and/or "Test Specimen Detail /
+                Identifiers / Container Identifier" - The 'asSpecimenInContainer' tag 'classCode'
+                attribute shall contain the value 'CONT'. Refer to section 7.1.1.5.1.1 and/or
+                7.1.1.5.1.2.1 of the
+                e-Discharge_Summary_CDA_Implementation_Guide_v3.4.</assert>
+
+            <assert test="ext:container">Error: e-Discharge Summary - 7.1.1.5.1.1 Test Specimen
+                Detail and/or 7.1.1.5.1.2.1 Result Group Specimen Detail - "Result Group Specimen
+                Detail / Identifiers / Container Identifier" and/or "Test Specimen Detail /
+                Identifiers / Container Identifier" - The 'container' tag is missing. Refer to
+                section 7.1.1.5.1.1 and/or 7.1.1.5.1.2.1 of the
+                e-Discharge_Summary_CDA_Implementation_Guide_v3.4.</assert>
+
+            <assert test="ext:container/ext:id">Error: e-Discharge Summary - 7.1.1.5.1.1 Test
+                Specimen Detail and/or 7.1.1.5.1.2.1 Result Group Specimen Detail - "Result Group
+                Specimen Detail / Identifiers / Container Identifier" and/or "Test Specimen Detail /
+                Identifiers / Container Identifier" - The 'id' tag is missing. Refer to section
+                7.1.1.5.1.1 and/or 7.1.1.5.1.2.1 of the
+                e-Discharge_Summary_CDA_Implementation_Guide_v3.4.</assert>
+
+        </rule>
+
+        <!-- ext:id is checked in global checks -->
+        <!--
+        <rule  context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code = '101.16006']/cda:component/cda:section[cda:code/@code = '101.20117']/cda:component/cda:section[cda:code/@code = '102.16144']/cda:entry/cda:observation[@classCode='OBS']/cda:entryRelationship/cda:observation/cda:specimen/cda:specimenRole/cda:specimenPlayingEntity/ext:asSpecimenInContainer/ext:container/ext:id |
+                        /cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code = '101.16006']/cda:component/cda:section[cda:code/@code = '101.20117']/cda:component/cda:section[cda:code/@code = '102.16144']/cda:entry/cda:observation[@classCode='OBS']/cda:entryRelationship/cda:organizer[@classCode='BATTERY']/cda:component/cda:observation/cda:specimen/cda:specimenRole/cda:specimenPlayingEntity/ext:asSpecimenInContainer/ext:container/ext:id">
+        -->
+
+    </pattern>
+

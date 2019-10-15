@@ -7,12 +7,19 @@ import java.util.StringJoiner;
 public class NewlyIdentifiedAdverseReactionsImpl implements NewlyIdentifiedAdverseReactions {
 
   private List<AdverseReaction> adverseReactions;
-  private StrucDocText customNarrativeAdverseReaction;
+  private StrucDocText customNarrative;
 
+  /**
+   * @param adverseReactions
+   * @param customNarrativeAdverseReaction @{@link StrucDocText} - custom narrative for format 2 & 3
+   */
   public NewlyIdentifiedAdverseReactionsImpl(
           List<AdverseReaction> adverseReactions, StrucDocText customNarrativeAdverseReaction) {
     this.adverseReactions = adverseReactions;
-    this.customNarrativeAdverseReaction = customNarrativeAdverseReaction;
+    this.customNarrative = customNarrativeAdverseReaction;
+  }
+
+  public NewlyIdentifiedAdverseReactionsImpl() {
   }
 
   @Override
@@ -26,13 +33,13 @@ public class NewlyIdentifiedAdverseReactionsImpl implements NewlyIdentifiedAdver
   }
 
   @Override
-  public StrucDocText getCustomNarrativeAdverseReactions() {
-    return this.customNarrativeAdverseReaction;
+  public StrucDocText getCustomNarrative() {
+    return this.customNarrative;
   }
 
   @Override
-  public void setCustomNarrativeAdverseReactions(StrucDocText customNarrativeAdverseReactions) {
-    this.customNarrativeAdverseReaction = customNarrativeAdverseReactions;
+  public void setCustomNarrative(StrucDocText customNarrativeAdverseReactions) {
+    this.customNarrative = customNarrativeAdverseReactions;
   }
 
   @Override
@@ -40,7 +47,7 @@ public class NewlyIdentifiedAdverseReactionsImpl implements NewlyIdentifiedAdver
     return new StringJoiner(", ",
         NewlyIdentifiedAdverseReactionsImpl.class.getSimpleName() + "[", "]")
         .add("adverseReactions=" + adverseReactions)
-        .add("customNarrativeAdverseReaction=" + customNarrativeAdverseReaction)
+        .add("customNarrativeAdverseReaction=" + customNarrative)
         .toString();
   }
 }

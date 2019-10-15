@@ -1,0 +1,597 @@
+<!--
+_________________________________________________________________________________________________________________________________________________________________________________________
+                  Generated File - Do Not Edit File Directly                                                                                                                             
+                  __________________________________________
+
+                  Generated          : 29/11/2017 4:00:42 PM
+
+                  Product            : Service Referral
+                  Release            : CDA_Implementation_Guide_v1.0
+                  IG Guide Reference : 7.1.4.2
+                  IG Guide Title     : Known Medication (MEDICATION INSTRUCTION)
+                  Generator Version  : 2.28
+                                                                                                                                                                                         
+_________________________________________________________________________________________________________________________________________________________________________________________
+-->
+    <pattern name="p-Service_Referral_3A_KnownMedication_MEDICATIONINSTRUCTION_7_1_4_2-errors"
+        id="p-Service_Referral_3A_KnownMedication_MEDICATIONINSTRUCTION_7_1_4_2-errors"
+        see="#p-Service_Referral_3A_KnownMedication_MEDICATIONINSTRUCTION_7_1_4_2-errors">
+
+
+        <rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code = '101.16146']/cda:entry[cda:substanceAdministration/@classCode = 'SBADM']">
+
+            <report test="count(cda:substanceAdministration) > 1"
+                >Error: Service Referral - 7.1.4.2 Known Medication (MEDICATION INSTRUCTION) -
+                "Known Medication (MEDICATION INSTRUCTION)" -
+                The 'substanceAdministration' tag shall appear only once.
+                Refer to section 7.1.4.2 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</report>
+
+        </rule>
+
+
+        <rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code = '101.16146']/cda:entry/cda:substanceAdministration[@classCode = 'SBADM']">
+
+            <assert test="@moodCode"
+                >Error: Service Referral - 7.1.4.2 Known Medication (MEDICATION INSTRUCTION) -
+                "Known Medication (MEDICATION INSTRUCTION)" -
+                The 'substanceAdministration' tag 'moodCode' attribute is missing.
+                Refer to section 7.1.4.2 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</assert>
+
+            <assert test="not(@moodCode) or normalize-space(@moodCode) != ''"
+                >Error: Service Referral - 7.1.4.2 Known Medication (MEDICATION INSTRUCTION) -
+                "Known Medication (MEDICATION INSTRUCTION)" -
+                The 'substanceAdministration' tag 'moodCode' attribute shall contain a value.
+                Refer to section 7.1.4.2 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</assert>
+
+            <assert test="
+                not(@moodCode) or normalize-space(@moodCode) = '' or @moodCode = 'EVN'"
+                >Error: Service Referral - 7.1.4.2 Known Medication (MEDICATION INSTRUCTION) -
+                "Known Medication (MEDICATION INSTRUCTION)" -
+                The 'substanceAdministration' tag 'moodCode' attribute shall contain the value 'EVN'.
+                Refer to section 7.1.4.2 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</assert>
+
+            <report test="count(cda:id) > 1"
+                >Error: Service Referral - 7.1.4.2 Known Medication (MEDICATION INSTRUCTION) -
+                "Known Medication (MEDICATION INSTRUCTION) / Medication Instruction Instance Identifier" -
+                The 'id' tag shall appear only once.
+                Refer to section 7.1.4.2 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</report>
+
+            <assert test="cda:consumable"
+                >Error: Service Referral - 7.1.4.2 Known Medication (MEDICATION INSTRUCTION) -
+                "Known Medication (MEDICATION INSTRUCTION) / Therapeutic Good Identification" -
+                The 'consumable' tag is missing.
+                Refer to section 7.1.4.2 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</assert>
+
+            <report test="count(cda:consumable) > 1"
+                >Error: Service Referral - 7.1.4.2 Known Medication (MEDICATION INSTRUCTION) -
+                "Known Medication (MEDICATION INSTRUCTION) / Therapeutic Good Identification" -
+                The 'consumable' tag shall appear only once.
+                Refer to section 7.1.4.2 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</report>
+
+            <assert test="cda:text"
+                >Error: Service Referral - 7.1.4.2 Known Medication (MEDICATION INSTRUCTION) -
+                "Known Medication (MEDICATION INSTRUCTION) / Directions" -
+                The 'text' tag is missing.
+                Refer to section 7.1.4.2 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</assert>
+
+            <report test="count(cda:text) > 1"
+                >Error: Service Referral - 7.1.4.2 Known Medication (MEDICATION INSTRUCTION) -
+                "Known Medication (MEDICATION INSTRUCTION) / Directions" -
+                The 'text' tag shall appear only once.
+                Refer to section 7.1.4.2 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</report>
+
+            <report test="count(cda:entryRelationship[cda:act/cda:code/@code = '103.10141']) > 1"
+                >Error: Service Referral - 7.1.4.2 Known Medication (MEDICATION INSTRUCTION) -
+                "Known Medication (MEDICATION INSTRUCTION) / Clinical Indication" -
+                The 'entryRelationship' tag shall appear only once for ' Clinical Indication'.
+                Refer to section 7.1.4.2 having SCS Data Component 'Known Medication (MEDICATION INSTRUCTION) / Clinical Indication' with the code/@code value '103.10141' and section 7.1.4.2 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</report>
+
+            <report test="count(cda:entryRelationship[cda:act/cda:code/@code = '103.16044']) > 1"
+                >Error: Service Referral - 7.1.4.2 Known Medication (MEDICATION INSTRUCTION) -
+                "Known Medication (MEDICATION INSTRUCTION) / Medication Instruction Comment" -
+                The 'entryRelationship' tag shall appear only once for ' Medication Instruction Comment'.
+                Refer to section 7.1.4.2 having SCS Data Component 'Known Medication (MEDICATION INSTRUCTION) / Medication Instruction Comment' with the code/@code value '103.16044' and section 7.1.4.2 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</report>
+
+        </rule>
+
+
+        <rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code = '101.16146']/cda:entry/cda:substanceAdministration[@classCode = 'SBADM']/cda:id">
+
+            <assert test="not(@nullFlavor)"
+                >Error: Service Referral - 7.1.4.2 Known Medication (MEDICATION INSTRUCTION) -
+                "Known Medication (MEDICATION INSTRUCTION) / Medication Instruction Instance Identifier" -
+                The 'id' tag 'nullFlavor' attribute shall not be present.
+                Refer to section 7.1.4.2 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</assert>
+
+        </rule>
+
+
+        <rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code = '101.16146']/cda:entry/cda:substanceAdministration[@classCode = 'SBADM']/cda:consumable">
+
+            <assert test="cda:manufacturedProduct"
+                >Error: Service Referral - 7.1.4.2 Known Medication (MEDICATION INSTRUCTION) -
+                "Known Medication (MEDICATION INSTRUCTION) / Therapeutic Good Identification" -
+                The 'manufacturedProduct' tag is missing.
+                Refer to section 7.1.4.2 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</assert>
+
+            <report test="count(cda:manufacturedProduct) > 1"
+                >Error: Service Referral - 7.1.4.2 Known Medication (MEDICATION INSTRUCTION) -
+                "Known Medication (MEDICATION INSTRUCTION) / Therapeutic Good Identification" -
+                The 'manufacturedProduct' tag shall appear only once.
+                Refer to section 7.1.4.2 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</report>
+
+        </rule>
+
+
+        <rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code = '101.16146']/cda:entry/cda:substanceAdministration[@classCode = 'SBADM']/cda:consumable/cda:manufacturedProduct">
+
+            <assert test="cda:manufacturedMaterial"
+                >Error: Service Referral - 7.1.4.2 Known Medication (MEDICATION INSTRUCTION) -
+                "Known Medication (MEDICATION INSTRUCTION) / Therapeutic Good Identification" -
+                The 'manufacturedMaterial' tag is missing.
+                Refer to section 7.1.4.2 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</assert>
+
+            <report test="count(cda:manufacturedMaterial) > 1"
+                >Error: Service Referral - 7.1.4.2 Known Medication (MEDICATION INSTRUCTION) -
+                "Known Medication (MEDICATION INSTRUCTION) / Therapeutic Good Identification" -
+                The 'manufacturedMaterial' tag shall appear only once.
+                Refer to section 7.1.4.2 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</report>
+
+        </rule>
+
+
+        <rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code = '101.16146']/cda:entry/cda:substanceAdministration[@classCode = 'SBADM']/cda:consumable/cda:manufacturedProduct/cda:manufacturedMaterial">
+
+            <assert test="cda:code"
+                >Error: Service Referral - 7.1.4.2 Known Medication (MEDICATION INSTRUCTION) -
+                "Known Medication (MEDICATION INSTRUCTION) / Therapeutic Good Identification" -
+                The 'code' tag is missing.
+                Refer to section 7.1.4.2 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</assert>
+
+            <report test="count(cda:code) > 1"
+                >Error: Service Referral - 7.1.4.2 Known Medication (MEDICATION INSTRUCTION) -
+                "Known Medication (MEDICATION INSTRUCTION) / Therapeutic Good Identification" -
+                The 'code' tag shall appear only once.
+                Refer to section 7.1.4.2 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</report>
+
+        </rule>
+
+
+        <rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code = '101.16146']/cda:entry/cda:substanceAdministration[@classCode = 'SBADM']/cda:consumable/cda:manufacturedProduct/cda:manufacturedMaterial/cda:code">
+
+            <report test="@nullFlavor and normalize-space(@nullFlavor) != '' and
+                (document('TEMPLATE/VALDN/CDAValidate_Vocabs.xml', .)/systems/system [@codeSystemName = 'Coded_DataType_NullFlavor_Absent_Values']/code[
+                    (@code = current()/@nullFlavor) ])"
+                >Error: Service Referral - 7.1.4.2 Known Medication (MEDICATION INSTRUCTION) -
+                "Known Medication (MEDICATION INSTRUCTION) / Therapeutic Good Identification" -
+                The 'code' tag 'nullFlavor' attribute shall not be "NI", "UNK", "ASKU", "NAV", "NASK", or "NA".
+                Refer to section 7.1.4.2 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</report>
+
+        </rule>
+
+
+        <rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code = '101.16146']/cda:entry/cda:substanceAdministration[@classCode = 'SBADM']/cda:text">
+
+            <report test="@xsi:type and normalize-space(@xsi:type) = ''"
+                >Error: Service Referral - 7.1.4.2 Known Medication (MEDICATION INSTRUCTION) -
+                "Known Medication (MEDICATION INSTRUCTION) / Directions" -
+                The 'text' tag 'xsi:type' attribute shall contain a value.
+                Refer to section 7.1.4.2 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</report>
+
+            <report test="
+                @xsi:type and normalize-space(@xsi:type) != '' and 
+                normalize-space(@xsi:type) != 'ST' and
+                not(substring-before(normalize-space(@xsi:type), ':') != '' and
+                    substring-after(normalize-space(@xsi:type), ':') = 'ST')"
+                >Error: Service Referral - 7.1.4.2 Known Medication (MEDICATION INSTRUCTION) -
+                "Known Medication (MEDICATION INSTRUCTION) / Directions" -
+                The 'text' tag 'xsi:type' attribute shall contain the value 'ST'.
+                Refer to section 7.1.4.2 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</report>
+
+            <report test="@nullFlavor and normalize-space(@nullFlavor) != '' and
+                (document('TEMPLATE/VALDN/CDAValidate_Vocabs.xml', .)/systems/system [@codeSystemName = 'Coded_DataType_NullFlavor_Absent_Values']/code[
+                    (@code = current()/@nullFlavor) ])"
+                >Error: Service Referral - 7.1.4.2 Known Medication (MEDICATION INSTRUCTION) -
+                "Known Medication (MEDICATION INSTRUCTION) / Directions" -
+                The 'text' tag 'nullFlavor' attribute shall not be "NI", "UNK", "ASKU", "NAV", "NASK", or "NA".
+                Refer to section 7.1.4.2 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</report>
+
+        </rule>
+
+
+        <rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code = '101.16146']/cda:entry/cda:substanceAdministration[@classCode = 'SBADM']/cda:entryRelationship[cda:act/cda:code/@code = '103.10141']">
+
+            <assert test="@typeCode"
+                >Error: Service Referral - 7.1.4.2 Known Medication (MEDICATION INSTRUCTION) -
+                "Known Medication (MEDICATION INSTRUCTION) / Clinical Indication" -
+                The 'entryRelationship' tag 'typeCode' attribute is missing.
+                Refer to section 7.1.4.2 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</assert>
+
+            <assert test="not(@typeCode) or normalize-space(@typeCode) != ''"
+                >Error: Service Referral - 7.1.4.2 Known Medication (MEDICATION INSTRUCTION) -
+                "Known Medication (MEDICATION INSTRUCTION) / Clinical Indication" -
+                The 'entryRelationship' tag 'typeCode' attribute shall contain a value.
+                Refer to section 7.1.4.2 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</assert>
+
+            <assert test="
+                not(@typeCode) or normalize-space(@typeCode) = '' or @typeCode = 'RSON'"
+                >Error: Service Referral - 7.1.4.2 Known Medication (MEDICATION INSTRUCTION) -
+                "Known Medication (MEDICATION INSTRUCTION) / Clinical Indication" -
+                The 'entryRelationship' tag 'typeCode' attribute shall contain the value 'RSON'.
+                Refer to section 7.1.4.2 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</assert>
+
+            <report test="count(cda:act) > 1"
+                >Error: Service Referral - 7.1.4.2 Known Medication (MEDICATION INSTRUCTION) -
+                "Known Medication (MEDICATION INSTRUCTION) / Clinical Indication" -
+                The 'act' tag shall appear only once.
+                Refer to section 7.1.4.2 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</report>
+
+        </rule>
+
+
+        <rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code = '101.16146']/cda:entry/cda:substanceAdministration[@classCode = 'SBADM']/cda:entryRelationship/cda:act[cda:code/@code = '103.10141']">
+
+            <assert test="@classCode"
+                >Error: Service Referral - 7.1.4.2 Known Medication (MEDICATION INSTRUCTION) -
+                "Known Medication (MEDICATION INSTRUCTION) / Clinical Indication" -
+                The 'act' tag 'classCode' attribute is missing.
+                Refer to section 7.1.4.2 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</assert>
+
+            <assert test="not(@classCode) or normalize-space(@classCode) != ''"
+                >Error: Service Referral - 7.1.4.2 Known Medication (MEDICATION INSTRUCTION) -
+                "Known Medication (MEDICATION INSTRUCTION) / Clinical Indication" -
+                The 'act' tag 'classCode' attribute shall contain a value.
+                Refer to section 7.1.4.2 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</assert>
+
+            <assert test="
+                not(@classCode) or normalize-space(@classCode) = '' or @classCode = 'INFRM'"
+                >Error: Service Referral - 7.1.4.2 Known Medication (MEDICATION INSTRUCTION) -
+                "Known Medication (MEDICATION INSTRUCTION) / Clinical Indication" -
+                The 'act' tag 'classCode' attribute shall contain the value 'INFRM'.
+                Refer to section 7.1.4.2 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</assert>
+
+            <assert test="@moodCode"
+                >Error: Service Referral - 7.1.4.2 Known Medication (MEDICATION INSTRUCTION) -
+                "Known Medication (MEDICATION INSTRUCTION) / Clinical Indication" -
+                The 'act' tag 'moodCode' attribute is missing.
+                Refer to section 7.1.4.2 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</assert>
+
+            <assert test="not(@moodCode) or normalize-space(@moodCode) != ''"
+                >Error: Service Referral - 7.1.4.2 Known Medication (MEDICATION INSTRUCTION) -
+                "Known Medication (MEDICATION INSTRUCTION) / Clinical Indication" -
+                The 'act' tag 'moodCode' attribute shall contain a value.
+                Refer to section 7.1.4.2 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</assert>
+
+            <assert test="
+                not(@moodCode) or normalize-space(@moodCode) = '' or @moodCode = 'EVN'"
+                >Error: Service Referral - 7.1.4.2 Known Medication (MEDICATION INSTRUCTION) -
+                "Known Medication (MEDICATION INSTRUCTION) / Clinical Indication" -
+                The 'act' tag 'moodCode' attribute shall contain the value 'EVN'.
+                Refer to section 7.1.4.2 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</assert>
+
+            <report test="count(cda:code) > 1"
+                >Error: Service Referral - 7.1.4.2 Known Medication (MEDICATION INSTRUCTION) -
+                "Known Medication (MEDICATION INSTRUCTION) / Clinical Indication" -
+                The 'code' tag shall appear only once.
+                Refer to section 7.1.4.2 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</report>
+
+            <assert test="cda:text"
+                >Error: Service Referral - 7.1.4.2 Known Medication (MEDICATION INSTRUCTION) -
+                "Known Medication (MEDICATION INSTRUCTION) / Clinical Indication" -
+                The 'text' tag is missing.
+                Refer to section 7.1.4.2 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</assert>
+
+            <report test="count(cda:text) > 1"
+                >Error: Service Referral - 7.1.4.2 Known Medication (MEDICATION INSTRUCTION) -
+                "Known Medication (MEDICATION INSTRUCTION) / Clinical Indication" -
+                The 'text' tag shall appear only once.
+                Refer to section 7.1.4.2 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</report>
+
+            <assert test="not(cda:text) or normalize-space(cda:text) != ''"
+                >Error: Service Referral - 7.1.4.2 Known Medication (MEDICATION INSTRUCTION) -
+                "Known Medication (MEDICATION INSTRUCTION) / Clinical Indication" -
+                The 'text' tag shall contain a value.
+                Refer to section 7.1.4.2 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</assert>
+
+        </rule>
+
+
+        <rule context="cda:code[@code = '103.10141']">
+
+            <assert test="
+                count(/cda:ClinicalDocument//cda:code[@code = '103.10141']) =
+                count(/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code='101.16146']/cda:entry/cda:substanceAdministration[@classCode='SBADM']/cda:entryRelationship/cda:act/cda:code[@code='103.10141'])"
+                >Error: Service Referral - 7.1.4.2 Known Medication (MEDICATION INSTRUCTION) -
+                "Known Medication (MEDICATION INSTRUCTION) / Clinical Indication" -
+                The '/ClinicalDocument/component/structuredBody/component/section[code/@code = '101.16146']/entry/substanceAdministration[@classCode = 'SBADM']/entryRelationship/act/code[@code = '103.10141']' path -
+                1 or more tags are missing.
+                Refer to section 7.1.4.2 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</assert>
+
+            <assert test="@codeSystem"
+                >Error: Service Referral - 7.1.4.2 Known Medication (MEDICATION INSTRUCTION) -
+                "Known Medication (MEDICATION INSTRUCTION) / Clinical Indication" -
+                The 'code' tag 'codeSystem' attribute is missing.
+                Refer to section 7.1.4.2 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</assert>
+
+            <assert test="
+                not(@codeSystem) or normalize-space(@codeSystem) = '' or @codeSystem = '1.2.36.1.2001.1001.101'"
+                >Error: Service Referral - 7.1.4.2 Known Medication (MEDICATION INSTRUCTION) -
+                "Known Medication (MEDICATION INSTRUCTION) / Clinical Indication" -
+                The 'code' tag 'codeSystem' attribute shall contain the value '1.2.36.1.2001.1001.101'.
+                Refer to section 7.1.4.2 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</assert>
+
+            <assert test="@displayName"
+                >Error: Service Referral - 7.1.4.2 Known Medication (MEDICATION INSTRUCTION) -
+                "Known Medication (MEDICATION INSTRUCTION) / Clinical Indication" -
+                The 'code' tag 'displayName' attribute is missing.
+                Refer to section 7.1.4.2 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</assert>
+
+            <assert test="
+                not(@displayName) or normalize-space(@displayName) = '' or translate(@displayName, 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ') = &quot;CLINICAL INDICATION&quot;"
+                >Error: Service Referral - 7.1.4.2 Known Medication (MEDICATION INSTRUCTION) -
+                "Known Medication (MEDICATION INSTRUCTION) / Clinical Indication" -
+                The 'code' tag 'displayName' attribute shall contain the value 'Clinical Indication'.
+                Refer to section 7.1.4.2 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</assert>
+
+            <assert test="not(cda:translation)"
+                >Error: Service Referral - 7.1.4.2 Known Medication (MEDICATION INSTRUCTION) -
+                "Known Medication (MEDICATION INSTRUCTION) / Clinical Indication" -
+                The 'translation' tag shall not be present.
+                Refer to section 7.1.4.2 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</assert>
+
+        </rule>
+
+
+        <rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code = '101.16146']/cda:entry/cda:substanceAdministration[@classCode = 'SBADM']/cda:entryRelationship/cda:act[cda:code/@code = '103.10141']/cda:text">
+
+            <report test="@xsi:type and normalize-space(@xsi:type) = ''"
+                >Error: Service Referral - 7.1.4.2 Known Medication (MEDICATION INSTRUCTION) -
+                "Known Medication (MEDICATION INSTRUCTION) / Clinical Indication" -
+                The 'text' tag 'xsi:type' attribute shall contain a value.
+                Refer to section 7.1.4.2 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</report>
+
+            <report test="
+                @xsi:type and normalize-space(@xsi:type) != '' and 
+                normalize-space(@xsi:type) != 'ST' and
+                not(substring-before(normalize-space(@xsi:type), ':') != '' and
+                    substring-after(normalize-space(@xsi:type), ':') = 'ST')"
+                >Error: Service Referral - 7.1.4.2 Known Medication (MEDICATION INSTRUCTION) -
+                "Known Medication (MEDICATION INSTRUCTION) / Clinical Indication" -
+                The 'text' tag 'xsi:type' attribute shall contain the value 'ST'.
+                Refer to section 7.1.4.2 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</report>
+
+        </rule>
+
+
+        <rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code = '101.16146']/cda:entry/cda:substanceAdministration[@classCode = 'SBADM']/cda:entryRelationship[cda:act/cda:code/@code = '103.16044']">
+
+            <assert test="@typeCode"
+                >Error: Service Referral - 7.1.4.2 Known Medication (MEDICATION INSTRUCTION) -
+                "Known Medication (MEDICATION INSTRUCTION) / Medication Instruction Comment" -
+                The 'entryRelationship' tag 'typeCode' attribute is missing.
+                Refer to section 7.1.4.2 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</assert>
+
+            <assert test="not(@typeCode) or normalize-space(@typeCode) != ''"
+                >Error: Service Referral - 7.1.4.2 Known Medication (MEDICATION INSTRUCTION) -
+                "Known Medication (MEDICATION INSTRUCTION) / Medication Instruction Comment" -
+                The 'entryRelationship' tag 'typeCode' attribute shall contain a value.
+                Refer to section 7.1.4.2 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</assert>
+
+            <assert test="
+                not(@typeCode) or normalize-space(@typeCode) = '' or @typeCode = 'COMP'"
+                >Error: Service Referral - 7.1.4.2 Known Medication (MEDICATION INSTRUCTION) -
+                "Known Medication (MEDICATION INSTRUCTION) / Medication Instruction Comment" -
+                The 'entryRelationship' tag 'typeCode' attribute shall contain the value 'COMP'.
+                Refer to section 7.1.4.2 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</assert>
+
+            <report test="count(cda:act) > 1"
+                >Error: Service Referral - 7.1.4.2 Known Medication (MEDICATION INSTRUCTION) -
+                "Known Medication (MEDICATION INSTRUCTION) / Medication Instruction Comment" -
+                The 'act' tag shall appear only once.
+                Refer to section 7.1.4.2 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</report>
+
+        </rule>
+
+
+        <rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code = '101.16146']/cda:entry/cda:substanceAdministration[@classCode = 'SBADM']/cda:entryRelationship/cda:act[cda:code/@code = '103.16044']">
+
+            <assert test="@classCode"
+                >Error: Service Referral - 7.1.4.2 Known Medication (MEDICATION INSTRUCTION) -
+                "Known Medication (MEDICATION INSTRUCTION) / Medication Instruction Comment" -
+                The 'act' tag 'classCode' attribute is missing.
+                Refer to section 7.1.4.2 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</assert>
+
+            <assert test="not(@classCode) or normalize-space(@classCode) != ''"
+                >Error: Service Referral - 7.1.4.2 Known Medication (MEDICATION INSTRUCTION) -
+                "Known Medication (MEDICATION INSTRUCTION) / Medication Instruction Comment" -
+                The 'act' tag 'classCode' attribute shall contain a value.
+                Refer to section 7.1.4.2 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</assert>
+
+            <assert test="
+                not(@classCode) or normalize-space(@classCode) = '' or @classCode = 'INFRM'"
+                >Error: Service Referral - 7.1.4.2 Known Medication (MEDICATION INSTRUCTION) -
+                "Known Medication (MEDICATION INSTRUCTION) / Medication Instruction Comment" -
+                The 'act' tag 'classCode' attribute shall contain the value 'INFRM'.
+                Refer to section 7.1.4.2 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</assert>
+
+            <assert test="@moodCode"
+                >Error: Service Referral - 7.1.4.2 Known Medication (MEDICATION INSTRUCTION) -
+                "Known Medication (MEDICATION INSTRUCTION) / Medication Instruction Comment" -
+                The 'act' tag 'moodCode' attribute is missing.
+                Refer to section 7.1.4.2 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</assert>
+
+            <assert test="not(@moodCode) or normalize-space(@moodCode) != ''"
+                >Error: Service Referral - 7.1.4.2 Known Medication (MEDICATION INSTRUCTION) -
+                "Known Medication (MEDICATION INSTRUCTION) / Medication Instruction Comment" -
+                The 'act' tag 'moodCode' attribute shall contain a value.
+                Refer to section 7.1.4.2 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</assert>
+
+            <assert test="
+                not(@moodCode) or normalize-space(@moodCode) = '' or @moodCode = 'EVN'"
+                >Error: Service Referral - 7.1.4.2 Known Medication (MEDICATION INSTRUCTION) -
+                "Known Medication (MEDICATION INSTRUCTION) / Medication Instruction Comment" -
+                The 'act' tag 'moodCode' attribute shall contain the value 'EVN'.
+                Refer to section 7.1.4.2 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</assert>
+
+            <report test="count(cda:code) > 1"
+                >Error: Service Referral - 7.1.4.2 Known Medication (MEDICATION INSTRUCTION) -
+                "Known Medication (MEDICATION INSTRUCTION) / Medication Instruction Comment" -
+                The 'code' tag shall appear only once.
+                Refer to section 7.1.4.2 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</report>
+
+            <assert test="cda:text"
+                >Error: Service Referral - 7.1.4.2 Known Medication (MEDICATION INSTRUCTION) -
+                "Known Medication (MEDICATION INSTRUCTION) / Medication Instruction Comment" -
+                The 'text' tag is missing.
+                Refer to section 7.1.4.2 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</assert>
+
+            <report test="count(cda:text) > 1"
+                >Error: Service Referral - 7.1.4.2 Known Medication (MEDICATION INSTRUCTION) -
+                "Known Medication (MEDICATION INSTRUCTION) / Medication Instruction Comment" -
+                The 'text' tag shall appear only once.
+                Refer to section 7.1.4.2 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</report>
+
+            <assert test="not(cda:text) or normalize-space(cda:text) != ''"
+                >Error: Service Referral - 7.1.4.2 Known Medication (MEDICATION INSTRUCTION) -
+                "Known Medication (MEDICATION INSTRUCTION) / Medication Instruction Comment" -
+                The 'text' tag shall contain a value.
+                Refer to section 7.1.4.2 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</assert>
+
+        </rule>
+
+
+        <rule context="cda:code[@code = '103.16044']">
+
+            <assert test="
+                count(/cda:ClinicalDocument//cda:code[@code = '103.16044']) =
+                count(/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code='101.16146']/cda:entry/cda:substanceAdministration[@classCode='SBADM']/cda:entryRelationship/cda:act/cda:code[@code='103.16044'])"
+                >Error: Service Referral - 7.1.4.2 Known Medication (MEDICATION INSTRUCTION) -
+                "Known Medication (MEDICATION INSTRUCTION) / Medication Instruction Comment" -
+                The '/ClinicalDocument/component/structuredBody/component/section[code/@code = '101.16146']/entry/substanceAdministration[@classCode = 'SBADM']/entryRelationship/act/code[@code = '103.16044']' path -
+                1 or more tags are missing.
+                Refer to section 7.1.4.2 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</assert>
+
+            <assert test="@codeSystem"
+                >Error: Service Referral - 7.1.4.2 Known Medication (MEDICATION INSTRUCTION) -
+                "Known Medication (MEDICATION INSTRUCTION) / Medication Instruction Comment" -
+                The 'code' tag 'codeSystem' attribute is missing.
+                Refer to section 7.1.4.2 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</assert>
+
+            <assert test="
+                not(@codeSystem) or normalize-space(@codeSystem) = '' or @codeSystem = '1.2.36.1.2001.1001.101'"
+                >Error: Service Referral - 7.1.4.2 Known Medication (MEDICATION INSTRUCTION) -
+                "Known Medication (MEDICATION INSTRUCTION) / Medication Instruction Comment" -
+                The 'code' tag 'codeSystem' attribute shall contain the value '1.2.36.1.2001.1001.101'.
+                Refer to section 7.1.4.2 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</assert>
+
+            <assert test="@displayName"
+                >Error: Service Referral - 7.1.4.2 Known Medication (MEDICATION INSTRUCTION) -
+                "Known Medication (MEDICATION INSTRUCTION) / Medication Instruction Comment" -
+                The 'code' tag 'displayName' attribute is missing.
+                Refer to section 7.1.4.2 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</assert>
+
+            <assert test="
+                not(@displayName) or normalize-space(@displayName) = '' or translate(@displayName, 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ') = &quot;ADDITIONAL COMMENTS&quot;"
+                >Error: Service Referral - 7.1.4.2 Known Medication (MEDICATION INSTRUCTION) -
+                "Known Medication (MEDICATION INSTRUCTION) / Medication Instruction Comment" -
+                The 'code' tag 'displayName' attribute shall contain the value 'Additional Comments'.
+                Refer to section 7.1.4.2 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</assert>
+
+            <assert test="not(cda:translation)"
+                >Error: Service Referral - 7.1.4.2 Known Medication (MEDICATION INSTRUCTION) -
+                "Known Medication (MEDICATION INSTRUCTION) / Medication Instruction Comment" -
+                The 'translation' tag shall not be present.
+                Refer to section 7.1.4.2 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</assert>
+
+        </rule>
+
+
+        <rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code = '101.16146']/cda:entry/cda:substanceAdministration[@classCode = 'SBADM']/cda:entryRelationship/cda:act[cda:code/@code = '103.16044']/cda:text">
+
+            <report test="
+                @xsi:type and normalize-space(@xsi:type) != '' and 
+                normalize-space(@xsi:type) != 'ST' and
+                not(substring-before(normalize-space(@xsi:type), ':') != '' and
+                    substring-after(normalize-space(@xsi:type), ':') = 'ST')"
+                >Error: Service Referral - 7.1.4.2 Known Medication (MEDICATION INSTRUCTION) -
+                "Known Medication (MEDICATION INSTRUCTION) / Medication Instruction Comment" -
+                The 'text' tag 'xsi:type' attribute shall contain the value 'ST'.
+                Refer to section 7.1.4.2 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</report>
+
+            <report test="@xsi:type and normalize-space(@xsi:type) = ''"
+                >Error: Service Referral - 7.1.4.2 Known Medication (MEDICATION INSTRUCTION) -
+                "Known Medication (MEDICATION INSTRUCTION) / Medication Instruction Comment" -
+                The 'text' tag 'xsi:type' attribute shall contain a value.
+                Refer to section 7.1.4.2 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</report>
+
+        </rule>
+
+
+    </pattern>
+

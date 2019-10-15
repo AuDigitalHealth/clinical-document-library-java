@@ -1,0 +1,28 @@
+    <!-- e-Referral Clinical Document: 6.1.2 Subject of Care Electronic Communication Detail -->
+
+    <!-- Context: ClinicalDocument/recordTarget/patientRole -->
+
+    <!-- Status: Last Reviewed: 13/12/2011
+         Status: Last Updated : 13/03/2012 -->
+
+
+    <pattern name="p-e-Referral_Subject_Of_Care_Electronic_Communication_Detail-errors"
+        id="p-e-Referral_Subject_Of_Care_Electronic_Communication_Detail-errors"
+        see="#p-e-Referral_Subject_Of_Care_Electronic_Communication_Detail-errors">
+
+        <!-- patientRole - 1..1 -->
+
+        <rule context="/cda:ClinicalDocument/cda:recordTarget/cda:patientRole">
+
+            <!-- Electronic Communication Detail - 1..* -->
+
+            <assert test="cda:telecom">Error: e-Referral - 6.1.2 Subject of Care - "Subject of Care
+                / Participant / Electronic Communication Detail" - The 'telecom' tag is missing.
+                Refer to section 8.7 Electronic Communication Detail of the
+                e-Referral_CDA_Implementation_Guide_v2.2.</assert>
+
+            <!-- Other tags and attributes of "cda:telecom" are being tested by e-Referral_Global_Checks.sch. -->
+
+        </rule>
+
+    </pattern>

@@ -1,0 +1,494 @@
+<!--
+_________________________________________________________________________________________________________________________________________________________________________________________
+                  Generated File - Do Not Edit File Directly                                                                                                                             
+                  __________________________________________
+
+                  Generated          : 30/05/2017 1:48:12 PM
+
+                  Product            : Service Referral
+                  Release            : CDA_Implementation_Guide_v1.0
+                  IG Guide Reference : 7.1.6.2.1
+                  IG Guide Title     : Result Group (IMAGING EXAMINATION RESULT GROUP)
+                  Generator Version  : 2.28
+                                                                                                                                                                                         
+_________________________________________________________________________________________________________________________________________________________________________________________
+-->
+    <pattern name="p-Service_Referral_3A_ResultGroup_IMAGINGEXAMINATIONRESULTGROUP_7_1_6_2_1-errors"
+        id="p-Service_Referral_3A_ResultGroup_IMAGINGEXAMINATIONRESULTGROUP_7_1_6_2_1-errors"
+        see="#p-Service_Referral_3A_ResultGroup_IMAGINGEXAMINATIONRESULTGROUP_7_1_6_2_1-errors">
+
+
+        <rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code = '101.20117']/cda:component/cda:section[cda:code/@code = '102.16145']/cda:entry/cda:observation[@classCode = 'OBS']/cda:entryRelationship[cda:organizer/@classCode = 'BATTERY']">
+
+            <assert test="@typeCode"
+                >Error: Service Referral - 7.1.6.2.1 Result Group (IMAGING EXAMINATION RESULT GROUP) -
+                "Result Group (IMAGING EXAMINATION RESULT GROUP)" -
+                The 'entryRelationship' tag 'typeCode' attribute is missing.
+                Refer to section 7.1.6.2.1 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</assert>
+
+            <assert test="not(@typeCode) or normalize-space(@typeCode) != ''"
+                >Error: Service Referral - 7.1.6.2.1 Result Group (IMAGING EXAMINATION RESULT GROUP) -
+                "Result Group (IMAGING EXAMINATION RESULT GROUP)" -
+                The 'entryRelationship' tag 'typeCode' attribute shall contain a value.
+                Refer to section 7.1.6.2.1 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</assert>
+
+            <assert test="
+                not(@typeCode) or normalize-space(@typeCode) = '' or @typeCode = 'COMP'"
+                >Error: Service Referral - 7.1.6.2.1 Result Group (IMAGING EXAMINATION RESULT GROUP) -
+                "Result Group (IMAGING EXAMINATION RESULT GROUP)" -
+                The 'entryRelationship' tag 'typeCode' attribute shall contain the value 'COMP'.
+                Refer to section 7.1.6.2.1 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</assert>
+
+            <report test="count(cda:organizer) > 1"
+                >Error: Service Referral - 7.1.6.2.1 Result Group (IMAGING EXAMINATION RESULT GROUP) -
+                "Result Group (IMAGING EXAMINATION RESULT GROUP)" -
+                The 'organizer' tag shall appear only once.
+                Refer to section 7.1.6.2.1 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</report>
+
+        </rule>
+
+
+        <rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code = '101.20117']/cda:component/cda:section[cda:code/@code = '102.16145']/cda:entry/cda:observation[@classCode = 'OBS']/cda:entryRelationship/cda:organizer[@classCode = 'BATTERY']">
+
+            <assert test="@moodCode"
+                >Error: Service Referral - 7.1.6.2.1 Result Group (IMAGING EXAMINATION RESULT GROUP) -
+                "Result Group (IMAGING EXAMINATION RESULT GROUP)" -
+                The 'organizer' tag 'moodCode' attribute is missing.
+                Refer to section 7.1.6.2.1 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</assert>
+
+            <assert test="not(@moodCode) or normalize-space(@moodCode) != ''"
+                >Error: Service Referral - 7.1.6.2.1 Result Group (IMAGING EXAMINATION RESULT GROUP) -
+                "Result Group (IMAGING EXAMINATION RESULT GROUP)" -
+                The 'organizer' tag 'moodCode' attribute shall contain a value.
+                Refer to section 7.1.6.2.1 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</assert>
+
+            <assert test="
+                not(@moodCode) or normalize-space(@moodCode) = '' or @moodCode = 'EVN'"
+                >Error: Service Referral - 7.1.6.2.1 Result Group (IMAGING EXAMINATION RESULT GROUP) -
+                "Result Group (IMAGING EXAMINATION RESULT GROUP)" -
+                The 'organizer' tag 'moodCode' attribute shall contain the value 'EVN'.
+                Refer to section 7.1.6.2.1 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</assert>
+
+            <report test="count(cda:id) > 1"
+                >Error: Service Referral - 7.1.6.2.1 Result Group (IMAGING EXAMINATION RESULT GROUP) -
+                "Result Group (IMAGING EXAMINATION RESULT GROUP)" -
+                The 'id' tag shall appear only once.
+                Refer to section 7.1.6.2.1 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</report>
+
+            <assert test="cda:statusCode"
+                >Error: Service Referral - 7.1.6.2.1 Result Group (IMAGING EXAMINATION RESULT GROUP) -
+                "Result Group (IMAGING EXAMINATION RESULT GROUP)" -
+                The 'statusCode' tag is missing.
+                Refer to section 7.1.6.2.1 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</assert>
+
+            <report test="count(cda:statusCode) > 1"
+                >Error: Service Referral - 7.1.6.2.1 Result Group (IMAGING EXAMINATION RESULT GROUP) -
+                "Result Group (IMAGING EXAMINATION RESULT GROUP)" -
+                The 'statusCode' tag shall appear only once.
+                Refer to section 7.1.6.2.1 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</report>
+
+            <assert test="cda:code"
+                >Error: Service Referral - 7.1.6.2.1 Result Group (IMAGING EXAMINATION RESULT GROUP) -
+                "Result Group (IMAGING EXAMINATION RESULT GROUP) / Imaging Examination Result Group Name" -
+                The 'code' tag is missing.
+                Refer to section 7.1.6.2.1 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</assert>
+
+            <report test="count(cda:code) > 1"
+                >Error: Service Referral - 7.1.6.2.1 Result Group (IMAGING EXAMINATION RESULT GROUP) -
+                "Result Group (IMAGING EXAMINATION RESULT GROUP) / Imaging Examination Result Group Name" -
+                The 'code' tag shall appear only once.
+                Refer to section 7.1.6.2.1 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</report>
+
+            <assert test="cda:component[cda:observation/@classCode = 'OBS']"
+                >Error: Service Referral - 7.1.6.2.1 Result Group (IMAGING EXAMINATION RESULT GROUP) -
+                "Result Group (IMAGING EXAMINATION RESULT GROUP) / Result (INDIVIDUAL IMAGING EXAMINATION RESULT)" -
+                The 'component' tag is missing for ' Result (INDIVIDUAL IMAGING EXAMINATION RESULT)'.
+                Refer to section 7.1.6.2.1 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</assert>
+
+        </rule>
+
+
+        <rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code = '101.20117']/cda:component/cda:section[cda:code/@code = '102.16145']/cda:entry/cda:observation[@classCode = 'OBS']/cda:entryRelationship/cda:organizer[@classCode = 'BATTERY']/cda:statusCode">
+
+            <assert test="@code"
+                >Error: Service Referral - 7.1.6.2.1 Result Group (IMAGING EXAMINATION RESULT GROUP) -
+                "Result Group (IMAGING EXAMINATION RESULT GROUP)" -
+                The 'statusCode' tag 'code' attribute is missing.
+                Refer to section 7.1.6.2.1 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</assert>
+
+            <assert test="not(@code) or normalize-space(@code) != ''"
+                >Error: Service Referral - 7.1.6.2.1 Result Group (IMAGING EXAMINATION RESULT GROUP) -
+                "Result Group (IMAGING EXAMINATION RESULT GROUP)" -
+                The 'statusCode' tag 'code' attribute shall contain a value.
+                Refer to section 7.1.6.2.1 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</assert>
+
+            <assert test="
+                not(@code) or normalize-space(@code) = '' or @code = 'completed'"
+                >Error: Service Referral - 7.1.6.2.1 Result Group (IMAGING EXAMINATION RESULT GROUP) -
+                "Result Group (IMAGING EXAMINATION RESULT GROUP)" -
+                The 'statusCode' tag 'code' attribute shall contain the value 'completed'.
+                Refer to section 7.1.6.2.1 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</assert>
+
+        </rule>
+
+
+        <rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code = '101.20117']/cda:component/cda:section[cda:code/@code = '102.16145']/cda:entry/cda:observation[@classCode = 'OBS']/cda:entryRelationship/cda:organizer[@classCode = 'BATTERY']/cda:component[cda:observation/@classCode = 'OBS']">
+
+            <report test="count(cda:observation) > 1"
+                >Error: Service Referral - 7.1.6.2.1 Result Group (IMAGING EXAMINATION RESULT GROUP) -
+                "Result Group (IMAGING EXAMINATION RESULT GROUP) / Result (INDIVIDUAL IMAGING EXAMINATION RESULT)" -
+                The 'observation' tag shall appear only once.
+                Refer to section 7.1.6.2.1 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</report>
+
+        </rule>
+
+
+        <rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code = '101.20117']/cda:component/cda:section[cda:code/@code = '102.16145']/cda:entry/cda:observation[@classCode = 'OBS']/cda:entryRelationship/cda:organizer[@classCode = 'BATTERY']/cda:component/cda:observation[@classCode = 'OBS']">
+
+            <assert test="@moodCode"
+                >Error: Service Referral - 7.1.6.2.1 Result Group (IMAGING EXAMINATION RESULT GROUP) -
+                "Result Group (IMAGING EXAMINATION RESULT GROUP) / Result (INDIVIDUAL IMAGING EXAMINATION RESULT)" -
+                The 'observation' tag 'moodCode' attribute is missing.
+                Refer to section 7.1.6.2.1 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</assert>
+
+            <assert test="not(@moodCode) or normalize-space(@moodCode) != ''"
+                >Error: Service Referral - 7.1.6.2.1 Result Group (IMAGING EXAMINATION RESULT GROUP) -
+                "Result Group (IMAGING EXAMINATION RESULT GROUP) / Result (INDIVIDUAL IMAGING EXAMINATION RESULT)" -
+                The 'observation' tag 'moodCode' attribute shall contain a value.
+                Refer to section 7.1.6.2.1 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</assert>
+
+            <assert test="
+                not(@moodCode) or normalize-space(@moodCode) = '' or @moodCode = 'EVN'"
+                >Error: Service Referral - 7.1.6.2.1 Result Group (IMAGING EXAMINATION RESULT GROUP) -
+                "Result Group (IMAGING EXAMINATION RESULT GROUP) / Result (INDIVIDUAL IMAGING EXAMINATION RESULT)" -
+                The 'observation' tag 'moodCode' attribute shall contain the value 'EVN'.
+                Refer to section 7.1.6.2.1 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</assert>
+
+            <report test="count(cda:id) > 1"
+                >Error: Service Referral - 7.1.6.2.1 Result Group (IMAGING EXAMINATION RESULT GROUP) -
+                "Result Group (IMAGING EXAMINATION RESULT GROUP) / Result (INDIVIDUAL IMAGING EXAMINATION RESULT)" -
+                The 'id' tag shall appear only once.
+                Refer to section 7.1.6.2.1 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</report>
+
+            <assert test="cda:code"
+                >Error: Service Referral - 7.1.6.2.1 Result Group (IMAGING EXAMINATION RESULT GROUP) -
+                "Result Group (IMAGING EXAMINATION RESULT GROUP) / Result (INDIVIDUAL IMAGING EXAMINATION RESULT) / Individual Imaging Examination Result Name" -
+                The 'code' tag is missing.
+                Refer to section 7.1.6.2.1 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</assert>
+
+            <report test="count(cda:code) > 1"
+                >Error: Service Referral - 7.1.6.2.1 Result Group (IMAGING EXAMINATION RESULT GROUP) -
+                "Result Group (IMAGING EXAMINATION RESULT GROUP) / Result (INDIVIDUAL IMAGING EXAMINATION RESULT) / Individual Imaging Examination Result Name" -
+                The 'code' tag shall appear only once.
+                Refer to section 7.1.6.2.1 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</report>
+
+            <report test="count(cda:value) > 1"
+                >Error: Service Referral - 7.1.6.2.1 Result Group (IMAGING EXAMINATION RESULT GROUP) -
+                "Result Group (IMAGING EXAMINATION RESULT GROUP) / Result (INDIVIDUAL IMAGING EXAMINATION RESULT) / Result Value (IMAGING EXAMINATION RESULT VALUE)" -
+                The 'value' tag shall appear only once.
+                Refer to section 7.1.6.2.1 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</report>
+
+        </rule>
+
+
+        <rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code = '101.20117']/cda:component/cda:section[cda:code/@code = '102.16145']/cda:entry/cda:observation[@classCode = 'OBS']/cda:entryRelationship/cda:organizer[@classCode = 'BATTERY']/cda:component/cda:observation[@classCode = 'OBS']/cda:value">
+
+            <report test="@xsi:type and normalize-space(@xsi:type) = ''"
+                >Error: Service Referral - 7.1.6.2.1 Result Group (IMAGING EXAMINATION RESULT GROUP) -
+                "Result Group (IMAGING EXAMINATION RESULT GROUP) / Result (INDIVIDUAL IMAGING EXAMINATION RESULT) / Result Value (IMAGING EXAMINATION RESULT VALUE)" -
+                The 'value' tag 'xsi:type' attribute shall contain a value.
+                Refer to section 7.1.6.2.1 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</report>
+
+        </rule>
+
+
+        <rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code = '101.20117']/cda:component/cda:section[cda:code/@code = '102.16145']/cda:entry/cda:observation[@classCode = 'OBS']/cda:entryRelationship/cda:organizer[@classCode = 'BATTERY']/cda:component/cda:observation[@classCode = 'OBS']/cda:entryRelationship[cda:act/cda:code/@code = '281296001']">
+
+            <assert test="@typeCode"
+                >Error: Service Referral - 7.1.6.2.1 Result Group (IMAGING EXAMINATION RESULT GROUP) -
+                "Result Group (IMAGING EXAMINATION RESULT GROUP) / Result (INDIVIDUAL IMAGING EXAMINATION RESULT) / Result Comment" -
+                The 'entryRelationship' tag 'typeCode' attribute is missing.
+                Refer to section 7.1.6.2.1 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</assert>
+
+            <assert test="not(@typeCode) or normalize-space(@typeCode) != ''"
+                >Error: Service Referral - 7.1.6.2.1 Result Group (IMAGING EXAMINATION RESULT GROUP) -
+                "Result Group (IMAGING EXAMINATION RESULT GROUP) / Result (INDIVIDUAL IMAGING EXAMINATION RESULT) / Result Comment" -
+                The 'entryRelationship' tag 'typeCode' attribute shall contain a value.
+                Refer to section 7.1.6.2.1 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</assert>
+
+            <assert test="
+                not(@typeCode) or normalize-space(@typeCode) = '' or @typeCode = 'COMP'"
+                >Error: Service Referral - 7.1.6.2.1 Result Group (IMAGING EXAMINATION RESULT GROUP) -
+                "Result Group (IMAGING EXAMINATION RESULT GROUP) / Result (INDIVIDUAL IMAGING EXAMINATION RESULT) / Result Comment" -
+                The 'entryRelationship' tag 'typeCode' attribute shall contain the value 'COMP'.
+                Refer to section 7.1.6.2.1 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</assert>
+
+            <report test="count(cda:act) > 1"
+                >Error: Service Referral - 7.1.6.2.1 Result Group (IMAGING EXAMINATION RESULT GROUP) -
+                "Result Group (IMAGING EXAMINATION RESULT GROUP) / Result (INDIVIDUAL IMAGING EXAMINATION RESULT) / Result Comment" -
+                The 'act' tag shall appear only once.
+                Refer to section 7.1.6.2.1 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</report>
+
+        </rule>
+
+
+        <rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code = '101.20117']/cda:component/cda:section[cda:code/@code = '102.16145']/cda:entry/cda:observation[@classCode = 'OBS']/cda:entryRelationship/cda:organizer[@classCode = 'BATTERY']/cda:component/cda:observation[@classCode = 'OBS']/cda:entryRelationship/cda:act[cda:code/@code = '281296001']">
+
+            <assert test="@classCode"
+                >Error: Service Referral - 7.1.6.2.1 Result Group (IMAGING EXAMINATION RESULT GROUP) -
+                "Result Group (IMAGING EXAMINATION RESULT GROUP) / Result (INDIVIDUAL IMAGING EXAMINATION RESULT) / Result Comment" -
+                The 'act' tag 'classCode' attribute is missing.
+                Refer to section 7.1.6.2.1 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</assert>
+
+            <assert test="not(@classCode) or normalize-space(@classCode) != ''"
+                >Error: Service Referral - 7.1.6.2.1 Result Group (IMAGING EXAMINATION RESULT GROUP) -
+                "Result Group (IMAGING EXAMINATION RESULT GROUP) / Result (INDIVIDUAL IMAGING EXAMINATION RESULT) / Result Comment" -
+                The 'act' tag 'classCode' attribute shall contain a value.
+                Refer to section 7.1.6.2.1 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</assert>
+
+            <assert test="
+                not(@classCode) or normalize-space(@classCode) = '' or @classCode = 'INFRM'"
+                >Error: Service Referral - 7.1.6.2.1 Result Group (IMAGING EXAMINATION RESULT GROUP) -
+                "Result Group (IMAGING EXAMINATION RESULT GROUP) / Result (INDIVIDUAL IMAGING EXAMINATION RESULT) / Result Comment" -
+                The 'act' tag 'classCode' attribute shall contain the value 'INFRM'.
+                Refer to section 7.1.6.2.1 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</assert>
+
+            <assert test="@moodCode"
+                >Error: Service Referral - 7.1.6.2.1 Result Group (IMAGING EXAMINATION RESULT GROUP) -
+                "Result Group (IMAGING EXAMINATION RESULT GROUP) / Result (INDIVIDUAL IMAGING EXAMINATION RESULT) / Result Comment" -
+                The 'act' tag 'moodCode' attribute is missing.
+                Refer to section 7.1.6.2.1 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</assert>
+
+            <assert test="not(@moodCode) or normalize-space(@moodCode) != ''"
+                >Error: Service Referral - 7.1.6.2.1 Result Group (IMAGING EXAMINATION RESULT GROUP) -
+                "Result Group (IMAGING EXAMINATION RESULT GROUP) / Result (INDIVIDUAL IMAGING EXAMINATION RESULT) / Result Comment" -
+                The 'act' tag 'moodCode' attribute shall contain a value.
+                Refer to section 7.1.6.2.1 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</assert>
+
+            <assert test="
+                not(@moodCode) or normalize-space(@moodCode) = '' or @moodCode = 'EVN'"
+                >Error: Service Referral - 7.1.6.2.1 Result Group (IMAGING EXAMINATION RESULT GROUP) -
+                "Result Group (IMAGING EXAMINATION RESULT GROUP) / Result (INDIVIDUAL IMAGING EXAMINATION RESULT) / Result Comment" -
+                The 'act' tag 'moodCode' attribute shall contain the value 'EVN'.
+                Refer to section 7.1.6.2.1 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</assert>
+
+            <report test="count(cda:code) > 1"
+                >Error: Service Referral - 7.1.6.2.1 Result Group (IMAGING EXAMINATION RESULT GROUP) -
+                "Result Group (IMAGING EXAMINATION RESULT GROUP) / Result (INDIVIDUAL IMAGING EXAMINATION RESULT) / Result Comment" -
+                The 'code' tag shall appear only once.
+                Refer to section 7.1.6.2.1 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</report>
+
+            <assert test="cda:text"
+                >Error: Service Referral - 7.1.6.2.1 Result Group (IMAGING EXAMINATION RESULT GROUP) -
+                "Result Group (IMAGING EXAMINATION RESULT GROUP) / Result (INDIVIDUAL IMAGING EXAMINATION RESULT) / Result Comment" -
+                The 'text' tag is missing.
+                Refer to section 7.1.6.2.1 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</assert>
+
+            <report test="count(cda:text) > 1"
+                >Error: Service Referral - 7.1.6.2.1 Result Group (IMAGING EXAMINATION RESULT GROUP) -
+                "Result Group (IMAGING EXAMINATION RESULT GROUP) / Result (INDIVIDUAL IMAGING EXAMINATION RESULT) / Result Comment" -
+                The 'text' tag shall appear only once.
+                Refer to section 7.1.6.2.1 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</report>
+
+        </rule>
+
+
+        <rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code = '101.20117']/cda:component/cda:section[cda:code/@code = '102.16145']/cda:entry/cda:observation[@classCode = 'OBS']/cda:entryRelationship/cda:organizer[@classCode = 'BATTERY']/cda:component/cda:observation[@classCode = 'OBS']/cda:entryRelationship/cda:act/cda:code[@code = '281296001']">
+
+            <assert test="@codeSystem"
+                >Error: Service Referral - 7.1.6.2.1 Result Group (IMAGING EXAMINATION RESULT GROUP) -
+                "Result Group (IMAGING EXAMINATION RESULT GROUP) / Result (INDIVIDUAL IMAGING EXAMINATION RESULT) / Result Comment" -
+                The 'code' tag 'codeSystem' attribute is missing.
+                Refer to section 7.1.6.2.1 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</assert>
+
+            <assert test="
+                not(@codeSystem) or normalize-space(@codeSystem) = '' or @codeSystem = '2.16.840.1.113883.6.96'"
+                >Error: Service Referral - 7.1.6.2.1 Result Group (IMAGING EXAMINATION RESULT GROUP) -
+                "Result Group (IMAGING EXAMINATION RESULT GROUP) / Result (INDIVIDUAL IMAGING EXAMINATION RESULT) / Result Comment" -
+                The 'code' tag 'codeSystem' attribute shall contain the value '2.16.840.1.113883.6.96'.
+                Refer to section 7.1.6.2.1 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</assert>
+
+            <assert test="@displayName"
+                >Error: Service Referral - 7.1.6.2.1 Result Group (IMAGING EXAMINATION RESULT GROUP) -
+                "Result Group (IMAGING EXAMINATION RESULT GROUP) / Result (INDIVIDUAL IMAGING EXAMINATION RESULT) / Result Comment" -
+                The 'code' tag 'displayName' attribute is missing.
+                Refer to section 7.1.6.2.1 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</assert>
+
+            <assert test="
+                not(@displayName) or normalize-space(@displayName) = '' or translate(@displayName, 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ') = &quot;RESULT COMMENTS&quot;"
+                >Error: Service Referral - 7.1.6.2.1 Result Group (IMAGING EXAMINATION RESULT GROUP) -
+                "Result Group (IMAGING EXAMINATION RESULT GROUP) / Result (INDIVIDUAL IMAGING EXAMINATION RESULT) / Result Comment" -
+                The 'code' tag 'displayName' attribute shall contain the value 'result comments'.
+                Refer to section 7.1.6.2.1 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</assert>
+
+            <assert test="not(cda:translation)"
+                >Error: Service Referral - 7.1.6.2.1 Result Group (IMAGING EXAMINATION RESULT GROUP) -
+                "Result Group (IMAGING EXAMINATION RESULT GROUP) / Result (INDIVIDUAL IMAGING EXAMINATION RESULT) / Result Comment" -
+                The 'translation' tag shall not be present.
+                Refer to section 7.1.6.2.1 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</assert>
+
+        </rule>
+
+
+        <rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code = '101.20117']/cda:component/cda:section[cda:code/@code = '102.16145']/cda:entry/cda:observation[@classCode = 'OBS']/cda:entryRelationship/cda:organizer[@classCode = 'BATTERY']/cda:component/cda:observation[@classCode = 'OBS']/cda:entryRelationship/cda:act[cda:code/@code = '281296001']/cda:text">
+
+            <report test="@xsi:type and normalize-space(@xsi:type) = ''"
+                >Error: Service Referral - 7.1.6.2.1 Result Group (IMAGING EXAMINATION RESULT GROUP) -
+                "Result Group (IMAGING EXAMINATION RESULT GROUP) / Result (INDIVIDUAL IMAGING EXAMINATION RESULT) / Result Comment" -
+                The 'text' tag 'xsi:type' attribute shall contain a value.
+                Refer to section 7.1.6.2.1 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</report>
+
+            <report test="
+                @xsi:type and normalize-space(@xsi:type) != '' and 
+                normalize-space(@xsi:type) != 'ST' and
+                not(substring-before(normalize-space(@xsi:type), ':') != '' and
+                    substring-after(normalize-space(@xsi:type), ':') = 'ST')"
+                >Error: Service Referral - 7.1.6.2.1 Result Group (IMAGING EXAMINATION RESULT GROUP) -
+                "Result Group (IMAGING EXAMINATION RESULT GROUP) / Result (INDIVIDUAL IMAGING EXAMINATION RESULT) / Result Comment" -
+                The 'text' tag 'xsi:type' attribute shall contain the value 'ST'.
+                Refer to section 7.1.6.2.1 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</report>
+
+        </rule>
+
+
+        <rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code = '101.20117']/cda:component/cda:section[cda:code/@code = '102.16145']/cda:entry/cda:observation[@classCode = 'OBS']/cda:entryRelationship/cda:organizer[@classCode = 'BATTERY']/cda:component/cda:observation[@classCode = 'OBS']/cda:targetSiteCode/cda:qualifier/cda:value">
+
+            <assert test="not(@nullFlavor)"
+                >Error: Service Referral - 7.1.6.2.1 Result Group (IMAGING EXAMINATION RESULT GROUP) -
+                "Result Group (IMAGING EXAMINATION RESULT GROUP) / Anatomical Site (ANATOMICAL LOCATION) / SPECIFIC LOCATION / Side" -
+                The 'value' tag 'nullFlavor' attribute shall not be present.
+                Refer to section 7.1.6.2.1 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</assert>
+
+        </rule>
+
+
+        <rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code = '101.20117']/cda:component/cda:section[cda:code/@code = '102.16145']/cda:entry/cda:observation[@classCode = 'OBS']/cda:entryRelationship/cda:organizer[@classCode = 'BATTERY']/cda:component/cda:observation[@classCode = 'OBS']/cda:entryRelationship[cda:observationMedia/@classCode = 'OBS']">
+
+            <assert test="@typeCode"
+                >Error: Service Referral - 7.1.6.2.1 Result Group (IMAGING EXAMINATION RESULT GROUP) -
+                "Result Group (IMAGING EXAMINATION RESULT GROUP) / Anatomical Site (ANATOMICAL LOCATION) / Anatomical Location Image" -
+                The 'entryRelationship' tag 'typeCode' attribute is missing.
+                Refer to section 7.1.6.2.1 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</assert>
+
+            <assert test="not(@typeCode) or normalize-space(@typeCode) != ''"
+                >Error: Service Referral - 7.1.6.2.1 Result Group (IMAGING EXAMINATION RESULT GROUP) -
+                "Result Group (IMAGING EXAMINATION RESULT GROUP) / Anatomical Site (ANATOMICAL LOCATION) / Anatomical Location Image" -
+                The 'entryRelationship' tag 'typeCode' attribute shall contain a value.
+                Refer to section 7.1.6.2.1 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</assert>
+
+            <assert test="
+                not(@typeCode) or normalize-space(@typeCode) = '' or @typeCode = 'REFR'"
+                >Error: Service Referral - 7.1.6.2.1 Result Group (IMAGING EXAMINATION RESULT GROUP) -
+                "Result Group (IMAGING EXAMINATION RESULT GROUP) / Anatomical Site (ANATOMICAL LOCATION) / Anatomical Location Image" -
+                The 'entryRelationship' tag 'typeCode' attribute shall contain the value 'REFR'.
+                Refer to section 7.1.6.2.1 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</assert>
+
+            <report test="count(cda:observationMedia) > 1"
+                >Error: Service Referral - 7.1.6.2.1 Result Group (IMAGING EXAMINATION RESULT GROUP) -
+                "Result Group (IMAGING EXAMINATION RESULT GROUP) / Anatomical Site (ANATOMICAL LOCATION) / Anatomical Location Image" -
+                The 'observationMedia' tag shall appear only once.
+                Refer to section 7.1.6.2.1 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</report>
+
+        </rule>
+
+
+        <rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code = '101.20117']/cda:component/cda:section[cda:code/@code = '102.16145']/cda:entry/cda:observation[@classCode = 'OBS']/cda:entryRelationship/cda:organizer[@classCode = 'BATTERY']/cda:component/cda:observation[@classCode = 'OBS']/cda:entryRelationship/cda:observationMedia[@classCode = 'OBS']">
+
+            <assert test="@moodCode"
+                >Error: Service Referral - 7.1.6.2.1 Result Group (IMAGING EXAMINATION RESULT GROUP) -
+                "Result Group (IMAGING EXAMINATION RESULT GROUP) / Anatomical Site (ANATOMICAL LOCATION) / Anatomical Location Image" -
+                The 'observationMedia' tag 'moodCode' attribute is missing.
+                Refer to section 7.1.6.2.1 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</assert>
+
+            <assert test="not(@moodCode) or normalize-space(@moodCode) != ''"
+                >Error: Service Referral - 7.1.6.2.1 Result Group (IMAGING EXAMINATION RESULT GROUP) -
+                "Result Group (IMAGING EXAMINATION RESULT GROUP) / Anatomical Site (ANATOMICAL LOCATION) / Anatomical Location Image" -
+                The 'observationMedia' tag 'moodCode' attribute shall contain a value.
+                Refer to section 7.1.6.2.1 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</assert>
+
+            <assert test="
+                not(@moodCode) or normalize-space(@moodCode) = '' or @moodCode = 'EVN'"
+                >Error: Service Referral - 7.1.6.2.1 Result Group (IMAGING EXAMINATION RESULT GROUP) -
+                "Result Group (IMAGING EXAMINATION RESULT GROUP) / Anatomical Site (ANATOMICAL LOCATION) / Anatomical Location Image" -
+                The 'observationMedia' tag 'moodCode' attribute shall contain the value 'EVN'.
+                Refer to section 7.1.6.2.1 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</assert>
+
+            <report test="count(cda:id) > 1"
+                >Error: Service Referral - 7.1.6.2.1 Result Group (IMAGING EXAMINATION RESULT GROUP) -
+                "Result Group (IMAGING EXAMINATION RESULT GROUP) / Anatomical Site (ANATOMICAL LOCATION) / Anatomical Location Image" -
+                The 'id' tag shall appear only once.
+                Refer to section 7.1.6.2.1 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</report>
+
+            <assert test="cda:value"
+                >Error: Service Referral - 7.1.6.2.1 Result Group (IMAGING EXAMINATION RESULT GROUP) -
+                "Result Group (IMAGING EXAMINATION RESULT GROUP) / Anatomical Site (ANATOMICAL LOCATION) / Anatomical Location Image" -
+                The 'value' tag is missing.
+                Refer to section 7.1.6.2.1 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</assert>
+
+            <report test="count(cda:value) > 1"
+                >Error: Service Referral - 7.1.6.2.1 Result Group (IMAGING EXAMINATION RESULT GROUP) -
+                "Result Group (IMAGING EXAMINATION RESULT GROUP) / Anatomical Site (ANATOMICAL LOCATION) / Anatomical Location Image" -
+                The 'value' tag shall appear only once.
+                Refer to section 7.1.6.2.1 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</report>
+
+        </rule>
+
+
+    </pattern>
+

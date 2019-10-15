@@ -6,9 +6,10 @@ import au.gov.nehta.schematron.Schematron;
 import au.gov.nehta.schematron.SchematronCheckResult;
 import org.w3c.dom.Document;
 import org.w3c.dom.Node;
+import org.w3c.dom.NodeList;
 import org.w3c.dom.ProcessingInstruction;
 
-public class ClinicalDocumentCreator {
+public class ClinicalDocumentCreator implements DocumentCreator {
 
   protected SchematronResource resource;
   private boolean isStrictChecking;
@@ -65,5 +66,17 @@ public class ClinicalDocumentCreator {
       doc.setXmlStandalone(true);
       doc.insertBefore(pi, root);
     }
+  }
+
+  protected Document getDocumentFilteredOfNull(Document doc) {//Need to optimise this method
+    NodeList nodeList = doc.getElementsByTagNameNS("*", "*");
+    for (int i = 0; i < nodeList.getLength(); i++) {
+      Node node = nodeList.item(i);
+      if (null != node.getAttributes().getNamedItem("xsi:nil")) {
+        //System.out.println("Removing: " + node.getNamespaceURI());
+        node.getParentNode().removeChild(node);
+      }
+    }
+    return doc;
   }
 }

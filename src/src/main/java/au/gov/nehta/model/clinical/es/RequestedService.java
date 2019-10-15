@@ -8,50 +8,54 @@ import au.gov.nehta.model.clinical.etp.common.participation.ParticipationService
 import au.net.electronichealth.ns.cda._2_0.StrucDocText;
 
 public interface RequestedService {
-    Coded getRequestedServiceDescription();
 
-    PreciseDate getServiceScheduled();
+  StrucDocText getCustomNarrative();
 
-    RestrictedTimeInterval getServiceCommencementWindow();
+  void setCustomNarrative(StrucDocText customNarrative);
 
-    EventTypes getServiceBookingStatus();
+  Coded getRequestedServiceDescription();
 
-    String getSubjectOfCareInstructionDesc();
+  PreciseDate getServiceScheduled();
 
-    PreciseDate getRequestedServiceDateTime();
+  RestrictedTimeInterval getServiceCommencementWindow();
 
-    ParticipationServiceProvider getParticipant();
+  EventTypes getServiceBookingStatus();
 
-    RestrictedTimeInterval getRequestValidityPeriod();
+  String getSubjectOfCareInstructionDesc();
 
-    PreciseDate getRequestedDateTime();
+  PreciseDate getRequestedServiceDateTime();
 
-    StrucDocText getCustomNarrativeRequestedService();
+  ParticipationServiceProvider getParticipant();
 
+  RestrictedTimeInterval getRequestValidityPeriod();
 
-    void setRequestedServiceDescription(
-            Coded requestedServiceDescription);
+  PreciseDate getRequestedDateTime();
 
-    void setServiceScheduled(PreciseDate serviceScheduled);
+  void setRequestedServiceDescription(
+      Coded requestedServiceDescription);
 
-    void setServiceCommencementWindow(
-            RestrictedTimeInterval serviceCommencementWindow);
+  void setServiceScheduled(PreciseDate serviceScheduled);
 
-    void setServiceBookingStatus(EventTypes serviceBookingStatus);
+  void setServiceCommencementWindow(
+      RestrictedTimeInterval serviceCommencementWindow);
 
-    void setSubjectOfCareInstructionDesc(String subjectOfCareInstructionDesc);
+  void setServiceBookingStatus(EventTypes serviceBookingStatus);
 
-    void setRequestedServiceDateTime(
-            PreciseDate requestedServiceDateTime);
+  void setSubjectOfCareInstructionDesc(String subjectOfCareInstructionDesc);
 
-    void setParticipant(
-            ParticipationServiceProvider participant);
+  void setRequestedServiceDateTime(
+      PreciseDate requestedServiceDateTime);
 
-    void setRequestValidityPeriod(
-            RestrictedTimeInterval requestValidityPeriod);
+  void setParticipant(
+      ParticipationServiceProvider participant);
 
-    void setRequestedDateTime(PreciseDate requestedDateTime);
+  void setRequestValidityPeriod(
+      RestrictedTimeInterval requestValidityPeriod);
 
-    void setCustomNarrativeRequestedService(StrucDocText customNarrative);
+  void setRequestedDateTime(PreciseDate requestedDateTime);
+
+  String getServiceComment();
+
+  void setServiceComment(String serviceComment);
 
 }

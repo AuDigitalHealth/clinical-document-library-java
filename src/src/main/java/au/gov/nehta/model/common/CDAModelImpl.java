@@ -3,12 +3,15 @@ package au.gov.nehta.model.common;
 import au.gov.nehta.model.cda.common.custodian.Custodian;
 import au.gov.nehta.model.cda.common.document.BaseClinicalDocument;
 import au.gov.nehta.model.cda.common.id.LegalAuthenticator;
+import au.gov.nehta.model.cda.common.informationrecipient.InformationRecipient;
+import java.util.List;
 
 public class CDAModelImpl implements CDAModel {
 
   protected BaseClinicalDocument clinicalDocument;
   protected LegalAuthenticator legalAuthenticator;
   protected Custodian custodian;
+  protected List<InformationRecipient> informationRecipients;
 
   public CDAModelImpl() {
   }
@@ -24,7 +27,6 @@ public class CDAModelImpl implements CDAModel {
       LegalAuthenticator legalAuthenticator) {
     this.clinicalDocument = clinicalDocument;
     this.legalAuthenticator = legalAuthenticator;
-    this.custodian = custodian;
   }
 
   /* (non-Javadoc)
@@ -58,6 +60,19 @@ public class CDAModelImpl implements CDAModel {
   public void setCustodian(Custodian custodian) {
     this.custodian = custodian;
   }
+
+
+  @Override
+  public List<InformationRecipient> getInformationRecipients() {
+    return informationRecipients;
+  }
+
+  public void setInformationRecipients(
+      List<InformationRecipient> informationRecipients) {
+    this.informationRecipients = informationRecipients;
+  }
+
+
 
   public void setClinicalDocument(
       BaseClinicalDocument clinicalDocument) {

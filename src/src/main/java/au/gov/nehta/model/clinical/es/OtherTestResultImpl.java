@@ -13,6 +13,7 @@ public class OtherTestResultImpl implements OtherTestResult {
   private PreciseDate reportDate;
   private AttachedMedia reportFile;
   private String reportContent;
+  private Class executingClass;
 
   public OtherTestResultImpl(Coded reportName, Coded reportStatus,
       PreciseDate reportDate, AttachedMedia reportFie) {
@@ -91,5 +92,15 @@ public class OtherTestResultImpl implements OtherTestResult {
   public void setReportContent(String reportContent) {
     this.reportContent = reportContent;
     this.reportFile = null;
+  }
+
+  @Override
+  public Class getExecutingClass() {
+    return executingClass;
+  }
+
+  @Override
+  public void setExecutingClass(Class executingClass) {
+    this.executingClass = executingClass;
   }
 }

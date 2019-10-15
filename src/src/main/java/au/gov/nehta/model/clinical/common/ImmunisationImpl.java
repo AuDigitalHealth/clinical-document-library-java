@@ -25,9 +25,9 @@ public class ImmunisationImpl implements Immunisation {
    * @param theraputicGood The vaccine which was the focus of the action.
    *
    * Australian Medicines Terminology <br> The permissible values are the members of <br> the
-   * following AMT reference sets:<br> � 929360061000036106 Medicinal product reference set<br> �
-   * 929360081000036101 Medicinal product pack reference set<br> � 929360021000036102 Trade product
-   * reference set<br> � 929360041000036105 Trade product pack reference set
+   * following AMT reference sets:<br>  929360061000036106 Medicinal product reference set<br> 
+   * 929360081000036101 Medicinal product pack reference set<br>  929360021000036102 Trade product
+   * reference set<br>  929360041000036105 Trade product pack reference set
    * @param actionDateTime The point in time at which the Medication Action is completed.
    * @param sequenceNumber optional - The sequence number specific to the action being recorded
    */
@@ -44,9 +44,9 @@ public class ImmunisationImpl implements Immunisation {
    * @param theraputicGood The vaccine which was the focus of the action.
    *
    * Australian Medicines Terminology <br> The permissible values are the members of <br> the
-   * following AMT reference sets:<br> � 929360061000036106 Medicinal product reference set<br> �
-   * 929360081000036101 Medicinal product pack reference set<br> � 929360021000036102 Trade product
-   * reference set<br> � 929360041000036105 Trade product pack reference set
+   * following AMT reference sets:<br>  929360061000036106 Medicinal product reference set<br> 
+   * 929360081000036101 Medicinal product pack reference set<br>  929360021000036102 Trade product
+   * reference set<br>  929360041000036105 Trade product pack reference set
    * @param actionDateTime The point in time at which the Medication Action is completed.
    * @param sequenceNumber optional - The sequence number specific to the action being recorded
    */

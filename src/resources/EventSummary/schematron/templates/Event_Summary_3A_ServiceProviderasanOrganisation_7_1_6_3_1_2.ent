@@ -1,0 +1,220 @@
+<!--
+_________________________________________________________________________________________________________________________________________________________________________________________
+                  Generated File - Do Not Edit File Directly                                                                                                                             
+                  __________________________________________
+
+                  Generated          : 19/03/2015 6:55:51 PM
+
+                  Product            : Event Summary
+                  Release            : CDA_Implementation_Guide_v1.0
+                  IG Guide Reference : 7.1.6.3.1.2
+                  IG Guide Title     : Service Provider as an Organisation
+                  Generator Version  : 2.28
+                                                                                                                                                                                         
+_________________________________________________________________________________________________________________________________________________________________________________________
+-->
+    <pattern name="p-Event_Summary_3A_ServiceProviderasanOrganisation_7_1_6_3_1_2-errors"
+        id="p-Event_Summary_3A_ServiceProviderasanOrganisation_7_1_6_3_1_2-errors"
+        see="#p-Event_Summary_3A_ServiceProviderasanOrganisation_7_1_6_3_1_2-errors">
+
+
+        <rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code = '101.20117']/cda:component/cda:section[cda:code/@code = '102.20158']/cda:entry/cda:act[@classCode = 'ACT']">
+
+            <report test="count(cda:performer[cda:assignedEntity/cda:representedOrganization]) > 1"
+                >Error: Event Summary - 7.1.6.3.1.2 Service Provider as an Organisation -
+                "SERVICE PROVIDER" -
+                The 'performer' tag shall appear only once for 'SERVICE PROVIDER'.
+                Refer to section 7.1.6.3.1.2 of the
+                Event_Summary_CDA_Implementation_Guide_v1.3.</report>
+
+        </rule>
+
+
+        <rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code = '101.20117']/cda:component/cda:section[cda:code/@code = '102.20158']/cda:entry/cda:act[@classCode = 'ACT']/cda:performer[cda:assignedEntity/cda:representedOrganization]">
+
+            <assert test="not(@typeCode) or normalize-space(@typeCode) != ''"
+                >Error: Event Summary - 7.1.6.3.1.2 Service Provider as an Organisation -
+                "SERVICE PROVIDER" -
+                The 'performer' tag 'typeCode' attribute shall contain a value.
+                Refer to section 7.1.6.3.1.2 of the
+                Event_Summary_CDA_Implementation_Guide_v1.3.</assert>
+
+            <assert test="
+                not(@typeCode) or normalize-space(@typeCode) = '' or @typeCode = 'PRF'"
+                >Error: Event Summary - 7.1.6.3.1.2 Service Provider as an Organisation -
+                "SERVICE PROVIDER" -
+                The 'performer' tag 'typeCode' attribute shall contain the value 'PRF'.
+                Refer to section 7.1.6.3.1.2 of the
+                Event_Summary_CDA_Implementation_Guide_v1.3.</assert>
+
+            <assert test="@typeCode"
+                >Error: Event Summary - 7.1.6.3.1.2 Service Provider as an Organisation -
+                "SERVICE PROVIDER" -
+                The 'performer' tag 'typeCode' attribute is missing.
+                Refer to section 7.1.6.3.1.2 of the
+                Event_Summary_CDA_Implementation_Guide_v1.3.</assert>
+
+            <report test="count(cda:time) > 1"
+                >Error: Event Summary - 7.1.6.3.1.2 Service Provider as an Organisation -
+                "SERVICE PROVIDER / Participation Period" -
+                The 'time' tag shall appear only once.
+                Refer to section 7.1.6.3.1.2 of the
+                Event_Summary_CDA_Implementation_Guide_v1.3.</report>
+
+            <report test="count(cda:assignedEntity) > 1"
+                >Error: Event Summary - 7.1.6.3.1.2 Service Provider as an Organisation -
+                "SERVICE PROVIDER / Role" -
+                The 'assignedEntity' tag shall appear only once.
+                Refer to section 7.1.6.3.1.2 of the
+                Event_Summary_CDA_Implementation_Guide_v1.3.</report>
+
+        </rule>
+
+
+        <rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code = '101.20117']/cda:component/cda:section[cda:code/@code = '102.20158']/cda:entry/cda:act[@classCode = 'ACT']/cda:performer/cda:assignedEntity[cda:representedOrganization]">
+
+            <assert test="cda:code"
+                >Error: Event Summary - 7.1.6.3.1.2 Service Provider as an Organisation -
+                "SERVICE PROVIDER / Role" -
+                The 'code' tag is missing.
+                Refer to section 7.1.6.3.1.2 of the
+                Event_Summary_CDA_Implementation_Guide_v1.3.</assert>
+
+            <report test="count(cda:code) > 1"
+                >Error: Event Summary - 7.1.6.3.1.2 Service Provider as an Organisation -
+                "SERVICE PROVIDER / Role" -
+                The 'code' tag shall appear only once.
+                Refer to section 7.1.6.3.1.2 of the
+                Event_Summary_CDA_Implementation_Guide_v1.3.</report>
+
+            <assert test="cda:id"
+                >Error: Event Summary - 7.1.6.3.1.2 Service Provider as an Organisation -
+                "SERVICE PROVIDER / id" -
+                The 'id' tag is missing.
+                Refer to section 7.1.6.3.1.2 of the
+                Event_Summary_CDA_Implementation_Guide_v1.3.</assert>
+
+            <report test="count(cda:id) > 1"
+                >Error: Event Summary - 7.1.6.3.1.2 Service Provider as an Organisation -
+                "SERVICE PROVIDER / id" -
+                The 'id' tag shall appear only once.
+                Refer to section 7.1.6.3.1.2 of the
+                Event_Summary_CDA_Implementation_Guide_v1.3.</report>
+
+            <report test="count(cda:representedOrganization) > 1"
+                >Error: Event Summary - 7.1.6.3.1.2 Service Provider as an Organisation -
+                "SERVICE PROVIDER / Participant" -
+                The 'representedOrganization' tag shall appear only once.
+                Refer to section 7.1.6.3.1.2 of the
+                Event_Summary_CDA_Implementation_Guide_v1.3.</report>
+
+        </rule>
+
+
+        <rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code = '101.20117']/cda:component/cda:section[cda:code/@code = '102.20158']/cda:entry/cda:act[@classCode = 'ACT']/cda:performer/cda:assignedEntity[cda:representedOrganization]/cda:id">
+
+            <report test="
+                contains(@root, '-') and not(
+                string-length(@root) = 36 and
+                substring(@root,  9, 1) = '-' and substring(@root, 14, 1) = '-' and
+                substring(@root, 19, 1) = '-' and substring(@root, 24, 1) = '-' and
+                translate(substring(@root,  1,  8), '0123456789ABCDEFabcdef', '0000000000000000000000') = '00000000' and
+                translate(substring(@root, 10,  4), '0123456789ABCDEFabcdef', '0000000000000000000000') = '0000' and
+                translate(substring(@root, 15,  4), '0123456789ABCDEFabcdef', '0000000000000000000000') = '0000' and
+                translate(substring(@root, 20,  4), '0123456789ABCDEFabcdef', '0000000000000000000000') = '0000' and
+                translate(substring(@root, 25, 12), '0123456789ABCDEFabcdef', '0000000000000000000000') = '000000000000')"
+                >Error: Event Summary - 7.1.6.3.1.2 Service Provider as an Organisation -
+                "SERVICE PROVIDER / id" -
+                The 'id' tag 'root' attribute shall be a valid UUID.
+                Refer to section 7.1.6.3.1.2 of the
+                Event_Summary_CDA_Implementation_Guide_v1.3.</report>
+
+        </rule>
+
+
+        <rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code = '101.20117']/cda:component/cda:section[cda:code/@code = '102.20158']/cda:entry/cda:act[@classCode = 'ACT']/cda:performer/cda:assignedEntity[cda:representedOrganization]/cda:representedOrganization">
+
+            <assert test="cda:asOrganizationPartOf"
+                >Error: Event Summary - 7.1.6.3.1.2 Service Provider as an Organisation -
+                "SERVICE PROVIDER / Participant / Entity Identifier" -
+                The 'asOrganizationPartOf' tag is missing.
+                Refer to section 7.1.6.3.1.2 of the
+                Event_Summary_CDA_Implementation_Guide_v1.3.</assert>
+
+            <report test="count(cda:asOrganizationPartOf) > 1"
+                >Error: Event Summary - 7.1.6.3.1.2 Service Provider as an Organisation -
+                "SERVICE PROVIDER / Participant / Entity Identifier" -
+                The 'asOrganizationPartOf' tag shall appear only once.
+                Refer to section 7.1.6.3.1.2 of the
+                Event_Summary_CDA_Implementation_Guide_v1.3.</report>
+
+        </rule>
+
+
+        <rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code = '101.20117']/cda:component/cda:section[cda:code/@code = '102.20158']/cda:entry/cda:act[@classCode = 'ACT']/cda:performer/cda:assignedEntity[cda:representedOrganization]/cda:representedOrganization/cda:asOrganizationPartOf">
+
+            <assert test="cda:wholeOrganization"
+                >Error: Event Summary - 7.1.6.3.1.2 Service Provider as an Organisation -
+                "SERVICE PROVIDER / Participant / Entity Identifier" -
+                The 'wholeOrganization' tag is missing.
+                Refer to section 7.1.6.3.1.2 of the
+                Event_Summary_CDA_Implementation_Guide_v1.3.</assert>
+
+            <report test="count(cda:wholeOrganization) > 1"
+                >Error: Event Summary - 7.1.6.3.1.2 Service Provider as an Organisation -
+                "SERVICE PROVIDER / Participant / Entity Identifier" -
+                The 'wholeOrganization' tag shall appear only once.
+                Refer to section 7.1.6.3.1.2 of the
+                Event_Summary_CDA_Implementation_Guide_v1.3.</report>
+
+        </rule>
+
+
+        <rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code = '101.20117']/cda:component/cda:section[cda:code/@code = '102.20158']/cda:entry/cda:act[@classCode = 'ACT']/cda:performer/cda:assignedEntity[cda:representedOrganization]/cda:representedOrganization/cda:asOrganizationPartOf/cda:wholeOrganization">
+
+            <assert test="ext:asEntityIdentifier"
+                >Error: Event Summary - 7.1.6.3.1.2 Service Provider as an Organisation -
+                "SERVICE PROVIDER / Participant / Entity Identifier" -
+                The 'asEntityIdentifier' tag is missing.
+                Refer to section 7.1.6.3.1.2 of the
+                Event_Summary_CDA_Implementation_Guide_v1.3.</assert>
+
+            <assert test="not(ext:asEntityIdentifier) or ext:asEntityIdentifier/ext:id[starts-with(@root, '1.2.36.1.2001.1003.0.800362')]"
+                >Error: Event Summary - 7.1.6.3.1.2 Service Provider as an Organisation -
+                "SERVICE PROVIDER / Participant / Entity Identifier" -
+                The 'asEntityIdentifier' tag for 'HPI-O' is missing.
+                "The value of one Entity Identifier SHALL be an Australian HPI-O." although there could be multiple Entity Identifiers.
+                Refer to section 7.1.6.3.1.2 of the
+                Event_Summary_CDA_Implementation_Guide_v1.3.</assert>
+
+            <assert test="cda:name"
+                >Error: Event Summary - 7.1.6.3.1.2 Service Provider as an Organisation -
+                "SERVICE PROVIDER / Participant / Person or Organisation or Device / Organisation / Organisation Name" -
+                The 'name' tag is missing.
+                Refer to section 7.1.6.3.1.2 of the
+                Event_Summary_CDA_Implementation_Guide_v1.3.</assert>
+
+            <report test="count(cda:name) > 1"
+                >Error: Event Summary - 7.1.6.3.1.2 Service Provider as an Organisation -
+                "SERVICE PROVIDER / Participant / Person or Organisation or Device / Organisation / Organisation Name" -
+                The 'name' tag shall appear only once.
+                Refer to section 7.1.6.3.1.2 of the
+                Event_Summary_CDA_Implementation_Guide_v1.3.</report>
+
+        </rule>
+
+
+        <rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code = '101.20117']/cda:component/cda:section[cda:code/@code = '102.20158']/cda:entry/cda:act[@classCode = 'ACT']/cda:performer/cda:assignedEntity[cda:representedOrganization]/cda:representedOrganization/cda:asOrganizationPartOf/cda:wholeOrganization/cda:name">
+
+            <assert test="not(@nullFlavor)"
+                >Error: Event Summary - 7.1.6.3.1.2 Service Provider as an Organisation -
+                "SERVICE PROVIDER / Participant / Person or Organisation or Device / Organisation / Organisation Name" -
+                The 'name' tag 'nullFlavor' attribute shall not be present.
+                Refer to Common - Continuity of Care - FAQ Nullable Fields Guidance v1.1 and section 7.1.6.3.1.2 of the
+                Event_Summary_CDA_Implementation_Guide_v1.3.</assert>
+
+        </rule>
+
+
+    </pattern>
+

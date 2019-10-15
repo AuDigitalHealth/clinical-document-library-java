@@ -1,0 +1,686 @@
+<!--
+_________________________________________________________________________________________________________________________________________________________________________________________
+                  Generated File - Do Not Edit File Directly                                                                                                                             
+                  __________________________________________
+
+                  Generated          : 30/05/2017 1:48:13 PM
+
+                  Product            : Service Referral
+                  Release            : CDA_Implementation_Guide_v1.0
+                  IG Guide Reference : 7.1.2.1
+                  IG Guide Title     : Current Service (REQUESTED SERVICE)
+                  Generator Version  : 2.28
+                                                                                                                                                                                         
+_________________________________________________________________________________________________________________________________________________________________________________________
+-->
+    <pattern name="p-Service_Referral_3A_CurrentService_REQUESTEDSERVICE_7_1_2_1-errors"
+        id="p-Service_Referral_3A_CurrentService_REQUESTEDSERVICE_7_1_2_1-errors"
+        see="#p-Service_Referral_3A_CurrentService_REQUESTEDSERVICE_7_1_2_1-errors">
+
+
+        <rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code = '101.21021']">
+
+            <assert test="cda:entry[cda:act]"
+                >Error: Service Referral - 7.1.2.1 Current Service (REQUESTED SERVICE) -
+                "Current Service (REQUESTED SERVICE)" -
+                The 'entry' tag is missing for 'Current Service (REQUESTED SERVICE)'.
+                Refer to section 7.1.2.1 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</assert>
+
+        </rule>
+
+
+        <rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code = '101.21021']/cda:entry">
+
+            <report test="count(cda:act) > 1"
+                >Error: Service Referral - 7.1.2.1 Current Service (REQUESTED SERVICE) -
+                "Current Service (REQUESTED SERVICE)" -
+                The 'act' tag shall appear only once.
+                Refer to section 7.1.2.1 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</report>
+
+        </rule>
+
+
+        <rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code = '101.21021']/cda:entry/cda:act">
+
+            <assert test="@classCode"
+                >Error: Service Referral - 7.1.2.1 Current Service (REQUESTED SERVICE) -
+                "Current Service (REQUESTED SERVICE)" -
+                The 'act' tag 'classCode' attribute is missing.
+                Refer to section 7.1.2.1 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</assert>
+
+            <assert test="not(@classCode) or normalize-space(@classCode) != ''"
+                >Error: Service Referral - 7.1.2.1 Current Service (REQUESTED SERVICE) -
+                "Current Service (REQUESTED SERVICE)" -
+                The 'act' tag 'classCode' attribute shall contain a value.
+                Refer to section 7.1.2.1 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</assert>
+
+            <assert test="
+                not(@classCode) or normalize-space(@classCode) = '' or @classCode = 'ACT'"
+                >Error: Service Referral - 7.1.2.1 Current Service (REQUESTED SERVICE) -
+                "Current Service (REQUESTED SERVICE)" -
+                The 'act' tag 'classCode' attribute shall contain the value 'ACT'.
+                Refer to section 7.1.2.1 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</assert>
+
+            <assert test="@moodCode"
+                >Error: Service Referral - 7.1.2.1 Current Service (REQUESTED SERVICE) -
+                "Current Service (REQUESTED SERVICE)" -
+                The 'act' tag 'moodCode' attribute is missing.
+                Refer to section 7.1.2.1 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</assert>
+
+            <assert test="not(@moodCode) or normalize-space(@moodCode) != ''"
+                >Error: Service Referral - 7.1.2.1 Current Service (REQUESTED SERVICE) -
+                "Current Service (REQUESTED SERVICE)" -
+                The 'act' tag 'moodCode' attribute shall contain a value.
+                Refer to section 7.1.2.1 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</assert>
+
+            <assert test="
+                not(@moodCode) or normalize-space(@moodCode) = '' or @moodCode = 'EVN'"
+                >Error: Service Referral - 7.1.2.1 Current Service (REQUESTED SERVICE) -
+                "Current Service (REQUESTED SERVICE)" -
+                The 'act' tag 'moodCode' attribute shall contain the value 'EVN'.
+                Refer to section 7.1.2.1 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</assert>
+
+            <report test="count(cda:code) > 1"
+                >Error: Service Referral - 7.1.2.1 Current Service (REQUESTED SERVICE) -
+                "Current Service (REQUESTED SERVICE) / Service Category" -
+                The 'code' tag shall appear only once.
+                Refer to section 7.1.2.1 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</report>
+
+            <report test="count(cda:entryRelationship[cda:observation/cda:code/@code = '103.20117']) > 1"
+                >Error: Service Referral - 7.1.2.1 Current Service (REQUESTED SERVICE) -
+                "Current Service (REQUESTED SERVICE) / Service Description" -
+                The 'entryRelationship' tag shall appear only once for ' Service Description'.
+                Refer to section 7.1.2.1 having SCS Data Component 'Current Service (REQUESTED SERVICE) / Service Description' with the code/@code value '103.20117' and section 7.1.2.1 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</report>
+
+            <report test="count(cda:entryRelationship[cda:act/cda:code/@code = '103.17035']) > 1"
+                >Error: Service Referral - 7.1.2.1 Current Service (REQUESTED SERVICE) -
+                "Current Service (REQUESTED SERVICE) / Service Comment" -
+                The 'entryRelationship' tag shall appear only once for ' Service Comment'.
+                Refer to section 7.1.2.1 having SCS Data Component 'Current Service (REQUESTED SERVICE) / Service Comment' with the code/@code value '103.17035' and section 7.1.2.1 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</report>
+
+            <report test="count(cda:entryRelationship[cda:act/cda:code/@code = '103.16635']) > 1"
+                >Error: Service Referral - 7.1.2.1 Current Service (REQUESTED SERVICE) -
+                "Current Service (REQUESTED SERVICE) / Requested Service DateTime" -
+                The 'entryRelationship' tag shall appear only once for ' Requested Service DateTime'.
+                Refer to section 7.1.2.1 having SCS Data Component 'CURRENT SERVICES / Requested Service Date Time' with the code/@code value '101.21021' and section 7.1.2.1 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</report>
+
+            <assert test="cda:entryRelationship[cda:act/cda:code/@code = '103.16635']"
+                >Error: Service Referral - 7.1.2.1 Current Service (REQUESTED SERVICE) -
+                "Current Service (REQUESTED SERVICE) / Requested Service DateTime" -
+                The 'entryRelationship' tag is missing for ' Requested Service DateTime'.
+                Refer to section 7.1.2.1 having SCS Data Component 'Current Service (REQUESTED SERVICE) > Requested Service DateTime' with the code/@code value '103.16635' and reinstate this section if  7.1.2.1.1 SERVICE PROVIDER needs to be populated. and section 7.1.2.1 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</assert>
+
+            <report test="count(cda:id) > 1"
+                >Error: Service Referral - 7.1.2.1 Current Service (REQUESTED SERVICE) -
+                "Current Service (REQUESTED SERVICE) / Requested Service Instance Identifier" -
+                The 'id' tag shall appear only once.
+                Refer to section 7.1.2.1 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</report>
+
+        </rule>
+
+
+        <rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code = '101.21021']/cda:entry/cda:act/cda:code">
+
+            <report test="@nullFlavor and normalize-space(@nullFlavor) != '' and
+                (document('TEMPLATE/VALDN/CDAValidate_Vocabs.xml', .)/systems/system [@codeSystemName = 'Coded_DataType_NullFlavor_Absent_Values']/code[
+                    (@code = current()/@nullFlavor) ])"
+                >Error: Service Referral - 7.1.2.1 Current Service (REQUESTED SERVICE) -
+                "Current Service (REQUESTED SERVICE) / Service Category" -
+                The 'code' tag 'nullFlavor' attribute shall not be "NI", "UNK", "ASKU", "NAV", "NASK", "MSK", or "NA".
+                Refer to section 7.1.2.1 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</report>
+
+        </rule>
+
+
+        <rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code = '101.21021']/cda:entry/cda:act/cda:entryRelationship[cda:observation/cda:code/@code = '103.20117']">
+
+            <assert test="@typeCode"
+                >Error: Service Referral - 7.1.2.1 Current Service (REQUESTED SERVICE) -
+                "Current Service (REQUESTED SERVICE) / Service Description" -
+                The 'entryRelationship' tag 'typeCode' attribute is missing.
+                Refer to section 7.1.2.1 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</assert>
+
+            <assert test="not(@typeCode) or normalize-space(@typeCode) != ''"
+                >Error: Service Referral - 7.1.2.1 Current Service (REQUESTED SERVICE) -
+                "Current Service (REQUESTED SERVICE) / Service Description" -
+                The 'entryRelationship' tag 'typeCode' attribute shall contain a value.
+                Refer to section 7.1.2.1 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</assert>
+
+            <assert test="
+                not(@typeCode) or normalize-space(@typeCode) = '' or @typeCode = 'COMP'"
+                >Error: Service Referral - 7.1.2.1 Current Service (REQUESTED SERVICE) -
+                "Current Service (REQUESTED SERVICE) / Service Description" -
+                The 'entryRelationship' tag 'typeCode' attribute shall contain the value 'COMP'.
+                Refer to section 7.1.2.1 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</assert>
+
+            <report test="count(cda:observation) > 1"
+                >Error: Service Referral - 7.1.2.1 Current Service (REQUESTED SERVICE) -
+                "Current Service (REQUESTED SERVICE) / Service Description" -
+                The 'observation' tag shall appear only once.
+                Refer to section 7.1.2.1 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</report>
+
+        </rule>
+
+
+        <rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code = '101.21021']/cda:entry/cda:act/cda:entryRelationship/cda:observation[cda:code/@code = '103.20117']">
+
+            <assert test="@classCode"
+                >Error: Service Referral - 7.1.2.1 Current Service (REQUESTED SERVICE) -
+                "Current Service (REQUESTED SERVICE) / Service Description" -
+                The 'observation' tag 'classCode' attribute is missing.
+                Refer to section 7.1.2.1 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</assert>
+
+            <assert test="not(@classCode) or normalize-space(@classCode) != ''"
+                >Error: Service Referral - 7.1.2.1 Current Service (REQUESTED SERVICE) -
+                "Current Service (REQUESTED SERVICE) / Service Description" -
+                The 'observation' tag 'classCode' attribute shall contain a value.
+                Refer to section 7.1.2.1 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</assert>
+
+            <assert test="
+                not(@classCode) or normalize-space(@classCode) = '' or @classCode = 'OBS'"
+                >Error: Service Referral - 7.1.2.1 Current Service (REQUESTED SERVICE) -
+                "Current Service (REQUESTED SERVICE) / Service Description" -
+                The 'observation' tag 'classCode' attribute shall contain the value 'OBS'.
+                Refer to section 7.1.2.1 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</assert>
+
+            <assert test="@moodCode"
+                >Error: Service Referral - 7.1.2.1 Current Service (REQUESTED SERVICE) -
+                "Current Service (REQUESTED SERVICE) / Service Description" -
+                The 'observation' tag 'moodCode' attribute is missing.
+                Refer to section 7.1.2.1 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</assert>
+
+            <assert test="not(@moodCode) or normalize-space(@moodCode) != ''"
+                >Error: Service Referral - 7.1.2.1 Current Service (REQUESTED SERVICE) -
+                "Current Service (REQUESTED SERVICE) / Service Description" -
+                The 'observation' tag 'moodCode' attribute shall contain a value.
+                Refer to section 7.1.2.1 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</assert>
+
+            <assert test="
+                not(@moodCode) or normalize-space(@moodCode) = '' or @moodCode = 'EVN'"
+                >Error: Service Referral - 7.1.2.1 Current Service (REQUESTED SERVICE) -
+                "Current Service (REQUESTED SERVICE) / Service Description" -
+                The 'observation' tag 'moodCode' attribute shall contain the value 'EVN'.
+                Refer to section 7.1.2.1 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</assert>
+
+            <report test="count(cda:code) > 1"
+                >Error: Service Referral - 7.1.2.1 Current Service (REQUESTED SERVICE) -
+                "Current Service (REQUESTED SERVICE) / Service Description" -
+                The 'code' tag shall appear only once.
+                Refer to section 7.1.2.1 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</report>
+
+            <assert test="cda:value"
+                >Error: Service Referral - 7.1.2.1 Current Service (REQUESTED SERVICE) -
+                "Current Service (REQUESTED SERVICE) / Service Description" -
+                The 'value' tag is missing.
+                Refer to section 7.1.2.1 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</assert>
+
+            <report test="count(cda:value) > 1"
+                >Error: Service Referral - 7.1.2.1 Current Service (REQUESTED SERVICE) -
+                "Current Service (REQUESTED SERVICE) / Service Description" -
+                The 'value' tag shall appear only once.
+                Refer to section 7.1.2.1 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</report>
+
+        </rule>
+
+
+        <rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code = '101.21021']/cda:entry/cda:act/cda:entryRelationship/cda:observation/cda:code[@code = '103.20117']">
+
+            <assert test="@codeSystem"
+                >Error: Service Referral - 7.1.2.1 Current Service (REQUESTED SERVICE) -
+                "Current Service (REQUESTED SERVICE) / Service Description" -
+                The 'code' tag 'codeSystem' attribute is missing.
+                Refer to section 7.1.2.1 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</assert>
+
+            <assert test="
+                not(@codeSystem) or normalize-space(@codeSystem) = '' or @codeSystem = '1.2.36.1.2001.1001.101'"
+                >Error: Service Referral - 7.1.2.1 Current Service (REQUESTED SERVICE) -
+                "Current Service (REQUESTED SERVICE) / Service Description" -
+                The 'code' tag 'codeSystem' attribute shall contain the value '1.2.36.1.2001.1001.101'.
+                Refer to section 7.1.2.1 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</assert>
+
+            <assert test="
+                not(@displayName) or normalize-space(@displayName) = '' or translate(@displayName, 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ') = &quot;SERVICE DESCRIPTION&quot;"
+                >Error: Service Referral - 7.1.2.1 Current Service (REQUESTED SERVICE) -
+                "Current Service (REQUESTED SERVICE) / Service Description" -
+                The 'code' tag 'displayName' attribute shall contain the value 'Service Description'.
+                Refer to section 7.1.2.1 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</assert>
+
+            <assert test="not(@displayName) or normalize-space(@displayName) != ''"
+                >Error: Service Referral - 7.1.2.1 Current Service (REQUESTED SERVICE) -
+                "Current Service (REQUESTED SERVICE) / Service Description" -
+                The 'code' tag 'displayName' attribute shall contain a value.
+                Refer to section 7.1.2.1 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</assert>
+
+            <assert test="@displayName"
+                >Error: Service Referral - 7.1.2.1 Current Service (REQUESTED SERVICE) -
+                "Current Service (REQUESTED SERVICE) / Service Description" -
+                The 'code' tag 'displayName' attribute is missing.
+                Refer to section 7.1.2.1 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</assert>
+
+            <assert test="not(cda:translation)"
+                >Error: Service Referral - 7.1.2.1 Current Service (REQUESTED SERVICE) -
+                "Current Service (REQUESTED SERVICE) / Service Description" -
+                The 'translation' tag shall not be present.
+                Refer to section 7.1.2.1 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</assert>
+
+        </rule>
+
+
+        <rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code = '101.21021']/cda:entry/cda:act/cda:entryRelationship/cda:observation[cda:code/@code = '103.20117']/cda:value">
+
+            <report test="@nullFlavor and normalize-space(@nullFlavor) != '' and
+                (document('TEMPLATE/VALDN/CDAValidate_Vocabs.xml', .)/systems/system [@codeSystemName = 'Coded_DataType_NullFlavor_Absent_Values']/code[
+                    (@code = current()/@nullFlavor) ])"
+                >Error: Service Referral - 7.1.2.1 Current Service (REQUESTED SERVICE) -
+                "Current Service (REQUESTED SERVICE) / Service Description" -
+                The 'value' tag 'nullFlavor' attribute shall not be "NI", "UNK", "ASKU", "NAV", "NASK", "MSK", or "NA".
+                Refer to section 7.1.2.1 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</report>
+
+            <report test="@xsi:type and normalize-space(@xsi:type) = ''"
+                >Error: Service Referral - 7.1.2.1 Current Service (REQUESTED SERVICE) -
+                "Current Service (REQUESTED SERVICE) / Service Description" -
+                The 'value' tag 'xsi:type' attribute shall contain a value.
+                Refer to section 7.1.2.1 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</report>
+
+            <assert test="
+                not(@xsi:type) or normalize-space(@xsi:type) = '' or 
+                normalize-space(@xsi:type) = 'CD' or
+                (substring-before(normalize-space(@xsi:type), ':') != '' and
+                substring-after(normalize-space(@xsi:type), ':') = 'CD') or 
+                normalize-space(@xsi:type) = 'CE' or
+                (substring-before(normalize-space(@xsi:type), ':') != '' and
+                substring-after(normalize-space(@xsi:type), ':') = 'CE')"
+                >Error: Service Referral - 7.1.2.1 Current Service (REQUESTED SERVICE) -
+            	"Current Service (REQUESTED SERVICE) / Service Description" - The 'value' tag 'xsi:type' attribute shall
+                contain the value 'CD' or 'CE'. Refer to section 7.1.2.1 of the
+            	Service_Referral_CDA_Implementation_Guide_v1.1.</assert>
+
+        </rule>
+
+
+        <rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code = '101.21021']/cda:entry/cda:act/cda:entryRelationship[cda:act/cda:code/@code = '103.17035']">
+
+            <assert test="@typeCode"
+                >Error: Service Referral - 7.1.2.1 Current Service (REQUESTED SERVICE) -
+                "Current Service (REQUESTED SERVICE) / Service Comment" -
+                The 'entryRelationship' tag 'typeCode' attribute is missing.
+                Refer to section 7.1.2.1 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</assert>
+
+            <assert test="not(@typeCode) or normalize-space(@typeCode) != ''"
+                >Error: Service Referral - 7.1.2.1 Current Service (REQUESTED SERVICE) -
+                "Current Service (REQUESTED SERVICE) / Service Comment" -
+                The 'entryRelationship' tag 'typeCode' attribute shall contain a value.
+                Refer to section 7.1.2.1 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</assert>
+
+            <assert test="
+                not(@typeCode) or normalize-space(@typeCode) = '' or @typeCode = 'COMP'"
+                >Error: Service Referral - 7.1.2.1 Current Service (REQUESTED SERVICE) -
+                "Current Service (REQUESTED SERVICE) / Service Comment" -
+                The 'entryRelationship' tag 'typeCode' attribute shall contain the value 'COMP'.
+                Refer to section 7.1.2.1 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</assert>
+
+            <report test="count(cda:act) > 1"
+                >Error: Service Referral - 7.1.2.1 Current Service (REQUESTED SERVICE) -
+                "Current Service (REQUESTED SERVICE) / Service Comment" -
+                The 'act' tag shall appear only once.
+                Refer to section 7.1.2.1 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</report>
+
+        </rule>
+
+
+        <rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code = '101.21021']/cda:entry/cda:act/cda:entryRelationship/cda:act[cda:code/@code = '103.17035']">
+
+            <assert test="@classCode"
+                >Error: Service Referral - 7.1.2.1 Current Service (REQUESTED SERVICE) -
+                "Current Service (REQUESTED SERVICE) / Service Comment" -
+                The 'act' tag 'classCode' attribute is missing.
+                Refer to section 7.1.2.1 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</assert>
+
+            <assert test="not(@classCode) or normalize-space(@classCode) != ''"
+                >Error: Service Referral - 7.1.2.1 Current Service (REQUESTED SERVICE) -
+                "Current Service (REQUESTED SERVICE) / Service Comment" -
+                The 'act' tag 'classCode' attribute shall contain a value.
+                Refer to section 7.1.2.1 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</assert>
+
+            <assert test="
+                not(@classCode) or normalize-space(@classCode) = '' or @classCode = 'INFRM'"
+                >Error: Service Referral - 7.1.2.1 Current Service (REQUESTED SERVICE) -
+                "Current Service (REQUESTED SERVICE) / Service Comment" -
+                The 'act' tag 'classCode' attribute shall contain the value 'INFRM'.
+                Refer to section 7.1.2.1 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</assert>
+
+            <assert test="@moodCode"
+                >Error: Service Referral - 7.1.2.1 Current Service (REQUESTED SERVICE) -
+                "Current Service (REQUESTED SERVICE) / Service Comment" -
+                The 'act' tag 'moodCode' attribute is missing.
+                Refer to section 7.1.2.1 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</assert>
+
+            <assert test="not(@moodCode) or normalize-space(@moodCode) != ''"
+                >Error: Service Referral - 7.1.2.1 Current Service (REQUESTED SERVICE) -
+                "Current Service (REQUESTED SERVICE) / Service Comment" -
+                The 'act' tag 'moodCode' attribute shall contain a value.
+                Refer to section 7.1.2.1 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</assert>
+
+            <assert test="
+                not(@moodCode) or normalize-space(@moodCode) = '' or @moodCode = 'EVN'"
+                >Error: Service Referral - 7.1.2.1 Current Service (REQUESTED SERVICE) -
+                "Current Service (REQUESTED SERVICE) / Service Comment" -
+                The 'act' tag 'moodCode' attribute shall contain the value 'EVN'.
+                Refer to section 7.1.2.1 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</assert>
+
+            <report test="count(cda:code) > 1"
+                >Error: Service Referral - 7.1.2.1 Current Service (REQUESTED SERVICE) -
+                "Current Service (REQUESTED SERVICE) / Service Comment" -
+                The 'code' tag shall appear only once.
+                Refer to section 7.1.2.1 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</report>
+
+            <assert test="cda:text"
+                >Error: Service Referral - 7.1.2.1 Current Service (REQUESTED SERVICE) -
+                "Current Service (REQUESTED SERVICE) / Service Comment" -
+                The 'text' tag is missing.
+                Refer to section 7.1.2.1 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</assert>
+
+            <report test="count(cda:text) > 1"
+                >Error: Service Referral - 7.1.2.1 Current Service (REQUESTED SERVICE) -
+                "Current Service (REQUESTED SERVICE) / Service Comment" -
+                The 'text' tag shall appear only once.
+                Refer to section 7.1.2.1 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</report>
+
+            <assert test="not(cda:text) or normalize-space(cda:text) != ''"
+                >Error: Service Referral - 7.1.2.1 Current Service (REQUESTED SERVICE) -
+                "Current Service (REQUESTED SERVICE) / Service Comment" -
+                The 'text' tag shall contain a value.
+                Refer to section 7.1.2.1 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</assert>
+
+        </rule>
+
+
+        <rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code = '101.21021']/cda:entry/cda:act/cda:entryRelationship/cda:act/cda:code[@code = '103.17035']">
+
+            <assert test="@codeSystem"
+                >Error: Service Referral - 7.1.2.1 Current Service (REQUESTED SERVICE) -
+                "Current Service (REQUESTED SERVICE) / Service Comment" -
+                The 'code' tag 'codeSystem' attribute is missing.
+                Refer to section 7.1.2.1 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</assert>
+
+            <assert test="
+                not(@codeSystem) or normalize-space(@codeSystem) = '' or @codeSystem = '1.2.36.1.2001.1001.101'"
+                >Error: Service Referral - 7.1.2.1 Current Service (REQUESTED SERVICE) -
+                "Current Service (REQUESTED SERVICE) / Service Comment" -
+                The 'code' tag 'codeSystem' attribute shall contain the value '1.2.36.1.2001.1001.101'.
+                Refer to section 7.1.2.1 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</assert>
+
+            <assert test="not(@displayName) or normalize-space(@displayName) != ''"
+                >Error: Service Referral - 7.1.2.1 Current Service (REQUESTED SERVICE) -
+                "Current Service (REQUESTED SERVICE) / Service Comment" -
+                The 'code' tag 'displayName' attribute shall contain a value.
+                Refer to section 7.1.2.1 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</assert>
+
+            <assert test="
+                not(@displayName) or normalize-space(@displayName) = '' or translate(@displayName, 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ') = &quot;SERVICE COMMENT&quot;"
+                >Error: Service Referral - 7.1.2.1 Current Service (REQUESTED SERVICE) -
+                "Current Service (REQUESTED SERVICE) / Service Comment" -
+                The 'code' tag 'displayName' attribute shall contain the value 'Service Comment'.
+                Refer to section 7.1.2.1 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</assert>
+
+            <assert test="@displayName"
+                >Error: Service Referral - 7.1.2.1 Current Service (REQUESTED SERVICE) -
+                "Current Service (REQUESTED SERVICE) / Service Comment" -
+                The 'code' tag 'displayName' attribute is missing.
+                Refer to section 7.1.2.1 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</assert>
+
+            <assert test="not(cda:translation)"
+                >Error: Service Referral - 7.1.2.1 Current Service (REQUESTED SERVICE) -
+                "Current Service (REQUESTED SERVICE) / Service Comment" -
+                The 'translation' tag shall not be present.
+                Refer to section 7.1.2.1 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</assert>
+
+        </rule>
+
+
+        <rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code = '101.21021']/cda:entry/cda:act/cda:entryRelationship/cda:act[cda:code/@code = '103.17035']/cda:text">
+
+            <report test="@xsi:type and normalize-space(@xsi:type) = ''"
+                >Error: Service Referral - 7.1.2.1 Current Service (REQUESTED SERVICE) -
+                "Current Service (REQUESTED SERVICE) / Service Comment" -
+                The 'text' tag 'xsi:type' attribute shall contain a value.
+                Refer to section 7.1.2.1 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</report>
+
+            <report test="
+                @xsi:type and normalize-space(@xsi:type) != '' and 
+                normalize-space(@xsi:type) != 'ST' and
+                not(substring-before(normalize-space(@xsi:type), ':') != '' and
+                    substring-after(normalize-space(@xsi:type), ':') = 'ST')"
+                >Error: Service Referral - 7.1.2.1 Current Service (REQUESTED SERVICE) -
+                "Current Service (REQUESTED SERVICE) / Service Comment" -
+                The 'text' tag 'xsi:type' attribute shall contain the value 'ST'.
+                Refer to section 7.1.2.1 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</report>
+
+        </rule>
+
+
+        <rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code = '101.21021']/cda:entry/cda:act/cda:entryRelationship[cda:act/cda:code/@code = '103.16635']">
+
+            <assert test="@typeCode"
+                >Error: Service Referral - 7.1.2.1 Current Service (REQUESTED SERVICE) -
+                "Current Service (REQUESTED SERVICE) / Requested Service DateTime" -
+                The 'entryRelationship' tag 'typeCode' attribute is missing.
+                Refer to section 7.1.2.1 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</assert>
+
+            <assert test="not(@typeCode) or normalize-space(@typeCode) != ''"
+                >Error: Service Referral - 7.1.2.1 Current Service (REQUESTED SERVICE) -
+                "Current Service (REQUESTED SERVICE) / Requested Service DateTime" -
+                The 'entryRelationship' tag 'typeCode' attribute shall contain a value.
+                Refer to section 7.1.2.1 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</assert>
+
+            <assert test="
+                not(@typeCode) or normalize-space(@typeCode) = '' or @typeCode = 'COMP'"
+                >Error: Service Referral - 7.1.2.1 Current Service (REQUESTED SERVICE) -
+                "Current Service (REQUESTED SERVICE) / Requested Service DateTime" -
+                The 'entryRelationship' tag 'typeCode' attribute shall contain the value 'COMP'.
+                Refer to section 7.1.2.1 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</assert>
+
+            <report test="count(cda:act) > 1"
+                >Error: Service Referral - 7.1.2.1 Current Service (REQUESTED SERVICE) -
+                "Current Service (REQUESTED SERVICE) / Requested Service DateTime" -
+                The 'act' tag shall appear only once.
+                Refer to section 7.1.2.1 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</report>
+
+        </rule>
+
+
+        <rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code = '101.21021']/cda:entry/cda:act/cda:entryRelationship/cda:act[cda:code/@code = '103.16635']">
+
+            <assert test="@classCode"
+                >Error: Service Referral - 7.1.2.1 Current Service (REQUESTED SERVICE) -
+                "Current Service (REQUESTED SERVICE) / Requested Service DateTime" -
+                The 'act' tag 'classCode' attribute is missing.
+                Refer to section 7.1.2.1 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</assert>
+
+            <assert test="not(@classCode) or normalize-space(@classCode) != ''"
+                >Error: Service Referral - 7.1.2.1 Current Service (REQUESTED SERVICE) -
+                "Current Service (REQUESTED SERVICE) / Requested Service DateTime" -
+                The 'act' tag 'classCode' attribute shall contain a value.
+                Refer to section 7.1.2.1 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</assert>
+
+            <assert test="
+                not(@classCode) or normalize-space(@classCode) = '' or @classCode = 'ACT'"
+                >Error: Service Referral - 7.1.2.1 Current Service (REQUESTED SERVICE) -
+                "Current Service (REQUESTED SERVICE) / Requested Service DateTime" -
+                The 'act' tag 'classCode' attribute shall contain the value 'ACT'.
+                Refer to section 7.1.2.1 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</assert>
+
+            <assert test="@moodCode"
+                >Error: Service Referral - 7.1.2.1 Current Service (REQUESTED SERVICE) -
+                "Current Service (REQUESTED SERVICE) / Requested Service DateTime" -
+                The 'act' tag 'moodCode' attribute is missing.
+                Refer to section 7.1.2.1 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</assert>
+
+            <assert test="not(@moodCode) or normalize-space(@moodCode) != ''"
+                >Error: Service Referral - 7.1.2.1 Current Service (REQUESTED SERVICE) -
+                "Current Service (REQUESTED SERVICE) / Requested Service DateTime" -
+                The 'act' tag 'moodCode' attribute shall contain a value.
+                Refer to section 7.1.2.1 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</assert>
+
+            <assert test="
+                not(@moodCode) or normalize-space(@moodCode) = '' or @moodCode = 'EVN'"
+                >Error: Service Referral - 7.1.2.1 Current Service (REQUESTED SERVICE) -
+                "Current Service (REQUESTED SERVICE) / Requested Service DateTime" -
+                The 'act' tag 'moodCode' attribute shall contain the value 'EVN'.
+                Refer to section 7.1.2.1 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</assert>
+
+            <report test="count(cda:code) > 1"
+                >Error: Service Referral - 7.1.2.1 Current Service (REQUESTED SERVICE) -
+                "Current Service (REQUESTED SERVICE) / Requested Service DateTime" -
+                The 'code' tag shall appear only once.
+                Refer to section 7.1.2.1 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</report>
+
+            <assert test="cda:effectiveTime"
+                >Error: Service Referral - 7.1.2.1 Current Service (REQUESTED SERVICE) -
+                "Current Service (REQUESTED SERVICE) / Requested Service DateTime" -
+                The 'effectiveTime' tag is missing.
+                Refer to section 7.1.2.1 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</assert>
+
+            <report test="count(cda:effectiveTime) > 1"
+                >Error: Service Referral - 7.1.2.1 Current Service (REQUESTED SERVICE) -
+                "Current Service (REQUESTED SERVICE) / Requested Service DateTime" -
+                The 'effectiveTime' tag shall appear only once.
+                Refer to section 7.1.2.1 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</report>
+
+        </rule>
+
+
+        <rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code = '101.21021']/cda:entry/cda:act/cda:entryRelationship/cda:act/cda:code[@code = '103.16635']">
+
+            <assert test="@codeSystem"
+                >Error: Service Referral - 7.1.2.1 Current Service (REQUESTED SERVICE) -
+                "Current Service (REQUESTED SERVICE) / Requested Service DateTime" -
+                The 'code' tag 'codeSystem' attribute is missing.
+                Refer to section 7.1.2.1 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</assert>
+
+            <assert test="
+                not(@codeSystem) or normalize-space(@codeSystem) = '' or @codeSystem = '1.2.36.1.2001.1001.101'"
+                >Error: Service Referral - 7.1.2.1 Current Service (REQUESTED SERVICE) -
+                "Current Service (REQUESTED SERVICE) / Requested Service DateTime" -
+                The 'code' tag 'codeSystem' attribute shall contain the value '1.2.36.1.2001.1001.101'.
+                Refer to section 7.1.2.1 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</assert>
+
+            <assert test="not(@displayName) or normalize-space(@displayName) != ''"
+                >Error: Service Referral - 7.1.2.1 Current Service (REQUESTED SERVICE) -
+                "Current Service (REQUESTED SERVICE) / Requested Service DateTime" -
+                The 'code' tag 'displayName' attribute shall contain a value.
+                Refer to section 7.1.2.1 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</assert>
+
+            <assert test="
+                not(@displayName) or normalize-space(@displayName) = '' or translate(@displayName, 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ') = &quot;REQUESTED SERVICE DATETIME&quot;"
+                >Error: Service Referral - 7.1.2.1 Current Service (REQUESTED SERVICE) -
+                "Current Service (REQUESTED SERVICE) / Requested Service DateTime" -
+                The 'code' tag 'displayName' attribute shall contain the value 'Requested Service DateTime'.
+                Refer to section 7.1.2.1 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</assert>
+
+            <assert test="@displayName"
+                >Error: Service Referral - 7.1.2.1 Current Service (REQUESTED SERVICE) -
+                "Current Service (REQUESTED SERVICE) / Requested Service DateTime" -
+                The 'code' tag 'displayName' attribute is missing.
+                Refer to section 7.1.2.1 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</assert>
+
+            <assert test="not(cda:translation)"
+                >Error: Service Referral - 7.1.2.1 Current Service (REQUESTED SERVICE) -
+                "Current Service (REQUESTED SERVICE) / Requested Service DateTime" -
+                The 'translation' tag shall not be present.
+                Refer to section 7.1.2.1 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</assert>
+
+        </rule>
+
+
+        <rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code = '101.21021']/cda:entry/cda:act/cda:id">
+
+            <assert test="not(@nullFlavor)"
+                >Error: Service Referral - 7.1.2.1 Current Service (REQUESTED SERVICE) -
+                "Current Service (REQUESTED SERVICE) / Requested Service Instance Identifier" -
+                The 'id' tag 'nullFlavor' attribute shall not be present.
+                Refer to section 7.1.2.1 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</assert>
+
+        </rule>
+
+
+    </pattern>
+

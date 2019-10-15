@@ -1,0 +1,51 @@
+    <pattern name="p-Service_Referral_InformationRecipient_5_1_2_custom-errors"
+        id="p-Service_Referral_InformationRecipient_5_1_2_custom-errors"
+        see="#p-Service_Referral_InformationRecipient_5_1_2_custom-errors">
+        
+        <!--Commented out the rule as it is being triggered incorrectly in package validator v2.5-->
+
+        <!--<rule context="/cda:ClinicalDocument/cda:informationRecipient[@typeCode = 'PRCP'][not(cda:intendedRecipient/cda:informationRecipient/ext:asEmployment)][not(cda:intendedRecipient/cda:receivedOrganization/cda:asOrganizationPartOf/cda:wholeOrganization/ext:asEntityIdentifier)]/cda:intendedRecipient/cda:id">
+            
+            <assert test="not(@root) 
+                or normalize-space(@root) = ''
+                or not(/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code='101.17032']/cda:entry/cda:act/cda:performer/cda:assignedEntity[cda:assignedPerson/ext:asEmployment]/cda:id/@root)
+                or normalize-space(/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code='101.17032']/cda:entry/cda:act/cda:performer/cda:assignedEntity[cda:assignedPerson/ext:asEmployment]/cda:id/@root) = ''
+                or (@root) = normalize-space(/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code='101.17032']/cda:entry/cda:act/cda:performer/cda:assignedEntity[cda:assignedPerson/ext:asEmployment]/cda:id/@root)"
+                >Error: Service Referral - 5.1.2 InformationRecipient - "informationRecipient / intendedRecipient / id" - The 'ext:id' tag 'root' attribute shall hold the same value as
+                7.1.1.1.1.1 SERVICE PROVIDER as a PERSON "SERVICE PROVIDER / Role" . Refer to section 5.1.2 of the Service_Referral_CDA_Implementation_Guide_v1.1.</assert>
+                        
+            
+        </rule>-->
+        
+        <rule context="/cda:ClinicalDocument/cda:informationRecipient[not(cda:intendedRecipient/cda:informationRecipient/ext:asEmployment)][not(cda:intendedRecipient/cda:receivedOrganization/cda:asOrganizationPartOf/cda:wholeOrganization/ext:asEntityIdentifier)]/cda:intendedRecipient/cda:informationRecipient/ext:asEntityIdentifier/ext:id">
+            
+                       
+            <assert test="not(@root) 
+                or normalize-space(@root) = ''
+                or not(/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code='101.17032']/cda:entry/cda:act/cda:performer/cda:assignedEntity/cda:assignedPerson[ext:asEmployment]/ext:asEntityIdentifier/ext:id/@root)
+                or normalize-space(/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code='101.17032']/cda:entry/cda:act/cda:performer/cda:assignedEntity/cda:assignedPerson[ext:asEmployment]/ext:asEntityIdentifier/ext:id/@root) = ''
+                or (@root) = normalize-space(/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code='101.17032']/cda:entry/cda:act/cda:performer/cda:assignedEntity/cda:assignedPerson[ext:asEmployment]/ext:asEntityIdentifier/ext:id/@root)"
+                >Error: Service Referral - 5.1.2 InformationRecipient - "informationRecipient / intendedRecipient / informationRecipient/ Entity Identifier" - The 'ext:asEntityIdentifier/ext:id' tag 'root' attribute shall hold the same value as
+                7.1.1.1.1.1 SERVICE PROVIDER as a PERSON "SERVICE PROVIDER / PARTICIPANT / Entity Identifier" . Refer to section 5.1.2 of the Service_Referral_CDA_Implementation_Guide_v1.1.</assert>
+            
+            
+        </rule>
+        
+        
+        <rule context="/cda:ClinicalDocument/cda:informationRecipient[not(cda:intendedRecipient/cda:informationRecipient/ext:asEmployment)][not(cda:intendedRecipient/cda:receivedOrganization/cda:asOrganizationPartOf/cda:wholeOrganization/ext:asEntityIdentifier)]/cda:intendedRecipient/cda:receivedOrganization/ext:asEntityIdentifier/ext:id">
+            
+            
+            <assert test="not(@root) 
+                or normalize-space(@root) = ''
+                or not(/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code='101.17032']/cda:entry/cda:act/cda:performer/cda:assignedEntity/cda:assignedPerson/ext:asEmployment/ext:employerOrganization/cda:asOrganizationPartOf/cda:wholeOrganization/ext:asEntityIdentifier/ext:id/@root)
+                or normalize-space(/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code='101.17032']/cda:entry/cda:act/cda:performer/cda:assignedEntity/cda:assignedPerson/ext:asEmployment/ext:employerOrganization/cda:asOrganizationPartOf/cda:wholeOrganization/ext:asEntityIdentifier/ext:id/@root) = ''
+                or (@root) = normalize-space(/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code='101.17032']/cda:entry/cda:act/cda:performer/cda:assignedEntity/cda:assignedPerson/ext:asEmployment/ext:employerOrganization/cda:asOrganizationPartOf/cda:wholeOrganization/ext:asEntityIdentifier/ext:id/@root)"
+                >Error: Service Referral - 5.1.2 InformationRecipient - "informationRecipient / intendedRecipient / receivedOrganization / Entity Identifier" - The 'ext:asEntityIdentifier/ext:id' tag 'root' attribute shall hold the same value as
+                7.1.1.1.1.1 SERVICE PROVIDER as a PERSON "SERVICE PROVIDER / PARTICIPANT / PERSON OR ORGANISATION OR
+                DEVICE / PERSON / EMPLOYMENT DETAIL / EMPLOYER ORGANISATION / Entity Identifier". Refer to section 5.1.2 of the Service_Referral_CDA_Implementation_Guide_v1.1.</assert>
+            
+            
+        </rule>
+
+    </pattern>
+

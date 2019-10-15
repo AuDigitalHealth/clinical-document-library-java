@@ -1,5 +1,8 @@
 package au.gov.nehta.cda.es;
 
+import static au.gov.nehta.cda.test.Base.ATTACHMENTS_DIR;
+import static au.gov.nehta.cda.test.TestHelper.getAttachedMediaPDF;
+
 import au.gov.nehta.model.cda.common.code.CodeImpl;
 import au.gov.nehta.model.cda.common.code.Coded;
 import au.gov.nehta.model.cda.common.code.HL7ObservationInterpretationNormality;
@@ -31,13 +34,12 @@ import au.gov.nehta.model.clinical.etp.common.item.AttachedMedia;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 import org.joda.time.DateTime;
 
-class EventSummaryTestHelper {
+public class EventSummaryTestHelper {
 
-  private static final String ATTACHMENTS_DIR = "src/test/resources/";
-
-  static PathologyTestResult CreatePathologyResults(Boolean mandatorySectionsOnly) {
+  public static PathologyTestResult createPathologyResults(Boolean mandatorySectionsOnly) {
 
     //It is best to think of PathologyTestResult as one Report/Panel or OBR in a HL7 V2 ORU Message
     PathologyTestResult pathologyTestResult = new PathologyTestResultImpl();
@@ -59,7 +61,7 @@ class EventSummaryTestHelper {
       setCode("26604007");
       setCodeSystem("2.16.840.1.113883.6.96");
       setDisplayName("Complete blood count");
-      setOriginalText("Complete blood count");
+      //setOriginalText("Complete blood count");
     }});
 
     //Clinical Notes
@@ -68,7 +70,7 @@ class EventSummaryTestHelper {
     //The status of the entire panel, akin to OBR-25 in HL7 V2, the HL7 V2 terms
     //would need to be mapped to the ValueSet used in here
     Coded overallTestResultStatus = new CodeImpl("3", "1.2.36.1.2001.1001.101.104.16501",
-        "Pathology Test Result Status Values", "Final", "Final");
+        "NCTIS Result Status Values", "Final", "Final");
     pathologyTestResult.setOverallPathologyTestResultStatus(overallTestResultStatus);
 
     //Pathology Department performing the analysis (DiagnosticServiceSectionID), OBR-24
@@ -77,8 +79,8 @@ class EventSummaryTestHelper {
     //Collection DateTime, with TimeZone and Precision of min e.g '20-06-2019 9:00 +1000'
     //Found in OBR-7 in a HL7 V2 ORM Message
     pathologyTestResult.setObservationDateTime(
-        new PrecisionDate(Precision.MINUTE, new DateTime(2019, 6, 20, 9,
-            0, 0, 0)));
+        new PrecisionDate(Precision.MINUTE, new DateTime(2019, 6, 20, 11,
+            20, 0, 0)));
 
     //List of Pathology Panels or an OBR Segment in HL7 V2
 
@@ -157,8 +159,8 @@ class EventSummaryTestHelper {
         //You need this to state that the ReferenceRange is a 'Normal' range as opposed to a 'Critical' or
         // 'Therapeutic' range.
         setReferenceRangeMeaning(
-            new CodeImpl("Normal", "1.2.36.1.2001.1001.101.103.16574",
-                "Reference Range Meaning", "Reference Range Meaning",
+            new CodeImpl("260395002", "2.16.840.1.113883.6.96",
+                "SNOMED CT-AU", "Normal Range",
                 "Normal Range"));
       }});
     }});
@@ -180,7 +182,7 @@ class EventSummaryTestHelper {
     // Would be mapped from OBX-11 Observation Result Status
     hbResult.setIndividualPathologyTestResultStatus(
         new CodeImpl("3", "1.2.36.1.2001.1001.101.104.16501",
-            "Pathology Test Result Status Values", "Final"));
+            "NCTIS Result Status Values", "Final"));
     fullBloodCountResultGroup.getIndividualPathologyTestResults().add(hbResult);
     List<ResultGroup> pathologyResultGroups = new ArrayList<>();
     pathologyTestResult.setResultGroups(pathologyResultGroups);
@@ -204,7 +206,8 @@ class EventSummaryTestHelper {
           // RCPA Haematology Terminology https://www.rcpa.edu.au/Library/Practising-Pathology/PTIS/APUTS-Downloads
           getTranslations().add(new CodeImpl() {{
             setCode("789-8");
-            setCodeSystemName(LOINC.CODE_SYSTEM);
+            setCodeSystem(LOINC.CODE_SYSTEM);
+            setCodeSystemName(LOINC.CODE_SYSTEM_NAME);
             setDisplayName("Red Cell Count");
           }});
         }});//What the LIS user saw when selecting the code, might be different to the display name of the code,
@@ -224,18 +227,18 @@ class EventSummaryTestHelper {
     rccReferenceRangeDetails.setReferenceRange(new ArrayList<ReferenceRange>() {{
       add(new ReferenceRange() {{
         //The atomic result's  Reference Range, OBX-7, the units are the same as the result value from OBX.6
-        setReferenceRange(new QuantityRange(4.5, 6.5, "g/L"));
+        setReferenceRange(new QuantityRange(6.5, 4.5, "g/L"));
         //You need this to state that the ReferenceRange is a Normal Range as opposed to a 'Critical' or 'Therapeutic' range.
         setReferenceRangeMeaning(
-            new CodeImpl("Normal", "1.2.36.1.2001.1001.101.103.16574",
-                "Reference Range Meaning", "Reference Range Meaning",
+            new CodeImpl("260395002", "2.16.840.1.113883.6.96",
+                "SNOMED CT-AU", "Normal Range",
                 "Normal Range"));
       }});
     }});
     rccResultValue.setReferenceRangeDetails(rccReferenceRangeDetails);
     rccResult.setIndividualPathologyTestResultStatus(
         new CodeImpl("3", "1.2.36.1.2001.1001.101.104.16501",
-            "Pathology Test Result Status Values", "Final"));
+            "NCTIS Result Status Values", "Final"));
 
     fullBloodCountResultGroup.getIndividualPathologyTestResults().add(rccResult);
 
@@ -264,6 +267,14 @@ class EventSummaryTestHelper {
         setCodeSystemName(LOINC.CODE_SYSTEM_NAME);
         setDisplayName("Hematocrit");
       }});
+      //Invalid translation example below - with Original Text which must be null or empty
+      /*getTranslations().add(new CodeImpl() {{
+        setCode("4544-3");
+        setCodeSystem(LOINC.CODE_SYSTEM);
+        setCodeSystemName(LOINC.CODE_SYSTEM_NAME);
+        setDisplayName("Hematocrit");
+        setOriginalText("Original Text Must not be initialized for translation");
+      }});*/
     }});
 
     ResultValue hctResultValue = new ResultValue();
@@ -281,8 +292,8 @@ class EventSummaryTestHelper {
       add(new ReferenceRange() {{
         //You need this to state that the ReferenceRange is a Normal Range as opposed to a 'Critical' or 'Therapeutic' range.
         setReferenceRangeMeaning(
-            new CodeImpl("Normal", "1.2.36.1.2001.1001.101.103.16574",
-                "Reference Range Meaning", "Reference Range Meaning",
+            new CodeImpl("260395002", "2.16.840.1.113883.6.96",
+                "SNOMED CT-AU", "Normal Range",
                 "Normal Range"));
         //The atomic result's  Reference Range, OBX-7, the units are the same as the result value from OBX.6
         setReferenceRange(new QuantityRange(0.54, 0.40, "L/L"));
@@ -291,7 +302,7 @@ class EventSummaryTestHelper {
     hctResultValue.setReferenceRangeDetails(hctReferenceRangeDetails);
     hctResult.setIndividualPathologyTestResultStatus(
         new CodeImpl("3", "1.2.36.1.2001.1001.101.104.16501",
-            "Pathology Test Result Status Values", "Final"));
+            "NCTIS Result Status Values", "Final"));
 
     fullBloodCountResultGroup.getIndividualPathologyTestResults().add(hctResult);
 
@@ -329,14 +340,15 @@ class EventSummaryTestHelper {
         setReferenceRange(new QuantityRange(96, 80, "fL"));
         //You need this to state that the ReferenceRange is a Normal Range as opposed to a 'Critical' or 'Therapeutic' range.
         setReferenceRangeMeaning(
-            new CodeImpl("Normal", "1.2.36.1.2001.1001.101.103.16574",
-                "Reference Range Meaning", "Reference Range Meaning", "Normal Range"));
+            new CodeImpl("260395002", "2.16.840.1.113883.6.96",
+                "SNOMED CT-AU", "Normal Range",
+                "Normal Range"));
       }});
     }});
     mcvResultValue.setReferenceRangeDetails(mcvReferenceRangeDetails);
     mcvResult.setIndividualPathologyTestResultStatus(
         new CodeImpl("3", "1.2.36.1.2001.1001.101.104.16501",
-            "Pathology Test Result Status Values", "Final"));
+            "NCTIS Result Status Values", "Final"));
 
     fullBloodCountResultGroup.getIndividualPathologyTestResults().add(mcvResult);
 
@@ -373,8 +385,8 @@ class EventSummaryTestHelper {
         //You need this to state that the ReferenceRange is a Normal Range as opposed to a 'Critical' or
         //'Therapeutic' range
         setReferenceRangeMeaning(
-            new CodeImpl("Normal", "1.2.36.1.2001.1001.101.103.16574",
-                "Reference Range Meaning", "Reference Range Meaning",
+            new CodeImpl("260395002", "2.16.840.1.113883.6.96",
+                "SNOMED CT-AU", "Normal Range",
                 "Normal Range"));
         //The atomic result's  Reference Range, OBX-7, the units are the same as the result value from OBX.6
         setReferenceRange(new QuantityRange(32.0, 24.0, "pg"));
@@ -383,7 +395,7 @@ class EventSummaryTestHelper {
     mchResultValue.setReferenceRangeDetails(mchReferenceRangeDetails);
     mchResult.setIndividualPathologyTestResultStatus(
         new CodeImpl("3", "1.2.36.1.2001.1001.101.104.16501",
-            "Pathology Test Result Status Values", "Final"));
+            "NCTIS Result Status Values", "Final"));
 
     fullBloodCountResultGroup.getIndividualPathologyTestResults().add(mchResult);
 
@@ -439,15 +451,15 @@ class EventSummaryTestHelper {
         //You need this to state that the ReferenceRange is a 'Normal' range as opposed to a 'Critical' or
         //'Therapeutic' range.
         setReferenceRangeMeaning(
-            new CodeImpl("Normal", "1.2.36.1.2001.1001.101.103.16574",
-                "Reference Range Meaning", "Reference Range Meaning",
+            new CodeImpl("260395002", "2.16.840.1.113883.6.96",
+                "SNOMED CT-AU", "Normal Range",
                 "Normal Range"));
       }});
     }});
     mchcResultValue.setReferenceRangeDetails(mchcReferenceRangeDetails);
     mchcResult.setIndividualPathologyTestResultStatus(
         new CodeImpl("3", "1.2.36.1.2001.1001.101.104.16501",
-            "Pathology Test Result Status Values", "Final"));
+            "NCTIS Result Status Values", "Final"));
 
     fullBloodCountResultGroup.getIndividualPathologyTestResults().add(mchcResult);
 
@@ -502,15 +514,15 @@ class EventSummaryTestHelper {
         //You need this to state that the ReferenceRange is a Normal Range as opposed to a 'Critical' or
         // 'Therapeutic' range.
         setReferenceRangeMeaning(
-            new CodeImpl("Normal", "1.2.36.1.2001.1001.101.103.16574",
-                "Reference Range Meaning", "Reference Range Meaning",
+            new CodeImpl("260395002", "2.16.840.1.113883.6.96",
+                "SNOMED CT-AU", "Normal Range",
                 "Normal Range"));
       }});
     }});
     platResultValue.setReferenceRangeDetails(platReferenceRangeDetails);
     platResult.setIndividualPathologyTestResultStatus(
         new CodeImpl("3", "1.2.36.1.2001.1001.101.104.16501",
-            "Pathology Test Result Status Values", "Final"));
+            "NCTIS Result Status Values", "Final"));
 
     fullBloodCountResultGroup.getIndividualPathologyTestResults().add(platResult);
 
@@ -534,7 +546,8 @@ class EventSummaryTestHelper {
           // RCPA Haematology Terminology https://www.rcpa.edu.au/Library/Practising-Pathology/PTIS/APUTS-Downloads
           getTranslations().add(new CodeImpl() {{
             setCode("6690-2");
-            setCodeSystemName(LOINC.CODE_SYSTEM);
+            setCodeSystem(LOINC.CODE_SYSTEM);
+            setCodeSystemName(LOINC.CODE_SYSTEM_NAME);
             setDisplayName("White Cell Count");
           }});
           //What the LIS user saw when selecting the code, might be different to the display name of the code, or the same
@@ -558,15 +571,15 @@ class EventSummaryTestHelper {
         //You need this to state that the ReferenceRange is a Normal Range as opposed to a 'Critical' or
         //'Therapeutic' range.
         setReferenceRangeMeaning(
-            new CodeImpl("Normal", "1.2.36.1.2001.1001.101.103.16574",
-                "Reference Range Meaning", "Reference Range Meaning",
+            new CodeImpl("260395002", "2.16.840.1.113883.6.96",
+                "SNOMED CT-AU", "Normal Range",
                 "Normal Range"));
       }});
     }});
     wccResultValue.setReferenceRangeDetails(wccReferenceRangeDetails);
     wccResult.setIndividualPathologyTestResultStatus(
         new CodeImpl("3", "1.2.36.1.2001.1001.101.104.16501",
-            "Pathology Test Result Status Values", "Final"));
+            "NCTIS Result Status Values", "Final"));
 
     fullBloodCountResultGroup.getIndividualPathologyTestResults().add(wccResult);
 
@@ -622,15 +635,15 @@ class EventSummaryTestHelper {
         //You need this to state that the ReferenceRange is a 'Normal' range as opposed to a 'Critical' or
         // 'Therapeutic' range.
         setReferenceRangeMeaning(
-            new CodeImpl("Normal", "1.2.36.1.2001.1001.101.103.16574",
-                "Reference Range Meaning", "Reference Range Meaning",
+            new CodeImpl("260395002", "2.16.840.1.113883.6.96",
+                "SNOMED CT-AU", "Normal Range",
                 "Normal Range"));
       }});
     }});
     neutsResultValue.setReferenceRangeDetails(neutsReferenceRangeDetails);
     neutsResult.setIndividualPathologyTestResultStatus(
         new CodeImpl("3", "1.2.36.1.2001.1001.101.104.16501",
-            "Pathology Test Result Status Values", "Final"));
+            "NCTIS Result Status Values", "Final"));
     fullBloodCountResultGroup.getIndividualPathologyTestResults().add(neutsResult);
 
     //==================================================================================================
@@ -685,15 +698,15 @@ class EventSummaryTestHelper {
         //You need this to state that the ReferenceRange is a 'Normal' range as opposed to a 'Critical' or
         // 'Therapeutic' range.
         setReferenceRangeMeaning(
-            new CodeImpl("Normal", "1.2.36.1.2001.1001.101.103.16574",
-                "Reference Range Meaning", "Reference Range Meaning",
+            new CodeImpl("260395002", "2.16.840.1.113883.6.96",
+                "SNOMED CT-AU", "Normal Range",
                 "Normal Range"));
       }});
     }});
     lymphosResultValue.setReferenceRangeDetails(lymphosReferenceRangeDetails);
     lymphosResult.setIndividualPathologyTestResultStatus(
         new CodeImpl("3", "1.2.36.1.2001.1001.101.104.16501",
-            "Pathology Test Result Status Values", "Final"));
+            "NCTIS Result Status Values", "Final"));
 
     fullBloodCountResultGroup.getIndividualPathologyTestResults().add(lymphosResult);
 
@@ -747,15 +760,15 @@ class EventSummaryTestHelper {
         setReferenceRange(new QuantityRange(0.8, 0.1, "g/L"));
         //You need this to state that the ReferenceRange is a 'Normal' range as opposed to a 'Critical' or 'Therapeutic' range.
         setReferenceRangeMeaning(
-            new CodeImpl("Normal", "1.2.36.1.2001.1001.101.103.16574",
-                "Reference Range Meaning", "Reference Range Meaning",
+            new CodeImpl("260395002", "2.16.840.1.113883.6.96",
+                "SNOMED CT-AU", "Normal Range",
                 "Normal Range"));
       }});
     }});
     monosResultValue.setReferenceRangeDetails(monosReferenceRangeDetails);
     monosResult.setIndividualPathologyTestResultStatus(
         new CodeImpl("3", "1.2.36.1.2001.1001.101.104.16501",
-            "Pathology Test Result Status Values", "Final"));
+            "NCTIS Result Status Values", "Final"));
 
     fullBloodCountResultGroup.getIndividualPathologyTestResults().add(monosResult);
 
@@ -810,15 +823,15 @@ class EventSummaryTestHelper {
         //You need this to state that the ReferenceRange is a 'Normal' range as opposed to a 'Critical' or
         //'Therapeutic' range.
         setReferenceRangeMeaning(
-            new CodeImpl("Normal", "1.2.36.1.2001.1001.101.103.16574",
-                "Reference Range Meaning", "Reference Range Meaning",
+            new CodeImpl("260395002", "2.16.840.1.113883.6.96",
+                "SNOMED CT-AU", "Normal Range",
                 "Normal Range"));
       }});
     }});
     eosResultValue.setReferenceRangeDetails(eosReferenceRangeDetails);
     eosResult.setIndividualPathologyTestResultStatus(
         new CodeImpl("3", "1.2.36.1.2001.1001.101.104.16501",
-            "Pathology Test Result Status Values", "Final"));
+            "NCTIS Result Status Values", "Final"));
 
     fullBloodCountResultGroup.getIndividualPathologyTestResults().add(eosResult);
 
@@ -872,15 +885,15 @@ class EventSummaryTestHelper {
         //You need this to state that the ReferenceRange is a 'Normal' range as opposed to a 'Critical' or
         // 'Therapeutic' range.
         setReferenceRangeMeaning(
-            new CodeImpl("Normal", "1.2.36.1.2001.1001.101.103.16574",
-                "Reference Range Meaning", "Reference Range Meaning",
+            new CodeImpl("260395002", "2.16.840.1.113883.6.96",
+                "SNOMED CT-AU", "Normal Range",
                 "Normal Range"));
       }});
     }});
     basosResultValue.setReferenceRangeDetails(basosReferenceRangeDetails);
     basosResult.setIndividualPathologyTestResultStatus(
         new CodeImpl("3", "1.2.36.1.2001.1001.101.104.16501",
-            "Pathology Test Result Status Values", "Final"));
+            "NCTIS Result Status Values", "Final"));
 
     fullBloodCountResultGroup.getIndividualPathologyTestResults().add(basosResult);
 
@@ -933,11 +946,9 @@ class EventSummaryTestHelper {
     List<PhysicalDetails> physicalDetailsList = new ArrayList<>();
     PhysicalDetails physicalDetails = new PhysicalDetails();
     Dimensions dimensions = new Dimensions();
-    Quantity quantity = new Quantity("4", "mL");
-    dimensions.setVolume(quantity);
     physicalDetails.setDimensions(dimensions);
     physicalDetails.setDescription("0.5 cm x 0.5 cm excised nevus");
-    physicalDetails.setImage(getAttachedMedia(""));
+    physicalDetails.setImage(getAttachedMedia("", Optional.empty()));
     Quantity weight = new Quantity("2", "mg");
     physicalDetails.setWeight(weight);
     physicalDetailsList.add(physicalDetails);
@@ -1004,18 +1015,15 @@ class EventSummaryTestHelper {
     return pathologyTestResult;
   }
 
-  public static AttachedMedia getAttachedMediaPDF(String fileName) {
-    File media = new File(String.format("%s/%s", ATTACHMENTS_DIR, fileName));
+  public static AttachedMedia getAttachedMedia(String fileNameStr,
+      Optional<String> attachmentDirOverrideValue) {
+    File media;
+    media = attachmentDirOverrideValue
+        .map(s -> new File(String.format("%s/x-ray%s.jpg", s, fileNameStr)))
+        .orElseGet(() -> new File(String.format("%s/x-ray%s.jpg", ATTACHMENTS_DIR, fileNameStr)));
     if (!media.exists()) {
-      throw new RuntimeException("Attachment does not exist in DIR : " + ATTACHMENTS_DIR + fileName);
-    }
-    return new AttachedMedia(media);
-  }
-
-  public static AttachedMedia getAttachedMedia(String fileNameStr) {
-    File media = new File(String.format("%s/x-ray%s.jpg", ATTACHMENTS_DIR, fileNameStr));
-    if (!media.exists()) {
-      throw new RuntimeException("Attachment does not exist in DIR : : " + ATTACHMENTS_DIR + fileNameStr);
+      throw new RuntimeException(
+          "Attachment does not exist in DIR : : " + ATTACHMENTS_DIR + fileNameStr);
     }
     return new AttachedMedia(media);
   }

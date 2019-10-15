@@ -1,0 +1,57 @@
+    <pattern name="p-Service_Referral_3A_PROBLEM_DIAGNOSIS_7_1_5_1_custom-errors"
+        id="p-Service_Referral_3A_PROBLEM_DIAGNOSIS_7_1_5_1_custom-errors"
+        see="#p-Service_Referral_3A_PROBLEM_DIAGNOSIS_7_1_5_1_custom-errors">
+
+
+       
+
+        <rule
+            context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code='101.16117']/cda:entry/cda:observation[cda:code/@code = '282291009']/cda:effectiveTime/cda:low">
+
+            <assert test="not(@value) or (string-length(@value) &lt;= 8)">Error: Service Referral -
+                7.1.5.1 Problem / Diagnosis - "Date of Onset" - The 'low' tag 'value' attribute
+                shall not include a time. Refer to section 7.1.5.1 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</assert>
+
+        </rule>
+        
+        <!--No longer need these tests as the xsi:type is changed from "IVL_TS" to "TS"-->
+        
+     <!--   <rule
+            context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code='101.16117']/cda:entry/cda:observation[cda:code/@code = '282291009']/cda:entryRelationship/cda:observation[cda:code/@code = '103.15510']/cda:value/cda:low">
+            
+            <assert test="not(@value) or (string-length(@value) &lt;= 8)">Error: Service Referral -
+                7.1.5.1 Problem / Diagnosis - "Date of Onset" - The 'low' tag 'value' attribute
+                shall not include a time. Refer to section 7.1.5.1 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</assert>
+            
+        </rule>
+        
+        
+        <rule
+            context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code='101.16117']/cda:entry/cda:observation[cda:code/@code = '282291009']/cda:entryRelationship/cda:observation[cda:code/@code = '103.15510']/cda:value/cda:high">
+            
+            <assert test="not(@value) or (string-length(@value) &lt;= 8)">Error: Service Referral -
+                7.1.5.1 Problem / Diagnosis - "Date of Onset" - The 'low' tag 'value' attribute
+                shall not include a time. Refer to section 7.1.5.1 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</assert>
+            
+        </rule>-->
+        
+        <rule
+            context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code='101.16117']/cda:entry/cda:observation[cda:code/@code = '282291009']/cda:entryRelationship/cda:observation[cda:code/@code = '103.15510']/cda:value">
+            
+            <assert test="not(@value) or (string-length(@value) &lt;= 8)">Error: Service Referral -
+                7.1.5.1 Problem / Diagnosis - "Date of Resolution/Remission" - The 'value' tag 'value' attribute
+                shall not include a time. Refer to section 7.1.5.1 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</assert>
+            
+        </rule>
+        
+        
+        
+        
+
+
+    </pattern>
+

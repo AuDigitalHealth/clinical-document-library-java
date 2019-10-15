@@ -1,0 +1,176 @@
+
+
+
+    <!-- e-Discharge Summary Clinical Document:  5.1.3 Custodian -->
+
+    <!-- Context: ClinicalDocument/custodian -->
+
+    <!-- Status: Last Reviewed: 
+         Status: Last Updated : 03/09/2013 -->
+
+
+    <pattern name="p-e-Discharge_Summary_Custodian-errors"
+        id="p-e-Discharge_Summary_Custodian-errors" see="#p-e-Discharge_Summary_Custodian-errors">
+
+
+        <rule context="/cda:ClinicalDocument">
+
+            <!-- Custodian - 1..1 -->
+
+            <assert test="cda:custodian">Error: e-Discharge Summary - 5.1.3 Custodian - The
+                'custodian' tag is missing. Refer to section 5.1.3 Custodian of the
+                e-Discharge_Summary_CDA_Implementation_Guide_v3.4.</assert>
+
+            <report test="count(cda:custodian) > 1"> Error: e-Discharge Summary - 5.1.3 Custodian -
+                The 'custodian' tag shall appear only once. Refer to section 5.1.3 of the
+                e-Discharge_Summary_CDA_Implementation_Guide_v3.4.</report>
+
+        </rule>
+
+
+        <rule context="/cda:ClinicalDocument/cda:custodian">
+
+            <!-- assignedCustodian - 1..1 -->
+
+            <assert test="cda:assignedCustodian">Error: e-Discharge Summary - 5.1.3 Custodian - The
+                'assignedCustodian' tag is missing. Refer to section 5.1.3 Custodian of the
+                e-Discharge_Summary_CDA_Implementation_Guide_v3.4.</assert>
+
+            <report test="count(cda:assignedCustodian) > 1"> Error: e-Discharge Summary - 5.1.3
+                Custodian - "5.1.3 Custodian - "custodian/assignedCustodian"- The
+                'assignedCustodian' tag shall appear only once. Refer to section 5.1.3 of the
+                e-Discharge_Summary_CDA_Implementation_Guide_v3.4.</report>
+
+        </rule>
+
+
+        <rule context="/cda:ClinicalDocument/cda:custodian/cda:assignedCustodian">
+
+            <!-- representedCustodianOrganization - 1..1 -->
+
+            <assert test="cda:representedCustodianOrganization"> Error: e-Discharge Summary - 5.1.3
+                Custodian - "custodian/assignedCustodian" - The 'representedCustodianOrganization'
+                tag is missing. Refer to section 5.1.3 Custodian of the
+                e-Discharge_Summary_CDA_Implementation_Guide_v3.4.</assert>
+
+            <report test="count(cda:representedCustodianOrganization) > 1"> Error: e-Discharge
+                Summary - 5.1.3 Custodian - "5.1.3 Custodian -
+                "custodian/assignedCustodian/representedCustodianOrganization"- The
+                'representedCustodianOrganization' tag shall appear only once. Refer to section
+                5.1.3 of the e-Discharge_Summary_CDA_Implementation_Guide_v3.4.</report>
+
+        </rule>
+
+
+        <rule
+            context="/cda:ClinicalDocument/cda:custodian/cda:assignedCustodian/cda:representedCustodianOrganization">
+
+
+            <!-- id - 1..* -->
+
+            <assert test="cda:id"> Error: e-Discharge Summary - 5.1.3 Custodian -
+                "custodian/assignedCustodian/representedCustodianOrganization" - The 'id' tag is
+                missing. Refer to section 5.1.3 Custodian of the
+                e-Discharge_Summary_CDA_Implementation_Guide_v3.4.</assert>
+
+
+            <!-- custodian/assignedCustodian/representedCustodianOrganization/Entity Identifier - 1.* RPSA-1094, CCB-0222-->
+            <!-- custodian/assignedCustodian/representedCustodianOrganization/name - 1..1 RPSA-1094, CCB-0222 -->
+            
+            <!-- The tags and attributes of 'ext:asEntityIdentifier' are being tested in 'e-Discharge_Summary_Global_Checks.sch'. -->
+            
+            <!-- ENTITY IDENTIFIER -->
+            
+            <assert test="ext:asEntityIdentifier">Error: e-Discharge Summary - 5.1.3 Custodian -
+                "custodian / assignedCustodian / representedCustodianOrganization / Entity Identifier" - The
+                'asEntityIdentifier' tag is missing. Refer to section 3.4.9 Custodian of
+                COMMON-ConformProfileClinDoc-v1.4 and section 5.1.3 of the
+                e-Discharge_Summary_CDA_Implementation_Guide_v3.4.</assert>
+            
+            <!-- NAME -->
+            
+            <assert test="cda:name">Error: e-Discharge Summary - 5.1.3 Custodian -
+                "custodian / assignedCustodian / representedCustodianOrganization / name" - The 'name'
+                tag is missing. Refer to section 3.4.9 Custodian of COMMON-ConformProfileClinDoc-v1.4 and
+                section 5.1.3 of the  e-Discharge_Summary_CDA_Implementation_Guide_v3.4.</assert>
+            
+
+            <report test="count(cda:name) > 1">Error: e-Discharge Summary - 5.1.3 Custodian -
+                "custodian / assignedCustodian / representedCustodianOrganization" - The 'name' tag
+                shall appear only once. Refer to section 5.1.3 Custodian of the
+                e-Discharge_Summary_CDA_Implementation_Guide_v3.4.</report>
+
+            <report test="cda:name and normalize-space(cda:name) = ''">Error: e-Discharge Summary -
+                5.1.3 Custodian -
+                "custodian/assignedCustodian/representedCustodianOrganization/name" - The 'name' tag
+                shall contain a value. Refer to section 5.1.3 Custodian of the
+                e-Discharge_Summary_CDA_Implementation_Guide_v3.4.</report>
+
+            <!-- Custodian - Electronic Communication Detail - 0..1 -->
+
+            <report test="count(cda:telecom) > 1">Error: e-Discharge Summary - 5.1.3 Custodian -
+                "custodian / assignedCustodian / representedCustodianOrganization / Electronic
+                Communication Detail" - The 'telecom' tag shall appear only once. Refer to section
+                5.1.3 Custodian of the
+                e-Discharge_Summary_CDA_Implementation_Guide_v3.4.</report>
+
+            <!-- The tags and attributes of "cda:telecom" are being tested by e-Discharge_Summary_Global_Checks.sch. -->
+
+
+            <!-- Custodian - Address - 0..1 -->
+
+            <report test="count(cda:addr) > 1">Error: e-Discharge Summary - 5.1.3 Custodian -
+                "custodian/assignedCustodian/representedCustodianOrganization" - The 'Address' tag
+                shall appear only once. Refer to section 5.1.3 of the
+                e-Discharge_Summary_CDA_Implementation_Guide_v3.4.</report>
+
+            <!-- The tags and attributes of "cda:addr" are being tested by e-Discharge_Summary_Global_Checks.sch. -->
+
+        </rule>
+      
+      
+        <rule
+            context="/cda:ClinicalDocument/cda:custodian/cda:assignedCustodian/cda:representedCustodianOrganization/ext:asEntityIdentifier/ext:id">
+            
+            <report
+                test="(starts-with(@root, '1.2.36.1.2001.1003.0.80036')) and not( (starts-with(@root, '1.2.36.1.2001.1003.0.800362')) or (starts-with(@root, '1.2.36.1.2001.1003.0.800363')) )"
+                >Error: e-Discharge Summary - 5.1.3 Custodian - "custodian / assignedCustodian /
+                representedCustodianOrganization / Entity Identifier" - The 'id' tag 'root'
+                attribute shall begin with either '1.2.36.1.2001.1003.0.800362' or
+                '1.2.36.1.2001.1003.0.800363' if it begins with '1.2.36.1.2001.1003.0.80036'. Refer
+                to section 3.4.9 Custodian of COMMON-ConformProfileClinDoc-v1.4 and section 5.1.3 of
+                the e-Discharge_Summary_CDA_Implementation_Guide_v3.4.</report>
+            
+            <report
+                test="(starts-with(@root, '1.2.36.1.2001.1007.1.80036')) and not(starts-with(@root, '1.2.36.1.2001.1007.1.800364'))"
+                >Error: e-Discharge Summary - 5.1.3 Custodian - "custodian / assignedCustodian /
+                representedCustodianOrganization / Entity Identifier" - The 'id' tag 'root'
+                attribute shall begin with '1.2.36.1.2001.1007.1.800364' if it begins with
+                '1.2.36.1.2001.1007.1.80036'. Refer to section 3.4.9 Custodian of
+                COMMON-ConformProfileClinDoc-v1.4 and section 5.1.3 of the
+                e-Discharge_Summary_CDA_Implementation_Guide_v3.4.</report>
+            
+            <report
+                test="(starts-with(@root, '1.2.36.1.2001.1007.10.80036')) and not(starts-with(@root, '1.2.36.1.2001.1007.10.800364'))"
+                >Error: e-Discharge Summary - 5.1.3 Custodian - "custodian / assignedCustodian /
+                representedCustodianOrganization / Entity Identifier" - The 'id' tag 'root'
+                attribute shall begin with '1.2.36.1.2001.1007.10.800364' if it begins with
+                '1.2.36.1.2001.1007.10.80036'. Refer to section 3.4.9 Custodian of
+                COMMON-ConformProfileClinDoc-v1.4 and section 5.1.3 of the
+                e-Discharge_Summary_CDA_Implementation_Guide_v3.4.</report>
+            
+            <report
+                test="(starts-with(@root, '1.2.36.1.2001.1007.20.80036')) and not(starts-with(@root, '1.2.36.1.2001.1007.20.800364'))"
+                >Error: e-Discharge Summary - 5.1.3 Custodian - "custodian / assignedCustodian /
+                representedCustodianOrganization / Entity Identifier" - The 'id' tag 'root'
+                attribute shall begin with '1.2.36.1.2001.1007.20.800364' if it begins with
+                '1.2.36.1.2001.1007.20.80036'. Refer to section 3.4.9 Custodian of
+                COMMON-ConformProfileClinDoc-v1.4 and section 5.1.3 of the
+                e-Discharge_Summary_CDA_Implementation_Guide_v3.4.</report>
+            
+        </rule>
+        
+
+    </pattern>
+
+

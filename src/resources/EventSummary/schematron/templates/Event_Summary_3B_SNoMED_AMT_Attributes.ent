@@ -1,0 +1,469 @@
+    <pattern name="p-Event_Summary_3B_SNoMED_AMT_Attributes-errors"
+        id="p-Event_Summary_3B_SNoMED_AMT_Attributes-errors"
+        see="#p-Event_Summary_3B_SNoMED_AMT_Attributes-errors">
+
+
+        <rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code='101.20113']/cda:entry/cda:act[cda:code/@code='102.15517']/cda:participant/cda:participantRole/cda:playingEntity/cda:code[not(cda:translation)] |
+                       /cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code='101.20113']/cda:entry/cda:act[cda:code/@code='102.15517']/cda:entryRelationship/cda:observation[cda:code/@code='102.16474']/cda:entryRelationship/cda:observation[@classCode='OBS']/cda:code[not(cda:translation)] |
+                       /cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code='101.20113']/cda:entry/cda:act[cda:code/@code='102.15517']/cda:entryRelationship/cda:observation[cda:code/@code='102.16474']/cda:entryRelationship/cda:observation[@classCode='OBS']/cda:value[not(cda:translation)] |
+                       /cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code='101.16146']/cda:entry/cda:substanceAdministration[@classCode='SBADM']/cda:consumable/cda:manufacturedProduct/cda:manufacturedMaterial/cda:code[not(cda:translation)] |
+                       /cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code='101.16146']/cda:entry/cda:substanceAdministration[@classCode='SBADM']/cda:entryRelationship/cda:observation[cda:code/@code='103.16593']/cda:value[not(cda:translation or @nullFlavor)] |
+                       /cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code='101.16146']/cda:entry/cda:substanceAdministration[@classCode='SBADM']/cda:entryRelationship/cda:observation[cda:code/@code='103.16593']/cda:entryRelationship/cda:observation[cda:code/@code='103.16595']/cda:value[not(cda:translation or @nullFlavor)] |
+                       /cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code='101.16117']/cda:entry/cda:observation[cda:code/@code='282291009']/cda:value[not(cda:translation)] |
+                       /cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code='101.16117']/cda:entry/cda:procedure/cda:code[not(cda:translation)] |
+                       /cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code='101.16638']/cda:entry/cda:substanceAdministration[@classCode='SBADM']/cda:consumable/cda:manufacturedProduct/cda:manufacturedMaterial/cda:code[not(cda:translation)] |
+                       /cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code='101.20117']/cda:component/cda:section[cda:code/@code='102.16144']/cda:entry/cda:observation[@classCode='OBS']/cda:entryRelationship/cda:observation[cda:code/@code='102.16156.136.2.1']/cda:targetSiteCode[not(cda:translation)] |
+                       /cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code='101.20117']/cda:component/cda:section[cda:code/@code='102.16144']/cda:entry/cda:observation[@classCode='OBS']/cda:entryRelationship/cda:observation[cda:code/@code='102.16156.136.2.1']/cda:targetSiteCode/cda:qualifier[cda:name/@code='272741003']/cda:value[not(cda:translation or @nullFlavor)] |
+                       /cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code='101.20117']/cda:component/cda:section[cda:code/@code='102.16144']/cda:entry/cda:observation[@classCode='OBS']/cda:entryRelationship/cda:organizer[@classCode='BATTERY']/cda:component/cda:observation[cda:code/@code='102.16156.136.2.2']/cda:targetSiteCode[not(cda:translation)] |
+                       /cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code='101.20117']/cda:component/cda:section[cda:code/@code='102.16144']/cda:entry/cda:observation[@classCode='OBS']/cda:entryRelationship/cda:organizer[@classCode='BATTERY']/cda:component/cda:observation[cda:code/@code='102.16156.136.2.2']/cda:targetSiteCode/cda:qualifier[cda:name/@code='272741003']/cda:value[not(cda:translation or @nullFlavor)] |
+                       /cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code='101.20117']/cda:component/cda:section[cda:code/@code='102.16145']/cda:entry/cda:observation[@classCode='OBS']/cda:targetSiteCode[not(cda:translation)] |
+                       /cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code='101.20117']/cda:component/cda:section[cda:code/@code='102.16145']/cda:entry/cda:observation[@classCode='OBS']/cda:targetSiteCode/cda:qualifier[cda:name/@code='272741003']/cda:value[not(cda:translation or @nullFlavor)] |
+                       /cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code='101.20117']/cda:component/cda:section[cda:code/@code='102.16145']/cda:entry/cda:observation[@classCode='OBS']/cda:entryRelationship/cda:organizer[@classCode='BATTERY']/cda:component/cda:observation[@classCode='OBS']/cda:targetSiteCode[not(cda:translation or @nullFlavor)] |
+                       /cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code='101.20117']/cda:component/cda:section[cda:code/@code='102.16145']/cda:entry/cda:observation[@classCode='OBS']/cda:entryRelationship/cda:organizer[@classCode='BATTERY']/cda:component/cda:observation[@classCode='OBS']/cda:targetSiteCode/cda:qualifier[cda:name/@code='272741003']/cda:value[not(cda:translation)]">
+
+            <report test="cda:originalText and normalize-space(cda:originalText) = ''">Error: Event Summary - SNoMED/AMT attributes - 
+                The 'originalText' tag shall contain a value.
+                Refer to sections 
+                7.1.2.1 ADVERSE REACTION / Substance/Agent and/or 
+                7.1.2.1 ADVERSE REACTION / REACTION EVENT / Manifestation and/or 
+                7.1.2.1 ADVERSE REACTION / REACTION EVENT / Reaction Type and/or 
+                7.1.3.1 Known Medication (MEDICATION INSTRUCTION) / Therapeutic Good Identification and/or
+                7.1.3.1 Known Medication (MEDICATION INSTRUCTION) / Change Type and/or 
+                7.1.3.1 Known Medication (MEDICATION INSTRUCTION) / Change Status and/or 
+                7.1.4.1 PROBLEM/DIAGNOSIS / Problem/Diagnosis Identification and/or 
+                7.1.4.2 PROCEDURE / Procedure Name and/or 
+                7.1.5.1 Administered Immunisation (MEDICATION ACTION) / Therapeutic Good Identification and/or
+                7.1.6.1.1 Test Specimen Detail (SPECIMEN) / Anatomical Site (ANATOMICAL LOCATION) / SPECIFIC LOCATION / Anatomical Location Name and/or 
+                7.1.6.1.1 Test Specimen Detail (SPECIMEN) / Anatomical Site (ANATOMICAL LOCATION) / SPECIFIC LOCATION / SPECIFIC LOCATION / Side and/or 
+                7.1.6.1.2.2 Result Group Specimen Detail (SPECIMEN) / Anatomical Site (ANATOMICAL LOCATION) / SPECIFIC LOCATION / Anatomical Location Name and/or 
+                7.1.6.1.2.2 Result Group Specimen Detail (SPECIMEN) / Anatomical Site (ANATOMICAL LOCATION) / SPECIFIC LOCATION / side and/or
+                7.1.6.2 IMAGING EXAMINATION RESULT / Anatomical Site (ANATOMICAL LOCATION) / SPECIFIC LOCATION / Anatomical Location Name and/or
+                7.1.6.2 IMAGING EXAMINATION RESULT / Anatomical Site (ANATOMICAL LOCATION) / SPECIFIC LOCATION / Side and/or                
+                7.1.6.2.1 Result Group (IMAGING EXAMINATION RESULT GROUP) / Anatomical Site (ANATOMICAL LOCATION) / SPECIFIC LOCATION / Side and/or
+                7.1.6.2.1 Result Group (IMAGING EXAMINATION RESULT GROUP) / Anatomical Site (ANATOMICAL LOCATION) / SPECIFIC LOCATION / Anatomical Location Name
+                of the Event_Summary_CDA_Implementation_Guide_v1.3.</report>
+
+
+            <!-- @code - 1..1 -->
+            <assert test="@code">Error: Event Summary - SNoMED/AMT attributes - 
+                The 'code' tag 'code' attribute is missing. 
+                Refer to sections 
+                7.1.2.1 ADVERSE REACTION / Substance/Agent and/or 
+                7.1.2.1 ADVERSE REACTION / REACTION EVENT / Manifestation and/or 
+                7.1.2.1 ADVERSE REACTION / REACTION EVENT / Reaction Type and/or 
+                7.1.3.1 Known Medication (MEDICATION INSTRUCTION) / Therapeutic Good Identification and/or
+                7.1.3.1 Known Medication (MEDICATION INSTRUCTION) / Change Type and/or 
+                7.1.3.1 Known Medication (MEDICATION INSTRUCTION) / Change Status and/or 
+                7.1.4.1 PROBLEM/DIAGNOSIS / Problem/Diagnosis Identification and/or 
+                7.1.4.2 PROCEDURE / Procedure Name and/or 
+                7.1.5.1 Administered Immunisation (MEDICATION ACTION) / Therapeutic Good Identification and/or
+                7.1.6.1.1 Test Specimen Detail (SPECIMEN) / Anatomical Site (ANATOMICAL LOCATION) / SPECIFIC LOCATION / Anatomical Location Name and/or 
+                7.1.6.1.1 Test Specimen Detail (SPECIMEN) / Anatomical Site (ANATOMICAL LOCATION) / SPECIFIC LOCATION / SPECIFIC LOCATION / Side and/or 
+                7.1.6.1.2.2 Result Group Specimen Detail (SPECIMEN) / Anatomical Site (ANATOMICAL LOCATION) / SPECIFIC LOCATION / Anatomical Location Name and/or 
+                7.1.6.1.2.2 Result Group Specimen Detail (SPECIMEN) / Anatomical Site (ANATOMICAL LOCATION) / SPECIFIC LOCATION / side and/or
+                7.1.6.2 IMAGING EXAMINATION RESULT / Anatomical Site (ANATOMICAL LOCATION) / SPECIFIC LOCATION / Anatomical Location Name and/or
+                7.1.6.2 IMAGING EXAMINATION RESULT / Anatomical Site (ANATOMICAL LOCATION) / SPECIFIC LOCATION / Side and/or  
+                7.1.6.2.1 Result Group (IMAGING EXAMINATION RESULT GROUP) / Anatomical Site (ANATOMICAL LOCATION) / SPECIFIC LOCATION / Side and/or
+                7.1.6.2.1 Result Group (IMAGING EXAMINATION RESULT GROUP) / Anatomical Site (ANATOMICAL LOCATION) / SPECIFIC LOCATION / Anatomical Location Name
+                of the Event_Summary_CDA_Implementation_Guide_v1.3.</assert>
+
+            <assert test="normalize-space(@code) != ''">Error: Event Summary - SNoMED/AMT attributes
+                - The 'code' tag 'code' attribute shall contain a value. 
+                Refer to sections 
+                7.1.2.1 ADVERSE REACTION / Substance/Agent and/or 
+                7.1.2.1 ADVERSE REACTION / REACTION EVENT / Manifestation and/or 
+                7.1.2.1 ADVERSE REACTION / REACTION EVENT / Reaction Type and/or 
+                7.1.3.1 Known Medication (MEDICATION INSTRUCTION) / Therapeutic Good Identification and/or
+                7.1.3.1 Known Medication (MEDICATION INSTRUCTION) / Change Type and/or 
+                7.1.3.1 Known Medication (MEDICATION INSTRUCTION) / Change Status and/or 
+                7.1.4.1 PROBLEM/DIAGNOSIS / Problem/Diagnosis Identification and/or 
+                7.1.4.2 PROCEDURE / Procedure Name and/or 
+                7.1.5.1 Administered Immunisation (MEDICATION ACTION) / Therapeutic Good Identification and/or
+                7.1.6.1.1 Test Specimen Detail (SPECIMEN) / Anatomical Site (ANATOMICAL LOCATION) / SPECIFIC LOCATION / Anatomical Location Name and/or 
+                7.1.6.1.1 Test Specimen Detail (SPECIMEN) / Anatomical Site (ANATOMICAL LOCATION) / SPECIFIC LOCATION / SPECIFIC LOCATION / Side and/or 
+                7.1.6.1.2.2 Result Group Specimen Detail (SPECIMEN) / Anatomical Site (ANATOMICAL LOCATION) / SPECIFIC LOCATION / Anatomical Location Name and/or 
+                7.1.6.1.2.2 Result Group Specimen Detail (SPECIMEN) / Anatomical Site (ANATOMICAL LOCATION) / SPECIFIC LOCATION / side and/or
+                7.1.6.2 IMAGING EXAMINATION RESULT / Anatomical Site (ANATOMICAL LOCATION) / SPECIFIC LOCATION / Anatomical Location Name and/or
+                7.1.6.2 IMAGING EXAMINATION RESULT / Anatomical Site (ANATOMICAL LOCATION) / SPECIFIC LOCATION / Side and/or  
+                7.1.6.2.1 Result Group (IMAGING EXAMINATION RESULT GROUP) / Anatomical Site (ANATOMICAL LOCATION) / SPECIFIC LOCATION / Side and/or
+                7.1.6.2.1 Result Group (IMAGING EXAMINATION RESULT GROUP) / Anatomical Site (ANATOMICAL LOCATION) / SPECIFIC LOCATION / Anatomical Location Name
+                of the Event_Summary_CDA_Implementation_Guide_v1.3.</assert>
+
+            <!-- @codeSystem - 1..1 -->
+            <assert test="@codeSystem">Error: Event Summary - SNoMED/AMT attributes - 
+                The 'code' tag 'codeSystem' attribute is missing. Refer to sections 
+                7.1.2.1 ADVERSE REACTION / Substance/Agent and/or 
+                7.1.2.1 ADVERSE REACTION / REACTION EVENT / Manifestation and/or 
+                7.1.2.1 ADVERSE REACTION / REACTION EVENT / Reaction Type and/or 
+                7.1.3.1 Known Medication (MEDICATION INSTRUCTION) / Therapeutic Good Identification and/or
+                7.1.3.1 Known Medication (MEDICATION INSTRUCTION) / Change Type and/or 
+                7.1.3.1 Known Medication (MEDICATION INSTRUCTION) / Change Status and/or 
+                7.1.4.1 PROBLEM/DIAGNOSIS / Problem/Diagnosis Identification and/or 
+                7.1.4.2 PROCEDURE / Procedure Name and/or 
+                7.1.5.1 Administered Immunisation (MEDICATION ACTION) / Therapeutic Good Identification and/or
+                7.1.6.1.1 Test Specimen Detail (SPECIMEN) / Anatomical Site (ANATOMICAL LOCATION) / SPECIFIC LOCATION / Anatomical Location Name and/or 
+                7.1.6.1.1 Test Specimen Detail (SPECIMEN) / Anatomical Site (ANATOMICAL LOCATION) / SPECIFIC LOCATION / SPECIFIC LOCATION / Side and/or 
+                7.1.6.1.2.2 Result Group Specimen Detail (SPECIMEN) / Anatomical Site (ANATOMICAL LOCATION) / SPECIFIC LOCATION / Anatomical Location Name and/or 
+                7.1.6.1.2.2 Result Group Specimen Detail (SPECIMEN) / Anatomical Site (ANATOMICAL LOCATION) / SPECIFIC LOCATION / side and/or
+                7.1.6.2 IMAGING EXAMINATION RESULT / Anatomical Site (ANATOMICAL LOCATION) / SPECIFIC LOCATION / Anatomical Location Name and/or
+                7.1.6.2 IMAGING EXAMINATION RESULT / Anatomical Site (ANATOMICAL LOCATION) / SPECIFIC LOCATION / Side and/or  
+                7.1.6.2.1 Result Group (IMAGING EXAMINATION RESULT GROUP) / Anatomical Site (ANATOMICAL LOCATION) / SPECIFIC LOCATION / Side and/or
+                7.1.6.2.1 Result Group (IMAGING EXAMINATION RESULT GROUP) / Anatomical Site (ANATOMICAL LOCATION) / SPECIFIC LOCATION / Anatomical Location Name
+                of the Event_Summary_CDA_Implementation_Guide_v1.3.</assert>
+
+            <assert test="normalize-space(@codeSystem) != ''">Error: Event Summary - SNoMED/AMT attributes - 
+                The 'code' tag 'codeSystem' attribute shall contain a value. 
+                Refer to sections 
+                7.1.2.1 ADVERSE REACTION / Substance/Agent and/or 
+                7.1.2.1 ADVERSE REACTION / REACTION EVENT / Manifestation and/or 
+                7.1.2.1 ADVERSE REACTION / REACTION EVENT / Reaction Type and/or 
+                7.1.3.1 Known Medication (MEDICATION INSTRUCTION) / Therapeutic Good Identification and/or
+                7.1.3.1 Known Medication (MEDICATION INSTRUCTION) / Change Type and/or 
+                7.1.3.1 Known Medication (MEDICATION INSTRUCTION) / Change Status and/or 
+                7.1.4.1 PROBLEM/DIAGNOSIS / Problem/Diagnosis Identification and/or 
+                7.1.4.2 PROCEDURE / Procedure Name and/or 
+                7.1.5.1 Administered Immunisation (MEDICATION ACTION) / Therapeutic Good Identification and/or
+                7.1.6.1.1 Test Specimen Detail (SPECIMEN) / Anatomical Site (ANATOMICAL LOCATION) / SPECIFIC LOCATION / Anatomical Location Name and/or 
+                7.1.6.1.1 Test Specimen Detail (SPECIMEN) / Anatomical Site (ANATOMICAL LOCATION) / SPECIFIC LOCATION / SPECIFIC LOCATION / Side and/or 
+                7.1.6.1.2.2 Result Group Specimen Detail (SPECIMEN) / Anatomical Site (ANATOMICAL LOCATION) / SPECIFIC LOCATION / Anatomical Location Name and/or 
+                7.1.6.1.2.2 Result Group Specimen Detail (SPECIMEN) / Anatomical Site (ANATOMICAL LOCATION) / SPECIFIC LOCATION / side and/or
+                7.1.6.2 IMAGING EXAMINATION RESULT / Anatomical Site (ANATOMICAL LOCATION) / SPECIFIC LOCATION / Anatomical Location Name and/or
+                7.1.6.2 IMAGING EXAMINATION RESULT / Anatomical Site (ANATOMICAL LOCATION) / SPECIFIC LOCATION / Side and/or  
+                7.1.6.2.1 Result Group (IMAGING EXAMINATION RESULT GROUP) / Anatomical Site (ANATOMICAL LOCATION) / SPECIFIC LOCATION / Side and/or
+                7.1.6.2.1 Result Group (IMAGING EXAMINATION RESULT GROUP) / Anatomical Site (ANATOMICAL LOCATION) / SPECIFIC LOCATION / Anatomical Location Name
+                of the Event_Summary_CDA_Implementation_Guide_v1.3.</assert>
+
+          
+            <!-- @codeSystemVersion - 0..1 -->
+            <report test="@codeSystemVersion and normalize-space(@codeSystemVersion) = ''">Error: Event Summary - SNoMED/AMT attributes - 
+                The 'code' tag 'codeSystemVersion' attribute shall contain a value. 
+                Refer to sections 
+                7.1.2.1 ADVERSE REACTION / Substance/Agent and/or 
+                7.1.2.1 ADVERSE REACTION / REACTION EVENT / Manifestation and/or 
+                7.1.2.1 ADVERSE REACTION / REACTION EVENT / Reaction Type and/or 
+                7.1.3.1 Known Medication (MEDICATION INSTRUCTION) / Therapeutic Good Identification and/or
+                7.1.3.1 Known Medication (MEDICATION INSTRUCTION) / Change Type and/or 
+                7.1.3.1 Known Medication (MEDICATION INSTRUCTION) / Change Status and/or 
+                7.1.4.1 PROBLEM/DIAGNOSIS / Problem/Diagnosis Identification and/or 
+                7.1.4.2 PROCEDURE / Procedure Name and/or 
+                7.1.5.1 Administered Immunisation (MEDICATION ACTION) / Therapeutic Good Identification and/or
+                7.1.6.1.1 Test Specimen Detail (SPECIMEN) / Anatomical Site (ANATOMICAL LOCATION) / SPECIFIC LOCATION / Anatomical Location Name and/or 
+                7.1.6.1.1 Test Specimen Detail (SPECIMEN) / Anatomical Site (ANATOMICAL LOCATION) / SPECIFIC LOCATION / SPECIFIC LOCATION / Side and/or 
+                7.1.6.1.2.2 Result Group Specimen Detail (SPECIMEN) / Anatomical Site (ANATOMICAL LOCATION) / SPECIFIC LOCATION / Anatomical Location Name and/or 
+                7.1.6.1.2.2 Result Group Specimen Detail (SPECIMEN) / Anatomical Site (ANATOMICAL LOCATION) / SPECIFIC LOCATION / side and/or
+                7.1.6.2 IMAGING EXAMINATION RESULT / Anatomical Site (ANATOMICAL LOCATION) / SPECIFIC LOCATION / Anatomical Location Name and/or
+                7.1.6.2 IMAGING EXAMINATION RESULT / Anatomical Site (ANATOMICAL LOCATION) / SPECIFIC LOCATION / Side and/or  
+                7.1.6.2.1 Result Group (IMAGING EXAMINATION RESULT GROUP) / Anatomical Site (ANATOMICAL LOCATION) / SPECIFIC LOCATION / Side and/or
+                7.1.6.2.1 Result Group (IMAGING EXAMINATION RESULT GROUP) / Anatomical Site (ANATOMICAL LOCATION) / SPECIFIC LOCATION / Anatomical Location Name
+                of the Event_Summary_CDA_Implementation_Guide_v1.3.</report>
+
+
+            <!-- @codeSystemName - 0..1 -->
+            <report test="@codeSystemName and normalize-space(@codeSystemName) = ''">Error: Event Summary - SNoMED/AMT attributes - 
+                The 'code' tag 'codeSystemName' attribute shall contain a value. 
+                Refer to sections 
+                7.1.2.1 ADVERSE REACTION / Substance/Agent and/or 
+                7.1.2.1 ADVERSE REACTION / REACTION EVENT / Manifestation and/or 
+                7.1.2.1 ADVERSE REACTION / REACTION EVENT / Reaction Type and/or 
+                7.1.3.1 Known Medication (MEDICATION INSTRUCTION) / Therapeutic Good Identification and/or
+                7.1.3.1 Known Medication (MEDICATION INSTRUCTION) / Change Type and/or 
+                7.1.3.1 Known Medication (MEDICATION INSTRUCTION) / Change Status and/or 
+                7.1.4.1 PROBLEM/DIAGNOSIS / Problem/Diagnosis Identification and/or 
+                7.1.4.2 PROCEDURE / Procedure Name and/or 
+                7.1.5.1 Administered Immunisation (MEDICATION ACTION) / Therapeutic Good Identification and/or
+                7.1.6.1.1 Test Specimen Detail (SPECIMEN) / Anatomical Site (ANATOMICAL LOCATION) / SPECIFIC LOCATION / Anatomical Location Name and/or 
+                7.1.6.1.1 Test Specimen Detail (SPECIMEN) / Anatomical Site (ANATOMICAL LOCATION) / SPECIFIC LOCATION / SPECIFIC LOCATION / Side and/or 
+                7.1.6.1.2.2 Result Group Specimen Detail (SPECIMEN) / Anatomical Site (ANATOMICAL LOCATION) / SPECIFIC LOCATION / Anatomical Location Name and/or 
+                7.1.6.1.2.2 Result Group Specimen Detail (SPECIMEN) / Anatomical Site (ANATOMICAL LOCATION) / SPECIFIC LOCATION / side and/or
+                7.1.6.2 IMAGING EXAMINATION RESULT / Anatomical Site (ANATOMICAL LOCATION) / SPECIFIC LOCATION / Anatomical Location Name and/or
+                7.1.6.2 IMAGING EXAMINATION RESULT / Anatomical Site (ANATOMICAL LOCATION) / SPECIFIC LOCATION / Side and/or  
+                7.1.6.2.1 Result Group (IMAGING EXAMINATION RESULT GROUP) / Anatomical Site (ANATOMICAL LOCATION) / SPECIFIC LOCATION / Side and/or
+                7.1.6.2.1 Result Group (IMAGING EXAMINATION RESULT GROUP) / Anatomical Site (ANATOMICAL LOCATION) / SPECIFIC LOCATION / Anatomical Location Name
+                of the Event_Summary_CDA_Implementation_Guide_v1.3.</report>
+
+         
+
+            <!-- @displayName - 1..1 -->
+            <assert test="@displayName">Error: Event Summary - SNoMED/AMT attributes - 
+                The 'code' tag 'displayName' attribute is missing. 
+                Refer to sections 
+                7.1.2.1 ADVERSE REACTION / Substance/Agent and/or 
+                7.1.2.1 ADVERSE REACTION / REACTION EVENT / Manifestation and/or 
+                7.1.2.1 ADVERSE REACTION / REACTION EVENT / Reaction Type and/or 
+                7.1.3.1 Known Medication (MEDICATION INSTRUCTION) / Therapeutic Good Identification and/or
+                7.1.3.1 Known Medication (MEDICATION INSTRUCTION) / Change Type and/or 
+                7.1.3.1 Known Medication (MEDICATION INSTRUCTION) / Change Status and/or 
+                7.1.4.1 PROBLEM/DIAGNOSIS / Problem/Diagnosis Identification and/or 
+                7.1.4.2 PROCEDURE / Procedure Name and/or 
+                7.1.5.1 Administered Immunisation (MEDICATION ACTION) / Therapeutic Good Identification and/or
+                7.1.6.1.1 Test Specimen Detail (SPECIMEN) / Anatomical Site (ANATOMICAL LOCATION) / SPECIFIC LOCATION / Anatomical Location Name and/or 
+                7.1.6.1.1 Test Specimen Detail (SPECIMEN) / Anatomical Site (ANATOMICAL LOCATION) / SPECIFIC LOCATION / SPECIFIC LOCATION / Side and/or 
+                7.1.6.1.2.2 Result Group Specimen Detail (SPECIMEN) / Anatomical Site (ANATOMICAL LOCATION) / SPECIFIC LOCATION / Anatomical Location Name and/or 
+                7.1.6.1.2.2 Result Group Specimen Detail (SPECIMEN) / Anatomical Site (ANATOMICAL LOCATION) / SPECIFIC LOCATION / side and/or
+                7.1.6.2 IMAGING EXAMINATION RESULT / Anatomical Site (ANATOMICAL LOCATION) / SPECIFIC LOCATION / Anatomical Location Name and/or
+                7.1.6.2 IMAGING EXAMINATION RESULT / Anatomical Site (ANATOMICAL LOCATION) / SPECIFIC LOCATION / Side and/or  
+                7.1.6.2.1 Result Group (IMAGING EXAMINATION RESULT GROUP) / Anatomical Site (ANATOMICAL LOCATION) / SPECIFIC LOCATION / Side and/or
+                7.1.6.2.1 Result Group (IMAGING EXAMINATION RESULT GROUP) / Anatomical Site (ANATOMICAL LOCATION) / SPECIFIC LOCATION / Anatomical Location Name
+                of the Event_Summary_CDA_Implementation_Guide_v1.3.</assert>
+
+            <assert test="normalize-space(@displayName) != ''">Error: Event Summary - SNoMED/AMT attributes - 
+                The 'code' tag 'displayName' attribute shall contain a value. 
+                Refer to sections 
+                7.1.2.1 ADVERSE REACTION / Substance/Agent and/or 
+                7.1.2.1 ADVERSE REACTION / REACTION EVENT / Manifestation and/or 
+                7.1.2.1 ADVERSE REACTION / REACTION EVENT / Reaction Type and/or 
+                7.1.3.1 Known Medication (MEDICATION INSTRUCTION) / Therapeutic Good Identification and/or
+                7.1.3.1 Known Medication (MEDICATION INSTRUCTION) / Change Type and/or 
+                7.1.3.1 Known Medication (MEDICATION INSTRUCTION) / Change Status and/or 
+                7.1.4.1 PROBLEM/DIAGNOSIS / Problem/Diagnosis Identification and/or 
+                7.1.4.2 PROCEDURE / Procedure Name and/or 
+                7.1.5.1 Administered Immunisation (MEDICATION ACTION) / Therapeutic Good Identification and/or
+                7.1.6.1.1 Test Specimen Detail (SPECIMEN) / Anatomical Site (ANATOMICAL LOCATION) / SPECIFIC LOCATION / Anatomical Location Name and/or 
+                7.1.6.1.1 Test Specimen Detail (SPECIMEN) / Anatomical Site (ANATOMICAL LOCATION) / SPECIFIC LOCATION / SPECIFIC LOCATION / Side and/or 
+                7.1.6.1.2.2 Result Group Specimen Detail (SPECIMEN) / Anatomical Site (ANATOMICAL LOCATION) / SPECIFIC LOCATION / Anatomical Location Name and/or 
+                7.1.6.1.2.2 Result Group Specimen Detail (SPECIMEN) / Anatomical Site (ANATOMICAL LOCATION) / SPECIFIC LOCATION / side and/or
+                7.1.6.2 IMAGING EXAMINATION RESULT / Anatomical Site (ANATOMICAL LOCATION) / SPECIFIC LOCATION / Anatomical Location Name and/or
+                7.1.6.2 IMAGING EXAMINATION RESULT / Anatomical Site (ANATOMICAL LOCATION) / SPECIFIC LOCATION / Side and/or  
+                7.1.6.2.1 Result Group (IMAGING EXAMINATION RESULT GROUP) / Anatomical Site (ANATOMICAL LOCATION) / SPECIFIC LOCATION / Side and/or
+                7.1.6.2.1 Result Group (IMAGING EXAMINATION RESULT GROUP) / Anatomical Site (ANATOMICAL LOCATION) / SPECIFIC LOCATION / Anatomical Location Name
+                of the Event_Summary_CDA_Implementation_Guide_v1.3.</assert>
+
+        </rule>
+
+        <rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code='101.20113']/cda:entry/cda:act[cda:code/@code='102.15517']/cda:participant/cda:participantRole/cda:playingEntity/cda:code/cda:translation |
+                       /cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code='101.20113']/cda:entry/cda:act[cda:code/@code='102.15517']/cda:entryRelationship/cda:observation[cda:code/@code='102.16474']/cda:entryRelationship/cda:observation[@classCode='OBS']/cda:code/cda:translation |
+                       /cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code='101.20113']/cda:entry/cda:act[cda:code/@code='102.15517']/cda:entryRelationship/cda:observation[cda:code/@code='102.16474']/cda:entryRelationship/cda:observation[@classCode='OBS']/cda:value/cda:translation |
+                       /cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code='101.16146']/cda:entry/cda:substanceAdministration[@classCode='SBADM']/cda:consumable/cda:manufacturedProduct/cda:manufacturedMaterial/cda:code/cda:translation |
+                       /cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code='101.16146']/cda:entry/cda:substanceAdministration[@classCode='SBADM']/cda:entryRelationship/cda:observation[cda:code/@code='103.16593']/cda:value/cda:translation[not(@nullFlavor)] |
+                       /cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code='101.16146']/cda:entry/cda:substanceAdministration[@classCode='SBADM']/cda:entryRelationship/cda:observation[cda:code/@code='103.16593']/cda:entryRelationship/cda:observation[cda:code/@code='103.16595']/cda:value/cda:translation[not(@nullFlavor)] |
+                       /cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code='101.16117']/cda:entry/cda:observation[cda:code/@code='282291009']/cda:value/cda:translation |
+                       /cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code='101.16117']/cda:entry/cda:procedure/cda:code/cda:translation |
+                       /cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code='101.16638']/cda:entry/cda:substanceAdministration[@classCode='SBADM']/cda:consumable/cda:manufacturedProduct/cda:manufacturedMaterial/cda:code/cda:translation |
+                       /cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code='101.20117']/cda:component/cda:section[cda:code/@code='102.16144']/cda:entry/cda:observation[@classCode='OBS']/cda:entryRelationship/cda:observation[cda:code/@code='102.16156.136.2.1']/cda:targetSiteCode/cda:translation |
+                       /cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code='101.20117']/cda:component/cda:section[cda:code/@code='102.16144']/cda:entry/cda:observation[@classCode='OBS']/cda:entryRelationship/cda:observation[cda:code/@code='102.16156.136.2.1']/cda:targetSiteCode/cda:qualifier[cda:name/@code='272741003']/cda:value/cda:translation[not(@nullFlavor)] |
+                       /cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code='101.20117']/cda:component/cda:section[cda:code/@code='102.16144']/cda:entry/cda:observation[@classCode='OBS']/cda:entryRelationship/cda:organizer[@classCode='BATTERY']/cda:component/cda:observation[cda:code/@code='102.16156.136.2.2']/cda:targetSiteCode/cda:translation |
+                       /cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code='101.20117']/cda:component/cda:section[cda:code/@code='102.16144']/cda:entry/cda:observation[@classCode='OBS']/cda:entryRelationship/cda:organizer[@classCode='BATTERY']/cda:component/cda:observation[cda:code/@code='102.16156.136.2.2']/cda:targetSiteCode/cda:qualifier[cda:name/@code='272741003']/cda:value/cda:translation[not(@nullFlavor)] |
+                       /cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code='101.20117']/cda:component/cda:section[cda:code/@code='102.16145']/cda:entry/cda:observation[@classCode='OBS']/cda:targetSiteCode/cda:translation |
+                       /cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code='101.20117']/cda:component/cda:section[cda:code/@code='102.16145']/cda:entry/cda:observation[@classCode='OBS']/cda:targetSiteCode/cda:qualifier[cda:name/@code='272741003']/cda:value/cda:translation[not(@nullFlavor)] |
+                       /cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code='101.20117']/cda:component/cda:section[cda:code/@code='102.16145']/cda:entry/cda:observation[@classCode='OBS']/cda:entryRelationship/cda:organizer[@classCode='BATTERY']/cda:component/cda:observation[@classCode='OBS']/cda:targetSiteCode/cda:translation[not(@nullFlavor)] |
+                       /cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code='101.20117']/cda:component/cda:section[cda:code/@code='102.16145']/cda:entry/cda:observation[@classCode='OBS']/cda:entryRelationship/cda:organizer[@classCode='BATTERY']/cda:component/cda:observation[@classCode='OBS']/cda:targetSiteCode/cda:qualifier[cda:name/@code='272741003']/cda:value/cda:translation">
+
+
+            <!--cda:originalText - 0..1 - if cda:translation is not present -->
+            <!-- cda:originalText - 1..1 - if cda:translation is     present  - covered in above rule context -->
+
+
+            <assert test="../cda:originalText">Error: Event Summary - SNoMED/AMT attributes - 
+                The 'originalText' tag is missing. 
+                Refer to sections 
+                7.1.2.1 ADVERSE REACTION / Substance/Agent and/or 
+                7.1.2.1 ADVERSE REACTION / REACTION EVENT / Manifestation and/or 
+                7.1.2.1 ADVERSE REACTION / REACTION EVENT / Reaction Type and/or 
+                7.1.3.1 Known Medication (MEDICATION INSTRUCTION) / Therapeutic Good Identification and/or
+                7.1.3.1 Known Medication (MEDICATION INSTRUCTION) / Change Type and/or 
+                7.1.3.1 Known Medication (MEDICATION INSTRUCTION) / Change Status and/or 
+                7.1.4.1 PROBLEM/DIAGNOSIS / Problem/Diagnosis Identification and/or 
+                7.1.4.2 PROCEDURE / Procedure Name and/or 
+                7.1.5.1 Administered Immunisation (MEDICATION ACTION) / Therapeutic Good Identification and/or
+                7.1.6.1.1 Test Specimen Detail (SPECIMEN) / Anatomical Site (ANATOMICAL LOCATION) / SPECIFIC LOCATION / Anatomical Location Name and/or 
+                7.1.6.1.1 Test Specimen Detail (SPECIMEN) / Anatomical Site (ANATOMICAL LOCATION) / SPECIFIC LOCATION / SPECIFIC LOCATION / Side and/or 
+                7.1.6.1.2.2 Result Group Specimen Detail (SPECIMEN) / Anatomical Site (ANATOMICAL LOCATION) / SPECIFIC LOCATION / Anatomical Location Name and/or 
+                7.1.6.1.2.2 Result Group Specimen Detail (SPECIMEN) / Anatomical Site (ANATOMICAL LOCATION) / SPECIFIC LOCATION / side and/or
+                7.1.6.2 IMAGING EXAMINATION RESULT / Anatomical Site (ANATOMICAL LOCATION) / SPECIFIC LOCATION / Anatomical Location Name and/or
+                7.1.6.2 IMAGING EXAMINATION RESULT / Anatomical Site (ANATOMICAL LOCATION) / SPECIFIC LOCATION / Side and/or  
+                7.1.6.2.1 Result Group (IMAGING EXAMINATION RESULT GROUP) / Anatomical Site (ANATOMICAL LOCATION) / SPECIFIC LOCATION / Side and/or
+                7.1.6.2.1 Result Group (IMAGING EXAMINATION RESULT GROUP) / Anatomical Site (ANATOMICAL LOCATION) / SPECIFIC LOCATION / Anatomical Location Name
+                of the Event_Summary_CDA_Implementation_Guide_v1.3.</assert>
+
+
+            <!-- @code - 1..1 -->
+            <assert test="@code">Error: Event Summary - SNoMED/AMT attributes - 
+                The 'translation' tag 'code' attribute is missing. 
+                Refer to sections 
+                7.1.2.1 ADVERSE REACTION / Substance/Agent and/or 
+                7.1.2.1 ADVERSE REACTION / REACTION EVENT / Manifestation and/or 
+                7.1.2.1 ADVERSE REACTION / REACTION EVENT / Reaction Type and/or 
+                7.1.3.1 Known Medication (MEDICATION INSTRUCTION) / Therapeutic Good Identification and/or
+                7.1.3.1 Known Medication (MEDICATION INSTRUCTION) / Change Type and/or 
+                7.1.3.1 Known Medication (MEDICATION INSTRUCTION) / Change Status and/or 
+                7.1.4.1 PROBLEM/DIAGNOSIS / Problem/Diagnosis Identification and/or 
+                7.1.4.2 PROCEDURE / Procedure Name and/or 
+                7.1.5.1 Administered Immunisation (MEDICATION ACTION) / Therapeutic Good Identification and/or
+                7.1.6.1.1 Test Specimen Detail (SPECIMEN) / Anatomical Site (ANATOMICAL LOCATION) / SPECIFIC LOCATION / Anatomical Location Name and/or 
+                7.1.6.1.1 Test Specimen Detail (SPECIMEN) / Anatomical Site (ANATOMICAL LOCATION) / SPECIFIC LOCATION / SPECIFIC LOCATION / Side and/or 
+                7.1.6.1.2.2 Result Group Specimen Detail (SPECIMEN) / Anatomical Site (ANATOMICAL LOCATION) / SPECIFIC LOCATION / Anatomical Location Name and/or 
+                7.1.6.1.2.2 Result Group Specimen Detail (SPECIMEN) / Anatomical Site (ANATOMICAL LOCATION) / SPECIFIC LOCATION / side and/or
+                7.1.6.2 IMAGING EXAMINATION RESULT / Anatomical Site (ANATOMICAL LOCATION) / SPECIFIC LOCATION / Anatomical Location Name and/or
+                7.1.6.2 IMAGING EXAMINATION RESULT / Anatomical Site (ANATOMICAL LOCATION) / SPECIFIC LOCATION / Side and/or  
+                7.1.6.2.1 Result Group (IMAGING EXAMINATION RESULT GROUP) / Anatomical Site (ANATOMICAL LOCATION) / SPECIFIC LOCATION / Side and/or
+                7.1.6.2.1 Result Group (IMAGING EXAMINATION RESULT GROUP) / Anatomical Site (ANATOMICAL LOCATION) / SPECIFIC LOCATION / Anatomical Location Name
+                of the Event_Summary_CDA_Implementation_Guide_v1.3.</assert>
+
+            <assert test="normalize-space(@code) != ''">Error: Event Summary - SNoMED/AMT attributes - 
+                The 'translation' tag 'code' attribute shall contain a value. 
+                Refer to sections 
+                7.1.2.1 ADVERSE REACTION / Substance/Agent and/or 
+                7.1.2.1 ADVERSE REACTION / REACTION EVENT / Manifestation and/or 
+                7.1.2.1 ADVERSE REACTION / REACTION EVENT / Reaction Type and/or 
+                7.1.3.1 Known Medication (MEDICATION INSTRUCTION) / Therapeutic Good Identification and/or
+                7.1.3.1 Known Medication (MEDICATION INSTRUCTION) / Change Type and/or 
+                7.1.3.1 Known Medication (MEDICATION INSTRUCTION) / Change Status and/or 
+                7.1.4.1 PROBLEM/DIAGNOSIS / Problem/Diagnosis Identification and/or 
+                7.1.4.2 PROCEDURE / Procedure Name and/or 
+                7.1.5.1 Administered Immunisation (MEDICATION ACTION) / Therapeutic Good Identification and/or
+                7.1.6.1.1 Test Specimen Detail (SPECIMEN) / Anatomical Site (ANATOMICAL LOCATION) / SPECIFIC LOCATION / Anatomical Location Name and/or 
+                7.1.6.1.1 Test Specimen Detail (SPECIMEN) / Anatomical Site (ANATOMICAL LOCATION) / SPECIFIC LOCATION / SPECIFIC LOCATION / Side and/or 
+                7.1.6.1.2.2 Result Group Specimen Detail (SPECIMEN) / Anatomical Site (ANATOMICAL LOCATION) / SPECIFIC LOCATION / Anatomical Location Name and/or 
+                7.1.6.1.2.2 Result Group Specimen Detail (SPECIMEN) / Anatomical Site (ANATOMICAL LOCATION) / SPECIFIC LOCATION / side and/or
+                7.1.6.2 IMAGING EXAMINATION RESULT / Anatomical Site (ANATOMICAL LOCATION) / SPECIFIC LOCATION / Anatomical Location Name and/or
+                7.1.6.2 IMAGING EXAMINATION RESULT / Anatomical Site (ANATOMICAL LOCATION) / SPECIFIC LOCATION / Side and/or  
+                7.1.6.2.1 Result Group (IMAGING EXAMINATION RESULT GROUP) / Anatomical Site (ANATOMICAL LOCATION) / SPECIFIC LOCATION / Side and/or
+                7.1.6.2.1 Result Group (IMAGING EXAMINATION RESULT GROUP) / Anatomical Site (ANATOMICAL LOCATION) / SPECIFIC LOCATION / Anatomical Location Name
+                of the Event_Summary_CDA_Implementation_Guide_v1.3.</assert>
+
+         
+            <!-- @codeSystem - 1..1 -->
+            <assert test="@codeSystem">Error: Event Summary - SNoMED/AMT attributes - 
+                The 'translation' tag 'codeSystem' attribute is missing. 
+                Refer to sections 
+                7.1.2.1 ADVERSE REACTION / Substance/Agent and/or 
+                7.1.2.1 ADVERSE REACTION / REACTION EVENT / Manifestation and/or 
+                7.1.2.1 ADVERSE REACTION / REACTION EVENT / Reaction Type and/or 
+                7.1.3.1 Known Medication (MEDICATION INSTRUCTION) / Therapeutic Good Identification and/or
+                7.1.3.1 Known Medication (MEDICATION INSTRUCTION) / Change Type and/or 
+                7.1.3.1 Known Medication (MEDICATION INSTRUCTION) / Change Status and/or 
+                7.1.4.1 PROBLEM/DIAGNOSIS / Problem/Diagnosis Identification and/or 
+                7.1.4.2 PROCEDURE / Procedure Name and/or 
+                7.1.5.1 Administered Immunisation (MEDICATION ACTION) / Therapeutic Good Identification and/or
+                7.1.6.1.1 Test Specimen Detail (SPECIMEN) / Anatomical Site (ANATOMICAL LOCATION) / SPECIFIC LOCATION / Anatomical Location Name and/or 
+                7.1.6.1.1 Test Specimen Detail (SPECIMEN) / Anatomical Site (ANATOMICAL LOCATION) / SPECIFIC LOCATION / SPECIFIC LOCATION / Side and/or 
+                7.1.6.1.2.2 Result Group Specimen Detail (SPECIMEN) / Anatomical Site (ANATOMICAL LOCATION) / SPECIFIC LOCATION / Anatomical Location Name and/or 
+                7.1.6.1.2.2 Result Group Specimen Detail (SPECIMEN) / Anatomical Site (ANATOMICAL LOCATION) / SPECIFIC LOCATION / side and/or
+                7.1.6.2 IMAGING EXAMINATION RESULT / Anatomical Site (ANATOMICAL LOCATION) / SPECIFIC LOCATION / Anatomical Location Name and/or
+                7.1.6.2 IMAGING EXAMINATION RESULT / Anatomical Site (ANATOMICAL LOCATION) / SPECIFIC LOCATION / Side and/or  
+                7.1.6.2.1 Result Group (IMAGING EXAMINATION RESULT GROUP) / Anatomical Site (ANATOMICAL LOCATION) / SPECIFIC LOCATION / Side and/or
+                7.1.6.2.1 Result Group (IMAGING EXAMINATION RESULT GROUP) / Anatomical Site (ANATOMICAL LOCATION) / SPECIFIC LOCATION / Anatomical Location Name
+                of the Event_Summary_CDA_Implementation_Guide_v1.3.</assert>
+
+            <assert test="normalize-space(@codeSystem) != ''">Error: Event Summary - SNoMED/AMT attributes - 
+                The 'translation' tag 'codeSystem' attribute shall contain a value.
+                Refer to sections 
+                7.1.2.1 ADVERSE REACTION / Substance/Agent and/or 
+                7.1.2.1 ADVERSE REACTION / REACTION EVENT / Manifestation and/or 
+                7.1.2.1 ADVERSE REACTION / REACTION EVENT / Reaction Type and/or 
+                7.1.3.1 Known Medication (MEDICATION INSTRUCTION) / Therapeutic Good Identification and/or
+                7.1.3.1 Known Medication (MEDICATION INSTRUCTION) / Change Type and/or 
+                7.1.3.1 Known Medication (MEDICATION INSTRUCTION) / Change Status and/or 
+                7.1.4.1 PROBLEM/DIAGNOSIS / Problem/Diagnosis Identification and/or 
+                7.1.4.2 PROCEDURE / Procedure Name and/or 
+                7.1.5.1 Administered Immunisation (MEDICATION ACTION) / Therapeutic Good Identification and/or
+                7.1.6.1.1 Test Specimen Detail (SPECIMEN) / Anatomical Site (ANATOMICAL LOCATION) / SPECIFIC LOCATION / Anatomical Location Name and/or 
+                7.1.6.1.1 Test Specimen Detail (SPECIMEN) / Anatomical Site (ANATOMICAL LOCATION) / SPECIFIC LOCATION / SPECIFIC LOCATION / Side and/or 
+                7.1.6.1.2.2 Result Group Specimen Detail (SPECIMEN) / Anatomical Site (ANATOMICAL LOCATION) / SPECIFIC LOCATION / Anatomical Location Name and/or 
+                7.1.6.1.2.2 Result Group Specimen Detail (SPECIMEN) / Anatomical Site (ANATOMICAL LOCATION) / SPECIFIC LOCATION / side and/or
+                7.1.6.2 IMAGING EXAMINATION RESULT / Anatomical Site (ANATOMICAL LOCATION) / SPECIFIC LOCATION / Anatomical Location Name and/or
+                7.1.6.2 IMAGING EXAMINATION RESULT / Anatomical Site (ANATOMICAL LOCATION) / SPECIFIC LOCATION / Side and/or  
+                7.1.6.2.1 Result Group (IMAGING EXAMINATION RESULT GROUP) / Anatomical Site (ANATOMICAL LOCATION) / SPECIFIC LOCATION / Side and/or
+                7.1.6.2.1 Result Group (IMAGING EXAMINATION RESULT GROUP) / Anatomical Site (ANATOMICAL LOCATION) / SPECIFIC LOCATION / Anatomical Location Name
+                of the Event_Summary_CDA_Implementation_Guide_v1.3.</assert>
+
+
+            <!-- @codeSystemVersion - 0..1 -->
+            <report test="@codeSystemVersion and normalize-space(@codeSystemVersion) = ''">Error: Event Summary - SNoMED/AMT attributes - 
+                The 'translation' tag 'codeSystemNameVersion' attribute shall contain a value. 
+                Refer to sections 
+                7.1.2.1 ADVERSE REACTION / Substance/Agent and/or 
+                7.1.2.1 ADVERSE REACTION / REACTION EVENT / Manifestation and/or 
+                7.1.2.1 ADVERSE REACTION / REACTION EVENT / Reaction Type and/or 
+                7.1.3.1 Known Medication (MEDICATION INSTRUCTION) / Therapeutic Good Identification and/or
+                7.1.3.1 Known Medication (MEDICATION INSTRUCTION) / Change Type and/or 
+                7.1.3.1 Known Medication (MEDICATION INSTRUCTION) / Change Status and/or 
+                7.1.4.1 PROBLEM/DIAGNOSIS / Problem/Diagnosis Identification and/or 
+                7.1.4.2 PROCEDURE / Procedure Name and/or 
+                7.1.5.1 Administered Immunisation (MEDICATION ACTION) / Therapeutic Good Identification and/or
+                7.1.6.1.1 Test Specimen Detail (SPECIMEN) / Anatomical Site (ANATOMICAL LOCATION) / SPECIFIC LOCATION / Anatomical Location Name and/or 
+                7.1.6.1.1 Test Specimen Detail (SPECIMEN) / Anatomical Site (ANATOMICAL LOCATION) / SPECIFIC LOCATION / SPECIFIC LOCATION / Side and/or 
+                7.1.6.1.2.2 Result Group Specimen Detail (SPECIMEN) / Anatomical Site (ANATOMICAL LOCATION) / SPECIFIC LOCATION / Anatomical Location Name and/or 
+                7.1.6.1.2.2 Result Group Specimen Detail (SPECIMEN) / Anatomical Site (ANATOMICAL LOCATION) / SPECIFIC LOCATION / side and/or
+                7.1.6.2 IMAGING EXAMINATION RESULT / Anatomical Site (ANATOMICAL LOCATION) / SPECIFIC LOCATION / Anatomical Location Name and/or
+                7.1.6.2 IMAGING EXAMINATION RESULT / Anatomical Site (ANATOMICAL LOCATION) / SPECIFIC LOCATION / Side and/or  
+                7.1.6.2.1 Result Group (IMAGING EXAMINATION RESULT GROUP) / Anatomical Site (ANATOMICAL LOCATION) / SPECIFIC LOCATION / Side and/or
+                7.1.6.2.1 Result Group (IMAGING EXAMINATION RESULT GROUP) / Anatomical Site (ANATOMICAL LOCATION) / SPECIFIC LOCATION / Anatomical Location Name
+                of the Event_Summary_CDA_Implementation_Guide_v1.3.</report>
+
+
+
+            <!-- @codeSystemName - 0..1 -->
+            <report test="@codeSystemName and normalize-space(@codeSystemName) = ''">Error: Event Summary - SNoMED/AMT attributes - 
+                The 'translation' tag 'codeSystemName' attribute shall contain a value. 
+                Refer to sections 
+                7.1.2.1 ADVERSE REACTION / Substance/Agent and/or 
+                7.1.2.1 ADVERSE REACTION / REACTION EVENT / Manifestation and/or 
+                7.1.2.1 ADVERSE REACTION / REACTION EVENT / Reaction Type and/or 
+                7.1.3.1 Known Medication (MEDICATION INSTRUCTION) / Therapeutic Good Identification and/or
+                7.1.3.1 Known Medication (MEDICATION INSTRUCTION) / Change Type and/or 
+                7.1.3.1 Known Medication (MEDICATION INSTRUCTION) / Change Status and/or 
+                7.1.4.1 PROBLEM/DIAGNOSIS / Problem/Diagnosis Identification and/or 
+                7.1.4.2 PROCEDURE / Procedure Name and/or 
+                7.1.5.1 Administered Immunisation (MEDICATION ACTION) / Therapeutic Good Identification and/or
+                7.1.6.1.1 Test Specimen Detail (SPECIMEN) / Anatomical Site (ANATOMICAL LOCATION) / SPECIFIC LOCATION / Anatomical Location Name and/or 
+                7.1.6.1.1 Test Specimen Detail (SPECIMEN) / Anatomical Site (ANATOMICAL LOCATION) / SPECIFIC LOCATION / SPECIFIC LOCATION / Side and/or 
+                7.1.6.1.2.2 Result Group Specimen Detail (SPECIMEN) / Anatomical Site (ANATOMICAL LOCATION) / SPECIFIC LOCATION / Anatomical Location Name and/or 
+                7.1.6.1.2.2 Result Group Specimen Detail (SPECIMEN) / Anatomical Site (ANATOMICAL LOCATION) / SPECIFIC LOCATION / side and/or
+                7.1.6.2 IMAGING EXAMINATION RESULT / Anatomical Site (ANATOMICAL LOCATION) / SPECIFIC LOCATION / Anatomical Location Name and/or
+                7.1.6.2 IMAGING EXAMINATION RESULT / Anatomical Site (ANATOMICAL LOCATION) / SPECIFIC LOCATION / Side and/or  
+                7.1.6.2.1 Result Group (IMAGING EXAMINATION RESULT GROUP) / Anatomical Site (ANATOMICAL LOCATION) / SPECIFIC LOCATION / Side and/or
+                7.1.6.2.1 Result Group (IMAGING EXAMINATION RESULT GROUP) / Anatomical Site (ANATOMICAL LOCATION) / SPECIFIC LOCATION / Anatomical Location Name
+                of the Event_Summary_CDA_Implementation_Guide_v1.3.</report>
+
+        
+            <!-- @displayName - 1..1 -->
+            <assert test="@displayName">Error: Event Summary - SNoMED/AMT attributes - 
+                The 'translation' tag 'displayName' attribute is missing. 
+                Refer to sections 
+                7.1.2.1 ADVERSE REACTION / Substance/Agent and/or 
+                7.1.2.1 ADVERSE REACTION / REACTION EVENT / Manifestation and/or 
+                7.1.2.1 ADVERSE REACTION / REACTION EVENT / Reaction Type and/or 
+                7.1.3.1 Known Medication (MEDICATION INSTRUCTION) / Therapeutic Good Identification and/or
+                7.1.3.1 Known Medication (MEDICATION INSTRUCTION) / Change Type and/or 
+                7.1.3.1 Known Medication (MEDICATION INSTRUCTION) / Change Status and/or 
+                7.1.4.1 PROBLEM/DIAGNOSIS / Problem/Diagnosis Identification and/or 
+                7.1.4.2 PROCEDURE / Procedure Name and/or 
+                7.1.5.1 Administered Immunisation (MEDICATION ACTION) / Therapeutic Good Identification and/or
+                7.1.6.1.1 Test Specimen Detail (SPECIMEN) / Anatomical Site (ANATOMICAL LOCATION) / SPECIFIC LOCATION / Anatomical Location Name and/or 
+                7.1.6.1.1 Test Specimen Detail (SPECIMEN) / Anatomical Site (ANATOMICAL LOCATION) / SPECIFIC LOCATION / SPECIFIC LOCATION / Side and/or 
+                7.1.6.1.2.2 Result Group Specimen Detail (SPECIMEN) / Anatomical Site (ANATOMICAL LOCATION) / SPECIFIC LOCATION / Anatomical Location Name and/or 
+                7.1.6.1.2.2 Result Group Specimen Detail (SPECIMEN) / Anatomical Site (ANATOMICAL LOCATION) / SPECIFIC LOCATION / side and/or
+                7.1.6.2 IMAGING EXAMINATION RESULT / Anatomical Site (ANATOMICAL LOCATION) / SPECIFIC LOCATION / Anatomical Location Name and/or
+                7.1.6.2 IMAGING EXAMINATION RESULT / Anatomical Site (ANATOMICAL LOCATION) / SPECIFIC LOCATION / Side and/or  
+                7.1.6.2.1 Result Group (IMAGING EXAMINATION RESULT GROUP) / Anatomical Site (ANATOMICAL LOCATION) / SPECIFIC LOCATION / Side and/or
+                7.1.6.2.1 Result Group (IMAGING EXAMINATION RESULT GROUP) / Anatomical Site (ANATOMICAL LOCATION) / SPECIFIC LOCATION / Anatomical Location Name
+                of the Event_Summary_CDA_Implementation_Guide_v1.3.</assert>
+
+
+            <assert test="normalize-space(@displayName) != ''">Error: Event Summary - SNoMED/AMT attributes - 
+                The 'translation' tag 'displayName' attribute shall contain a value.
+                Refer to sections 
+                7.1.2.1 ADVERSE REACTION / Substance/Agent and/or 
+                7.1.2.1 ADVERSE REACTION / REACTION EVENT / Manifestation and/or 
+                7.1.2.1 ADVERSE REACTION / REACTION EVENT / Reaction Type and/or 
+                7.1.3.1 Known Medication (MEDICATION INSTRUCTION) / Therapeutic Good Identification and/or
+                7.1.3.1 Known Medication (MEDICATION INSTRUCTION) / Change Type and/or 
+                7.1.3.1 Known Medication (MEDICATION INSTRUCTION) / Change Status and/or 
+                7.1.4.1 PROBLEM/DIAGNOSIS / Problem/Diagnosis Identification and/or 
+                7.1.4.2 PROCEDURE / Procedure Name and/or 
+                7.1.5.1 Administered Immunisation (MEDICATION ACTION) / Therapeutic Good Identification and/or
+                7.1.6.1.1 Test Specimen Detail (SPECIMEN) / Anatomical Site (ANATOMICAL LOCATION) / SPECIFIC LOCATION / Anatomical Location Name and/or 
+                7.1.6.1.1 Test Specimen Detail (SPECIMEN) / Anatomical Site (ANATOMICAL LOCATION) / SPECIFIC LOCATION / SPECIFIC LOCATION / Side and/or 
+                7.1.6.1.2.2 Result Group Specimen Detail (SPECIMEN) / Anatomical Site (ANATOMICAL LOCATION) / SPECIFIC LOCATION / Anatomical Location Name and/or 
+                7.1.6.1.2.2 Result Group Specimen Detail (SPECIMEN) / Anatomical Site (ANATOMICAL LOCATION) / SPECIFIC LOCATION / side and/or
+                7.1.6.2 IMAGING EXAMINATION RESULT / Anatomical Site (ANATOMICAL LOCATION) / SPECIFIC LOCATION / Anatomical Location Name and/or
+                7.1.6.2 IMAGING EXAMINATION RESULT / Anatomical Site (ANATOMICAL LOCATION) / SPECIFIC LOCATION / Side and/or  
+                7.1.6.2.1 Result Group (IMAGING EXAMINATION RESULT GROUP) / Anatomical Site (ANATOMICAL LOCATION) / SPECIFIC LOCATION / Side and/or
+                7.1.6.2.1 Result Group (IMAGING EXAMINATION RESULT GROUP) / Anatomical Site (ANATOMICAL LOCATION) / SPECIFIC LOCATION / Anatomical Location Name
+                of the Event_Summary_CDA_Implementation_Guide_v1.3.</assert>
+
+        </rule>
+
+    </pattern>
+

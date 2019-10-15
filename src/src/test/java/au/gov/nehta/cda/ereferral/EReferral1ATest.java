@@ -1,22 +1,5 @@
 package au.gov.nehta.cda.ereferral;
 
-import java.io.File;
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.UUID;
-
-import javax.xml.bind.JAXBException;
-import javax.xml.parsers.ParserConfigurationException;
-
-import junit.framework.Assert;
-
-import org.joda.time.DateTime;
-import org.joda.time.LocalDate;
-import org.junit.Test;
-import org.w3c.dom.Document;
-
 import au.gov.nehta.builder.ereferral.EReferralCreator;
 import au.gov.nehta.builder.ereferral.ReferralAuthor;
 import au.gov.nehta.builder.ereferral.ReferralAuthorImpl;
@@ -70,7 +53,6 @@ import au.gov.nehta.model.clinical.common.participation.DateOfBirthDetailImpl;
 import au.gov.nehta.model.clinical.common.participation.IndigenousStatus;
 import au.gov.nehta.model.clinical.common.participation.NameSuffix;
 import au.gov.nehta.model.clinical.common.participation.NameTitle;
-import au.gov.nehta.model.clinical.common.participation.Occupation;
 import au.gov.nehta.model.clinical.common.participation.OccupationImpl;
 import au.gov.nehta.model.clinical.common.participation.Organisation;
 import au.gov.nehta.model.clinical.common.participation.OrganisationImpl;
@@ -98,255 +80,271 @@ import au.gov.nehta.model.schematron.SchematronValidationException;
 import au.gov.nehta.schematron.Schematron;
 import au.gov.nehta.schematron.SchematronCheckResult;
 import au.gov.nehta.test.exceptions.SchemaValidationException;
+import java.io.File;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import java.util.UUID;
+import javax.xml.bind.JAXBException;
+import javax.xml.parsers.ParserConfigurationException;
+import junit.framework.Assert;
+import org.joda.time.DateTime;
+import org.joda.time.LocalDate;
+import org.junit.Test;
+import org.w3c.dom.Document;
 
-public class EReferral1ATest extends Base{
+public class EReferral1ATest extends Base {
 
-    private static final String SCHEMATRON = "ccd-1A.sch";
-    private static final String SCHEMATRON_TEMPLATE_PATH =      "resources/e-Referral";
-    
-
-    
-    private static final String DOCUMENT_FILE_NAME = TEST_GENERATION+"ereferral-1A.xml";
-    
-   
-    @Test
-    public void test_E_REFERRAL_1A_Creation() throws ParserConfigurationException, JAXBException, SchemaValidationException, SchematronValidationException, IOException {
-        generate1A();
-        SchematronCheckResult check = Schematron.check( SCHEMATRON_TEMPLATE_PATH, SCHEMATRON, DOCUMENT_FILE_NAME );
-        
-        show( check );
-        
-        Assert.assertTrue( check.schemaErrors.size() == 0 );
-        // RDS disabled Assert.assertTrue( check.schematronErrors.size() == 0 );
-    }
+  private static final String SCHEMATRON = "ccd-1A.sch";
+  private static final String SCHEMATRON_TEMPLATE_PATH = "resources/e-Referral";
 
 
-    private void generate1A() throws ParserConfigurationException, JAXBException, SchematronValidationException {
-        String documentID = UUID.randomUUID().toString();
-        
-        // ***************************
-        // ***** Subject Of Care *****
-        // ***************************
-
-        IHI subjectIHI = new IHI( "8003600300001283" );
-
-        String subjectFamilyName = "Harding";
-        DateTime dob = new LocalDate( 1982, 11, 28 ).toDateTimeAtStartOfDay();
+  private static final String DOCUMENT_FILE_NAME = TEST_GENERATION + "ereferral-1A.xml";
 
 
-        AustralianAddress patientAddress = new AustralianAddressImpl();
-        patientAddress.addUnstructuredAddressLine( "10 browning st" );
-        patientAddress.setCity( "West End" );
-        patientAddress.setState( AustralianStateTerritory.QUEENSLAND.getAbbreviation() );
-        patientAddress.setPostcode( "4101" );
-        AddressContext subjectOfCareAddresses = new AddressContextImpl( patientAddress, AddressPurpose.RESIDENTIAL_PERMANENT );
-        
-        
-        PersonName subjectPersonName = new PersonNameImpl( subjectFamilyName );
-        subjectPersonName.addGivenName( "Frank" );
-        subjectPersonName.addNameTitle( NameTitle.MISTER.getDescriptor() );
-        subjectPersonName.addNameSuffix( NameSuffix.JUNIOR.getDescriptor() );
-        subjectPersonName.addPersonNameUsage( PersonNameUsage.REGISTERED_NAME_OR_LEGAL_NAME );
+  @Test
+  public void test_E_REFERRAL_1A_Creation()
+      throws ParserConfigurationException, JAXBException, SchemaValidationException, SchematronValidationException, IOException {
+    generate1A();
+    SchematronCheckResult check = Schematron
+        .check(SCHEMATRON_TEMPLATE_PATH, SCHEMATRON, DOCUMENT_FILE_NAME);
 
-        DateAccuracy dobAccuracy = new DateAccuracyImpl(
-        		/* Day Accuracy*/ true, 
-        		/* Month Accuracy*/ true,
-        		/* Year Accuracy*/true );
-        
-        DateOfBirthDetail subjectDOB = new DateOfBirthDetailImpl( dob, dobAccuracy );
-        subjectDOB.setDateOfBirthAccuracyIndicator( dobAccuracy );
-        subjectDOB.setDateOfBirthIsCalculatedFromAge( true );
+    show(check);
 
-        SubjectOfCareDemographicData demoData = new SubjectOfCareDemographicDataImpl( Sex.MALE, subjectDOB );
-
-        demoData.setBirthPlurality( 5 );
-        demoData.setBirthOrder( 2 );
-        int age = 31;
-        demoData.setAgeInYears( age );
-        demoData.setAgeAccurate( true );
-        demoData.setIndigenousStatus( IndigenousStatus.NOT_STATED_OR_INADEQUATELY_DESCRIBED );
-
-        SubjectOfCarePerson subjectOfCarePerson = new SubjectOfCarePersonImpl( subjectPersonName, demoData );
-        MedicareCardIdentifier medicareCard = new MedicareCardIdentifier( "4324567871" );
-        SubjectOfCareParticipant subject = new SubjectOfCareParticipantImpl( Arrays.asList( subjectIHI, medicareCard ), subjectOfCareAddresses, subjectOfCarePerson );
-
-        Telecom subjectTelephone = new TelecomImpl( TelecomMedium.TELEPHONE, "0712345678", TelecomUse.PERSONAL );
-        Telecom subjectEmail = new TelecomImpl( TelecomMedium.EMAIL, "frank.harding@electronichealth.net.au", TelecomUse.PERSONAL );
-
-        List<Telecom> subjectOfCareElectronicCommunicationDetails = new ArrayList<Telecom>();
-        subjectOfCareElectronicCommunicationDetails.add( subjectTelephone );
-        subjectOfCareElectronicCommunicationDetails.add( subjectEmail );
-
-        subject.setElectronicCommunicationDetails( subjectOfCareElectronicCommunicationDetails );
+    Assert.assertTrue(check.schemaErrors.size() == 0);
+    // RDS disabled Assert.assertTrue( check.schematronErrors.size() == 0 );
+  }
 
 
+  private void generate1A()
+      throws ParserConfigurationException, JAXBException, SchematronValidationException {
+    String documentID = UUID.randomUUID().toString();
 
-        // ************************
-        // ***** Author *****
-        // ************************
-        HPII authorHPII = new HPII( "8003610000001145" );
+    // ***************************
+    // ***** Subject Of Care *****
+    // ***************************
 
-        //AsEntityIdentifierImpl authorHPII = new AsEntityIdentifierImpl();
+    IHI subjectIHI = new IHI("8003600300001283");
 
-        
-        
-        PersonName authorName = new PersonNameImpl( "Practicioner" );
-        authorName.addGivenName( "Gerry" );
-        authorName.addGivenName( "Medical" );
-        authorName.addNameTitle( NameTitle.MISTER.getDescriptor() );
-        authorName.addNameTitle( NameTitle.PROFESSOR.getDescriptor() );
-        authorName.addNameSuffix( NameSuffix.MEMBER_OF_PARLIAMENT.getDescriptor());
-        authorName.addNameSuffix( NameSuffix.FIRST.getDescriptor());
+    String subjectFamilyName = "Harding";
+    DateTime dob = new LocalDate(1982, 11, 28).toDateTimeAtStartOfDay();
 
+    AustralianAddress patientAddress = new AustralianAddressImpl();
+    patientAddress.addUnstructuredAddressLine("10 browning st");
+    patientAddress.setCity("West End");
+    patientAddress.setState(AustralianStateTerritory.QUEENSLAND.getAbbreviation());
+    patientAddress.setPostcode("4101");
+    AddressContext subjectOfCareAddresses = new AddressContextImpl(patientAddress,
+        AddressPurpose.RESIDENTIAL_PERMANENT);
 
-        
-        ProviderPerson authorPerson = new ProviderPersonImpl( authorName );
-        
+    PersonName subjectPersonName = new PersonNameImpl(subjectFamilyName);
+    subjectPersonName.addGivenName("Frank");
+    subjectPersonName.addNameTitle(NameTitle.MISTER.getDescriptor());
+    subjectPersonName.addNameSuffix(NameSuffix.JUNIOR.getDescriptor());
+    subjectPersonName.addPersonNameUsage(PersonNameUsage.REGISTERED_NAME_OR_LEGAL_NAME);
 
-        ProviderEmploymentDetail authorsEmploymentDetail = new ProviderEmploymentDetailImpl(new OccupationImpl(ANZSCO_1ED_2006.ADMISSIONS_CLERK));
-        
-		authorPerson.setEmploymentDetail(authorsEmploymentDetail);
-        
+    DateAccuracy dobAccuracy = new DateAccuracyImpl(
+        /* Day Accuracy*/ true,
+        /* Month Accuracy*/ true,
+        /* Year Accuracy*/true);
 
-        AustralianAddress address = new AustralianAddressImpl();
-        address.addUnstructuredAddressLine( "Level 1, 10 Browning street" );
-        address.setCity( "West End" );
-        address.setState( AustralianStateTerritory.QUEENSLAND.getAbbreviation() );
-        address.setPostcode( "4101" );
-        ProviderAddress authorOrganisationAddress = new ProviderAddressImpl( false, address, AddressPurpose.BUSINESS );
+    DateOfBirthDetail subjectDOB = new DateOfBirthDetailImpl(dob, dobAccuracy);
+    subjectDOB.setDateOfBirthAccuracyIndicator(dobAccuracy);
+    subjectDOB.setDateOfBirthIsCalculatedFromAge(true);
 
-        Telecom authorEmail = new TelecomImpl( TelecomMedium.EMAIL, "info@some-gp.com.au", TelecomUse.BUSINESS );
-        Telecom authorFax = new TelecomImpl( TelecomMedium.FAX, "0212345678", TelecomUse.BUSINESS );
-        Telecom authorTelephone = new TelecomImpl( TelecomMedium.TELEPHONE, "0212345679", TelecomUse.BUSINESS );
+    SubjectOfCareDemographicData demoData = new SubjectOfCareDemographicDataImpl(Sex.MALE,
+        subjectDOB);
 
+    demoData.setBirthPlurality(5);
+    demoData.setBirthOrder(2);
+    int age = 31;
+    demoData.setAgeInYears(age);
+    demoData.setAgeAccurate(true);
+    demoData.setIndigenousStatus(IndigenousStatus.NOT_STATED_OR_INADEQUATELY_DESCRIBED);
 
-        EmploymentOrganisationImpl clinicalCoderJob = new EmploymentOrganisationImpl( Arrays.asList( new HPIO("8003621231167886")), "Pete's Pathologies" );
-        clinicalCoderJob.setOrganisationNameUsage( OrganisationNameUsage.BUSINESS_NAME );
-        clinicalCoderJob.setEmploymentType( CodeImpl.fromOriginalText( "Permanent/Full Time" ));
-        clinicalCoderJob.setDepartmentUnit( "Front Office" );
-        clinicalCoderJob.setPositionInOrganisation( CodeImpl.fromOriginalText("Counter Staff") );
-        clinicalCoderJob.setOccupation(  new ANZSCO_1ED_REV1( "599915", "Clinical Coder" ) );
-        
-        List<Telecom> electronicCommunicationDetailList = Arrays.asList( authorEmail, authorFax, authorTelephone );
-        
-        ReferralAuthor author = new ReferralAuthorImpl( authorHPII,authorPerson,  ANZSCO_1ED_2006.GENERAL_MEDICAL_PRACTITIONER,clinicalCoderJob);
-        
-        
-       
-        author.setQualifications( "M.B.B.S., F.R.A.C.S." );
-        author.setAddress(authorOrganisationAddress);
-        author.setElectronicCommunicationDetail(electronicCommunicationDetailList);
-        
-        // ************************
-        // ******  Referee  *******
-        // ************************
-        HPII refereeHPII = new HPII("8003610000001145");
-        HPIO refereeHPIO = new HPIO("8003620000045562"); 
-        
-        PersonName referrName = new PersonNameImpl("SpecialistSurname");
-        referrName.addPersonNameUsage(PersonNameUsage.REGISTERED_NAME_OR_LEGAL_NAME);
-		ProviderPerson particpantPerson = new ProviderPersonImpl(referrName );
-		
-		ProviderEmploymentDetail employmentDetails = new ProviderEmploymentDetailImpl(ANZSCO_1ED_2006.GENERAL_MEDICAL_PRACTITIONER  );
-		particpantPerson.setEmploymentDetail(employmentDetails );
-		
+    SubjectOfCarePerson subjectOfCarePerson = new SubjectOfCarePersonImpl(subjectPersonName,
+        demoData);
+    MedicareCardIdentifier medicareCard = new MedicareCardIdentifier("4324567871");
+    SubjectOfCareParticipant subject = new SubjectOfCareParticipantImpl(
+        Arrays.asList(subjectIHI, medicareCard), subjectOfCareAddresses, subjectOfCarePerson);
 
-        AustralianAddress refereeAddress = new AustralianAddressImpl();
-        refereeAddress.addUnstructuredAddressLine( "The Lodge" );
-        refereeAddress.addUnstructuredAddressLine( "10 Browning St" );
-        refereeAddress.setCity( "West End" );
-        refereeAddress.setState( AustralianStateTerritory.QUEENSLAND.getAbbreviation() );
-        refereeAddress.setPostcode( "4101" );
-        ProviderAddress refereeProviderAddress = new ProviderAddressImpl( false, refereeAddress, AddressPurpose.BUSINESS );
+    Telecom subjectTelephone = new TelecomImpl(TelecomMedium.TELEPHONE, "0712345678",
+        TelecomUse.PERSONAL);
+    Telecom subjectEmail = new TelecomImpl(TelecomMedium.EMAIL,
+        "frank.harding@electronichealth.net.au", TelecomUse.PERSONAL);
 
+    List<Telecom> subjectOfCareElectronicCommunicationDetails = new ArrayList<Telecom>();
+    subjectOfCareElectronicCommunicationDetails.add(subjectTelephone);
+    subjectOfCareElectronicCommunicationDetails.add(subjectEmail);
 
-        Telecom participantFax = new TelecomImpl( TelecomMedium.FAX, "0212345678", TelecomUse.BUSINESS );
-        Telecom participantTelephone = new TelecomImpl( TelecomMedium.TELEPHONE, "0212345678", TelecomUse.BUSINESS );
-        List<Telecom> refereeTelecoms = Arrays.asList( participantFax, participantTelephone );
-        
-        Organisation refereeOrg = new OrganisationImpl("Sam's Specialist Clinic");
-		ReferralParticipant referee = new ReferralParticipantImpl(
-				refereeHPII,
-				referrName,
-				refereeProviderAddress,
-				refereeTelecoms,
-				refereeHPIO,
-				refereeOrg
-        		);
-        
-        // *********************
-        // ***** Custodian *****
-        // *********************
+    subject.setElectronicCommunicationDetails(subjectOfCareElectronicCommunicationDetails);
 
-        AsEntityIdentifier custodianIdentifier = new HPIO( "8003621231167886" );
-        Telecom contact = new TelecomImpl( TelecomMedium.EMAIL, "example@custodian.com.au", TelecomUse.BUSINESS );
+    // ************************
+    // ***** Author *****
+    // ************************
+    HPII authorHPII = new HPII("8003610000001145");
 
-        AustralianAddress custodianAddress = new AustralianAddressImpl();
-        custodianAddress.addUnstructuredAddressLine( "99 Clinician Street" );
-        custodianAddress.setCity( "Nehtaville" );
-        custodianAddress.setState( "QLD" );
-        custodianAddress.setPostcode( "5555" );
-        custodianAddress.setAdditionalLocator( "32568931" );
+    //AsEntityIdentifierImpl authorHPII = new AsEntityIdentifierImpl();
 
-        UniqueIdentifier typedDocumentID = new UniqueIdentifierImpl( documentID );
+    PersonName authorName = new PersonNameImpl("Practicioner");
+    authorName.addGivenName("Gerry");
+    authorName.addGivenName("Medical");
+    authorName.addNameTitle(NameTitle.MISTER.getDescriptor());
+    authorName.addNameTitle(NameTitle.PROFESSOR.getDescriptor());
+    authorName.addNameSuffix(NameSuffix.MEMBER_OF_PARLIAMENT.getDescriptor());
+    authorName.addNameSuffix(NameSuffix.FIRST.getDescriptor());
 
-        // you can also use additional identifiers
-        UniqueIdentifier otherId = new UniqueIdentifierImpl( UUID.randomUUID().toString() );
-        CustodianOrganization custodianOrganization = CustodianOrganizationImpl.getInstance( Arrays.asList( typedDocumentID, otherId ), custodianIdentifier );
+    ProviderPerson authorPerson = new ProviderPersonImpl(authorName);
 
-        OrganizationName custodianOrganizationName = new OrganizationNameImpl( "Custodian organisation" );
+    ProviderEmploymentDetail authorsEmploymentDetail = new ProviderEmploymentDetailImpl(
+        new OccupationImpl(ANZSCO_1ED_2006.ADMISSIONS_CLERK));
 
-        custodianOrganization.setName( custodianOrganizationName );
-        custodianOrganization.setTelecom( contact );
-        custodianOrganization.setAddress( new PostalAddressImpl( custodianAddress, PostalAddressUseEnum.POSTAL_ADDRESS ) );
+    authorPerson.setEmploymentDetail(authorsEmploymentDetail);
 
-        AssignedCustodian assignedCustodian = AssignedCustodianImpl.getInstance( custodianOrganization );
-        Custodian custodian = CustodianImpl.getInstance( assignedCustodian );
+    AustralianAddress address = new AustralianAddressImpl();
+    address.addUnstructuredAddressLine("Level 1, 10 Browning street");
+    address.setCity("West End");
+    address.setState(AustralianStateTerritory.QUEENSLAND.getAbbreviation());
+    address.setPostcode("4101");
+    ProviderAddress authorOrganisationAddress = new ProviderAddressImpl(false, address,
+        AddressPurpose.BUSINESS);
 
-        // *****************************
-        // ***** Attached Referral *****
-        // *****************************
-        
-        AttachedMedia attachment = new AttachedMedia(new File("ReferralDocument.pdf"));
-		ReferralDocument refDocument = new ReferralDocumentImpl(attachment );
-        
-        // *****************************
-        // ***** Clinical Document *****
-        // *****************************
-        
-        ClinicalDocument document = ClinicalDocumentFactory.getEReferral();
-        document.setSetId( documentID );
+    Telecom authorEmail = new TelecomImpl(TelecomMedium.EMAIL, "info@some-gp.com.au",
+        TelecomUse.BUSINESS);
+    Telecom authorFax = new TelecomImpl(TelecomMedium.FAX, "0212345678", TelecomUse.BUSINESS);
+    Telecom authorTelephone = new TelecomImpl(TelecomMedium.TELEPHONE, "0212345679",
+        TelecomUse.BUSINESS);
 
-        // we can set the document number to something other than 1 if required
-        document.setVersionNumber( 1 );
+    EmploymentOrganisationImpl clinicalCoderJob = new EmploymentOrganisationImpl(
+        Arrays.asList(new HPIO("8003621231167886")), "Pete's Pathologies");
+    clinicalCoderJob.setOrganisationNameUsage(OrganisationNameUsage.BUSINESS_NAME);
+    clinicalCoderJob.setEmploymentType(CodeImpl.fromOriginalText("Permanent/Full Time"));
+    clinicalCoderJob.setDepartmentUnit("Front Office");
+    clinicalCoderJob.setPositionInOrganisation(CodeImpl.fromOriginalText("Counter Staff"));
+    clinicalCoderJob.setOccupation(new ANZSCO_1ED_REV1("599915", "Clinical Coder"));
 
-        // as an example we can add another template if needed.
-        document.addTemplateId( TemplateIdImpl.getInstance( "1.0", "1.2.36.1.2001.1001.100.149" ) );
-        document.setCompletionCode( DocumentStatusCode.FINAL );
+    List<Telecom> electronicCommunicationDetailList = Arrays
+        .asList(authorEmail, authorFax, authorTelephone);
 
+    ReferralAuthor author = new ReferralAuthorImpl(authorHPII, authorPerson,
+        ANZSCO_1ED_2006.GENERAL_MEDICAL_PRACTITIONER, clinicalCoderJob);
 
-        // String documentId =
-        // "2.25.36901752580752676809846395044082807160"; 
-        //must be an OID to pass into PCEHR
+    author.setQualifications("M.B.B.S., F.R.A.C.S.");
+    author.setAddress(authorOrganisationAddress);
+    author.setElectronicCommunicationDetail(electronicCommunicationDetailList);
 
-        // You can also use the conversion tool
-        String doucmentUUID = UUID.randomUUID().toString();
-        String documentIdAsAnOid = UUIDTool.uuidToOid( doucmentUUID );
+    // ************************
+    // ******  Referee  *******
+    // ************************
+    HPII refereeHPII = new HPII("8003610000001145");
+    HPIO refereeHPIO = new HPIO("8003620000045562");
 
-        document.setClinicalDocumentId( documentIdAsAnOid );
+    PersonName referrName = new PersonNameImpl("SpecialistSurname");
+    referrName.addPersonNameUsage(PersonNameUsage.REGISTERED_NAME_OR_LEGAL_NAME);
+    ProviderPerson particpantPerson = new ProviderPersonImpl(referrName);
 
-        
-		ReferralModel model =  new ReferralModelImpl(document, subject, author, referee , custodian);
-        
-        
-        EReferralCreator eReferralCreator = new EReferralCreator( model, refDocument );
-        eReferralCreator.setSchematronResource( SchematronResources.E_REFERRAL_1A.resource());
-     //   eReferralCreator.useStrict();
-        Document clinicalDocument = eReferralCreator.create();
+    ProviderEmploymentDetail employmentDetails = new ProviderEmploymentDetailImpl(
+        ANZSCO_1ED_2006.GENERAL_MEDICAL_PRACTITIONER);
+    particpantPerson.setEmploymentDetail(employmentDetails);
 
-        String cdaString = TestHelper.documentToXML( clinicalDocument );
-        TestHelper.printToFile( cdaString, DOCUMENT_FILE_NAME );
-        System.out.println( cdaString );        
-    }
-    
+    AustralianAddress refereeAddress = new AustralianAddressImpl();
+    refereeAddress.addUnstructuredAddressLine("The Lodge");
+    refereeAddress.addUnstructuredAddressLine("10 Browning St");
+    refereeAddress.setCity("West End");
+    refereeAddress.setState(AustralianStateTerritory.QUEENSLAND.getAbbreviation());
+    refereeAddress.setPostcode("4101");
+    ProviderAddress refereeProviderAddress = new ProviderAddressImpl(false, refereeAddress,
+        AddressPurpose.BUSINESS);
+
+    Telecom participantFax = new TelecomImpl(TelecomMedium.FAX, "0212345678", TelecomUse.BUSINESS);
+    Telecom participantTelephone = new TelecomImpl(TelecomMedium.TELEPHONE, "0212345678",
+        TelecomUse.BUSINESS);
+    List<Telecom> refereeTelecoms = Arrays.asList(participantFax, participantTelephone);
+
+    Organisation refereeOrg = new OrganisationImpl("Sam's Specialist Clinic");
+    ReferralParticipant referee = new ReferralParticipantImpl(
+        refereeHPII,
+        referrName,
+        refereeProviderAddress,
+        refereeTelecoms,
+        refereeHPIO,
+        refereeOrg
+    );
+
+    // *********************
+    // ***** Custodian *****
+    // *********************
+
+    AsEntityIdentifier custodianIdentifier = new HPIO("8003621231167886");
+    Telecom contact = new TelecomImpl(TelecomMedium.EMAIL, "example@custodian.com.au",
+        TelecomUse.BUSINESS);
+
+    AustralianAddress custodianAddress = new AustralianAddressImpl();
+    custodianAddress.addUnstructuredAddressLine("99 Clinician Street");
+    custodianAddress.setCity("Nehtaville");
+    custodianAddress.setState("QLD");
+    custodianAddress.setPostcode("5555");
+    custodianAddress.setAdditionalLocator("32568931");
+
+    UniqueIdentifier typedDocumentID = new UniqueIdentifierImpl(documentID);
+
+    // you can also use additional identifiers
+    UniqueIdentifier otherId = new UniqueIdentifierImpl(UUID.randomUUID().toString());
+    CustodianOrganization custodianOrganization = CustodianOrganizationImpl
+        .getInstance(Arrays.asList(typedDocumentID, otherId), custodianIdentifier);
+
+    OrganizationName custodianOrganizationName = new OrganizationNameImpl("Custodian organisation");
+
+    custodianOrganization.setName(custodianOrganizationName);
+    custodianOrganization.setTelecom(contact);
+    custodianOrganization
+        .setAddress(new PostalAddressImpl(custodianAddress, PostalAddressUseEnum.POSTAL_ADDRESS));
+
+    AssignedCustodian assignedCustodian = AssignedCustodianImpl.getInstance(custodianOrganization);
+    Custodian custodian = CustodianImpl.getInstance(assignedCustodian);
+
+    // *****************************
+    // ***** Attached Referral *****
+    // *****************************
+
+    AttachedMedia attachment = new AttachedMedia(new File("ReferralDocument.pdf"));
+    ReferralDocument refDocument = new ReferralDocumentImpl(attachment);
+
+    // *****************************
+    // ***** Clinical Document *****
+    // *****************************
+
+    ClinicalDocument document = ClinicalDocumentFactory.getEReferral();
+    document.setSetId(documentID);
+
+    // we can set the document number to something other than 1 if required
+    document.setVersionNumber(1);
+
+    // as an example we can add another template if needed.
+    document.addTemplateId(TemplateIdImpl.getInstance("1.0", "1.2.36.1.2001.1001.100.149"));
+    document.setCompletionCode(DocumentStatusCode.FINAL);
+
+    // String documentId =
+    // "2.25.36901752580752676809846395044082807160";
+    //must be an OID to pass into PCEHR
+
+    // You can also use the conversion tool
+    String doucmentUUID = UUID.randomUUID().toString();
+    String documentIdAsAnOid = UUIDTool.uuidToOid(doucmentUUID);
+
+    document.setClinicalDocumentId(documentIdAsAnOid);
+
+    ReferralModel model = new ReferralModelImpl(document, subject, author, referee, custodian);
+
+    EReferralCreator eReferralCreator = new EReferralCreator(model, refDocument);
+    eReferralCreator.setSchematronResource(SchematronResources.E_REFERRAL_1A.resource());
+    //   eReferralCreator.useStrict();
+    Document clinicalDocument = eReferralCreator.create();
+
+    String cdaString = TestHelper.documentToXML(clinicalDocument);
+    TestHelper.printToFile(cdaString, DOCUMENT_FILE_NAME);
+    System.out.println(cdaString);
+  }
+
 }

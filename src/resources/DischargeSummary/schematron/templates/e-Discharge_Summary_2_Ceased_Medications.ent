@@ -1,0 +1,141 @@
+
+    <!-- Discharge Summary Clinical Document:  7.1.2.2 Ceased Medications -->
+
+    <!-- Context: ClinicalDocument/component/structuredBody/component[meds]/section -->
+
+    <!-- Status: Last Reviewed: Not reviewed.
+        Status: Last Updated : 09/04/2012 -->
+
+
+
+    <pattern name="p-e-Discharge_Summary_2_Ceased_Medications-errors"
+        id="p-e-Discharge_Summary_2_Ceased_Medications-errors"
+        see="#p-e-Discharge_Summary_2_Ceased_Medications-errors">
+
+
+        <!-- Ceased Medications - 1..1 -->
+        <rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code = '101.16022']">
+
+            <!-- component - 1..1 -->
+
+            <assert test="cda:component/cda:section[cda:code/@code = '101.16146.4.1.2']">Error:
+                e-Discharge Summary - 7.1.2.2 Ceased Medications - "Ceased Medications" - The
+                'component' tag is missing. Refer to section 7.1.2.2 of the
+                e-Discharge_Summary_CDA_Implementation_Guide_v3.4.</assert>
+
+            <report test="count(cda:component[cda:section/cda:code/@code = '101.16146.4.1.2']) > 1"
+                >Error: e-Discharge Summary - 7.1.2.2 Ceased Medications - "Ceased Medications" -
+                The 'component' tag shall appear only once. Refer to section 7.1.2.2 of the
+                e-Discharge_Summary_CDA_Implementation_Guide_v3.4.</report>
+
+            <!-- For 'component' tag see below rule context:
+                 <rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code = '101.16022']/cda:component[cda:section/cda:code/@code = '101.16146.4.1.2']"> -->
+
+        </rule>
+
+
+        <!-- component - 1..1 -->
+        <rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code = '101.16022']/cda:component[cda:section/cda:code/@code = '101.16146.4.1.2']">
+
+            <!-- section - 1..1 -->
+
+            <report test="count(cda:section[cda:code/@code = '101.16146.4.1.2']) > 1"
+                >Error: e-Discharge Summary - 7.1.2.2 Ceased Medications - "Ceased Medications" -
+                The 'section' tag shall appear only once. Refer to section 7.1.2.2 of the
+                e-Discharge_Summary_CDA_Implementation_Guide_v3.4.</report>
+
+            <!-- For 'section' tag see below rule context:
+                 <rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code = '101.16022']/cda:component/cda:section[cda:code/@code = '101.16146.4.1.2']"> -->
+
+        </rule>
+
+
+        <!-- section - 1..1 -->
+        <rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code = '101.16022']/cda:component/cda:section[cda:code/@code = '101.16146.4.1.2']">
+
+            <!-- code - 1..1 -->
+
+            <report test="count(cda:code) > 1"
+                >Error: e-Discharge Summary - 7.1.2.2 Ceased Medications - "Ceased Medications" -
+                The 'code' tag shall appear only once. Refer to section 7.1.2.2 of the
+                e-Discharge_Summary_CDA_Implementation_Guide_v3.4.</report>
+
+            <!-- For 'code' tag see below rule context:
+                 <rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code = '101.16022']/cda:component/cda:section/cda:code[@code = '101.16146.4.1.2']"> -->
+
+
+            <!-- title - 1..1 -->
+
+             <assert test="cda:title">Error: e-Discharge Summary - 7.1.2.2 Ceased Medications -
+                "Ceased Medications" - The 'title' tag is missing.
+                Refer to section 7.1.2.2 of the
+                e-Discharge_Summary_CDA_Implementation_Guide_v3.4.</assert>
+
+             <report test="count(cda:title) > 1">Error: e-Discharge Summary - 7.1.2.2 Ceased Medications
+               - "Ceased Medications" - The 'title' tag shall appear only once.
+                Refer to section 7.1.2.2 of the
+                e-Discharge_Summary_CDA_Implementation_Guide_v3.4.</report>
+
+            <!-- For 'title' tag see below rule context:
+                 <rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code = '101.16022']/cda:component/cda:section[cda:code/@code = '101.16146.4.1.2']/cda:title"> -->
+
+
+            <!-- text - 1..1 -->
+
+             <assert test="cda:text">Error: e-Discharge Summary - 7.1.2.2 Ceased Medications -
+                "Ceased Medications" - The 'text' tag is missing.
+                Refer to section 7.1.2.2 of the
+                e-Discharge_Summary_CDA_Implementation_Guide_v3.4.</assert>
+
+             <report test="count(cda:text) > 1">Error: e-Discharge Summary - 7.1.2.2 Ceased Medications
+                - "Ceased Medications" - The 'text' tag shall appear only once.
+                Refer to section 7.1.2.2 of the
+                e-Discharge_Summary_CDA_Implementation_Guide_v3.4.</report>
+
+            <!-- For 'text' tags see rule context in file e-Discharge_Summary_1B_CDA_Narrative.sch -->
+
+        </rule>
+
+
+        <!-- code - 1..1 -->
+        <rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code = '101.16022']/cda:component/cda:section[cda:code/@code = '101.16146.4.1.2']/cda:code">
+
+            <!-- @codeSystem -->
+
+            <assert test="@codeSystem = '1.2.36.1.2001.1001.101'">Error: e-Discharge Summary -
+                7.1.2.2 Ceased Medications - "Ceased Medications" - The 'code' tag 'codeSystem'
+                attribute shall contain the value '1.2.36.1.2001.1001.101'. Refer to section 7.1.2.2 of the
+                e-Discharge_Summary_CDA_Implementation_Guide_v3.4.</assert>
+
+            <!-- @codeSystemName -->
+
+            <assert  test="translate(@codeSystemName, 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ') = 'NCTIS DATA COMPONENTS'"
+                >Error: e-Discharge Summary - 7.1.2.2 Ceased Medications - "Ceased Medications" -
+                The 'code' tag 'codeSystemName' attribute shall contain the value 'NCTIS Data Components'.
+                Refer to section 7.1.2.2 of the
+                e-Discharge_Summary_CDA_Implementation_Guide_v3.4.</assert>
+
+            <!-- @displayName -->
+
+            <assert test="translate(@displayName, 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ') = 'CEASED MEDICATIONS'"
+                >Error: e-Discharge Summary - 7.1.2.2 Ceased Medications - "Ceased Medications" - The
+                'code' tag 'displayName' attribute shall contain the value 'Ceased Medications'.
+                Refer to section 7.1.2.2 of the
+                e-Discharge_Summary_CDA_Implementation_Guide_v3.4.</assert>
+
+        </rule>
+
+
+        <!-- title - 1..1 -->
+        <rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code = '101.16022']/cda:component/cda:section[cda:code/@code = '101.16146.4.1.2']/cda:title">
+
+            <assert test = "translate(., 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ') = 'CEASED MEDICATIONS'"
+                >Error: e-Discharge Summary - 7.1.2.2 Ceased Medications - "Ceased Medications" -
+                The value of the 'title' tag shall contain the value 'Ceased Medications'.
+                Refer to section 7.1.2.2 of the
+                e-Discharge_Summary_CDA_Implementation_Guide_v3.4.</assert>
+
+        </rule>
+
+    </pattern>
+

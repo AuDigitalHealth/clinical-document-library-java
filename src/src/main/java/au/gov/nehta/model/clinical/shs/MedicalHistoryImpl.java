@@ -1,7 +1,6 @@
 package au.gov.nehta.model.clinical.shs;
 
 import au.gov.nehta.common.utils.ArgumentUtils;
-
 import java.util.List;
 
 
@@ -22,7 +21,7 @@ public class MedicalHistoryImpl implements MedicalHistory {
 
 
 	/**
-	 * MedicalHistoryImpl <br>
+   * MedicationHistoryImpl <br>
 	 * 
 	 * The past and current medical history of the subject of care which is
 	 * relevant to the clinical event, this includes problem/diagnosis and

@@ -2,7 +2,6 @@ package au.gov.nehta.model.clinical.common.address;
 
 import au.gov.nehta.model.clinical.common.participation.AddressPurpose;
 import au.gov.nehta.model.clinical.common.participation.AustralianStateTerritory;
-
 import java.util.Formatter;
 
 public class AustralianAddress {
@@ -51,6 +50,9 @@ public class AustralianAddress {
     this.addressPurpose = addressPurpose;
   }
 
+  public AddressPurpose getAddressPurpose() {
+    return this.addressPurpose;
+  }
 
   public UnitType getUnitType() {
     return unitType;

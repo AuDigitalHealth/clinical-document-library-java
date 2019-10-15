@@ -1,19 +1,21 @@
 package au.gov.nehta.model.clinical.es;
 
 import au.gov.nehta.model.cda.common.time.RestrictedTimeInterval;
+import au.gov.nehta.model.clinical.common.DocumentAuthor;
 import au.gov.nehta.model.clinical.common.SubjectOfCareParticipant;
 
 public class EventSummaryContextImpl implements EventSummaryContext {
+
   private SubjectOfCareParticipant subjectOfCareParticipant;
-  private EventSummaryAuthor eventSummaryAuthor;
+  private DocumentAuthor documentAuthor;
   private RestrictedTimeInterval encounterPeriod;
 
   public EventSummaryContextImpl(
       SubjectOfCareParticipant subjectOfCareParticipant,
-      EventSummaryAuthor eventSummaryAuthor,
+      DocumentAuthor documentAuthor,
       RestrictedTimeInterval encounterPeriod) {
     this.subjectOfCareParticipant = subjectOfCareParticipant;
-    this.eventSummaryAuthor = eventSummaryAuthor;
+    this.documentAuthor = documentAuthor;
     this.encounterPeriod = encounterPeriod;
   }
 
@@ -23,8 +25,8 @@ public class EventSummaryContextImpl implements EventSummaryContext {
   }
 
   @Override
-  public EventSummaryAuthor getDocumentAuthor() {
-    return eventSummaryAuthor;
+  public DocumentAuthor getDocumentAuthor() {
+    return documentAuthor;
   }
 
   @Override

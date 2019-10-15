@@ -1,0 +1,283 @@
+<!--
+_________________________________________________________________________________________________________________________________________________________________________________________
+                  Generated File - Do Not Edit File Directly                                                                                                                             
+                  __________________________________________
+
+                  Generated          : 30/05/2017 1:47:58 PM
+
+                  Product            : Service Referral
+                  Release            : CDA_Implementation_Guide_v1.0
+                  IG Guide Reference : 6.1.2
+                  IG Guide Title     : DOCUMENT AUTHOR
+                  Generator Version  : 2.28
+                                                                                                                                                                                         
+_________________________________________________________________________________________________________________________________________________________________________________________
+-->
+    <pattern name="p-Service_Referral_DOCUMENTAUTHOR_6_1_2-errors"
+        id="p-Service_Referral_DOCUMENTAUTHOR_6_1_2-errors"
+        see="#p-Service_Referral_DOCUMENTAUTHOR_6_1_2-errors">
+
+
+        <rule context="/cda:ClinicalDocument">
+
+            <assert test="cda:author"
+                >Error: Service Referral - 6.1.2 DOCUMENT AUTHOR -
+                "DOCUMENT AUTHOR" -
+                The 'author' tag is missing.
+                Refer to section 6.1.2 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</assert>
+
+            <report test="count(cda:author) > 1"
+                >Error: Service Referral - 6.1.2 DOCUMENT AUTHOR -
+                "DOCUMENT AUTHOR" -
+                The 'author' tag shall appear only once.
+                Refer to section 6.1.2 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</report>
+
+        </rule>
+
+
+        <rule context="/cda:ClinicalDocument/cda:author">
+
+            <report test="@typeCode and normalize-space(@typeCode) = ''"
+                >Error: Service Referral - 6.1.2 DOCUMENT AUTHOR -
+                "DOCUMENT AUTHOR" -
+                The 'author' tag 'typeCode' attribute shall contain a value.
+                Refer to section 6.1.2 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</report>
+
+            <report test="
+                @typeCode and normalize-space(@typeCode) != '' and @typeCode != 'AUT'"
+                >Error: Service Referral - 6.1.2 DOCUMENT AUTHOR -
+                "DOCUMENT AUTHOR" -
+                The 'author' tag 'typeCode' attribute shall contain the value 'AUT'.
+                Refer to section 6.1.2 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</report>
+
+            <assert test="cda:time"
+                >Error: Service Referral - 6.1.2 DOCUMENT AUTHOR -
+                "DOCUMENT AUTHOR" -
+                The 'time' tag is missing.
+                Refer to section 6.1.2 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</assert>
+
+            <report test="count(cda:time) > 1"
+                >Error: Service Referral - 6.1.2 DOCUMENT AUTHOR -
+                "DOCUMENT AUTHOR" -
+                The 'time' tag shall appear only once.
+                Refer to section 6.1.2 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</report>
+
+            <assert test="cda:assignedAuthor"
+                >Error: Service Referral - 6.1.2 DOCUMENT AUTHOR -
+                "DOCUMENT AUTHOR / Role" -
+                The 'assignedAuthor' tag is missing.
+                Refer to section 6.1.2 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</assert>
+
+            <report test="count(cda:assignedAuthor) > 1"
+                >Error: Service Referral - 6.1.2 DOCUMENT AUTHOR -
+                "DOCUMENT AUTHOR / Role" -
+                The 'assignedAuthor' tag shall appear only once.
+                Refer to section 6.1.2 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</report>
+
+        </rule>
+
+
+        <rule context="/cda:ClinicalDocument/cda:author/cda:time">
+
+            <report test="@value and normalize-space(@value) = ''"
+                >Error: Service Referral - 6.1.2 DOCUMENT AUTHOR -
+                "DOCUMENT AUTHOR" -
+                The 'time' tag 'value' attribute shall contain a value.
+                Refer to section 6.1.2 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</report>
+
+            <assert test="not(@nullFlavor)"
+                >Error: Service Referral - 6.1.2 DOCUMENT AUTHOR -
+                "DOCUMENT AUTHOR" -
+                The 'time' tag 'nullFlavor' attribute shall not be present.
+                Refer to section 6.1.2 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</assert>
+
+        </rule>
+
+
+        <rule context="/cda:ClinicalDocument/cda:author/cda:assignedAuthor">
+
+            <assert test="cda:code"
+                >Error: Service Referral - 6.1.2 DOCUMENT AUTHOR -
+                "DOCUMENT AUTHOR / Role" -
+                The 'code' tag is missing.
+                Refer to section 6.1.2 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</assert>
+
+            <report test="count(cda:code) > 1"
+                >Error: Service Referral - 6.1.2 DOCUMENT AUTHOR -
+                "DOCUMENT AUTHOR / Role" -
+                The 'code' tag shall appear only once.
+                Refer to section 6.1.2 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</report>
+
+            <assert test="cda:id"
+                >Error: Service Referral - 6.1.2 DOCUMENT AUTHOR -
+                "DOCUMENT AUTHOR / Role" -
+                The 'id' tag is missing.
+                Refer to section 6.1.2 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</assert>
+
+            <report test="count(cda:id) > 1"
+                >Error: Service Referral - 6.1.2 DOCUMENT AUTHOR -
+                "DOCUMENT AUTHOR / Role" -
+                The 'id' tag shall appear only once.
+                Refer to section 6.1.2 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</report>
+
+            <assert test="cda:assignedPerson"
+                >Error: Service Referral - 6.1.2 DOCUMENT AUTHOR -
+                "DOCUMENT AUTHOR / Participant" -
+                The 'assignedPerson' tag is missing.
+                Refer to section 6.1.2 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</assert>
+
+            <report test="count(cda:assignedPerson) > 1"
+                >Error: Service Referral - 6.1.2 DOCUMENT AUTHOR -
+                "DOCUMENT AUTHOR / Participant" -
+                The 'assignedPerson' tag shall appear only once.
+                Refer to section 6.1.2 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</report>
+
+            <assert test="not(ext:PersonalRelationship)"
+                >Error: Service Referral - 6.1.2 DOCUMENT AUTHOR -
+                "DOCUMENT AUTHOR / Participant / Person or Organisation or Device / Person / Relationship to Subject of Care" -
+                The 'PersonalRelationship' tag shall not be present.
+                Refer to section 6.1.2 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</assert>
+
+        </rule>
+
+
+        <rule context="/cda:ClinicalDocument/cda:author/cda:assignedAuthor/cda:assignedPerson">
+
+            <assert test="ext:asEntityIdentifier"
+                >Error: Service Referral - 6.1.2 DOCUMENT AUTHOR -
+                "DOCUMENT AUTHOR / Participant / Entity Identifier" -
+                The 'asEntityIdentifier' tag is missing.
+                Refer to section 6.1.2 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</assert>
+
+            <assert test="cda:name"
+                >Error: Service Referral - 6.1.2 DOCUMENT AUTHOR -
+                "DOCUMENT AUTHOR / Participant / Person or Organisation or Device / Person / Person Name" -
+                The 'name' tag is missing.
+                Refer to section 6.1.2 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</assert>
+
+            <assert test="ext:asEmployment"
+                >Error: Service Referral - 6.1.2 DOCUMENT AUTHOR -
+                "DOCUMENT AUTHOR / Participant / Person or Organisation or Device / Person / Employment Detail" -
+                The 'asEmployment' tag is missing.
+                Refer to section 6.1.2 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</assert>
+
+            <report test="count(ext:asEmployment) > 1"
+                >Error: Service Referral - 6.1.2 DOCUMENT AUTHOR -
+                "DOCUMENT AUTHOR / Participant / Person or Organisation or Device / Person / Employment Detail" -
+                The 'asEmployment' tag shall appear only once.
+                Refer to section 6.1.2 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</report>
+
+            <assert test="not(ext:administrativeGenderCode)"
+                >Error: Service Referral - 6.1.2 DOCUMENT AUTHOR -
+                "DOCUMENT AUTHOR / Participant / Person or Organisation or Device / Person / Demographic Data" -
+                The 'administrativeGenderCode' tag shall not be present.
+                Refer to section 6.1.2 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</assert>
+
+            <assert test="not(ext:birthTime)"
+                >Error: Service Referral - 6.1.2 DOCUMENT AUTHOR -
+                "DOCUMENT AUTHOR / Participant / Person or Organisation or Device / Person / Demographic Data" -
+                The 'birthTime' tag shall not be present.
+                Refer to section 6.1.2 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</assert>
+
+            <report test="count(ext:asQualifications) > 1"
+                >Error: Service Referral - 6.1.2 DOCUMENT AUTHOR -
+                "DOCUMENT AUTHOR / Participant / Qualifications" -
+                The 'asQualifications' tag shall appear only once.
+                Refer to section 6.1.2 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</report>
+
+        </rule>
+
+
+        <rule context="/cda:ClinicalDocument/cda:author/cda:assignedAuthor/cda:assignedPerson/ext:asQualifications">
+
+            <assert test="@classCode"
+                >Error: Service Referral - 6.1.2 DOCUMENT AUTHOR -
+                "DOCUMENT AUTHOR / Participant / Qualifications" -
+                The 'asQualifications' tag 'classCode' attribute is missing.
+                Refer to section 6.1.2 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</assert>
+
+            <assert test="not(@classCode) or normalize-space(@classCode) != ''"
+                >Error: Service Referral - 6.1.2 DOCUMENT AUTHOR -
+                "DOCUMENT AUTHOR / Participant / Qualifications" -
+                The 'asQualifications' tag 'classCode' attribute shall contain a value.
+                Refer to section 6.1.2 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</assert>
+
+            <assert test="
+                not(@classCode) or normalize-space(@classCode) = '' or @classCode = 'QUAL'"
+                >Error: Service Referral - 6.1.2 DOCUMENT AUTHOR -
+                "DOCUMENT AUTHOR / Participant / Qualifications" -
+                The 'asQualifications' tag 'classCode' attribute shall contain the value 'QUAL'.
+                Refer to section 6.1.2 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</assert>
+
+            <assert test="ext:code"
+                >Error: Service Referral - 6.1.2 DOCUMENT AUTHOR -
+                "DOCUMENT AUTHOR / Participant / Qualifications" -
+                The 'code' tag is missing.
+                Refer to section 6.1.2 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</assert>
+
+            <report test="count(ext:code) > 1"
+                >Error: Service Referral - 6.1.2 DOCUMENT AUTHOR -
+                "DOCUMENT AUTHOR / Participant / Qualifications" -
+                The 'code' tag shall appear only once.
+                Refer to section 6.1.2 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</report>
+
+        </rule>
+
+
+        <rule context="/cda:ClinicalDocument/cda:author/cda:assignedAuthor/cda:assignedPerson/ext:asQualifications/ext:code">
+
+            <assert test="cda:originalText"
+                >Error: Service Referral - 6.1.2 DOCUMENT AUTHOR -
+                "DOCUMENT AUTHOR / Participant / Qualifications" -
+                The 'originalText' tag is missing.
+                Refer to section 6.1.2 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</assert>
+
+            <report test="count(cda:originalText) > 1"
+                >Error: Service Referral - 6.1.2 DOCUMENT AUTHOR -
+                "DOCUMENT AUTHOR / Participant / Qualifications" -
+                The 'originalText' tag shall appear only once.
+                Refer to section 6.1.2 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</report>
+
+            <assert test="not(cda:originalText) or normalize-space(cda:originalText) != ''"
+                >Error: Service Referral - 6.1.2 DOCUMENT AUTHOR -
+                "DOCUMENT AUTHOR / Participant / Qualifications" -
+                The 'originalText' tag shall contain a value.
+                Refer to section 6.1.2 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</assert>
+
+        </rule>
+
+
+    </pattern>
+

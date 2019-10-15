@@ -1,57 +1,47 @@
 package au.gov.nehta.model.clinical.es;
 
+import au.gov.nehta.model.clinical.common.MedicalHistory;
 import au.gov.nehta.model.clinical.etp.common.item.AttachedMedia;
 import au.net.electronichealth.ns.cda._2_0.StrucDocText;
 
 public interface EventSummaryContent {
 
-    StrucDocText getCustomNarrativeAdministrativeObservations();
+  StrucDocText getCustomNarrativeAdministrativeObservations();
 
-    AttachedMedia getStructuredBodyFiles();
+  AttachedMedia getStructuredBodyFiles();
 
-    Medications getMedications();
+  Medications getMedications();
 
-    StrucDocText getCustomNarrativeMedications();
+  StrucDocText getCustomNarrativeMedications();
 
-    EventDetails getEventDetails();
+  EventDetails getEventDetails();
 
-    NewlyIdentifiedAdverseReactions getNewlyIdentifiedAdverseReactions();  //TODO Check : called Adverse Reactions in .Net of type (IAdverseReactionsWithoutExclusions) (Is there a difference?)
+  NewlyIdentifiedAdverseReactions getNewlyIdentifiedAdverseReactions();  //TODO Check : called Adverse Reactions in .Net of type (IAdverseReactionsWithoutExclusions) (Is there a difference?)
 
-    DiagnosesInterventions getDiagnosesInterventions();
+  MedicalHistory getMedicalHistory();
 
-    Immunisations getImmunisations();
+  Immunisations getImmunisations();
 
-    StrucDocText getCustomNarrativeImmunisations();
+  DiagnosticInvestigations getDiagnosticInvestigations();
 
-    DiagnosticInvestigations getDiagnosticInvestigations();
+  void setCustomNarrativeAdministrativeObservations(
+      StrucDocText customNarrativeAdministrativeObservations);
 
+  void setStructuredBodyFiles(AttachedMedia attachedMedia);
 
-    void setCustomNarrativeAdministrativeObservations(StrucDocText customNarrativeAdministrativeObservations);
+  void setMedications(Medications medications);
 
-    void setStructuredBodyFiles(AttachedMedia attachedMedia);
+  void setCustomNarrativeMedications(StrucDocText customNarrativeMedications);
 
-    void setMedications(Medications medications);
+  void setEventDetails(EventDetails eventDetails);
 
-    void setCustomNarrativeMedications(StrucDocText customNarrativeMedications);
+  void setNewlyIdentifiedAdverseReactions(
+      NewlyIdentifiedAdverseReactions newlyIdentifiedAdverseReactions);
 
-    void setEventDetails(EventDetails eventDetails);
+  void setMedicalHistory(MedicalHistory medicalHistory);
 
-    void setNewlyIdentifiedAdverseReactions(NewlyIdentifiedAdverseReactions newlyIdentifiedAdverseReactions);
+  void setImmunisations(Immunisations immunisations);
 
-    void setDiagnosesInterventions(DiagnosesInterventions diagnosesInterventions);
-
-    void setImmunisations(Immunisations immunisations);
-
-    void setCustomNarrativeImmunisations(StrucDocText customNarrativeImmunisations);
-
-    void setDiagnosticInvestigations(DiagnosticInvestigations diagnosticInvestigations);
-
-    //TODO Missing Validation
+  void setDiagnosticInvestigations(DiagnosticInvestigations diagnosticInvestigations);
 
 }
-
-
-
-
-
-

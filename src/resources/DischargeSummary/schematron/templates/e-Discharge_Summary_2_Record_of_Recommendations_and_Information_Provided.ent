@@ -1,0 +1,88 @@
+
+    
+    <!-- e-Discharge Clinical Document:  7.1.4.2 Record of Recommendations and Information Provided -->
+    
+    <!-- Context: ClinicalDocument/component/structuredBody/component[plan]/section/component[rec]/section/code/@code="101.20016" -->
+    
+    <!-- Status: Last Reviewed: Not Reviewed
+        Status: Last Updated : 02/07/2012 -->
+    
+    <pattern name="p-e-Discharge_Summary_2_Record_of_Recommendations_and_Information_Provided-errors"
+        id="p-e-Discharge_Summary_2_Record_of_Recommendations_and_Information_Provided-errors"
+        see="#p-e-Discharge_Summary_2_Record_of_Recommendations_and_Information_Provided-errors">
+        
+        
+        <rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code='101.16020']">
+           
+            <assert test="cda:component[cda:section/cda:code/@code = '101.20016']">Error: e-Discharge Summary -
+                7.1.4.2 Record of Recommendations and Information Provided - The 'component' tag is missing. Refer to section 7.1.4.2 of the
+                e-Discharge_Summary_CDA_Implementation_Guide_v3.4.</assert>
+
+            <report test="count(cda:component[cda:section/cda:code/@code = '101.20016']) > 1">Error: e-Discharge Summary -
+                7.1.4.2 Record of Recommendations and Information Provided - The 'component' tag shall appear only once. Refer to section 7.1.4.2 of the
+                e-Discharge_Summary_CDA_Implementation_Guide_v3.4.</report>
+            
+        </rule>
+        
+        <rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code='101.16020']/cda:component/cda:section[cda:code/@code = '101.20016']">
+            
+            <report test="count(cda:code) > 1">Error: e-Discharge Summary -
+                7.1.4.2 Record of Recommendations and Information Provided - The 'code' tag shall appear only once. Refer to section 7.1.4.2 of the
+                e-Discharge_Summary_CDA_Implementation_Guide_v3.4.</report>
+            
+            <assert test="cda:title">Error: e-Discharge Summary -
+                7.1.4.2 Record of Recommendations and Information Provided - The 'title' tag is missing. Refer to section 7.1.4.2 of the
+                e-Discharge_Summary_CDA_Implementation_Guide_v3.4.</assert>
+            
+            <!-- Updated RV 09/04/2012 Mantis Id - 3038 -->
+                                    
+            <report test="cda:title and not(translate(cda:title, 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ') = 'RECORD OF RECOMMENDATIONS AND INFORMATION PROVIDED')">Error: e-Discharge Summary -
+                7.1.4.2 Record of Recommendations and Information Provided - The 'title' tag shall contain the value 'Record of Recommendations and Information Provided'. Refer to section 7.1.4.2 of the
+                e-Discharge_Summary_CDA_Implementation_Guide_v3.4.</report>
+            
+            <!-- Update ended - Mantis Id - 3038 -->
+            
+            <assert test="cda:text">Error: e-Discharge Summary -
+                7.1.4.2 Record of Recommendations and Information Provided - The 'text' tag is missing. Refer to section 7.1.4.2 of the
+                e-Discharge_Summary_CDA_Implementation_Guide_v3.4.</assert>
+            
+            <report test="count(cda:text) > 1">Error: e-Discharge Summary -
+                7.1.4.2 Record of Recommendations and Information Provided - The 'text' tag shall appear only once. Refer to section 7.1.4.2 of the
+                e-Discharge_Summary_CDA_Implementation_Guide_v3.4.</report>
+            
+            <report test="normalize-space(cda:text) = ''">Error: e-Discharge Summary -
+                7.1.4.2 Record of Recommendations and Information Provided - The 'text' tag shall contain a value. Refer to section 7.1.4.2 of the
+                e-Discharge_Summary_CDA_Implementation_Guide_v3.4.</report>
+            
+        </rule>
+        
+        <rule context="cda:code[@code='101.20016']">
+            
+            <assert test="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section/cda:component/cda:section/cda:code[@code = '101.20016']"
+                >Error: e-Discharge Summary - 7.1.4.2 Record of Recommendations and Information Provided - 
+				The '/ClinicalDocument/component/structuredBody/cda:component/cda:section/component/section/code/@code = "101.20016"' path - 
+				1 or more tags are missing. Refer to section 7.1.4.2 of
+                the e-Discharge_Summary_CDA_Implementation_Guide_v3.4.</assert>
+            
+            <assert test="@codeSystem  = '1.2.36.1.2001.1001.101'">Error: e-Discharge Summary -
+                7.1.4.2 Record of Recommendations and Information Provided - The 'code' tag 'codeSystem' attribute shall be
+                '1.2.36.1.2001.1001.101'. Refer to section 7.1.4.2 of the
+                e-Discharge_Summary_CDA_Implementation_Guide_v3.4.</assert>
+            
+            <assert
+                test="translate(@codeSystemName, 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ') = 'NCTIS DATA COMPONENTS'"
+                > Error: e-Discharge Summary - 7.1.4.2 Record of Recommendations and Information Provided - The 'code' tag
+                'codeSystemName' attribute shall contain the value 'NCTIS Data Components'. Refer to section
+                7.1.4.2 of the e-Discharge_Summary_CDA_Implementation_Guide_v3.4.</assert>
+            
+            <assert
+                test="translate(@displayName, 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ') = 'RECORD OF RECOMMENDATIONS AND INFORMATION PROVIDED'"
+                > Error: e-Discharge Summary - 7.1.4.2 Record of Recommendations and Information Provided - The 'code' tag
+                'displayName' attribute shall contain the value 'Record of Recommendations and Information Provided'. Refer to section 7.1.4.2 of
+                the e-Discharge_Summary_CDA_Implementation_Guide_v3.4.</assert>
+            
+            <!-- The "title" and "text" values are being checked by "e-Discharge_Summary_1B_CDA_Narratives.ent" and so are not written here. -->
+            
+        </rule>
+        
+    </pattern>

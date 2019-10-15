@@ -14,134 +14,137 @@
 package au.gov.nehta.model.cda.common.time;
 
 
-
 /**
- * This class models the Time interval IVL_TS HL7 class
- * the creation is restricted to only allow valid combinations of dates 
- * 
+ * This class models the Time interval IVL_TS HL7 class the creation is restricted to only allow
+ * valid combinations of dates
+ *
  * <pre>
  *  example:
- *  
+ *
  *  //a new day with today's date, ignoring hours minutes and seconds
  *  PrecisionDate high = new PrescisionDate(Precision.day);
  *  RestrictedTimeInterval = RestrictedTimeInterval.getHighInstance(high);
- *  
+ *
  * </pre>
- * 
- * The following combinations are allowed via the schema:
- * [{low}, {width}, {high}, {center}, {low, width}, {width, high}, {low, high}, {center, width}]
+ *
+ * The following combinations are allowed via the schema: [{low}, {width}, {high}, {center}, {low,
+ * width}, {width, high}, {low, high}, {center, width}]
  */
 public class RestrictedTimeInterval extends SetComponentTime {
-	
-
-	private PreciseDate high;
-	private PreciseDate low;
-	private PreciseDate center;
-	private TimeQuantity width;
-	
-	public RestrictedTimeInterval(){}
-
-	public static RestrictedTimeInterval getLowInstance(PreciseDate low){
-		RestrictedTimeInterval t = new RestrictedTimeInterval();
-		t.low=low;
-		return t;
-	}
-	
-	
-	public static RestrictedTimeInterval getWidthInstance(TimeQuantity width){
-		RestrictedTimeInterval t = new RestrictedTimeInterval();
-		t.width=width;
-		return t;
-	}
-	
-
-	public static RestrictedTimeInterval getHighInstance(PreciseDate high){
-		RestrictedTimeInterval t = new RestrictedTimeInterval();
-		t.high=high;
-		return t;
-	}
-	
-	public static RestrictedTimeInterval getCenterInstance(PreciseDate center){
-		RestrictedTimeInterval t = new RestrictedTimeInterval();
-		t.center =center;
-		return t;
-	}
-	
-	public static RestrictedTimeInterval getLowWidthInstance(PreciseDate low,  TimeQuantity width){
-		RestrictedTimeInterval t = new RestrictedTimeInterval();
-		t.low=low;
-		t.width=width;
-		return t;
-	}
-	
-	
-	public static RestrictedTimeInterval getLowHighInstance(PreciseDate low, PreciseDate high){
-		RestrictedTimeInterval t = new RestrictedTimeInterval();
-		t.low=low;
-		t.high=high;
-		return t;
-	}
-	
-	public static RestrictedTimeInterval getHighWidthInstance(PreciseDate high, TimeQuantity width){
-		RestrictedTimeInterval t = new RestrictedTimeInterval();
-		t.width=width;
-		t.high=high;
-		return t;
-	}
-	
-	public static RestrictedTimeInterval getCenterWidthInstance(PreciseDate center, TimeQuantity width){
-		RestrictedTimeInterval t = new RestrictedTimeInterval();
-		t.center =center;
-		t.width=width;
-		return t;
-	}
-
-	
-	public PreciseDate getHigh() {
-		return high;
-	}
 
 
+  private PreciseDate high;
+  private PreciseDate low;
+  private PreciseDate center;
+  private TimeQuantity width;
 
-	public void setHigh( PreciseDate high ) {
-		this.high = high;
-	}
+  public RestrictedTimeInterval() {
+  }
 
-
-
-	public PreciseDate getLow() {
-		return low;
-	}
-
-
-
-	public void setLow( PreciseDate low ) {
-		this.low = low;
-	}
+  public static RestrictedTimeInterval getLowInstance(PreciseDate low) {
+    RestrictedTimeInterval t = new RestrictedTimeInterval();
+    t.low = low;
+    return t;
+  }
 
 
-
-	public PreciseDate getCenter() {
-		return center;
-	}
-
-
-
-	public void setCenter( PreciseDate center ) {
-		this.center = center;
-	}
+  public static RestrictedTimeInterval getWidthInstance(TimeQuantity width) {
+    RestrictedTimeInterval t = new RestrictedTimeInterval();
+    t.width = width;
+    return t;
+  }
 
 
+  public static RestrictedTimeInterval getHighInstance(PreciseDate high) {
+    RestrictedTimeInterval t = new RestrictedTimeInterval();
+    t.high = high;
+    return t;
+  }
 
-	public TimeQuantity getWidth() {
-		return width;
-	}
+  public static RestrictedTimeInterval getCenterInstance(PreciseDate center) {
+    RestrictedTimeInterval t = new RestrictedTimeInterval();
+    t.center = center;
+    return t;
+  }
+
+  public static RestrictedTimeInterval getLowWidthInstance(PreciseDate low, TimeQuantity width) {
+    RestrictedTimeInterval t = new RestrictedTimeInterval();
+    t.low = low;
+    t.width = width;
+    return t;
+  }
 
 
+  public static RestrictedTimeInterval getLowHighInstance(PreciseDate low, PreciseDate high) {
+    RestrictedTimeInterval t = new RestrictedTimeInterval();
+    t.low = low;
+    t.high = high;
+    return t;
+  }
 
-	public void setWidth( TimeQuantity width ) {
-		this.width = width;
-	}
+  public static RestrictedTimeInterval getLowHighInstance(PreciseDate low, PreciseDate high,
+      TimeQuantity width) {
+    RestrictedTimeInterval t = new RestrictedTimeInterval();
+    t.low = low;
+    t.high = high;
+    t.width = width;
+    return t;
+  }
+
+  public static RestrictedTimeInterval getHighWidthInstance(PreciseDate high, TimeQuantity width) {
+    RestrictedTimeInterval t = new RestrictedTimeInterval();
+    t.width = width;
+    t.high = high;
+    return t;
+  }
+
+  public static RestrictedTimeInterval getCenterWidthInstance(PreciseDate center,
+      TimeQuantity width) {
+    RestrictedTimeInterval t = new RestrictedTimeInterval();
+    t.center = center;
+    t.width = width;
+    return t;
+  }
+
+
+  public PreciseDate getHigh() {
+    return high;
+  }
+
+
+  public void setHigh(PreciseDate high) {
+    this.high = high;
+  }
+
+
+  public PreciseDate getLow() {
+    return low;
+  }
+
+
+  public void setLow(PreciseDate low) {
+    this.low = low;
+  }
+
+
+  public PreciseDate getCenter() {
+    return center;
+  }
+
+
+  public void setCenter(PreciseDate center) {
+    this.center = center;
+  }
+
+
+  public TimeQuantity getWidth() {
+    return width;
+  }
+
+
+  public void setWidth(TimeQuantity width) {
+    this.width = width;
+  }
 
 }
 

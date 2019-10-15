@@ -1,0 +1,105 @@
+    <pattern name="p-Specialist_Letter_2_Global_Code_Checks_custom-errors"
+        id="p-Specialist_Letter_2_Global_Code_Checks_custom-errors"
+        see="#p-Specialist_Letter_2_Global_Code_Checks_custom-errors">
+
+        <!-- CDA:CODE content -->
+
+        <!-- Updated by NG 23022012 - Mantis  - extensible component issue -->
+        
+        <!--  102.16080 :: 4 Administrative Observations -->
+        
+        <rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section/cda:code[@displayName ='Administrative Observations']">
+       
+            <assert test="@code = '102.16080'"
+                > Error: Specialist Letter - 4 Administrative Observations - The 'code' tag 'code' attribute shall be '102.16080'. 
+                Refer to section '4. Administrative Observations' of the Specialist_Letter_CDA_Implementation_Guide_v1.3.</assert>
+   
+        </rule>
+    
+        <!--  102.16611 :: 7.1.1 RESPONSE DETAILS -->
+        
+        <rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section/cda:code[@displayName ='Response Details']">
+       
+            <assert test="@code = '101.16611'"
+                > Error: Specialist Letter - 7.1.1 RESPONSE DETAILS  - The 'code' tag 'code' attribute shall be '101.16611'. 
+                Refer to section '7.1.1 Response Details' of the Specialist_Letter_CDA_Implementation_Guide_v1.3.</assert>
+  
+        
+          </rule>
+        
+        
+        <!--  101.16606 :: 7.1.2 RECOMMENDATIONS -->
+        
+        <rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section/cda:code[@displayName ='Recommendations']">
+       
+            <assert test="@code = '101.16606'"
+                > Error: Specialist Letter - Global Code Checks - The 'code' tag 'code' attribute shall be '101.16606'. 
+                Refer to section '7.1.2 Recommendations' of the Specialist_Letter_CDA_Implementation_Guide_v1.3.</assert>
+  
+        </rule>
+           
+        <!--  101.16146 :: 7.1.3 Medications -->
+        
+        <rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section/cda:code[@displayName ='Medications']">
+       
+            <assert test="@code = '101.16146'"
+                > Error: Specialist Letter - Global Code Checks - The 'code' tag 'code' attribute shall be '101.16146'. 
+                Refer to section '7.1.3 Medications' of the Specialist_Letter_CDA_Implementation_Guide_v1.3.</assert>
+              
+        </rule>
+          
+        <!--  101.20113 :: 7.1.4 Newly Identified Allergies and Adverse Reactions -->
+        
+        <rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section/cda:code[@displayName ='Adverse Reactions']">
+       
+            <assert test="@code = '101.20113'"
+                > Error: Specialist Letter - Global Code Checks - The 'code' tag 'code' attribute shall be '101.20113'. 
+                Refer to section '7.1.4 Newly Identified Allergies and Adverse Reactions' of the Specialist_Letter_CDA_Implementation_Guide_v1.3.</assert>
+            
+        </rule>
+        
+        <!--  101.20117 :: 7.1.5 Diagnostic Investigations -->
+        
+        <rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section/cda:code[@displayName ='Diagnostic Investigations']">
+       
+            <assert test="@code = '101.20117'"
+                > Error: Specialist Letter - Global Code Checks - The 'code' tag 'code' attribute shall be '101.20117'. 
+                Refer to section '7.1.5 Diagnostic Investigations' of the Specialist_Letter_CDA_Implementation_Guide_v1.3.</assert>
+  
+        </rule>
+        
+        
+        <!--  102.16144 :: 7.1.5.1 Pathology Test Result"-->
+        
+        <rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code = '101.20117']/cda:component/cda:section/cda:code[@displayName ='Pathology Test Result']">
+       
+            <assert test="@code = '102.16144'"
+                > Error: Specialist Letter - Global Code Checks - The 'code' tag 'code' attribute shall be '102.16144'. 
+                Refer to section '7.1.5.1 Pathology Test Result' of the Specialist_Letter_CDA_Implementation_Guide_v1.3.</assert>
+  
+      
+        </rule>
+        
+        <!--  102.16145 :: 7.1.5.2 Imaging Examination Result-->
+        
+        <rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code = '101.20117']/cda:component/cda:section/cda:code[@displayName ='Imaging Examination Result']">
+       
+            <assert test="@code = '102.16145'"
+                > Error: Specialist Letter - Global Code Checks - The 'code' tag 'code' attribute shall be '102.16145'. 
+                Refer to section '7.1.5.2 Imaging Examination Result' of the Specialist_Letter_CDA_Implementation_Guide_v1.3.</assert>
+  
+        </rule>
+             
+        <!--  102.20158 :: 7.1.5.3 REQUESTED SERVICE -->
+        
+        <rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code = '101.20117']/cda:component/cda:section/cda:code[@displayName ='Requested Service']">
+       
+            <assert test="@code = '102.20158'"
+                > Error: Specialist Letter - Global Code Checks - The 'code' tag 'code' attribute shall be '102.20158'. 
+                Refer to section '7.1.5.3 Requested Service' of the Specialist_Letter_CDA_Implementation_Guide_v1.3.</assert>
+
+          
+        </rule>
+
+    </pattern>
+

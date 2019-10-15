@@ -1,5 +1,11 @@
 package au.gov.nehta.builder;
 
+import static au.gov.nehta.builder.util.narrative.NarrativeUtil.NARRATIVE_DATE_TIME_FORMATTER;
+import static au.gov.nehta.builder.util.narrative.NarrativeUtil.createTableBodyRowWithCellValues;
+import static au.gov.nehta.builder.util.narrative.NarrativeUtil.createTableBodyRowWithCells;
+import static au.gov.nehta.builder.util.narrative.NarrativeUtil.getTableHeaderRow;
+import static au.gov.nehta.builder.util.narrative.NarrativeUtil.render;
+
 import au.gov.nehta.builder.util.narrative.NarrativeUtil;
 import au.gov.nehta.model.cda.common.code.Coded;
 import au.gov.nehta.model.cda.common.time.PreciseDate;
@@ -8,32 +14,31 @@ import au.gov.nehta.model.cda.common.time.TimeQuantity;
 import au.gov.nehta.model.clinical.common.participation.PersonName;
 import au.gov.nehta.model.clinical.common.types.UniqueIdentifier;
 import au.gov.nehta.model.clinical.diagnostic.pathology.DocumentParticipant;
+import au.gov.nehta.model.clinical.sr.ServiceReferral;
 import au.net.electronichealth.ns.cda._2_0.ObjectFactory;
 import au.net.electronichealth.ns.cda._2_0.StrucDocCaption;
 import au.net.electronichealth.ns.cda._2_0.StrucDocContent;
+import au.net.electronichealth.ns.cda._2_0.StrucDocItem;
 import au.net.electronichealth.ns.cda._2_0.StrucDocLinkHtml;
+import au.net.electronichealth.ns.cda._2_0.StrucDocList;
 import au.net.electronichealth.ns.cda._2_0.StrucDocParagraph;
 import au.net.electronichealth.ns.cda._2_0.StrucDocTable;
 import au.net.electronichealth.ns.cda._2_0.StrucDocTbody;
 import au.net.electronichealth.ns.cda._2_0.StrucDocTd;
 import au.net.electronichealth.ns.cda._2_0.StrucDocText;
+import au.net.electronichealth.ns.cda._2_0.StrucDocTh;
 import au.net.electronichealth.ns.cda._2_0.StrucDocThead;
-import org.joda.time.DateTime;
-
-import javax.xml.bind.JAXBElement;
+import au.net.electronichealth.ns.cda._2_0.StrucDocTr;
 import java.io.Serializable;
 import java.util.Arrays;
 import java.util.List;
-
-import static au.gov.nehta.builder.util.narrative.NarrativeUtil.NARRATIVE_DATE_TIME_FORMATTER;
-import static au.gov.nehta.builder.util.narrative.NarrativeUtil.createTableBodyRowWithCellValues;
-import static au.gov.nehta.builder.util.narrative.NarrativeUtil.createTableBodyRowWithCells;
-import static au.gov.nehta.builder.util.narrative.NarrativeUtil.getTableHeaderRow;
-import static au.gov.nehta.builder.util.narrative.NarrativeUtil.render;
+import javax.xml.bind.JAXBElement;
+import org.joda.time.DateTime;
 
 public class DocumentCreatorUtil {
 
   public static final String HL7_TEXT_MEDIA_TYPE = "text/x-hl7-text+xml";
+  private static ObjectFactory objectFactory = new ObjectFactory();
 
   public static void add(StrucDocTbody body, String name, String value) {
     body.getTr().add(
@@ -160,6 +165,21 @@ public class DocumentCreatorUtil {
     return new ObjectFactory().createStrucDocTdContent(content);
   }
 
+  public static JAXBElement<StrucDocContent> link(String href, String title, String ID) {
+    if (href == null) {
+      return null;
+    }
+    StrucDocLinkHtml link = new StrucDocLinkHtml();
+    link.setHref(href);
+    //link.setID(ID); //TODO MS : Removed link. Check other documents.
+    link.getContent().add(title);
+    JAXBElement<StrucDocLinkHtml> jaxbLinkHtml = new ObjectFactory()
+        .createStrucDocContentLinkHtml(link);
+    StrucDocContent content = new StrucDocContent();
+    content.getContent().add(jaxbLinkHtml);
+    return new ObjectFactory().createStrucDocTdContent(content);
+  }
+
   public static StrucDocTd cell(Serializable s) {
     return NarrativeUtil.cell(s);
   }
@@ -244,7 +264,7 @@ public class DocumentCreatorUtil {
     }
 
     if (start != null) {
-      StringBuffer buff = new StringBuffer(print(start));
+      StringBuilder buff = new StringBuilder(print(start));
 
       if (end == null) {
         return buff.toString();
@@ -263,5 +283,121 @@ public class DocumentCreatorUtil {
     StrucDocParagraph paragraph = new StrucDocParagraph();
     paragraph.getContent().add(message);
     return paragraph;
+  }
+
+  public static StrucDocTr addTableHeaderRow(String... values) {
+    StrucDocTr strucDocTr = objectFactory.createStrucDocTr();
+    for (String value : values) {
+
+      strucDocTr.getThOrTd().add(new StrucDocTh() {{
+        getContent().add(value);
+      }});
+    }
+    return strucDocTr;
+  }
+
+  public static StrucDocTr addTableBodyRow(String... values) {
+    StrucDocTr strucDocTr = objectFactory.createStrucDocTr();
+    for (String value : values) {
+      strucDocTr.getThOrTd().add(new StrucDocTd() {{
+        getContent().add(value);
+      }});
+    }
+    return strucDocTr;
+  }
+
+  public static StrucDocList createStrucDocListUnordered(String optionalCaption, String... values) {
+    StrucDocList list = objectFactory.createStrucDocList();
+    if (null != optionalCaption && !optionalCaption.isEmpty()) {
+      list.setCaption(new StrucDocCaption() {{
+        getContent().add(optionalCaption);
+      }});
+    }
+    for (String value : values) {
+      list.getItem().add(new StrucDocItem() {{
+        getContent().add(value);
+      }});
+    }
+    return list;
+  }
+
+  public static StrucDocTr addTableBodyRow(Object... values) {
+    StrucDocTr strucDocTr = objectFactory.createStrucDocTr();
+    for (Object value : values) {
+      if (value instanceof String) {
+        strucDocTr.getThOrTd().add(new StrucDocTd() {{
+          getContent().add((String) value);
+        }});
+      } else if (value instanceof StrucDocList) {
+        StrucDocTd strucDocTd = objectFactory.createStrucDocTd();
+        strucDocTd.getContent().add(objectFactory.createStrucDocTdList((StrucDocList) value));
+        strucDocTr.getThOrTd().add(strucDocTd);
+      } else if (value instanceof StrucDocTd) {
+        strucDocTr.getThOrTd().add(value);
+      }
+    }
+    return strucDocTr;
+  }
+
+  public static StrucDocLinkHtml createHtmlLink(String value) {
+    StrucDocLinkHtml linkHtml = objectFactory.createStrucDocLinkHtml();
+    if (value.contains("@")) {
+      linkHtml.setHref("mailto:" + value.trim());
+    }
+    linkHtml.getContent().add(value);
+    return linkHtml;
+  }
+
+  public static StrucDocTd createComplexTD(Object... values) {
+    StrucDocTd strucDocTd = objectFactory.createStrucDocTd();
+    for (Object value : values) {
+      if (value instanceof String) {
+        StrucDocContent strucDocContent = objectFactory.createStrucDocContent();
+        strucDocContent.getContent().add((String) value);
+        strucDocTd.getContent().add(objectFactory.createStrucDocContentContent(strucDocContent));
+      } else if (value instanceof StrucDocLinkHtml) {
+        strucDocTd.getContent()
+            .add(objectFactory.createStrucDocTdLinkHtml((StrucDocLinkHtml) value));
+      } else if (value instanceof StrucDocParagraph) {
+        strucDocTd.getContent()
+            .add(objectFactory.createStrucDocFootnoteParagraph((StrucDocParagraph) value));
+      }
+    }
+    return strucDocTd;
+  }
+
+  public static StrucDocTable createTableWithCaption(String value) {
+    StrucDocTable table = objectFactory.createStrucDocTable();
+    //table caption
+    table.setCaption(new StrucDocCaption() {{
+      getContent().add(value);
+    }});
+    return table;
+  }
+
+  public static StrucDocParagraph createStrucDocParagraph(String styleCode, String content) {
+    StrucDocParagraph paragraph = objectFactory.createStrucDocParagraph();
+    paragraph.getStyleCode().add(styleCode);
+    paragraph.getContent().add(content);
+    return paragraph;
+  }
+
+  public static StrucDocTd getBoldTextTd(String text) {
+    StrucDocTd td = getNormalTextTd(text);
+    td.getStyleCode().add("Bold");
+    return td;
+  }
+
+  public static StrucDocTd getNormalTextTd(String text) {
+    StrucDocTd td = objectFactory.createStrucDocTd();
+    td.getContent().add(text);
+    return td;
+  }
+
+  public static boolean isServiceReferralExecuting(Class executingClass) {
+    if (executingClass == ServiceReferral.class) {
+      return true;
+    }
+    return false;
   }
 }

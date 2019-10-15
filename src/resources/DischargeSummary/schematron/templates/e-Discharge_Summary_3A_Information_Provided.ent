@@ -1,0 +1,129 @@
+
+    <!-- e-Discharge Clinical Document:  7.1.4.2.2 Information Provided  -->
+
+    <!-- Context: ClinicalDocument/component/structuredBody/component[plan]/section/component[rec]/section/entry[inf_prov]/act/code/@code="102.20016.4.1.2" -->
+
+    <!-- Status: Last Reviewed: Not Reviewed
+        Status: Last Updated : 10/07/2012 -->
+
+
+    <pattern name="p-e-Discharge_Summary_3A_Information_Provided-errors"
+        id="p-e-Discharge_Summary_3A_Information_Provided-errors"
+        see="#p-e-Discharge_Summary_3A_Information_Provided-errors">
+
+        <rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code='101.16020']/cda:component/cda:section[(cda:code/@code='101.20016') and (cda:entry/cda:act/cda:code/@code='102.20016.4.1.2')]">
+
+            <report test="count(cda:entry[cda:act/cda:code/@code='102.20016.4.1.2'])> 1">Error:
+                e-Discharge Summary - 7.1.4.2.2 Information Provided - The 'entry' tag shall appear only once.
+                Refer to section 7.1.4.2.2
+                of the e-Discharge_Summary_CDA_Implementation_Guide_v3.4.</report>
+
+        </rule>
+
+        <rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code='101.16020']/cda:component/cda:section[cda:code/@code='101.20016']/cda:entry[cda:act/cda:code/@code='102.20016.4.1.2']">
+
+            <report test="count(cda:act[cda:code/@code='102.20016.4.1.2'])> 1">Error:
+                e-Discharge Summary - 7.1.4.2.2 Information Provided - The 'act' tag shall appear only once.
+                Refer to section 7.1.4.2.2
+                of the e-Discharge_Summary_CDA_Implementation_Guide_v3.4.</report>
+
+        </rule>
+
+        <rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code='101.16020']/cda:component/cda:section[cda:code/@code='101.20016']/cda:entry/cda:act[cda:code/@code='102.20016.4.1.2']">
+
+            <assert test="@classCode">Error: e-Discharge Summary - 7.1.4.2.2 Information Provided
+                - The 'act' tag 'classCode' attribute is missing. Refer to section 7.1.4.2.2
+                of the e-Discharge_Summary_CDA_Implementation_Guide_v3.4.</assert>
+
+            <assert test="translate(@classCode, 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ') = 'INFRM'">Error: e-Discharge Summary - 7.1.4.2.2 Adverse
+                - The 'act' tag 'classCode' attribute shall contain the value 'INFRM'. Refer to section 7.1.4.2.2
+                of the e-Discharge_Summary_CDA_Implementation_Guide_v3.4.</assert>
+
+            <assert test="@moodCode">Error: e-Discharge Summary - 7.1.4.2.2 Information Provided
+                - The 'act' tag 'moodCode' attribute is missing. Refer to section 7.1.4.2.2
+                of the e-Discharge_Summary_CDA_Implementation_Guide_v3.4.</assert>
+
+            <assert test="translate(@moodCode, 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ') = 'EVN'">Error: e-Discharge Summary - 7.1.4.2.2 Adverse
+                - The 'act' tag 'moodCode' attribute shall contain the value 'EVN'. Refer to section 7.1.4.2.2
+                of the e-Discharge_Summary_CDA_Implementation_Guide_v3.4.</assert>
+
+            <assert test="@classCode">Error: e-Discharge Summary - 7.1.4.2.2 Information Provided
+                - The 'act' tag 'classCode' attribute is missing. Refer to section 7.1.4.2.2
+                of the e-Discharge_Summary_CDA_Implementation_Guide_v3.4.</assert>
+
+            <assert test="cda:id">Error: e-Discharge Summary - 7.1.4.2.2 Information Provided
+                - The 'id' tag is missing. Refer to section 7.1.4.2.2
+                of the e-Discharge_Summary_CDA_Implementation_Guide_v3.4.</assert>
+
+            <report test="count(cda:id) > 1">Error: e-Discharge Summary - 7.1.4.2.2 Information Provided
+                - The 'id' tag shall appear only once. Refer to section 7.1.4.2.2
+                of the e-Discharge_Summary_CDA_Implementation_Guide_v3.4.</report>
+
+            <report test="count(cda:code) > 1">Error: e-Discharge Summary - 7.1.4.2.2 Information Provided
+                - The 'code' tag shall appear only once. Refer to section 7.1.4.2.2
+                of the e-Discharge_Summary_CDA_Implementation_Guide_v3.4.</report>
+
+            <assert test="cda:text">Error: e-Discharge Summary - 7.1.4.2.2 Information Provided
+                - The 'text' tag is missing. Refer to section 7.1.4.2.2
+                of the e-Discharge_Summary_CDA_Implementation_Guide_v3.4.</assert>
+
+            <report test="count(cda:text) > 1">Error: e-Discharge Summary - 7.1.4.2.2 Information Provided
+                - The 'text' tag shall appear only once. Refer to section 7.1.4.2.2
+                of the e-Discharge_Summary_CDA_Implementation_Guide_v3.4.</report>
+
+        </rule>
+
+        <rule context="cda:code[@code = '102.20016.4.1.2']">
+
+            <assert test="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code='101.16020']/cda:component/cda:section[cda:code/@code='101.20016']/cda:entry/cda:act/cda:code[@code='102.20016.4.1.2']"
+                > Error: e-Discharge Summary - 7.1.4.2.2 Information Provided -
+                The "ClinicalDocumentcomponentstructuredBodycomponentsection[cda:code/@code='101.16020']componentsection[cda:code/@code='101.20016']entryactcode[@code='102.20016.4.1.2']" path
+                - 1 or more tags are missing. Refer to section 7.1.4.2.2 of the
+                e-Discharge_Summary_CDA_Implementation_Guide_v3.4.</assert>
+
+            <assert test="@codeSystem = '1.2.36.1.2001.1001.101'">Error: e-Discharge Summary - 7.1.4.2.2 Adverse
+                Substance Reactions - The 'code' tag 'codeSystem' attribute shall be
+                '1.2.36.1.2001.1001.101' as per the CDA Implementation guide. Refer to section 7.1.4.2.2
+                of the e-Discharge_Summary_CDA_Implementation_Guide_v3.4.</assert>
+
+            <assert
+                test="translate(@codeSystemName, 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ') = 'NCTIS DATA COMPONENTS'"
+                >Error: e-Discharge Summary - 7.1.4.2.2 Information Provided - The 'code' tag
+                'codeSystemName' attribute shall contain the value 'NCTIS Data Components'. Refer to section 7.1.4.2.2
+                of the e-Discharge_Summary_CDA_Implementation_Guide_v3.4.</assert>
+
+            <assert
+                test="translate(@displayName, 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ') = 'INFORMATION PROVIDED'"
+                >Error: e-Discharge Summary - 7.1.4.2.2 Information Provided - The 'code' tag
+                'displayName' attribute shall contain the value 'Information Provided'. Refer to section
+                7.1.4.2.2 of the e-Discharge_Summary_CDA_Implementation_Guide_v3.4.</assert>
+
+        </rule>
+
+        <rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code='101.16020']/cda:component/cda:section[cda:code/@code='101.20016']/cda:entry/cda:act[cda:code/@code='102.20016.4.1.2']/cda:text">
+
+            <assert test="@xsi:type">Error: e-Discharge Summary - 7.1.4.2.2 Information Provided
+                - The 'text' tag 'xsi:type' attribute is missing. Refer to section 7.1.4.2.2
+                of the e-Discharge_Summary_CDA_Implementation_Guide_v3.4.</assert>
+
+            <!-- Start Mantis Task 2782 -->
+            <assert test="not(@xsi:type) or normalize-space(@xsi:type) !=  ''">
+                Error: e-Discharge Summary - 7.1.4.2.2 Information Provided - The 'text' tag 'xsi:type' attribute shall contain a value.
+                Refer to section 7.1.4.2.2
+                of the e-Discharge_Summary_CDA_Implementation_Guide_v3.4.
+            </assert>
+            <!-- End Mantis Task 2782 -->
+
+            <assert test="translate(@xsi:type, 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ') = 'ST'">Error: e-Discharge Summary - 7.1.4.2.2 Information Provided
+                - The 'text' tag 'xsi:type' attribute shall contain the value 'ST'. Refer to section 7.1.4.2.2
+                of the e-Discharge_Summary_CDA_Implementation_Guide_v3.4.</assert>
+
+            <assert test="not(@nullFlavor)">Error: e-Discharge Summary - 7.1.4.2.2 "Information Provided /
+                Information Provided to Subject of Care and/or Relevant Parties" - The 'text' tag
+                'nullFlavor' attribute shall not be present. Refer to requirements in the NullFlavor Usage Clarification FAQ and
+                section 7.1.4.2.2 of the e-Discharge_Summary_CDA_Implementation_Guide_v3.4 </assert>
+
+        </rule>
+
+    </pattern>
+

@@ -11,20 +11,22 @@ public class EventDetails {
      */
     private String clinicalSynopsisDesc;
 
-    private StrucDocText customNarrativeEventDetails;  //TODO Check if this is required (Exists in .NET, not in CDA)
-
-    public EventDetails(String clinicalSynopsisDesc, StrucDocText customNarrativeEventDetails) {
-        this.clinicalSynopsisDesc = clinicalSynopsisDesc;
-        this.customNarrativeEventDetails = customNarrativeEventDetails;
-    }
+    private StrucDocText customNarrative;
 
     public String getClinicalSynopsisDesc() {
         return clinicalSynopsisDesc;
     }
 
-    public StrucDocText getCustomNarrativeEventDetails() {
-        return customNarrativeEventDetails;
+    public StrucDocText getCustomNarrative() {
+        return customNarrative;
   }
 
-  //TODO  Validation Required
+    public void setClinicalSynopsisDesc(String clinicalSynopsisDesc) {
+        this.clinicalSynopsisDesc = clinicalSynopsisDesc;
+    }
+
+    public void setCustomNarrative(StrucDocText customNarrative) {
+        this.customNarrative = customNarrative;
+    }
+
 }

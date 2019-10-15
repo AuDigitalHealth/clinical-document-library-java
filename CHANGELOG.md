@@ -1,9 +1,21 @@
 # Change Log/Revision History
 
+  = 1.1 = 
+  =======
+   + Java library now supports following CDA documents' formats: 
+   
+   Sr# | CDA Document | Format 1A | Format 1B | Format 2 | Format 3A
+   ---| ------------ | --------- | --------- | -------- | ---------
+   1. | Advanced Care Directive | No | No | No | Yes
+   2. | Discharge Summary | Yes | Yes | Yes | Yes
+   3. | EReferral | Yes | No | No | Yes
+   4. | PSML | No | No | No | Yes
+   5. | Service Referral | Yes | Yes | No | Yes
+   6. | Specialist Letter | Yes | Yes | Yes | Yes
 
   = 1.0.2 = 
   =======
-  + Updated nehta-schematron-check Jar to use File.pathSeparator
+  + Updated nehta-schematron-check Jar to use File.pathSeparators
 
   = 1.0.1 = 
   =======

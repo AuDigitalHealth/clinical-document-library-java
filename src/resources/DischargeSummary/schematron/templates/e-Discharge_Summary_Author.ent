@@ -1,0 +1,279 @@
+
+
+    <!-- e-Discharge Summary Clinical Document:  6.1.1 Document Author -->
+
+    <!-- Context: ClinicalDocument/Document Author -->
+
+    <!-- Status: Last Reviewed: 10/11/2011
+         Status: Last Updated : 30/07/2012 -->
+
+
+    <pattern name="p-e-Discharge_Summary_Author-errors" id="p-e-Discharge_Summary_Author-errors"
+        see="#p-e-Discharge_Summary_Author-errors">
+
+
+        <!-- Document Author - 1..1 -->
+
+        <rule context="/cda:ClinicalDocument">
+
+            <assert test="cda:author">Error: e-Discharge Summary - 6.1.1 Document Author - The
+                'Author' tag is missing. Refer to section 6.1.1 Document Author of the
+                e-Discharge_Summary_CDA_Implementation_Guide_v3.4.</assert>
+
+            <report test="count(cda:author) > 1">Error: e-Discharge Summary - 6.1.1 Document Author
+                - The 'author' tag shall appear only once. Refer to section 6.1.1 Document Author of
+                the e-Discharge_Summary_CDA_Implementation_Guide_v3.4.</report>
+
+        </rule>
+
+
+        <rule context="/cda:ClinicalDocument/cda:author">
+
+
+            <!-- Participation Period - 0..1 Required CDA element-->
+
+            <!--Updated NG 22/02/2012 ID:2057 -->
+
+            <assert test="cda:time">Error: e-Discharge Summary 6.1.1 Document Author - "Document
+                Author / Participation Type" - The 'time' tag is missing. Refer to section 6.1.1
+                Document Author of the
+                e-Discharge_Summary_CDA_Implementation_Guide_v3.4.</assert>
+
+            <report test="count(cda:time) > 1">Error: e-Discharge Summary 6.1.1 Document Author -
+                "Document Author / Participation Period" - The 'time' tag shall appear only once.
+                Refer to section 6.1.1 Document Author of the
+                e-Discharge_Summary_CDA_Implementation_Guide_v3.4.</report>
+
+            <!-- The attributes of "cda:time" are being tested by e-Discharge_Summary_Global_Checks.sch. -->
+
+            <!-- Participation Type - 1..1 -->
+
+            <!-- Updated RV 11/07/2012 -->
+            <report test="(@typeCode) and normalize-space(@typeCode) = ''"
+                >Error: e-Discharge Summary - 6.1.1 Document Author -
+                "Document Author / Participation Type" - The 'author' tag 'typeCode' attribute
+                shall contain a value.  Refer to section 6.1.1 Document Author of the
+                e-Discharge_Summary_CDA_Implementation_Guide_v3.4.</report>
+
+            <report test="(@typeCode) and normalize-space(@typeCode) != '' and @typeCode != 'AUT'">
+                Error: e-Discharge Summary - 6.1.1 Document Author -
+                "Document Author / Participation Type" - The 'author' tag 'typeCode' attribute
+                shall contain the value 'AUT'.  Refer to section 6.1.1 Document Author of the
+                e-Discharge_Summary_CDA_Implementation_Guide_v3.4.</report>
+
+            <!--<report test="@typeCode !=  'AUT'">Error: e-Discharge Summary - 6.1.1 Document Author -
+                "Document Author / Participation Type" - The 'author' tag 'typeCode' attribute shall
+                be 'AUT'. Refer to section 6.1.1 Document Author of the
+                e-Discharge_Summary_CDA_Implementation_Guide_v3.4.</report>-->
+
+            <!-- Update Ended RV 11/07/2012 -->
+
+        </rule>
+
+
+        <rule context="/cda:ClinicalDocument/cda:author/cda:assignedAuthor">
+
+            <!-- Role - 1..1 -->
+
+            <assert test="cda:code">Error: e-Discharge Summary - 6.1.1 Document Author - "Document
+                Author / Role" - The 'code' tag is missing. Refer to section 8.1 code and 6.1.1
+                Document Author of the
+                e-Discharge_Summary_CDA_Implementation_Guide_v3.4.</assert>
+
+            <report test="count(cda:code) > 1">Error: e-Discharge Summary - 6.1.1 Document Author -
+                "Document Author / Role" - The 'code' tag shall appear only once. Refer to section
+                6.1.1 Document Author of the
+                e-Discharge_Summary_CDA_Implementation_Guide_v3.4.</report>
+
+            <!-- id - 1..1 -->
+
+            <assert test="cda:id">Error: e-Discharge Summary - 6.1.1 Document Author - Document
+                Author - "author / assignedAuthor" - The 'id' tag is missing. Refer to section 6.1.1
+                Document Author of the
+                e-Discharge_Summary_CDA_Implementation_Guide_v3.4.</assert>
+
+            <report test="count(cda:id) > 1">Error: e-Discharge Summary - 6.1.1 Document Author -
+                "author / assignedAuthor" - The 'id' tag shall appear once only. Refer to section
+                6.1.1 Document Author of the
+                e-Discharge_Summary_CDA_Implementation_Guide_v3.4.</report>
+
+            <!-- The attributes of "cda:id" are being tested by e-Discharge_Summary_Global_Checks.sch. -->
+
+            <!-- Participant - 1..1 -->
+
+            <assert test="cda:assignedPerson">Error: e-Discharge Summary - 6.1.1 Document Author -
+                Document Author - "Document Author / Participant" The 'assignedPerson' tag is
+                missing. Refer to section 6.1.1 Document Author of the
+                e-Discharge_Summary_CDA_Implementation_Guide_v3.4.</assert>
+
+            <report test="count(cda:assignedPerson) > 1"> Error: e-Discharge Summary 6.1.1 Document
+                Author - "Document Author / Participant" - The 'assignedPerson' tag -
+                'assignedPerson' tag shall appear only once. Refer to section 6.1.1 of the
+                e-Discharge_Summary_CDA_Implementation_Guide_v3.4.</report>
+
+            <!-- Address - 0..* -->
+            <!-- For 'Address' tag see below context:
+                <rule context="/cda:ClinicalDocument/cda:author/cda:assignedAuthor/cda:addr[@use]"> -->
+
+
+            <!-- Electronic Communication Detail - 0..* -->
+            <!-- The tags and attributes of "cda:telecom" are being tested by e-Discharge Summary_Global_Checks.sch. -->
+
+        </rule>
+
+        <!-- Start Mantis 3699 -->
+        <!-- Role - 1..1 -->
+
+            <rule context="/cda:ClinicalDocument/cda:author/cda:assignedAuthor/cda:code">
+
+            <assert test="not(@nullFlavor)">Error: e-Discharge Summary - 6.1.1 Document Author - "Document
+                Author / Role"  - The 'code' tag 'nullFlavor' attribute shall not be
+                present. Refer to requirements in the NullFlavor Usage Clarification FAQ and section 6.1.1 of the
+                e-Discharge_Summary_CDA_Implementation_Guide_v3.4. </assert>
+
+             </rule>
+
+        <!--<rule context="/cda:ClinicalDocument/cda:author/cda:assignedAuthor/cda:code">
+
+            <!-\- Updated SY 22/02/2012 ID:2030 -\->
+
+            <!-\- @code - 1..1 -\->
+
+            <assert test="@code">Error: e-Discharge Summary - 6.1.1 Document Author - "Document
+                Author / Role" - The 'code' tag 'code' attribute is missing. Refer to section 6.1.1
+                and 8.1 of the
+                e-Discharge_Summary_CDA_Implementation_Guide_v3.4.</assert>
+
+            <report
+                test="
+                @code and
+                not(document('TEMPLATE/VALDN/CDAValidate_Vocabs.xml', .)/systems/system[@codeSystemName = '1220.0 - ANZSCO - Australian and New Zealand Standard Classification of Occupations, First Edition, 2006']/code[
+                @code = current()/@code])"
+                >Error: e-Discharge Summary - 6.1.1 Document Author - "Document Author / Role" - The
+                'code' tag 'code' attribute shall be as per '1220.0 - ANZSCO - Australian and New
+                Zealand Standard Classification of Occupations, First Edition, 2006'. Refer to
+                section 6.1.1 and 8.1 of the
+                e-Discharge_Summary_CDA_Implementation_Guide_v3.4.</report>
+
+            <!-\- @codeSystem - 1..1 -\->
+
+            <assert test="@codeSystem">Error: e-Discharge Summary - 6.1.1 Document Author -
+                "Document Author / Role" - The 'code' tag 'codeSystem' attribute is missing. Refer
+                to section 6.1.1 and 8.1 of the
+                e-Discharge_Summary_CDA_Implementation_Guide_v3.4.</assert>
+
+            <report test="@codeSystem and @codeSystem != '2.16.840.1.113883.13.62'">Error:
+                e-Discharge Summary - 6.1.1 Document Author - "Document Author / Role" - The 'code'
+                tag 'codeSystem' attribute shall contain the value '2.16.840.1.113883.13.62'. Refer to section
+                6.1.1 and 8.1 of the
+                e-Discharge_Summary_CDA_Implementation_Guide_v3.4.</report>
+
+            <!-\- @codeSystemName -\->
+
+            <assert
+                test="translate(@codeSystemName, 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ') = '1220.0 - ANZSCO - AUSTRALIAN AND NEW ZEALAND STANDARD CLASSIFICATION OF OCCUPATIONS, FIRST EDITION, 2006'"
+                >Error: e-Discharge Summary - 6.1.1 Document Author - "Document Author / Role" - The
+                'code' tag 'codeSystemName' attribute shall contain the value '1220.0 - ANZSCO - Australian and New
+                Zealand Standard Classification of Occupations, First Edition, 2006'. Refer to
+                section 6.1.1 and 8.1 of the
+                e-Discharge_Summary_CDA_Implementation_Guide_v3.4.</assert>
+
+            <!-\- @displayName -\->
+
+            <report
+                test="
+                @displayName and
+                not(document('TEMPLATE/VALDN/CDAValidate_Vocabs.xml', .) /systems/system[@codeSystemName = '1220.0 - ANZSCO - Australian and New Zealand Standard Classification of Occupations, First Edition, 2006']/code[
+                (@code = current()/@code) and
+                (translate(@displayName,  'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ') = translate(current()/@displayName, 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'))
+                ])"
+                >Error: e-Discharge Summary - 6.1.1 Document Author - "Document Author / Role" - The
+                'Code' tag 'code' and 'displayName' attributes shall be as per '1220.0 - ANZSCO -
+                Australian and New Zealand Standard Classification of Occupations, First Edition,
+                2006'. Refer to section 6.1.1 and 8.1 of the
+                e-Discharge_Summary_CDA_Implementation_Guide_v3.4.</report>
+
+            <!-\- End of SY's Update ID:2030 -\->
+
+        </rule>-->
+        <!-- End Mantis 3699 -->
+
+        <rule context="/cda:ClinicalDocument/cda:author/cda:assignedAuthor/cda:assignedPerson">
+
+            <!-- Participant > EntityIdentifier - 1..* -->
+
+            <assert test="ext:asEntityIdentifier">Error: e-Discharge Summary - 6.1.1 Document Author
+                - "Document Author / Participant / Entity Identifier" - The 'asEntityIdentifier' tag
+                is missing. Refer to section 6.1.1 Document Author of the
+                e-Discharge_Summary_CDA_Implementation_Guide_v3.4.</assert>
+
+             <!--The following tests are commented out to relax the requirement of HPI-Is temporarily.
+            CCRG unanimously endorsed the proposal for the HPI-I to be optional in Discharge Summary as the interim solution see Mantis 3719-->
+
+            <!--  <assert test="ext:asEntityIdentifier/ext:id[starts-with(@root, '1.2.36.1.2001.1003.0.800361')]">  Error:
+                e-Discharge Summary - 6.1.1 Document Author - "Document Author / Participant /
+                Entity Identifier" - The 'HPI-I asEntityIdentifier' tag is missing. "The value of
+                one Entity Identifier SHALL be an Australian HPI-I." although there could be
+                multiple Entity Identifiers. Refer to section 6.1.1 of the
+                e-Discharge_Summary_CDA_Implementation_Guide_v3.4.</assert>
+
+-->
+            <!-- The tags and attributes of 'ext:asEntityIdentifier' are being tested in 'e-Discharge_Summary_Global_Checks.sch'. -->
+
+
+            <!-- Person Name - 1..* -->
+
+            <assert test="cda:name">Error: e-Discharge Summary - 6.1.1 Document Author - "Document
+                Author / Participant / Person or Organisation or Device / Person / Person Name - The
+                'Name' tag is missing. Refer to section 6.1.1 Document Author of the
+                e-Discharge_Summary_CDA_Implementation_Guide_v3.4.</assert>
+
+
+            <!-- Employment Detail - 0..1-->
+
+            <report test="count(ext:asEmployment) > 1">Error: e-Discharge Summary - 6.1.1 Document
+                Author - "Document Author / Participant / Person or Organisation or Device / Person
+                / Employment Detail" - The 'asEmployment' tag shall appear only once. Refer to
+                section 6.1.1 Document Author of the
+                e-Discharge_Summary_CDA_Implementation_Guide_v3.4.</report>
+
+            <!-- Other tags and attributes of "ext:asEmployment" are being tested by Global_Checks file -->
+
+
+        </rule>
+
+
+        <!-- Address - 0..* -->
+
+        <rule context="/cda:ClinicalDocument/cda:author/cda:assignedAuthor/cda:addr[@use]">
+
+            <!-- Address - country -  0..1 -->
+
+            <assert
+                test="document('TEMPLATE/VALDN/CDAValidate_Vocabs.xml', .)/systems/system[@codeSystemName = 'ISO3166-1']/code[translate(@displayName, 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ') = translate(current()/cda:country, 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ')]/@code = 'AU'"
+                >Error: e-Discharge Summary - 6.1.1 Document Author - "Document Author / Participant
+                / Address / Australia or International Address / International Address / Country" -
+                The 'country' tag shall contain the value 'Australia'. Refer to section 8.6 of the
+                e-Discharge_Summary_CDA_Implementation_Guide_v3.4.</assert>
+
+            <!-- Other tags and attributes of "cda:addr" are being tested by e-Discharge Summary_Global_Checks.sch. -->
+
+        </rule>
+
+
+
+        <!-- Person Name - 1..* -->
+
+        <rule context="/cda:ClinicalDocument/cda:author/cda:assignedAuthor/cda:assignedPerson/cda:name">
+
+            <!-- Other child tags and attributes of cda:name are being tested inside "e-Discharge_Summary_Global_Checks.ent" -->
+
+            <assert test="cda:family">Error: e-Discharge Summary - 6.1.1 Document Author - "Document
+                Author / Participant / Person or Organisation or Device / Person / Person Name - The
+                'family' tag is missing. Refer to section 6.1.1 Document Author of the
+                e-Discharge_Summary_CDA_Implementation_Guide_v3.4.</assert>
+
+        </rule>
+
+    </pattern>
+

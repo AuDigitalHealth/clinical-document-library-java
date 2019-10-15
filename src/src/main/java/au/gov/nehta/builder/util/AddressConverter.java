@@ -20,14 +20,17 @@ import au.net.electronichealth.ns.cda._2_0.PostalAddressUse;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
+import java.util.Objects;
 import javax.xml.bind.JAXBElement;
 
 public class AddressConverter {
 
+  private static ObjectFactory objectFactory = new ObjectFactory();
+
   public static AD convert(PostalAddress postalAddress) {
     Address model = postalAddress.getAddress();
 
-    AD address = new AD();
+    AD address = objectFactory.createAD();
     addBaseAddressComponenets(model, address);
 
     String modelAdditionalLocator = model.getAdditionalLocator();
@@ -38,7 +41,7 @@ public class AddressConverter {
   }
 
   public static AD convert(CountryState cs) {
-    AD address = new AD();
+    AD address = objectFactory.createAD();
     getCountryState(cs, address);
     return address;
   }
@@ -60,16 +63,15 @@ public class AddressConverter {
   }
 
   public static AD convert(AddressContext ctx) {
-    AD address = new AD();
+    AD address = objectFactory.createAD();
 
     if (ctx.getNoFixedAddressIndicator() || ctx.getAddress() == null) {
-      AdxpStreetAddressLine adxpStreetAddressLine = new AdxpStreetAddressLine();
+      AdxpStreetAddressLine adxpStreetAddressLine = objectFactory.createAdxpStreetAddressLine();
       adxpStreetAddressLine.getContent().add("Unknown");
       JAXBElement<AdxpStreetAddressLine> streetAddressLine =
-          new ObjectFactory().createADStreetAddressLine(adxpStreetAddressLine);
+          objectFactory.createADStreetAddressLine(adxpStreetAddressLine);
       address.getContent().add(streetAddressLine);
     } else {
-
       if (ctx.getAddress() instanceof AustralianAddress) {
         addAustralianAddress(ctx, address);
       } else {
@@ -107,11 +109,10 @@ public class AddressConverter {
 
   private static void addDPID(AD address, String dpid) {
     if (isNotEmpty(dpid)) {
-      AdxpAdditionalLocator adxpAdditionalLocator = new AdxpAdditionalLocator();
+      AdxpAdditionalLocator adxpAdditionalLocator = objectFactory.createAdxpAdditionalLocator();
       adxpAdditionalLocator.getContent().add(dpid);
-
       JAXBElement<AdxpAdditionalLocator> additionalLocator =
-          new ObjectFactory().createADAdditionalLocator(adxpAdditionalLocator);
+          objectFactory.createADAdditionalLocator(adxpAdditionalLocator);
       address.getContent().add(additionalLocator);
     }
   }
@@ -125,28 +126,28 @@ public class AddressConverter {
 
   private static void addCountry(AD address, String modelCountry) {
     if (isNotEmpty(modelCountry)) {
-      AdxpCountry adxpCountry = new AdxpCountry();
+      AdxpCountry adxpCountry = objectFactory.createAdxpCountry();
       adxpCountry.getContent().add(modelCountry);
-      JAXBElement<AdxpCountry> country = new ObjectFactory().createADCountry(adxpCountry);
+      JAXBElement<AdxpCountry> country = objectFactory.createADCountry(adxpCountry);
       address.getContent().add(country);
     }
   }
 
   private static void addPostcode(AD address, String modelPostalCode) {
     if (isNotEmpty(modelPostalCode)) {
-      AdxpPostalCode adxpPostalCode = new AdxpPostalCode();
+      AdxpPostalCode adxpPostalCode = objectFactory.createAdxpPostalCode();
       adxpPostalCode.getContent().add(modelPostalCode);
       JAXBElement<AdxpPostalCode> postalCode =
-          new ObjectFactory().createADPostalCode(adxpPostalCode);
+          objectFactory.createADPostalCode(adxpPostalCode);
       address.getContent().add(postalCode);
     }
   }
 
   private static void addState(AD address, String modelState) {
     if (isNotEmpty(modelState)) {
-      AdxpState adxpState = new AdxpState();
+      AdxpState adxpState = objectFactory.createAdxpState();
       adxpState.getContent().add(modelState);
-      JAXBElement<AdxpState> state = new ObjectFactory().createADState(adxpState);
+      JAXBElement<AdxpState> state = objectFactory.createADState(adxpState);
       address.getContent().add(state);
     }
   }
@@ -154,10 +155,10 @@ public class AddressConverter {
   private static void addAddressLines(AD address, List<String> addressLines) {
     if (addressLines != null) {
       for (String cdaModelPostalAddressStreetAddressLine : addressLines) {
-        AdxpStreetAddressLine adxpStreetAddressLine = new AdxpStreetAddressLine();
+        AdxpStreetAddressLine adxpStreetAddressLine = objectFactory.createAdxpStreetAddressLine();
         adxpStreetAddressLine.getContent().add(cdaModelPostalAddressStreetAddressLine);
         JAXBElement<AdxpStreetAddressLine> streetAddressLine =
-            new ObjectFactory().createADStreetAddressLine(adxpStreetAddressLine);
+            objectFactory.createADStreetAddressLine(adxpStreetAddressLine);
         address.getContent().add(streetAddressLine);
       }
     }
@@ -165,15 +166,15 @@ public class AddressConverter {
 
   private static void addCity(String modelCity, AD address) {
     if (isNotEmpty(modelCity)) {
-      AdxpCity adxpCity = new AdxpCity();
+      AdxpCity adxpCity = objectFactory.createAdxpCity();
       adxpCity.getContent().add(modelCity);
-      JAXBElement<AdxpCity> city = new ObjectFactory().createADCity(adxpCity);
+      JAXBElement<AdxpCity> city = objectFactory.createADCity(adxpCity);
       address.getContent().add(city);
     }
   }
 
   private static PostalAddressUse getPostalAddressUse(AddressPurpose purpose) {
-    PostalAddressUse postalAddressUse = null;
+    PostalAddressUse postalAddressUse;
 
     switch (purpose) {
       case BUSINESS: {
@@ -192,21 +193,16 @@ public class AddressConverter {
         postalAddressUse = PostalAddressUse.H;
         break;
       }
-      case NOT_STATED_OR_UNKNOWN_OR_INADEQUATELY_DESCRIBED: {
-        postalAddressUse = null;
-        break;
-      }
       default: {
         postalAddressUse = null;
         break;
       }
     }
-
     return postalAddressUse;
   }
 
   private static PostalAddressUse getPostalAddressUse(PostalAddressUseEnum addressUse) {
-    PostalAddressUse postalAddressUse = null;
+    PostalAddressUse postalAddressUse;
 
     switch (addressUse) {
       case WORKPLACE: {
@@ -245,58 +241,53 @@ public class AddressConverter {
     List<AD> adList = new ArrayList<>();
 
     if (addresses != null && !addresses.isEmpty()) {
-      addresses
-          .parallelStream()
-          .forEach(
-              address -> {
-                AD ad = new AD();
-                au.gov.nehta.model.clinical.common.address.AustralianAddress australianAddress =
-                    address.getAustralianAddress();
+      addresses.stream().filter(Objects::nonNull).forEach(
+          address -> {
+            AD ad = objectFactory.createAD();
 
-                // Street Address Line
-                AdxpStreetAddressLine adxpStreetAddressLine = new AdxpStreetAddressLine();
-                adxpStreetAddressLine
-                    .getContent()
-                    .add(
-                        australianAddress.getStreetNumber()
-                            + " "
-                            + australianAddress.getStreetName());
-                JAXBElement<AdxpStreetAddressLine> streetAddressLine =
-                    new ObjectFactory().createADStreetAddressLine(adxpStreetAddressLine);
-                ad.getContent().add(streetAddressLine);
+            au.gov.nehta.model.clinical.common.address.AustralianAddress australianAddress =
+                address.getAustralianAddress();
+            if (null != australianAddress.getAddressPurpose()) {
+              ad.getUse().add(getPostalAddressUse(australianAddress.getAddressPurpose()));
+            }
+            // Street Address Line
+            AdxpStreetAddressLine adxpStreetAddressLine = objectFactory
+                .createAdxpStreetAddressLine();
+            adxpStreetAddressLine.getContent().add(
+                australianAddress.getStreetNumber() + " " + australianAddress.getStreetName());
+            JAXBElement<AdxpStreetAddressLine> streetAddressLine =
+                objectFactory.createADStreetAddressLine(adxpStreetAddressLine);
+            ad.getContent().add(streetAddressLine);
 
-                // City
-                AdxpCity adxpCity = new AdxpCity();
-                adxpCity.getContent().add(australianAddress.getSuburbTownLocality());
-                JAXBElement<AdxpCity> city = new ObjectFactory().createADCity(adxpCity);
-                ad.getContent().add(city);
+            // City
+            AdxpCity adxpCity = objectFactory.createAdxpCity();
+            adxpCity.getContent().add(australianAddress.getSuburbTownLocality());
+            JAXBElement<AdxpCity> city = objectFactory.createADCity(adxpCity);
+            ad.getContent().add(city);
 
-                // State
-                AdxpState adxpState = new AdxpState();
-                adxpState.getContent()
-                    .add(australianAddress.getAustralianStateTerritory().getAbbreviation());
-                JAXBElement<AdxpState> state = new ObjectFactory().createADState(adxpState);
-                ad.getContent().add(state);
+            // State
+            AdxpState adxpState = objectFactory.createAdxpState();
+            adxpState.getContent()
+                .add(australianAddress.getAustralianStateTerritory().getAbbreviation());
+            JAXBElement<AdxpState> state = objectFactory.createADState(adxpState);
+            ad.getContent().add(state);
 
-                // Postal Code
-                AdxpPostalCode adxpPostalCode = new AdxpPostalCode();
-                adxpPostalCode.getContent().add(australianAddress.getPostCode());
-                JAXBElement<AdxpPostalCode> postalCode =
-                    new ObjectFactory().createADPostalCode(adxpPostalCode);
-                ad.getContent().add(postalCode);
+            // Postal Code
+            AdxpPostalCode adxpPostalCode = objectFactory.createAdxpPostalCode();
+            adxpPostalCode.getContent().add(australianAddress.getPostCode());
+            JAXBElement<AdxpPostalCode> postalCode =
+                objectFactory.createADPostalCode(adxpPostalCode);
+            ad.getContent().add(postalCode);
 
-                // TODO Find out about Additional Locator
-                AdxpAdditionalLocator adxpAdditionalLocator = new AdxpAdditionalLocator();
+            // Country
+            AdxpCountry adxpCountry = objectFactory.createAdxpCountry();
+            adxpCountry.getContent().add(CountryEnum.AUSTRALIA.getDescriptor());
+            JAXBElement<AdxpCountry> country = objectFactory.createADCountry(adxpCountry);
+            ad.getContent().add(country);
 
-                // Country
-                AdxpCountry adxpCountry = new AdxpCountry();
-                adxpCountry.getContent().add(CountryEnum.AUSTRALIA.getDescriptor());
-                JAXBElement<AdxpCountry> country = new ObjectFactory().createADCountry(adxpCountry);
-                ad.getContent().add(country);
-
-                //Add addres to the list
-                adList.add(ad);
-              });
+            //Add addres to the list
+            adList.add(ad);
+          });
 
     }
 

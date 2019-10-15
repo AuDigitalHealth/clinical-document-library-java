@@ -18,6 +18,18 @@ public class RequestedServiceImpl implements RequestedService {
   private ParticipationServiceProvider participant;
   private RestrictedTimeInterval requestValidityPeriod;
   private PreciseDate requestedDateTime;
+  private StrucDocText customNarrative;
+  private String serviceComment;
+
+  @Override
+  public StrucDocText getCustomNarrative() {
+    return customNarrative;
+  }
+
+  @Override
+  public void setCustomNarrative(StrucDocText customNarrative) {
+    this.customNarrative = customNarrative;
+  }
 
   @Override
   public Coded getRequestedServiceDescription() {
@@ -110,17 +122,17 @@ public class RequestedServiceImpl implements RequestedService {
   }
 
   @Override
-  public StrucDocText getCustomNarrativeRequestedService() {
-    return null;
-  }
-
-  @Override
   public void setRequestedDateTime(PreciseDate requestedDateTime) {
     this.requestedDateTime = requestedDateTime;
   }
 
   @Override
-  public void setCustomNarrativeRequestedService(StrucDocText customNarrative) {
+  public String getServiceComment() {
+    return serviceComment;
+  }
 
+  @Override
+  public void setServiceComment(String serviceComment) {
+    this.serviceComment = serviceComment;
   }
 }

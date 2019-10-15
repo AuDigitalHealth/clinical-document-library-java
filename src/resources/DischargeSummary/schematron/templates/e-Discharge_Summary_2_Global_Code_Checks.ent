@@ -1,0 +1,310 @@
+
+
+    <!-- e-Discharge Summary Clinical Document:  Global Code Checks -->
+
+    <!-- Status: Last Reviewed: 20/02/2012
+         Status: Last Updated : 19/11/2012
+    -->
+
+    <pattern name="p-e-Discharge_Summary_2_Global_Code_Checks-errors"
+        id="p-e-Discharge_Summary_2_Global_Code_Checks-errors"
+        see="#p-e-Discharge_Summary_2_Global_Code_Checks-errors">
+
+        <!-- 4.Administrative Observations -->
+        
+        <rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[
+              (translate(cda:code/@displayName , 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ') = 'ADMINISTRATIVE OBSERVATIONS') or 
+              (cda:code[@code = '102.16080'])]">
+             
+             <assert test="cda:code[@code = '102.16080']"
+                >Error: e-Discharge Summary - Global Code Checks - The 'code' tag 'code' attribute shall
+                be '102.16080'. Refer to section '4.Administrative Observations' of the
+                e-Discharge_Summary_CDA_Implementation_Guide_v3.4.</assert>
+            
+              <assert test="cda:code[(translate(@displayName , 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ') = 'ADMINISTRATIVE OBSERVATIONS')]"
+                >Error: e-Discharge Summary - Global Code Checks -The 'code' tag 'displayName' attribute shall
+                be Administrative Observations. Refer to '4.Administrative Observations' of the
+                e-Discharge_Summary_CDA_Implementation_Guide_v3.4.</assert>
+            
+        </rule>
+        
+        <!-- 7.1.1 :: Event -->
+        
+        <rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[
+              (translate(cda:code/@displayName , 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ') = 'EVENT') or 
+              (cda:code[@code = '101.16006'])]">
+             
+             <assert test="cda:code[@code = '101.16006']"
+                >Error: e-Discharge Summary - Global Code Checks - The 'code' tag 'code' attribute shall
+                be '101.16006'. Refer to section '7.1.1 Event' of the
+                e-Discharge_Summary_CDA_Implementation_Guide_v3.4.</assert>
+            
+              <assert test="cda:code[(translate(@displayName , 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ') = 'EVENT')]"
+                >Error: e-Discharge Summary - Global Code Checks -The 'code' tag 'displayName' attribute shall
+                be 'Event'. Refer to '7.1.1 Event' of the
+                e-Discharge_Summary_CDA_Implementation_Guide_v3.4.</assert>
+            
+        </rule>
+        
+        <!-- 7.1.2 Medications -->  
+        
+        <rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[
+              (translate(cda:code/@displayName , 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ') = 'MEDICATIONS') or 
+              (cda:code[@code = '101.16022'])]">
+             
+             <assert test="cda:code[@code = '101.16022']"
+                >Error: e-Discharge Summary - Global Code Checks - The 'code' tag 'code' attribute shall
+                be '101.16022'. Refer to section '7.1.2 Medications' of the
+                e-Discharge_Summary_CDA_Implementation_Guide_v3.4.</assert>
+            
+              <assert test="cda:code[(translate(@displayName , 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ') = 'MEDICATIONS')]"
+                >Error: e-Discharge Summary - Global Code Checks -The 'code' tag 'displayName' attribute shall
+                be Medications. Refer to '7.1.2 Medications' of the
+                e-Discharge_Summary_CDA_Implementation_Guide_v3.4.</assert>
+            
+        </rule>
+       
+       <!-- 7.1.3 :: Health Profile -->
+       
+        <rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[
+              (translate(cda:code/@displayName , 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ') = 'HEALTH PROFILE') or 
+              (cda:code[@code = '101.16011'])]">
+             
+             <assert test="cda:code[@code = '101.16011']"
+                >Error: e-Discharge Summary - Global Code Checks - The 'code' tag 'code' attribute shall
+                be '101.16011'. Refer to section '7.1.3 Health Profile' of the
+                e-Discharge_Summary_CDA_Implementation_Guide_v3.4.</assert>
+            
+              <assert test="cda:code[(translate(@displayName , 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ') = 'HEALTH PROFILE')]"
+                >Error: e-Discharge Summary - Global Code Checks -The 'code' tag 'displayName' attribute shall
+                be 'Health Profile'. Refer to section '7.1.3 Health Profile' of the
+                e-Discharge_Summary_CDA_Implementation_Guide_v3.4.</assert>
+            
+        </rule>
+        
+        <!-- 7.1.4 :: Plan -->
+        
+        <rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[
+              (translate(cda:code/@displayName , 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ') = 'PLAN') or 
+              (cda:code[@code = '101.16020'])]">
+             
+             <assert test="cda:code[@code = '101.16020']"
+                >Error: e-Discharge Summary - Global Code Checks - The 'code' tag 'code' attribute shall
+                be '101.16020'. Refer to section '7.1.4 Plan' of the
+                e-Discharge_Summary_CDA_Implementation_Guide_v3.4.</assert>
+            
+              <assert test="cda:code[(translate(@displayName , 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ') = 'PLAN')]"
+                >Error: e-Discharge Summary - Global Code Checks -The 'code' tag 'displayName' attribute shall
+                be 'Plan'. Refer to section '7.1.4 Plan' of the
+                e-Discharge_Summary_CDA_Implementation_Guide_v3.4.</assert>
+            
+        </rule>
+        
+        <!-- 7.1.1.2 Problems/Diagnoses This Visit -->
+        
+        <rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code='101.16006']/cda:component/cda:section[
+              (translate(cda:code/@displayName , 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ') = 'PROBLEMS/DIAGNOSES THIS VISIT') or
+               (cda:code[@code = '101.16142'])]">
+            
+              <assert test="cda:code[@code = '101.16142']"
+                >Error: e-Discharge Summary - Global Code Checks - The 'code' tag 'code' attribute shall
+                be '101.16142'. Refer to section '7.1.1.2 Problems/Diagnoses This Visit'
+                of the e-Discharge_Summary_CDA_Implementation_Guide_v3.4.</assert>
+            
+               <assert test="cda:code[(translate(@displayName , 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ') = 'PROBLEMS/DIAGNOSES THIS VISIT')]"
+                >Error: e-Discharge Summary - Global Code Checks -The 'code' tag 'displayName' attribute shall
+                be 'Problems/Diagnoses This Visit'. Refer to section '7.1.1.2 Problems/Diagnoses This Visit' of the e-Discharge_Summary_CDA_Implementation_Guide_v3.4.</assert> 
+               
+        </rule>
+
+        <!-- 7.1.1.3 ::Clinical Interventions Performed This Visit -->
+        
+        <rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code='101.16006']/cda:component/cda:section[
+              (translate(cda:code/@displayName , 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ') = 'CLINICAL INTERVENTIONS PERFORMED THIS VISIT') or
+               (cda:code[@code = '101.20109'])]">
+            
+              <assert test="cda:code[@code = '101.20109']"
+                >Error: e-Discharge Summary - Global Code Checks - The 'code' tag 'code' attribute shall
+                be '101.20109'. Refer to section '7.1.1.3 Clinical Interventions Performed This Visit'
+                of the e-Discharge_Summary_CDA_Implementation_Guide_v3.4.</assert>
+            
+               <assert test="cda:code[(translate(@displayName , 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ') = 'CLINICAL INTERVENTIONS PERFORMED THIS VISIT')]"
+                >Error: e-Discharge Summary - Global Code Checks -The 'code' tag 'displayName' attribute shall
+                be 'Clinical Interventions Performed This Visit'. Refer to section '7.1.1.3 Clinical Interventions Performed This Visit' of the e-Discharge_Summary_CDA_Implementation_Guide_v3.4.</assert> 
+               
+        </rule>
+
+        <!-- 7.1.1.4 :: Clinical Synopsis -->
+        
+        <rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code='101.16006']/cda:component/cda:section[
+              (translate(cda:code/@displayName , 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ') = 'CLINICAL SYNOPSIS') or
+               (cda:code[@code = '102.15513.4.1.1'])]">
+            
+              <assert test="cda:code[@code = '102.15513.4.1.1']"
+                >Error: e-Discharge Summary - Global Code Checks - The 'code' tag 'code' attribute shall
+                be '102.15513.4.1.1'. Refer to section '7.1.1.4 Clinical Synopsis'
+                of the e-Discharge_Summary_CDA_Implementation_Guide_v3.4.</assert>
+            
+               <assert test="cda:code[(translate(@displayName , 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ') = 'CLINICAL SYNOPSIS')]"
+                >Error: e-Discharge Summary - Global Code Checks -The 'code' tag 'displayName' attribute shall
+                be 'Clinical Synopsis'. Refer to section '7.1.1.4 Clinical Synopsis' of the e-Discharge_Summary_CDA_Implementation_Guide_v3.4.</assert> 
+               
+         </rule>
+        
+         <!-- 7.1.1.5 :: Diagnostic Investigations -->
+        
+         <rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code='101.16006']/cda:component/cda:section[
+              (translate(cda:code/@displayName , 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ') = 'DIAGNOSTIC INVESTIGATIONS') or
+               (cda:code[@code = '101.20117'])]">
+            
+              <assert test="cda:code[@code = '101.20117']"
+                >Error: e-Discharge Summary - Global Code Checks - The 'code' tag 'code' attribute shall
+                be '101.20117'. Refer to section '7.1.1.5 Diagnostic Investigations'
+                of the e-Discharge_Summary_CDA_Implementation_Guide_v3.4.</assert>
+            
+               <assert test="cda:code[(translate(@displayName , 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ') = 'DIAGNOSTIC INVESTIGATIONS')]"
+                >Error: e-Discharge Summary - Global Code Checks -The 'code' tag 'displayName' attribute shall
+                be 'Diagnostic Investigations'. Refer to section '7.1.1.5 Diagnostic Investigations' of the e-Discharge_Summary_CDA_Implementation_Guide_v3.4.</assert> 
+               
+         </rule>
+        
+        <!-- 7.1.2.1 :: Current medications on discharge -->
+        
+        <rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code='101.16022']/cda:component/cda:section[
+              (translate(cda:code/@displayName , 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ') = 'CURRENT MEDICATIONS ON DISCHARGE') or
+               (cda:code[@code = '101.16146.4.1.1'])]">
+            
+              <assert test="cda:code[@code = '101.16146.4.1.1']"
+                >Error: e-Discharge Summary - Global Code Checks - The 'code' tag 'code' attribute shall
+                be '101.16146.4.1.1'. Refer to section '7.1.2.1 Current medications on discharge'
+                of the e-Discharge_Summary_CDA_Implementation_Guide_v3.4.</assert>
+            
+               <assert test="cda:code[(translate(@displayName , 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ') = 'CURRENT MEDICATIONS ON DISCHARGE')]"
+                >Error: e-Discharge Summary - Global Code Checks -The 'code' tag 'displayName' attribute shall
+                be 'Current medications on discharge'. Refer to section '7.1.2.1 Current medications on discharge' of the e-Discharge_Summary_CDA_Implementation_Guide_v3.4.</assert> 
+               
+        </rule>
+
+        <!-- 7.1.2.2 :: Ceased Medications -->
+        
+        <rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code='101.16022']/cda:component/cda:section[
+              (translate(cda:code/@displayName , 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ') = 'CEASED MEDICATIONS') or
+               (cda:code[@code = '101.16146.4.1.2'])]">
+            
+              <assert test="cda:code[@code = '101.16146.4.1.2']"
+                >Error: e-Discharge Summary - Global Code Checks - The 'code' tag 'code' attribute shall
+                be '101.16146.4.1.2'. Refer to section '7.1.2.2 Ceased Medications'
+                of the e-Discharge_Summary_CDA_Implementation_Guide_v3.4.</assert>
+            
+               <assert test="cda:code[(translate(@displayName , 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ') = 'CEASED MEDICATIONS')]"
+                >Error: e-Discharge Summary - Global Code Checks -The 'code' tag 'displayName' attribute shall
+                be 'Ceased Medications'. Refer to section '7.1.2.2 Ceased Medications' of the e-Discharge_Summary_CDA_Implementation_Guide_v3.4.</assert> 
+        
+        </rule>
+        
+        
+        <!-- 7.1.3.2 :: Adverse Reactions -->
+        
+        <rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code='101.16011']/cda:component/cda:section[
+              (translate(cda:code/@displayName , 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ') = 'ADVERSE REACTIONS') or
+               (cda:code[@code = '101.20113'])]">
+            
+              <assert test="cda:code[@code = '101.20113']"
+                >Error: e-Discharge Summary - Global Code Checks - The 'code' tag 'code' attribute shall
+                be '101.20113'. Refer to section '7.1.3.2 Adverse Reactions'
+                of the e-Discharge_Summary_CDA_Implementation_Guide_v3.4.</assert>
+            
+               <assert test="cda:code[(translate(@displayName , 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ') = 'ADVERSE REACTIONS')]"
+                >Error: e-Discharge Summary - Global Code Checks -The 'code' tag 'displayName' attribute shall
+                be 'Adverse Reactions'. Refer to section '7.1.3.2 Adverse Reactions' of the e-Discharge_Summary_CDA_Implementation_Guide_v3.4.</assert> 
+               
+        </rule>
+        
+          
+        <!-- 7.1.3.3 :: Alerts -->
+        
+        <rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code='101.16011']/cda:component/cda:section[
+              (translate(cda:code/@displayName , 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ') = 'ALERTS') or
+               (cda:code[@code = '101.20021'])]">
+            
+              <assert test="cda:code[@code = '101.20021']"
+                >Error: e-Discharge Summary - Global Code Checks - The 'code' tag 'code' attribute shall
+                be '101.20021'. Refer to section '7.1.3.3 Alerts'
+                of the e-Discharge_Summary_CDA_Implementation_Guide_v3.4.</assert>
+            
+               <assert test="cda:code[(translate(@displayName , 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ') = 'ALERTS')]"
+                >Error: e-Discharge Summary - Global Code Checks -The 'code' tag 'displayName' attribute shall
+                be 'Alerts'. Refer to section '7.1.3.3 Alerts' of the e-Discharge_Summary_CDA_Implementation_Guide_v3.4.</assert> 
+               
+          </rule>
+        
+        <!-- 7.1.4.1 :: Arranged Services -->
+          
+        <rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code='101.16020']/cda:component/cda:section[
+              (translate(cda:code/@displayName , 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ') = 'ARRANGED SERVICES') or
+               (cda:code[@code = '101.16021'])]">
+            
+              <assert test="cda:code[@code = '101.16021']"
+                >Error: e-Discharge Summary - Global Code Checks - The 'code' tag 'code' attribute shall
+                be '101.16021'. Refer to section '7.1.4.1 Arranged Services'
+                of the e-Discharge_Summary_CDA_Implementation_Guide_v3.4.</assert>
+            
+               <assert test="cda:code[(translate(@displayName , 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ') = 'ARRANGED SERVICES')]"
+                >Error: e-Discharge Summary - Global Code Checks -The 'code' tag 'displayName' attribute shall
+                be 'Arranged Services'. Refer to section '7.1.4.1 Arranged Services' of the e-Discharge_Summary_CDA_Implementation_Guide_v3.4.</assert> 
+               
+          </rule>
+        
+        <!-- 7.1.4.2 :: Record Of Recommendations And Information Provided -->
+           
+        <rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code='101.16020']/cda:component/cda:section[
+              (translate(cda:code/@displayName , 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ') = 'RECORD OF RECOMMENDATIONS AND INFORMATION PROVIDED') or
+               (cda:code[@code = '101.20016'])]">
+            
+              <assert test="cda:code[@code = '101.20016']"
+                >Error: e-Discharge Summary - Global Code Checks - The 'code' tag 'code' attribute shall
+                be '101.20016'. Refer to section '7.1.4.2 Record Of Recommendations And Information Provided'
+                of the e-Discharge_Summary_CDA_Implementation_Guide_v3.4.</assert>
+            
+               <assert test="cda:code[(translate(@displayName , 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ') = 'RECORD OF RECOMMENDATIONS AND INFORMATION PROVIDED')]"
+                >Error: e-Discharge Summary - Global Code Checks -The 'code' tag 'displayName' attribute shall
+                be 'Record Of Recommendations And Information Provided'. Refer to section '7.1.4.2 Record Of Recommendations And Information Provided' of the e-Discharge_Summary_CDA_Implementation_Guide_v3.4.</assert> 
+               
+           </rule>
+     
+
+        <!-- PROBLEMS/DIAGNOSES THIS VISIT -->
+
+        <!-- 7.1.1.5.1 :: Pathology Test Result -->
+        
+        <rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code='101.16006']/cda:component/cda:section[cda:code/@code='101.20117']/cda:component/cda:section[
+              (translate(cda:code/@displayName , 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ') = 'PATHOLOGY TEST RESULT') or 
+              (cda:code[@code = '102.16144'])]">
+
+            <assert test="cda:code[@code = '102.16144']"
+                >Error: e-Discharge Summary - Global Code Checks - The 'code' tag 'code' attribute shall
+                be '102.16144'. Refer to section '7.1.1.5.1 Pathology Test Result' of the e-Discharge_Summary_CDA_Implementation_Guide_v3.4.</assert>
+
+            <assert test="cda:code[(translate(@displayName , 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ') = 'PATHOLOGY TEST RESULT')]"
+                >Error: e-Discharge Summary - Global Code Checks -The 'code' tag 'displayName' attribute shall
+                be 'Pathology Test Result'. Refer to section '7.1.1.5.1 Pathology Test Result' of the e-Discharge_Summary_CDA_Implementation_Guide_v3.4.</assert>
+
+        </rule>
+        
+        <!-- 7.1.1.5.2 :: Imaging Examination Result -->
+        
+        <rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code='101.16006']/cda:component/cda:section[cda:code/@code='101.20117']/cda:component/cda:section[
+              (translate(cda:code/@displayName , 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ') = 'IMAGING EXAMINATION RESULT') or 
+              (cda:code[@code = '102.16145'])]">
+
+            <assert test="cda:code[@code = '102.16145']"
+                >Error: e-Discharge Summary - Global Code Checks - The 'code' tag 'code' attribute shall
+                be '102.16145'. Refer to section '7.1.1.5.2 Imaging Examination Result' of the e-Discharge_Summary_CDA_Implementation_Guide_v3.4.</assert>
+
+            <assert test="cda:code[(translate(@displayName , 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ') = 'IMAGING EXAMINATION RESULT')]"
+                >Error: e-Discharge Summary - Global Code Checks -The 'code' tag 'displayName' attribute shall
+                be 'Imaging Examination Result'. Refer to section '7.1.1.5.2 Imaging Examination Result' of the e-Discharge_Summary_CDA_Implementation_Guide_v3.4.</assert>
+
+        </rule>
+  
+    </pattern>

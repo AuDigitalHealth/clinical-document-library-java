@@ -1,5 +1,13 @@
 package au.gov.nehta.cda.es;
 
+import static au.gov.nehta.cda.es.EventSummaryTestHelper.getAttachedMedia;
+import static au.gov.nehta.cda.test.TestHelper.getCustodian;
+import static au.gov.nehta.cda.test.TestHelper.getDocumentAuthor;
+import static au.gov.nehta.cda.test.TestHelper.getLegalAuthenticator;
+import static au.gov.nehta.cda.test.TestHelper.getMedications;
+import static au.gov.nehta.cda.test.TestHelper.getSubjectOfCareParticipant;
+import static au.gov.nehta.model.schematron.SchematronResource.SchematronResources.EVENT_SUMMARY_3A;
+
 import au.gov.nehta.builder.es.EventSummaryCreator;
 import au.gov.nehta.builder.util.UUIDTool;
 import au.gov.nehta.cda.test.Base;
@@ -26,13 +34,15 @@ import au.gov.nehta.model.cda.common.time.Precision;
 import au.gov.nehta.model.cda.common.time.PrecisionDate;
 import au.gov.nehta.model.cda.common.time.RestrictedTimeInterval;
 import au.gov.nehta.model.cda.es.EventSummaryCDAModel;
+import au.gov.nehta.model.clinical.common.DocumentAuthor;
 import au.gov.nehta.model.clinical.common.EventTypes;
 import au.gov.nehta.model.clinical.common.Immunisation;
 import au.gov.nehta.model.clinical.common.ImmunisationImpl;
+import au.gov.nehta.model.clinical.common.MedicalHistory;
 import au.gov.nehta.model.clinical.common.ProblemDiagnosis;
 import au.gov.nehta.model.clinical.common.ProblemDiagnosisImpl;
-import au.gov.nehta.model.clinical.common.UncatagorisedMedicalHistoryItem;
-import au.gov.nehta.model.clinical.common.UncatagorisedMedicalHistoryItemImpl;
+import au.gov.nehta.model.clinical.common.UncategorisedMedicalHistoryItem;
+import au.gov.nehta.model.clinical.common.UncategorisedMedicalHistoryItemImpl;
 import au.gov.nehta.model.clinical.common.address.Address;
 import au.gov.nehta.model.clinical.common.address.AddressImpl;
 import au.gov.nehta.model.clinical.common.address.AustralianAddress;
@@ -59,12 +69,10 @@ import au.gov.nehta.model.clinical.es.AdverseReactionImpl;
 import au.gov.nehta.model.clinical.es.AnatomicalSite;
 import au.gov.nehta.model.clinical.es.AnatomicalSiteImpl;
 import au.gov.nehta.model.clinical.es.CollectionAndHandling;
-import au.gov.nehta.model.clinical.es.DiagnosesInterventions;
 import au.gov.nehta.model.clinical.es.DiagnosticInvestigations;
 import au.gov.nehta.model.clinical.es.DiagnosticInvestigationsImpl;
 import au.gov.nehta.model.clinical.es.EventDetails;
 import au.gov.nehta.model.clinical.es.EventSummary;
-import au.gov.nehta.model.clinical.es.EventSummaryAuthor;
 import au.gov.nehta.model.clinical.es.EventSummaryContent;
 import au.gov.nehta.model.clinical.es.EventSummaryContentImpl;
 import au.gov.nehta.model.clinical.es.EventSummaryContext;
@@ -84,10 +92,6 @@ import au.gov.nehta.model.clinical.es.ImagingResult;
 import au.gov.nehta.model.clinical.es.ImagingResultImpl;
 import au.gov.nehta.model.clinical.es.Immunisations;
 import au.gov.nehta.model.clinical.es.ImmunisationsImpl;
-import au.gov.nehta.model.clinical.es.KnownMedication;
-import au.gov.nehta.model.clinical.es.KnownMedicationImpl;
-import au.gov.nehta.model.clinical.es.Medications;
-import au.gov.nehta.model.clinical.es.MedicationsImpl;
 import au.gov.nehta.model.clinical.es.NewlyIdentifiedAdverseReactions;
 import au.gov.nehta.model.clinical.es.NewlyIdentifiedAdverseReactionsImpl;
 import au.gov.nehta.model.clinical.es.OtherTestResult;
@@ -114,40 +118,39 @@ import au.gov.nehta.model.clinical.etp.common.participation.ParticipationService
 import au.gov.nehta.model.clinical.etp.common.participation.ServiceProvider;
 import au.gov.nehta.model.clinical.etp.common.participation.ServiceProviderImpl;
 import au.gov.nehta.model.schematron.SchematronValidationException;
-import org.joda.time.DateTime;
-import org.junit.Test;
-import org.w3c.dom.Document;
-
-import javax.xml.bind.JAXBException;
-import javax.xml.parsers.ParserConfigurationException;
+import au.gov.nehta.schematron.Schematron;
+import au.gov.nehta.schematron.SchematronCheckResult;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Optional;
 import java.util.UUID;
-
-import static au.gov.nehta.cda.es.EventSummaryTestHelper.getAttachedMedia;
-import static au.gov.nehta.cda.test.TestHelper.getCustodian;
-import static au.gov.nehta.cda.test.TestHelper.getEventSummaryAuthor;
-import static au.gov.nehta.cda.test.TestHelper.getLegalAuthenticator;
-import static au.gov.nehta.cda.test.TestHelper.getSubjectOfCareParticipant;
+import javax.xml.bind.JAXBException;
+import javax.xml.parsers.ParserConfigurationException;
+import junit.framework.Assert;
+import org.joda.time.DateTime;
+import org.junit.Test;
+import org.w3c.dom.Document;
 
 public class EventSummaryMaxTest extends Base {
 
-  private static final String SCHEMATRON = "ccd-3B.sch";
+  private static final String SCHEMATRON = EVENT_SUMMARY_3A.resource().getSchematron();
+  //  private static final String SCHEMATRON = EVENT_SUMMARY_3B.resource().getSchematron();
   private static final String SCHEMATRON_TEMPLATE_PATH = "resources/EventSummary";
-  private static final String DOCUMENT_FILE_NAME = TEST_GENERATION + "es-max-java.xml";
+  private static final String DOCUMENT_FILE_NAME = TEST_GENERATION + "/es/es-max-java.xml";
 
 
   @Test
   public void test_MAX_Event_Summary_Creation() {
     try {
       generateMax();
-    } catch (SchematronValidationException e) {
-      e.printStackTrace();
-    } catch (JAXBException e) {
-      e.printStackTrace();
-    } catch (ParserConfigurationException e) {
+      SchematronCheckResult check =
+          Schematron.check(SCHEMATRON_TEMPLATE_PATH, SCHEMATRON, DOCUMENT_FILE_NAME);
+      show(check);
+      Assert.assertEquals(0, check.schemaErrors.size());
+      Assert.assertEquals(0, check.schematronErrors.size());
+    } catch (SchematronValidationException | JAXBException | ParserConfigurationException e) {
       e.printStackTrace();
     }
   }
@@ -155,30 +158,29 @@ public class EventSummaryMaxTest extends Base {
   private void generateMax()
       throws SchematronValidationException, JAXBException, ParserConfigurationException {
     DateTime now = new DateTime();
-    EventSummaryAuthor eventSummaryAuthor = getEventSummaryAuthor(now);
+    DocumentAuthor documentAuthor = getDocumentAuthor(now);
+
+    //Encompassing Encounter (componentOf)
     RestrictedTimeInterval encounterPeriod =
         RestrictedTimeInterval.getLowHighInstance(
-            new PrecisionDate(Precision.DAY, new DateTime("2019-03-1")),
-            new PrecisionDate(Precision.DAY, new DateTime("2019-04-1")));
+            new PrecisionDate(Precision.DAY, new DateTime("2011-03-03")),
+            new PrecisionDate(Precision.DAY, new DateTime("2019-09-14")));
     // Prepare Event Summary Context
     EventSummaryContext eventSummaryContext =
         new EventSummaryContextImpl(
-            getSubjectOfCareParticipant(), eventSummaryAuthor, encounterPeriod);
+            getSubjectOfCareParticipant(), documentAuthor, encounterPeriod);
 
     // Prepare Event Summary Content
-    EventSummaryContent eventSummaryContent =
-        new EventSummaryContentImpl(
-            null,
-            null,
-            getMedications(),
-            null,
-            getEventDetails(),
-            getNewlyIdentifiedAdverseReactions(),
-            getDiagnosesOrInterventions(),
-            getImmunisations(),
-            null,
-            getDiagnosticInvestigations(true, true, true, true));
-
+    EventSummaryContent eventSummaryContent = new EventSummaryContentImpl();
+    eventSummaryContent.setMedications(getMedications());
+    eventSummaryContent.setEventDetails(getEventDetails());
+    eventSummaryContent.setNewlyIdentifiedAdverseReactions(getNewlyIdentifiedAdverseReactions());
+    eventSummaryContent.setMedicalHistory(getDiagnosesOrInterventions());
+    eventSummaryContent.setImmunisations(getImmunisations());
+    eventSummaryContent
+        .setDiagnosticInvestigations(getDiagnosticInvestigations(true, true, true, true));
+    eventSummaryContent.setCustomNarrativeAdministrativeObservations(null);
+    eventSummaryContent.setCustomNarrativeMedications(null);
     EventSummary eventSummary = new EventSummaryImpl();
     eventSummary.setEventSummaryContext(eventSummaryContext);
     eventSummary.setEventSummaryContent(eventSummaryContent);
@@ -235,7 +237,7 @@ public class EventSummaryMaxTest extends Base {
     //Pathology Test Results
     if (showPathologyTestResults) {
       List<PathologyTestResult> pathologyTestResults = new ArrayList<>();
-      pathologyTestResults.add(EventSummaryTestHelper.CreatePathologyResults(true));
+      pathologyTestResults.add(EventSummaryTestHelper.createPathologyResults(true));
       diagnosticInvestigations.setPathologyTestResults(pathologyTestResults);
     }
     //Imaging Examination Results
@@ -247,8 +249,10 @@ public class EventSummaryMaxTest extends Base {
     //Requested Services
     if (showRequestedServices) {
       List<RequestedService> requestedServices = new ArrayList<>();
-      requestedServices.add(getRequestedService(getServiceProviderIndidvidual(), EventTypes.EVENT)); //Ind
-      requestedServices.add(getRequestedService(getServiceProviderOrganization(), EventTypes.INTENT)); //Org
+      requestedServices
+          .add(getRequestedService(getServiceProviderIndidvidual(), EventTypes.EVENT)); //Ind
+      requestedServices
+          .add(getRequestedService(getServiceProviderOrganization(), EventTypes.INTENT)); //Org
       diagnosticInvestigations.setRequestedServices(requestedServices);
     }
     //Other test results
@@ -263,7 +267,7 @@ public class EventSummaryMaxTest extends Base {
 
   private OtherTestResult getOtherTestResultWithReportFile() {
     AttachedMedia reportFile = new AttachedMedia(
-            new File("src/test/resources/radiologyreport.pdf"));
+        new File(ATTACHMENTS_DIR + "radiologyreport.pdf"));
     return new OtherTestResultImpl(new CodeImpl() {{
       setOriginalText("Report Name (with attachment)");
     }},
@@ -296,43 +300,41 @@ public class EventSummaryMaxTest extends Base {
         + "\n"
         + "    GLUCOSE - FASTING\n"
         + "    BLOOD GLUCOSE   : 10.8 *     mmol/L     (3.9-6.0)";
-    OtherTestResult otherTestResult = new OtherTestResultImpl(new CodeImpl() {{
+    return new OtherTestResultImpl(new CodeImpl() {{
       setOriginalText("Report Name");
     }}, new CodeImpl("3", "1.2.36.1.2001.1001.101.104.16501", "NCTIS Result Status Values",
         "Final"), new PrecisionDate(Precision.DAY, new DateTime("2017-1-1")), reportContent);
-    return otherTestResult;
   }
 
-  private RequestedService getRequestedService(ServiceProvider serviceProvider, EventTypes eventType) {
+  private RequestedService getRequestedService(ServiceProvider serviceProvider,
+      EventTypes eventType) {
     RequestedService requestedService = new RequestedServiceImpl();
-    requestedService.setCustomNarrativeRequestedService(null);
+    requestedService.setCustomNarrative(null);
     ParticipationServiceProvider participantServiceProvider =
         new ParticipationServiceProviderImpl();
     participantServiceProvider.setParticipant(serviceProvider);
     participantServiceProvider.setRole(
         new CodeImpl(
-            "253917",
-            "2.16.840.1.113883.13.62",
-            "1220.0 - ANZSCO - Australian and New Zealand Standard Classification of Occupations, "
-                +
-                "First Edition, Revision 1",
-            "Diagnostic and Interventional Radiologist",
-            "Diagnostic and Interventional Radiologist"));
+            "309964003",
+            "2.16.840.1.113883.6.96",
+            "SNOMED CT",
+            "Radiology Department",
+            "Radiology Department"));
     participantServiceProvider.setParticipationPeriod(
         RestrictedTimeInterval.getLowHighInstance(
-            new PrecisionDate(Precision.DAY, new DateTime("2013-01-1")),
-            new PrecisionDate(Precision.DAY, new DateTime("2013-04-1"))));
+            new PrecisionDate(Precision.DAY, new DateTime("2013-02-12")),
+            new PrecisionDate(Precision.DAY, new DateTime("2013-08-22"))));
     requestedService.setParticipant(participantServiceProvider);
     if (eventType == EventTypes.EVENT) {
       requestedService.setRequestedDateTime(
-              new PrecisionDate(Precision.DAY, new DateTime("2012-12-1")));
+          new PrecisionDate(Precision.DAY, new DateTime("2013-01-23")));
     } else {
       requestedService.setServiceCommencementWindow(RestrictedTimeInterval.getLowHighInstance(
-              new PrecisionDate(Precision.DAY, new DateTime("2013-01-1")),
-              new PrecisionDate(Precision.DAY, new DateTime("2013-04-1"))));
+          new PrecisionDate(Precision.DAY, new DateTime("2015-02-2")),
+          new PrecisionDate(Precision.DAY, new DateTime("2015-04-1"))));
     }
     requestedService.setRequestedServiceDateTime(
-        new PrecisionDate(Precision.DAY, new DateTime("2015-02-1")));
+        new PrecisionDate(Precision.DAY, new DateTime("2013-01-22")));
 
     //Healthcare provider will have a commencement window, Organization will have a service scheduled date
    /* if(null != serviceProvider.getHealthCareProvider()){
@@ -349,7 +351,7 @@ public class EventSummaryMaxTest extends Base {
     requestedService.setSubjectOfCareInstructionDesc("Drip dry");
     requestedService.setRequestedServiceDescription(
         new CodeImpl("399208008", "2.16.840.1.113883.6.96", "SNOMED CT",
-            "chest x-ray", "chest x-ray"));
+            "Plain chest X-ray", "Plain chest X-ray"));
 
     List<Entitlement> entitlements = new ArrayList<>();
 
@@ -372,7 +374,7 @@ public class EventSummaryMaxTest extends Base {
 
     if (null != requestedService.getParticipant().getParticipant().getHealthCareProvider()) {
       requestedService.getParticipant().getParticipant().getHealthCareProvider()
-              .setEntitlements(entitlements);
+          .setEntitlements(entitlements);
     }
 
     return requestedService;
@@ -404,7 +406,7 @@ public class EventSummaryMaxTest extends Base {
     entityIdentifiers.add(hpii);
     serviceProvider.setEntityIdentifiers(entityIdentifiers);
     serviceProvider.setOrganisation(
-            new OrganisationImpl("Acme Hospital", OrganisationNameUsage.BUSINESS_NAME));
+        new OrganisationImpl("Acme Hospital", OrganisationNameUsage.BUSINESS_NAME));
     return serviceProvider;
   }
 
@@ -417,7 +419,8 @@ public class EventSummaryMaxTest extends Base {
     List<ElectronicCommunicationDetail> electronicCommunicationDetails = new ArrayList<>();
     electronicCommunicationDetails.add(getElectronicCommunicationDetail());
     serviceProvider.setElectronicCommunicationDetails(electronicCommunicationDetails);
-    Organisation organisation = new OrganisationImpl("Warner Bros Hospital", OrganisationNameUsage.BUSINESS_NAME);
+    Organisation organisation = new OrganisationImpl("Warner Bros Hospital",
+        OrganisationNameUsage.BUSINESS_NAME);
     organisation.setDepartmentUnit("112");
     //organisation.setOrganisationNameUsage();
     List<AsEntityIdentifier> entityIdentifiers = new ArrayList<>();
@@ -443,9 +446,7 @@ public class EventSummaryMaxTest extends Base {
           }
         });
     employmentOrganization.setEmploymentType(
-        new CodeImpl() {{
-          setOriginalText("Full-Time");
-        }});
+        new CodeImpl("1", "2.16.840.1.113883.3.879.314867", "Employment type", "Permanent"));
     employmentOrganization.setName("John Smith");
     employmentOrganization.setOccupation(
         new CodeImpl(
@@ -563,15 +564,15 @@ public class EventSummaryMaxTest extends Base {
   static AnatomicalSite getAnatomicalSite(String s) {
     AnatomicalSite anatomicalSite = new AnatomicalSiteImpl();
     anatomicalSite.setAnatomicalLocationImages(new ArrayList<AttachedMedia>() {{
-      add(getAttachedMedia(s));
-      add(getAttachedMedia(s));
+      add(getAttachedMedia(s, Optional.empty()));
+      add(getAttachedMedia(s, Optional.empty()));
     }});
     anatomicalSite.setSpecificLocation(
         new SpecificLocation(
             //Joshua's change
-            new SNOMED_AU_Code("14975008", String.format("Forearm structure", s)),
+            new SNOMED_AU_Code("14975008", String.format("Forearm structure %s", s)),
             //Joshua's change    anatomicalSite.setAnatomicalLocationDesc("Left Forearm");
-            new SNOMED_AU_Code("7771000", String.format("Left"))));
+            new SNOMED_AU_Code("7771000", "Left")));
     anatomicalSite.setAnatomicalLocationDesc("Left Forearm");
     return anatomicalSite;
   }
@@ -585,7 +586,7 @@ public class EventSummaryMaxTest extends Base {
           setOriginalText("1 X-Ray - A/U Skin - Stuff");
         }});
     imageDetail.setSubjectPosition("Subject Position");
-    imageDetail.setImage(getAttachedMedia(""));
+    imageDetail.setImage(getAttachedMedia("", Optional.empty()));
     imageDetail.setImageDateTime(
         new PrecisionDate(Precision.DAY, new DateTime("2013-01-1")));
     imageDetail.setSeriesIdentifier(
@@ -662,7 +663,7 @@ public class EventSummaryMaxTest extends Base {
             "NCTIS Result Status Values", "Final", "Final"));
     imagingExaminationResult.setAnatomicalSites(anatomicalSites);
     imagingExaminationResult.setClinicalInformationProvided("Fluid Retention.");
-    imagingExaminationResult.setCustomNarrativeImagingExaminationResult(null);
+    imagingExaminationResult.setCustomNarrative(null);
     List<ExaminationRequestDetails> examinationRequestDetailsList = new ArrayList<>();
     examinationRequestDetailsList.add(getExaminationRequestDetails());
     imagingExaminationResult.setExaminationRequestDetails(examinationRequestDetailsList);
@@ -698,18 +699,18 @@ public class EventSummaryMaxTest extends Base {
     return new ImmunisationsImpl(immunisationList);
   }
 
-  private DiagnosesInterventions getDiagnosesOrInterventions() {
-    DiagnosesInterventions diagnosesInterventions = new DiagnosesInterventions();
-    diagnosesInterventions.setCustomNarrativeDiagnosesIntervention(null);
+  private MedicalHistory getDiagnosesOrInterventions() {
+    MedicalHistory medicalHistory = new MedicalHistory();
+    medicalHistory.setCustomNarrative(null);
     List<ProblemDiagnosis> problemDiagnoses = new ArrayList<>();
     SNOMED_AU_Code identification = new SNOMED_AU_Code("85189001", "Acute appendicitis");
-    PreciseDate dateOfOnset = new PrecisionDate(Precision.DAY,  new DateTime("2019-07-15"));
+    PreciseDate dateOfOnset = new PrecisionDate(Precision.DAY, new DateTime("2019-07-15"));
     PreciseDate remissionDate = new PrecisionDate(Precision.DAY, new DateTime("2019-07-16"));
     ProblemDiagnosis problemDiagnosis =
         new ProblemDiagnosisImpl(
             identification, dateOfOnset, remissionDate, "Problem/Diagnosis Comment goes here.");
     problemDiagnoses.add(problemDiagnosis);
-    diagnosesInterventions.setProblemDiagnoses(problemDiagnoses);
+    medicalHistory.setProblemDiagnoses(problemDiagnoses);
     Procedure procedure = new ProcedureImpl();
     RestrictedTimeInterval procedureDateTime =
         RestrictedTimeInterval.getLowHighInstance(
@@ -723,8 +724,8 @@ public class EventSummaryMaxTest extends Base {
     procedure.setShowOngoingNarrative(true);
     List<Procedure> procedures = new ArrayList<>();
     procedures.add(procedure);
-    diagnosesInterventions.setProcedures(procedures);
-    List<UncatagorisedMedicalHistoryItem> uncatagorisedMedicalHistoryItems = new ArrayList<>();
+    medicalHistory.setProcedures(procedures);
+    List<UncategorisedMedicalHistoryItem> uncategorisedMedicalHistoryItems = new ArrayList<>();
 
     // I wonder if the narrative is being put in the wrong place.
     // 'Error: TC-Narr-09 step 4: The Medical History Item TimeInterval data element 'act/effectiveTime' in  the
@@ -740,52 +741,20 @@ public class EventSummaryMaxTest extends Base {
         RestrictedTimeInterval.getLowHighInstance(
             new PrecisionDate(Precision.DAY, new DateTime("1991-01-1")),
             new PrecisionDate(Precision.DAY, new DateTime("1991-04-1")));
-    UncatagorisedMedicalHistoryItem uncatagorisedMedicalHistoryItem =
-        new UncatagorisedMedicalHistoryItemImpl(
+    UncategorisedMedicalHistoryItem uncategorisedMedicalHistoryItem =
+        new UncategorisedMedicalHistoryItemImpl(
             "Broken right arm.",
             timeInterval,
             "Childhood injury.");
-    uncatagorisedMedicalHistoryItems.add(uncatagorisedMedicalHistoryItem);
-    diagnosesInterventions.setUncatagorisedMedicalHistoryItems(uncatagorisedMedicalHistoryItems);
-    return diagnosesInterventions;
-  }
-
-  private Medications getMedications() {
-    Medications medications = new MedicationsImpl();
-    List<KnownMedication> knownMedications = new ArrayList<>();
-    KnownMedication knownMedication = new KnownMedicationImpl();
-    knownMedication.setChangeDesc("New - prescribed");
-    knownMedication.setChangeOrRecommendationReason("New - prescribed");
-    knownMedication.setChangeStatus(
-        new CodeImpl("703465008", "2.16.840.1.113883.6.96", "SNOMED CT",
-            "Change made", "Change made"));
-    knownMedication.setChangeType(
-        new CodeImpl("105681000036100", "2.16.840.1.113883.6.96", "SNOMED CT",
-            "Prescribed", "Prescribed"));
-    knownMedication.setClinicalIndication("Pain control");
-    knownMedication.setDirections("Directions Text");
-    //todo check with John. Error:
-    //'Warning: TC-Narr-09 step 7: The Medication Instruction Comment data element 'act/text' in  the Medications
-    // section contains the text "Dosage to be reviewed in 10 days" but this does not seem to be present in the
-    // narrative of the section.  The Medication Instruction Comment data element records clinical information and
-    // all clinical information in entry elements must be present in the narrative.  (See requirements in Appendix A
-    // 'CDA Narratives' in the Event Summary CDA Implementation Guide.)'
-
-    //The narrative appears to be correct. I wonder if it is in the wrong sections, or an error with the IQ Rules.
-
-    knownMedication.setMedicationInstructionComment("Dosage to be reviewed in 10 days");
-    knownMedication.setTherapeuticGoodIdentification(
-        new CodeImpl(
-            "835831000168109", "2.16.840.1.113883.6.96", "SNOMED CT",
-            "Panadeine Forte uncoated tablet", "Panadeine Forte tablet: uncoated"));
-    knownMedications.add(knownMedication);
-    medications.setKnownMedications(knownMedications);
-    return medications;
+    uncategorisedMedicalHistoryItems.add(uncategorisedMedicalHistoryItem);
+    medicalHistory.setUncategorisedMedicalHistoryItems(uncategorisedMedicalHistoryItems);
+    return medicalHistory;
   }
 
   private EventDetails getEventDetails() {
-    return new EventDetails("Clinical Synopsis Desc",
-        null);
+    return new EventDetails() {{
+      setClinicalSynopsisDesc("Clinical Synopsis Desc");
+    }};
   }
 
 

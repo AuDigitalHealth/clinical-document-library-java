@@ -1,0 +1,94 @@
+    <pattern name="p-Service_Referral_PRIMARYCAREPROVIDERasaPERSON_6_1_4_1_custom-errors"
+        id="p-Service_Referral_PRIMARYCAREPROVIDERasaPERSON_6_1_4_1_custom-errors"
+        see="#p-Service_Referral_PRIMARYCAREPROVIDERasaPERSON_6_1_4_1_custom-errors">
+
+        <rule
+            context="/cda:ClinicalDocument/cda:participant[cda:functionCode/@code = 'PCP']/cda:associatedEntity[cda:associatedPerson]">
+
+            <report test="count(cda:associatedPerson) > 1">Error: Service Referral - 6.1.4.1 PRIMARY
+                CARE PROVIDER as a PERSON / Participant - The 'associatedPerson' tag shall appear
+                only once. Refer to section 6.1.4.1 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1</report>
+        </rule>
+
+        <rule
+            context="/cda:ClinicalDocument/cda:participant[cda:functionCode/@code = 'PCP']/cda:associatedEntity[cda:associatedPerson]/cda:addr">
+
+            <assert
+                test="not(cda:country) or document('TEMPLATE/VALDN/CDAValidate_Vocabs.xml', .)/systems/system[@codeSystemName = 'ISO3166-1']/code[translate(@displayName, 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ') = translate(current()/cda:country, 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ')]/@code = 'AU'"
+                >Error: Service Referral - 6.1.4.1 PRIMARY CARE PROVIDER as a PERSON - "PRIMARY CARE PROVIDER / PARTICIPANT
+                / Address / Australia or International Address / International Address / Country" -
+                The 'country' tag shall contain the value 'Australia'. Refer to section 6.1.4.1 of
+                the Service_Referral_CDA_Implementation_Guide_v1.1.</assert>
+            
+            <report test="@use and normalize-space(@use) != '' and not(@use = 'WP')">Error: Service
+                Referral - 6.1.4.1 PRIMARY CARE PROVIDER as a PERSON - "PRIMARY CARE PROVIDER / PARTICIPANT
+                / Address" - The 'addr' tag 'use' attribute shall be set to Business see AS 5017-2006:
+                HealthCare Client Identifier Address Purpose. Refer to section 6.1.4.1 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</report>
+
+        </rule>
+
+
+        <rule
+            context="/cda:ClinicalDocument/cda:participant[cda:functionCode/@code = 'PCP']/cda:associatedEntity[cda:associatedPerson]/cda:telecom">
+
+            <assert test="not(@use) or normalize-space(@use) = '' or @use = 'WP'">Error: Service
+                Referral - 6.1.4.1 PRIMARY CARE PROVIDER as a PERSON - "Participant / Electronic
+                Communication Detail" - The 'telecom' tag 'use' attribute shall be set to Workplace
+                see HL7 v3: TelecommunicationAddressUse. Refer to section 6.1.4.1 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</assert>
+        </rule>
+
+        <rule
+            context="/cda:ClinicalDocument/cda:participant[cda:functionCode/@code = 'PCP']/cda:associatedEntity/cda:associatedPerson/ext:asEmployment/ext:jobCode">
+
+            <assert
+                test="
+                    not(@code) or
+                    normalize-space(@code) = '' or
+                    document('TEMPLATE/VALDN/CDAValidate_Vocabs.xml', .)/systems/system[@codeSystemName = '1220.0 - ANZSCO - Australian and New Zealand Standard Classification of Occupations, First Edition, Revision 1']/code[
+                    @code = current()/@code]"
+                >Error: Service Referral - 6.1.4.1 PRIMARY CARE PROVIDER as a PERSON / Participant /
+                Person or Organisation or Device / Person / Employment Detail / Occupation" - The
+                'jobCode' tag 'code' attribute shall be as per '1220.0 - ANZSCO - Australian and New
+                Zealand Standard Classification of Occupations, First Edition, Revision 1'. Check
+                all 'ext:asEmployment/ext:jobCode' tags to find the incorrect attribute. Refer to
+                section 6.1.4.1 of the Service_Referral_CDA_Implementation_Guide_v1.1.</assert>
+
+        </rule>
+
+        <rule
+            context="/cda:ClinicalDocument/cda:participant[cda:functionCode/@code = 'PCP']/cda:associatedEntity/cda:associatedPerson/ext:asEmployment/ext:employerOrganization/cda:asOrganizationPartOf/cda:wholeOrganization/cda:addr">
+
+            <assert
+                test="not(cda:country) or document('TEMPLATE/VALDN/CDAValidate_Vocabs.xml', .)/systems/system[@codeSystemName = 'ISO3166-1']/code[translate(@displayName, 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ') = translate(current()/cda:country, 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ')]/@code = 'AU'"
+                >Error: Service Referral - 6.1.4.1 PRIMARY CARE PROVIDER as a PERSON / Participant /
+                Person or Organisation or Device / Person / Employment Detail / EMPLOYER
+                ORGANISATION / ADDRESS" - The 'country' tag shall contain the value 'Australia'.
+                Refer to section 6.1.4.1 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</assert>
+
+            <report test="@use and normalize-space(@use) != '' and not(@use = 'WP')">Error: Service
+                Referral - 6.1.4.1 PRIMARY CARE PROVIDER as a PERSON / Participant / Person or
+                Organisation or Device / Person / Employment Detail / EMPLOYER ORGANISATION /
+                ADDRESS" - The 'addr' tag 'use' attribute shall be set to Business see AS 5017-2006:
+                HealthCare Client Identifier Address Purpose. Refer to section 6.1.4.1 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</report>
+
+        </rule>
+
+        <rule
+            context="/cda:ClinicalDocument/cda:participant[cda:functionCode/@code = 'PCP']/cda:associatedEntity/cda:associatedPerson/ext:asEmployment/ext:employerOrganization/cda:asOrganizationPartOf/cda:wholeOrganization/cda:telecom">
+
+            <assert test="not(@use) or normalize-space(@use) = '' or @use = 'WP'">Error: Service
+                Referral - 6.1.4.1 PRIMARY CARE PROVIDER as a PERSON / Participant / Person or
+                Organisation or Device / Person / Employment Detail / EMPLOYER ORGANISATION /
+                Electronic Communication Detail" - The 'telecom' tag 'use' attribute shall be set to
+                Workplace see HL7 v3: TelecommunicationAddressUse. Refer to section 6.1.4.1 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</assert>
+        </rule>
+
+
+    </pattern>
+

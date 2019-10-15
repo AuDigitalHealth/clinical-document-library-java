@@ -1,0 +1,190 @@
+
+    <!-- E-referral Clinical Document:  Patient Nominated Contacts Organisation -->
+
+    <!-- eRef Clinical Document -->
+
+    <!-- Status: Last Reviewed: 02/03/2012
+         Status: Last Updated : 11/07/2012 -->
+
+    <pattern name="p-e-Referral_Patient_Nominated_Contacts_Organisation-errors"
+        id="p-e-Referral_Patient_Nominated_Contacts_Organisation-errors"
+        see="#p-e-Referral_Patient_Nominated_Contacts_Organisation-errors">
+
+        <rule context="/cda:ClinicalDocument/cda:participant[cda:associatedEntity/cda:scopingOrganization]">
+            
+            <report test="count(cda:associatedEntity[cda:scopingOrganization]) > 1">Error: e-Referral
+                - 6.1.3.2 Patient Nominated Contacts - Organisation - "Referee > Role" - The
+                'associatedEntity' tag shall appear only once. Refer to section 6.1.3.2 of the
+                e-Referral_CDA_Implementation_Guide_v2.2.</report>
+            
+        </rule>
+
+        <rule
+            context="/cda:ClinicalDocument/cda:participant[translate(@typeCode, 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ') = 'IRCP']/cda:associatedEntity[cda:scopingOrganization]">
+
+            <!-- Organisation - id - 1..1 -->
+
+            <assert test="translate(@classCode, 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ') = 'CON'">
+                Error: e-Referral - 6.1.3.2 Patient Nominated
+                Contacts - Organisation - "Role" - The
+                'asEntityIdentifier' tag 'classCode' attribute shall contain the value 'CON'.
+                Refer to section 6.1.3.2 of the
+                e-Referral_CDA_Implementation_Guide_v2.2.</assert>
+
+            <assert test="cda:id">Error: e-Referral - 6.1.3.2 Patient Nominated Contacts -
+                Organisation - "Role" - The 'id' tag is missing. Refer to
+                section 6.1.3.2 of the
+                e-Referral_CDA_Implementation_Guide_v2.2.</assert>
+
+            <report test="count(cda:id) > 1">Error: e-Referral - 6.1.3.2 Patient Nominated
+                Contacts - Organisation - "Role" -
+                The 'id' tag shall appear only once. Refer to section 6.1.3.2 of the
+                e-Referral_CDA_Implementation_Guide_v2.2.</report>
+
+            <assert test="cda:code">Error: e-Referral - 6.1.3.2 Patient Nominated Contacts -
+                Organisation - "Role" - The 'code' tag is missing. Refer to
+                section 6.1.3.2 of the
+                e-Referral_CDA_Implementation_Guide_v2.2.</assert>
+
+            <report test="count(cda:code) > 1">Error: e-Referral - 6.1.3.2 Patient Nominated
+                Contacts - Organisation - "Role" -
+                The 'code' tag shall appear only once. Refer to section 6.1.3.2 of the
+                e-Referral_CDA_Implementation_Guide_v2.2.</report>
+
+            <report test="count(cda:scopingOrganization) > 1">Error: e-Referral
+                - 6.1.3.2 Patient Nominated Contacts - Organisation - "Referee > Participant"
+                - The 'scopingOrganization' tag shall appear only once. Refer to section 6.1.3.2
+                of the e-Referral_CDA_Implementation_Guide_v2.2.</report>
+            
+            <!-- PATIENT NOMINATED CONTACTS / PARTICIPANT / ELECTRONIC COMMUNICATION DETAIL -->
+            <!-- participant/assignedEntity/<Electronic Communication Detail> - 0..* -->
+            <!-- The tags and attributes of "cda:telecom" are being tested by e-Referral_Global_Checks.sch. -->
+
+        </rule>
+
+        <!-- scopingOrganization - 1..1 -->
+
+        <rule
+            context="/cda:ClinicalDocument/cda:participant[translate(@typeCode, 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ') = 'IRCP']/cda:associatedEntity/cda:scopingOrganization">
+
+            <!-- name 0..1 -->
+
+
+            <report test="count(cda:name) > 1">Error: e-Referral - 6.1.3.2 Patient Nominated
+                Contacts - Organisation - "participant / Person or Organisation or Device/ Organisation/ Department/Unit" -
+                The 'name' tag shall appear only once. Refer to section 6.1.3.2 of the
+                e-Referral_CDA_Implementation_Guide_v2.2.</report>
+
+            <report test="cda:name and normalize-space(cda:name) = ''">Error: e-Referral - 6.1.3.2
+                Patient Nominated Contacts - Organisation -
+                "participant / Person or Organisation or Device/ Organisation/ Department/Unit" -
+                The 'name' tag shall contain a value. Refer to section
+                6.1.3.2 of the e-Referral_CDA_Implementation_Guide_v2.2.</report>
+            
+            <report test="count(cda:asOrganizationPartOf) > 1">Error: e-Referral - 6.1.3.2 
+                Patient Nominated Contacts - Organisation - "Referee > Participant > Person 
+                or Organisation or Device > Organisation" - The 'asOrganizationPartOf' tag
+                shall appear only once. Refer to section 6.1.3.2 of the 
+                e-Referral_CDA_Implementation_Guide_v2.2.</report>
+
+        </rule>
+
+
+        <!-- PATIENT NOMINATED CONTACTS / PARTICIPANT / ADDRESS -->
+        <!-- participant/assignedEntity/<Address> - 0..* -->
+
+        <rule
+            context="/cda:ClinicalDocument/cda:participant[translate(@typeCode, 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ') = 'IRCP']/cda:associatedEntity[cda:scopingOrganization]/cda:addr[@use]">
+
+            <!-- Address - country -  0..1 -->
+
+            <assert
+                test="document('CDAValidate_Vocabs.xml')/systems/system[@codeSystemName = 'ISO3166-1']/code[translate(@displayName, 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ') = translate(current()/cda:country, 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ')]/@code = 'AU'"
+                >Error: e-Referral - 6.1.3.2 Patient Nominated Contacts - Organisation -
+                "Participant / Address" - The 'country' tag shall contain the value
+                'Australia'. Refer to section 8.6 of the
+                e-Referral_CDA_Implementation_Guide_v2.2.</assert>
+
+            <!-- Other tags and attributes of "cda:addr" are being tested by e-Referral_Global_Checks.sch. -->
+
+        </rule>
+
+        <rule context="/cda:ClinicalDocument/cda:participant[translate(@typeCode, 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ') = 'IRCP']
+                       /cda:associatedEntity/cda:scopingOrganization/cda:asOrganizationPartOf">
+            
+            <assert test="cda:wholeOrganization">Error: e-Referral - 6.1.3.2 Patient 
+                Nominated Contacts - Organisation - "Patient Nominated Contacts - 
+                Organisation > Participant > Person or Organisation or Device > 
+                Organisation" - The 'wholeOrganization' tag is missing. Refer to 
+                section 6.1.3.2 of the e-Referral_CDA_Implementation_Guide_v2.2.</assert>
+            
+            <report test="count(cda:wholeOrganization) > 1">Error: e-Referral - 6.1.3.2 Patient 
+                Nominated Contacts - Organisation - "Patient Nominated Contacts - 
+                Organisation > Participant > Person or Organisation or Device > 
+                Organisation" - The 'wholeOrganization' tag shall appear only once. Refer to 
+                section 6.1.3.2 of the e-Referral_CDA_Implementation_Guide_v2.2.</report>
+            
+        </rule>
+
+<!--          <rule context="cda:wholeOrganization">
+            
+            <assert test="/cda:ClinicalDocument/cda:participant[translate(@typeCode, 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ') = 'IRCP']
+                          /cda:associatedEntity[cda:scopingOrganization]
+                          /cda:scopingOrganization
+                          /cda:asOrganizationPartOf
+                          /cda:wholeOrganization">
+                Error: e-Referral - 6.1.3.2 Patient Nominated Contacts - Organisation - The 
+                '/cda:ClinicalDocument/cda:participant[translate(@typeCode, 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ') = 'IRCP']/cda:associatedEntity/cda:scopingOrganization/cda:asOrganizationPartOf/cda:wholeOrganization' path -
+                1 or more tags are missing. Refer to section 6.1.3.2 of the e-Referral_CDA_Implementation_Guide_v2.2.</assert>
+-->           
+        <!-- Checking for Whole Organization -->
+       <rule
+            context="/cda:ClinicalDocument/cda:participant[translate(@typeCode, 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ') = 'IRCP']/cda:associatedEntity/cda:scopingOrganization/cda:asOrganizationPartOf/cda:wholeOrganization">
+ 
+
+            <!--name 1..1 -->
+
+            <assert test="cda:name">Error: e-Referral - 6.1.3.2 Patient Nominated Contacts -
+                Organisation - "participant / Person or Organisation or Device/ Organisation / Organisation Name Usage" -
+                The 'name' tag is missing. Refer to
+                section 6.1.3.2 of the
+                e-Referral_CDA_Implementation_Guide_v2.2.</assert>
+
+            <report test="count(cda:name) > 1">Error: e-Referral - 6.1.3.2 Patient Nominated
+                Contacts - Organisation - "participant / Person or Organisation or Device/ Organisation / Organisation Name Usage" -
+                The 'name' tag shall appear only once.
+                Refer to section 6.1.3.2 of the
+                e-Referral_CDA_Implementation_Guide_v2.2.</report>
+
+            <report test="cda:name and normalize-space(cda:name) = ''">Error: e-Referral - 6.1.3.2
+                Patient Nominated Contacts - Organisation - "participant / Person or Organisation or Device/ Organisation / Organisation Name Usage" -
+                The 'name' tag
+                shall contain a value. Refer to section 6.1.3.2 of the
+                e-Referral_CDA_Implementation_Guide_v2.2.</report>
+
+
+            <!--Updated NG 27/02/2012 ID:2318-->
+
+            <assert test="cda:name/@use">Error: e-Referral - 6.1.3.2 Patient Nominated Contacts -
+                Organisation - "participant / Person or Organisation or Device/ Organisation / Organisation Name Usage" -
+                The 'name' tag 'use' attribute is
+                missing. Refer to section 6.1.3.2 of the
+                e-Referral_CDA_Implementation_Guide_v2.2.</assert>
+
+
+            <!-- EMPLOYER ORGANISATION - ENTITY IDENTIFIER. - 0..* -->
+            <!-- The tags and attributes of 'ext:asEntityIdentifier' are being tested in 'e-Referral_Global_Checks.sch'. -->
+
+       </rule>
+ 
+        <rule
+            context="/cda:ClinicalDocument/cda:participant[translate(@typeCode, 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ') = 'IRCP']/cda:associatedEntity/cda:scopingOrganization/cda:asOrganizationPartOf/cda:wholeOrganization/cda:name">
+          
+            <assert test="not(@nullFlavor)">Error: e-Referral - 6.1.3.2 Patient Nominated Contacts -
+                "ClinicalDocument/cda:participant/cda:associatedEntity/cda:scopingOrganization/cda:asOrganizationPartOf/cda:wholeOrganization/cda:name" - 
+                The 'name' tag 'nullFlavor' attribute shall not be present. Refer to requirements in the NullFlavor Usage Clarification FAQ and section 6.1.3.2 of the
+                e-Referral_CDA_Implementation_Guide_v1.3 </assert>
+        
+        </rule>
+        
+    </pattern>

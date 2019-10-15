@@ -32,4 +32,8 @@ public interface OtherTestResult {
     String getReportContent();
 
     void setReportContent(String reportContent);
+
+  Class getExecutingClass();
+
+  void setExecutingClass(Class executingClass);
 }

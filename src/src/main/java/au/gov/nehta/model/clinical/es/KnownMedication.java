@@ -8,7 +8,8 @@ public interface KnownMedication {
 
   Coded getTherapeuticGoodIdentification();  //TODO Check. Does not exist in IMedicationItem (.net), exists in CDA
 
-  void setTherapeuticGoodIdentification(Coded therapeuticGoodIdentification); //TODO Check. Does not exist in IMedicationItem (.net), exists in CDA
+  void setTherapeuticGoodIdentification(
+      Coded therapeuticGoodIdentification); //TODO Check. Does not exist in IMedicationItem (.net), exists in CDA
 
   String getDirections();
 

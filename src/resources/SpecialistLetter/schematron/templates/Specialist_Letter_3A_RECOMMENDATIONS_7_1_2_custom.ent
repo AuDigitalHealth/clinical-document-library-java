@@ -1,0 +1,30 @@
+    <pattern name="p-Specialist_Letter_3A_RECOMMENDATIONS_7_1_2_custom-errors"
+        id="p-Specialist_Letter_3A_RECOMMENDATIONS_7_1_2_custom-errors"
+        see="#p-Specialist_Letter_3A_RECOMMENDATIONS_7_1_2_custom-errors">
+
+
+    
+
+        <rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code='101.16606']">
+            
+            <!--Each instance of this section either SHALL have exactly one instance of
+                'Recommendations Exclusion (EXCLUSION STATEMENT)' OR SHALL have
+                one or more instances of 'RECOMMENDATION' but SHALL NOT have both. (SCS requirement)-->
+            
+            <assert test="cda:entry/cda:act/cda:code[@code='102.20016'] or  cda:entry/cda:observation/cda:code[@code='102.16134']"
+                >Error: Specialist Letter - 7.1.2 Recommendations - 'section' tag shall have either
+                'Recommendations Exclusion (EXCLUSION STATEMENT)' or 'RECOMMENDATION' tag but
+                not both. Refer to section 7.1.2 of the
+                Specialist_Letter_CDA_Implementation_Guide_v1.3.</assert>
+            
+            
+            <report test="cda:entry/cda:act/cda:code[@code='102.20016'] and  cda:entry/cda:observation/cda:code[@code='102.16134']"
+                >Error: Specialist Letter - 7.1.2 Recommendations - 'section' tag shall have either
+                'Recommendations Exclusion (EXCLUSION STATEMENT)' or 'RECOMMENDATION' tag but
+                not both. Refer to section 7.1.2 of the
+                Specialist_Letter_CDA_Implementation_Guide_v1.3.</report>
+        </rule>
+        
+
+    </pattern>
+

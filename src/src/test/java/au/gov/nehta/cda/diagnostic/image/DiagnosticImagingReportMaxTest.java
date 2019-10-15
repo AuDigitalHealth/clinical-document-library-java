@@ -10,7 +10,6 @@ import au.gov.nehta.model.cda.common.address.PostalAddressUseEnum;
 import au.gov.nehta.model.cda.common.code.Code;
 import au.gov.nehta.model.cda.common.code.CodeImpl;
 import au.gov.nehta.model.cda.common.code.DocumentStatusCode;
-import au.gov.nehta.model.cda.common.code.NCTISAnatomicalRegion;
 import au.gov.nehta.model.cda.common.code.SNOMEDCode;
 import au.gov.nehta.model.cda.common.code.SNOMED_AU_Code;
 import au.gov.nehta.model.cda.common.code.SNOMED_CT_ResultStatusCode;
@@ -86,7 +85,6 @@ import au.gov.nehta.model.clinical.common.types.IHI;
 import au.gov.nehta.model.clinical.common.types.PathologyId;
 import au.gov.nehta.model.clinical.common.types.UniqueIdentifier;
 import au.gov.nehta.model.clinical.common.types.UniqueIdentifierImpl;
-import au.gov.nehta.model.clinical.diagnostic.imaging.AnatomicalRegionImpl;
 import au.gov.nehta.model.clinical.diagnostic.imaging.AnatomicalSite;
 import au.gov.nehta.model.clinical.diagnostic.imaging.AnatomicalSiteImpl;
 import au.gov.nehta.model.clinical.diagnostic.imaging.DiagnosticImageOrderDetails;
@@ -123,6 +121,7 @@ import au.gov.nehta.model.clinical.etp.common.participation.ProviderPersonImpl;
 import au.gov.nehta.model.schematron.SchematronValidationException;
 import au.gov.nehta.schematron.Schematron;
 import au.gov.nehta.schematron.SchematronCheckResult;
+import au.net.electronichealth.ns.cda._2_0.NullFlavor;
 import java.io.File;
 import java.io.IOException;
 import java.net.URISyntaxException;
@@ -145,7 +144,7 @@ public class DiagnosticImagingReportMaxTest extends Base {
   private static final String SCHEMATRON_TEMPLATE_PATH = "resources/DiagnosticImagingReport";
 
   private static final String DOCUMENT_FILE_NAME =
-      TEST_GENERATION + "diagnosticImage-device-max.xml";
+     TEST_GENERATION + "diagnosticImage-device-max.xml";
 
   @Test
   public void test_MAX_DiagnosticImageReportCreation()
@@ -412,9 +411,12 @@ public class DiagnosticImagingReportMaxTest extends Base {
         new SNOMED_AU_Code("7771000", "left")
     );
 
+    AnatomicalSite anatomicalSiteWithNullFlavor = new AnatomicalSiteImpl(NullFlavor.NI);
+
     List<AnatomicalSite> sites = new ArrayList<>();
     sites.add(new AnatomicalSiteImpl("upper chest"));
     sites.add(leftThorax);
+    sites.add(anatomicalSiteWithNullFlavor);
 
     ImagingExaminationResult result1 = ImagingExaminationResultImpl.base(
         new SNOMED_AU_Code("399208008", "chest x-ray"),
@@ -422,7 +424,7 @@ public class DiagnosticImagingReportMaxTest extends Base {
         SNOMED_CT_ResultStatusCode.FINAL_RESULTS,
         PrecisionDate.today(),
         "The examination was carried out using the particular procedure.",
-        new AnatomicalRegionImpl(NCTISAnatomicalRegion.Region.CHEST, "Chest/Thorax")
+        /*new AnatomicalRegionImpl(NCTISAnatomicalRegion.Region.CHEST, "Chest/Thorax")*/null
     );
 
     ImagingExaminationResult result2 = ImagingExaminationResultImpl.withRelatedImage(
@@ -431,7 +433,7 @@ public class DiagnosticImagingReportMaxTest extends Base {
         SNOMED_CT_ResultStatusCode.RESULTS_STORED,
         PrecisionDate.today(),
         "The examination was carried out using the particular procedure.",
-        new AnatomicalRegionImpl(NCTISAnatomicalRegion.Region.HEAD, "Head/Cerebral cortex"),
+        /*new AnatomicalRegionImpl(NCTISAnatomicalRegion.Region.HEAD, "Head/Cerebral cortex")*/null,
         "x-ray.png"
     );
 
@@ -446,7 +448,7 @@ public class DiagnosticImagingReportMaxTest extends Base {
         SNOMED_CT_ResultStatusCode.CORRECTION_TO_RESULTS,
         PrecisionDate.today(),
         "The examination was carried out using the particular procedure.",
-        new AnatomicalRegionImpl(NCTISAnatomicalRegion.Region.HEAD, "Head/Cerebral cortex"),
+        /*new AnatomicalRegionImpl(NCTISAnatomicalRegion.Region.HEAD, "Head/Cerebral cortex")*/null,
         sitesForResult3
     );
 
@@ -456,7 +458,7 @@ public class DiagnosticImagingReportMaxTest extends Base {
         SNOMED_CT_ResultStatusCode.SOME_BUT_NOT_ALL,
         PrecisionDate.today(),
         "The examination was carried out using the particular procedure.",
-        new AnatomicalRegionImpl(NCTISAnatomicalRegion.Region.HEAD, "Head/Cerebral cortex"),
+        /*new AnatomicalRegionImpl(NCTISAnatomicalRegion.Region.HEAD, "Head/Cerebral cortex")*/null,
         sites,
         "http://a.uri.for.this.image/id/3213131"
     );

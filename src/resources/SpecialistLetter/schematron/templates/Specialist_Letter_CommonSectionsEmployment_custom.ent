@@ -1,0 +1,340 @@
+    <pattern
+        name="p-Specialist_Letter_CommonSectionsEmployment_custom-errors"
+        id="p-Specialist_Letter_CommonSectionsEmployment_custom-errors"
+        see="#p-Specialist_Letter_CommonSectionsEmployment_custom-errors">
+
+        <!-- BEGIN :: Common Patterns: 6.1.2 Document Author and_or 6.1.3 REFERRER and_or 6.1.4.1 USUAL GP PERSON and_or 7.1.2.1.1.1 ADRESSEE - PERSON and_or 7.1.5.3.1.1 SERVICE PROVIDER - PERSON -->        
+        
+        <!-- BEGIN :: Common Patterns: 8.8 EMPLOYMENT -->
+
+        <rule context="ext:asEmployment">
+
+            <!-- ext:asEmployment/@classCode -->
+            <assert test="@classCode"
+                >Error: Specialist Letter - 8.8 Employment -
+                The 'asEmployment' tag 'classCode' attribute is missing. Check all
+                'ext:asEmployment' tags to find the missing attribute. Refer to section 8.8 Employment of the
+                Specialist_Letter_CDA_Implementation_Guide_v1.3.</assert>
+
+            <assert test="not(@classCode) or normalize-space(@classCode) != ''"
+                >Error: Specialist Letter - 8.8 Employment -
+                The 'asEmployment' tag 'classCode' attribute shall contain a value. Check all
+                'ext:asEmployment' tags to find the missing attribute. Refer to section 8.8 Employment of the
+                Specialist_Letter_CDA_Implementation_Guide_v1.3.</assert>
+
+            <assert test="@classCode='EMP'"
+                >Error: Specialist Letter - 8.8 Employment -
+                The 'asEmployment' tag 'classCode' attribute shall contain the value 'EMP'.
+                Check all 'ext:asEmployment' tags to find the incorrect attribute.
+                Refer to section 8.8 Employment of the
+                Specialist_Letter_CDA_Implementation_Guide_v1.3.</assert>
+
+            <!-- ext:employerOrganization -->
+            <report test="count(ext:employerOrganization) > 1"
+                >Error: Specialist Letter - 8.8 Employment -
+                The 'ext:employerOrganization' tag shall appear only once. Check all
+                'ext:asEmployment' tags to find the duplicate tag. Refer to section 8.8 Employment of the
+                Specialist_Letter_CDA_Implementation_Guide_v1.3.</report>
+
+            <!-- ext:code -->
+            <report test="count(ext:code) > 1"
+                >Error: Specialist Letter - 8.8 Employment -
+                The 'ext:code' tag shall appear only once. Check all 'ext:asEmployment' tags
+                to find the duplicate tag. Refer to section 8.8 Employment of the
+                Specialist_Letter_CDA_Implementation_Guide_v1.3.</report>
+
+            <!-- ext:jobCode -->
+            <report test="count(ext:jobCode) > 1"
+                >Error: Specialist Letter - 8.8 Employment -
+                The 'ext:jobCode' tag shall appear only once. Check all 'ext:asEmployment' tags
+                to find the duplicate tag. Refer to section 8.8 Employment of the
+                Specialist_Letter_CDA_Implementation_Guide_v1.3.</report>
+
+            <!-- ext:jobClassCode -->
+            <report test="count(ext:jobClassCode) > 1"
+                >Error: Specialist Letter - 8.8 Employment -
+                The 'ext:jobClassCode' tag shall appear only once. Check all 'ext:asEmployment'
+                tags to find the duplicate tag. Refer to section 8.8 Employment of the
+                Specialist_Letter_CDA_Implementation_Guide_v1.3.</report>
+
+        </rule>
+
+        <!-- <rule context="ext:asEmployment/ext:code">
+
+            <!-\- Already covered as a global check in this file above but To be updated there only after the Jira issue resolution to write tests related to this tag -\->
+
+        </rule>-->
+
+        <rule context="ext:asEmployment/ext:jobCode">
+
+            <!-- To be updated after the Jira issue resolution to write tests related to this tag -->
+            <!-- The code attributes must also checked against the Vocabs file in the ANZSCO FE 2006 meteor 350899 code values after we get a resolution -->
+
+            <!-- jobCode/@code - 1..1 -->
+            <assert test="@code"
+                >Error: Specialist Letter - 8.8 Employment -
+                The 'jobCode' tag 'code' attribute is missing. Check all
+                'ext:asEmployment/ext:jobCode' tags to find the missing attribute.
+                Refer to section 8.8 Employment of the
+                Specialist_Letter_CDA_Implementation_Guide_v1.3.</assert>
+
+            <assert test="not(@code) or normalize-space(@code) != ''"
+                >Error: Specialist Letter - 8.8 Employment -
+                The 'jobCode' tag 'code' attribute shall contain a value. Check all
+                'ext:asEmployment/ext:jobCode' tags to find the missing attribute.
+                Refer to section 8.8 Employment of the
+                Specialist_Letter_CDA_Implementation_Guide_v1.3.</assert>
+
+            <assert
+                test="
+                not(@code) or
+                normalize-space(@code) = '' or
+                document('CDAValidate_Vocabs.xml')/systems/system[@codeSystemName = '1220.0 - ANZSCO - Australian and New Zealand Standard Classification of Occupations, First Edition, 2006']/code[
+                @code = current()/@code]"
+                >Error: Specialist Letter - 8.8 Employment -
+                The 'jobCode' tag 'code' attribute shall be as per '1220.0 - ANZSCO - Australian and New Zealand Standard Classification of Occupations, First Edition, 2006'. Check all 'ext:asEmployment/ext:jobCode' tags to find the incorrect attribute.
+                Refer to section 8.8 Employment of the
+                Specialist_Letter_CDA_Implementation_Guide_v1.3.</assert>
+
+            <!-- jobCode/@codeSystem - 1..1 -->
+            <assert test="@codeSystem"
+                >Error: Specialist Letter - 8.8 Employment -
+                The 'jobCode' tag 'codeSystem' attribute is missing. Check all
+                'ext:asEmployment/ext:jobCode' tags to find the missing attribute.
+                Refer to section 8.8 Employment of the
+                Specialist_Letter_CDA_Implementation_Guide_v1.3.</assert>
+
+            <assert test="not(@codeSystem) or normalize-space(@codeSystem) != ''"
+                >Error: Specialist Letter - 8.8 Employment -
+                The 'jobCode' tag 'codeSystem' attribute shall contain a value. Check all
+                'ext:asEmployment/ext:jobCode' tags to find the missing attribute.
+                Refer to section 8.8 Employment of the
+                Specialist_Letter_CDA_Implementation_Guide_v1.3.</assert>
+
+            <assert
+                test="
+                not(@codeSystem) or
+                normalize-space(@codeSystem) = '' or
+                document('CDAValidate_Vocabs.xml')/systems/system[@codeSystemName = '1220.0 - ANZSCO - Australian and New Zealand Standard Classification of Occupations, First Edition, 2006']/code[
+                @codeSystem = current()/@codeSystem]"
+                >Error: Specialist Letter - 8.8 Employment -
+                The 'jobCode' tag 'codeSystem' attribute shall be as per '1220.0 - ANZSCO - Australian and New Zealand Standard Classification of Occupations, First Edition, 2006'. Check all 'ext:asEmployment/ext:jobCode' tags to find the incorrect attribute.
+                Refer to section 8.8 Employment of the
+                Specialist_Letter_CDA_Implementation_Guide_v1.3.</assert>
+
+            <!-- jobCode/@codeSystemName -->
+            <!--
+            <assert test="@codeSystemName"
+                >Error: Specialist Letter - 8.8 Employment -
+                The 'jobCode' tag 'codeSystemName' attribute is missing. Check all
+                'ext:asEmployment/ext:jobCode' tags to find the missing attribute.
+                Refer to section 8.8 Employment of the
+                Specialist_Letter_CDA_Implementation_Guide_v1.3.</assert>
+            -->
+
+            <report test="@codeSystemName and normalize-space(@codeSystemName) = ''"
+                >Error: Specialist Letter - 8.8 Employment -
+                The 'jobCode' tag 'codeSystemName' attribute shall contain a value. Check all
+                'ext:asEmployment/ext:jobCode' tags to find the missing attribute.
+                Refer to section 8.8 Employment of the
+                Specialist_Letter_CDA_Implementation_Guide_v1.3.</report>
+
+            <!-- commented the test below because the changes required for Pathology Report described in the following ticket RPSA-2075 also needs to be applied to all the packages -->
+            <!--<report test="
+                @codeSystemName and
+                normalize-space(@codeSystemName) != '' and
+                translate(@codeSystemName, 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ') != '1220.0 - ANZSCO - Australian and New Zealand Standard Classification of Occupations, First Edition, 2006'"
+                >Error: Specialist Letter - 8.8 Employment -
+                The 'jobCode' tag 'codeSystemName' attribute shall be '1220.0 - ANZSCO - Australian and New Zealand Standard Classification of Occupations, First Edition, 2006'. Check all 'ext:asEmployment/ext:jobCode' tags to find the incorrect attribute.
+                Refer to section 8.8 Employment of the
+                Specialist_Letter_CDA_Implementation_Guide_v1.3.            
+                <!-\- commented the test as it is the similar test as described in the ticket RPSA-2075 -\->
+            </report>-->
+
+            <!-- jobCode/@codeSystemVersion -->
+            <report test="@codeSystemVersion and normalize-space(@codeSystemVersion) = ''"
+                >Error: Specialist Letter - 8.8 Employment -
+                The 'jobCode' tag 'codeSystemVersion' attribute shall contain a value. Check all
+                'ext:asEmployment/ext:jobCode' tags to find the missing attribute.
+                Refer to section 8.8 Employment of the
+                Specialist_Letter_CDA_Implementation_Guide_v1.3.</report>
+
+            <!-- jobCode/@displayName -->
+            <!--
+            <assert test="@displayName"
+                >Error: Specialist Letter - 8.8 Employment -
+                The 'jobCode' tag 'displayName' attribute is missing. Check all
+                'ext:asEmployment/ext:jobCode' tags to find the missing attribute.
+                Refer to section 8.8 Employment of the
+                Specialist_Letter_CDA_Implementation_Guide_v1.3.</assert>
+            -->
+
+            <report test="@displayName and normalize-space(@displayName) = ''"
+                >Error: Specialist Letter - 8.8 Employment -
+                The 'jobCode' tag 'displayName' attribute shall contain a value. Check all
+                'ext:asEmployment/ext:jobCode' tags to find the missing attribute.
+                Refer to section 8.8 Employment of the
+                Specialist_Letter_CDA_Implementation_Guide_v1.3.</report>
+
+            <report test="
+                @displayName and
+                normalize-space(@displayName) != '' and
+                document('CDAValidate_Vocabs.xml')/systems/system[@codeSystemName = '1220.0 - ANZSCO - Australian and New Zealand Standard Classification of Occupations, First Edition, 2006']
+                /code[(@code = current()/@code) and (translate(@displayName, 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ') != translate(current()/@displayName, 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'))]"
+                >Error: Specialist Letter - 8.8 Employment -
+                The 'jobCode' tag 'code' and 'displayName' attributes shall match as per '1220.0 - ANZSCO - Australian and New Zealand Standard Classification of Occupations, First Edition, 2006'. Check all 'ext:asEmployment/ext:jobCode' tags to find the
+                incorrect attribute. Refer to section 8.8 Employment of the
+                Specialist_Letter_CDA_Implementation_Guide_v1.3.</report>
+
+        </rule>
+
+        <!-- <rule context="ext:asEmployment/ext:jobClassCode">
+
+            <!-\- Already covered as a global check in this file above but To be updated there only after the Jira issue resolution to write tests related to this tag -\->
+
+            </rule> -->
+
+        <rule context="ext:asEmployment/ext:employerOrganization">
+
+            <!-- asOrganizationPartOf -->
+            <assert test="cda:asOrganizationPartOf"
+                >Error: Specialist Letter - 8.8 Employment -
+                The 'asOrganizationPartOf' tag is missing. Check all
+                'ext:asEmployment/ext:employerOrganization' tags to find the missing tag.
+                Refer to section 8.8 Employment of the
+                Specialist_Letter_CDA_Implementation_Guide_v1.3.</assert>
+
+            <report test="count(cda:asOrganizationPartOf) > 1"
+                >Error: Specialist Letter - 8.8 Employment -
+                The 'asOrganizationPartOf' tag shall appear only once. Check all
+                'ext:asEmployment/ext:employerOrganization' tags to find the duplicate tag.
+                Refer to section 8.8 Employment of the
+                Specialist_Letter_CDA_Implementation_Guide_v1.3.</report>
+
+            <!-- name -->
+            <report test="count(cda:name) > 1"
+                >Error: Specialist Letter - 8.8 Employment -
+                The 'name' tag shall appear only once. Check all
+                'ext:asEmployment/ext:employerOrganization' tags to find the duplicate tag.
+                Refer to section 8.8 Employment of the
+                Specialist_Letter_CDA_Implementation_Guide_v1.3.</report>
+
+        </rule>
+
+        <rule context="ext:asEmployment/ext:employerOrganization/cda:name">
+
+            <!-- name/@ -->
+            <assert test="normalize-space(.) != ''"
+                >Error: Specialist Letter - 8.8 Employment -
+                The 'name' tag shall contain a value. Check all
+                'ext:asEmployment/ext:employerOrganization/cda:name' tags to find the missing
+                value. Refer to section 8.8 Employment of the
+                Specialist_Letter_CDA_Implementation_Guide_v1.3.</assert>
+
+        </rule>
+
+        <rule context="ext:asEmployment/ext:employerOrganization/cda:asOrganizationPartOf">
+
+            <!-- wholeOrganization -->
+            <assert test="cda:wholeOrganization"
+                >Error: Specialist Letter - 8.8 Employment -
+                The 'wholeOrganization' tag is missing. Check all
+                'ext:asEmployment/ext:employerOrganization/cda:asOrganizationPartOf' tags to
+                find the missing tag. Refer to section 8.8 Employment of the
+                Specialist_Letter_CDA_Implementation_Guide_v1.3.</assert>
+
+            <report test="count(cda:wholeOrganization) > 1"
+                >Error: Specialist Letter - 8.8 Employment -
+                The 'wholeOrganization' tag shall appear only once. Check all
+                'ext:asEmployment/ext:employerOrganization/cda:asOrganizationPartOf' tags to
+                find the duplicate tag. Refer to section 8.8 Employment of the
+                Specialist_Letter_CDA_Implementation_Guide_v1.3.</report>
+
+        </rule>
+
+        <rule context="ext:asEmployment/ext:employerOrganization/cda:asOrganizationPartOf/cda:wholeOrganization">
+
+            <!-- ext:asEntityIdentifier - 1..* -->
+
+            <assert test="ext:asEntityIdentifier"
+                >Error: Specialist Letter - 8.8 Employment -
+                The 'ext:asEntityIdentifier' tag is missing. Check all
+                'ext:asEmployment/ext:employerOrganization/cda:asOrganizationPartOf/cda:wholeOrganization'
+                tags to find the missing tag. Refer to section 8.8 Employment of the
+                Specialist_Letter_CDA_Implementation_Guide_v1.3.</assert>
+
+            <!--
+                Commented the test below as it has been added to the "Specialist_Letter_HPI-O_Specialist_Letter_Conformance_Requirements" file
+                <assert test="ext:asEntityIdentifier/ext:id[starts-with(@root, '1.2.36.1.2001.1003.0.800362')]"
+                >Error: Specialist Letter - 8.8 Employment -
+                The 'HPI-O asEntityIdentifier' tag is missing. "The value of one Entity Identifier
+                SHALL be an Australian HPI-O." although there could be multiple Entity Identifiers.
+                Check all 'ext:asEmployment/ext:employerOrganization/cda:asOrganizationPartOf/cda:wholeOrganization'
+                tags to find the missing tag. Refer to section 8.8 Employment of the
+                Specialist_Letter_CDA_Implementation_Guide_v1.3.</assert>
+            -->
+
+            <!-- The tags and attributes of 'ext:asEntityIdentifier' are being tested in 'EEEEEEEE_Global_Checks.sch'. -->
+
+            <!-- name -->
+            <assert test="cda:name"
+                >Error: Specialist Letter - 8.8 Employment -
+                The 'name' tag is missing. Check all
+                'ext:asEmployment/ext:employerOrganization/cda:asOrganizationPartOf/cda:wholeOrganization'
+                tags to find the missing tag. Refer to section 8.8 Employment of the
+                Specialist_Letter_CDA_Implementation_Guide_v1.3.</assert>
+
+            <report test="count(cda:name) > 1"
+                >Error: Specialist Letter - 8.8 Employment -
+                The 'name' tag shall appear only once. Check all
+                'ext:asEmployment/ext:employerOrganization/cda:asOrganizationPartOf/cda:wholeOrganization'
+                tags to find the duplicate tag. Refer to section 8.8 Employment of the
+                Specialist_Letter_CDA_Implementation_Guide_v1.3.</report>
+
+        </rule>
+
+        <rule context="ext:asEmployment/ext:employerOrganization/cda:asOrganizationPartOf/cda:wholeOrganization/cda:name">
+
+            <assert test="not(@nullFlavor)"
+                >Error: Specialist Letter - 8.8 Employment -
+                The 'name' tag 'nullFlavor' attribute shall not be present.
+                Refer to requirements in NullFlavor Usage Clarification FAQ and section 8.8 of the
+                Specialist_Letter_CDA_Implementation_Guide_v1.3.</assert>
+
+            <assert test="normalize-space(.) != ''"
+                >Error: Specialist Letter - 8.8 Employment -
+                The 'name' tag shall contain a value. Check all
+                'ext:asEmployment/ext:employerOrganization/cda:asOrganizationPartOf/cda:wholeOrganization/cda:name'
+                tags to find the missing value. Refer to section 8.8 Employment of the
+                Specialist_Letter_CDA_Implementation_Guide_v1.3.</assert>
+
+            <!-- name/@use -->
+
+            <report test="@use and normalize-space(@use) = ''"
+                >Error: Specialist Letter - 8.8 Employment -
+                The 'name' tag 'use' attribute shall contain a value. Check all
+                'ext:asEmployment/ext:employerOrganization/cda:asOrganizationPartOf/cda:wholeOrganization/cda:name'
+                tags to find the incorrect tag. Refer to section 10.4 AS 4846-2006:
+                Health Care Provider Organisation Name Usage of the
+                Specialist_Letter_CDA_Implementation_Guide_v1.3.</report>
+
+            <report
+                test="@use and not(document('CDAValidate_Vocabs.xml')/systems/system[@codeSystemName = 'Health_Care_Provider_Organisation_Name_Usage']/code
+                [(@code = (current()/@use))
+                or (@alternativeCode = (current()/@use))
+                or (@hl7Code = (current()/@use))])"
+                >Error: Specialist Letter - 8.8 Employment -
+                The 'name' tag 'use' attribute shall be coded as per AS 4846-2006:
+                Health Care Provider Organisation Name Usage. Check all
+                'ext:asEmployment/ext:employerOrganization/cda:asOrganizationPartOf/cda:wholeOrganization/cda:name'
+                tags to find the incorrect tag. Refer to section 10.4 AS 4846-2006:
+                Health Care Provider Organisation Name Usage of the
+                Specialist_Letter_CDA_Implementation_Guide_v1.3.</report>
+
+        </rule>
+
+        <!-- END :: Common Patterns: 8.8 Employment -->
+
+
+    </pattern>
+

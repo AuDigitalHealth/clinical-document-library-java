@@ -1,0 +1,241 @@
+<!--
+_________________________________________________________________________________________________________________________________________________________________________________________
+                  Generated File - Do Not Edit File Directly                                                                                                                             
+                  __________________________________________
+
+                  Generated          : 26/08/2014 2:05:22 PM
+
+                  Product            : Specialist Letter
+                  Release            : CDA_Implementation_Guide_v1.0
+                  IG Guide Reference : 7.1.2.2
+                  IG Guide Title     : RECOMMENDATIONS EXCLUSION
+                  Generator Version  : 2.27
+                                                                                                                                                                                         
+_________________________________________________________________________________________________________________________________________________________________________________________
+-->
+    <pattern name="p-Specialist_Letter_3A_RECOMMENDATIONSEXCLUSION_7_1_2_2-errors"
+        id="p-Specialist_Letter_3A_RECOMMENDATIONSEXCLUSION_7_1_2_2-errors"
+        see="#p-Specialist_Letter_3A_RECOMMENDATIONSEXCLUSION_7_1_2_2-errors">
+
+
+        <rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code = '101.16606']">
+
+            <report test="count(cda:entry[cda:observation/cda:code/@code = '102.16134']) > 1"
+                >Error: Specialist Letter - 7.1.2.2 RECOMMENDATIONS EXCLUSION -
+                "Recommendations Exclusion / General Statement" -
+                The 'entry' tag shall appear only once for ' General Statement'.
+                Refer to section 7.1.2.2 of the
+                Specialist_Letter_CDA_Implementation_Guide_v1.3.</report>
+
+        </rule>
+
+
+        <rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code = '101.16606']/cda:entry[cda:observation/cda:code/@code = '102.16134']">
+
+            <assert test="not(@nullFlavor)"
+                >Error: Specialist Letter - 7.1.2.2 RECOMMENDATIONS EXCLUSION -
+                "Recommendations Exclusion / General Statement" -
+                The 'entry' tag 'nullFlavor' attribute shall not be present.
+                Refer to section 7.1.2.2 of the
+                Specialist_Letter_CDA_Implementation_Guide_v1.3.</assert>
+
+            <report test="count(cda:observation) > 1"
+                >Error: Specialist Letter - 7.1.2.2 RECOMMENDATIONS EXCLUSION -
+                "Recommendations Exclusion / General Statement" -
+                The 'observation' tag shall appear only once.
+                Refer to section 7.1.2.2 of the
+                Specialist_Letter_CDA_Implementation_Guide_v1.3.</report>
+
+        </rule>
+
+
+        <rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code = '101.16606']/cda:entry/cda:observation[cda:code/@code = '102.16134']">
+
+            <assert test="@classCode"
+                >Error: Specialist Letter - 7.1.2.2 RECOMMENDATIONS EXCLUSION -
+                "Recommendations Exclusion / General Statement" -
+                The 'observation' tag 'classCode' attribute is missing.
+                Refer to section 7.1.2.2 of the
+                Specialist_Letter_CDA_Implementation_Guide_v1.3.</assert>
+
+            <assert test="not(@classCode) or normalize-space(@classCode) != ''"
+                >Error: Specialist Letter - 7.1.2.2 RECOMMENDATIONS EXCLUSION -
+                "Recommendations Exclusion / General Statement" -
+                The 'observation' tag 'classCode' attribute shall contain a value.
+                Refer to section 7.1.2.2 of the
+                Specialist_Letter_CDA_Implementation_Guide_v1.3.</assert>
+
+            <assert test="
+                not(@classCode) or normalize-space(@classCode) = '' or @classCode = 'OBS'"
+                >Error: Specialist Letter - 7.1.2.2 RECOMMENDATIONS EXCLUSION -
+                "Recommendations Exclusion / General Statement" -
+                The 'observation' tag 'classCode' attribute shall contain the value 'OBS'.
+                Refer to section 7.1.2.2 of the
+                Specialist_Letter_CDA_Implementation_Guide_v1.3.</assert>
+
+            <assert test="@moodCode"
+                >Error: Specialist Letter - 7.1.2.2 RECOMMENDATIONS EXCLUSION -
+                "Recommendations Exclusion / General Statement" -
+                The 'observation' tag 'moodCode' attribute is missing.
+                Refer to section 7.1.2.2 of the
+                Specialist_Letter_CDA_Implementation_Guide_v1.3.</assert>
+
+            <assert test="not(@moodCode) or normalize-space(@moodCode) != ''"
+                >Error: Specialist Letter - 7.1.2.2 RECOMMENDATIONS EXCLUSION -
+                "Recommendations Exclusion / General Statement" -
+                The 'observation' tag 'moodCode' attribute shall contain a value.
+                Refer to section 7.1.2.2 of the
+                Specialist_Letter_CDA_Implementation_Guide_v1.3.</assert>
+
+            <assert test="
+                not(@moodCode) or normalize-space(@moodCode) = '' or @moodCode = 'EVN'"
+                >Error: Specialist Letter - 7.1.2.2 RECOMMENDATIONS EXCLUSION -
+                "Recommendations Exclusion / General Statement" -
+                The 'observation' tag 'moodCode' attribute shall contain the value 'EVN'.
+                Refer to section 7.1.2.2 of the
+                Specialist_Letter_CDA_Implementation_Guide_v1.3.</assert>
+
+            <assert test="not(@nullFlavor)"
+                >Error: Specialist Letter - 7.1.2.2 RECOMMENDATIONS EXCLUSION -
+                "Recommendations Exclusion / General Statement" -
+                The 'observation' tag 'nullFlavor' attribute shall not be present.
+                Refer to section 7.1.2.2 of the
+                Specialist_Letter_CDA_Implementation_Guide_v1.3.</assert>
+
+            <report test="count(cda:code) > 1"
+                >Error: Specialist Letter - 7.1.2.2 RECOMMENDATIONS EXCLUSION -
+                "Recommendations Exclusion / General Statement" -
+                The 'code' tag shall appear only once.
+                Refer to section 7.1.2.2 of the
+                Specialist_Letter_CDA_Implementation_Guide_v1.3.</report>
+
+            <assert test="cda:value"
+                >Error: Specialist Letter - 7.1.2.2 RECOMMENDATIONS EXCLUSION -
+                "Recommendations Exclusion / General Statement" -
+                The 'value' tag is missing.
+                Refer to section 7.1.2.2 of the
+                Specialist_Letter_CDA_Implementation_Guide_v1.3.</assert>
+
+            <report test="count(cda:value) > 1"
+                >Error: Specialist Letter - 7.1.2.2 RECOMMENDATIONS EXCLUSION -
+                "Recommendations Exclusion / General Statement" -
+                The 'value' tag shall appear only once.
+                Refer to section 7.1.2.2 of the
+                Specialist_Letter_CDA_Implementation_Guide_v1.3.</report>
+
+            <assert test="not(cda:value) or normalize-space(cda:value) != ''"
+                >Error: Specialist Letter - 7.1.2.2 RECOMMENDATIONS EXCLUSION -
+                "Recommendations Exclusion / General Statement" -
+                The 'value' tag shall contain a value.
+                Refer to section 7.1.2.2 of the
+                Specialist_Letter_CDA_Implementation_Guide_v1.3.</assert>
+
+        </rule>
+
+
+        <rule context="cda:code[@code = '102.16134']">
+
+            <assert test="
+                count(/cda:ClinicalDocument//cda:code[@code = '102.16134']) =
+                count(/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code='101.16606']/cda:entry/cda:observation/cda:code[@code='102.16134'])"
+                >Error: Specialist Letter - 7.1.2.2 RECOMMENDATIONS EXCLUSION -
+                "Recommendations Exclusion / General Statement" -
+                The '/ClinicalDocument/component/structuredBody/component/section[code/@code = '101.16606']/entry/observation/code[@code = '102.16134']' path -
+                1 or more tags are missing.
+                Refer to section 7.1.2.2 of the
+                Specialist_Letter_CDA_Implementation_Guide_v1.3.</assert>
+
+            <assert test="@codeSystem"
+                >Error: Specialist Letter - 7.1.2.2 RECOMMENDATIONS EXCLUSION -
+                "Recommendations Exclusion / General Statement" -
+                The 'code' tag 'codeSystem' attribute is missing.
+                Refer to section 7.1.2.2 of the
+                Specialist_Letter_CDA_Implementation_Guide_v1.3.</assert>
+
+            <assert test="
+                not(@codeSystem) or normalize-space(@codeSystem) = '' or @codeSystem = '1.2.36.1.2001.1001.101'"
+                >Error: Specialist Letter - 7.1.2.2 RECOMMENDATIONS EXCLUSION -
+                "Recommendations Exclusion / General Statement" -
+                The 'code' tag 'codeSystem' attribute shall contain the value '1.2.36.1.2001.1001.101'.
+                Refer to section 7.1.2.2 of the
+                Specialist_Letter_CDA_Implementation_Guide_v1.3.</assert>
+
+            <assert test="@codeSystemName"
+                >Error: Specialist Letter - 7.1.2.2 RECOMMENDATIONS EXCLUSION -
+                "Recommendations Exclusion / General Statement" -
+                The 'code' tag 'codeSystemName' attribute is missing.
+                Refer to section 7.1.2.2 of the
+                Specialist_Letter_CDA_Implementation_Guide_v1.3.</assert>
+
+            <assert test="
+                not(@codeSystemName) or normalize-space(@codeSystemName) = '' or translate(@codeSystemName, 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ') = &quot;NCTIS DATA COMPONENTS&quot;"
+                >Error: Specialist Letter - 7.1.2.2 RECOMMENDATIONS EXCLUSION -
+                "Recommendations Exclusion / General Statement" -
+                The 'code' tag 'codeSystemName' attribute shall contain the value 'NCTIS Data Components'.
+                Refer to section 7.1.2.2 of the
+                Specialist_Letter_CDA_Implementation_Guide_v1.3.</assert>
+
+            <assert test="@displayName"
+                >Error: Specialist Letter - 7.1.2.2 RECOMMENDATIONS EXCLUSION -
+                "Recommendations Exclusion / General Statement" -
+                The 'code' tag 'displayName' attribute is missing.
+                Refer to section 7.1.2.2 of the
+                Specialist_Letter_CDA_Implementation_Guide_v1.3.</assert>
+
+            <assert test="
+                not(@displayName) or normalize-space(@displayName) = '' or translate(@displayName, 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ') = &quot;RECOMMENDATIONS EXCLUSION&quot;"
+                >Error: Specialist Letter - 7.1.2.2 RECOMMENDATIONS EXCLUSION -
+                "Recommendations Exclusion / General Statement" -
+                The 'code' tag 'displayName' attribute shall contain the value 'Recommendations Exclusion'.
+                Refer to section 7.1.2.2 of the
+                Specialist_Letter_CDA_Implementation_Guide_v1.3.</assert>
+
+            <assert test="not(@nullFlavor)"
+                >Error: Specialist Letter - 7.1.2.2 RECOMMENDATIONS EXCLUSION -
+                "Recommendations Exclusion / General Statement" -
+                The 'code' tag 'nullFlavor' attribute shall not be present.
+                Refer to section 7.1.2.2 of the
+                Specialist_Letter_CDA_Implementation_Guide_v1.3.</assert>
+
+            <assert test="not(cda:translation)"
+                >Error: Specialist Letter - 7.1.2.2 RECOMMENDATIONS EXCLUSION -
+                "Recommendations Exclusion / General Statement" -
+                The 'translation' tag shall not be present within 'code'.
+                Refer to section 7.1.2.2 of the
+                Specialist_Letter_CDA_Implementation_Guide_v1.3.</assert>
+
+        </rule>
+
+
+        <rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code = '101.16606']/cda:entry/cda:observation[cda:code/@code = '102.16134']/cda:value">
+
+            <report test="@xsi:type and normalize-space(@xsi:type) = ''"
+                >Error: Specialist Letter - 7.1.2.2 RECOMMENDATIONS EXCLUSION -
+                "Recommendations Exclusion / General Statement" -
+                The 'value' tag 'xsi:type' attribute shall contain a value.
+                Refer to section 7.1.2.2 of the
+                Specialist_Letter_CDA_Implementation_Guide_v1.3.</report>
+
+            <report test="
+                @xsi:type and normalize-space(@xsi:type) != '' and 
+                normalize-space(@xsi:type) != 'ST' and
+                not(substring-before(normalize-space(@xsi:type), ':') != '' and
+                    substring-after(normalize-space(@xsi:type), ':') = 'ST')"
+                >Error: Specialist Letter - 7.1.2.2 RECOMMENDATIONS EXCLUSION -
+                "Recommendations Exclusion / General Statement" -
+                The 'value' tag 'xsi:type' attribute shall contain the value 'ST'.
+                Refer to section 7.1.2.2 of the
+                Specialist_Letter_CDA_Implementation_Guide_v1.3.</report>
+
+            <assert test="not(@nullFlavor)"
+                >Error: Specialist Letter - 7.1.2.2 RECOMMENDATIONS EXCLUSION -
+                "Recommendations Exclusion / General Statement" -
+                The 'value' tag 'nullFlavor' attribute shall not be present.
+                Refer to section 7.1.2.2 of the
+                Specialist_Letter_CDA_Implementation_Guide_v1.3.</assert>
+
+        </rule>
+
+
+    </pattern>
+

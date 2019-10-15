@@ -3,7 +3,7 @@ package au.gov.nehta.model.clinical.es;
 import au.gov.nehta.model.cda.common.code.Coded;
 import au.gov.nehta.model.cda.common.time.PreciseDate;
 import au.gov.nehta.model.clinical.etp.common.item.AttachedMedia;
-
+import au.net.electronichealth.ns.cda._2_0.StrucDocText;
 import java.util.List;
 
 public class PathologyTestResultImpl implements PathologyTestResult {
@@ -19,6 +19,28 @@ public class PathologyTestResultImpl implements PathologyTestResult {
   private String testComment;
   private TestRequestDetails testRequestDetails;
   private PreciseDate observationDateTime;
+  private StrucDocText customNarrative;
+  private Class executionClass;
+
+  @Override
+  public StrucDocText getCustomNarrative() {
+    return customNarrative;
+  }
+
+  @Override
+  public void setCustomNarrative(StrucDocText customNarrative) {
+    this.customNarrative = customNarrative;
+  }
+
+  @Override
+  public Class getExecutingClass() {
+    return executionClass;
+  }
+
+  @Override
+  public void setExecutingClass(Class executingClass) {
+    this.executionClass = executingClass;
+  }
 
   @Override
   public Coded getTestResultName() {

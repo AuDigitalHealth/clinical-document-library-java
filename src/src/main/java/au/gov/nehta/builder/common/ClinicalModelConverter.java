@@ -50,7 +50,7 @@ import au.net.electronichealth.ns.ci.cda.extensions._3.Employment;
 import au.net.electronichealth.ns.ci.cda.extensions._3.ParticipantRole;
 import au.net.electronichealth.ns.ci.cda.extensions._3.Qualifications;
 import java.util.ArrayList;
-import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 public class ClinicalModelConverter {
@@ -88,7 +88,7 @@ public class ClinicalModelConverter {
       wholeOrganization.getAddr().add(AddressConverter.convert(providerAddress));
     }
 
-    if (communicationDetail != null && communicationDetail.isEmpty() == false) {
+    if (communicationDetail != null && !communicationDetail.isEmpty()) {
       wholeOrganization.getTelecom().addAll(Converter.convert(communicationDetail));
     }
 
@@ -251,7 +251,7 @@ public class ClinicalModelConverter {
     POCDMT000040Person person = new POCDMT000040Person();
     if (null != providerEntityIdentifier) {
       person.getAsEntityIdentifier()
-          .addAll(Arrays.asList(Converter.convert(providerEntityIdentifier)));
+          .addAll(Collections.singletonList(Converter.convert(providerEntityIdentifier)));
     }
     person.getName().add(Converter.getPersonName(personName));
 

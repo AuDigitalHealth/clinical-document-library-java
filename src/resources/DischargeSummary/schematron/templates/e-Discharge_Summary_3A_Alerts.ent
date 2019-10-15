@@ -1,0 +1,122 @@
+
+    
+    <!-- e-Discharge Clinical Document:  7.1.3.3 Alerts -->
+    
+    <!-- Context: ClinicalDocument/component/structuredBody/component[health]/section/component[alerts]/section/entry/observation/@classCode="OBS" -->
+    
+    <!-- Status: Last Reviewed: Not Reviewed
+        Status: Last Updated : 10/07/2012 -->
+    
+    <pattern name="p-e-Discharge_Summary_3A_Alerts-errors"
+        id="p-e-Discharge_Summary_3A_Alerts-errors"
+        see="#p-e-Discharge_Summary_3A_Alerts-errors">
+        
+        <rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code='101.16011']/cda:component[cda:section/cda:code/@code='101.20021']">
+ 
+            <report test="count(cda:section[(cda:code/@code='101.20021') and (cda:entry/cda:observation/@classCode='OBS')]) > 1">Error:
+                e-Discharge Summary - 7.1.3.3 Alerts - The 'section' tag shall appear only once. 
+                Refer to section 7.1.3.3
+                of the e-Discharge_Summary_CDA_Implementation_Guide_v3.4.</report>
+            
+        </rule>
+        
+        <rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code='101.16011']/cda:component[cda:section/cda:code/@code='101.20021']/cda:section/cda:entry[cda:observation/@classCode='OBS']">
+
+            <report test="count(cda:observation[@classCode='OBS']) > 1">Error:
+                e-Discharge Summary - 7.1.3.3 Alerts - The 'observation' tag shall appear only once. 
+                Refer to section 7.1.3.3
+                of the e-Discharge_Summary_CDA_Implementation_Guide_v3.4.</report>
+            
+        </rule>
+        
+        <rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code='101.16011']/cda:component[cda:section/cda:code/@code='101.20021']/cda:section/cda:entry[cda:observation/@classCode='OBS']/cda:observation">
+<!-- In context            
+            <assert test="@classCode">Error:
+                e-Discharge Summary - 7.1.3.3 Alerts - The 'observation' tag 'classCode' attribute is missing. 
+                Refer to section 7.1.3.3
+                of the e-Discharge_Summary_CDA_Implementation_Guide_v3.4.</assert>
+            
+            <assert test="translate(@classCode, 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ') ='OBS'">Error:
+                e-Discharge Summary - 7.1.3.3 Alerts - The 'observation' tag 'classCode' attribute shall contain the value 'OBS'. 
+                Refer to section 7.1.3.3
+                of the e-Discharge_Summary_CDA_Implementation_Guide_v3.4.</assert>
+-->
+            <assert test="@moodCode">Error:
+                e-Discharge Summary - 7.1.3.3 Alerts - The 'observation' tag 'moodCode' attribute is missing. 
+                Refer to section 7.1.3.3
+                of the e-Discharge_Summary_CDA_Implementation_Guide_v3.4.</assert>
+            
+            <assert test="translate(@moodCode, 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ') ='EVN'">Error:
+                e-Discharge Summary - 7.1.3.3 Alerts - The 'observation' tag 'moodCode' attribute shall contain the value 'EVN'. 
+                Refer to section 7.1.3.3
+                of the e-Discharge_Summary_CDA_Implementation_Guide_v3.4.</assert>
+            
+            <report test="count(cda:id) > 1">Error:
+                e-Discharge Summary - 7.1.3.3 Alerts - The 'id' tag shall appear only once. 
+                Refer to section 7.1.3.3
+                of the e-Discharge_Summary_CDA_Implementation_Guide_v3.4.</report>
+            
+            <assert test="cda:code">Error:
+                e-Discharge Summary - 7.1.3.3 Alerts - The 'code' tag is missing. 
+                Refer to section 7.1.3.3
+                of the e-Discharge_Summary_CDA_Implementation_Guide_v3.4.</assert>
+            
+            <report test="count(cda:code) > 1">Error:
+                e-Discharge Summary - 7.1.3.3 Alerts - The 'code' tag shall appear only once. 
+                Refer to section 7.1.3.3
+                of the e-Discharge_Summary_CDA_Implementation_Guide_v3.4.</report>
+            
+            <assert test="cda:value">Error:
+                e-Discharge Summary - 7.1.3.3 Alerts - The 'value' tag is missing. 
+                Refer to section 7.1.3.3
+                of the e-Discharge_Summary_CDA_Implementation_Guide_v3.4.</assert>
+            
+            <report test="count(cda:value) > 1">Error:
+                e-Discharge Summary - 7.1.3.3 Alerts - The 'value' tag shall appear only once. 
+                Refer to section 7.1.3.3
+                of the e-Discharge_Summary_CDA_Implementation_Guide_v3.4.</report>
+            
+        </rule>
+
+        <rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code='101.16011']
+                       /cda:component[cda:section/cda:code/@code='101.20021']
+                       /cda:section/cda:entry/cda:observation[@classCode='OBS']/cda:code">
+            
+            <assert test="not(@nullFlavor)">Error: e-Discharge Summary - 7.1.3.3 "Alerts >
+                Alert > Alert Type" - The 'code' tag 'nullFlavor' attribute shall not be present.
+                Refer to requirements in the NullFlavor Usage Clarification FAQ and section 7.1.3.3 of the 
+                e-Discharge_Summary_CDA_Implementation_Guide_v3.4 </assert>
+            
+        </rule>            
+        <!--id is tested in Global Checks-->
+        
+        <rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code='101.16011']/cda:component[cda:section/cda:code/@code='101.20021']/cda:section/cda:entry/cda:observation[@classCode='OBS']/cda:value">
+
+            <assert test="@xsi:type">Error:
+                e-Discharge Summary - 7.1.3.3 Alerts - The 'value' tag 'xsi:type' attribute is missing. 
+                Refer to section 7.1.3.3
+                of the e-Discharge_Summary_CDA_Implementation_Guide_v3.4.</assert>
+            
+            <!-- Start Mantis Task 2782 -->
+            <assert test="not(@xsi:type) or normalize-space(@xsi:type) !=  ''">
+                Error: e-Discharge Summary - 7.1.3.3 Alerts - The 'value' tag 'xsi:type' attribute shall contain a value. 
+                Refer to section 7.1.3.3
+                of the e-Discharge_Summary_CDA_Implementation_Guide_v3.4.
+            </assert>
+            
+            <!-- End Mantis Task 2782 -->
+            
+            <assert test="translate(@xsi:type, 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ') ='CD'">Error:
+                e-Discharge Summary - 7.1.3.3 Alerts - The 'value' tag 'xsi:type' attribute shall contain the value 'CD'. 
+                Refer to section 7.1.3.3
+                of the e-Discharge_Summary_CDA_Implementation_Guide_v3.4.</assert>
+            
+            <assert test="not(@nullFlavor)">Error: e-Discharge Summary - 7.1.3.3 "Alerts > Alert
+                > Alert Description" - The 'value' tag 'nullFlavor' attribute shall not be present.
+                Refer to requirements in the NullFlavor Usage Clarification FAQ and section 7.1.3.3 of the 
+                e-Discharge_Summary_CDA_Implementation_Guide_v3.4 </assert>
+            
+        </rule>
+        
+    </pattern>
+    
