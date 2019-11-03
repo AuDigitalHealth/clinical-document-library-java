@@ -1,5 +1,6 @@
 package au.gov.nehta.model.clinical.sr;
 
+import au.net.electronichealth.ns.cda._2_0.StrucDocText;
 import java.util.List;
 
 /**
@@ -15,6 +16,7 @@ import java.util.List;
  */
 public class CurrentServices {
   private List<RequestedService> currentServices;
+  private StrucDocText customNarrative;
 
   public List<RequestedService> getCurrentServices() {
     return currentServices;
@@ -23,5 +25,13 @@ public class CurrentServices {
   public void setCurrentServices(
       List<RequestedService> currentServices) {
     this.currentServices = currentServices;
+  }
+
+  public StrucDocText getCustomNarrative() {
+    return customNarrative;
+  }
+
+  public void setCustomNarrative(StrucDocText customNarrative) {
+    this.customNarrative = customNarrative;
   }
 }

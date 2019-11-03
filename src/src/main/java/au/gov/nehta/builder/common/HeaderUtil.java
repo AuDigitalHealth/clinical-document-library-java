@@ -74,12 +74,12 @@ import au.net.electronichealth.ns.cda._2_0.RoleClassAssociative;
 import au.net.electronichealth.ns.cda._2_0.ST;
 import au.net.electronichealth.ns.cda._2_0.TS;
 import au.net.electronichealth.ns.cda._2_0.XInformationRecipient;
+import au.net.electronichealth.ns.cda._2_0.XInformationRecipientRole;
 import au.net.electronichealth.ns.ci.cda.extensions._3.EntityIdentifier;
 import java.math.BigInteger;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
-import java.util.Objects;
 import java.util.UUID;
 import org.joda.time.DateTime;
 
@@ -180,10 +180,12 @@ public class HeaderUtil {
   }
 
   public static POCDMT000040InformationRecipient createInformationRecipient(
-      InformationRecipient informationRecipient) {
+      InformationRecipient informationRecipient, XInformationRecipient typeCode) {
     POCDMT000040InformationRecipient informationRecipientCda = objectFactory
         .createPOCDMT000040InformationRecipient();
-    informationRecipientCda.setTypeCode(XInformationRecipient.PRCP);
+    if (null != typeCode) {
+      informationRecipientCda.setTypeCode(typeCode);
+    }
     if (null != informationRecipient.getIntendedRecipient()) {
       POCDMT000040IntendedRecipient intendedRecipientCda = objectFactory
           .createPOCDMT000040IntendedRecipient();
@@ -260,16 +262,15 @@ public class HeaderUtil {
     POCDMT000040Person person = objectFactory.createPOCDMT000040Person();
     ServiceProvider serviceProvider = participationServiceProvider.getParticipant();
     if (null != serviceProvider.getEntityIdentifiers()) {
-      serviceProvider.getEntityIdentifiers().stream().filter(Objects::nonNull)
-          .forEach(asEntityIdentifier -> person.getAsEntityIdentifier()
-              .add(Converter.convert(asEntityIdentifier)));
+      person.getAsEntityIdentifier()
+          .addAll(Converter.convertEntityIdentifiers(serviceProvider.getEntityIdentifiers()));
     }
     if (null != participationServiceProvider.getParticipant().getHealthCareProvider()
         && null != participationServiceProvider.getParticipant().getHealthCareProvider()
         .getPersonNames()) {
-      participationServiceProvider.getParticipant().getHealthCareProvider()
-          .getPersonNames().stream().filter(Objects::nonNull)
-          .forEach(personName -> person.getName().add(Converter.getPersonName(personName)));
+      person.getName().addAll(Converter
+          .convertNames(participationServiceProvider.getParticipant().getHealthCareProvider()
+              .getPersonNames()));
     }
     person.setAsEmployment(getEmploymentDetails(participationServiceProvider.getParticipant()));
     return person;
@@ -658,15 +659,46 @@ public class HeaderUtil {
 
     List<EntityIdentifier> entityIdentifiers = getAsEntityIdentifier(
         facility.getParticipant().getEntityIdentifiers());
-    entityIdentifiers.forEach(entityIdentifier -> {
-      wholeOrganization.getAsEntityIdentifier().add(entityIdentifier);
-    });
+    entityIdentifiers.forEach(
+        entityIdentifier -> wholeOrganization.getAsEntityIdentifier().add(entityIdentifier));
 
     serviceProviderOrg.setAsOrganizationPartOf(organizationPartOf);
     healthCareFacility.setServiceProviderOrganization(serviceProviderOrg);
     healthCareFacility.setCode(Converter.convertToCECode(facility.getRole()));
     location.setHealthCareFacility(healthCareFacility);
     return location;
+  }
+
+  public static POCDMT000040InformationRecipient getInformationRecipient(
+      InformationRecipient informationRecipient, XInformationRecipient typeCode,
+      XInformationRecipientRole role) {
+
+    POCDMT000040InformationRecipient informationRecipientCda = objectFactory
+        .createPOCDMT000040InformationRecipient();
+    if (null != typeCode) {
+      informationRecipientCda.setTypeCode(typeCode);
+    }
+    if (null != informationRecipient.getIntendedRecipient()) {
+      POCDMT000040IntendedRecipient intendedRecipientCda = objectFactory
+          .createPOCDMT000040IntendedRecipient();
+      intendedRecipientCda.setClassCode(role);
+      intendedRecipientCda.getId().add(CDATypeUtil.getII(UUID.randomUUID().toString()));
+      intendedRecipientCda.getAddr().addAll(
+          Converter.convertAddresses(informationRecipient.getIntendedRecipient().getAddress()));
+      intendedRecipientCda.getTelecom()
+          .addAll(Converter.convert(informationRecipient.getIntendedRecipient().getTelecom()));
+      POCDMT000040Person assignedPerson = objectFactory.createPOCDMT000040Person();
+      assignedPerson.getAsEntityIdentifier().add(Converter.convert(informationRecipient
+          .getIntendedRecipient().getAssignedPerson().getAsEntityIdentifier()));
+      assignedPerson.getName().addAll(Converter
+          .convertNames(informationRecipient.getIntendedRecipient().getAssignedPerson().getName()));
+      intendedRecipientCda.setInformationRecipient(assignedPerson);
+      informationRecipientCda.setIntendedRecipient(intendedRecipientCda);
+      return informationRecipientCda;
+    } else {
+      throw new RuntimeException(
+          "Missing: Clinical Document > Information Recipient > Intended Recipient");
+    }
   }
 }
 

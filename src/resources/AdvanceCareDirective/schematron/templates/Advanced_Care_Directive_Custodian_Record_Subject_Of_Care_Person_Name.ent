@@ -1,0 +1,30 @@
+
+
+    <!-- Advanced Care Directive Custodian Record Clinical Document:  6.1.2 Subject of Care -->
+
+    <!-- Context: ClinicalDocument/Subject of Care -->
+
+
+    <!-- Status: Last Reviewed:
+         Status: Last Updated : 12/04/2012 -->
+
+
+    <pattern name="p-Advanced_Care_Directive_Custodian_Record_Subject_Of_Care_Person_Name-errors"
+        id="p-Advanced_Care_Directive_Custodian_Record_Subject_Of_Care_Person_Name-errors"
+        see="#p-Advanced_Care_Directive_Custodian_Record_Subject_Of_Care_Person_Name-errors">
+
+        <rule context="/cda:ClinicalDocument/cda:recordTarget/cda:patientRole/cda:patient">
+
+            <!-- Person Name - 1..* -->
+
+            <assert test="cda:name">Error: Advanced Care Directive Custodian Record - 6.1.2 Subject of Care - "Subject of Care
+                / Participant / Person or Organisation or Device / Person / Person Name" - The
+                'name' tag is missing. Refer to section 8.5 of the
+                Advanced_Care_Directive_Custodian_Record_CDA_Implementation_Guide_v1.0.</assert>
+
+            <!-- The attributes of cda:name tag are being tested inside "Advanced_Care_Directive_Custodian_Record_Global_Checks.ent" -->
+
+        </rule>
+
+    </pattern>
+

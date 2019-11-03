@@ -1,7 +1,6 @@
 package au.gov.nehta.model.clinical.es;
 
 import au.gov.nehta.model.clinical.etp.common.item.AttachedMedia;
-
 import java.util.List;
 
 public interface AnatomicalSite {
@@ -17,5 +16,4 @@ public interface AnatomicalSite {
 
     void setAnatomicalLocationImages(List<AttachedMedia> anatomicalLocationImages);
 
-    //TODO Missing Validation
 }

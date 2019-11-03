@@ -1,0 +1,441 @@
+<!--
+_________________________________________________________________________________________________________________________________________________________________________________________
+                  Generated File - Do Not Edit File Directly                                                                                                                             
+                  __________________________________________
+
+                  Generated          : 1/11/2018 9:46:48 AM
+
+                  Product            : Pharmacist Shared Medicines List
+                  Release            : CDA_Implementation_Guide_v1.0
+                  IG Guide Reference : 6.1.2.1
+                  IG Guide Title     : DOCUMENT AUTHOR as a PERSON
+                  Generator Version  : 2.28
+                                                                                                                                                                                         
+_________________________________________________________________________________________________________________________________________________________________________________________
+-->
+<pattern name="p-Pharmacist_Shared_Medicines_List_DOCUMENTAUTHORasaPERSON_6_1_2_1-errors"
+  id="p-Pharmacist_Shared_Medicines_List_DOCUMENTAUTHORasaPERSON_6_1_2_1-errors"
+  see="#p-Pharmacist_Shared_Medicines_List_DOCUMENTAUTHORasaPERSON_6_1_2_1-errors">
+
+
+  <rule context="/cda:ClinicalDocument">
+
+    <assert test="cda:author"
+    >Error: Pharmacist Shared Medicines List - 6.1.2.1 DOCUMENT AUTHOR as a PERSON -
+      "Document Author" -
+      The 'author' tag is missing.
+      Refer to section "027989 Document author" of the
+      Pharmacist_Shared_Medicines_List_Conformance_Profile and section 6.1.2.1 of the
+      Core_Level_One_Clinical_Document_CDA_Implementation_Guide_v1.1.
+    </assert>
+
+    <report test="count(cda:author) > 1"
+    >Error: Pharmacist Shared Medicines List - 6.1.2.1 DOCUMENT AUTHOR as a PERSON -
+      "Document Author" -
+      The 'author' tag shall appear only once.
+      Refer to section "027989 Document author" of the
+      Pharmacist_Shared_Medicines_List_Conformance_Profile and section 6.1.2.1 of the
+      Core_Level_One_Clinical_Document_CDA_Implementation_Guide_v1.1.
+    </report>
+
+  </rule>
+
+
+  <rule context="/cda:ClinicalDocument/cda:author">
+
+    <report test="
+                @typeCode and normalize-space(@typeCode) != '' and @typeCode != 'AUT'"
+    >Error: Pharmacist Shared Medicines List - 6.1.2.1 DOCUMENT AUTHOR as a PERSON -
+      "Document Author" -
+      The 'author' tag 'typeCode' attribute shall contain the value 'AUT'.
+      Refer to section 6.1.2.1 of the
+      Core_Level_One_Clinical_Document_CDA_Implementation_Guide_v1.1.
+    </report>
+
+    <report test="@typeCode and normalize-space(@typeCode) = ''"
+    >Error: Pharmacist Shared Medicines List - 6.1.2.1 DOCUMENT AUTHOR as a PERSON -
+      "Document Author" -
+      The 'author' tag 'typeCode' attribute shall contain a value.
+      Refer to section 6.1.2.1 of the
+      Core_Level_One_Clinical_Document_CDA_Implementation_Guide_v1.1.
+    </report>
+
+    <report test="count(cda:assignedAuthor) > 1"
+    >Error: Pharmacist Shared Medicines List - 6.1.2.1 DOCUMENT AUTHOR as a PERSON -
+      "Document Author / Role" -
+      The 'assignedAuthor' tag shall appear only once.
+      Refer to section 6.1.2.1 of the
+      Core_Level_One_Clinical_Document_CDA_Implementation_Guide_v1.1.
+    </report>
+
+    <assert test="cda:assignedAuthor"
+    >Error: Pharmacist Shared Medicines List - 6.1.2.1 DOCUMENT AUTHOR as a PERSON -
+      "Document Author / Role" -
+      The 'assignedAuthor' tag is missing.
+      Refer to section 6.1.2.1 of the
+      Core_Level_One_Clinical_Document_CDA_Implementation_Guide_v1.1.
+    </assert>
+
+    <assert test="cda:time"
+    >Error: Pharmacist Shared Medicines List - 6.1.2.1 DOCUMENT AUTHOR as a PERSON -
+      "Document Author / Participation Period" -
+      The 'time' tag is missing.
+      Refer to section 6.1.2.1 of the
+      Core_Level_One_Clinical_Document_CDA_Implementation_Guide_v1.1.
+    </assert>
+
+    <report test="count(cda:time) > 1"
+    >Error: Pharmacist Shared Medicines List - 6.1.2.1 DOCUMENT AUTHOR as a PERSON -
+      "Document Author / Participation Period" -
+      The 'time' tag shall appear only once.
+      Refer to section 6.1.2.1 of the
+      Core_Level_One_Clinical_Document_CDA_Implementation_Guide_v1.1.
+    </report>
+
+  </rule>
+
+
+  <rule context="/cda:ClinicalDocument/cda:author/cda:assignedAuthor">
+
+    <assert test="cda:id"
+    >Error: Pharmacist Shared Medicines List - 6.1.2.1 DOCUMENT AUTHOR as a PERSON -
+      "Document Author / id" -
+      The 'id' tag is missing.
+      Refer to section 6.1.2.1 of the
+      Core_Level_One_Clinical_Document_CDA_Implementation_Guide_v1.1.
+    </assert>
+
+    <report test="count(cda:id) > 1"
+    >Error: Pharmacist Shared Medicines List - 6.1.2.1 DOCUMENT AUTHOR as a PERSON -
+      "Document Author / id" -
+      The 'id' tag shall appear only once.
+      Refer to section 6.1.2.1 of the
+      Core_Level_One_Clinical_Document_CDA_Implementation_Guide_v1.1.
+    </report>
+
+    <report test="count(cda:code) > 1"
+    >Error: Pharmacist Shared Medicines List - 6.1.2.1 DOCUMENT AUTHOR as a PERSON -
+      "Document Author / Role" -
+      The 'code' tag shall appear only once.
+      Refer to section 6.1.2.1 of the
+      Core_Level_One_Clinical_Document_CDA_Implementation_Guide_v1.1.
+    </report>
+
+    <assert test="cda:code"
+    >Error: Pharmacist Shared Medicines List - 6.1.2.1 DOCUMENT AUTHOR as a PERSON -
+      "Document Author / Role" -
+      The 'code' tag is missing.
+      Refer to section 6.1.2.1 of the
+      Core_Level_One_Clinical_Document_CDA_Implementation_Guide_v1.1.
+    </assert>
+
+    <report test="count(cda:assignedPerson) > 1"
+    >Error: Pharmacist Shared Medicines List - 6.1.2.1 DOCUMENT AUTHOR as a PERSON -
+      "Document Author / Participant" -
+      The 'assignedPerson' tag shall appear only once.
+      Refer to section "027989 Document author" of the
+      Pharmacist_Shared_Medicines_List_Conformance_Profile and section 6.1.2.1 of the
+      Core_Level_One_Clinical_Document_CDA_Implementation_Guide_v1.1.
+    </report>
+
+    <assert test="cda:assignedPerson"
+    >Error: Pharmacist Shared Medicines List - 6.1.2.1 DOCUMENT AUTHOR as a PERSON -
+      "Document Author / Participant" -
+      The 'assignedPerson' tag is missing.
+      Refer to section "027989 Document author" of the
+      Pharmacist_Shared_Medicines_List_Conformance_Profile and section 6.1.2.1 of the
+      Core_Level_One_Clinical_Document_CDA_Implementation_Guide_v1.1.
+    </assert>
+
+    <assert test="cda:addr"
+    >Error: Pharmacist Shared Medicines List - 6.1.2.1 DOCUMENT AUTHOR as a PERSON -
+      "Document Author / Participant / Address" -
+      The 'addr' tag is missing.
+      Refer to section "027993 Document author workplace address" of the
+      Pharmacist_Shared_Medicines_List_Conformance_Profile and section 6.1.2.1 of the
+      Core_Level_One_Clinical_Document_CDA_Implementation_Guide_v1.1.
+    </assert>
+
+  </rule>
+
+
+  <rule context="/cda:ClinicalDocument/cda:author/cda:time">
+
+    <report test="@value and normalize-space(@value) = ''"
+    >Error: Pharmacist Shared Medicines List - 6.1.2.1 DOCUMENT AUTHOR as a PERSON -
+      "Document Author / Participation Period" -
+      The 'time' tag 'value' attribute shall contain a value.
+      Refer to section 6.1.2.1 of the
+      Core_Level_One_Clinical_Document_CDA_Implementation_Guide_v1.1.
+    </report>
+
+  </rule>
+
+
+  <rule context="/cda:ClinicalDocument/cda:author/cda:assignedAuthor/cda:assignedPerson">
+
+    <assert
+      test="not(ext:asEntityIdentifier) or ext:asEntityIdentifier/ext:id[starts-with(@root, '1.2.36.1.2001.1003.0.800361')]"
+    >Error: Pharmacist Shared Medicines List - 6.1.2.1 DOCUMENT AUTHOR as a PERSON -
+      "Document Author / Participant / Entity Identifier" -
+      The 'asEntityIdentifier' tag for 'HPI-I' is missing.
+      "The value of one Entity Identifier SHALL be an Australian HPI-I". Refer to section "027994
+      Document author identifier" of the Pharmacist_Shared_Medicines_List_Conformance_Profile and
+      section 6.1.2.1 of the
+      Core_Level_One_Clinical_Document_CDA_Implementation_Guide_v1.1.
+    </assert>
+
+    <report test="count(ext:asEntityIdentifier) > 1"
+    >Error: Pharmacist Shared Medicines List - 6.1.2.1 DOCUMENT AUTHOR as a PERSON -
+      "Document Author / Participant / Entity Identifier" -
+      The 'asEntityIdentifier' tag shall appear only once.
+      Refer to section "027994 Document author identifier" of the
+      Pharmacist_Shared_Medicines_List_Conformance_Profile and section 6.1.2.1 of the
+      Core_Level_One_Clinical_Document_CDA_Implementation_Guide_v1.1.
+    </report>
+
+    <assert test="ext:asEntityIdentifier"
+    >Error: Pharmacist Shared Medicines List - 6.1.2.1 DOCUMENT AUTHOR as a PERSON -
+      "Document Author / Participant / Entity Identifier" -
+      The 'asEntityIdentifier' tag is missing.
+      Refer to section "027994 Document author identifier" of the
+      Pharmacist_Shared_Medicines_List_Conformance_Profile and section 6.1.2.1 of the
+      Core_Level_One_Clinical_Document_CDA_Implementation_Guide_v1.1.
+    </assert>
+
+    <assert test="cda:name"
+    >Error: Pharmacist Shared Medicines List - 6.1.2.1 DOCUMENT AUTHOR as a PERSON -
+      "Document Author / Participant / Person or Organisation or Device / Person / Person Name" -
+      The 'name' tag is missing.
+      Refer to section 6.1.2.1 of the
+      Core_Level_One_Clinical_Document_CDA_Implementation_Guide_v1.1.
+    </assert>
+
+    <report test="count(ext:asEmployment) > 1"
+    >Error: Pharmacist Shared Medicines List - 6.1.2.1 DOCUMENT AUTHOR as a PERSON -
+      "Document Author / Participant / Person or Organisation or Device / Person / Employment
+      Detail" -
+      The 'asEmployment' tag shall appear only once.
+      Refer to section 6.1.2.1 of the
+      Core_Level_One_Clinical_Document_CDA_Implementation_Guide_v1.1.
+    </report>
+
+    <assert test="ext:asEmployment"
+    >Error: Pharmacist Shared Medicines List - 6.1.2.1 DOCUMENT AUTHOR as a PERSON -
+      "Document Author / Participant / Person or Organisation or Device / Person / Employment
+      Detail" -
+      The 'asEmployment' tag is missing.
+      Refer to section "027992 Document author organisation name" of the
+      Pharmacist_Shared_Medicines_List_Conformance_Profile and section 6.1.2.1 of the
+      Core_Level_One_Clinical_Document_CDA_Implementation_Guide_v1.1.
+    </assert>
+
+    <assert test="not(ext:administrativeGenderCode)"
+    >Error: Pharmacist Shared Medicines List - 6.1.2.1 DOCUMENT AUTHOR as a PERSON -
+      "Document Author / Participant / Person or Organisation or Device / Person / Demographic Data"
+      -
+      The 'administrativeGenderCode' tag shall not be present.
+      Refer to section "027994 Document author identifier" of the
+      Pharmacist_Shared_Medicines_List_Conformance_Profile and section 6.1.2.1 of the
+      Core_Level_One_Clinical_Document_CDA_Implementation_Guide_v1.1.
+    </assert>
+
+    <assert test="not(ext:birthTime)"
+    >Error: Pharmacist Shared Medicines List - 6.1.2.1 DOCUMENT AUTHOR as a PERSON -
+      "Document Author / Participant / Person or Organisation or Device / Person / Demographic Data"
+      -
+      The 'birthTime' tag shall not be present.
+      Refer to section "027994 Document author identifier" of the
+      Pharmacist_Shared_Medicines_List_Conformance_Profile and section 6.1.2.1 of the
+      Core_Level_One_Clinical_Document_CDA_Implementation_Guide_v1.1.
+    </assert>
+
+    <report test="count(ext:asQualifications) > 1"
+    >Error: Pharmacist Shared Medicines List - 6.1.2.1 DOCUMENT AUTHOR as a PERSON -
+      "Document Author / Participant / Qualifications" -
+      The 'asQualifications' tag shall appear only once.
+      Refer to section 6.1.2.1 of the
+      Core_Level_One_Clinical_Document_CDA_Implementation_Guide_v1.1.
+    </report>
+
+  </rule>
+
+
+  <rule context="/cda:ClinicalDocument/cda:author/cda:assignedAuthor/cda:assignedPerson/cda:name">
+
+    <assert test="not(ext:personalRelationship)"
+    >Error: Pharmacist Shared Medicines List - 6.1.2.1 DOCUMENT AUTHOR as a PERSON -
+      "Document Author / Participant / Person or Organisation or Device / Person / Relationship to
+      Subject of Care" -
+      The 'personalRelationship' tag shall not be present.
+      Refer to section "027994 Document author identifier" of the
+      Pharmacist_Shared_Medicines_List_Conformance_Profile and section 6.1.2.1 of the
+      Core_Level_One_Clinical_Document_CDA_Implementation_Guide_v1.1.
+    </assert>
+
+  </rule>
+
+
+  <rule
+    context="/cda:ClinicalDocument/cda:author/cda:assignedAuthor/cda:assignedPerson/ext:asEmployment">
+
+    <assert test="ext:employerOrganization"
+    >Error: Pharmacist Shared Medicines List - 6.1.2.1 DOCUMENT AUTHOR as a PERSON -
+      "Document Author / Participant / Person or Organisation or Device / Person / Employment
+      Detail" -
+      The 'employerOrganization' tag is missing.
+      Refer to section "027992 Document author organisation name" of the
+      Pharmacist_Shared_Medicines_List_Conformance_Profile and section 6.1.2.1 of the
+      Core_Level_One_Clinical_Document_CDA_Implementation_Guide_v1.1.
+    </assert>
+
+    <report test="count(ext:employerOrganization) > 1"
+    >Error: Pharmacist Shared Medicines List - 6.1.2.1 DOCUMENT AUTHOR as a PERSON -
+      "Document Author / Participant / Person or Organisation or Device / Person / Employment
+      Detail" -
+      The 'employerOrganization' tag shall appear only once.
+      Refer to section "027992 Document author organisation name" of the
+      Pharmacist_Shared_Medicines_List_Conformance_Profile and section 6.1.2.1 of the
+      Core_Level_One_Clinical_Document_CDA_Implementation_Guide_v1.1.
+    </report>
+
+  </rule>
+
+
+  <rule
+    context="/cda:ClinicalDocument/cda:author/cda:assignedAuthor/cda:assignedPerson/ext:asEmployment/ext:employerOrganization/cda:asOrganizationPartOf/cda:wholeOrganization">
+
+    <assert test="ext:asEntityIdentifier"
+    >Error: Pharmacist Shared Medicines List - 6.1.2.1 DOCUMENT AUTHOR as a PERSON -
+      "Document Author / Participant / Person or Organisation or Device / Person / Employment
+      Detail" -
+      The 'asEntityIdentifier' tag is missing.
+      Refer to section "027995 Document author organisation identifier" of the
+      Pharmacist_Shared_Medicines_List_Conformance_Profile and section 6.1.2.1 of the
+      Core_Level_One_Clinical_Document_CDA_Implementation_Guide_v1.1.
+    </assert>
+
+    <assert
+      test="not(ext:asEntityIdentifier) or ext:asEntityIdentifier/ext:id[starts-with(@root, '1.2.36.1.2001.1003.0.800362')]"
+    >Error: Pharmacist Shared Medicines List - 6.1.2.1 DOCUMENT AUTHOR as a PERSON -
+      "Document Author / Participant / Person or Organisation or Device / Person / Employment
+      Detail" -
+      The 'asEntityIdentifier' tag for 'HPI-O' is missing.
+      "The value of one Entity Identifier SHALL be an Australian HPI-O". Refer to section "027995
+      Document author organisation identifier" of the
+      Pharmacist_Shared_Medicines_List_Conformance_Profile and section 6.1.2.1 of the
+      Core_Level_One_Clinical_Document_CDA_Implementation_Guide_v1.1.
+    </assert>
+
+    <report test="count(ext:asEntityIdentifier) > 1"
+    >Error: Pharmacist Shared Medicines List - 6.1.2.1 DOCUMENT AUTHOR as a PERSON -
+      "Document Author / Participant / Person or Organisation or Device / Person / Employment
+      Detail" -
+      The 'asEntityIdentifier' tag shall appear only once.
+      Refer to section "027995 Document author organisation identifier" of the
+      Pharmacist_Shared_Medicines_List_Conformance_Profile and section 6.1.2.1 of the
+      Core_Level_One_Clinical_Document_CDA_Implementation_Guide_v1.1.
+    </report>
+
+    <assert test="cda:name"
+    >Error: Pharmacist Shared Medicines List - 6.1.2.1 DOCUMENT AUTHOR as a PERSON -
+      "Document Author / Participant / Person or Organisation or Device / Person / Employment
+      Detail" -
+      The 'name' tag is missing.
+      Refer to section "027992 Document author organisation name" of the
+      Pharmacist_Shared_Medicines_List_Conformance_Profile and section 6.1.2.1 of the
+      Core_Level_One_Clinical_Document_CDA_Implementation_Guide_v1.1.
+    </assert>
+
+    <report test="count(cda:name) > 1"
+    >Error: Pharmacist Shared Medicines List - 6.1.2.1 DOCUMENT AUTHOR as a PERSON -
+      "Document Author / Participant / Person or Organisation or Device / Person / Employment
+      Detail" -
+      The 'name' tag shall appear only once.
+      Refer to section "027992 Document author organisation name" of the
+      Pharmacist_Shared_Medicines_List_Conformance_Profile and section 6.1.2.1 of the
+      Core_Level_One_Clinical_Document_CDA_Implementation_Guide_v1.1.
+    </report>
+
+  </rule>
+
+
+  <rule
+    context="/cda:ClinicalDocument/cda:author/cda:assignedAuthor/cda:assignedPerson/ext:asQualifications">
+
+    <assert test="@classCode"
+    >Error: Pharmacist Shared Medicines List - 6.1.2.1 DOCUMENT AUTHOR as a PERSON -
+      "Document Author / Participant / Qualifications" -
+      The 'asQualifications' tag 'classCode' attribute is missing.
+      Refer to section 6.1.2.1 of the
+      Core_Level_One_Clinical_Document_CDA_Implementation_Guide_v1.1.
+    </assert>
+
+    <assert test="not(@classCode) or normalize-space(@classCode) != ''"
+    >Error: Pharmacist Shared Medicines List - 6.1.2.1 DOCUMENT AUTHOR as a PERSON -
+      "Document Author / Participant / Qualifications" -
+      The 'asQualifications' tag 'classCode' attribute shall contain a value.
+      Refer to section 6.1.2.1 of the
+      Core_Level_One_Clinical_Document_CDA_Implementation_Guide_v1.1.
+    </assert>
+
+    <assert test="
+                not(@classCode) or normalize-space(@classCode) = '' or @classCode = 'QUAL'"
+    >Error: Pharmacist Shared Medicines List - 6.1.2.1 DOCUMENT AUTHOR as a PERSON -
+      "Document Author / Participant / Qualifications" -
+      The 'asQualifications' tag 'classCode' attribute shall contain the value 'QUAL'.
+      Refer to section 6.1.2.1 of the
+      Core_Level_One_Clinical_Document_CDA_Implementation_Guide_v1.1.
+    </assert>
+
+    <assert test="ext:code"
+    >Error: Pharmacist Shared Medicines List - 6.1.2.1 DOCUMENT AUTHOR as a PERSON -
+      "Document Author / Participant / Qualifications" -
+      The 'code' tag is missing.
+      Refer to section 6.1.2.1 of the
+      Core_Level_One_Clinical_Document_CDA_Implementation_Guide_v1.1.
+    </assert>
+
+    <report test="count(ext:code) > 1"
+    >Error: Pharmacist Shared Medicines List - 6.1.2.1 DOCUMENT AUTHOR as a PERSON -
+      "Document Author / Participant / Qualifications" -
+      The 'code' tag shall appear only once.
+      Refer to section 6.1.2.1 of the
+      Core_Level_One_Clinical_Document_CDA_Implementation_Guide_v1.1.
+    </report>
+
+  </rule>
+
+
+  <rule
+    context="/cda:ClinicalDocument/cda:author/cda:assignedAuthor/cda:assignedPerson/ext:asQualifications/ext:code">
+
+    <assert test="cda:originalText"
+    >Error: Pharmacist Shared Medicines List - 6.1.2.1 DOCUMENT AUTHOR as a PERSON -
+      "Document Author / Participant / Qualifications" -
+      The 'originalText' tag is missing.
+      Refer to section 6.1.2.1 of the
+      Core_Level_One_Clinical_Document_CDA_Implementation_Guide_v1.1.
+    </assert>
+
+    <report test="count(cda:originalText) > 1"
+    >Error: Pharmacist Shared Medicines List - 6.1.2.1 DOCUMENT AUTHOR as a PERSON -
+      "Document Author / Participant / Qualifications" -
+      The 'originalText' tag shall appear only once.
+      Refer to section 6.1.2.1 of the
+      Core_Level_One_Clinical_Document_CDA_Implementation_Guide_v1.1.
+    </report>
+
+    <assert test="not(cda:originalText) or normalize-space(cda:originalText) != ''"
+    >Error: Pharmacist Shared Medicines List - 6.1.2.1 DOCUMENT AUTHOR as a PERSON -
+      "Document Author / Participant / Qualifications" -
+      The 'originalText' tag shall contain a value.
+      Refer to section 6.1.2.1 of the
+      Core_Level_One_Clinical_Document_CDA_Implementation_Guide_v1.1.
+    </assert>
+
+  </rule>
+
+
+</pattern>
+

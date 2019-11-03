@@ -23,6 +23,17 @@ public class ServiceReferralContentImpl implements ServiceReferralContent {
     this.reportFile = reportFile;
   }
 
+
+  public ServiceReferralContentImpl(ServiceReferralDetail serviceReferralDetail,
+      CurrentServices currentServices, AdverseReactions adverseReactions,
+      Medications medications, DiagnosticInvestigations diagnosticInvestigations) {
+    this.serviceReferralDetail = serviceReferralDetail;
+    this.currentServices = currentServices;
+    this.adverseReactions = adverseReactions;
+    this.medications = medications;
+    this.diagnosticInvestigations = diagnosticInvestigations;
+  }
+
   public ServiceReferralContentImpl(String customNarrativeTitle, StrucDocText customNarrativeText) {
     this.customNarrativeTitle = customNarrativeTitle;
     this.customNarrativeText = customNarrativeText;

@@ -1,23 +1,6 @@
 package au.gov.nehta.cda.etp;
 
-import java.io.IOException;
-import java.text.ParseException;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.UUID;
-
-import javax.xml.bind.JAXBException;
-import javax.xml.parsers.ParserConfigurationException;
-
-import junit.framework.Assert;
-
-import org.joda.time.DateTime;
-import org.joda.time.LocalDate;
-import org.joda.time.format.DateTimeFormat;
-import org.junit.Ignore;
-import org.junit.Test;
-import org.w3c.dom.Document;
+import static au.gov.nehta.model.schematron.SchematronResource.SchematronResources.E_PRESCRIPTION_3B;
 
 import au.gov.nehta.builder.etp.eprescription.EPrescriptionCreator;
 import au.gov.nehta.builder.util.UUIDTool;
@@ -125,17 +108,40 @@ import au.gov.nehta.model.schematron.SchematronValidationException;
 import au.gov.nehta.schematron.Schematron;
 import au.gov.nehta.schematron.SchematronCheckResult;
 import au.gov.nehta.test.exceptions.SchemaValidationException;
+import java.io.File;
+import java.io.IOException;
+import java.text.ParseException;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import java.util.UUID;
+import javax.xml.bind.JAXBException;
+import javax.xml.parsers.ParserConfigurationException;
+import junit.framework.Assert;
+import org.joda.time.DateTime;
+import org.joda.time.LocalDate;
+import org.joda.time.format.DateTimeFormat;
+import org.junit.Ignore;
+import org.junit.Test;
+import org.w3c.dom.Document;
 
 public class EPrescriptionMinTest  extends Base {
-    
-    
-    private static final String SCHEMATRON = "ccd-3B.sch";
-    private static final String SCHEMATRON_TEMPLATE_PATH =      "resources/ePrescription";
+
+
+    private static final String SCHEMATRON = E_PRESCRIPTION_3B.resource().getSchematron();
+    private static String SCHEMATRON_TEMPLATE_PATH =      "resources/ePrescription";
     private static final String DOCUMENT_FILE_NAME = TEST_GENERATION+"eprescription-min.xml";
     
     @Test @Ignore
     public void test_MIN_PrescriptionRequestCreation() throws ParserConfigurationException, JAXBException, SchemaValidationException, SchematronValidationException, IOException, ParseException {
+        if (!new File(SCHEMATRON_TEMPLATE_PATH + "/schematron/schematron-Validator-report.xsl").exists()) {
+            SCHEMATRON_TEMPLATE_PATH = "src/" + SCHEMATRON_TEMPLATE_PATH;
+        }
         generateMin();
+        /*if (!new File(SCHEMATRON_TEMPLATE_PATH
+				+ "/schematron/schematron-Validator-report.xsl").exists()) {
+      SCHEMATRON_TEMPLATE_PATH = "src/" + SCHEMATRON_TEMPLATE_PATH;
+    }*/
         SchematronCheckResult check = Schematron.check( SCHEMATRON_TEMPLATE_PATH, SCHEMATRON, DOCUMENT_FILE_NAME );
         
         show( check );

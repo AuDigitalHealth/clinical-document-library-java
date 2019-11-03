@@ -1,0 +1,36 @@
+<pattern name="p-Pharmacist_Shared_Medicines_List_Participation_Period-errors"
+  id="p-Pharmacist_Shared_Medicines_List_Participation_Period-errors"
+  see="#p-Pharmacist_Shared_Medicines_List_Participation_Period-errors">
+
+  <!-- Refer to RPSA-1999 -->
+
+  <rule context="cda:author/cda:time">
+
+    <assert
+      test="(@value) or ((cda:high/@value) and (cda:low/@value) and (@xsi:type = 'IVL_TS'))"
+    >Error: Pharmacist Shared Medicines List - 6.1.2.1 DOCUMENT AUTHOR as a PERSON -
+      "Document Author / Participation Period" - The 'time' tag shall have a 'value'
+      attribute OR 'xsi:type' attribute having the value 'IVL_TS' along with both the
+      'high' and 'low' tags with corresponding 'value' attributes. Refer to the section
+      6.1.2.1 of the
+      Core_Level_One_Clinical_Document_CDA_Implementation_Guide_v1.1.
+    </assert>
+
+    <report test="(@value) and ((cda:high) or (cda:low))">Error: Pharmacist Shared
+      Medicines List - 6.1.2.1 DOCUMENT AUTHOR as a PERSON - "Document Author /
+      Participation Period" - The 'time' tag shall not have both a 'value' attribute and
+      the 'high' and/or 'low' tag(s). Refer to the section 6.1.2.1 of the
+      Core_Level_One_Clinical_Document_CDA_Implementation_Guide_v1.1.
+    </report>
+
+    <report test="(cda:high/@nullFlavor) or (cda:low/@nullFlavor)">Error: Pharmacist Shared
+      Medicines List - 6.1.2.1 DOCUMENT AUTHOR as a PERSON - "Document Author /
+      Participation Period" - The 'time' tag shall not have the 'high' and/or 'low' tag(s)
+      with corresponding 'nullFlavor' attribute(s). Refer to the section 6.1.2.1 of the
+      Core_Level_One_Clinical_Document_CDA_Implementation_Guide_v1.1.
+    </report>
+
+  </rule>
+
+</pattern>
+

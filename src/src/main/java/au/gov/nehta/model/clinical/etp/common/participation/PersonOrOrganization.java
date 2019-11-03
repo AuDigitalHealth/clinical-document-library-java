@@ -5,7 +5,6 @@ import au.gov.nehta.model.cda.common.code.Coded;
 import au.gov.nehta.model.clinical.common.address.Address;
 import au.gov.nehta.model.clinical.common.participation.Organisation;
 import au.gov.nehta.model.clinical.common.types.UniqueIdentifier;
-
 import java.util.List;
 
 public interface PersonOrOrganization {
@@ -40,6 +39,4 @@ public interface PersonOrOrganization {
     String getQualifications();
 
     void setQualifications(String qualifications);
-
-    //TODO Misssing validation
 }

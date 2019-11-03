@@ -635,7 +635,7 @@ public class TestHelper {
     ExtendedEmploymentOrganisationImpl employmentDetails =
         new ExtendedEmploymentOrganisationImpl(
             Collections.singletonList(authorHPIO),
-            Arrays.asList(authorOrgAddress/*, authorOrgAddress3*/),
+            Collections.singletonList(authorOrgAddress),
             Arrays.asList(authorOrgTelephone, authorOrgFax),
             "Sarahs Clinic");
     employmentDetails.setOrganisationNameUsage(OrganisationNameUsage.BUSINESS_NAME);
@@ -866,8 +866,7 @@ public class TestHelper {
   }
 
   public static OtherTestResult getOtherTestResultWithReportFile() {
-    AttachedMedia reportFile = new AttachedMedia(
-        new File(ATTACHMENTS_DIR + "radiologyreport.pdf"));
+    AttachedMedia reportFile = getAttachedMediaPDF("radiologyreport.pdf");
     return new OtherTestResultImpl(new CodeImpl() {{
       setOriginalText("Report Name (with attachment)");
     }},
@@ -933,7 +932,6 @@ public class TestHelper {
       List<OtherTestResult> otherTestResults = new ArrayList<>();
       otherTestResults.add(getOtherTestResultWithContent());
       otherTestResults.add(getOtherTestResultWithReportFile());
-      //TODO Martin : Set ServicereRerral.class on executionClass
       diagnosticInvestigations.setOtherTestResults(otherTestResults);
     }
     return diagnosticInvestigations;
@@ -1141,7 +1139,12 @@ public class TestHelper {
   }
 
   public static AttachedMedia getAttachedMediaPDF(String fileName) {
-    File media = new File(String.format("%s/%s", ATTACHMENTS_DIR, fileName));
+    File media;
+    if (!new File(String.format("%s/%s", ATTACHMENTS_DIR, fileName)).exists()) {
+      media = new File(String.format("src/%s/%s", ATTACHMENTS_DIR, fileName));
+    } else {
+      media = new File(String.format("%s/%s", ATTACHMENTS_DIR, fileName));
+    }
     if (!media.exists()) {
       throw new RuntimeException(
           "Attachment does not exist in DIR : " + ATTACHMENTS_DIR + fileName);
@@ -1172,4 +1175,5 @@ public class TestHelper {
     medications.setKnownMedications(knownMedications);
     return medications;
   }
+
 }

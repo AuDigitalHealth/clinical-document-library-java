@@ -1,0 +1,237 @@
+
+
+
+    <!-- Advanced Care Directive Custodian Record Clinical Document:  6.1.1 Document Author -->
+
+    <!-- Context: ClinicalDocument/Document Author -->
+
+    <!-- Status: Last Reviewed:
+         Status: Last Updated : 04/08/2012 -->
+
+
+    <pattern name="p-Advanced_Care_Directive_Custodian_Record_Author-errors"
+        id="p-Advanced_Care_Directive_Custodian_Record_Author-errors"
+        see="#p-Advanced_Care_Directive_Custodian_Record_Author-errors">
+
+
+        <!-- Document Author - 1..1 -->
+
+        <rule context="/cda:ClinicalDocument">
+
+            <assert test="cda:author">Error: Advanced Care Directive Custodian Record - 6.1.1
+                Document Author - The 'Author' tag is missing. Refer to section 6.1.1 Document
+                Author of the
+                Advanced_Care_Directive_Custodian_Record_CDA_Implementation_Guide_v1.0.</assert>
+
+            <report test="count(cda:author) > 1">Error: Advanced Care Directive Custodian Record -
+                6.1.1 Document Author - The 'author' tag shall appear only once. Refer to section
+                6.1.1 Document Author of the
+                Advanced_Care_Directive_Custodian_Record_CDA_Implementation_Guide_v1.0.</report>
+
+        </rule>
+
+
+        <rule context="/cda:ClinicalDocument/cda:author">
+
+            <!-- Participation Period - 0..1 Required CDA element-->
+
+            <assert test="cda:time">Error: Advanced Care Directive Custodian Record 6.1.1 Document
+                Author - "Document Author / Participation Type" - The 'time' tag is missing. Refer
+                to section 6.1.1 Document Author of the
+                Advanced_Care_Directive_Custodian_Record_CDA_Implementation_Guide_v1.0.</assert>
+
+            <report test="count(cda:time) > 1">Error: Advanced Care Directive Custodian Record 6.1.1
+                Document Author - "Document Author / Participation Period" - The 'time' tag shall
+                appear only once. Refer to section 6.1.1 Document Author of the
+                Advanced_Care_Directive_Custodian_Record_CDA_Implementation_Guide_v1.0.</report>
+
+            <!-- The attributes of "cda:time" are being tested by Advanced_Care_Directive_Custodian_Record_Global_Checks.sch. -->
+
+            <!-- Participation Type - 1..1 -->
+
+            <!-- Updated RV 11/07/2012 -->
+            
+            <!--<report test="@typeCode !=  'AUT'">Error: Advanced Care Directive Custodian Record -
+                6.1.1 Document Author - "Document Author / Participation Type" - The 'author' tag
+                'typeCode' attribute shall be "AUT". Refer to section 6.1.1 Document Author of the
+                Advanced_Care_Directive_Custodian_Record_CDA_Implementation_Guide_v1.0.</report>-->
+
+            <report test="(@typeCode) and normalize-space(@typeCode) = ''"
+                >Error: Advanced Care Directive Custodian Record -
+                6.1.1 Document Author - "Document Author / Participation Type" - The 'author' tag 'typeCode' attribute
+                shall contain a value. Refer to section 6.1.1 Document Author of the
+                Advanced_Care_Directive_Custodian_Record_CDA_Implementation_Guide_v1.0.</report>
+            
+            <report test="(@typeCode) and normalize-space(@typeCode) != '' and @typeCode != 'AUT'">
+                Error: Advanced Care Directive Custodian Record -
+                6.1.1 Document Author - "Document Author / Participation Type" - The 'author' tag 'typeCode' attribute
+                shall contain the value "AUT". Refer to section 6.1.1 Document Author of the
+                Advanced_Care_Directive_Custodian_Record_CDA_Implementation_Guide_v1.0.</report>
+            
+            <!-- Update Ended RV 11/07/2012 -->
+            
+        </rule>
+
+
+        <rule context="/cda:ClinicalDocument/cda:author/cda:assignedAuthor">
+
+            <!-- Role - 1..1 -->
+
+            <assert test="cda:code">Error: Advanced Care Directive Custodian Record - 6.1.1 Document
+                Author - "Document Author / Role" - The 'code' tag is missing. Refer to section 8.1
+                code and 6.1.1 Document Author of the
+                Advanced_Care_Directive_Custodian_Record_CDA_Implementation_Guide_v1.0.</assert>
+
+            <report test="count(cda:code) > 1">Error: Advanced Care Directive Custodian Record -
+                6.1.1 Document Author - "Document Author / Role" - The 'code' tag shall appear only
+                once. Refer to section 6.1.1 Document Author of the
+                Advanced_Care_Directive_Custodian_Record_CDA_Implementation_Guide_v1.0.</report>
+
+            <!-- id - 1..1 -->
+
+            <assert test="cda:id">Error: Advanced Care Directive Custodian Record - 6.1.1 Document
+                Author - Document Author - "author / assignedAuthor" - The 'id' tag is missing.
+                Refer to section 6.1.1 Document Author of the
+                Advanced_Care_Directive_Custodian_Record_CDA_Implementation_Guide_v1.0.</assert>
+
+            <report test="count(cda:id) > 1">Error: Advanced Care Directive Custodian Record - 6.1.1
+                Document Author - "author / assignedAuthor" - The 'id' tag shall appear once only.
+                Refer to section 6.1.1 Document Author of the
+                Advanced_Care_Directive_Custodian_Record_CDA_Implementation_Guide_v1.0.</report>
+
+            <!-- The attributes of "cda:id" are being tested by Advanced_Care_Directive_Custodian_Record_Global_Checks.sch. -->
+
+            <!-- Participant - 1..1 -->
+
+            <assert test="cda:assignedPerson">Error: Advanced Care Directive Custodian Record - 6.1.1
+                Document Author - Document Author - "Document Author / Participant" The
+                'assignedPerson' tag is missing. Refer to section 6.1.1 Document Author of the
+                Advanced_Care_Directive_Custodian_Record_CDA_Implementation_Guide_v1.0.</assert>
+
+            <report test="count(cda:assignedPerson) > 1"> Error: Advanced Care Directive Custodian
+                Record - 6.1.1 Document Author - "Document Author / Participant" - The
+                'assignedPerson' tag - 'assignedPerson' tag shall appear only once. Refer to section
+                6.1.1 of the
+                Advanced_Care_Directive_Custodian_Record_CDA_Implementation_Guide_v1.0.</report>
+
+            <!-- Address - 0..* -->
+            <!-- Tags and attributes of "cda:addr" are being tested by Advanced_Care_Directive_Custodian_Record_Global_Checks.sch. -->
+
+
+            <!-- Electronic Communication Detail - 0..* -->
+            <!-- For 'Electronic Communication Detail' tag/attributes see below context:
+            <rule context="/cda:ClinicalDocument/cda:author/cda:assignedAuthor/cda:telecom">  -->
+
+        </rule>
+        
+
+        <rule context="/cda:ClinicalDocument/cda:author/cda:assignedAuthor/cda:assignedPerson">
+
+            <!-- Participant > EntityIdentifier - 1..* -->
+
+            <assert test="ext:asEntityIdentifier">Error: Advanced Care Directive Custodian Record -
+                6.1.1 Document Author - "Document Author / Participant / Entity Identifier" - The
+                'asEntityIdentifier' tag is missing. Refer to section 6.1.1 Document Author of the
+                Advanced_Care_Directive_Custodian_Record_CDA_Implementation_Guide_v1.0.</assert>
+
+            <!-- Mantis 3970 - Per ACD IG v1.0 Page 52 Entity Identify Card is 1..* However per SCS The value of Entity Identifier SHALL be an Australian IHI or HPI-I.  -->
+            <!--<assert test="ext:asEntityIdentifier/ext:id[starts-with(@root, '1.2.36.1.2001.1003.0.800361')]"> Error: Advanced Care Directive Custodian Record -
+                6.1.1 Document Author - "Document Author / Participant / Entity
+                Identifier" - The 'HPI-I asEntityIdentifier' tag is missing. "The value of one
+                Entity Identifier SHALL be an Australian HPI-I." although there could be multiple
+                Entity Identifiers. Refer to section 6.1.1 and 8.4 of the
+                Advanced_Care_Directive_Custodian_Record_CDA_Implementation_Guide_v1.0.</assert>-->
+            
+            <!-- Mantis id 4009 - Per ACD IG v1.0 Page 52, IHI is not required However per SCS The value of Entity Identifier SHALL be an Australian IHI or HPI-I.    -->
+            <assert test="ext:asEntityIdentifier/ext:id[contains(@root, '1.2.36.1.2001.1003.0.800361') or contains(@root, '1.2.36.1.2001.1003.0.800360') ]">
+                Error: Advanced Care Directive Custodian Record -
+                6.1.1 Document Author - "Document Author / Participant / Entity
+                Identifier" - The 'HPI-I or IHI asEntityIdentifier' tag is missing. "The value of one
+                Entity Identifier SHALL be an Australian HPI-I or IHI." although there could be multiple
+                Entity Identifiers. Refer to section 6.1.1 and 8.4 of the
+                Advanced_Care_Directive_Custodian_Record_CDA_Implementation_Guide_v1.0.</assert>
+            
+            <!--Following tests are commented out as the cardinality is 1..* see  Mantis id 3297-->
+            
+            <!-- <report test="count(ext:asEntityIdentifier/ext:id[contains(@root, '1.2.36.1.2001.1003.0.800360')]) > 1">
+                Error: Advanced Care Directive Custodian Record - 6.1.1 Document Author - "Document
+                Author / Participant / Entity Identifier" - The 'asEntityIdentifier' tag 'root'
+                attribute shall contain the value 'IHI'. "The value of one Entity Identifier SHALL
+                be an Australian HPI-I or IHI." although there could be multiple Entity Identifiers. Refer
+                to section 6.1.1 and 8.4 of the
+                Advanced_Care_Directive_Custodian_Record_CDA_Implementation_Guide_v1.0.</report>
+
+
+            <report test="count(ext:asEntityIdentifier/ext:id[contains(@root, '1.2.36.1.2001.1003.0.800361')]) > 1">
+                Error: Advanced Care Directive Custodian Record - 6.1.1 Document Author - "Document
+                Author / Participant / Entity Identifier" - The 'asEntityIdentifier' tag 'root'
+                attribute shall contain the value 'HPI-I'. "The value of one Entity Identifier SHALL
+                be an Australian HPI-I or IHI." although there could be multiple Entity Identifiers. Refer
+                to section 6.1.1 and 8.4 of the
+                Advanced_Care_Directive_Custodian_Record_CDA_Implementation_Guide_v1.0.</report>-->
+
+            <!-- The tags and attributes of "ext:asEntityIdentifier" are being tested by Advanced_Care_Directive_Custodian_Record_Global_Checks.sch. -->
+
+
+            <!-- Person Name - 1..* -->
+
+            <assert test="cda:name">Error: Advanced Care Directive Custodian Record - 6.1.1 Document
+                Author - "Document Author / Participant / Person or Organisation or Device / Person
+                / Person Name - The 'name' tag is missing. Refer to section 6.1.1 Document Author in
+                the
+                Advanced_Care_Directive_Custodian_Record_CDA_Implementation_Guide_v1.0.</assert>
+
+            <!-- The attributes of cda:name tag are being tested inside "Advanced_Care_Directive_Custodian_Record_Global_Checks.ent" -->
+
+
+            <!-- Employment Detail - 0..1 -->
+            <!-- Tags and attributes of "ext:asEmployment" are being tested by Global_Checks file -->
+
+        </rule>
+
+        <!-- Mantis 3970 - Remove redendency HI format check and/or HI Luhn check tests -->
+        <!--<rule context="/cda:ClinicalDocument/cda:author/cda:assignedAuthor/cda:assignedPerson/ext:asEntityIdentifier/ext:id">
+
+            <assert
+                test="
+                not(contains(@root, '80036')) or (
+                substring(@root, string-length(substring-before(@root, '80036')), 1) = '.' and
+                not(contains(substring-after(@root, '80036'), '.')) and
+                string-length('80036') + string-length(substring-after(@root, '80036')) = 16
+                )"
+                >Error: Advanced Care Directive Custodian Record - 6.1.1 Document Author -
+                "Document Author / Participant / Entity Identifier" - The 'id'
+                tag 'root' attribute shall contain an OID for Health Identifier, which should be
+                ended with a national 16 digits unique identification number.
+                Refer to section 6.1.1 and 8.2 of the
+                Advanced_Care_Directive_Custodian_Record_CDA_Implementation_Guide_v1.0.</assert>
+
+        </rule>-->
+
+
+        <!-- Electronic Communication Detail - 0..* -->
+
+        <!--<rule context="/cda:ClinicalDocument/cda:author/cda:assignedAuthor/cda:telecom">-->
+        <!-- The tags and attributes of "cda:telecom" are being tested by Advanced_Care_Directive_Custodian_Record_Global_Checks.sch. -->
+
+
+        <!-- Address - 0..* -->
+
+        <!--<rule context="/cda:ClinicalDocument/cda:author/cda:assignedAuthor/cda:addr[@use]">
+
+            <!-\- Address - country -  0..1 -\->
+            <!-\-<assert
+                test="document('CDAValidate_Vocabs.xml')/systems/system[@codeSystemName = 'ISO3166-1']/code[translate(@displayName,  'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ') = translate(current()/cda:country, 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ')]/@code = 'AU'"
+                >Error: Advanced Care Directive Custodian Record - 6.1.1 Document Author - "Document Author / Participant /
+                Address / Australia or International Address / International Address / Country" -
+                The 'country' tag shall contain the value 'Australia'. Refer to section 8.6 of the
+                Advanced_Care_Directive_Custodian_Record_CDA_Implementation_Guide_v1.0.</assert>-\->
+          </rule>-->
+
+
+        <!-- Person Name - 1..* -->
+        <!-- The attributes of cda:name tag are being tested inside "Advanced_Care_Directive_Custodian_Record_Global_Checks.ent" -->
+
+
+    </pattern>
+

@@ -1,5 +1,7 @@
 package au.gov.nehta.cda.shs;
 
+import static au.gov.nehta.model.schematron.SchematronResource.SchematronResources.SHARED_HEALTH_SUMMARY_3B;
+
 import au.gov.nehta.builder.shs.SharedHealthSummaryCreator;
 import au.gov.nehta.builder.util.UUIDTool;
 import au.gov.nehta.cda.test.Base;
@@ -91,7 +93,9 @@ import au.gov.nehta.model.clinical.shs.UncatagorisedMedicalHistoryItem;
 import au.gov.nehta.model.clinical.shs.UncatagorisedMedicalHistoryItemImpl;
 import au.gov.nehta.schematron.Schematron;
 import au.gov.nehta.schematron.SchematronCheckResult;
+import java.io.File;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 import java.util.UUID;
 import junit.framework.Assert;
@@ -100,31 +104,46 @@ import org.joda.time.LocalDate;
 import org.junit.Test;
 import org.w3c.dom.Document;
 
+
 public class SharedHealthSummaryMinTest extends Base {
 
-  private static final String SCHEMATRON = "ccd-3B.sch";
-  private static final String SCHEMATRON_TEMPLATE_PATH = "resources/SharedHealthSummary";
+  private static final String SCHEMATRON = SHARED_HEALTH_SUMMARY_3B.resource().getSchematron();
+  private static String SCHEMATRON_TEMPLATE_PATH = "resources/SharedHealthSummary";
 
 
   private static final String DOCUMENT_FILE_NAME = TEST_GENERATION + "/shs/shs-min-java.xml";
-  private static final String MIN_EXCLUDED_DOCUMENT_FILE_NAME = "shs-min-excluded-java.xml";
+  private static final String MIN_EXCLUDED_DOCUMENT_FILE_NAME = "/shs/shs-min-excluded-java.xml";
 
 
   @Test
   public void test_MIN_shsCreation() throws Exception {
+    if (!new File(SCHEMATRON_TEMPLATE_PATH
+        + "/schematron/schematron-Validator-report.xsl").exists()) {
+      SCHEMATRON_TEMPLATE_PATH = "src/" + SCHEMATRON_TEMPLATE_PATH;
+    }
     generateMin();
+
     SchematronCheckResult check = Schematron
         .check(SCHEMATRON_TEMPLATE_PATH, SCHEMATRON, DOCUMENT_FILE_NAME);
 
     show(check);
 
-    Assert.assertTrue(check.schemaErrors.size() == 0);
-    Assert.assertTrue(check.schematronErrors.size() == 0);
+    Assert.assertEquals(0, check.schemaErrors.size());
+    Assert.assertEquals(0, check.schematronErrors.size());
+
+
   }
 
 
   @Test
   public void test_MIN_excludedall_shsCreation() throws Exception {
+    if (!new File(SCHEMATRON_TEMPLATE_PATH
+        + "/schematron/schematron-Validator-report.xsl").exists()) {
+      SCHEMATRON_TEMPLATE_PATH = "src/" + SCHEMATRON_TEMPLATE_PATH;
+    }
+    if (!new File(DOCUMENT_FILE_NAME).exists()) {
+      generateMin();
+    }
     generateMinExcluded();
 
     SchematronCheckResult check = Schematron
@@ -132,8 +151,8 @@ public class SharedHealthSummaryMinTest extends Base {
 
     show(check);
 
-    Assert.assertTrue(check.schemaErrors.size() == 0);
-    Assert.assertTrue(check.schematronErrors.size() == 0);
+    Assert.assertEquals(0, check.schemaErrors.size());
+    Assert.assertEquals(0, check.schematronErrors.size());
   }
 
 
@@ -159,7 +178,7 @@ public class SharedHealthSummaryMinTest extends Base {
 
     UniqueIdentifier scopingId = UniqueIdentifierImpl.random();
     CustodianOrganizationImpl custodianOrganization = CustodianOrganizationImpl
-        .getInstance(Arrays.asList(scopingId), custodianIdentifier);
+        .getInstance(Collections.singletonList(scopingId), custodianIdentifier);
     custodianOrganization.setName(new OrganizationNameImpl("Clinical Documents R Us"));
     AssignedCustodian assignedCustodian = AssignedCustodianImpl.getInstance(custodianOrganization);
     Custodian cdaCustodian = CustodianImpl.getInstance(assignedCustodian);
@@ -217,13 +236,13 @@ public class SharedHealthSummaryMinTest extends Base {
             TelecomUse.BUSINESS);
 
     ExtendedEmploymentOrganisationImpl employmentDetails = new ExtendedEmploymentOrganisationImpl(
-        Arrays.asList(authorHPIO), Arrays.asList(authorOrgAddress),
-        Arrays.asList(authorOrgTelephone), "Sarahs Clinic");
+        Collections.singletonList(authorHPIO), Collections.singletonList(authorOrgAddress),
+        Collections.singletonList(authorOrgTelephone), "Sarahs Clinic");
 
     SharedHealthSummaryAuthor author = new SharedHealthSummaryAuthorImpl(
         occupationRole,
-        Arrays.asList(authorHPII),
-        Arrays.asList(authorLegalName),
+        Collections.singletonList(authorHPII),
+        Collections.singletonList(authorLegalName),
         employmentDetails
     );
 
@@ -317,7 +336,7 @@ public class SharedHealthSummaryMinTest extends Base {
 
     UniqueIdentifier scopingId = UniqueIdentifierImpl.random();
     CustodianOrganization custodianOrganization = CustodianOrganizationImpl
-        .getInstance(Arrays.asList(scopingId), custodianIdentifier);
+        .getInstance(Collections.singletonList(scopingId), custodianIdentifier);
     custodianOrganization.setName(new OrganizationNameImpl("Clinical Documents R Us"));
 
     AssignedCustodian assignedCustodian = AssignedCustodianImpl.getInstance(custodianOrganization);
@@ -383,13 +402,13 @@ public class SharedHealthSummaryMinTest extends Base {
 
     HPIO authorHPIO = new HPIO("8003621231167886");
     ExtendedEmploymentOrganisationImpl employmentDetails = new ExtendedEmploymentOrganisationImpl(
-        Arrays.asList(authorHPIO), Arrays.asList(authorOrgAddress),
-        Arrays.asList(authorOrgTelephone), "Sarahs Clinic");
+        Collections.singletonList(authorHPIO), Collections.singletonList(authorOrgAddress),
+        Collections.singletonList(authorOrgTelephone), "Sarahs Clinic");
 
     SharedHealthSummaryAuthor author = new SharedHealthSummaryAuthorImpl(
         occupationRole,
-        Arrays.asList(authorHPII),
-        Arrays.asList(authorLegalName),
+        Collections.singletonList(authorHPII),
+        Collections.singletonList(authorLegalName),
         employmentDetails
     );
 
@@ -446,25 +465,24 @@ public class SharedHealthSummaryMinTest extends Base {
     //problem/diagnoses
     ProblemDiagnosis problem1 = new ProblemDiagnosisImpl(
         new SNOMED_AU_Code("75148009", "Employment problem"), null, null, null);
-    ProblemDiagnoses problems = new ProblemDiagnosesImpl(Arrays.asList(problem1));
+    ProblemDiagnoses problems = new ProblemDiagnosesImpl(Collections.singletonList(problem1));
 
     //procedures
     Procedure proc3 = new ProcedureImpl(
         new SNOMED_AU_Code("441783000", "Conformal radiotherapy"), PrecisionDate.today(), null);
-    Procedures procedures = new ProceduresImpl(Arrays.asList(proc3));
+    Procedures procedures = new ProceduresImpl(Collections.singletonList(proc3));
 
     //medical history
     UncatagorisedMedicalHistoryItem item4 = new UncatagorisedMedicalHistoryItemImpl(
         "Vitamin C dietary suplement", null, null);
 
-    MedicalHistory history = new MedicalHistoryImpl(problems, procedures, Arrays.asList(item4));
+    MedicalHistory history = new MedicalHistoryImpl(problems, procedures,
+        Collections.singletonList(item4));
 
     Immunisation im1 = new ImmunisationImpl(
         new AMTCode("74993011000036102",
             "measles virus (Schwarz) live attenuated vaccine + mumps virus (Jeryl Lynn, strain RIT 4385) live attenuated vaccine + rubella virus (Wistar RA 27/3) live attenuated vaccine"),
-        new PrecisionDate(Precision.DAY, new DateTime("2013-01-01")),
-        new Integer(1)
-    );
+        new PrecisionDate(Precision.DAY, new DateTime("2013-01-01")), 1);
 
     Immunisation im2 = new ImmunisationImpl(
         new AMTCode("74993011000036102",
@@ -494,8 +512,7 @@ public class SharedHealthSummaryMinTest extends Base {
 
     // You can also use the conversion tool to create an OID from a UUID
     String doucmentUUID = UUID.randomUUID().toString();
-    String documentIdAsAnOid = UUIDTool.uuidToOid(doucmentUUID);
-    String shsDocumentId = documentIdAsAnOid;
+    String shsDocumentId = UUIDTool.uuidToOid(doucmentUUID);
 
     cdaClinicalDocument.setClinicalDocumentId(shsDocumentId);
 
@@ -521,3 +538,5 @@ public class SharedHealthSummaryMinTest extends Base {
 
 
 }
+
+

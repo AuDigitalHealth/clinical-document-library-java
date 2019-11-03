@@ -1,0 +1,30 @@
+
+
+    <!-- Advanced Care Directive Custodian Record Clinical Document:  6.1.2 Subject of Care -->
+
+    <!-- Context: ClinicalDocument/Subject of Care -->
+
+
+    <!-- Status: Last Reviewed: 
+         Status: Last Updated : 12/03/2012 -->
+
+
+    <pattern name = "p-Advanced_Care_Directive_Custodian_Record_Subject_Of_Care_Participant-errors"
+        id = "p-Advanced_Care_Directive_Custodian_Record_Subject_Of_Care_Participant-errors"
+        see = "#p-Advanced_Care_Directive_Custodian_Record_Subject_Of_Care_Participant-errors">
+
+        <rule context = "/cda:ClinicalDocument/cda:recordTarget/cda:patientRole">
+
+            <!-- Participant - 1..1 -->
+
+            <assert test = "cda:patient">Error: Advanced Care Directive Custodian Record - 6.1.2 Subject of Care - "Subject
+                of Care / Participant" - The 'patient' tag is missing. Refer to section 6.1.2 of the
+                Advanced_Care_Directive_Custodian_Record_CDA_Implementation_Guide_v1.0.</assert>
+
+            <report test = "count(cda:patient) > 1">Error: Advanced Care Directive Custodian Record - 6.1.2 Subject of Care
+                - "Subject of Care / Participant" - The 'patient' tag shall appear only once. Refer
+                to section 6.1.2 of the Advanced_Care_Directive_Custodian_Record_CDA_Implementation_Guide_v1.0.</report>
+
+        </rule>
+    </pattern>
+

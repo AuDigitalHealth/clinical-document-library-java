@@ -1,17 +1,20 @@
 # Change Log/Revision History
 
-  = 1.1 = 
+  = 1.2 = 
   =======
    + Java library now supports following CDA documents' formats: 
    
    Sr# | CDA Document | Format 1A | Format 1B | Format 2 | Format 3A
    ---| ------------ | --------- | --------- | -------- | ---------
-   1. | Advanced Care Directive | No | No | No | Yes
-   2. | Discharge Summary | Yes | Yes | Yes | Yes
-   3. | EReferral | Yes | No | No | Yes
-   4. | PSML | No | No | No | Yes
-   5. | Service Referral | Yes | Yes | No | Yes
-   6. | Specialist Letter | Yes | Yes | Yes | Yes
+   1. | Advanced Care Directive | &#10007; | &#10007; | &#10007; | &#10004;
+   2. | Advanced Care Planning | &#10007; | &#10007; | &#10007; | &#10004;
+   3. | Discharge Summary | &#10004; | &#10004; | &#10004; | &#10004;
+   4. | EReferral | &#10004; | &#10007; | &#10007; | &#10004;
+   5. | Event Summary | &#10007; | &#10007; | &#10007; | &#10004;
+   6. | Pharmacist Shared Medicines List | &#10007; | &#10007; | &#10007; | &#10004;
+   7. | Service Referral | &#10004; | &#10004; | &#10007; | &#10004;
+   8. | Specialist Letter | &#10004; | &#10004; | &#10004; | &#10004;
+   9. | Goals of Care | &#10007; | &#10007; | &#10007; | &#10004;
 
   = 1.0.2 = 
   =======
@@ -42,8 +45,7 @@
   
   
   
-  initial release
-  = 0.1 =  
+  = 0.1 = initial release  
   =======
   + included sample code for e-Referral 1A only 
 

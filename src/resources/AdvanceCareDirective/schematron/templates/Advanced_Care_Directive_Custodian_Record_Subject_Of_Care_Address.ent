@@ -1,0 +1,436 @@
+    <!-- Advanced Care Directive Custodian Record Clinical Document:  6.1.2 Subject of Care -->
+
+    <!-- Context: ClinicalDocument/Subject of Care -->
+
+    <!-- Status: Last Reviewed: 
+         Status: Last Updated : 29/06/2012 -->
+
+
+    <pattern name="p-Advanced_Care_Directive_Custodian_Record_Subject_Of_Care_Address-errors"
+        id="p-Advanced_Care_Directive_Custodian_Record_Subject_Of_Care_Address-errors"
+        see="#p-Advanced_Care_Directive_Custodian_Record_Subject_Of_Care_Address-errors">
+
+
+        <!-- Address - 1..* -->
+
+        <rule context="/cda:ClinicalDocument/cda:recordTarget/cda:patientRole">
+
+            <assert test="cda:addr"> Error: Advanced Care Directive Custodian Record - 6.1.2 Subject Of Care - "Subject of Care
+                / Participant / Address" - The 'addr' tag is missing. Refer to section 6.1.2 and 8.6
+                of the Advanced_Care_Directive_Custodian_Record_CDA_Implementation_Guide_v1.0.</assert>
+
+            <!-- The tags and attributes of "cda:addr" are being tested by Advanced_Care_Directive_Custodian_Record_Global_Checks.sch. -->
+
+        </rule>
+        
+        
+        <rule context="/cda:ClinicalDocument/cda:recordTarget/cda:patientRole/cda:addr[@use]">
+        
+        <!-- streetAddressLine (International or Australian) -  0..* -->
+
+            <report test="cda:streetAddressLine and normalize-space(cda:streetAddressLine) = ''"
+                >Error: Advanced Care Directive Custodian Record - Global Clinical Document check for 'addr' tag -
+                "Address / Australian or International Address /
+                Australian Address / Unstructured Australian Address Line" or
+                "Address / Australian or International Address /
+                International Address / International Address Line" -
+                The 'streetAddressLine' tag shall contain a value. Check all 'cda:addr' tags to
+                find the incorrect 'streetAddressLine' tag. Refer to section 8.6 Address of the
+                Advanced_Care_Directive_Custodian_Record_CDA_Implementation_Guide_v1.0.</report>
+
+            <!-- unitType -  0..1 -->
+
+            <report test="count(cda:unitType) > 1"
+                >Error: Advanced Care Directive Custodian Record - Global Clinical Document check for 'addr' tag -
+                "Address / Australian or International Address / Australian Address /
+                Structured Australian Address Line / Australian Unit Type" -
+                The 'unitType' tag shall appear only once. Check all 'cda:addr' tags
+                to find the duplicate 'unitType' tag. Refer to section 8.6 of the
+                Advanced_Care_Directive_Custodian_Record_CDA_Implementation_Guide_v1.0.</report>
+
+            <report test="
+                (not(cda:country) or document('CDAValidate_Vocabs.xml')/systems/system[@codeSystemName = 'ISO3166-1']
+                /code[translate(@displayName, 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ') =
+                translate(current()/cda:country, 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ')]/@code = 'AU') and
+                cda:unitType and
+                not(document('CDAValidate_Vocabs.xml')/systems/system[@codeSystemName = 'Australian_Unit_Type']/code[@code = current()/cda:unitType])"
+                >Error: Advanced Care Directive Custodian Record - Global Clinical Document check for 'addr' tag -
+                "Address / Australian or International Address / Australian Address /
+                Structured Australian Address Line / Australian Unit Type" -
+                The 'unitType' tag shall contain values coded as per 'AS 4846-2006' -
+                Healthcare Provider Identification: Australian Unit Type.
+                Refer to section 8.6 of the
+                Advanced_Care_Directive_Custodian_Record_CDA_Implementation_Guide_v1.0.</report>
+
+            <!-- unitID -  0..1 -->
+
+            <report test="count(cda:unitID) > 1"
+                >Error: Advanced Care Directive Custodian Record - Global Clinical Document check for 'addr' tag -
+                "Address / Australian or International Address / Australian Address /
+                Structured Australian Address Line / Australian Unit Number" -
+                The 'unitID' tag shall appear only once. Check all 'cda:addr' tags to find
+                the duplicate 'unitID' tag. Refer to section 8.6 of the
+                Advanced_Care_Directive_Custodian_Record_CDA_Implementation_Guide_v1.0.</report>
+
+            <report test="cda:unitID and normalize-space(cda:unitID) = ''"
+                >Error: Advanced Care Directive Custodian Record - Global Clinical Document check for 'addr' tag -
+                "Address / Australian or International Address / Australian Address /
+                Structured Australian Address Line / Australian Unit Number" -
+                The 'unitID' tag shall contain a value. Check all 'cda:addr' tags to find the
+                empty 'unitID' tag. Refer to section 8.6 of the
+                Advanced_Care_Directive_Custodian_Record_CDA_Implementation_Guide_v1.0.</report>
+
+            <!-- additionalLocator -  0..1 -->
+
+            <report test="count(cda:additionalLocator) > 5"
+                >Error: Advanced Care Directive Custodian Record - Global Clinical Document check for 'addr' tag -
+                "Address / Australian or International Address / Australian Address /
+                Structured Australian Address Line / Australian Address Site Name" and/or
+                "Address / Australian or International Address / Australian Address /
+                Structured Australian Address Line / Australian Level Type" and/or
+                "Address / Australian or International Address / Australian Address /
+                Structured Australian Address Line / Australian Level Number" and/or
+                "Address / Australian or International Address / Australian Address /
+                Structured Australian Address Line / Australian Lot Number" and/or
+                "Address / Australian or International Address / Australian Address /
+                Australian Delivery Point Identifier".
+                The 'additionalLocator' tag shall appear only 5 times. Refer to section 8.6 of the
+                Advanced_Care_Directive_Custodian_Record_CDA_Implementation_Guide_v1.0.</report>
+
+            <report test="cda:additionalLocator and normalize-space(cda:additionalLocator) = ''"
+                >Error: Advanced Care Directive Custodian Record - Global Clinical Document check for 'addr' tag -
+                "Address / Australian or International Address / Australian Address /
+                Structured Australian Address Line / Australian Address Site Name" and/or
+                "Address / Australian or International Address / Australian Address /
+                Structured Australian Address Line / Australian Level Type" and/or
+                "Address / Australian or International Address / Australian Address /
+                Structured Australian Address Line / Australian Level Number" and/or
+                "Address / Australian or International Address / Australian Address /
+                Structured Australian Address Line / Australian Lot Number" and/or
+                "Address / Australian or International Address / Australian Address /
+                Australian Delivery Point Identifier".
+                The 'additionalLocator' tag shall contain a value. Check all 'cda:addr' tags
+                to find the empty 'additionalLocator' tag(s). Refer to section 8.6 of the
+                Advanced_Care_Directive_Custodian_Record_CDA_Implementation_Guide_v1.0.</report>
+
+            <!-- houseNumber -  0..1 -->
+
+            <report test="count(cda:houseNumber) > 1"
+                >Error: Advanced Care Directive Custodian Record - Global Clinical Document check for 'addr' tag -
+                "Address / Australian or International Address / Australian Address /
+                Structured Australian Address Line / Australian Street Number" -
+                The 'houseNumber' tag shall appear only once. Check all 'cda:addr' tags to
+                find the duplicate 'houseNumber' tag. Refer to section 8.6 of the
+                Advanced_Care_Directive_Custodian_Record_CDA_Implementation_Guide_v1.0.</report>
+
+            <report test="cda:houseNumber and normalize-space(cda:houseNumber) = ''"
+                >Error: Advanced Care Directive Custodian Record - Global Clinical Document check for 'addr' tag -
+                "Address / Australian or International Address / Australian Address /
+                Structured Australian Address Line / Australian Street Number" -
+                The 'houseNumber' tag shall contain a value. Check all 'cda:addr' tags to find
+                the empty 'houseNumber' tag. Refer to section 8.6 of the
+                Advanced_Care_Directive_Custodian_Record_CDA_Implementation_Guide_v1.0.</report>
+
+            <!-- streetName -  0..1 -->
+
+            <report test="count(cda:streetName) > 1"
+                >Error: Advanced Care Directive Custodian Record - Global Clinical Document check for 'addr' tag -
+                "Address / Australian or International Address / Australian Address /
+                Structured Australian Address Line / Australian Street Name" -
+                The 'streetName' tag shall appear only once. Check all 'cda:addr' tags to
+                find the duplicate 'streetName' tag. Refer to section 8.6 of the
+                Advanced_Care_Directive_Custodian_Record_CDA_Implementation_Guide_v1.0.</report>
+
+            <report test="cda:streetName and normalize-space(cda:streetName) = ''"
+                >Error: Advanced Care Directive Custodian Record - Global Clinical Document check for 'addr' tag -
+                "Address / Australian or International Address / Australian Address /
+                Structured Australian Address Line / Australian Street Name" -
+                The 'streetName' tag shall contain a value. Check all 'cda:addr' tags
+                to find the empty 'streetName' tag. Refer to section 8.6 of the
+                Advanced_Care_Directive_Custodian_Record_CDA_Implementation_Guide_v1.0.</report>
+
+            <!-- streetNameType -  0..1 -->
+
+            <report test="count(cda:streetNameType) > 1"
+                >Error: Advanced Care Directive Custodian Record - Global Clinical Document check for 'addr' tag -
+                "Address / Australian or International Address / Australian Address /
+                Structured Australian Address Line / Australian Street Type" -
+                The 'streetNameType' tag shall appear only once. Check all 'cda:addr' tags
+                to find the duplicate 'streetNameType' tag. Refer to section 8.6 of the
+                Advanced_Care_Directive_Custodian_Record_CDA_Implementation_Guide_v1.0.</report>
+
+            <report test="cda:streetNameType and normalize-space(cda:streetNameType) = ''"
+                >Error: Advanced Care Directive Custodian Record - Global Clinical Document check for 'addr' tag -
+                "Address / Australian or International Address / Australian Address /
+                Structured Australian Address Line / Australian Street Type" -
+                The 'streetNameType' tag shall contain a value. Check all 'cda:addr' tags
+                to find the empty 'streetNameType' tag. Refer to section 8.6 of the
+                Advanced_Care_Directive_Custodian_Record_CDA_Implementation_Guide_v1.0.</report>
+
+            <!-- comment out as per MANTIS 1753 until there is a complete set of street name type reference in our vocab file -->
+            <!--
+            <report test="
+                (not(cda:country) or document('CDAValidate_Vocabs.xml')/systems/system[@codeSystemName = 'ISO3166-1']
+                /code[translate(@displayName, 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ') =
+                translate(current()/cda:country, 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ')]/@code = 'AU') and
+                cda:streetNameType and
+                not(document('CDAValidate_Vocabs.xml')/systems/system[@codeSystemName = 'Australian_Street_type_Code']/code[@code = current()/cda:streetNameType]) and
+                not(document('CDAValidate_Vocabs.xml')/systems/system[@codeSystemName = 'Australian_Street_type_Code']
+                /code[translate(@displayName, 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ') =
+                translate(current()/cda:streetNameType, 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ')])"
+                >Error: Advanced Care Directive Custodian Record - Global Clinical Document check for 'addr' tag -
+                "Address / Australian or International Address / Australian Address /
+                Structured Australian Address Line / Australian Street Type" -
+                The 'streetNameType' tag shall contain values coded as per 'AS 4846-2006' -
+                Healthcare Client Identification: Australian Street Type Code.
+                Refer to section 8.6 of the
+                Advanced_Care_Directive_Custodian_Record_CDA_Implementation_Guide_v1.0.</report>
+            -->
+            <!-- comment out until there is a complete set of street name type reference in our vocab file -->
+
+            <!-- direction -  0..1 -->
+
+            <report test="count(cda:direction) > 1"
+                >Error: Advanced Care Directive Custodian Record - Global Clinical Document check for 'addr' tag -
+                "Address / Australian or International Address / Australian Address /
+                Structured Australian Address Line / Australian Street Suffix" -
+                The 'direction' tag shall appear only once. Check all 'cda:addr' tags to
+                find the duplicate 'direction' tag. Refer to section 8.6 of the
+                Advanced_Care_Directive_Custodian_Record_CDA_Implementation_Guide_v1.0.</report>
+
+            <report test="
+                (not(cda:country) or document('CDAValidate_Vocabs.xml')/systems/system[@codeSystemName = 'ISO3166-1']
+                /code[translate(@displayName, 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ') =
+                translate(current()/cda:country, 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ')]/@code = 'AU') and
+                cda:direction and
+                not(document('CDAValidate_Vocabs.xml')/systems/system[@codeSystemName = 'Australian_Street_Suffix_Code']/code[@code = current()/cda:direction])"
+                >Error: Advanced Care Directive Custodian Record - Global Clinical Document check for 'addr' tag -
+                "Address / Australian or International Address / Australian Address /
+                Structured Australian Address Line / Australian Street Suffix" -
+                The 'direction' tag shall contain values coded as per 'AS 4846-2006' -
+                Healthcare Client Identification: Australian Street Suffix.
+                Refer to section 8.6 of the
+                Advanced_Care_Directive_Custodian_Record_CDA_Implementation_Guide_v1.0.</report>
+
+            <!-- deliveryAddressLine -  0..1 -->
+
+            <report test="count(cda:deliveryAddressLine) > 2"
+                >Error: Advanced Care Directive Custodian Record - Global Clinical Document check for 'addr' tag -
+                "Address / Australian or International Address / Australian Address /
+                Structured Australian Address Line / Australian Postal Delivery Type" and/or
+                "Address / Australian or International Address / Australian Address /
+                Structured Australian Address Line / Australian Postal Delivery Number" -
+                The 'deliveryAddressLine' tag shall appear only twice. Check all 'cda:addr' tags
+                to find the excessive 'deliveryAddressLine' tag(s). Refer to section 8.6 of the
+                Advanced_Care_Directive_Custodian_Record_CDA_Implementation_Guide_v1.0.</report>
+
+            <report
+                test="
+                cda:deliveryAddressLine and normalize-space(cda:deliveryAddressLine[1]) = '' or
+                count(cda:deliveryAddressLine) > 1 and normalize-space(cda:deliveryAddressLine[2]) = ''
+                "
+                >Error: Advanced Care Directive Custodian Record - Global Clinical Document check for 'addr' tag -
+                "Address / Australian or International Address / Australian Address /
+                Structured Australian Address Line / Australian Postal Delivery Type" and/or
+                "Address / Australian or International Address / Australian Address /
+                Structured Australian Address Line / Australian Postal Delivery Number" -
+                The 'deliveryAddressLine' tag shall contain a value. Check all 'cda:addr' tags
+                to find the empty 'deliveryAddressLine' tag(s). Refer to section 8.6 of the
+                Advanced_Care_Directive_Custodian_Record_CDA_Implementation_Guide_v1.0.</report>
+
+            <!-- One of the deliveryAddressLine must be Australian Postal Delivery Type Code (not both) if present -->
+            <report test="
+                (not(cda:country) or document('CDAValidate_Vocabs.xml')/systems/system[@codeSystemName = 'ISO3166-1']
+                /code[translate(@displayName, 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ') =
+                translate(current()/cda:country, 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ')]/@code = 'AU') and
+                cda:deliveryAddressLine and
+                normalize-space(cda:deliveryAddressLine) != '' and
+                count(document('CDAValidate_Vocabs.xml')/systems/system[@codeSystemName = 'Australian_Postal_Delivery_Type_Code']/code[@code = current()/cda:deliveryAddressLine]) != 1
+                "
+                >Error: Advanced Care Directive Custodian Record - Global Clinical Document check for 'addr' tag -
+                "Address / Australian or International Address / Australian Address /
+                Structured Australian Address Line / Australian Postal Delivery Type" and/or
+                "Address / Australian or International Address / Australian Address /
+                Structured Australian Address Line / Australian Postal Delivery Number" -
+                The 'deliveryAddressLine' tag shall contain values coded as per 'AS 5017-2006' -
+                Healthcare Client Identification: Australian Postal Delivery Type Code.
+                Refer to section 8.6 of the
+                Advanced_Care_Directive_Custodian_Record_CDA_Implementation_Guide_v1.0.</report>
+
+            <!-- Must have Australian Postal Delivery Number if Australian Postal Delivery Type Code is NOT any of 'Care PO', 'CMA', 'CMB' and 'CPA' -->
+            <report test="
+                (not(cda:country) or document('CDAValidate_Vocabs.xml')/systems/system[@codeSystemName = 'ISO3166-1']
+                /code[translate(@displayName, 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ') =
+                translate(current()/cda:country, 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ')]/@code = 'AU') and
+                count(cda:deliveryAddressLine) = 1 and
+                count(document('CDAValidate_Vocabs.xml')/systems/system[@codeSystemName = 'Australian_Postal_Delivery_Type_Code']/code[@code = current()/cda:deliveryAddressLine]) = 1 and
+                not(document('CDAValidate_Vocabs.xml')/systems/system[@codeSystemName = 'Australian_Postal_Delivery_Number']/code[@code = current()/cda:deliveryAddressLine])
+                "
+                >Error: Advanced Care Directive Custodian Record - Global Clinical Document check for 'addr' tag -
+                "Address / Australian or International Address / Australian Address /
+                Structured Australian Address Line / Australian Postal Delivery Type" and/or
+                "Address / Australian or International Address / Australian Address /
+                Structured Australian Address Line / Australian Postal Delivery Number" -
+                The 'deliveryAddressLine(Australian_Postal_Delivery_Number)' tag is missing for
+                given 'deliveryAddressLine(Australian_Postal_Delivery_Type_Code)'.
+                The 'deliveryAddressLine' tag(s) shall contain values coded as per 'AS 5017-2006' -
+                Healthcare Client Identification: Australian Postal Delivery Type Code.
+                Check all 'cda:addr' tags to find the non-conforming 'devliveryAddressLine' tag.
+                Refer to section 8.6 of the
+                Advanced_Care_Directive_Custodian_Record_CDA_Implementation_Guide_v1.0.</report>
+
+            <!-- city -  0..1 -->
+
+            <report test="count(cda:city) > 1"
+                >Error: Advanced Care Directive Custodian Record - Global Clinical Document check for 'addr' tag -
+                "Address/ Australian or International Address / Australian Address /
+                Australian Suburb/Town/Locality" -
+                The 'city' tag shall appear only once. Check all 'cda:addr' tags to find the
+                duplicate 'city' tag. Refer to section 8.6 of the
+                Advanced_Care_Directive_Custodian_Record_CDA_Implementation_Guide_v1.0.</report>
+
+            <report test="cda:city and normalize-space(cda:city) = ''"
+                >Error: Advanced Care Directive Custodian Record - Global Clinical Document check for 'addr' tag -
+                "Address/ Australian or International Address / Australian Address /
+                Australian Suburb/Town/Locality" -
+                The 'city' tag shall contain a value. Check all 'cda:addr' tags to find the
+                empty 'city' tag. Refer to section 8.6 of the
+                Advanced_Care_Directive_Custodian_Record_CDA_Implementation_Guide_v1.0.</report>
+
+            <!-- state -  0..1 -->
+
+            <report test="count(cda:state) > 1"
+                >Error: Advanced Care Directive Custodian Record - Global Clinical Document check for 'addr' tag -
+                "Address / Australian or International Address / Australian Address /
+                Australian State/Territory" -
+                The 'state' tag shall appear only once. Check all 'cda:addr' tags to find
+                the duplicate 'state' tag. Refer to section 8.6 and 10.10 of the
+                Advanced_Care_Directive_Custodian_Record_CDA_Implementation_Guide_v1.0.</report>
+
+            <report test="
+                (not(cda:country) or document('CDAValidate_Vocabs.xml')/systems/system[@codeSystemName = 'ISO3166-1']
+                /code[translate(@displayName, 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ') =
+                translate(current()/cda:country, 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ')]/@code = 'AU') and
+                cda:state and
+                not(document('CDAValidate_Vocabs.xml')/systems/system[@codeSystemName = 'Australian_State_Territory_Identifier_-_Postal']/code[@code = current()/cda:state])"
+                >Error: Advanced Care Directive Custodian Record - Global Clinical Document check for 'addr' tag -
+                "Address / Australian or International Address / Australian Address /
+                Australian State/Territory" - The 'state' tag shall be as per 'AS 5017-2006' -
+                Australian State/Territory Identifier - Postal. Refer to section 8.6 of the
+                Advanced_Care_Directive_Custodian_Record_CDA_Implementation_Guide_v1.0.</report>
+
+            <report test="
+                (cda:country and not(document('CDAValidate_Vocabs.xml')/systems/system[@codeSystemName = 'ISO3166-1']
+                /code[translate(@displayName, 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ') =
+                translate(current()/cda:country, 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ')]/@code = 'AU')) and
+                cda:state and
+                normalize-space(cda:state) = ''"
+                >Error: Advanced Care Directive Custodian Record - Global Clinical Document check for 'addr' tag -
+                "Address / Australian or International Address / International Address /
+                International State/Province" -
+                The 'state' tag shall contain a value. Check all 'cda:addr' tags to find the empty
+                'state' tag(s). Refer to section 8.6 of the
+                Advanced_Care_Directive_Custodian_Record_CDA_Implementation_Guide_v1.0.</report>
+
+            <!-- postalCode -  0..1 -->
+
+            <report test="count(cda:postalCode) > 1"
+                >Error: Advanced Care Directive Custodian Record - Global Clinical Document check for 'addr' tag -
+                "Address/ Australian or International Address / Australian Address /
+                Australian Postcode" - The 'postalCode' tag shall appear only once.
+                Check all 'cda:addr' tags to find the duplicate 'postalCode' tag.
+                Refer to section 8.6 of the
+                Advanced_Care_Directive_Custodian_Record_CDA_Implementation_Guide_v1.0.</report>
+
+            <report test="cda:postalCode and normalize-space(cda:postalCode) = ''"
+                >Error: Advanced Care Directive Custodian Record - Global Clinical Document check for 'addr' tag -
+                "Address/ Australian or International Address / Australian Address /
+                Australian Postcode" - The 'postalCode' tag shall contain a value.
+                Check all 'cda:addr' tags to find the empty 'postalCode' tag.
+                Refer to section 8.6 of the
+                Advanced_Care_Directive_Custodian_Record_CDA_Implementation_Guide_v1.0.</report>
+
+            <!-- country - 0..1 -->
+
+            <report test="count(cda:country) > 1"
+                >Error: Advanced Care Directive Custodian Record - Global Clinical Document check for 'addr' tag -
+                "Address / Australian or International Address / International Address / Country" -
+                The 'country' tag shall appear only once. Check all 'cda:addr' tags to find
+                the duplicate 'country' tag. Refer to section 8.6 Address of the
+                Advanced_Care_Directive_Custodian_Record_CDA_Implementation_Guide_v1.0.</report>
+
+            <report test="cda:country and normalize-space(cda:country) = ''"
+                >Error: Advanced Care Directive Custodian Record - Global Clinical Document check for 'addr' tag -
+                "Address / Australian or International Address / International Address / Country" -
+                The 'country' tag shall contain a value. Check all 'cda:addr' tags to find the
+                empty 'country' tag. Refer to section 8.6 Address of the
+                Advanced_Care_Directive_Custodian_Record_CDA_Implementation_Guide_v1.0.</report>
+
+            <report
+                test="cda:country and not(document('CDAValidate_Vocabs.xml')/systems/system[@codeSystemName = 'ISO3166-1']
+                /code[translate(@displayName, 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ') =
+                translate(current()/cda:country, 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ')])"
+                >Error: Advanced Care Directive Custodian Record - Global Clinical Document check for 'addr' tag -
+                "Address / Australian or International Address / International Address / Country" -
+                The 'country' tag shall contain values coded as per Australia Bureau of Statistics,
+                Standard Australian Classification of Countries (SACC) Cat. No. 1269.
+                Refer to section 8.6 Address of the
+                Advanced_Care_Directive_Custodian_Record_CDA_Implementation_Guide_v1.0.</report>
+
+            <!-- @use xor @nullFlavor='NA' - 1..1 -->
+            <!-- Mandatory in the sense that either of @use or @nullFlavor='NA' shall appear, but not both -->
+
+           <!--
+            <report test="
+                (@use and @nullFlavor and @nullFlavor='NA') or
+                (not(@use) and (not(@nullFlavor) or (@nullFlavor!='NA')))"
+                >Error: Advanced Care Directive Custodian Record - Global Clinical Document check for 'addr' tag -
+                "Address / Address Purpose" and "Address / No Fixed Address Indicator" -
+                The 'addr' tag shall have 'use' OR 'nullFlavor=NA' attribute but not both.
+                Refer to section 8.6 of the
+                Advanced_Care_Directive_Custodian_Record_CDA_Implementation_Guide_v1.0.</report>-->
+  
+            <!-- @use -->
+
+            <report test="
+                @use and
+                not(document('CDAValidate_Vocabs.xml')/systems/system[@codeSystemName = 'Health_Care_Client_Identifier_Address_Purpose']/code[
+                (@code            = current()/@use) or
+                (@alternativeCode = current()/@use) or
+                (@hl7Code         = current()/@use)])"
+                >Error: Advanced Care Directive Custodian Record - Global Clinical Document check for 'addr' tag -
+                "Address / Address Purpose" -
+                The 'addr' tag 'use' attribute shall be coded as per 'AS 5017-2006' -
+                Health Care Client Identifier Address Purpose. Refer to section 8.6 and 10.6 of the
+                Advanced_Care_Directive_Custodian_Record_CDA_Implementation_Guide_v1.0.</report>
+
+   
+            <!-- 29/06/2012 Mantis task : 3709 -->
+             <report test="@use and normalize-space(@use) = ''">Error: Advanced Care Directive Custodian Record - Global Clinical Document check for 'addr' tag -
+                "Address / Address Purpose" - The 'addr' tag shall 'use' attribute shall contain a value.
+                 Refer to section 8.6 and 10.6 of the Advanced_Care_Directive_Custodian_Record_CDA_Implementation_Guide_v1.0.</report>
+
+            <!-- End of Task -->
+            
+        </rule>
+        
+         <!-- 29/06/2012 Mantis task : 3709 -->
+              
+        <rule context="/cda:ClinicalDocument/cda:recordTarget/cda:patientRole/cda:addr[not(@use)]">
+            <assert test="(@use and not(@nullFlavor)) or (not(@use) and @nullFlavor)">Error: Advanced Care Directive Custodian Record - Global Clinical Document check for 'addr' tag -
+                 "Address / Address Purpose" and "Address / No Fixed Address Indicator" - The 'addr' tag shall have 'use' OR 'nullFlavor' attribute but not both.
+                 Refer to section 8.6 Address of the Advanced_Care_Directive_Custodian_Record_CDA_Implementation_Guide_v1.0.</assert>
+
+           <report test="@nullFlavor and normalize-space(@nullFlavor) = ''">Error: Advanced Care Directive Custodian Record - Global Clinical Document check for 'addr' tag -
+                 "Address / Address Purpose" and "Address / No Fixed Address Indicator" - The 'addr' tag shall 'nullFlavor' attribute shall contain a value.
+                 Refer to section 8.6 Address of the Advanced_Care_Directive_Custodian_Record_CDA_Implementation_Guide_v1.0.</report>
+            
+            <report test="@nullFlavor and ((@nullFlavor!='NA') and (@nullFlavor!='UNK') and (@nullFlavor!='MSK'))">Error: Advanced Care Directive Custodian Record - Global Clinical Document check for 'addr' tag -
+                 "Address / Address Purpose" and "Address / No Fixed Address Indicator" - The 'addr' tag 'nullFlavor' attribute shall contain 'NA' or 'UNK' or 'MSK'.
+                 Refer to section 8.6 Address of the Advanced_Care_Directive_Custodian_Record_CDA_Implementation_Guide_v1.0.</report>
+
+             <!-- End of task -->
+
+        </rule>
+        
+    </pattern>

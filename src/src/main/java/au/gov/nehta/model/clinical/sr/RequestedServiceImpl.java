@@ -5,6 +5,7 @@ import au.gov.nehta.model.cda.common.time.PreciseDate;
 import au.gov.nehta.model.cda.common.time.RestrictedTimeInterval;
 import au.gov.nehta.model.clinical.common.EventTypes;
 import au.gov.nehta.model.clinical.etp.common.participation.ParticipationServiceProvider;
+import au.net.electronichealth.ns.cda._2_0.StrucDocText;
 import au.net.electronichealth.ns.cda._2_0.XDocumentActMood;
 import java.util.HashMap;
 import java.util.List;
@@ -25,6 +26,7 @@ public class RequestedServiceImpl implements RequestedService {
   private PreciseDate requestedServiceDateTime;
   private PreciseDate dateTimeServiceScheduled;
   private List<String> subjectOfCareInstructionDesc;
+  private StrucDocText customNarrative;
 
   private String serviceComment;
   private Map<EventTypes, XDocumentActMood> eventTypeMap = new HashMap<EventTypes, XDocumentActMood>() {{
@@ -185,5 +187,15 @@ public class RequestedServiceImpl implements RequestedService {
   @Override
   public List<String> getSubjectOfCareInstructionDesc() {
     return subjectOfCareInstructionDesc;
+  }
+
+  @Override
+  public StrucDocText getCustomNarrative() {
+    return customNarrative;
+  }
+
+  @Override
+  public void setCustomNarrative(StrucDocText customNarrative) {
+    this.customNarrative = customNarrative;
   }
 }

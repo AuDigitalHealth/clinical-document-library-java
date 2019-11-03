@@ -44,6 +44,7 @@ import au.net.electronichealth.ns.cda._2_0.RoleClassAssociative;
 import au.net.electronichealth.ns.cda._2_0.StrucDocCaption;
 import au.net.electronichealth.ns.cda._2_0.StrucDocRenderMultiMedia;
 import au.net.electronichealth.ns.cda._2_0.StrucDocText;
+import au.net.electronichealth.ns.cda._2_0.XInformationRecipient;
 import au.net.electronichealth.ns.ci.cda.extensions._3.PersonalRelationship;
 import java.util.Objects;
 import java.util.UUID;
@@ -98,7 +99,8 @@ public class PharmacistSharedMedicinesListCreator extends ClinicalDocumentCreato
     //Information Recipient List (0..*)
     cdaModel.getInformationRecipients().stream().filter(Objects::nonNull)
         .forEach(informationRecipient -> clinicalDocument.getInformationRecipient()
-            .add(HeaderUtil.createInformationRecipient(informationRecipient))
+            .add(HeaderUtil
+                .createInformationRecipient(informationRecipient, XInformationRecipient.PRCP))
         );
 
     // Construct Legal Authenticator
@@ -177,7 +179,6 @@ public class PharmacistSharedMedicinesListCreator extends ClinicalDocumentCreato
         narrative.getContent().add(
             getMultimediaFromAttachedMedia(attachedMedia));
       }
-      //TODO Martin Attached Media Narrative
     });
     return narrative;
   }

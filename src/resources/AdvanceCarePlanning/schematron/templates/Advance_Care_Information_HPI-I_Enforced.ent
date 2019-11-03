@@ -1,0 +1,17 @@
+    <pattern name="p-Advance_Care_Information_HPI-I_Enforced-errors"
+        id="p-Advance_Care_Information_HPI-I_Enforced-errors"
+        see="#p-Advance_Care_Information_HPI-I_Enforced-errors">
+
+        <rule
+            context="/cda:ClinicalDocument/cda:author/cda:assignedAuthor/cda:assignedPerson[ext:asEmployment]">
+
+            <assert
+                test="ext:asEntityIdentifier/ext:id[starts-with(@root, '1.2.36.1.2001.1003.0.800361')]"
+                >Error: Advance Care Information - 6.1.2.2 Document Author as a Person (Healthcare Provider) -
+                The 'asEntityIdentifier' tag with a HPI-I is missing. Refer to section 6.1.2.2 Document Author as a Person (Healthcare Provider) of the
+                Advance_Care_Information_CDA_Implementation_Guide_v1.0.</assert>
+
+        </rule>
+
+    </pattern>
+

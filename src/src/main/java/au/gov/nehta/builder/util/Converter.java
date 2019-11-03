@@ -177,15 +177,9 @@ public class Converter {
     if (telecoms == null) {
       return new ArrayList<>(1);
     }
-
-    List<TEL> telecom = new ArrayList<>();
-
-    for (Telecom tel : telecoms) {
-      TEL telecom1 = convert(tel);
-      telecom.add(telecom1);
-    }
-
-    return telecom;
+    List<TEL> telList = new ArrayList<>();
+    telecoms.stream().filter(Objects::nonNull).forEach(tel -> telList.add(convert(tel)));
+    return telList;
   }
 
   public static IVLTS convert(DateTime date) {
@@ -547,12 +541,9 @@ public class Converter {
     if (null == time) {
       s.setNullFlavor(NullFlavor.NA);
     } else {
-
-      for (SetComponentTime c : time.getComponents()) {
-        s.getComp().add(convert(c));
-      }
+      time.getComponents().stream().filter(Objects::nonNull)
+          .forEach(c -> s.getComp().add(convert(c)));
       s.setOperator(time.getOperator());
-
       if (null != time.getValue()) {
         s.setValue(time.getValue().toString());
       }
@@ -681,11 +672,8 @@ public class Converter {
     if (names == null) {
       return null;
     }
-
     List<PN> pns = new ArrayList<>(names.size());
-    for (PersonName name : names) {
-      pns.add(getPersonName(name));
-    }
+    names.stream().filter(Objects::nonNull).forEach(name -> pns.add(getPersonName(name)));
     return pns;
   }
 
@@ -693,12 +681,12 @@ public class Converter {
     PN personName = objectFactory.createPN();
 
     if (scsPersonName.getNameTitle() != null) {
-      for (String nameTitle : scsPersonName.getNameTitle()) {
+      scsPersonName.getNameTitle().stream().filter(Objects::nonNull).forEach(nameTitle -> {
         EnPrefix prefix = objectFactory.createEnPrefix();
         prefix.getContent().add(nameTitle);
         JAXBElement<EnPrefix> jaxbPrefix = objectFactory.createENPrefix(prefix);
         personName.getContent().add(jaxbPrefix);
-      }
+      });
     }
 
     if (scsPersonName.getFamilyName() != null) {
@@ -709,30 +697,29 @@ public class Converter {
     }
 
     if (scsPersonName.getGivenName() != null) {
-      for (String givenName : scsPersonName.getGivenName()) {
+      scsPersonName.getGivenName().stream().filter(Objects::nonNull).forEach(givenName -> {
         EnGiven given = objectFactory.createEnGiven();
         given.getContent().add(givenName);
         JAXBElement<EnGiven> jaxbGiven = objectFactory.createENGiven(given);
         personName.getContent().add(jaxbGiven);
-      }
+      });
     }
 
     if (scsPersonName.getNameSuffix() != null) {
-      for (String nameSuffix : scsPersonName.getNameSuffix()) {
+      scsPersonName.getNameSuffix().stream().filter(Objects::nonNull).forEach(nameSuffix -> {
         EnSuffix suffix = objectFactory.createEnSuffix();
         suffix.getContent().add(nameSuffix);
         JAXBElement<EnSuffix> jaxbSuffix = objectFactory.createENSuffix(suffix);
         personName.getContent().add(jaxbSuffix);
-      }
+      });
     }
 
     if (scsPersonName.getPreferredNameIndicator() != null
         && scsPersonName.getPreferredNameIndicator()) {
       personName.getUse().add(EntityNameUse.L);
     } else if (scsPersonName.getPersonNameUsage() != null) {
-      for (PersonNameUsage usage : scsPersonName.getPersonNameUsage()) {
-        personName.getUse().add(getEntityNameUse(usage));
-      }
+      scsPersonName.getPersonNameUsage().stream().filter(Objects::nonNull)
+          .forEach(usage -> personName.getUse().add(getEntityNameUse(usage)));
     }
 
     return personName;
@@ -741,9 +728,7 @@ public class Converter {
   public static List<EntityIdentifier> getAsEntityIdentifier(
       List<? extends AsEntityIdentifier> ids) {
     List<EntityIdentifier> ei = new ArrayList<>(5);
-    for (AsEntityIdentifier id : ids) {
-      ei.add(convert(id));
-    }
+    ids.stream().filter(Objects::nonNull).forEach(id -> ei.add(convert(id)));
     return ei;
   }
 
@@ -932,12 +917,8 @@ public class Converter {
     if (asEntityIdentifiers == null) {
       return new ArrayList<>();
     }
-
     List<EntityIdentifier> ids = new ArrayList<>(asEntityIdentifiers.size());
-    for (AsEntityIdentifier id : asEntityIdentifiers) {
-      ids.add(convert(id));
-    }
-
+    asEntityIdentifiers.stream().filter(Objects::nonNull).forEach(id -> ids.add(convert(id)));
     return ids;
   }
 
@@ -1020,24 +1001,18 @@ public class Converter {
     if (addresses == null) {
       return new ArrayList<>(1);
     }
-
     List<AD> lad = new ArrayList<>(addresses.size());
-    for (PostalAddress pa : addresses) {
-      lad.add(getAddress(pa));
-    }
-
+    addresses.stream().filter(Objects::nonNull).forEach(pa -> lad.add(getAddress(pa)));
     return lad;
   }
 
   public static SXCMTS convertToSxcmts(org.joda.time.DateTime dateTime) {
-
     SXCMTS sxcmts = objectFactory.createSXCMTS();
     sxcmts.setValue(Converter.HL7_DATE_TIME_FORMATTER.print(dateTime));
     return sxcmts;
   }
 
   public static SXCMTS convertToSxcmts(PreciseDate preciseDate) {
-
     SXCMTS sxcmts = objectFactory.createSXCMTS();
     sxcmts.setValue(Converter.HL7_DATE_TIME_FORMATTER.print(preciseDate.getDateTime()));
     return sxcmts;

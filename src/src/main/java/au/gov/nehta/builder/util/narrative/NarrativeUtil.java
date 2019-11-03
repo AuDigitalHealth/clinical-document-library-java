@@ -19,6 +19,7 @@ import au.gov.nehta.model.clinical.common.participation.PersonName;
 import au.gov.nehta.model.clinical.common.participation.PersonNameUsage;
 import au.gov.nehta.model.clinical.common.types.HPII;
 import au.gov.nehta.model.clinical.common.types.HPIO;
+import au.gov.nehta.model.clinical.etp.common.participation.AddressContext;
 import au.gov.nehta.model.clinical.etp.common.participation.Entitlement;
 import au.gov.nehta.model.clinical.etp.common.participation.ParticipationServiceProvider;
 import au.gov.nehta.model.clinical.etp.common.participation.ProviderAddress;
@@ -288,6 +289,47 @@ public class NarrativeUtil {
 
         if (providerAddress.getAddressPurpose() != null) {
           AddressPurpose postalAddressUse = providerAddress.getAddressPurpose();
+          result.getContent().add("ADDRESS TYPE: " + postalAddressUse.getDisplayName());
+          br(result);
+        }
+      }
+    }
+
+    return result;
+  }
+
+  public static StrucDocTd getAddressCell(AddressContext addressContext) {
+    StrucDocTd result = new StrucDocTd();
+    if (addressContext.getNoFixedAddressIndicator()) {
+      result.getContent().add("No fixed address.");
+    } else {
+      if (addressContext.getAddress() != null) {
+        au.gov.nehta.model.clinical.common.participation.Address australianAddress
+            = addressContext.getAddress();
+        if (australianAddress.getUnstructuredAddressLines() != null) {
+          for (String unstructuredAddressLine : australianAddress
+              .getUnstructuredAddressLines()) {
+            result.getContent().add(unstructuredAddressLine);
+            br(result);
+          }
+        }
+
+        if (australianAddress.getCity() != null) {
+          String australianSuburbTownLocality = australianAddress.getCity();
+
+          result.getContent().add(australianSuburbTownLocality);
+
+          br(result);
+        }
+
+        if (australianAddress.getPostcode() != null) {
+          String australianPostcode = australianAddress.getPostcode();
+          result.getContent().add(australianPostcode);
+          br(result);
+        }
+
+        if (addressContext.getAddressPurpose() != null) {
+          AddressPurpose postalAddressUse = addressContext.getAddressPurpose();
           result.getContent().add("ADDRESS TYPE: " + postalAddressUse.getDisplayName());
           br(result);
         }

@@ -1,0 +1,164 @@
+<!--
+_________________________________________________________________________________________________________________________________________________________________________________________
+                  Generated File - Do Not Edit File Directly                                                                                                                             
+                  __________________________________________
+
+                  Generated          : 1/10/2019 12:21:12 PM
+
+                  Product            : Goals of Care
+                  Release            : CDA_Implementation_Guide_v1.0
+                  IG Guide Reference : 5.1.2
+                  IG Guide Title     : Custodian
+                  Generator Version  : 2.29
+                                                                                                                                                                                         
+_________________________________________________________________________________________________________________________________________________________________________________________
+-->
+    <pattern name="p-Goals_of_Care_Custodian_5_1_2-errors"
+        id="p-Goals_of_Care_Custodian_5_1_2-errors"
+        see="#p-Goals_of_Care_Custodian_5_1_2-errors">
+
+
+        <rule context="/cda:ClinicalDocument">
+
+            <assert test="cda:custodian"
+                >Error: Goals of Care - 5.1.2 Custodian -
+                "custodian" -
+                The 'custodian' tag is missing.
+               Refer to section 5.1.2 of the
+                Advance_Care_Information_CDA_Implementation_Guide_v1.0.</assert>
+
+            <report test="count(cda:custodian) > 1"
+                >Error: Goals of Care - 5.1.2 Custodian -
+                "custodian" -
+                The 'custodian' tag shall appear only once.
+                Refer to section 5.1.2 of the
+                Advance_Care_Information_CDA_Implementation_Guide_v1.0.</report>
+
+        </rule>
+
+
+        <rule context="/cda:ClinicalDocument/cda:custodian">
+
+            <assert test="cda:assignedCustodian"
+                >Error: Goals of Care - 5.1.2 Custodian -
+                "custodian/assignedCustodian" -
+                The 'assignedCustodian' tag is missing.
+               Refer to section 5.1.2 of the
+                Advance_Care_Information_CDA_Implementation_Guide_v1.0.</assert>
+
+            <report test="count(cda:assignedCustodian) > 1"
+                >Error: Goals of Care - 5.1.2 Custodian -
+                "custodian/assignedCustodian" -
+                The 'assignedCustodian' tag shall appear only once.
+                Refer to section 5.1.2 of the
+                Advance_Care_Information_CDA_Implementation_Guide_v1.0.</report>
+
+        </rule>
+
+
+        <rule context="/cda:ClinicalDocument/cda:custodian/cda:assignedCustodian">
+
+            <assert test="cda:representedCustodianOrganization"
+                >Error: Goals of Care - 5.1.2 Custodian -
+                "custodian/assignedCustodian/representedCustodianOrganization" -
+                The 'representedCustodianOrganization' tag is missing.
+               Refer to section 5.1.2 of the
+                Advance_Care_Information_CDA_Implementation_Guide_v1.0.</assert>
+
+            <report test="count(cda:representedCustodianOrganization) > 1"
+                >Error: Goals of Care - 5.1.2 Custodian -
+                "custodian/assignedCustodian/representedCustodianOrganization" -
+                The 'representedCustodianOrganization' tag shall appear only once.
+                Refer to section 5.1.2 of the
+                Advance_Care_Information_CDA_Implementation_Guide_v1.0.</report>
+
+        </rule>
+
+
+        <rule context="/cda:ClinicalDocument/cda:custodian/cda:assignedCustodian/cda:representedCustodianOrganization">
+
+            <assert test="cda:id"
+                >Error: Goals of Care - 5.1.2 Custodian -
+                "custodian/assignedCustodian/representedCustodianOrganization/id" -
+                The 'id' tag is missing.
+               Refer to section 5.1.2 of the
+                Advance_Care_Information_CDA_Implementation_Guide_v1.0.</assert>
+
+            <assert test="ext:asEntityIdentifier"
+                >Error: Goals of Care - 5.1.2 Custodian -
+                "custodian/assignedCustodian/representedCustodianOrganization/Entity Identifier" -
+                The 'asEntityIdentifier' tag is missing.
+               Refer to section 5.1.2 of the
+                Advance_Care_Information_CDA_Implementation_Guide_v1.0.</assert>
+
+            <report test="count(cda:telecom) > 1"
+                >Error: Goals of Care - 5.1.2 Custodian -
+                "custodian/assignedCustodian/representedCustodianOrganization/Electronic Communication Detail" -
+                The 'telecom' tag shall appear only once.
+                Refer to section 5.1.2 of the
+                Advance_Care_Information_CDA_Implementation_Guide_v1.0.</report>
+
+            <report test="count(cda:name) > 1"
+                >Error: Goals of Care - 5.1.2 Custodian -
+                "custodian/assignedCustodian/representedCustodianOrganization/name" -
+                The 'name' tag shall appear only once.
+                Refer to section 5.1.2 of the
+                Advance_Care_Information_CDA_Implementation_Guide_v1.0.</report>
+
+            <assert test="cda:name"
+                >Error: Goals of Care - 5.1.2 Custodian -
+                "custodian/assignedCustodian/representedCustodianOrganization/name" -
+                The 'name' tag is missing.
+               Refer to section 5.1.2 of the
+                Advance_Care_Information_CDA_Implementation_Guide_v1.0.</assert>
+
+            <report test="cda:name and normalize-space(cda:name) = ''"
+                >Error: Goals of Care - 5.1.2 Custodian -
+                "custodian/assignedCustodian/representedCustodianOrganization/name" -
+                The 'name' tag shall contain a value.
+                Refer to section 5.1.2 of the
+                Advance_Care_Information_CDA_Implementation_Guide_v1.0.</report>
+
+            <report test="count(cda:addr) > 1"
+                >Error: Goals of Care - 5.1.2 Custodian -
+                "custodian/assignedCustodian/representedCustodianOrganization/Address" -
+                The 'addr' tag shall appear only once.
+                Refer to section 5.1.2 of the
+                Advance_Care_Information_CDA_Implementation_Guide_v1.0.</report>
+
+        </rule>
+
+
+        <rule context="/cda:ClinicalDocument/cda:custodian/cda:assignedCustodian/cda:representedCustodianOrganization/ext:asEntityIdentifier">
+
+            <assert test="ext:id"
+                >Error: Goals of Care - 5.1.2 Custodian -
+                "custodian/assignedCustodian/representedCustodianOrganization/Entity Identifier" -
+                The 'id' tag is missing.
+               Refer to section 5.1.2 of the
+                Advance_Care_Information_CDA_Implementation_Guide_v1.0.</assert>
+
+            <report test="count(ext:id) > 1"
+                >Error: Goals of Care - 5.1.2 Custodian -
+                "custodian/assignedCustodian/representedCustodianOrganization/Entity Identifier" -
+                The 'id' tag shall appear only once.
+                Refer to section 5.1.2 of the
+                Advance_Care_Information_CDA_Implementation_Guide_v1.0.</report>
+
+        </rule>
+
+
+        <rule context="/cda:ClinicalDocument/cda:custodian/cda:assignedCustodian/cda:representedCustodianOrganization/ext:asEntityIdentifier/ext:id">
+
+            <assert test="not(@nullFlavor)"
+                >Error: Goals of Care - 5.1.2 Custodian -
+                "custodian/assignedCustodian/representedCustodianOrganization/Entity Identifier" -
+                The 'id' tag 'nullFlavor' attribute shall not be present.
+                Refer to section 5.1.2 of the
+                Advance_Care_Information_CDA_Implementation_Guide_v1.0.</assert>
+
+        </rule>
+
+
+    </pattern>
+

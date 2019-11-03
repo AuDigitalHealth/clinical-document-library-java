@@ -1,0 +1,477 @@
+<!--
+_________________________________________________________________________________________________________________________________________________________________________________________
+                  Generated File - Do Not Edit File Directly                                                                                                                             
+                  __________________________________________
+
+                  Generated          : 1/11/2018 9:46:49 AM
+
+                  Product            : Pharmacist Shared Medicines List
+                  Release            : CDA_Implementation_Guide_v1.0
+                  IG Guide Reference : 6.1.4.1
+                  IG Guide Title     : PARTICIPANT as a PERSON
+                  Generator Version  : 2.28
+                                                                                                                                                                                         
+_________________________________________________________________________________________________________________________________________________________________________________________
+-->
+<pattern name="p-Pharmacist_Shared_Medicines_List_PARTICIPANTasaPERSON_6_1_4_1-errors"
+  id="p-Pharmacist_Shared_Medicines_List_PARTICIPANTasaPERSON_6_1_4_1-errors"
+  see="#p-Pharmacist_Shared_Medicines_List_PARTICIPANTasaPERSON_6_1_4_1-errors">
+
+
+  <rule
+    context="/cda:ClinicalDocument/cda:participant[cda:associatedEntity/cda:associatedPerson][cda:functionCode/@code = 'PCP']">
+
+    <assert test="@typeCode"
+    >Error: Pharmacist Shared Medicines List - 6.1.4.1 PARTICIPANT as a PERSON -
+      "PARTICIPANT" -
+      The 'participant' tag 'typeCode' attribute is missing.
+      Refer to section 6.1.4.1 of the
+      Core_Level_One_Clinical_Document_CDA_Implementation_Guide_v1.1.
+    </assert>
+
+    <assert test="not(@typeCode) or normalize-space(@typeCode) != ''"
+    >Error: Pharmacist Shared Medicines List - 6.1.4.1 PARTICIPANT as a PERSON -
+      "PARTICIPANT" -
+      The 'participant' tag 'typeCode' attribute shall contain a value.
+      Refer to section 6.1.4.1 of the
+      Core_Level_One_Clinical_Document_CDA_Implementation_Guide_v1.1.
+    </assert>
+
+    <assert test="
+                not(@typeCode) or normalize-space(@typeCode) = '' or @typeCode = 'PART'"
+    >Error: Pharmacist Shared Medicines List - 6.1.4.1 PARTICIPANT as a PERSON -
+      "PARTICIPANT" -
+      The 'participant' tag 'typeCode' attribute shall contain the value 'PART'.
+      Refer to section "027990 Primary healthcare provider" of the
+      Pharmacist_Shared_Medicines_List_Conformance_Profile and section 6.1.4.1 of the
+      Core_Level_One_Clinical_Document_CDA_Implementation_Guide_v1.1.
+    </assert>
+
+  </rule>
+
+
+  <rule context="/cda:ClinicalDocument/cda:participant/cda:associatedEntity[cda:associatedPerson]">
+
+    <assert test="@classCode"
+    >Error: Pharmacist Shared Medicines List - 6.1.4.1 PARTICIPANT as a PERSON -
+      "PARTICIPANT" -
+      The 'associatedEntity' tag 'classCode' attribute is missing.
+      Refer to section 6.1.4.1 of the
+      Core_Level_One_Clinical_Document_CDA_Implementation_Guide_v1.1.
+    </assert>
+
+    <assert test="not(@classCode) or normalize-space(@classCode) != ''"
+    >Error: Pharmacist Shared Medicines List - 6.1.4.1 PARTICIPANT as a PERSON -
+      "PARTICIPANT" -
+      The 'associatedEntity' tag 'classCode' attribute shall contain a value.
+      Refer to section 6.1.4.1 of the
+      Core_Level_One_Clinical_Document_CDA_Implementation_Guide_v1.1.
+    </assert>
+
+    <assert test="
+                not(@classCode) or normalize-space(@classCode) = '' or @classCode = 'PROV'"
+    >Error: Pharmacist Shared Medicines List - 6.1.4.1 PARTICIPANT as a PERSON -
+      "PARTICIPANT" -
+      The 'associatedEntity' tag 'classCode' attribute shall contain the value 'PROV'.
+      Refer to section 6.1.4.1 of the
+      Core_Level_One_Clinical_Document_CDA_Implementation_Guide_v1.1.
+    </assert>
+
+    <assert test="cda:id"
+    >Error: Pharmacist Shared Medicines List - 6.1.4.1 PARTICIPANT as a PERSON -
+      "PARTICIPANT" -
+      The 'id' tag is missing.
+      Refer to section 6.1.4.1 of the
+      Core_Level_One_Clinical_Document_CDA_Implementation_Guide_v1.1.
+    </assert>
+
+    <report test="count(cda:id) > 1"
+    >Error: Pharmacist Shared Medicines List - 6.1.4.1 PARTICIPANT as a PERSON -
+      "PARTICIPANT" -
+      The 'id' tag shall appear only once.
+      Refer to section 6.1.4.1 of the
+      Core_Level_One_Clinical_Document_CDA_Implementation_Guide_v1.1.
+    </report>
+
+    <report test="count(cda:code) > 1"
+    >Error: Pharmacist Shared Medicines List - 6.1.4.1 PARTICIPANT as a PERSON -
+      "PARTICIPANT / Role" -
+      The 'code' tag shall appear only once.
+      Refer to section "028029 Primary healthcare provider role" of the
+      Pharmacist_Shared_Medicines_List_Conformance_Profile and section 6.1.4.1 of the
+      Core_Level_One_Clinical_Document_CDA_Implementation_Guide_v1.1.
+    </report>
+
+    <assert test="cda:code"
+    >Error: Pharmacist Shared Medicines List - 6.1.4.1 PARTICIPANT as a PERSON -
+      "PARTICIPANT / Role" -
+      The 'code' tag is missing.
+      Refer to section "028029 Primary healthcare provider role" of the
+      Pharmacist_Shared_Medicines_List_Conformance_Profile and section 6.1.4.1 of the
+      Core_Level_One_Clinical_Document_CDA_Implementation_Guide_v1.1.
+    </assert>
+
+    <report test="count(cda:associatedPerson) > 1"
+    >Error: Pharmacist Shared Medicines List - 6.1.4.1 PARTICIPANT as a PERSON -
+      "PARTICIPANT / PARTICIPANT" -
+      The 'associatedPerson' tag shall appear only once.
+      Refer to section 6.1.4.1 of the
+      Core_Level_One_Clinical_Document_CDA_Implementation_Guide_v1.1.
+    </report>
+
+  </rule>
+
+
+  <rule context="/cda:ClinicalDocument/cda:participant/cda:associatedEntity/cda:associatedPerson">
+
+    <assert test="cda:name"
+    >Error: Pharmacist Shared Medicines List - 6.1.4.1 PARTICIPANT as a PERSON -
+      "PARTICIPANT / PARTICIPANT / PERSON OR ORGANISATION OR DEVICE / PERSON / PERSON NAME" -
+      The 'name' tag is missing.
+      Refer to section 6.1.4.1 of the
+      Core_Level_One_Clinical_Document_CDA_Implementation_Guide_v1.1.
+    </assert>
+
+    <report test="count(ext:personalRelationship) > 1"
+    >Error: Pharmacist Shared Medicines List - 6.1.4.1 PARTICIPANT as a PERSON -
+      "PARTICIPANT / PARTICIPANT / PERSON OR ORGANISATION OR DEVICE / PERSON / Relationship to
+      Subject of Care" -
+      The 'personalRelationship' tag shall appear only once.
+      Refer to section 6.1.4.1 of the
+      Core_Level_One_Clinical_Document_CDA_Implementation_Guide_v1.1.
+    </report>
+
+    <assert test="ext:asEmployment"
+    >Error: Pharmacist Shared Medicines List - 6.1.4.1 PARTICIPANT as a PERSON -
+      "PARTICIPANT / PARTICIPANT / PERSON OR ORGANISATION OR DEVICE / PERSON / EMPLOYMENT DETAIL" -
+      The 'asEmployment' tag is missing.
+      Refer to section "028031 Primary healthcare provider organisation name" of the
+      Pharmacist_Shared_Medicines_List_Conformance_Profile and section 6.1.4.1 of the
+      Core_Level_One_Clinical_Document_CDA_Implementation_Guide_v1.1.
+    </assert>
+
+    <report test="count(ext:asEmployment) > 1"
+    >Error: Pharmacist Shared Medicines List - 6.1.4.1 PARTICIPANT as a PERSON -
+      "PARTICIPANT / PARTICIPANT / PERSON OR ORGANISATION OR DEVICE / PERSON / EMPLOYMENT DETAIL" -
+      The 'asEmployment' tag shall appear only once.
+      Refer to section "028031 Primary healthcare provider organisation name" of the
+      Pharmacist_Shared_Medicines_List_Conformance_Profile and section 6.1.4.1 of the
+      Core_Level_One_Clinical_Document_CDA_Implementation_Guide_v1.1.
+    </report>
+
+    <assert test="not(ext:administrativeGenderCode)"
+    >Error: Pharmacist Shared Medicines List - 6.1.4.1 PARTICIPANT as a PERSON -
+      "PARTICIPANT / PARTICIPANT / PERSON OR ORGANISATION OR DEVICE / PERSON / DEMOGRAPHIC DATA" -
+      The 'administrativeGenderCode' tag shall not be present.
+      Refer to section "028033 Primary healthcare provider individual identifier" of the
+      Pharmacist_Shared_Medicines_List_Conformance_Profile and section 6.1.4.1 of the
+      Core_Level_One_Clinical_Document_CDA_Implementation_Guide_v1.1.
+    </assert>
+
+    <assert test="not(ext:birthTime)"
+    >Error: Pharmacist Shared Medicines List - 6.1.4.1 PARTICIPANT as a PERSON -
+      "PARTICIPANT / PARTICIPANT / PERSON OR ORGANISATION OR DEVICE / PERSON / DEMOGRAPHIC DATA" -
+      The 'birthTime' tag shall not be present.
+      Refer to section 6.1.4.1 of the
+      Core_Level_One_Clinical_Document_CDA_Implementation_Guide_v1.1.
+    </assert>
+
+    <report test="count(ext:asQualifications) > 1"
+    >Error: Pharmacist Shared Medicines List - 6.1.4.1 PARTICIPANT as a PERSON -
+      "PARTICIPANT / PARTICIPANT / PERSON OR ORGANISATION OR DEVICE / PERSON / DEMOGRAPHIC DATA" -
+      The 'asQualifications' tag shall appear only once.
+      Refer to section 6.1.4.1 of the
+      Core_Level_One_Clinical_Document_CDA_Implementation_Guide_v1.1.
+    </report>
+
+  </rule>
+
+
+  <rule
+    context="/cda:ClinicalDocument/cda:participant/cda:associatedEntity/cda:associatedPerson/ext:personalRelationship">
+
+    <assert test="@classCode"
+    >Error: Pharmacist Shared Medicines List - 6.1.4.1 PARTICIPANT as a PERSON -
+      "PARTICIPANT / PARTICIPANT / PERSON OR ORGANISATION OR DEVICE / PERSON / Relationship to
+      Subject of Care" -
+      The 'personalRelationship' tag 'classCode' attribute is missing.
+      Refer to section 6.1.4.1 of the
+      Core_Level_One_Clinical_Document_CDA_Implementation_Guide_v1.1.
+    </assert>
+
+    <assert test="not(@classCode) or normalize-space(@classCode) != ''"
+    >Error: Pharmacist Shared Medicines List - 6.1.4.1 PARTICIPANT as a PERSON -
+      "PARTICIPANT / PARTICIPANT / PERSON OR ORGANISATION OR DEVICE / PERSON / Relationship to
+      Subject of Care" -
+      The 'personalRelationship' tag 'classCode' attribute shall contain a value.
+      Refer to section 6.1.4.1 of the
+      Core_Level_One_Clinical_Document_CDA_Implementation_Guide_v1.1.
+    </assert>
+
+    <assert test="
+                not(@classCode) or normalize-space(@classCode) = '' or @classCode = 'PRS'"
+    >Error: Pharmacist Shared Medicines List - 6.1.4.1 PARTICIPANT as a PERSON -
+      "PARTICIPANT / PARTICIPANT / PERSON OR ORGANISATION OR DEVICE / PERSON / Relationship to
+      Subject of Care" -
+      The 'personalRelationship' tag 'classCode' attribute shall contain the value 'PRS'.
+      Refer to section 6.1.4.1 of the
+      Core_Level_One_Clinical_Document_CDA_Implementation_Guide_v1.1.
+    </assert>
+
+    <assert test="ext:code"
+    >Error: Pharmacist Shared Medicines List - 6.1.4.1 PARTICIPANT as a PERSON -
+      "PARTICIPANT / PARTICIPANT / PERSON OR ORGANISATION OR DEVICE / PERSON / Relationship to
+      Subject of Care" -
+      The 'code' tag is missing.
+      Refer to section 6.1.4.1 of the
+      Core_Level_One_Clinical_Document_CDA_Implementation_Guide_v1.1.
+    </assert>
+
+    <report test="count(ext:code) > 1"
+    >Error: Pharmacist Shared Medicines List - 6.1.4.1 PARTICIPANT as a PERSON -
+      "PARTICIPANT / PARTICIPANT / PERSON OR ORGANISATION OR DEVICE / PERSON / Relationship to
+      Subject of Care" -
+      The 'code' tag shall appear only once.
+      Refer to section 6.1.4.1 of the
+      Core_Level_One_Clinical_Document_CDA_Implementation_Guide_v1.1.
+    </report>
+
+    <assert test="ext:asPersonalRelationship"
+    >Error: Pharmacist Shared Medicines List - 6.1.4.1 PARTICIPANT as a PERSON -
+      "PARTICIPANT / PARTICIPANT / PERSON OR ORGANISATION OR DEVICE / PERSON / Relationship to
+      Subject of Care" -
+      The 'asPersonalRelationship' tag is missing.
+      Refer to section 6.1.4.1 of the
+      Core_Level_One_Clinical_Document_CDA_Implementation_Guide_v1.1.
+    </assert>
+
+    <report test="count(ext:asPersonalRelationship) > 1"
+    >Error: Pharmacist Shared Medicines List - 6.1.4.1 PARTICIPANT as a PERSON -
+      "PARTICIPANT / PARTICIPANT / PERSON OR ORGANISATION OR DEVICE / PERSON / Relationship to
+      Subject of Care" -
+      The 'asPersonalRelationship' tag shall appear only once.
+      Refer to section 6.1.4.1 of the
+      Core_Level_One_Clinical_Document_CDA_Implementation_Guide_v1.1.
+    </report>
+
+  </rule>
+
+
+  <rule
+    context="/cda:ClinicalDocument/cda:participant/cda:associatedEntity/cda:associatedPerson/ext:personalRelationship/ext:asPersonalRelationship">
+
+    <assert test="@classCode"
+    >Error: Pharmacist Shared Medicines List - 6.1.4.1 PARTICIPANT as a PERSON -
+      "PARTICIPANT / PARTICIPANT / PERSON OR ORGANISATION OR DEVICE / PERSON / Relationship to
+      Subject of Care" -
+      The 'asPersonalRelationship' tag 'classCode' attribute is missing.
+      Refer to section 6.1.4.1 of the
+      Core_Level_One_Clinical_Document_CDA_Implementation_Guide_v1.1.
+    </assert>
+
+    <assert test="not(@classCode) or normalize-space(@classCode) != ''"
+    >Error: Pharmacist Shared Medicines List - 6.1.4.1 PARTICIPANT as a PERSON -
+      "PARTICIPANT / PARTICIPANT / PERSON OR ORGANISATION OR DEVICE / PERSON / Relationship to
+      Subject of Care" -
+      The 'asPersonalRelationship' tag 'classCode' attribute shall contain a value.
+      Refer to section 6.1.4.1 of the
+      Core_Level_One_Clinical_Document_CDA_Implementation_Guide_v1.1.
+    </assert>
+
+    <assert test="
+                not(@classCode) or normalize-space(@classCode) = '' or @classCode = 'PSN'"
+    >Error: Pharmacist Shared Medicines List - 6.1.4.1 PARTICIPANT as a PERSON -
+      "PARTICIPANT / PARTICIPANT / PERSON OR ORGANISATION OR DEVICE / PERSON / Relationship to
+      Subject of Care" -
+      The 'asPersonalRelationship' tag 'classCode' attribute shall contain the value 'PSN'.
+      Refer to section 6.1.4.1 of the
+      Core_Level_One_Clinical_Document_CDA_Implementation_Guide_v1.1.
+    </assert>
+
+    <assert test="@determinerCode"
+    >Error: Pharmacist Shared Medicines List - 6.1.4.1 PARTICIPANT as a PERSON -
+      "PARTICIPANT / PARTICIPANT / PERSON OR ORGANISATION OR DEVICE / PERSON / Relationship to
+      Subject of Care" -
+      The 'asPersonalRelationship' tag 'determinerCode' attribute is missing.
+      Refer to section 6.1.4.1 of the
+      Core_Level_One_Clinical_Document_CDA_Implementation_Guide_v1.1.
+    </assert>
+
+    <assert test="not(@determinerCode) or normalize-space(@determinerCode) != ''"
+    >Error: Pharmacist Shared Medicines List - 6.1.4.1 PARTICIPANT as a PERSON -
+      "PARTICIPANT / PARTICIPANT / PERSON OR ORGANISATION OR DEVICE / PERSON / Relationship to
+      Subject of Care" -
+      The 'asPersonalRelationship' tag 'determinerCode' attribute shall contain a value.
+      Refer to section 6.1.4.1 of the
+      Core_Level_One_Clinical_Document_CDA_Implementation_Guide_v1.1.
+    </assert>
+
+    <assert test="
+                not(@determinerCode) or normalize-space(@determinerCode) = '' or @determinerCode = 'INSTANCE'"
+    >Error: Pharmacist Shared Medicines List - 6.1.4.1 PARTICIPANT as a PERSON -
+      "PARTICIPANT / PARTICIPANT / PERSON OR ORGANISATION OR DEVICE / PERSON / Relationship to
+      Subject of Care" -
+      The 'asPersonalRelationship' tag 'determinerCode' attribute shall contain the value
+      'INSTANCE'.
+      Refer to section 6.1.4.1 of the
+      Core_Level_One_Clinical_Document_CDA_Implementation_Guide_v1.1.
+    </assert>
+
+    <assert test="cda:id"
+    >Error: Pharmacist Shared Medicines List - 6.1.4.1 PARTICIPANT as a PERSON -
+      "PARTICIPANT / PARTICIPANT / PERSON OR ORGANISATION OR DEVICE / PERSON / Relationship to
+      Subject of Care" -
+      The 'id' tag is missing.
+      Refer to section 6.1.4.1 of the
+      Core_Level_One_Clinical_Document_CDA_Implementation_Guide_v1.1.
+    </assert>
+
+    <report test="count(cda:id) > 1"
+    >Error: Pharmacist Shared Medicines List - 6.1.4.1 PARTICIPANT as a PERSON -
+      "PARTICIPANT / PARTICIPANT / PERSON OR ORGANISATION OR DEVICE / PERSON / Relationship to
+      Subject of Care" -
+      The 'id' tag shall appear only once.
+      Refer to section 6.1.4.1 of the
+      Core_Level_One_Clinical_Document_CDA_Implementation_Guide_v1.1.
+    </report>
+
+    <assert test="cda:administrativeGenderCode"
+    >Error: Pharmacist Shared Medicines List - 6.1.4.1 PARTICIPANT as a PERSON -
+      "PARTICIPANT / PARTICIPANT / PERSON OR ORGANISATION OR DEVICE / PERSON / Relationship to
+      Subject of Care" -
+      The 'administrativeGenderCode' tag is missing.
+      Refer to section 6.1.4.1 of the
+      Core_Level_One_Clinical_Document_CDA_Implementation_Guide_v1.1.
+    </assert>
+
+    <report test="count(cda:administrativeGenderCode) > 1"
+    >Error: Pharmacist Shared Medicines List - 6.1.4.1 PARTICIPANT as a PERSON -
+      "PARTICIPANT / PARTICIPANT / PERSON OR ORGANISATION OR DEVICE / PERSON / Relationship to
+      Subject of Care" -
+      The 'administrativeGenderCode' tag shall appear only once.
+      Refer to section 6.1.4.1 of the
+      Core_Level_One_Clinical_Document_CDA_Implementation_Guide_v1.1.
+    </report>
+
+  </rule>
+
+
+  <rule
+    context="/cda:ClinicalDocument/cda:participant/cda:associatedEntity/cda:associatedPerson/ext:asEmployment">
+
+    <assert test="ext:employerOrganization"
+    >Error: Pharmacist Shared Medicines List - 6.1.4.1 PARTICIPANT as a PERSON -
+      "PARTICIPANT / PARTICIPANT / PERSON OR ORGANISATION OR DEVICE / PERSON / EMPLOYMENT DETAIL" -
+      The 'employerOrganization' tag is missing.
+      Refer to section "028031 Primary healthcare provider organisation name" of the
+      Pharmacist_Shared_Medicines_List_Conformance_Profile and section 6.1.4.1 of the
+      Core_Level_One_Clinical_Document_CDA_Implementation_Guide_v1.1.
+    </assert>
+
+    <report test="count(ext:employerOrganization) > 1"
+    >Error: Pharmacist Shared Medicines List - 6.1.4.1 PARTICIPANT as a PERSON -
+      "PARTICIPANT / PARTICIPANT / PERSON OR ORGANISATION OR DEVICE / PERSON / EMPLOYMENT DETAIL" -
+      The 'employerOrganization' tag shall appear only once.
+      Refer to section "028031 Primary healthcare provider organisation name" of the
+      Pharmacist_Shared_Medicines_List_Conformance_Profile and section 6.1.4.1 of the
+      Core_Level_One_Clinical_Document_CDA_Implementation_Guide_v1.1.
+    </report>
+
+  </rule>
+
+
+  <rule
+    context="/cda:ClinicalDocument/cda:participant/cda:associatedEntity/cda:associatedPerson/ext:asEmployment/ext:employerOrganization/cda:asOrganizationPartOf/cda:wholeOrganization">
+
+    <assert test="cda:name"
+    >Error: Pharmacist Shared Medicines List - 6.1.4.1 PARTICIPANT as a PERSON -
+      "PARTICIPANT / PARTICIPANT / PERSON OR ORGANISATION OR DEVICE / PERSON / EMPLOYMENT DETAIL" -
+      The 'name' tag is missing.
+      Refer to section "028031 Primary healthcare provider organisation name" of the
+      Pharmacist_Shared_Medicines_List_Conformance_Profile and section 6.1.4.1 of the
+      Core_Level_One_Clinical_Document_CDA_Implementation_Guide_v1.1.
+    </assert>
+
+    <report test="count(cda:name) > 1"
+    >Error: Pharmacist Shared Medicines List - 6.1.4.1 PARTICIPANT as a PERSON -
+      "PARTICIPANT / PARTICIPANT / PERSON OR ORGANISATION OR DEVICE / PERSON / EMPLOYMENT DETAIL" -
+      The 'name' tag shall appear only once.
+      Refer to section "028031 Primary healthcare provider organisation name" of the
+      Pharmacist_Shared_Medicines_List_Conformance_Profile and section 6.1.4.1 of the
+      Core_Level_One_Clinical_Document_CDA_Implementation_Guide_v1.1.
+    </report>
+
+  </rule>
+
+
+  <rule
+    context="/cda:ClinicalDocument/cda:participant/cda:associatedEntity/cda:associatedPerson/ext:asQualifications">
+
+    <assert test="@classCode"
+    >Error: Pharmacist Shared Medicines List - 6.1.4.1 PARTICIPANT as a PERSON -
+      "PARTICIPANT / PARTICIPANT / PERSON OR ORGANISATION OR DEVICE / PERSON / DEMOGRAPHIC DATA" -
+      The 'asQualifications' tag 'classCode' attribute is missing.
+      Refer to section 6.1.4.1 of the
+      Core_Level_One_Clinical_Document_CDA_Implementation_Guide_v1.1.
+    </assert>
+
+    <assert test="not(@classCode) or normalize-space(@classCode) != ''"
+    >Error: Pharmacist Shared Medicines List - 6.1.4.1 PARTICIPANT as a PERSON -
+      "PARTICIPANT / PARTICIPANT / PERSON OR ORGANISATION OR DEVICE / PERSON / DEMOGRAPHIC DATA" -
+      The 'asQualifications' tag 'classCode' attribute shall contain a value.
+      Refer to section 6.1.4.1 of the
+      Core_Level_One_Clinical_Document_CDA_Implementation_Guide_v1.1.
+    </assert>
+
+    <assert test="
+                not(@classCode) or normalize-space(@classCode) = '' or @classCode = 'QUAL'"
+    >Error: Pharmacist Shared Medicines List - 6.1.4.1 PARTICIPANT as a PERSON -
+      "PARTICIPANT / PARTICIPANT / PERSON OR ORGANISATION OR DEVICE / PERSON / DEMOGRAPHIC DATA" -
+      The 'asQualifications' tag 'classCode' attribute shall contain the value 'QUAL'.
+      Refer to section 6.1.4.1 of the
+      Core_Level_One_Clinical_Document_CDA_Implementation_Guide_v1.1.
+    </assert>
+
+    <assert test="ext:code"
+    >Error: Pharmacist Shared Medicines List - 6.1.4.1 PARTICIPANT as a PERSON -
+      "PARTICIPANT / PARTICIPANT / PERSON OR ORGANISATION OR DEVICE / PERSON / DEMOGRAPHIC DATA" -
+      The 'code' tag is missing.
+      Refer to section 6.1.4.1 of the
+      Core_Level_One_Clinical_Document_CDA_Implementation_Guide_v1.1.
+    </assert>
+
+    <report test="count(ext:code) > 1"
+    >Error: Pharmacist Shared Medicines List - 6.1.4.1 PARTICIPANT as a PERSON -
+      "PARTICIPANT / PARTICIPANT / PERSON OR ORGANISATION OR DEVICE / PERSON / DEMOGRAPHIC DATA" -
+      The 'code' tag shall appear only once.
+      Refer to section 6.1.4.1 of the
+      Core_Level_One_Clinical_Document_CDA_Implementation_Guide_v1.1.
+    </report>
+
+  </rule>
+
+
+  <rule
+    context="/cda:ClinicalDocument/cda:participant/cda:associatedEntity/cda:associatedPerson/ext:asQualifications/ext:code">
+
+    <assert test="cda:originalText"
+    >Error: Pharmacist Shared Medicines List - 6.1.4.1 PARTICIPANT as a PERSON -
+      "PARTICIPANT / PARTICIPANT / PERSON OR ORGANISATION OR DEVICE / PERSON / DEMOGRAPHIC DATA" -
+      The 'originalText' tag is missing.
+      Refer to section 6.1.4.1 of the
+      Core_Level_One_Clinical_Document_CDA_Implementation_Guide_v1.1.
+    </assert>
+
+    <report test="count(cda:originalText) > 1"
+    >Error: Pharmacist Shared Medicines List - 6.1.4.1 PARTICIPANT as a PERSON -
+      "PARTICIPANT / PARTICIPANT / PERSON OR ORGANISATION OR DEVICE / PERSON / DEMOGRAPHIC DATA" -
+      The 'originalText' tag shall appear only once.
+      Refer to section 6.1.4.1 of the
+      Core_Level_One_Clinical_Document_CDA_Implementation_Guide_v1.1.
+    </report>
+
+  </rule>
+
+
+</pattern>
+

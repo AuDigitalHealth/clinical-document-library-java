@@ -7,6 +7,7 @@ import static au.gov.nehta.cda.test.TestHelper.getDocumentAuthor;
 import static au.gov.nehta.cda.test.TestHelper.getInformationRecipients;
 import static au.gov.nehta.cda.test.TestHelper.getLegalAuthenticator;
 import static au.gov.nehta.cda.test.TestHelper.getSubjectOfCareParticipant;
+import static au.gov.nehta.model.schematron.SchematronResource.SchematronResources.SERVICE_REFERRAL_1B;
 
 import au.gov.nehta.builder.sr.ServiceReferralCreator;
 import au.gov.nehta.builder.util.UUIDTool;
@@ -25,17 +26,22 @@ import au.gov.nehta.model.clinical.sr.ServiceReferralContext;
 import au.gov.nehta.model.clinical.sr.ServiceReferralContextImpl;
 import au.gov.nehta.model.clinical.sr.ServiceReferralImpl;
 import au.gov.nehta.model.schematron.SchematronValidationException;
+import au.gov.nehta.schematron.Schematron;
+import au.gov.nehta.schematron.SchematronCheckResult;
 import au.net.electronichealth.ns.cda._2_0.ObjectFactory;
 import au.net.electronichealth.ns.cda._2_0.StrucDocText;
+import java.io.File;
 import java.util.UUID;
 import javax.xml.bind.JAXBException;
 import javax.xml.parsers.ParserConfigurationException;
+import junit.framework.Assert;
 import org.joda.time.DateTime;
 import org.junit.Test;
 import org.w3c.dom.Document;
 
 public class ServiceReferral1BTest extends Base {
-
+  private static final String SCHEMATRON = SERVICE_REFERRAL_1B.resource().getSchematron();
+  private static String SCHEMATRON_TEMPLATE_PATH = "resources/ServiceReferral";
   private static final String DOCUMENT_FILE_NAME =
       TEST_GENERATION + "/sr/ServiceReferral_format_1B.xml";
 
@@ -43,7 +49,20 @@ public class ServiceReferral1BTest extends Base {
   private DateTime now = new DateTime();
 
   @Test
-  public void test_Service_Referral_Format_1B_Creation() {
+  public void test_1B_Service_Referral_Creation() {
+    if (!new File(SCHEMATRON_TEMPLATE_PATH
+        + "/schematron/schematron-Validator-report.xsl").exists()) {
+      SCHEMATRON_TEMPLATE_PATH = "src/" + SCHEMATRON_TEMPLATE_PATH;
+    }
+    generate1B();
+    SchematronCheckResult check =
+        Schematron.check(SCHEMATRON_TEMPLATE_PATH, SCHEMATRON, DOCUMENT_FILE_NAME);
+    show(check);
+    Assert.assertEquals(0, check.schemaErrors.size());
+    Assert.assertEquals(0, check.schematronErrors.size());
+  }
+
+  public void generate1B() {
     ServiceReferralContext serviceReferralContext =
         new ServiceReferralContextImpl();
     serviceReferralContext

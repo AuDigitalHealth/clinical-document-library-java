@@ -1,24 +1,6 @@
 package au.gov.nehta.cda.etp;
 
-import java.io.IOException;
-import java.text.ParseException;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.List;
-import java.util.UUID;
-
-import javax.xml.bind.JAXBException;
-import javax.xml.parsers.ParserConfigurationException;
-
-import junit.framework.Assert;
-
-import org.joda.time.DateTime;
-import org.joda.time.LocalDate;
-import org.joda.time.format.DateTimeFormat;
-import org.junit.Ignore;
-import org.junit.Test;
-import org.w3c.dom.Document;
+import static au.gov.nehta.model.schematron.SchematronResource.SchematronResources.E_PRESCRIPTION_3B;
 
 import au.gov.nehta.builder.etp.prescriptionrequest.PrescriptionRequestCreator;
 import au.gov.nehta.builder.util.UUIDTool;
@@ -174,10 +156,26 @@ import au.gov.nehta.model.schematron.SchematronValidationException;
 import au.gov.nehta.schematron.Schematron;
 import au.gov.nehta.schematron.SchematronCheckResult;
 import au.gov.nehta.test.exceptions.SchemaValidationException;
+import java.io.IOException;
+import java.text.ParseException;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
+import java.util.UUID;
+import javax.xml.bind.JAXBException;
+import javax.xml.parsers.ParserConfigurationException;
+import junit.framework.Assert;
+import org.joda.time.DateTime;
+import org.joda.time.LocalDate;
+import org.joda.time.format.DateTimeFormat;
+import org.junit.Ignore;
+import org.junit.Test;
+import org.w3c.dom.Document;
 
 public class PrescriptionRequestMaxTest  extends Base{
-    
-    private static final String SCHEMATRON = "ccd-3B.sch";
+
+	private static final String SCHEMATRON = E_PRESCRIPTION_3B.resource().getSchematron();
     private static final String SCHEMATRON_TEMPLATE_PATH =      "resources/prescriptionRequest/";
     private static final String DOCUMENT_FILE_NAME = TEST_GENERATION+"prescription-request-max.xml" ;
     
@@ -185,6 +183,10 @@ public class PrescriptionRequestMaxTest  extends Base{
     @Test @Ignore
     public void test_MAX_PrescriptionRequestCreation() throws ParserConfigurationException, JAXBException, SchemaValidationException, SchematronValidationException, IOException, ParseException {
         generateMax();
+        /*if (!new File(SCHEMATRON_TEMPLATE_PATH
+				+ "/schematron/schematron-Validator-report.xsl").exists()) {
+      SCHEMATRON_TEMPLATE_PATH = "src/" + SCHEMATRON_TEMPLATE_PATH;
+    }*/
         SchematronCheckResult check = Schematron.check( SCHEMATRON_TEMPLATE_PATH, SCHEMATRON, DOCUMENT_FILE_NAME );
         
         show( check );
@@ -645,7 +647,7 @@ public class PrescriptionRequestMaxTest  extends Base{
            PbsAuthorityPrescriptionNumber should NOT be populated if:
             (i)
             1 the Medical Benefit Category type is PBS; and
-            2 the item is not listed as ‘Authority Required’, 'Authority Required (Streamlined)', or an application to increase the maximum quantity and/or repeats has not been approved; or
+            2 the item is not listed as ï¿½Authority Requiredï¿½, 'Authority Required (Streamlined)', or an application to increase the maximum quantity and/or repeats has not been approved; or
             (ii) the Medical Benefit Category type is neither PBS nor RPBS.
          */
         .pbsAuthorityPrescriptionNumber( new PbsAuthorityPrescriptionNumber( "my PBS authority prescription approval Number " )   )

@@ -18,6 +18,7 @@ import static au.gov.nehta.cda.test.TestHelper.getLegalAuthenticator;
 import static au.gov.nehta.cda.test.TestHelper.getServiceProviderIndividual;
 import static au.gov.nehta.cda.test.TestHelper.getServiceProviderOrganization;
 import static au.gov.nehta.cda.test.TestHelper.getSubjectOfCareParticipant;
+import static au.gov.nehta.model.schematron.SchematronResource.SchematronResources.DISCHARGE_SUMMARY_2;
 
 import au.gov.nehta.builder.ds.DischargeSummaryCreator;
 import au.gov.nehta.builder.util.UUIDTool;
@@ -68,6 +69,8 @@ import au.gov.nehta.model.clinical.es.DiagnosticInvestigationsImpl;
 import au.gov.nehta.model.clinical.etp.common.participation.ParticipationServiceProvider;
 import au.gov.nehta.model.clinical.etp.common.participation.ParticipationServiceProviderImpl;
 import au.gov.nehta.model.schematron.SchematronValidationException;
+import au.gov.nehta.schematron.Schematron;
+import au.gov.nehta.schematron.SchematronCheckResult;
 import au.net.electronichealth.ns.cda._2_0.ObjectFactory;
 import au.net.electronichealth.ns.cda._2_0.StrucDocList;
 import au.net.electronichealth.ns.cda._2_0.StrucDocParagraph;
@@ -75,29 +78,47 @@ import au.net.electronichealth.ns.cda._2_0.StrucDocTable;
 import au.net.electronichealth.ns.cda._2_0.StrucDocTbody;
 import au.net.electronichealth.ns.cda._2_0.StrucDocText;
 import au.net.electronichealth.ns.cda._2_0.StrucDocThead;
+import java.io.File;
 import java.util.ArrayList;
 import java.util.UUID;
 import javax.xml.bind.JAXBElement;
 import javax.xml.bind.JAXBException;
 import javax.xml.parsers.ParserConfigurationException;
+import junit.framework.Assert;
 import org.joda.time.DateTime;
 import org.junit.Test;
 import org.w3c.dom.Document;
 
 public class DischargeSummary2Test extends Base {
-
-  private static final String DOCUMENT_FILE_NAME =
-      TEST_GENERATION + "/ds/DischargeSummary_format_2.xml";
+  private static final String SCHEMATRON = DISCHARGE_SUMMARY_2.resource().getSchematron();
+  private static String SCHEMATRON_TEMPLATE_PATH = "resources/DischargeSummary";
+  private static final String DOCUMENT_FILE_NAME = TEST_GENERATION
+      + "/ds/DischargeSummary_format_2.xml";
 
   private static ObjectFactory objectFactory = new ObjectFactory();
   private DateTime now = new DateTime();
 
   @Test
-  public void test_Discharge_Summary_Format_2_Creation()
+  public void test_Discharge_Summary__Format_2_Creation() {
+    try {
+      if (!new File(SCHEMATRON_TEMPLATE_PATH
+          + "/schematron/schematron-Validator-report.xsl").exists()) {
+        SCHEMATRON_TEMPLATE_PATH = "src/" + SCHEMATRON_TEMPLATE_PATH;
+      }
+      generate2();
+      SchematronCheckResult check =
+          Schematron.check(SCHEMATRON_TEMPLATE_PATH, SCHEMATRON, DOCUMENT_FILE_NAME);
+      show(check);
+      Assert.assertEquals(0, check.schemaErrors.size());
+      Assert.assertEquals(0, check.schematronErrors.size());
+    } catch (SchematronValidationException | ParserConfigurationException | JAXBException e) {
+      e.printStackTrace();
+    }
+  }
+
+  public void generate2()
       throws SchematronValidationException, JAXBException, ParserConfigurationException {
-
     DocumentAuthor documentAuthor = TestHelper.getDocumentAuthor(now);
-
     // Prepare Discharge Summary Context
     ParticipationServiceProvider facility = new ParticipationServiceProviderImpl();
     PreciseDate dateTimeAttested = new PrecisionDate(Precision.DAY, now.minusHours(6));
@@ -140,7 +161,6 @@ public class DischargeSummary2Test extends Base {
     String cdaString = TestHelper.documentToXML(clinicalDocument);
     TestHelper.printToFile(cdaString, DOCUMENT_FILE_NAME);
     System.out.println(cdaString);
-
   }
 
   private HealthProfile getHealthProfile() {
@@ -724,13 +744,5 @@ public class DischargeSummary2Test extends Base {
     return objectFactory
         .createStrucDocTextParagraph(strucDocParagraph);
   }
-
-
-  /*  private StrucDocText getClinicalInterventionsPerformedThisVisit() {
-    StrucDocText narrative = objectFactory.createStrucDocText();
-    //TODO MS : Event - > Clinical Interventions Performed This Visit
-    narrative.setMediaType(HL7_TEXT_MEDIA_TYPE);
-    return narrative;
-  }*/
 
 }

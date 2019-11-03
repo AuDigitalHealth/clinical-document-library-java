@@ -171,7 +171,7 @@ public class DocumentCreatorUtil {
     }
     StrucDocLinkHtml link = new StrucDocLinkHtml();
     link.setHref(href);
-    //link.setID(ID); //TODO MS : Removed link. Check other documents.
+    //link.setID(ID);
     link.getContent().add(title);
     JAXBElement<StrucDocLinkHtml> jaxbLinkHtml = new ObjectFactory()
         .createStrucDocContentLinkHtml(link);
@@ -385,6 +385,12 @@ public class DocumentCreatorUtil {
   public static StrucDocTd getBoldTextTd(String text) {
     StrucDocTd td = getNormalTextTd(text);
     td.getStyleCode().add("Bold");
+    return td;
+  }
+
+  public static StrucDocTd getItalicTextTd(String text) {
+    StrucDocTd td = getNormalTextTd(text);
+    td.getStyleCode().add("Italics");
     return td;
   }
 

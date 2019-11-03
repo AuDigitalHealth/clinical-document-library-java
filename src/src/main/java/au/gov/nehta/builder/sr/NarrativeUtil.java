@@ -155,6 +155,9 @@ public class NarrativeUtil {
   }
 
   static StrucDocText getCurrentServices(CurrentServices currentService) {
+    if (null != currentService.getCustomNarrative()) {
+      return currentService.getCustomNarrative();
+    }
     StrucDocText narrative = objectFactory.createStrucDocText();
     StrucDocTable currentServicesTable = objectFactory.createStrucDocTable();
     StrucDocTbody currentServicesTBody = addBody(currentServicesTable);

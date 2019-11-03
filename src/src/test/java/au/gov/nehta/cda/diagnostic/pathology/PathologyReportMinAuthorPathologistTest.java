@@ -121,14 +121,16 @@ import org.w3c.dom.Document;
 public class PathologyReportMinAuthorPathologistTest extends Base {
 
   private static final String SCHEMATRON = "ccd-3B.sch";
-  private static final String SCHEMATRON_TEMPLATE_PATH = "resources/PathologyReport";
+  private static String SCHEMATRON_TEMPLATE_PATH = "resources/PathologyReport";
 
   private static final String DOCUMENT_FILE_NAME = TEST_GENERATION + "epathology-person-min.xml";
 
   @Test
   public void test_MIN_PathologyReportCreation()
-      throws ParserConfigurationException, JAXBException, SchemaValidationException, SchematronValidationException, IOException, ParseException,
-      URISyntaxException {
+      throws ParserConfigurationException, JAXBException, SchematronValidationException, IOException, ParseException {
+    if (!new File(SCHEMATRON_TEMPLATE_PATH + "/schematron/schematron-Validator-report.xsl").exists()) {
+      SCHEMATRON_TEMPLATE_PATH = "src/" + SCHEMATRON_TEMPLATE_PATH;
+    }
     generateMin();
     SchematronCheckResult check = Schematron.check(
         SCHEMATRON_TEMPLATE_PATH, SCHEMATRON, DOCUMENT_FILE_NAME);

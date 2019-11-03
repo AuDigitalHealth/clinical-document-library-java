@@ -100,6 +100,7 @@ import au.gov.nehta.model.clinical.shs.ExclusionStatementImpl;
 import au.gov.nehta.model.schematron.SchematronValidationException;
 import au.gov.nehta.schematron.Schematron;
 import au.gov.nehta.schematron.SchematronCheckResult;
+import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
@@ -113,12 +114,16 @@ import org.w3c.dom.Document;
 public class DischargeSummaryMaxTest extends Base {
 
   private static final String SCHEMATRON = DISCHARGE_SUMMARY_3B.resource().getSchematron();
-  private static final String SCHEMATRON_TEMPLATE_PATH = "resources/DischargeSummary";
+  private static String SCHEMATRON_TEMPLATE_PATH = "resources/DischargeSummary";
   private static final String DOCUMENT_FILE_NAME = TEST_GENERATION + "/ds/ds-max-java.xml";
 
   @Test
   public void test_MAX_Discharge_Summary_Creation() {
     try {
+      if (!new File(SCHEMATRON_TEMPLATE_PATH
+          + "/schematron/schematron-Validator-report.xsl").exists()) {
+        SCHEMATRON_TEMPLATE_PATH = "src/" + SCHEMATRON_TEMPLATE_PATH;
+      }
       generateMax();
       SchematronCheckResult check =
           Schematron.check(SCHEMATRON_TEMPLATE_PATH, SCHEMATRON, DOCUMENT_FILE_NAME);

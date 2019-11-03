@@ -1,0 +1,181 @@
+<!--
+_________________________________________________________________________________________________________________________________________________________________________________________
+                  Generated File - Do Not Edit File Directly                                                                                                                             
+                  __________________________________________
+
+                  Generated          : 27/09/2019 3:09:48 PM
+
+                  Product            : Goals of Care
+                  Release            : CDA_Implementation_Guide_v1.0
+                  Generator Version  : 
+                                                                                                                                                                                         
+_________________________________________________________________________________________________________________________________________________________________________________________
+-->
+    <pattern name="p-Goals_of_Care_DVA_File_Number_Checks-errors"
+        id="p-Goals_of_Care_DVA_File_Number_Checks-errors"
+        see="#p-Goals_of_Care_DVA_File_Number_Checks-errors">
+
+
+        <!--
+            The ext:entitlement/ext:id shall have the following attribute values::
+            1.	The @assigningAuthorityName shall contain the word "DVA" or "Veteran".
+            2.	The @root shall equal 2.16.840.1.113883.3.879.270091 or 2.16.840.1.113883.3.879.339127.
+            3.	The @extension shall be the DVA file number.
+            
+            The @extension shall conform to the following requirements::
+            1.	The 1st character is the State Code and shall be either N (for NSW), V (for Victoria), Q (for Queensland), W (for Western Australia), S (for South Australia) or T (for Tasmania). 
+                Veterans in the ACT are given the NSW state code N and veterans in the Northern Territory are given the South Australian state code S.
+            2.	The next 7 characters (character 2 to character 8) are the file number and consists of a War Code and numeric digits:
+                2.1. If the War Code is 1 character, the following characters are 6 digits.
+                    2.1.1. If ext:id/@root = '2.16.840.1.113883.3.879.270091' then the first character can only be an alphabet followed by 6 numeric digits. (ANNNNNN)
+                    2.1.2. If ext:id/@root = '2.16.840.1.113883.3.879.339127' then the first character is either an alphabet character or one blank space followed by 6 numeric digits. (ANNNNNN) or ( NNNNNN)
+                2.2.	If the War Code is 2 alpha characters, the following characters are 5 numeric digits. (AANNNNN)
+                2.3.	If the War Code is 3 alpha characters, the following characters are 4 numeric digits. (AAANNNN)
+            3.	The ninth character is optional and if present shall be an alphabet or a blank space. If present it represents members related to the veteran. (A) or ( )
+        -->
+        
+                
+        <rule context="ext:entitlement[(ext:code/@codeSystem = '1.2.36.1.2001.1001.101.104.16047') and ((ext:code/@code = '5') or (ext:code/@code = '6') or (ext:code/@code = '7'))]/ext:id">
+            
+            
+            <assert test="@root">Error: Goals of Care -
+                Entitlement Number - check for "id" tag - The 'id' tag 'root' attribute is missing. 
+                Check all related 'ext:id' tags to find the missing 'root' attribute.
+                Refer to "METeOR identifier 339127" and "METeOR identifier 270091" and "section 8 DVA Card" of the Standards_Australia_Handbook_234_2012_Healthcare_Identifier_HL7_Implementation_Guide.pdf 
+                and "section 8.2 id" of the Advance_Care_Information_CDA_Implementation_Guide_v1.0.</assert>
+            
+            <report test="
+                @root and
+                normalize-space(@root) = '' 
+                ">Error: Goals of Care -
+                Entitlement Number - check for "id" tag - The 'id' tag 'root' attribute shall contain a value. 
+                Check all related 'ext:id' tags to find the empty 'root' attribute.
+                Refer to "METeOR identifier 339127" and "METeOR identifier 270091" and "section 8 DVA Card" of the Standards_Australia_Handbook_234_2012_Healthcare_Identifier_HL7_Implementation_Guide.pdf 
+                and "section 8.2 id" of the Advance_Care_Information_CDA_Implementation_Guide_v1.0.</report>
+            
+            <assert test="
+                not(@root) or
+                normalize-space(@root) = '' or 
+                @root = '2.16.840.1.113883.3.879.270091' or @root = '2.16.840.1.113883.3.879.339127'
+                ">Error: Goals of Care -
+                Entitlement Number - check for "id" tag - The 'id' tag 'root' attribute shall contain the value '2.16.840.1.113883.3.879.270091' or '2.16.840.1.113883.3.879.339127'. 
+                Check all related 'ext:id' tags to find the incorrect 'root' attribute.
+                Refer to "METeOR identifier 339127" and "METeOR identifier 270091" and "section 8 DVA Card" of the Standards_Australia_Handbook_234_2012_Healthcare_Identifier_HL7_Implementation_Guide.pdf 
+                and "section 8.2 id" of the Advance_Care_Information_CDA_Implementation_Guide_v1.0.</assert>
+                      
+            <report test="
+                @assigningAuthorityName and
+                normalize-space(@assigningAuthorityName) = '' 
+                ">Error: Goals of Care -
+                Entitlement Number - check for "id" tag - The 'id' tag 'assigningAuthorityName' attribute shall contain a value. 
+                Check all related 'ext:id' tags to find the empty 'assigningAuthorityName' attribute.
+                Refer to "METeOR identifier 339127" and "METeOR identifier 270091" and "section 8 DVA Card" of the Standards_Australia_Handbook_234_2012_Healthcare_Identifier_HL7_Implementation_Guide.pdf 
+                and "section 8.2 id" of the Advance_Care_Information_CDA_Implementation_Guide_v1.0.</report>
+                        
+            <assert test="
+                not(@assigningAuthorityName) 
+                or normalize-space(@assigningAuthorityName) = ''
+                or (contains(translate(@assigningAuthorityName, 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'),'DVA'))
+                or (contains(translate(@assigningAuthorityName, 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'),'VETERAN'))"
+                >Error: Goals of Care -
+                Entitlement Number - check for "id" tag - The 'id' tag 'assigningAuthorityName' attribute shall contain "DVA" or "Veteran" as a part of its value. 
+                Check all related 'ext:id' tags to find the incorrect 'assigningAuthorityName' attribute.
+                Refer to "METeOR identifier 339127" and "METeOR identifier 270091" and "section 8 DVA Card" of the Standards_Australia_Handbook_234_2012_Healthcare_Identifier_HL7_Implementation_Guide.pdf 
+                and "section 8.2 id" of the Advance_Care_Information_CDA_Implementation_Guide_v1.0.</assert>
+            
+            <assert test="@extension
+                ">Error: Goals of Care -
+                Entitlement Number - check for "id" tag - The 'id' tag 'extension' attribute is missing. 
+                Check all 'ext:id' tags to find the missing 'extension' attribute.
+                Refer to "METeOR identifier 339127" and "METeOR identifier 270091" and "section 8 DVA Card" of the Standards_Australia_Handbook_234_2012_Healthcare_Identifier_HL7_Implementation_Guide.pdf 
+                and "section 8.2 id" of the Advance_Care_Information_CDA_Implementation_Guide_v1.0.</assert>
+            
+            <report test="@extension and normalize-space(@extension) = '' 
+                ">Error: Goals of Care -
+                Entitlement Number - check for "id" tag - The 'id' tag 'extension' attribute shall contain a value. 
+                Check all related 'ext:id' tags to find the incorrect 'extension' attribute.
+                Refer to "METeOR identifier 339127" and "METeOR identifier 270091" and "section 8 DVA Card" of the Standards_Australia_Handbook_234_2012_Healthcare_Identifier_HL7_Implementation_Guide.pdf 
+                and "section 8.2 id" of the Advance_Care_Information_CDA_Implementation_Guide_v1.0.</report>
+            
+            <report test="@extension and
+                normalize-space(@extension) != '' and
+                (string-length(@extension) != 8 and string-length(@extension) != 9)
+                ">Error: Goals of Care -
+                Entitlement Number - check for "id" tag - The 'id' tag 'extension' attribute shall be a valid 8 character or 9 character DVA file number. 
+                Check all related 'ext:id' tags to find the incorrect 'extension' attribute.
+                Refer to "METeOR identifier 339127" and "METeOR identifier 270091" and "section 8 DVA Card" of the Standards_Australia_Handbook_234_2012_Healthcare_Identifier_HL7_Implementation_Guide.pdf 
+                and "section 8.2 id" of the Advance_Care_Information_CDA_Implementation_Guide_v1.0.</report>
+            
+            <report test="@extension and
+                normalize-space(@extension) != '' and
+                not(starts-with(@extension, 'N') 
+                or starts-with(@extension, 'V') 
+                or starts-with(@extension, 'Q') 
+                or starts-with(@extension, 'W') 
+                or starts-with(@extension, 'S') 
+                or starts-with(@extension, 'T'))
+                ">Error: Goals of Care -
+                Entitlement Number - check for "id" tag - The 'id' tag 'extension' attribute shall
+                be a valid DVA file number with its first character being the State Code and shall be either 
+                N (for NSW), V (for Victoria), Q (for Queensland), W (for Western Australia), S (for South Australia) or T (for Tasmania). 
+                Veterans in the ACT are given the NSW state code N and veterans in the Northern Territory are given the South Australian state code S. 
+                Check all related 'ext:id' tags to find the incorrect 'extension' attribute.
+                Refer to "METeOR identifier 339127" and "METeOR identifier 270091" and "section 8 DVA Card" of the Standards_Australia_Handbook_234_2012_Healthcare_Identifier_HL7_Implementation_Guide.pdf 
+                and "section 8.2 id" of the Advance_Care_Information_CDA_Implementation_Guide_v1.0.</report>
+            
+            <report test="(self::*[@root = '2.16.840.1.113883.3.879.270091']/@extension) and
+                normalize-space(self::*[@root = '2.16.840.1.113883.3.879.270091']/@extension) != '' and 
+                not(translate(substring(self::*[@root = '2.16.840.1.113883.3.879.270091']/@extension,  2,  1), 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz', '0000000000000000000000000000000000000000000000000000') = '0' and   
+                translate(substring(self::*[@root = '2.16.840.1.113883.3.879.270091']/@extension,  3,  2), 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789', '00000000000000000000000000000000000000000000000000000000000000') = '00' and  
+                translate(substring(self::*[@root = '2.16.840.1.113883.3.879.270091']/@extension, 5, 4), '0123456789', '0000000000') = '0000') 
+                ">Error:  Goals of Care -
+                Entitlement Number - check for "id" tag - The 'id' tag 'extension' attribute shall
+                be a valid DVA file number for 'id' tag 'root' attribute value of '2.16.840.1.113883.3.879.270091'. 
+                Check all related 'ext:id' tags to find the incorrect 'extension' attribute.
+                Refer to "METeOR identifier 270091" and "section 8 DVA Card" of the Standards_Australia_Handbook_234_2012_Healthcare_Identifier_HL7_Implementation_Guide.pdf 
+                and "section 8.2 id" of the Advance_Care_Information_CDA_Implementation_Guide_v1.0.</report>
+            
+            <report test="(self::*[@root = '2.16.840.1.113883.3.879.339127']/@extension) and
+                not(translate(substring(self::*[@root = '2.16.840.1.113883.3.879.339127']/@extension,  2,  1), 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz ', '00000000000000000000000000000000000000000000000000000') = '0' and   
+                translate(substring(self::*[@root = '2.16.840.1.113883.3.879.339127']/@extension,  3,  2), 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789', '00000000000000000000000000000000000000000000000000000000000000') = '00' and  
+                translate(substring(self::*[@root = '2.16.840.1.113883.3.879.339127']/@extension, 5, 4), '0123456789', '0000000000') = '0000') 
+                ">Error:  Goals of Care -
+                Entitlement Number - check for "id" tag - The 'id' tag 'extension' attribute shall
+                be a valid DVA file number for 'id' tag 'root' attribute value of '2.16.840.1.113883.3.879.339127'. 
+                Check all related 'ext:id' tags to find the incorrect 'extension' attribute.
+                Refer to "METeOR identifier 339127" and "section 8 DVA Card" of the Standards_Australia_Handbook_234_2012_Healthcare_Identifier_HL7_Implementation_Guide.pdf 
+                and "section 8.2 id" of the Advance_Care_Information_CDA_Implementation_Guide_v1.0.</report>
+            
+            <report test="@extension and
+                normalize-space(@extension) != '' and
+                (string-length(@extension) = 9 and   not(translate(substring(@extension,  9,  1), 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz ', '00000000000000000000000000000000000000000000000000000') = '0'))
+                ">Error: Goals of Care -
+                Entitlement Number - check for "id" tag - The 'id' tag 'extension' attribute shall be a valid DVA file number and its 9th character shall be either an alphabet or a space. 
+                Check all related 'ext:id' tags to find the incorrect 'extension' attribute.
+                Refer to "METeOR identifier 339127" and "METeOR identifier 270091" and "section 8 DVA Card" of the Standards_Australia_Handbook_234_2012_Healthcare_Identifier_HL7_Implementation_Guide.pdf 
+                and "section 8.2 id" of the Advance_Care_Information_CDA_Implementation_Guide_v1.0.</report>
+                        
+            <report test="@extension and
+                normalize-space(@extension) != '' and 
+                substring(@extension,  2,  1) = '0'
+                ">Error: Goals of Care -
+                Entitlement Number - check for "id" tag - The 'id' tag 'extension' attribute shall be a valid DVA file number and its 2nd character shall not be 0. 
+                Check all related 'ext:id' tags to find the incorrect 'extension' attribute.
+                Refer to "METeOR identifier 339127" and "METeOR identifier 270091" and "section 8 DVA Card" of the Standards_Australia_Handbook_234_2012_Healthcare_Identifier_HL7_Implementation_Guide.pdf 
+                and "section 8.2 id" of the Advance_Care_Information_CDA_Implementation_Guide_v1.0.</report>
+                        
+            <report test="@extension and
+                normalize-space(@extension) != '' and
+                (string-length(@extension) = 9 and  (substring(@extension,  9,  1) = '0'))
+                ">Error: Goals of Care -
+                Entitlement Number - check for "id" tag - The 'id' tag 'extension' attribute shall be a valid DVA file number and its 9th character shall not be 0. 
+                Check all related 'ext:id' tags to find the incorrect 'root' attribute.
+                Refer to "METeOR identifier 339127" and "METeOR identifier 270091" and "section 8 DVA Card" of the Standards_Australia_Handbook_234_2012_Healthcare_Identifier_HL7_Implementation_Guide.pdf 
+                and "section 8.2 id" of the Advance_Care_Information_CDA_Implementation_Guide_v1.0.</report>
+            
+            
+        </rule>
+
+
+    </pattern>
+

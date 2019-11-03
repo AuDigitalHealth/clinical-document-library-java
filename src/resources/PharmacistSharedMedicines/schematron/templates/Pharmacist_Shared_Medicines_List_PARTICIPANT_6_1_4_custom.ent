@@ -1,0 +1,31 @@
+<pattern name="p-Pharmacist_Shared_Medicines_List_PARTICIPANT_6_1_4_custom-errors"
+  id="p-Pharmacist_Shared_Medicines_List_PARTICIPANT_6_1_4_custom-errors"
+  see="#p-Pharmacist_Shared_Medicines_List_PARTICIPANT_6_1_4_custom-errors">
+
+
+  <rule context="/cda:ClinicalDocument">
+
+    <report
+      test="count(cda:participant[@typeCode = 'PART'][cda:functionCode/@code = 'PCP']) > 1"
+    >Error: Pharmacist Shared Medicines List - 6.1.4 PARTICIPANT - The 'participant'
+      tag of type primary healthcare provider shall exist at most once. Refer to "027990 -
+      Primary healthcare provider" of the
+      Pharmacist_Shared_Medicines_List_Conformance_Profile and section 6.1.4 of the
+      Core_Level_One_Clinical_Document_CDA_Implementation_Guide_v1.1.
+    </report>
+
+  </rule>
+
+  <rule context="/cda:ClinicalDocument/cda:participant/cda:associatedEntity">
+
+    <assert test="cda:associatedPerson or cda:scopingOrganization">Error: Pharmacist Shared
+      Medicines List - 6.1.4 PARTICIPANT - Each instance of PARTICIPANT shall have either
+      'assignedPerson' or 'scopingOrganization'. Refer to sections 6.1.4.1 and 6.1.4.2 of
+      the Core_Level_One_Clinical_Document_CDA_Implementation_Guide_v1.1.
+    </assert>
+
+  </rule>
+
+
+</pattern>
+

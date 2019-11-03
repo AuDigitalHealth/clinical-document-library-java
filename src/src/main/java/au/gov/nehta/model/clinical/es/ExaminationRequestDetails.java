@@ -2,7 +2,6 @@ package au.gov.nehta.model.clinical.es;
 
 import au.gov.nehta.model.cda.common.time.PreciseDate;
 import au.gov.nehta.model.clinical.common.types.UniqueIdentifier;
-
 import java.util.List;
 
 /*
@@ -33,5 +32,4 @@ public interface ExaminationRequestDetails {
 
   PreciseDate getObservationDateTime();
 
-  //TODO Missing Validation
 }

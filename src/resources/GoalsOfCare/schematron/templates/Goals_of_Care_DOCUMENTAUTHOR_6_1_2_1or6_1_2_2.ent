@@ -1,0 +1,155 @@
+<!--
+_________________________________________________________________________________________________________________________________________________________________________________________
+                  Generated File - Do Not Edit File Directly                                                                                                                             
+                  __________________________________________
+
+                  Generated          : 1/10/2019 12:21:13 PM
+
+                  Product            : Goals of Care
+                  Release            : CDA_Implementation_Guide_v1.0
+                  IG Guide Reference : 6.1.2.1 or 6.1.2.2
+                  IG Guide Title     : DOCUMENT AUTHOR
+                  Generator Version  : 2.29
+                                                                                                                                                                                         
+_________________________________________________________________________________________________________________________________________________________________________________________
+-->
+    <pattern name="p-Goals_of_Care_DOCUMENTAUTHOR_6_1_2_1or6_1_2_2-errors"
+        id="p-Goals_of_Care_DOCUMENTAUTHOR_6_1_2_1or6_1_2_2-errors"
+        see="#p-Goals_of_Care_DOCUMENTAUTHOR_6_1_2_1or6_1_2_2-errors">
+
+
+        <rule context="/cda:ClinicalDocument">
+
+            <assert test="cda:author"
+                >Error: Goals of Care - 6.1.2.1 or 6.1.2.2 DOCUMENT AUTHOR -
+                "DOCUMENT AUTHOR" -
+                The 'author' tag is missing.
+               Refer to section 6.1.2.1 or 6.1.2.2 of the
+                Advance_Care_Information_CDA_Implementation_Guide_v1.0.</assert>
+
+            <report test="count(cda:author) > 1"
+                >Error: Goals of Care - 6.1.2.1 or 6.1.2.2 DOCUMENT AUTHOR -
+                "DOCUMENT AUTHOR" -
+                The 'author' tag shall appear only once.
+                Refer to section 6.1.2.1 or 6.1.2.2 of the
+                Advance_Care_Information_CDA_Implementation_Guide_v1.0.</report>
+
+        </rule>
+
+
+        <rule context="/cda:ClinicalDocument/cda:author">
+
+            <report test="
+                @typeCode and normalize-space(@typeCode) != '' and @typeCode != 'AUT'"
+                >Error: Goals of Care - 6.1.2.1 or 6.1.2.2 DOCUMENT AUTHOR -
+                "DOCUMENT AUTHOR" -
+                The 'author' tag 'typeCode' attribute shall contain the value 'AUT'.
+                Refer to section 6.1.2.1 or 6.1.2.2 of the
+                Advance_Care_Information_CDA_Implementation_Guide_v1.0.</report>
+
+            <report test="@typeCode and normalize-space(@typeCode) = ''"
+                >Error: Goals of Care - 6.1.2.1 or 6.1.2.2 DOCUMENT AUTHOR -
+                "DOCUMENT AUTHOR" -
+                The 'author' tag 'typeCode' attribute shall contain a value.
+                Refer to section 6.1.2.1 or 6.1.2.2 of the
+                Advance_Care_Information_CDA_Implementation_Guide_v1.0.</report>
+
+            <assert test="cda:assignedAuthor"
+                >Error: Goals of Care - 6.1.2.1 or 6.1.2.2 DOCUMENT AUTHOR -
+                "DOCUMENT AUTHOR / id" -
+                The 'assignedAuthor' tag is missing.
+               Refer to section 6.1.2.1 or 6.1.2.2 of the
+                Advance_Care_Information_CDA_Implementation_Guide_v1.0.</assert>
+
+            <report test="count(cda:assignedAuthor) > 1"
+                >Error: Goals of Care - 6.1.2.1 or 6.1.2.2 DOCUMENT AUTHOR -
+                "DOCUMENT AUTHOR / id" -
+                The 'assignedAuthor' tag shall appear only once.
+                Refer to section 6.1.2.1 or 6.1.2.2 of the
+                Advance_Care_Information_CDA_Implementation_Guide_v1.0.</report>
+
+            <report test="count(cda:time) > 1"
+                >Error: Goals of Care - 6.1.2.1 or 6.1.2.2 DOCUMENT AUTHOR -
+                "DOCUMENT AUTHOR / Participation Period" -
+                The 'time' tag shall appear only once.
+                Refer to section 6.1.2.1 or 6.1.2.2 of the
+                Advance_Care_Information_CDA_Implementation_Guide_v1.0.</report>
+
+            <assert test="cda:time"
+                >Error: Goals of Care - 6.1.2.1 or 6.1.2.2 DOCUMENT AUTHOR -
+                "DOCUMENT AUTHOR / Participation Period" -
+                The 'time' tag is missing.
+               Refer to section 6.1.2.1 or 6.1.2.2 of the
+                Advance_Care_Information_CDA_Implementation_Guide_v1.0.</assert>
+
+        </rule>
+
+
+        <rule context="/cda:ClinicalDocument/cda:author/cda:assignedAuthor">
+
+            <report test="count(cda:assignedPerson) > 1"
+                >Error: Goals of Care - 6.1.2.1 or 6.1.2.2 DOCUMENT AUTHOR -
+                "DOCUMENT AUTHOR / PARTICIPANT" -
+                The 'assignedPerson' tag shall appear only once.
+                Refer to section 6.1.2.1 or 6.1.2.2 of the
+                Advance_Care_Information_CDA_Implementation_Guide_v1.0.</report>
+
+            <assert test="cda:assignedPerson"
+                >Error: Goals of Care - 6.1.2.1 or 6.1.2.2 DOCUMENT AUTHOR -
+                "DOCUMENT AUTHOR / PARTICIPANT" -
+                The 'assignedPerson' tag is missing.
+               Refer to section 6.1.2.1 or 6.1.2.2 of the
+                Advance_Care_Information_CDA_Implementation_Guide_v1.0.</assert>
+
+            <assert test="cda:id"
+                >Error: Goals of Care - 6.1.2.1 or 6.1.2.2 DOCUMENT AUTHOR -
+                "DOCUMENT AUTHOR / id" -
+                The 'id' tag is missing.
+               Refer to section 6.1.2.1 or 6.1.2.2 of the
+                Advance_Care_Information_CDA_Implementation_Guide_v1.0.</assert>
+
+            <report test="count(cda:id) > 1"
+                >Error: Goals of Care - 6.1.2.1 or 6.1.2.2 DOCUMENT AUTHOR -
+                "DOCUMENT AUTHOR / id" -
+                The 'id' tag shall appear only once.
+                Refer to section 6.1.2.1 or 6.1.2.2 of the
+                Advance_Care_Information_CDA_Implementation_Guide_v1.0.</report>
+
+        </rule>
+
+
+        <rule context="/cda:ClinicalDocument/cda:author/cda:assignedAuthor/cda:assignedPerson">
+
+            <assert test="cda:name"
+                >Error: Goals of Care - 6.1.2.1 or 6.1.2.2 DOCUMENT AUTHOR -
+                "DOCUMENT AUTHOR / PARTICIPANT / PERSON OR ORGANISATION OR DEVICE / PERSON / PERSON NAME" -
+                The 'name' tag is missing.
+               Refer to section 6.1.2.1 or 6.1.2.2 of the
+                Advance_Care_Information_CDA_Implementation_Guide_v1.0.</assert>
+
+            <assert test="not(ext:personalRelationship)"
+                >Error: Goals of Care - 6.1.2.1 or 6.1.2.2 DOCUMENT AUTHOR -
+                "DOCUMENT AUTHOR / PARTICIPANT / PERSON OR ORGANISATION OR DEVICE / PERSON / Relationship to Subject of Care" -
+                The 'personalRelationship' tag shall not be present.
+                Refer to section 6.1.2.1 or 6.1.2.2 of the
+                Advance_Care_Information_CDA_Implementation_Guide_v1.0.</assert>
+
+            <assert test="not(ext:administrativeGenderCode)"
+                >Error: Goals of Care - 6.1.2.1 or 6.1.2.2 DOCUMENT AUTHOR -
+                "DOCUMENT AUTHOR / PARTICIPANT / PERSON OR ORGANISATION OR DEVICE / PERSON / DEMOGRAPHIC DATA" -
+                The 'administrativeGenderCode' tag shall not be present.
+                Refer to section 6.1.2.1 or 6.1.2.2 of the
+                Advance_Care_Information_CDA_Implementation_Guide_v1.0.</assert>
+
+            <assert test="not(ext:birthTime)"
+                >Error: Goals of Care - 6.1.2.1 or 6.1.2.2 DOCUMENT AUTHOR -
+                "DOCUMENT AUTHOR / PARTICIPANT / PERSON OR ORGANISATION OR DEVICE / PERSON / DEMOGRAPHIC DATA" -
+                The 'birthTime' tag shall not be present.
+                Refer to section 6.1.2.1 or 6.1.2.2 of the
+                Advance_Care_Information_CDA_Implementation_Guide_v1.0.</assert>
+
+        </rule>
+
+
+    </pattern>
+

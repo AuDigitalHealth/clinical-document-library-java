@@ -98,7 +98,6 @@ import au.gov.nehta.builder.util.CreatorUtil;
 import au.gov.nehta.model.cda.common.ElectronicCommunicationDetail;
 import au.gov.nehta.model.cda.common.code.CodeImpl;
 import au.gov.nehta.model.cda.common.code.Coded;
-import au.gov.nehta.model.cda.common.informationrecipient.InformationRecipient;
 import au.gov.nehta.model.cda.common.person_org.PersonHealthcareProvider;
 import au.gov.nehta.model.cda.sr.ServiceReferralCDAModel;
 import au.gov.nehta.model.clinical.common.address.Address;
@@ -114,6 +113,7 @@ import au.gov.nehta.model.clinical.sr.OtherAlert;
 import au.gov.nehta.model.clinical.sr.RelatedDocument;
 import au.gov.nehta.model.clinical.sr.RequestedService;
 import au.gov.nehta.model.clinical.sr.ServiceReferral;
+import au.gov.nehta.model.clinical.sr.ServiceReferralDetail;
 import au.gov.nehta.model.schematron.SchematronResource.SchematronResources;
 import au.gov.nehta.model.schematron.SchematronValidationException;
 import au.net.electronichealth.ns.cda._2_0.ActClass;
@@ -184,6 +184,7 @@ public class ServiceReferralCreator extends ClinicalDocumentCreator {
   private POCDMT000040Component3 administrativeObsComponent;
   private ExclusionStatementComponent exclusionStatementComponent
       = new ExclusionStatementComponent();
+  private boolean isFormat2;
 
   static {
     serviceReferralCodeMap = new HashMap<String, CD>() {{
@@ -274,7 +275,15 @@ public class ServiceReferralCreator extends ClinicalDocumentCreator {
   public ServiceReferralCreator(ServiceReferralCDAModel cdaModel, ServiceReferral clinicalModel) {
     this.cdaModel = cdaModel;
     this.clinicalModel = clinicalModel;
+    // for schematron checking
+    this.resource = SchematronResources.SERVICE_REFERRAL_3A.resource();
+  }
 
+  public ServiceReferralCreator(ServiceReferralCDAModel cdaModel, ServiceReferral clinicalModel,
+      boolean isFormat2) {
+    this.cdaModel = cdaModel;
+    this.clinicalModel = clinicalModel;
+    this.isFormat2 = isFormat2;
     // for schematron checking
     this.resource = SchematronResources.SERVICE_REFERRAL_3A.resource();
   }
@@ -328,7 +337,8 @@ public class ServiceReferralCreator extends ClinicalDocumentCreator {
     //Information Recipient
     cdaModel.getInformationRecipients().stream().filter(Objects::nonNull).forEach(
         informationRecipient -> clinicalDocument.getInformationRecipient()
-            .add(getInformationRecipient(informationRecipient))
+            .add(HeaderUtil.getInformationRecipient(informationRecipient,
+                XInformationRecipient.PRCP, XInformationRecipientRole.ASSIGNED))
     );
 
     // Construct Legal Authenticator
@@ -504,34 +514,6 @@ public class ServiceReferralCreator extends ClinicalDocumentCreator {
     return informationRecipientCda;
   }
 
-  private POCDMT000040InformationRecipient getInformationRecipient(
-      InformationRecipient informationRecipient) {
-
-    POCDMT000040InformationRecipient informationRecipientCda = objectFactory
-        .createPOCDMT000040InformationRecipient();
-    informationRecipientCda.setTypeCode(XInformationRecipient.PRCP);
-    if (null != informationRecipient.getIntendedRecipient()) {
-      POCDMT000040IntendedRecipient intendedRecipientCda = objectFactory
-          .createPOCDMT000040IntendedRecipient();
-      intendedRecipientCda.setClassCode(XInformationRecipientRole.ASSIGNED);
-      intendedRecipientCda.getId().add(CDATypeUtil.getII(UUID.randomUUID().toString()));
-      intendedRecipientCda.getAddr().addAll(
-          Converter.convertAddresses(informationRecipient.getIntendedRecipient().getAddress()));
-      intendedRecipientCda.getTelecom()
-          .addAll(Converter.convert(informationRecipient.getIntendedRecipient().getTelecom()));
-      POCDMT000040Person assignedPerson = objectFactory.createPOCDMT000040Person();
-      assignedPerson.getAsEntityIdentifier().add(Converter.convert(informationRecipient
-          .getIntendedRecipient().getAssignedPerson().getAsEntityIdentifier()));
-      assignedPerson.getName().addAll(Converter
-          .convertNames(informationRecipient.getIntendedRecipient().getAssignedPerson().getName()));
-      intendedRecipientCda.setInformationRecipient(assignedPerson);
-      informationRecipientCda.setIntendedRecipient(intendedRecipientCda);
-      return informationRecipientCda;
-    } else {
-      throw new RuntimeException(
-          "Missing: Clinical Document > Information Recipient > Intended Recipient");
-    }
-  }
 
   private POCDMT000040Participant1 getPrimaryCareGiverParticipant(
       ParticipationServiceProvider primaryCareGiver) {
@@ -699,10 +681,15 @@ public class ServiceReferralCreator extends ClinicalDocumentCreator {
                 .getInterpreterRequiredAlert());
       }
     }
-    if (null != clinicalModel.getContent().getCurrentServices()
-        && !clinicalModel.getContent().getCurrentServices().getCurrentServices().isEmpty()) {
+    if (!isFormat2) {
+      if (null != clinicalModel.getContent().getCurrentServices()
+          && !clinicalModel.getContent().getCurrentServices().getCurrentServices().isEmpty()) {
+        structuredBody.getComponent().add(getCurrentServices());
+      }
+    } else {
       structuredBody.getComponent().add(getCurrentServices());
     }
+
     processAdverseReactions(structuredBody);
     if (null != this.clinicalModel.getContent().getMedications()) {
       structuredBody.getComponent().add(getMedications(clinicalModel.getContent()
@@ -722,6 +709,7 @@ public class ServiceReferralCreator extends ClinicalDocumentCreator {
 
   private void processAdverseReactions(POCDMT000040StructuredBody structuredBody) {
     AdverseReactions adverseReactionsObj = clinicalModel.getContent().getAdverseReactions();
+
     if (null != adverseReactionsObj) {
       //Exclusion statement and Adverse Reaction is mutually exclusive
       if (null != adverseReactionsObj.getExclusionStatement()
@@ -749,8 +737,12 @@ public class ServiceReferralCreator extends ClinicalDocumentCreator {
       } else { //If exclusion statement is empty, the Adverse Reaction component can be created
         AdverseReactionComponent adverseReactionComponent = new AdverseReactionComponent(
             serviceReferralCodeMap);
+        //Set this flag to true if working with format 2.
+/*        if(isFormat2){
+          adverseReactionComponent.isFormat2(true);
+        }*/
         structuredBody.getComponent().add(adverseReactionComponent.getAdverseReactions(
-            clinicalModel.getContent().getAdverseReactions()));
+            adverseReactionsObj));
       }
     }
   }
@@ -809,9 +801,11 @@ public class ServiceReferralCreator extends ClinicalDocumentCreator {
     POCDMT000040Component3 currentServicesComponent = objectFactory.createPOCDMT000040Component3();
     POCDMT000040Section currentServicesSection = objectFactory.createPOCDMT000040Section();
     currentServicesComponent.setSection(currentServicesSection);
-    clinicalModel.getContent().getCurrentServices().getCurrentServices().stream()
-        .filter(Objects::nonNull).forEach(currentService -> currentServicesSection.getEntry()
-        .add(getRequestedServiceEntry(currentService, true)));
+    if (!isFormat2) {
+      clinicalModel.getContent().getCurrentServices().getCurrentServices().stream()
+          .filter(Objects::nonNull).forEach(currentService -> currentServicesSection.getEntry()
+          .add(getRequestedServiceEntry(currentService, true)));
+    }
     currentServicesSection.setTitle(CDATypeUtil.getST(
         serviceReferralCodeMap.get(ClinicalDocumentCodes.CURRENT_SERVICES).getDisplayName()));
     currentServicesSection.setCode(
@@ -852,12 +846,16 @@ public class ServiceReferralCreator extends ClinicalDocumentCreator {
                 + "Exclusion Statement > Global Statement");
       }
       //If the exclusion statement is null, the Known Medications components can be created
-    } else if (null != medicationsObj.getKnownMedications() && !medicationsObj.getKnownMedications()
-        .isEmpty()) {
-      List<KnownMedication> knownMedications = medicationsObj.getKnownMedications();
-      knownMedications.stream().filter(Objects::nonNull).forEach(
-          knownMedication -> medicationSection.getEntry()
-              .add(getKnownMedicationEntry(knownMedication)));
+    } else if (!isFormat2) {
+      if (null != medicationsObj.getKnownMedications() && !medicationsObj.getKnownMedications()
+          .isEmpty()) {
+        List<KnownMedication> knownMedications = medicationsObj.getKnownMedications();
+        knownMedications.stream().filter(Objects::nonNull).forEach(
+            knownMedication -> medicationSection.getEntry()
+                .add(getKnownMedicationEntry(knownMedication)));
+        medicationSection.setText(NarrativeUtilCommon.getMedications(medicationsObj));
+      }
+    } else {
       medicationSection.setText(NarrativeUtilCommon.getMedications(medicationsObj));
     }
     medicationsComponent.setSection(medicationSection);
@@ -934,24 +932,35 @@ public class ServiceReferralCreator extends ClinicalDocumentCreator {
           NarrativeUtil.getRelatedDocuments(clinicalModel.getContext().getRelatedDocuments()));
     }
     //Add Requested Services
-    if (null == clinicalModel.getContent().getServiceReferralDetail().getRequestedServices()) {
-      throw new RuntimeException(
-          "Missing data : Service Referral > Service Referral Detail > Requested Services");
+    if (!isFormat2) {
+      if (null == clinicalModel.getContent().getServiceReferralDetail().getRequestedServices()) {
+        throw new RuntimeException(
+            "Missing data : Service Referral > Service Referral Detail > Requested Services");
+      }
+      clinicalModel.getContent().getServiceReferralDetail().getRequestedServices().stream()
+          .filter(Objects::nonNull).forEach(requestedService -> referenceDetailSection.getEntry()
+          .add(getRequestedServiceEntry(requestedService, false)));
     }
-    clinicalModel.getContent().getServiceReferralDetail().getRequestedServices().stream()
-        .filter(Objects::nonNull).forEach(requestedService -> referenceDetailSection.getEntry()
-        .add(getRequestedServiceEntry(requestedService, false)));
-    NarrativeUtil.getRequestedServices(referenceDetailSection.getText(),
-        clinicalModel.getContent().getServiceReferralDetail().getRequestedServices());
-    // Other Alerts
-    if (null != clinicalModel.getContent().getServiceReferralDetail().getOtherAlert()
-        && !clinicalModel.getContent().getServiceReferralDetail().getOtherAlert().isEmpty()) {
-      clinicalModel.getContent().getServiceReferralDetail().getOtherAlert().stream()
-          .filter(Objects::nonNull).forEach(
-          otherAlert -> referenceDetailSection.getEntry().add(getOtherAlertEntry(otherAlert)));
-      NarrativeUtil.getOtherAlerts(referenceDetailSection.getText(),
-          clinicalModel.getContent().getServiceReferralDetail().getOtherAlert());
-    }
+    ServiceReferralDetail serviceReferralDetailObj =
+        clinicalModel.getContent().getServiceReferralDetail();
+
+    //Check if the custom narrative exists
+    if (serviceReferralDetailObj.getCustomNarrative() != null) {
+      referenceDetailSection.setText(serviceReferralDetailObj.getCustomNarrative());
+    } else {
+      NarrativeUtil.getRequestedServices(referenceDetailSection.getText(),
+          clinicalModel.getContent().getServiceReferralDetail().getRequestedServices());
+      // Other Alerts
+      if (null != clinicalModel.getContent().getServiceReferralDetail().getOtherAlert()
+          && !clinicalModel.getContent().getServiceReferralDetail().getOtherAlert().isEmpty()) {
+        clinicalModel.getContent().getServiceReferralDetail().getOtherAlert().stream()
+            .filter(Objects::nonNull).forEach(
+            otherAlert -> referenceDetailSection.getEntry().add(getOtherAlertEntry(otherAlert)));
+        NarrativeUtil.getOtherAlerts(referenceDetailSection.getText(),
+            clinicalModel.getContent().getServiceReferralDetail().getOtherAlert());
+      }
+      }
+
     referenceDetailComp.setSection(referenceDetailSection);
     return referenceDetailComp;
   }
@@ -1191,7 +1200,8 @@ public class ServiceReferralCreator extends ClinicalDocumentCreator {
     //Information Recipient
     cdaModel.getInformationRecipients().stream().filter(Objects::nonNull)
         .forEach(informationRecipient -> clinicalDocument.getInformationRecipient()
-            .add(HeaderUtil.createInformationRecipient(informationRecipient))
+            .add(HeaderUtil
+                .createInformationRecipient(informationRecipient, XInformationRecipient.PRCP))
         );
     return clinicalDocument;
   }

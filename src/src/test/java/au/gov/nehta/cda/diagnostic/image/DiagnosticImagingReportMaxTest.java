@@ -141,15 +141,17 @@ import org.w3c.dom.Document;
 public class DiagnosticImagingReportMaxTest extends Base {
 
   private static final String SCHEMATRON = "ccd-3B.sch";
-  private static final String SCHEMATRON_TEMPLATE_PATH = "resources/DiagnosticImagingReport";
+  private static String SCHEMATRON_TEMPLATE_PATH = "resources/DiagnosticImagingReport";
 
   private static final String DOCUMENT_FILE_NAME =
      TEST_GENERATION + "diagnosticImage-device-max.xml";
 
   @Test
   public void test_MAX_DiagnosticImageReportCreation()
-      throws ParserConfigurationException, JAXBException, SchematronValidationException, IOException, ParseException,
-      URISyntaxException {
+      throws ParserConfigurationException, JAXBException, SchematronValidationException {
+    if (!new File(SCHEMATRON_TEMPLATE_PATH + "/schematron/schematron-Validator-report.xsl").exists()) {
+      SCHEMATRON_TEMPLATE_PATH = "src/" + SCHEMATRON_TEMPLATE_PATH;
+    }
     generateMax();
     SchematronCheckResult check = Schematron.check(
         SCHEMATRON_TEMPLATE_PATH, SCHEMATRON, DOCUMENT_FILE_NAME);

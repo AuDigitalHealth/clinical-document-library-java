@@ -1,0 +1,281 @@
+
+
+    <!-- Advanced Care Directive Custodian Record Clinical Document:  5.1.1 Legal Authenticator -->
+
+    <!-- Context: ClinicalDocument/LegalAuthenticator -->
+
+
+    <!-- Status: Last Reviewed:
+         Status: Last Updated : 12/04/2012 -->
+
+
+    <pattern name="p-Advanced_Care_Directive_Custodian_Record_Legal_Authenticator-errors"
+        id="p-Advanced_Care_Directive_Custodian_Record_Legal_Authenticator-errors"
+        see="#p-Advanced_Care_Directive_Custodian_Record_Legal_Authenticator-errors">
+
+
+        <rule context="/cda:ClinicalDocument">
+
+            <!-- LEGAL AUTHENTICATOR -->
+            <!-- legalAuthenticator - 0..1 -->
+
+            <report test="count(cda:legalAuthenticator) > 1">Error: Advanced Care Directive Custodian Record - 5.1.1 Legal
+                Authenticator - The 'legalAuthenticator' tag shall appear only once. Refer to
+                section 5.1.1 of the
+                Advanced_Care_Directive_Custodian_Record_CDA_Implementation_Guide_v1.0.</report>
+
+        </rule>
+
+
+        <rule context="/cda:ClinicalDocument/cda:legalAuthenticator">
+
+            <!-- TIME -->
+            <!-- legalAuthenticator/time - 1..1 -->
+
+            <assert test="cda:time">Error: Advanced Care Directive Custodian Record - 5.1.1 Legal Authenticator -
+                "legalAuthenticator / time" - The 'time' tag is missing. Refer to section 5.1.1 of
+                the Advanced_Care_Directive_Custodian_Record_CDA_Implementation_Guide_v1.0.</assert>
+
+            <report test="count(cda:time) > 1">Error: Advanced Care Directive Custodian Record - 5.1.1 Legal Authenticator -
+                "legalAuthenticator / time" - The 'time' tag shall appear only once. Refer to
+                section 5.1.1 of the
+                Advanced_Care_Directive_Custodian_Record_CDA_Implementation_Guide_v1.0.</report>
+
+            <!-- SIGNATURE CODE -->
+            <!-- legalAuthenticator/signatureCode/@code = "S" - 1..1 -->
+
+            <assert test="cda:signatureCode">Error: Advanced Care Directive Custodian Record - 5.1.1 Legal Authenticator -
+                "legalAuthenticator / signatureCode" - The 'signatureCode' tag is missing. Refer to
+                section 5.1.1 of the
+                Advanced_Care_Directive_Custodian_Record_CDA_Implementation_Guide_v1.0.</assert>
+
+            <report test="count(cda:signatureCode) > 1">Error: Advanced Care Directive Custodian Record - 5.1.1 Legal
+                Authenticator - "legalAuthenticator / signatureCode" - The 'signatureCode' tag shall
+                appear only once. Refer to section 5.1.1 of the
+                Advanced_Care_Directive_Custodian_Record_CDA_Implementation_Guide_v1.0.</report>
+
+            <assert test="cda:signatureCode[@code]">Error: Advanced Care Directive Custodian Record - 5.1.1 Legal Authenticator
+                - "legalAuthenticator / signatureCode" - The 'signatureCode' tag 'code' attribute is
+                missing. Refer to section 5.1.1 of the
+                Advanced_Care_Directive_Custodian_Record_CDA_Implementation_Guide_v1.0.</assert>
+
+            <assert test="cda:signatureCode[@code = 'S']">Error: Advanced Care Directive Custodian Record - 5.1.1 Legal
+                Authenticator - "legalAuthenticator / signatureCode" - The 'signatureCode' tag
+                'code' attribute shall contain the value "S". Refer to section 5.1.1 of the
+                Advanced_Care_Directive_Custodian_Record_CDA_Implementation_Guide_v1.0.</assert>
+
+
+            <!-- ASSIGNED ENTITY -->
+            <!-- legalAuthenticator/assignedEntity - 1..1 -->
+
+            <assert test="cda:assignedEntity">Error: Advanced Care Directive Custodian Record - 5.1.1 Legal Authenticator -
+                "legalAuthenticator / assignedEntity" - The 'assignedEntity' tag is missing. Refer
+                to section 5.1.1 of the
+                Advanced_Care_Directive_Custodian_Record_CDA_Implementation_Guide_v1.0.</assert>
+
+            <report test="count(cda:assignedEntity) > 1">Error: Advanced Care Directive Custodian Record - 5.1.1 Legal
+                Authenticator - "legalAuthenticator / assignedEntity" - The 'assignedEntity' tag
+                shall appear only once. Refer to section 5.1.1 of the
+                Advanced_Care_Directive_Custodian_Record_CDA_Implementation_Guide_v1.0.</report>
+
+        </rule>
+
+
+        <rule context="/cda:ClinicalDocument/cda:legalAuthenticator/cda:time">
+
+            <!-- legalAuthenticator/time/@value - 1..1 -->
+
+            <assert test="@value">Error: Advanced Care Directive Custodian Record - 5.1.1 Legal Authenticator -
+                "legalAuthenticator / time" - The 'time' tag 'value' attribute is missing. Refer to
+                section 5.1.1 of the
+                Advanced_Care_Directive_Custodian_Record_CDA_Implementation_Guide_v1.0.</assert>
+
+            <assert test="not(@value) or normalize-space(@value) !=  ''">Error: Advanced Care Directive Custodian Record -
+                5.1.1 Legal Authenticator - "legalAuthenticator / time" - The 'time' tag 'value'
+                attribute shall contain a value. Refer to section 5.1.1 of the
+                Advanced_Care_Directive_Custodian_Record_CDA_Implementation_Guide_v1.0.</assert>
+
+
+            <assert
+                test="not(@value)         or
+                not(contains(@value,'+')) or
+                floor(substring-before(@value,'+')) = number(substring-before(@value,'+'))"
+                >Error: Advanced Care Directive Custodian Record - 5.1.1 Legal Authenticator - "legalAuthenticator / time" -
+                The 'time' tag 'value' attribute shall be a number. Refer to section 5.1.1 of the
+                Advanced_Care_Directive_Custodian_Record_CDA_Implementation_Guide_v1.0.</assert>
+
+            <assert
+                test="not(@value)         or
+                    not(contains(@value,'+')) or
+                    floor(substring-after(@value,'+')) = number(substring-after(@value,'+'))"
+                >Error: Advanced Care Directive Custodian Record - 5.1.1 Legal Authenticator - "legalAuthenticator / time" -
+                The 'time' tag 'value' attribute shall be a number. Refer to section 5.1.1 of the
+                Advanced_Care_Directive_Custodian_Record_CDA_Implementation_Guide_v1.0.</assert>
+
+            <assert
+                test="not(@value)         or
+                        normalize-space(@value) = '' or
+                        contains(@value,'+')      or
+                        floor(@value) = number(@value)"
+                >Error: Advanced Care Directive Custodian Record - 5.1.1 Legal Authenticator - "legalAuthenticator / time" -
+                The 'time' tag 'value' attribute shall be a number. Refer to section 5.1.1 of the
+                Advanced_Care_Directive_Custodian_Record_CDA_Implementation_Guide_v1.0.</assert>
+
+        </rule>
+
+
+        <rule context="/cda:ClinicalDocument/cda:legalAuthenticator/cda:assignedEntity/cda:code">
+
+            <!-- CODE -->
+            <!-- legalAuthenticator/assignedEntity/code - 0..1 -->
+
+
+            <report test="@nullFlavor and normalize-space(@nullFlavor) = ''">Error: Advanced Care Directive Custodian Record -
+                5.1.1 Legal Authenticator - "legalAuthenticator / assignedEntity / code" - The
+                'code' tag 'nullFlavor' attribute shall contain a value. Refer to section 5.1.1 of
+                the Advanced_Care_Directive_Custodian_Record_CDA_Implementation_Guide_v1.0.</report>
+
+            <assert test="@code">Error: Advanced Care Directive Custodian Record - 5.1.1 Legal Authenticator -
+                "legalAuthenticator / assignedEntity / code" - The 'code' tag 'code' attribute is
+                missing. Refer to section 5.1.1 of the
+                Advanced_Care_Directive_Custodian_Record_CDA_Implementation_Guide_v1.0.</assert>
+
+            <assert test="normalize-space(@code) !=  ''">Error: Advanced Care Directive Custodian Record - 5.1.1 Legal
+                Authenticator - "legalAuthenticator / assignedEntity / code" - The 'code' tag 'code'
+                attribute shall contain a value. Refer to section 5.1.1 of the
+                Advanced_Care_Directive_Custodian_Record_CDA_Implementation_Guide_v1.0.</assert>
+
+            <assert test="@codeSystem">Error: Advanced Care Directive Custodian Record - 5.1.1 Legal Authenticator -
+                "legalAuthenticator / assignedEntity / code" - The 'code' tag 'codeSystem' attribute
+                is missing. Refer to section 5.1.1 of the
+                Advanced_Care_Directive_Custodian_Record_CDA_Implementation_Guide_v1.0.</assert>
+
+            <assert test="normalize-space(@codeSystem) !=  ''">Error: Advanced Care Directive Custodian Record - 5.1.1 Legal
+                Authenticator - "legalAuthenticator / assignedEntity / code" - The 'code' tag
+                'codeSystem' attribute shall contain a value. Refer to section 5.1.1 of the
+                Advanced_Care_Directive_Custodian_Record_CDA_Implementation_Guide_v1.0.</assert>
+
+            <report test="@codeSystemName and normalize-space(@codeSystemName) = ''">Error: Advanced Care Directive Custodian Record -
+                5.1.1 Legal Authenticator - "legalAuthenticator / assignedEntity / code" -
+                The 'code' tag 'codeSystemName' attribute shall contain a value. Refer to section
+                5.1.1 of the Advanced_Care_Directive_Custodian_Record_CDA_Implementation_Guide_v1.0.</report>
+
+            <report test="@displayName and normalize-space(@displayName) = ''">Error: Advanced Care Directive Custodian Record
+                - 5.1.1 Legal Authenticator - "legalAuthenticator / assignedEntity / code" - The
+                'code' tag 'displayName' attribute shall contain a value. Refer to section 5.1.1 of
+                the Advanced_Care_Directive_Custodian_Record_CDA_Implementation_Guide_v1.0.</report>
+
+        </rule>
+
+
+        <rule context="/cda:ClinicalDocument/cda:legalAuthenticator/cda:assignedEntity">
+
+            <!-- CODE -->
+            <!-- legalAuthenticator/assignedEntity/code - 0..1 -->
+
+            <report test="count(cda:code) > 1">Error: Advanced Care Directive Custodian Record - 5.1.1 Legal Authenticator -
+                "legalAuthenticator / assignedEntity / code" - The 'assignedEntity' tag shall appear
+                only once. Refer to section 5.1.1 of the
+                Advanced_Care_Directive_Custodian_Record_CDA_Implementation_Guide_v1.0.</report>
+
+
+            <!-- ID -->
+            <!-- legalAuthenticator/assignedEntity/id - 1..1 -->
+
+            <assert test="cda:id">Error: Advanced Care Directive Custodian Record - 5.1.1 Legal Authenticator -
+                "legalAuthenticator / assignedEntity / id" - The 'id' tag is missing. Refer to
+                section 5.1.1 of the
+                Advanced_Care_Directive_Custodian_Record_CDA_Implementation_Guide_v1.0.</assert>
+
+            <report test="count(cda:id) > 1">Error: Advanced Care Directive Custodian Record - 5.1.1 Legal Authenticator -
+                "legalAuthenticator / assignedEntity / id" - The 'assignedEntity' tag 'id' attribute
+                shall appear only once. Refer to section 5.1.1 of the
+                Advanced_Care_Directive_Custodian_Record_CDA_Implementation_Guide_v1.0.</report>
+
+            <assert test="cda:id[@root]">Error: Advanced Care Directive Custodian Record - 5.1.1 Legal Authenticator -
+                "legalAuthenticator / assignedEntity / id" - The 'id' tag 'root' attribute is
+                missing. Refer to section 5.1.1 of the
+                Advanced_Care_Directive_Custodian_Record_CDA_Implementation_Guide_v1.0.</assert>
+
+            <assert test="cda:id[@root !=  '']">Error: Advanced Care Directive Custodian Record - 5.1.1 Legal Authenticator -
+                "legalAuthenticator / assignedEntity / id" - The 'id' tag 'root' attribute shall
+                contain an UUID. Refer to section 5.1.1 of the
+                Advanced_Care_Directive_Custodian_Record_CDA_Implementation_Guide_v1.0.</assert>
+
+            <report test="cda:id[@nullFlavor] and cda:id[normalize-space(@nullFlavor) = '']">Error:
+                Advanced Care Directive Custodian Record - 5.1.1 Legal Authenticator - "legalAuthenticator / assignedEntity /
+                id" - The 'id' tag 'nullFlavor' attribute shall contain a value. Refer to section
+                5.1.1 of the Advanced_Care_Directive_Custodian_Record_CDA_Implementation_Guide_v1.0.</report>
+
+            <report test="cda:id[@extension] and cda:id[normalize-space(@extension) = '']">Error:
+                Advanced Care Directive Custodian Record - 5.1.1 Legal Authenticator - "legalAuthenticator / assignedEntity /
+                id" - The 'id' tag 'extension' attribute shall contain a value. Refer to section
+                5.1.1 of the Advanced_Care_Directive_Custodian_Record_CDA_Implementation_Guide_v1.0.</report>
+
+            <report
+                test="cda:id[assigningScopingEntity] and cda:id[normalize-space(@assigningScopingEntity) = '']"
+                >Error: Advanced Care Directive Custodian Record - 5.1.1 Legal Authenticator - "legalAuthenticator /
+                assignedEntity / id" - The 'id' tag 'assigningScopingEntity' attribute shall contain
+                a value. Refer to section 5.1.1 of the
+                Advanced_Care_Directive_Custodian_Record_CDA_Implementation_Guide_v1.0.</report>
+
+
+            <!-- ASSIGNED PERSON -->
+            <!-- legalAuthenticator/assignedEntity/assignedPerson - 0..1 -->
+
+            <report test="count(cda:assignedPerson) > 1">Error: Advanced Care Directive Custodian Record - 5.1.1 Legal
+                Authenticator - "legalAuthenticator / assignedEntity / assignedPerson" - The
+                'assignedPerson' tag shall appear only once. Refer to section 5.1.1 of the
+                Advanced_Care_Directive_Custodian_Record_CDA_Implementation_Guide_v1.0.</report>
+
+            <!-- The tags and attributes of "cda:assignedPerson/ext:asEntityIdentifier" are being tested by Advanced_Care_Directive_Custodian_Record_Global_Checks.sch. -->
+
+
+            <!-- legalAuthenticator/assignedEntity/<Address> - 0..* -->
+            <!-- The tags and attributes of "cda:addr" are being tested by Advanced_Care_Directive_Custodian_Record_Global_Checks.sch. -->
+
+
+            <!-- REPRESENTED ORGANIZATION -->
+            <!-- legalAuthenticator/assignedEntity/representedOrganization - 0..1 -->
+
+            <report test="count(cda:representedOrganization) > 1">Error: Advanced Care Directive Custodian Record - 5.1.1 Legal
+                Authenticator - "legalAuthenticator / assignedEntity / representedOrganization /
+                representedOrganization" - The 'representedOrganization' tag shall appear only once.
+                Refer to section 5.1.1 of the
+                Advanced_Care_Directive_Custodian_Record_CDA_Implementation_Guide_v1.0.</report>
+
+        </rule>
+
+
+        <!--<rule context="/cda:ClinicalDocument/cda:legalAuthenticator/cda:assignedEntity/cda:telecom">-->
+
+            <!-- ELECTRONIC COMMUNICATION DETAIL -->
+            <!-- legalAuthenticator/assignedEntity/<Electronic Communication Detail> 0..* -->
+
+        <!-- The tags and attributes of "cda:telecom" are being tested by Advanced_Care_Directive_Custodian_Record_Global_Checks.sch. -->
+
+
+        <!-- PERSON NAME -->
+        <!-- legalAuthenticator/assignedEntity/assignedPerson/<Person Name> - 0..* -->
+        <!-- The attributes of cda:name tag are being tested inside "Advanced_Care_Directive_Custodian_Record_Global_Checks.ent" -->
+
+
+        <rule
+            context="/cda:ClinicalDocument/cda:legalAuthenticator/cda:assignedEntity/cda:representedOrganization">
+
+            <!-- ENTITY IDENTIFIER - 0..* -->
+            <!-- The tags and attributes of "ext:asEntityIdentifier" are being tested by Advanced_Care_Directive_Custodian_Record_Global_Checks.sch. -->
+
+
+            <!-- NAME -->
+            <!-- legalAuthenticator/assignedEntity/representedOrganization/name 0..* -->
+
+            <report test="cda:name and normalize-space(cda:name) = ''">Error: Advanced Care Directive Custodian Record - 5.1.1
+                Legal Authenticator - "legalAuthenticator / assignedEntity /
+                representedOrganization" - The 'name' tag shall contain a value. Refer to section
+                5.1.1 of the Advanced_Care_Directive_Custodian_Record_CDA_Implementation_Guide_v1.0.</report>
+
+        </rule>
+
+    </pattern>
+

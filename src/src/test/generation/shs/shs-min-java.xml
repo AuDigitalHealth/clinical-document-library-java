@@ -1,0 +1,551 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ClinicalDocument xmlns="urn:hl7-org:v3"
+                  xmlns:ns2="http://ns.electronichealth.net.au/Ci/Cda/Extensions/3.0">
+   <typeId extension="POCD_HD000040" root="2.16.840.1.113883.1.3"/>
+   <templateId extension="1.4" root="1.2.36.1.2001.1001.101.100.1002.120"/>
+   <templateId extension="1.0" root="1.2.36.1.2001.1001.100.149"/>
+   <id root="2.25.316348557865949829066095134655004555741"/>
+   <code code="60591-5" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"
+         displayName="Patient summary"/>
+   <title>Shared Health Summary</title>
+   <effectiveTime value="20191104081346+1000"/>
+   <confidentialityCode nullFlavor="NA"/>
+   <languageCode code="en-AU"/>
+   <versionNumber value="1"/>
+   <ns2:completionCode code="F" codeSystem="1.2.36.1.2001.1001.101.104.20104"
+                       codeSystemName="NCTIS Document Status Values"
+                       displayName="Final"/>
+   <recordTarget typeCode="RCT">
+      <patientRole classCode="PAT">
+         <id root="ff1f34de-0964-48f0-b643-433f7a091d74"/>
+         <addr use="H">
+            <streetAddressLine>The Complex</streetAddressLine>
+            <postalCode>4101</postalCode>
+            <city>West End</city>
+            <state>QLD</state>
+            <country>Australia</country>
+         </addr>
+         <patient>
+            <name>
+               <family>Harding</family>
+            </name>
+            <administrativeGenderCode code="M" codeSystem="2.16.840.1.113883.13.68"
+                                      codeSystemName="AS 5017-2006 Health Care Client Identifier Sex"
+                                      displayName="Male"/>
+            <birthTime value="19821128"/>
+            <ethnicGroupCode code="9" codeSystem="2.16.840.1.113883.3.879.291036"
+                             codeSystemName="METeOR Indigenous Status"
+                             displayName="Not stated/inadequately described"/>
+            <ns2:multipleBirthInd value="false"/>
+            <ns2:asEntityIdentifier classCode="IDENT">
+               <ns2:id assigningAuthorityName="IHI" root="1.2.36.1.2001.1003.0.8003600300001283"/>
+               <ns2:assigningGeographicArea classCode="PLC">
+                  <ns2:name>National Identifier</ns2:name>
+               </ns2:assigningGeographicArea>
+            </ns2:asEntityIdentifier>
+            <ns2:asEntityIdentifier classCode="IDENT">
+               <ns2:id assigningAuthorityName="Medicare Card Number" extension="1234567881"
+                       root="1.2.36.1.5001.1.0.7.1"/>
+               <ns2:code code="MC" codeSystem="2.16.840.1.113883.12.203"
+                         codeSystemName="Identifier Type (HL7)"/>
+            </ns2:asEntityIdentifier>
+         </patient>
+      </patientRole>
+   </recordTarget>
+   <author>
+      <time value="20191104081346+1000"/>
+      <assignedAuthor>
+         <id root="be5db827-a5aa-4d7d-81a3-6d6fa990acac"/>
+         <code code="272311" codeSystem="2.16.840.1.113883.13.62"
+               codeSystemName="1220.0 - ANZSCO - Australian and New Zealand Standard Classification of Occupations, First Edition, 2006"
+               displayName="Clinical Psychologist"/>
+         <assignedPerson>
+            <name>
+               <family>Smith</family>
+            </name>
+            <ns2:asEntityIdentifier classCode="IDENT">
+               <ns2:id assigningAuthorityName="HPI-I" root="1.2.36.1.2001.1003.0.8003610000001145"/>
+               <ns2:assigningGeographicArea classCode="PLC">
+                  <ns2:name>National Identifier</ns2:name>
+               </ns2:assigningGeographicArea>
+            </ns2:asEntityIdentifier>
+            <ns2:asEmployment classCode="EMP">
+               <ns2:employerOrganization>
+                  <asOrganizationPartOf>
+                     <wholeOrganization>
+                        <name>Sarahs Clinic</name>
+                        <telecom use="WP" value="tel:0212345678"/>
+                        <addr use="WP">
+                           <streetAddressLine>Author Organisation Address</streetAddressLine>
+                           <streetAddressLine>400 Pitt Street</streetAddressLine>
+                           <postalCode>2000</postalCode>
+                           <city>Syndey</city>
+                           <state>QLD</state>
+                           <country>Australia</country>
+                        </addr>
+                        <ns2:asEntityIdentifier classCode="IDENT">
+                           <ns2:id assigningAuthorityName="HPI-O" root="1.2.36.1.2001.1003.0.8003621231167886"/>
+                           <ns2:assigningGeographicArea classCode="PLC">
+                              <ns2:name>National Identifier</ns2:name>
+                           </ns2:assigningGeographicArea>
+                        </ns2:asEntityIdentifier>
+                     </wholeOrganization>
+                  </asOrganizationPartOf>
+               </ns2:employerOrganization>
+            </ns2:asEmployment>
+         </assignedPerson>
+      </assignedAuthor>
+   </author>
+   <custodian>
+      <assignedCustodian>
+         <representedCustodianOrganization>
+            <id root="864bccf5-8100-4e7f-9454-78fecf4c2e41"/>
+            <name>Clinical Documents R Us</name>
+            <ns2:asEntityIdentifier classCode="IDENT">
+               <ns2:id assigningAuthorityName="HPI-O" root="1.2.36.1.2001.1003.0.8003621231167886"/>
+               <ns2:assigningGeographicArea classCode="PLC">
+                  <ns2:name>National Identifier</ns2:name>
+               </ns2:assigningGeographicArea>
+            </ns2:asEntityIdentifier>
+         </representedCustodianOrganization>
+      </assignedCustodian>
+   </custodian>
+   <legalAuthenticator>
+      <time value="20191104081346+1000"/>
+      <signatureCode code="S"/>
+      <assignedEntity>
+         <id root="a34d522e-88ff-4340-b8ef-506852c14d13"/>
+      </assignedEntity>
+   </legalAuthenticator>
+   <component>
+      <structuredBody>
+         <component>
+            <section>
+               <id root="9100b544-6157-4793-80c2-e81bb7c53fc9"/>
+               <code code="101.20113" codeSystem="1.2.36.1.2001.1001.101"
+                     codeSystemName="NCTIS Data Components"
+                     displayName="Adverse Reactions"/>
+               <title>Adverse Reactions</title>
+               <text>
+                  <table>
+                     <caption>Adverse Reactions</caption>
+                     <thead>
+                        <tr>
+                           <th>Substance/Agent</th>
+                           <th>Manifestations</th>
+                        </tr>
+                     </thead>
+                     <tbody>
+                        <tr>
+                           <td>Benzathine benzylpenicillin</td>
+                           <td>
+                              <list>
+                                 <item>Acute myocardial infarction</item>
+                                 <item>Penicillin-induced anaphylaxis</item>
+                                 <item>Renal artery embolism</item>
+                                 <item>Cardiac arrest with successful resuscitation</item>
+                              </list>
+                           </td>
+                        </tr>
+                        <tr>
+                           <td>Warfarin</td>
+                           <td>
+                              <list>
+                                 <item>Haemorrhagic nasal discharge</item>
+                                 <item>Skin necrosis</item>
+                                 <item>Fatigue</item>
+                                 <item>Pain</item>
+                              </list>
+                           </td>
+                        </tr>
+                     </tbody>
+                  </table>
+               </text>
+               <entry>
+                  <act classCode="ACT" moodCode="EVN">
+                     <id root="0ade1533-f979-49f9-a151-854dfb14e6e2"/>
+                     <code code="102.15517" codeSystem="1.2.36.1.2001.1001.101"
+                           codeSystemName="NCTIS Data Components"
+                           displayName="Adverse Reaction"/>
+                     <participant typeCode="CAGNT">
+                        <participantRole>
+                           <playingEntity>
+                              <code code="75247008" codeSystem="2.16.840.1.113883.6.96"
+                                    codeSystemName="SNOMED CT-AU"
+                                    displayName="Benzathine benzylpenicillin"/>
+                           </playingEntity>
+                        </participantRole>
+                     </participant>
+                     <entryRelationship typeCode="CAUS">
+                        <observation classCode="OBS" moodCode="EVN">
+                           <code code="102.16474" codeSystem="1.2.36.1.2001.1001.101"
+                                 codeSystemName="NCTIS Data Components"
+                                 displayName="Reaction Event"/>
+                           <entryRelationship inversionInd="true" typeCode="MFST">
+                              <observation classCode="OBS" moodCode="EVN">
+                                 <id root="444dcd58-4927-4087-bd91-921621195800"/>
+                                 <code code="57054005" codeSystem="2.16.840.1.113883.6.96"
+                                       codeSystemName="SNOMED CT-AU"
+                                       displayName="Acute myocardial infarction"/>
+                              </observation>
+                           </entryRelationship>
+                           <entryRelationship inversionInd="true" typeCode="MFST">
+                              <observation classCode="OBS" moodCode="EVN">
+                                 <id root="f393579c-6cd0-463e-8d98-75631bf0534b"/>
+                                 <code code="241938005" codeSystem="2.16.840.1.113883.6.96"
+                                       codeSystemName="SNOMED CT-AU"
+                                       displayName="Penicillin-induced anaphylaxis"/>
+                              </observation>
+                           </entryRelationship>
+                           <entryRelationship inversionInd="true" typeCode="MFST">
+                              <observation classCode="OBS" moodCode="EVN">
+                                 <id root="96789a1b-1c76-4d4a-be02-f74ed20f7c37"/>
+                                 <code code="95580006" codeSystem="2.16.840.1.113883.6.96"
+                                       codeSystemName="SNOMED CT-AU"
+                                       displayName="Renal artery embolism"/>
+                              </observation>
+                           </entryRelationship>
+                           <entryRelationship inversionInd="true" typeCode="MFST">
+                              <observation classCode="OBS" moodCode="EVN">
+                                 <id root="a79851fa-5219-4f77-ad1f-52773f843cd7"/>
+                                 <code code="233927002" codeSystem="2.16.840.1.113883.6.96"
+                                       codeSystemName="SNOMED CT-AU"
+                                       displayName="Cardiac arrest with successful resuscitation"/>
+                              </observation>
+                           </entryRelationship>
+                        </observation>
+                     </entryRelationship>
+                  </act>
+               </entry>
+               <entry>
+                  <act classCode="ACT" moodCode="EVN">
+                     <id root="c0c7953f-aaae-4dd9-be66-7ee0226ab9e6"/>
+                     <code code="102.15517" codeSystem="1.2.36.1.2001.1001.101"
+                           codeSystemName="NCTIS Data Components"
+                           displayName="Adverse Reaction"/>
+                     <participant typeCode="CAGNT">
+                        <participantRole>
+                           <playingEntity>
+                              <code code="372756006" codeSystem="2.16.840.1.113883.6.96"
+                                    codeSystemName="SNOMED CT-AU"
+                                    displayName="Warfarin"/>
+                           </playingEntity>
+                        </participantRole>
+                     </participant>
+                     <entryRelationship typeCode="CAUS">
+                        <observation classCode="OBS" moodCode="EVN">
+                           <code code="102.16474" codeSystem="1.2.36.1.2001.1001.101"
+                                 codeSystemName="NCTIS Data Components"
+                                 displayName="Reaction Event"/>
+                           <entryRelationship inversionInd="true" typeCode="MFST">
+                              <observation classCode="OBS" moodCode="EVN">
+                                 <id root="0e864c54-c259-445f-ab11-c21ed6de454b"/>
+                                 <code code="72189003" codeSystem="2.16.840.1.113883.6.96"
+                                       codeSystemName="SNOMED CT-AU"
+                                       displayName="Haemorrhagic nasal discharge"/>
+                              </observation>
+                           </entryRelationship>
+                           <entryRelationship inversionInd="true" typeCode="MFST">
+                              <observation classCode="OBS" moodCode="EVN">
+                                 <id root="76911e6c-3e55-4c0b-be9b-ed6b641d8b25"/>
+                                 <code code="95347000" codeSystem="2.16.840.1.113883.6.96"
+                                       codeSystemName="SNOMED CT-AU"
+                                       displayName="Skin necrosis"/>
+                              </observation>
+                           </entryRelationship>
+                           <entryRelationship inversionInd="true" typeCode="MFST">
+                              <observation classCode="OBS" moodCode="EVN">
+                                 <id root="46bb01fb-aa2e-4ac5-87e7-1ade87fbc3ce"/>
+                                 <code code="84229001" codeSystem="2.16.840.1.113883.6.96"
+                                       codeSystemName="SNOMED CT-AU"
+                                       displayName="Fatigue"/>
+                              </observation>
+                           </entryRelationship>
+                           <entryRelationship inversionInd="true" typeCode="MFST">
+                              <observation classCode="OBS" moodCode="EVN">
+                                 <id root="5b49293b-846a-4065-95a8-d714f3435b0d"/>
+                                 <code code="22253000" codeSystem="2.16.840.1.113883.6.96"
+                                       codeSystemName="SNOMED CT-AU"
+                                       displayName="Pain"/>
+                              </observation>
+                           </entryRelationship>
+                        </observation>
+                     </entryRelationship>
+                  </act>
+               </entry>
+            </section>
+         </component>
+         <component>
+            <section>
+               <code code="101.16146" codeSystem="1.2.36.1.2001.1001.101"
+                     codeSystemName="NCTIS Data Components"
+                     displayName="Medication Orders"/>
+               <title>Medications</title>
+               <text>
+                  <table>
+                     <caption>Medications</caption>
+                     <thead>
+                        <tr>
+                           <th>Medication</th>
+                           <th>Directions</th>
+                           <th>Clinical Indication</th>
+                           <th>Comment</th>
+                        </tr>
+                     </thead>
+                     <tbody>
+                        <tr>
+                           <td>Pemzo 20 mg capsule, 100, bottle</td>
+                           <td>Directions</td>
+                           <td>A reason for ordering the medicine, vaccine or othertherapeutic good.</td>
+                           <td>Any additional information that may be needed to ensure the continuity of supply, rationale for current dose and timing, or safe and appropriate use.</td>
+                        </tr>
+                        <tr>
+                           <td>Pemzo 20 mg capsule, 100, bottle</td>
+                           <td>Directions</td>
+                           <td></td>
+                           <td></td>
+                        </tr>
+                     </tbody>
+                  </table>
+               </text>
+               <entry>
+                  <substanceAdministration classCode="SBADM" moodCode="EVN">
+                     <id root="ec499ede-3c89-48af-894c-30262cfb9ec7"/>
+                     <text xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ST">Directions</text>
+                     <consumable>
+                        <manufacturedProduct>
+                           <manufacturedMaterial>
+                              <code code="925344011000036101" codeSystem="1.2.36.1.2001.1004.100"
+                                    codeSystemName="Australian Medicines Terminology (AMT)"
+                                    displayName="Pemzo 20 mg capsule, 100, bottle"/>
+                           </manufacturedMaterial>
+                        </manufacturedProduct>
+                     </consumable>
+                     <entryRelationship typeCode="RSON">
+                        <act classCode="INFRM" moodCode="EVN">
+                           <code code="103.10141" codeSystem="1.2.36.1.2001.1001.101"
+                                 codeSystemName="NCTIS Data Components"
+                                 displayName="Clinical Indication"/>
+                           <text xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ST">A reason for ordering the medicine, vaccine or othertherapeutic good.</text>
+                        </act>
+                     </entryRelationship>
+                     <entryRelationship typeCode="COMP">
+                        <act classCode="INFRM" moodCode="EVN">
+                           <code code="103.16044" codeSystem="1.2.36.1.2001.1001.101"
+                                 codeSystemName="NCTIS Data Components"
+                                 displayName="Additional Comments"/>
+                           <text xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ST">Any additional information that may be needed to ensure the continuity of supply, rationale for current dose and timing, or safe and appropriate use.</text>
+                        </act>
+                     </entryRelationship>
+                  </substanceAdministration>
+               </entry>
+               <entry>
+                  <substanceAdministration classCode="SBADM" moodCode="EVN">
+                     <id root="85d967d0-9ab7-4df9-ba94-2a8c99380c18"/>
+                     <text xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ST">Directions</text>
+                     <consumable>
+                        <manufacturedProduct>
+                           <manufacturedMaterial>
+                              <code code="925344011000036101" codeSystem="1.2.36.1.2001.1004.100"
+                                    codeSystemName="Australian Medicines Terminology (AMT)"
+                                    displayName="Pemzo 20 mg capsule, 100, bottle"/>
+                           </manufacturedMaterial>
+                        </manufacturedProduct>
+                     </consumable>
+                  </substanceAdministration>
+               </entry>
+            </section>
+         </component>
+         <component>
+            <section>
+               <code code="101.16117" codeSystem="1.2.36.1.2001.1001.101"
+                     codeSystemName="NCTIS Data Components"
+                     displayName="Medical History"/>
+               <title>Medical History</title>
+               <text>
+                  <table>
+                     <caption>Medical History</caption>
+                     <thead>
+                        <tr>
+                           <th>Item</th>
+                           <th>Date</th>
+                           <th>Comment</th>
+                        </tr>
+                     </thead>
+                     <tbody>
+                        <tr>
+                           <td>Employment problem</td>
+                           <td></td>
+                           <td></td>
+                        </tr>
+                        <tr>
+                           <td>Vitamin C dietary suplement</td>
+                           <td></td>
+                           <td></td>
+                        </tr>
+                        <tr>
+                           <td>Conformal radiotherapy</td>
+                           <td>4 Nov 2019</td>
+                           <td></td>
+                        </tr>
+                     </tbody>
+                  </table>
+               </text>
+               <entry>
+                  <observation classCode="OBS" moodCode="EVN">
+                     <id root="b39537b1-acb2-4d5b-ab0a-cdee12d30327"/>
+                     <code code="282291009" codeSystem="2.16.840.1.113883.6.96"
+                           codeSystemName="SNOMED CT-AU"
+                           displayName="Diagnosis interpretation"/>
+                     <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" code="75148009"
+                            codeSystem="2.16.840.1.113883.6.96"
+                            codeSystemName="SNOMED CT-AU"
+                            displayName="Employment problem"
+                            xsi:type="CD"/>
+                  </observation>
+               </entry>
+               <entry>
+                  <procedure classCode="PROC" moodCode="EVN">
+                     <id root="72f01658-a7ad-484e-838a-5667cd5caded"/>
+                     <code code="441783000" codeSystem="2.16.840.1.113883.6.96"
+                           codeSystemName="SNOMED CT-AU"
+                           displayName="Conformal radiotherapy"/>
+                     <effectiveTime value="20191104"/>
+                  </procedure>
+               </entry>
+               <entry>
+                  <act classCode="ACT" moodCode="EVN">
+                     <id root="9d9cdc9f-f5cf-4f82-bf21-0bb3b429fe9d"/>
+                     <code code="102.16627" codeSystem="1.2.36.1.2001.1001.101"
+                           codeSystemName="NCTIS Data Components"
+                           displayName="Uncategorised Medical History Item"/>
+                     <text xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ST">Vitamin C dietary suplement</text>
+                  </act>
+               </entry>
+            </section>
+         </component>
+         <component>
+            <section>
+               <code code="101.16638" codeSystem="1.2.36.1.2001.1001.101"
+                     codeSystemName="NCTIS Data Components"
+                     displayName="Immunisations"/>
+               <title>Immunisations</title>
+               <text>
+                  <table>
+                     <caption>Immunisations - Administered Immunisations</caption>
+                     <thead>
+                        <tr>
+                           <th>Vaccine</th>
+                           <th>Sequence Number</th>
+                           <th>Date</th>
+                        </tr>
+                     </thead>
+                     <tbody>
+                        <tr>
+                           <td>measles virus (Schwarz) live attenuated vaccine + mumps virus (Jeryl Lynn, strain RIT 4385) live attenuated vaccine + rubella virus (Wistar RA 27/3) live attenuated vaccine</td>
+                           <td>1</td>
+                           <td>1 Jan 2013</td>
+                        </tr>
+                        <tr>
+                           <td>measles virus (Schwarz) live attenuated vaccine + mumps virus (Jeryl Lynn, strain RIT 4385) live attenuated vaccine + rubella virus (Wistar RA 27/3) live attenuated vaccine</td>
+                           <td></td>
+                           <td>1 Jun 2013</td>
+                        </tr>
+                     </tbody>
+                  </table>
+               </text>
+               <entry>
+                  <substanceAdministration classCode="SBADM" moodCode="EVN">
+                     <id root="18c981dc-f1c9-48cd-a6e3-2c09f6e68aec"/>
+                     <effectiveTime xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" value="20130101"
+                                    xsi:type="IVL_TS"/>
+                     <consumable>
+                        <manufacturedProduct>
+                           <manufacturedMaterial>
+                              <code code="74993011000036102" codeSystem="1.2.36.1.2001.1004.100"
+                                    codeSystemName="Australian Medicines Terminology (AMT)"
+                                    displayName="measles virus (Schwarz) live attenuated vaccine + mumps virus (Jeryl Lynn, strain RIT 4385) live attenuated vaccine + rubella virus (Wistar RA 27/3) live attenuated vaccine"/>
+                           </manufacturedMaterial>
+                        </manufacturedProduct>
+                     </consumable>
+                     <entryRelationship typeCode="COMP">
+                        <sequenceNumber value="1"/>
+                        <supply classCode="SPLY" moodCode="EVN">
+                           <independentInd value="false"/>
+                        </supply>
+                     </entryRelationship>
+                  </substanceAdministration>
+               </entry>
+               <entry>
+                  <substanceAdministration classCode="SBADM" moodCode="EVN">
+                     <id root="0828ab73-3d21-4917-9bdb-f737be0fd584"/>
+                     <effectiveTime xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" value="20130601"
+                                    xsi:type="IVL_TS"/>
+                     <consumable>
+                        <manufacturedProduct>
+                           <manufacturedMaterial>
+                              <code code="74993011000036102" codeSystem="1.2.36.1.2001.1004.100"
+                                    codeSystemName="Australian Medicines Terminology (AMT)"
+                                    displayName="measles virus (Schwarz) live attenuated vaccine + mumps virus (Jeryl Lynn, strain RIT 4385) live attenuated vaccine + rubella virus (Wistar RA 27/3) live attenuated vaccine"/>
+                           </manufacturedMaterial>
+                        </manufacturedProduct>
+                     </consumable>
+                  </substanceAdministration>
+               </entry>
+            </section>
+         </component>
+         <component>
+            <section>
+               <code code="102.16080" codeSystem="1.2.36.1.2001.1001.101"
+                     codeSystemName="NCTIS Data Components"
+                     displayName="Administrative Observations"/>
+               <title>Administrative Observations</title>
+               <text>
+                  <table>
+                     <caption>Demographic Data</caption>
+                     <thead>
+                        <tr>
+                           <th>Name</th>
+                           <th>Value</th>
+                        </tr>
+                     </thead>
+                     <tbody>
+                        <tr>
+                           <td>Age Accuracy Indicator</td>
+                           <td>Yes</td>
+                        </tr>
+                        <tr>
+                           <td>Age</td>
+                           <td>36</td>
+                        </tr>
+                     </tbody>
+                  </table>
+               </text>
+               <entry typeCode="DRIV">
+                  <observation classCode="OBS" moodCode="EVN">
+                     <id root="37dd99ca-89a1-4151-9ee5-6994b35303ea"/>
+                     <code xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" code="103.20109"
+                           codeSystem="1.2.36.1.2001.1001.101"
+                           codeSystemName="NCTIS Data Components"
+                           displayName="Age"
+                           xsi:type="CE"/>
+                     <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" unit="a" value="36"
+                            xsi:type="PQ"/>
+                  </observation>
+               </entry>
+               <entry typeCode="DRIV">
+                  <observation classCode="OBS" moodCode="EVN">
+                     <id root="54855c36-1f32-418a-8dee-0c33b3090707"/>
+                     <code xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" code="103.16279"
+                           codeSystem="1.2.36.1.2001.1001.101"
+                           codeSystemName="NCTIS Data Components"
+                           displayName="Age Accuracy Indicator"
+                           xsi:type="CE"/>
+                     <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" value="true" xsi:type="BL"/>
+                  </observation>
+               </entry>
+            </section>
+         </component>
+      </structuredBody>
+   </component>
+</ClinicalDocument>

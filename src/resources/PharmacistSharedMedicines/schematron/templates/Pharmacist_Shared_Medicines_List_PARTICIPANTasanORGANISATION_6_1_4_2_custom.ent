@@ -1,0 +1,85 @@
+<pattern
+  name="p-Pharmacist_Shared_Medicines_List_PARTICIPANTasanORGANISATION_6_1_4_2_custom-errors"
+  id="p-Pharmacist_Shared_Medicines_List_PARTICIPANTasanORGANISATION_6_1_4_2_custom-errors"
+  see="#p-Pharmacist_Shared_Medicines_List_PARTICIPANTasanORGANISATION_6_1_4_2_custom-errors">
+
+
+  <rule
+    context="/cda:ClinicalDocument/cda:participant[cda:associatedEntity/cda:scopingOrganization]">
+
+    <assert test="not(cda:time)"
+    >Error: Pharmacist Shared Medicines List - 6.1.4.2 PARTICIPANT as an ORGANISATION -
+      "PARTICIPANT / Participation Period" -
+      The 'time' tag shall not be present.
+      Refer to section 6.1.4.2 of the
+      Core_Level_One_Clinical_Document_CDA_Implementation_Guide_v1.1.
+    </assert>
+
+  </rule>
+
+  <rule
+    context="/cda:ClinicalDocument/cda:participant/cda:associatedEntity[cda:scopingOrganization]">
+
+    <assert test="(cda:addr[@use = 'WP'])">Error: Pharmacist Shared Medicines List
+      - 6.1.4.2 PARTICIPANT as an ORGANISATION - "PARTICIPANT / PARTICIPANT / ADDRESS" -
+      The 'addr' tag with 'use' attribute having value 'WP' shall exist. Refer to section "027997
+      Primary healthcare provider organisation workplace
+      address" of the Pharmacist_Shared_Medicines_List_Conformance_Profile and section
+      6.1.4.2 of the
+      Core_Level_One_Clinical_Document_CDA_Implementation_Guide_v1.1.
+    </assert>
+
+    <report test="count(cda:addr[@use = 'WP']) > 1">Error: Pharmacist Shared Medicines List
+      - 6.1.4.2 PARTICIPANT as an ORGANISATION - "PARTICIPANT / PARTICIPANT / ADDRESS" -
+      The 'addr' tag with 'use' attribute having value 'WP' shall exist only
+      once. Refer to section "027997 Primary healthcare provider organisation workplace
+      address" of the Pharmacist_Shared_Medicines_List_Conformance_Profile and section
+      6.1.4.2 of the
+      Core_Level_One_Clinical_Document_CDA_Implementation_Guide_v1.1.
+    </report>
+
+
+  </rule>
+
+  <rule
+    context="/cda:ClinicalDocument/cda:participant/cda:associatedEntity[cda:scopingOrganization]/cda:addr">
+
+    <report
+      test="cda:country and (translate(cda:country, 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ') != 'AUSTRALIA')">
+      Error: Pharmacist
+      Shared Medicines List - 6.1.4.2 PARTICIPANT as an ORGANISATION - "PARTICIPANT /
+      PARTICIPANT / ADDRESS" - The 'country' tag shall have the value 'Australia'. Refer to section
+      "027997 Primary healthcare provider organisation workplace address" of the
+      Pharmacist_Shared_Medicines_List_Conformance_Profile and section 6.1.4.2 of the
+      Core_Level_One_Clinical_Document_CDA_Implementation_Guide_v1.1.
+    </report>
+
+  </rule>
+
+  <rule
+    context="/cda:ClinicalDocument/cda:participant[cda:functionCode/@code = 'PCP']/cda:associatedEntity[cda:scopingOrganization]/cda:code">
+
+    <report test="@nullFlavor and normalize-space(@nullFlavor) = ''">Error: Pharmacist
+      Shared Medicines List - 6.1.4.2 PARTICIPANT as an ORGANISATION - "PARTICIPANT /
+      Role" - The 'code' tag 'nullFlavor' attribute shall contain a value. Refer to
+      section 6.1.4.2 of the
+      Core_Level_One_Clinical_Document_CDA_Implementation_Guide_v1.1.
+    </report>
+
+    <report
+      test="
+                    @nullFlavor and normalize-space(@nullFlavor) != '' and
+                    (document('TEMPLATE/VALDN/CDAValidate_Vocabs.xml', .)/systems/system[@codeSystemName = 'Coded_DataType_NullFlavor_Abnormal_Values']/code[
+                    (@code = current()/@nullFlavor)])"
+    >Error: Pharmacist Shared Medicines List - 6.1.4.2 PARTICIPANT as an ORGANISATION -
+      "PARTICIPANT / Role" - The 'code' tag 'nullFlavor' attribute shall not be
+      "INV","OTH","NINF","PINF","UNC","DER","QS","TRC". Refer to section "028029 Primary
+      healthcare provider role" of the
+      Pharmacist_Shared_Medicines_List_Conformance_Profile and section 6.1.4.2 of the
+      Core_Level_One_Clinical_Document_CDA_Implementation_Guide_v1.1.
+    </report>
+
+  </rule>
+
+</pattern>
+

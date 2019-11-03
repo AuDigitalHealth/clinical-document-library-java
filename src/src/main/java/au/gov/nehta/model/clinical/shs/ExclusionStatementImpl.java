@@ -8,7 +8,6 @@ import au.gov.nehta.model.clinical.common.types.UniqueIdentifierImpl;
 /**
  * Statements that positively assert that the patient does not have the problem or diagnosis.
  */
-//TODO Common Package
 public class ExclusionStatementImpl implements ExclusionStatement {
 
   /* Used with Specialist Letter */

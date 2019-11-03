@@ -53,6 +53,9 @@ public class NarrativeUtilCommon {
    * Medications
    */
   public static StrucDocText getMedications(Medications medications) {
+    if (medications.getCustomNarrative() != null) {
+      return medications.getCustomNarrative();
+    }
     StrucDocText narrative = objectFactory.createStrucDocText();
     narrative.setMediaType(HL7_TEXT_MEDIA_TYPE);
     if (null != medications.getCustomNarrative()) {

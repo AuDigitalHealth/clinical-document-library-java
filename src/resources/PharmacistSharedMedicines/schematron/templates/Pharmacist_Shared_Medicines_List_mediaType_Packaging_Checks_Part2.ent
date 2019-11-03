@@ -1,0 +1,212 @@
+<!--
+_________________________________________________________________________________________________________________________________________________________________________________________
+                  Generated File - Do Not Edit File Directly                                                                                                                             
+                  __________________________________________
+
+                  Generated          : 29/11/2017 11:34:23 AM
+
+                  Product            : Pharmacist Shared Medicines List
+                  Release            : CDA_Implementation_Guide_v1.0
+                  Generator Version  : 
+                                                                                                                                                                                         
+_________________________________________________________________________________________________________________________________________________________________________________________
+-->
+<pattern name="p-Pharmacist_Shared_Medicines_List_mediaType_Packaging_Checks_Part2-errors"
+  id="p-Pharmacist_Shared_Medicines_List_mediaType_Packaging_Checks_Part2-errors"
+  see="#p-Pharmacist_Shared_Medicines_List_mediaType_Packaging_Checks_Part2-errors">
+
+
+  <rule context="cda:observationMedia/cda:value |
+            cda:observation/cda:text | 
+            cda:externalAct/cda:text | 
+            cda:externalObservation/cda:text | 
+            cda:externalProcedure/cda:text | 
+            cda:externalDocument/cda:text">
+
+
+    <!-- integrityCheckAlogrithm - 0..1 -->
+    <!-- the integrityCheckAlthrithm shall have the value of SHA-1 -->
+
+    <report
+      test="(@mediaType) and (@integrityCheckAlgorithm) and (normalize-space(@integrityCheckAlgorithm) = '')"
+    >Error: Pharmacist Shared Medicines List -
+      Global Clinical Document check for 'cda:observationMedia/cda:value',
+      'cda:observation/cda:text', 'cda:externalAct/cda:text', 'cda:externalObservation/cda:text',
+      'cda:externalProcedure/cda:text' and 'cda:externalDocument/cda:text' tags -
+      The 'integrityCheckAlgorithm' attribute shall contain a value.
+      Check all 'cda:observationMedia/cda:value', 'cda:observation/cda:text',
+      'cda:externalAct/cda:text', 'cda:externalObservation/cda:text',
+      'cda:externalProcedure/cda:text' and 'cda:externalDocument/cda:text' tags with the empty
+      'integrityCheckAlgorithm' attribute value.
+      Refer to "M 16 of 3.3.3 Conformance points of CDA Package Version 1.0" and "023741 - MIME
+      types allowed as attachments" of the Clinical_Documents_Common_Conformance_Profile_v1.7
+      and the Core_Level_One_Clinical_Document_CDA_Implementation_Guide_v1.1.
+    </report>
+
+    <report test="(@mediaType) and
+                (@integrityCheckAlgorithm) and
+                normalize-space(@integrityCheckAlgorithm) != '' and
+                (@integrityCheckAlgorithm != 'SHA-1')"
+    >Error: Pharmacist Shared Medicines List -
+      Global Clinical Document check for 'cda:observationMedia/cda:value',
+      'cda:observation/cda:text', 'cda:externalAct/cda:text', 'cda:externalObservation/cda:text',
+      'cda:externalProcedure/cda:text' and 'cda:externalDocument/cda:text' tags -
+      The 'integrityCheckAlgorithm' attribute shall contain the value 'SHA-1'.
+      Check all 'cda:observationMedia/cda:value', 'cda:observation/cda:text',
+      'cda:externalAct/cda:text', 'cda:externalObservation/cda:text',
+      'cda:externalProcedure/cda:text' and 'cda:externalDocument/cda:text' tags with the incorrect
+      'integrityCheckAlgorithm' attribute value.
+      Refer to "M 16 of 3.3.3 Conformance points of CDA Package Version 1.0" and "023741 - MIME
+      types allowed as attachments" of the Clinical_Documents_Common_Conformance_Profile_v1.7
+      and the Core_Level_One_Clinical_Document_CDA_Implementation_Guide_v1.1.
+    </report>
+
+    <!-- integrityCheck - 1..1 -->
+    <!-- Commented the test below because the Clinical Package Validator was giving an error while Oxygen was not -->
+    <assert test="not(@mediaType) or (@mediaType = 'text/plain') or (@integrityCheck)"
+    >Error: Pharmacist Shared Medicines List -
+      Global Clinical Document check for 'cda:observationMedia/cda:value',
+      'cda:observation/cda:text', 'cda:externalAct/cda:text', 'cda:externalObservation/cda:text',
+      'cda:externalProcedure/cda:text' and 'cda:externalDocument/cda:text' tags -
+      The 'integrityCheck' attribute is missing.
+      Check all 'cda:observationMedia/cda:value', 'cda:observation/cda:text',
+      'cda:externalAct/cda:text', 'cda:externalObservation/cda:text',
+      'cda:externalProcedure/cda:text' and 'cda:externalDocument/cda:text' tags with the missing
+      'integrityCheck' attribute.
+      Refer to "M 20 and M22 of 3.3.3 Conformance points of CDA Package Version 1.0" and "023741 -
+      MIME types allowed as attachments" of the Clinical_Documents_Common_Conformance_Profile_v1.7
+      and the Core_Level_One_Clinical_Document_CDA_Implementation_Guide_v1.1.
+    </assert>
+
+    <!-- Commented the test below because the Clinical Package Validator was giving an error while Oxygen was not -->
+    <assert
+      test="(not(@mediaType) and not(@integrityCheck)) or (@mediaType = 'text/plain') or normalize-space(@integrityCheck) != ''"
+    >Error: Pharmacist Shared Medicines List -
+      Global Clinical Document check for 'cda:observationMedia/cda:value',
+      'cda:observation/cda:text', 'cda:externalAct/cda:text', 'cda:externalObservation/cda:text',
+      'cda:externalProcedure/cda:text' and 'cda:externalDocument/cda:text' tags -
+      The 'integrityCheck' attribute shall contain a value.
+      Check all 'cda:observationMedia/cda:value', 'cda:observation/cda:text',
+      'cda:externalAct/cda:text', 'cda:externalObservation/cda:text',
+      'cda:externalProcedure/cda:text' and 'cda:externalDocument/cda:text' tags with the empty
+      'integrityCheck' attribute value.
+      Refer to "023741 - MIME types allowed as attachments" of the
+      Clinical_Documents_Common_Conformance_Profile_v1.7
+      and the Core_Level_One_Clinical_Document_CDA_Implementation_Guide_v1.1.
+    </assert>
+
+    <!-- (11) There shall be a <reference> element with value attribute -->
+    <!-- Commented the test below because the Clinical Package Validator was giving an error while Oxygen was not -->
+    <assert test="not(@mediaType) or (@mediaType = 'text/plain') or (cda:reference)">Error:
+      Pharmacist Shared Medicines List -
+      Global Clinical Document check for 'cda:observationMedia/cda:value',
+      'cda:observation/cda:text', 'cda:externalAct/cda:text', 'cda:externalObservation/cda:text',
+      'cda:externalProcedure/cda:text' and 'cda:externalDocument/cda:text' tags - The 'reference'
+      tag is missing. Check all 'cda:observationMedia/cda:value', 'cda:observation/cda:text',
+      'cda:externalAct/cda:text', 'cda:externalObservation/cda:text',
+      'cda:externalProcedure/cda:text' and 'cda:externalDocument/cda:text' tags to find the missing
+      'reference' child tag.
+      Refer to "023741 - MIME types allowed as attachments" of the
+      Clinical_Documents_Common_Conformance_Profile_v1.7
+      and the Core_Level_One_Clinical_Document_CDA_Implementation_Guide_v1.1.
+    </assert>
+
+    <report test="(@mediaType) and (count(cda:reference) > 1)">Error: Pharmacist Shared Medicines
+      List -
+      Global Clinical Document check for 'cda:observationMedia/cda:value',
+      'cda:observation/cda:text', 'cda:externalAct/cda:text', 'cda:externalObservation/cda:text',
+      'cda:externalProcedure/cda:text' and 'cda:externalDocument/cda:text' tags - The 'reference'
+      tag shall appear only once. Check all 'cda:observationMedia/cda:value',
+      'cda:observation/cda:text', 'cda:externalAct/cda:text', 'cda:externalObservation/cda:text',
+      'cda:externalProcedure/cda:text' and 'cda:externalDocument/cda:text' tags to find the
+      duplicated 'reference' child tag.
+      Refer to "023741 - MIME types allowed as attachments" of the
+      Clinical_Documents_Common_Conformance_Profile_v1.7
+      and the Core_Level_One_Clinical_Document_CDA_Implementation_Guide_v1.1.
+    </report>
+
+    <report test="(@mediaType) and (@representation) and normalize-space(@representation)='B64'"
+    >Error: Pharmacist Shared Medicines List -
+      Global Clinical Document check for 'cda:observationMedia/cda:value',
+      'cda:observation/cda:text', 'cda:externalAct/cda:text', 'cda:externalObservation/cda:text',
+      'cda:externalProcedure/cda:text' and 'cda:externalDocument/cda:text' tags -
+      The 'value' tag 'representation' attribute shall not contain the value 'B64'.
+      Authoring Systems SHALL ensure that all attachments referenced in
+      'renderMultimedia' narrative block elements or used for a branding logo,
+      are not inlined in their associated observationMedia entries.
+      Check all 'cda:observationMedia/cda:value', 'cda:observation/cda:text',
+      'cda:externalAct/cda:text', 'cda:externalObservation/cda:text',
+      'cda:externalProcedure/cda:text' and 'cda:externalDocument/cda:text' tags to find the
+      incorrect 'representation' attribute value.
+      Refer to "024631 - Only text SHALL be attached inline" of the
+      Clinical_Documents_Common_Conformance_Profile_v1.7
+      and the Core_Level_One_Clinical_Document_CDA_Implementation_Guide_v1.1.
+    </report>
+
+
+    <assert test="not(cda:reference/@value) or (normalize-space(cda:reference/@value) = '') or not(@mediaType) or (normalize-space(@mediaType) = '') or
+                ((substring(cda:reference/@value, ((string-length(cda:reference/@value)) - 3), 4)='.gif') and (@mediaType = 'image/gif')) or
+                ((substring(cda:reference/@value, ((string-length(cda:reference/@value)) - 4), 5)='.jpeg') and (@mediaType = 'image/jpeg')) or
+                ((substring(cda:reference/@value, ((string-length(cda:reference/@value)) - 3), 4)='.jpg') and (@mediaType = 'image/jpeg')) or
+                ((substring(cda:reference/@value, ((string-length(cda:reference/@value)) - 3), 4)='.pdf') and (@mediaType = 'application/pdf')) or
+                ((substring(cda:reference/@value, ((string-length(cda:reference/@value)) - 3), 4)='.png') and (@mediaType = 'image/png')) or
+                ((substring(cda:reference/@value, ((string-length(cda:reference/@value)) - 3), 4)='.tif') and (@mediaType = 'image/tiff'))or
+                ((substring(cda:reference/@value, ((string-length(cda:reference/@value)) - 4), 5)='.tiff') and (@mediaType = 'image/tiff'))
+                ">Error: Pharmacist Shared Medicines List - Global Clinical Document check for
+      'cda:observationMedia/cda:value', 'cda:observation/cda:text', 'cda:externalAct/cda:text',
+      'cda:externalObservation/cda:text',
+      'cda:externalProcedure/cda:text' and 'cda:externalDocument/cda:text' tags -
+      The 'value' tag or the 'text' tag 'mediaType' attribute value shall be either 'image/gif' or
+      'image/jpeg'
+      or 'application/pdf' or 'image/png' or 'image/tiff' and 'reference' tag 'value' attribute
+      shall have a filetype extension of 'GIF' or 'JPEG' or 'JPG' or 'PDF' or 'PNG' or
+      'TIF' or 'TIFF' and also the 'mediaType' attribute and the 'value' attribute shall correspond
+      with each other. Check all 'cda:observationMedia/cda:value', 'cda:observation/cda:text',
+      'cda:externalAct/cda:text', 'cda:externalObservation/cda:text',
+      'cda:externalProcedure/cda:text' and 'cda:externalDocument/cda:text' tags for incorrect
+      values.
+      Refer to "027998 - PDF attachment MIME type" of the
+      Pharmacist_Shared_Medicines_List_Conformance_Profile and "023741 - MIME types allowed as
+      attachments, 024629 - Supported filename extensions,
+      024630 - Matching filename extensions, 023742 - MIME types not allowed as attachments"
+      of the Clinical_Documents_Common_Conformance_Profile_v1.7
+      and the Core_Level_One_Clinical_Document_CDA_Implementation_Guide_v1.1.
+    </assert>
+
+    <assert test="not(cda:reference/@value) or not(starts-with(cda:reference/@value, '#'))"
+    >Error: Pharmacist Shared Medicines List -
+      Global Clinical Document check for 'cda:observationMedia/cda:value',
+      'cda:observation/cda:text', 'cda:externalAct/cda:text', 'cda:externalObservation/cda:text',
+      'cda:externalProcedure/cda:text' and 'cda:externalDocument/cda:text' tags -
+      The 'reference' tag 'value' attribute shall not contain a value starting with '#'.
+      Check all 'cda:observationMedia/cda:value', 'cda:observation/cda:text',
+      'cda:externalAct/cda:text', 'cda:externalObservation/cda:text',
+      'cda:externalProcedure/cda:text' and 'cda:externalDocument/cda:text' tags to find
+      the 'cda:reference' child tag with the incorrect 'value' attribute value.
+      Refer to "024631 - Only text SHALL be attached inline, 023741 - MIME types allowed as
+      attachments"
+      of the Clinical_Documents_Common_Conformance_Profile_v1.7
+      and the Core_Level_One_Clinical_Document_CDA_Implementation_Guide_v1.1.
+    </assert>
+
+    <report test="(cda:reference/@value) and (normalize-space(cda:reference/@value) = '')"
+    >Error: Pharmacist Shared Medicines List -
+      Global Clinical Document check for 'cda:observationMedia/cda:value',
+      'cda:observation/cda:text', 'cda:externalAct/cda:text', 'cda:externalObservation/cda:text',
+      'cda:externalProcedure/cda:text' and 'cda:externalDocument/cda:text' tags -
+      The 'reference' tag 'value' attribute shall contain a value.
+      Check all 'cda:observationMedia/cda:value', 'cda:observation/cda:text',
+      'cda:externalAct/cda:text', 'cda:externalObservation/cda:text',
+      'cda:externalProcedure/cda:text' and 'cda:externalDocument/cda:text' tags to find
+      the 'cda:reference' child tag with the incorrect 'value' attribute.
+      Refer to "023741 - MIME types allowed as attachments" of the
+      Clinical_Documents_Common_Conformance_Profile_v1.7
+      and the Core_Level_One_Clinical_Document_CDA_Implementation_Guide_v1.1.
+    </report>
+
+
+  </rule>
+
+
+</pattern>
+

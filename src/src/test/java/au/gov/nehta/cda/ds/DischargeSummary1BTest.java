@@ -6,6 +6,7 @@ import static au.gov.nehta.cda.test.TestHelper.getDocumentAuthor;
 import static au.gov.nehta.cda.test.TestHelper.getInformationRecipients;
 import static au.gov.nehta.cda.test.TestHelper.getLegalAuthenticator;
 import static au.gov.nehta.cda.test.TestHelper.getSubjectOfCareParticipant;
+import static au.gov.nehta.model.schematron.SchematronResource.SchematronResources.DISCHARGE_SUMMARY_1B;
 
 import au.gov.nehta.builder.ds.DischargeSummaryCreator;
 import au.gov.nehta.builder.util.UUIDTool;
@@ -35,24 +36,43 @@ import au.gov.nehta.model.clinical.ds.EventImpl;
 import au.gov.nehta.model.clinical.etp.common.participation.ParticipationServiceProvider;
 import au.gov.nehta.model.clinical.etp.common.participation.ParticipationServiceProviderImpl;
 import au.gov.nehta.model.schematron.SchematronValidationException;
+import au.gov.nehta.schematron.Schematron;
+import au.gov.nehta.schematron.SchematronCheckResult;
 import au.net.electronichealth.ns.cda._2_0.ObjectFactory;
 import au.net.electronichealth.ns.cda._2_0.StrucDocText;
+import java.io.File;
 import java.util.ArrayList;
 import java.util.UUID;
 import javax.xml.bind.JAXBException;
 import javax.xml.parsers.ParserConfigurationException;
+import junit.framework.Assert;
 import org.joda.time.DateTime;
 import org.junit.Test;
 import org.w3c.dom.Document;
 
 public class DischargeSummary1BTest extends Base {
-
+  private static final String SCHEMATRON = DISCHARGE_SUMMARY_1B.resource().getSchematron();
+  private static String SCHEMATRON_TEMPLATE_PATH = "resources/DischargeSummary";
   private static final String DOCUMENT_FILE_NAME =
       TEST_GENERATION + "/ds/DischargeSummary_1B_format.xml";
   private static ObjectFactory objectFactory = new ObjectFactory();
 
+
   @Test
   public void test_Discharge_Summary__Format_1B_Creation() {
+    if (!new File(SCHEMATRON_TEMPLATE_PATH
+        + "/schematron/schematron-Validator-report.xsl").exists()) {
+      SCHEMATRON_TEMPLATE_PATH = "src/" + SCHEMATRON_TEMPLATE_PATH;
+    }
+    generate1B();
+    SchematronCheckResult check =
+        Schematron.check(SCHEMATRON_TEMPLATE_PATH, SCHEMATRON, DOCUMENT_FILE_NAME);
+    show(check);
+    Assert.assertEquals(0, check.schemaErrors.size());
+    Assert.assertEquals(0, check.schematronErrors.size());
+  }
+
+  public void generate1B() {
     DateTime now = new DateTime();
     DocumentAuthor documentAuthor = getDocumentAuthor(now);
 
@@ -63,7 +83,7 @@ public class DischargeSummary1BTest extends Base {
             new PrecisionDate(Precision.DAY, new DateTime("2019-03-1")),
             new PrecisionDate(Precision.DAY, new DateTime("2019-04-1")));
     facility.setParticipationPeriod(encounterPeriod);
-    //facility.setParticipant(getServiceProviderOrganization()); TODO Move to TestHelper (common)
+    //facility.setParticipant(getServiceProviderOrganization());
     facility.setRole(new CodeImpl("HOSP", "2.16.840.1.113883.1.11.17660",
         "HL7 ServiceDeliveryLocationRoleType", "Hospital"));
 

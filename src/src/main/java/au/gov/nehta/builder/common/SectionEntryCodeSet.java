@@ -15,6 +15,10 @@ public class SectionEntryCodeSet {
   public static final CE ADVANCE_CARE_DIRECTIVE = NCTIS_CE(
       "Advance Care Directive Custodian Record", "100.16696");
   public static final CE E_REFERRAL = LOINC_CE("Referral note", "57133-1");
+  public static final CE ADVANCE_CARE_PLANNING = NCTIS_CE(
+      "Advance Care Information", "100.16975");
+  public static final CE GOALS_OF_CARE =  NCTIS_CE(
+      "Advance Care Information", "100.16975");
 
   private static final String NCTIS_DATA_COMPONENTS_CODE_SYSTEM = "1.2.36.1.2001.1001.101";
   private static final String NCTIS_DATA_COMPONENTS_CODE_SYSTEM_NAME = "NCTIS Data Components";

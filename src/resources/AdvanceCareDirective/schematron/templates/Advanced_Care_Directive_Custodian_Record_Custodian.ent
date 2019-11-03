@@ -1,0 +1,135 @@
+
+
+    <!-- Advanced Care Directive Custodian Record Clinical Document: 5.1.2 Custodian -->
+
+    <!-- Context: ClinicalDocument / Custodian -->
+
+    <!-- Status: Last Reviewed:
+         Status: Last Updated : 23/03/2012 -->
+
+
+    <pattern name="p-Advanced_Care_Directive_Custodian_Record_Custodian-errors"
+        id="p-Advanced_Care_Directive_Custodian_Record_Custodian-errors"
+        see="#p-Advanced_Care_Directive_Custodian_Record_Custodian-errors">
+
+
+        <rule context="/cda:ClinicalDocument">
+
+            <!-- CUSTODIAN -->
+            <!-- CUSTODIAN - 1..1 -->
+
+            <assert test="cda:custodian">Error: Advanced Care Directive Custodian Record - 5.1.2
+                Custodian - The 'custodian' tag is missing. Refer to section 5.1.2 Custodian of the
+                Advanced_Care_Directive_Custodian_Record_CDA_Implementation_Guide_v1.0.</assert>
+
+            <report test="count(cda:custodian) > 1">Error: Advanced Care Directive Custodian Record
+                - 5.1.2 Custodian - The 'custodian' tag shall appear only once. Refer to section
+                5.1.2 of the
+                Advanced_Care_Directive_Custodian_Record_CDA_Implementation_Guide_v1.0.</report>
+
+        </rule>
+
+
+        <rule context="/cda:ClinicalDocument/cda:custodian">
+
+            <!-- ASSIGNED CUSTODIAN -->
+            <!-- custodian/assignedCustodian 1..1 -->
+
+            <assert test="cda:assignedCustodian"> Error: Advanced Care Directive Custodian Record -
+                5.1.2 Custodian - "assignedCustodian" - The 'assigned Custodian' tag is missing.
+                Refer to section 5.1.2 Custodian of the
+                Advanced_Care_Directive_Custodian_Record_CDA_Implementation_Guide_v1.0.</assert>
+
+            <report test="count(cda:assignedCustodian) > 1"> Error: Advanced Care Directive
+                Custodian Record - 5.1.2 Custodian - "assignedCustodian" - The 'assignedCustodian'
+                tag shall appear only once. Refer to section 5.1.2 of the
+                Advanced_Care_Directive_Custodian_Record_CDA_Implementation_Guide_v1.0.</report>
+
+        </rule>
+
+
+        <rule context="/cda:ClinicalDocument/cda:custodian/cda:assignedCustodian">
+
+            <!-- REPRESENTED CUSTODIAN ORGANIZATION -->
+            <!-- representedCustodianOrganisation 1..1 -->
+
+            <assert test="cda:representedCustodianOrganization">Error: Advanced Care Directive
+                Custodian Record - 5.1.2 Custodian -
+                "assignedCustodian/representedCustodianOrganization" - The
+                'representedCustodianOrganization' tag is missing. Refer to section 5.1.2 Custodian
+                of the
+                Advanced_Care_Directive_Custodian_Record_CDA_Implementation_Guide_v1.0.</assert>
+
+            <report test="count(cda:representedCustodianOrganization) > 1">Error: Advanced Care
+                Directive Custodian Record - 5.1.2 Custodian -
+                "assignedCustodian/representedCustodianOrganization"- The
+                'representedCustodianOrganization' tag shall appear only once. Refer to section
+                5.1.2 of the
+                Advanced_Care_Directive_Custodian_Record_CDA_Implementation_Guide_v1.0.</report>
+
+        </rule>
+
+
+        <rule
+            context="/cda:ClinicalDocument/cda:custodian/cda:assignedCustodian/cda:representedCustodianOrganization">
+
+            <!-- ID -->
+            <!-- clinicalDocument/custodian/assignedCustodian/representedCustodianOrganization <id> 1..* -->
+
+            <assert test="cda:id">Error: Advanced Care Directive Custodian Record - 5.1.2 Custodian
+                - "assignedCustodian/representedCustodianOrganization/Entity Identifier" - The 'id'
+                tag is missing. Refer to section 8.2 of the
+                Advanced_Care_Directive_Custodian_Record_CDA_Implementation_Guide_v1.0.</assert>
+
+
+            <!-- custodian/assignedCustodian/representedCustodianOrganization/<Entity Identifier> - 0..* -->
+            <!-- The tags and attributes of "ext:asEntityIdentifier" are being tested by Advanced_Care_Directive_Custodian_Record_Global_Checks.sch. -->
+
+
+            <!-- NAME -->
+            <!-- custodian/assignedCustodian/representedCustodianOrganization/name - 0..1 -->
+
+            <report test="count(cda:name) > 1">Error: Advanced Care Directive Custodian Record -
+                5.1.2 Custodian - "assignedCustodian/representedCustodianOrganization/Name" - The
+                'name' tag shall appear only once. Refer to section 5.1.2 of the
+                Advanced_Care_Directive_Custodian_Record_CDA_Implementation_Guide_v1.0.</report>
+
+            <report test="cda:name and normalize-space(cda:name) = ''">Error: Advanced Care
+                Directive Custodian Record - 5.1.2 Custodian -
+                "assignedCustodian/representedCustodianOrganization/Name" - The 'name' tag shall
+                contain a value. Refer to section 5.1.2 of the
+                Advanced_Care_Directive_Custodian_Record_CDA_Implementation_Guide_v1.0.</report>
+
+            <!-- ELECTRONIC COMMUNICATION DETAIL -->
+            <!-- custodian/assignedCustodian/representedCustodianOrganization/<Electronic Communication Detail> - 0..1 -->
+
+            <report test="count(cda:telecom) > 1">Error: Advanced Care Directive Custodian Record -
+                5.1.2 Custodian - "custodian / assignedCustodian / representedCustodianOrganization
+                / Electronic Communication Detail" - The 'telecom' tag shall appear only once. Refer
+                to section 5.1.2 of the
+                Advanced_Care_Directive_Custodian_Record_CDA_Implementation_Guide_v1.0.</report>
+
+
+            <!-- ADDRESS -->
+            <!-- custodian/assignedCustodian/representedCustodianOrganization/<Address> - 0..1 -->
+
+            <report test="count(cda:addr) > 1">Error: Advanced Care Directive Custodian Record -
+                5.1.2 Custodian - "custodian / assignedCustodian / representedCustodianOrganization
+                / Address" - The 'addr' tag shall appear only once. Refer to section 5.1.2 of the
+                Advanced_Care_Directive_Custodian_Record_CDA_Implementation_Guide_v1.0.</report>
+
+            <!-- The tags and attributes of "cda:addr" are being tested by Advanced_Care_Directive_Custodian_Record_Global_Checks.sch. -->
+
+        </rule>
+
+
+        <!--<rule context="/cda:ClinicalDocument/cda:custodian/cda:assignedCustodian/cda:representedCustodianOrganization/cda:telecom">-->
+
+            <!-- ELECTRONIC COMMUNICATION DETAIL -->
+            <!-- Electronic Communication Detail/Medium - 0..1 -->
+
+        <!-- The tags and attributes of "cda:telecom" are being tested by Advanced_Care_Directive_Custodian_Record_Global_Checks.sch. -->
+
+
+    </pattern>
+

@@ -16,7 +16,7 @@ public interface EventSummaryContent {
 
   EventDetails getEventDetails();
 
-  NewlyIdentifiedAdverseReactions getNewlyIdentifiedAdverseReactions();  //TODO Check : called Adverse Reactions in .Net of type (IAdverseReactionsWithoutExclusions) (Is there a difference?)
+  NewlyIdentifiedAdverseReactions getNewlyIdentifiedAdverseReactions();
 
   MedicalHistory getMedicalHistory();
 

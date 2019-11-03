@@ -5,6 +5,7 @@ import au.gov.nehta.model.cda.common.time.PreciseDate;
 import au.gov.nehta.model.cda.common.time.RestrictedTimeInterval;
 import au.gov.nehta.model.clinical.common.EventTypes;
 import au.gov.nehta.model.clinical.etp.common.participation.ParticipationServiceProvider;
+import au.net.electronichealth.ns.cda._2_0.StrucDocText;
 import au.net.electronichealth.ns.cda._2_0.XDocumentActMood;
 import java.util.List;
 
@@ -67,5 +68,10 @@ public interface RequestedService {
   void setSubjectOfCareInstructionDesc(List<String> subjectOfCareInstructionDesc);
 
   List<String> getSubjectOfCareInstructionDesc();
+
+  StrucDocText getCustomNarrative();
+
+  void setCustomNarrative(StrucDocText customNarrative);
+
 
 }

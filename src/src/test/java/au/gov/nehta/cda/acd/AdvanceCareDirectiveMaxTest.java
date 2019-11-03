@@ -6,6 +6,7 @@ import static au.gov.nehta.cda.test.TestHelper.getLegalAuthenticator;
 import static au.gov.nehta.cda.test.TestHelper.getServiceProviderIndividual;
 import static au.gov.nehta.cda.test.TestHelper.getServiceProviderOrganization;
 import static au.gov.nehta.cda.test.TestHelper.getSubjectOfCareParticipant;
+import static au.gov.nehta.model.schematron.SchematronResource.SchematronResources.ADVANCE_CARE_DIRECTIVE_3A;
 
 import au.gov.nehta.builder.acd.AdvanceCareDirectiveCreator;
 import au.gov.nehta.cda.test.Base;
@@ -28,24 +29,36 @@ import au.gov.nehta.model.clinical.acd.AdvanceCareDirectiveImpl;
 import au.gov.nehta.model.clinical.etp.common.participation.ParticipationServiceProvider;
 import au.gov.nehta.model.clinical.etp.common.participation.ParticipationServiceProviderImpl;
 import au.gov.nehta.model.schematron.SchematronValidationException;
+import au.gov.nehta.schematron.Schematron;
+import au.gov.nehta.schematron.SchematronCheckResult;
+import java.io.File;
 import java.util.LinkedList;
 import java.util.List;
 import javax.xml.bind.JAXBException;
 import javax.xml.parsers.ParserConfigurationException;
+import junit.framework.Assert;
 import org.joda.time.DateTime;
 import org.junit.Test;
 import org.w3c.dom.Document;
 
 public class AdvanceCareDirectiveMaxTest extends Base {
 
-  private static final String SCHEMATRON = "ccd-3B.sch";
-  private static final String SCHEMATRON_TEMPLATE_PATH = "resources/AdvanceCareDirective";
+  private static final String SCHEMATRON = ADVANCE_CARE_DIRECTIVE_3A.resource().getSchematron();
+  private static String SCHEMATRON_TEMPLATE_PATH = "resources/AdvanceCareDirective";
   private static final String DOCUMENT_FILE_NAME = TEST_GENERATION + "/acd/acd-max-java.xml";
 
   @Test
   public void test_MAX_Advance_Care_Directive_Creation() {
     try {
+      if (!new File(SCHEMATRON_TEMPLATE_PATH + "/schematron/schematron-Validator-report.xsl").exists()) {
+        SCHEMATRON_TEMPLATE_PATH = "src/" + SCHEMATRON_TEMPLATE_PATH;
+      }
       generateMax();
+      SchematronCheckResult check =
+          Schematron.check(SCHEMATRON_TEMPLATE_PATH, SCHEMATRON, DOCUMENT_FILE_NAME);
+      show(check);
+      Assert.assertEquals(0, check.schemaErrors.size());
+      Assert.assertEquals(0, check.schematronErrors.size());
     } catch (SchematronValidationException | JAXBException | ParserConfigurationException e) {
       e.printStackTrace();
     }

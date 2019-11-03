@@ -1,0 +1,332 @@
+<!--
+_________________________________________________________________________________________________________________________________________________________________________________________
+                  Generated File - Do Not Edit File Directly                                                                                                                             
+                  __________________________________________
+
+                  Generated          : 29/11/2017 11:34:23 AM
+
+                  Product            : Pharmacist Shared Medicines List
+                  Release            : CDA_Implementation_Guide_v1.0
+                  Generator Version  : 
+                                                                                                                                                                                         
+_________________________________________________________________________________________________________________________________________________________________________________________
+-->
+<pattern name="p-Pharmacist_Shared_Medicines_List_mediaType_Packaging_Checks_Part3-errors"
+  id="p-Pharmacist_Shared_Medicines_List_mediaType_Packaging_Checks_Part3-errors"
+  see="#p-Pharmacist_Shared_Medicines_List_mediaType_Packaging_Checks_Part3-errors">
+
+
+  <rule context="*[cda:reference[@value][not(starts-with(@value, '#'))]]">
+
+    <assert test="@mediaType">Error: Pharmacist Shared Medicines List - Global Clinical Document
+      check for *[child::*:reference] tag - The 'mediaType' attribute is missing for
+      having attachment. Check all parent tags of reference tag to find the tag with
+      'mediaType' attribute missing. Refer to "023741 - MIME types allowed as attachments" of the
+      Clinical_Documents_Common_Conformance_Profile_v1.7 and the
+      Core_Level_One_Clinical_Document_CDA_Implementation_Guide_v1.1.
+    </assert>
+
+    <report test="@mediaType and normalize-space(@mediaType) = ''">Error: Pharmacist Shared
+      Medicines List -
+      Global Clinical Document check for *[child::*:reference] tag - The
+      'mediaType' attribute shall contain a value. Check all parent tags of reference tag
+      to find the 'mediaType' attribute of missing value.
+      Refer to "023741 - MIME types allowed as attachments" of the
+      Clinical_Documents_Common_Conformance_Profile_v1.7 and the
+      Core_Level_One_Clinical_Document_CDA_Implementation_Guide_v1.1.
+    </report>
+
+    <report
+      test="@mediaType and (normalize-space(@mediaType) != '') and (starts-with(@mediaType, 'http:') or starts-with(@mediaType, 'https:') or starts-with(@mediaType, 'ftp:'))"
+    >Error: Pharmacist Shared Medicines List - Global Clinical Document check for
+      *[child::*:reference] tag - The 'mediaType' attribute shall contain a value. Check
+      all parent tags of reference tag to find the incorrect 'mediaType' attribute.
+      Refer to "023741 - MIME types allowed as attachments" of the
+      Clinical_Documents_Common_Conformance_Profile_v1.7 and the
+      Core_Level_One_Clinical_Document_CDA_Implementation_Guide_v1.1.
+    </report>
+
+    <!-- REQUIREMENT : For attachment references,
+                                       if there is a mediaType then the mediaType must of one of the allowed list;
+                                       if the reference value starts with a hash then the value is in the XML document and therefore the rule on allowed attachment types does not apply. -->
+
+    <!-- cater for e.g. '<value mediaType="image/jpeg">' in the xml -->
+    <!-- <report
+         test="
+         @mediaType and
+         normalize-space(@mediaType) != '' and
+         not(document('TEMPLATE/VALDN/CDAValidate_Vocabs.xml', .)/systems/system[@codeSystemName = 'CDA_MIME_Type']/code[@displayName = (current()/@mediaType)])
+         "
+         >Error: Pharmacist Shared Medicines List - Global Clinical Document check for
+         *[child::*:reference] tag - The 'mediaType' attribute shall be as per CDA Limitation
+         MIME Type defined inside "Common Conformance Profile for Clinical Documents". Check
+         all parent tags of reference tag to find the incorrect 'mediaType' attribute.
+         Refer to "023741 - MIME types allowed as attachments, 024629 - Supported filename extensions,
+         024630 - Matching filename extensions, 023742 - MIME types not allowed as attachments" of the
+         Clinical_Documents_Common_Conformance_Profile_v1.7 and the Core_Level_One_Clinical_Document_CDA_Implementation_Guide_v1.1.</report>-->
+
+
+    <assert
+      test="(normalize-space(cda:reference/@value) = '') or
+                not(@mediaType) or 
+                (normalize-space(@mediaType) = '') or
+                ((substring(cda:reference/@value, ((string-length(cda:reference/@value)) - 3), 4)='.gif') and (@mediaType = 'image/gif')) or
+                ((substring(cda:reference/@value, ((string-length(cda:reference/@value)) - 4), 5)='.jpeg') and (@mediaType = 'image/jpeg')) or
+                ((substring(cda:reference/@value, ((string-length(cda:reference/@value)) - 3), 4)='.jpg') and (@mediaType = 'image/jpeg')) or
+                ((substring(cda:reference/@value, ((string-length(cda:reference/@value)) - 3), 4)='.pdf') and (@mediaType = 'application/pdf')) or
+                ((substring(cda:reference/@value, ((string-length(cda:reference/@value)) - 3), 4)='.png') and (@mediaType = 'image/png')) or
+                ((substring(cda:reference/@value, ((string-length(cda:reference/@value)) - 3), 4)='.tif') and (@mediaType = 'image/tiff')) or
+                ((substring(cda:reference/@value, ((string-length(cda:reference/@value)) - 4), 5)='.tiff') and (@mediaType = 'image/tiff'))">
+      Error: Pharmacist Shared Medicines List - Global Clinical Document check for
+      *[child::*:reference] tag -
+      The 'mediaType' attribute shall match the MIME TYPE of the reference value attribute
+      attachment. Check all parent tags of reference tag to find the tag with 'mediaType'
+      attribute missing. Refer to "027998 - PDF attachment MIME type" of the
+      Pharmacist_Shared_Medicines_List_Conformance_Profile and "023741 - MIME types allowed as
+      attachments, 024629 - Supported filename extensions,
+      024630 - Matching filename extensions, 023742 - MIME types not allowed as attachments" of the
+      Clinical_Documents_Common_Conformance_Profile_v1.7 and the
+      Core_Level_One_Clinical_Document_CDA_Implementation_Guide_v1.1.
+    </assert>
+
+
+    <report test="@xsi:type and normalize-space(@xsi:type) = ''">Error: Pharmacist Shared Medicines
+      List -
+      Global Clinical Document check for *[child::*:reference] tag - The
+      'xsi:type' attribute shall contain a value. Check all parent tags of reference tag
+      to find the tag with blank 'xsi:type' attribute value.
+      Refer to "023741 - MIME types allowed as attachments" of the
+      Clinical_Documents_Common_Conformance_Profile_v1.7 and the
+      Core_Level_One_Clinical_Document_CDA_Implementation_Guide_v1.1.
+    </report>
+
+
+    <!-- REQUIREMENT    : ED type with a reference will always be present when an attachment is included,
+                                          ==> @mediatype shall appear; otherwise the default of @mediaType (which is text/plain)
+                                              is not in the allow list of attachment type -->
+    <!-- IMPLEMENTATION : if @xsi:type is 'ED' and cda:reference exists, then @mediaType shall appear -->
+    <assert
+      test="
+                not(@xsi:type) or
+                normalize-space(@xsi:type) = '' or
+                not(normalize-space(@xsi:type) = 'ED' or
+                (substring-before(normalize-space(@xsi:type), ':') != '' and
+                substring-after(normalize-space(@xsi:type), ':') = 'ED')) or
+                not(cda:reference) or
+                @mediaType"
+    >Error: Pharmacist Shared Medicines List - Global Clinical Document check for
+      *[child::*:reference] tag - The 'mediaType' attribute is missing for having
+      attachment. Check all parent tags of reference tag to find the tag with 'mediaType'
+      attribute missing. Refer to "023741 - MIME types allowed as attachments" of the
+      Clinical_Documents_Common_Conformance_Profile_v1.7 and the
+      Core_Level_One_Clinical_Document_CDA_Implementation_Guide_v1.1.
+    </assert>
+
+
+    <report test="count(cda:reference) > 1">Error: Pharmacist Shared Medicines List - Global
+      Clinical Document check for *[child::*:reference] tag - The 'reference' tag shall
+      appear only once. Check all parent tags of reference tag to find the duplicated
+      'reference' tag. Refer to "023741 - MIME types allowed as attachments" of the
+      Clinical_Documents_Common_Conformance_Profile_v1.7 and the
+      Core_Level_One_Clinical_Document_CDA_Implementation_Guide_v1.1.
+    </report>
+
+
+    <report test="@integrityCheckAlgorithm and normalize-space(@integrityCheckAlgorithm) = ''"
+    >Error: Pharmacist Shared Medicines List - Global Clinical Document check for
+      *[child::*:reference] tag - The 'integrityCheckAlgorithm' tag shall
+      contain a value. Check all parent tags of reference tag to find the tag with
+      'integrityCheckAlgorithm'. Refer to "M 16 of section 3.3.3 Conformance points" of
+      CDA_Package_v1.0 and the
+      Core_Level_One_Clinical_Document_CDA_Implementation_Guide_v1.1.
+    </report>
+
+    <report
+      test="
+                @integrityCheckAlgorithm and normalize-space(@integrityCheckAlgorithm) != '' and   @integrityCheckAlgorithm != 'SHA-1'"
+    >Error: Pharmacist Shared Medicines List - Global Clinical Document check for
+      *[child::*:reference] tag - The 'integrityCheckAlgorithm' tag shall
+      contain the value 'SHA-1'. Check all parent tags of reference tag to find the tag with
+      'integrityCheckAlgorithm'. Refer to "M 16 of section 3.3.3 Conformance points" of
+      CDA_Package_v1.0 and the
+      Core_Level_One_Clinical_Document_CDA_Implementation_Guide_v1.1.
+    </report>
+
+    <assert test="@integrityCheck">Error: Pharmacist Shared Medicines List - Global Clinical
+      Document
+      check for *[child::*:reference] tag - The 'integrityCheck' attribute is missing for
+      the attachment. Check all parent tags of reference tag to find the tag with
+      'integrityCheck' attribute missing. Refer to "M 20 and M 22 of section 3.3.3 Conformance
+      points" of CDA_Package_v1.0 and the
+      Core_Level_One_Clinical_Document_CDA_Implementation_Guide_v1.1.
+    </assert>
+
+  </rule>
+
+
+  <rule context="*[@mediaType]/cda:reference">
+
+    <assert test="@value">Error: Pharmacist Shared Medicines List - Global Clinical Document check
+      for '*[@mediaType]/cda:reference' tag - The 'reference' tag 'value' attribute is
+      missing. Check all cda:reference tags to find the missing 'value' attribute.
+      Refer to "023741 - MIME types allowed as attachments" of the
+      Clinical_Documents_Common_Conformance_Profile_v1.7 and the
+      Core_Level_One_Clinical_Document_CDA_Implementation_Guide_v1.1.
+    </assert>
+
+    <assert test="not(@value) or normalize-space(@value) != ''">Error: Pharmacist Shared Medicines
+      List -
+      Global Clinical Document check for '*[@mediaType]/cda:reference' tag - The
+      'reference' tag 'value' attribute shall contain a value. Check all cda:reference
+      tags to find the empty 'value' attribute. Refer to "023741 - MIME types allowed as
+      attachments" of the
+      Clinical_Documents_Common_Conformance_Profile_v1.7 and the
+      Core_Level_One_Clinical_Document_CDA_Implementation_Guide_v1.1.
+    </assert>
+
+  </rule>
+
+
+  <!-- any cda:renderMultiMedia descendant nested any level under narrative section cda:text -->
+  <rule context="cda:component/cda:section[not(descendant::cda:component/cda:section) and
+                                                       descendant::cda:observationMedia and
+                                                       descendant::cda:observationMedia[translate(@ID, 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ')!='LOGO']]/
+                         cda:text//cda:renderMultiMedia">
+
+    <!-- (6) <renderMultiMedia> shall have a referencedObject attribute value -->
+    <assert test="@referencedObject"
+    >Error: Pharmacist Shared Medicines List -
+      Global Clinical Document check for 'renderMultiMedia' tag -
+      The 'renderMultiMedia' tag 'referencedObject' attribute is missing.
+      Check all 'cda:renderMultiMedia' tags to find the missing 'referencedObject' attribute.
+      Refer to "025053 - Sections with no requirement for narrative" of the
+      Clinical_Documents_Common_Conformance_Profile_v1.7
+      and Core_Level_One_Clinical_Document_CDA_Implementation_Guide_v1.1.
+    </assert>
+
+    <assert test="not(@referencedObject) or normalize-space(@referencedObject) != ''"
+    >Error: Pharmacist Shared Medicines List -
+      Global Clinical Document check for 'renderMultiMedia' tag -
+      The 'renderMultiMedia' tag 'referencedObject' attribute shall contain a value.
+      Check all 'cda:renderMultiMedia' tags to find the empty 'referencedObject' attribute.
+      Refer to "025053 - Sections with no requirement for narrative" of the
+      Clinical_Documents_Common_Conformance_Profile_v1.7
+      and Core_Level_One_Clinical_Document_CDA_Implementation_Guide_v1.1.
+    </assert>
+
+    <!-- CDA-RS 53 (i) [NEHTA2012b]:
+         If there is a <renderMultiMedia> element then the reference element of the
+         corresponding observationMedia element shall refer to an external attachment
+         (i.e. the reference shall not commence with a hash (#)). -->
+
+    <assert
+      test="not(starts-with(ancestor::cda:section//cda:observationMedia[@ID = current()/@referencedObject]/cda:value/cda:reference/@value, '#'))"
+    >Error: Pharmacist Shared Medicines List -
+      Global Clinical Document check for 'renderMultiMedia' tag -
+      The 'reference' tag 'value' attribute shall not contain the value '#' in the begining.
+      Check all 'cda:observationMedia' tags to find
+      the 'cda:value/cda:reference' child tag with the incorrect 'value' attribute.
+      Refer to "023741 - MIME types allowed as attachments" of the
+      Clinical_Documents_Common_Conformance_Profile_v1.7
+      and Core_Level_One_Clinical_Document_CDA_Implementation_Guide_v1.1.
+    </assert>
+
+  </rule>
+
+
+  <!-- Without ID LOGO -->
+  <rule
+    context="cda:observationMedia[translate(@ID, 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ')!='LOGO']">
+
+    <!-- (1) Section is mandatory -->
+    <assert test="ancestor::cda:component[cda:section]"
+    >Error: Pharmacist Shared Medicines List -
+      Global Clinical Document check for 'observationMedia' tag - The 'narrative' block of
+      'observationMedia' tag is missing.
+      Check all 'cda:observationMedia' tags to find the missing 'narrative ' block.
+      Refer to "024482 - Conformance levels" of the
+      Clinical_Documents_Common_Conformance_Profile_v1.7
+      and Core_Level_One_Clinical_Document_CDA_Implementation_Guide_v1.1.
+    </assert>
+
+    <!-- (7) There shall be a <observationMedia> element in the <entryRelationship> -->
+    <assert test="
+                parent::cda:entry or
+                parent::cda:entryRelationship"
+    >Error: Pharmacist Shared Medicines List -
+      Global Clinical Document check for 'observationMedia' tag - The parent tag of
+      'observationMedia' tag shall have a name of 'entry' or 'entryRelationship'.
+      Check all 'cda:observationMedia' tags to find the incorrect 'observationMedia' tag.
+      Refer to "024482 - Conformance levels" of the
+      Clinical_Documents_Common_Conformance_Profile_v1.7
+      and Core_Level_One_Clinical_Document_CDA_Implementation_Guide_v1.1.
+    </assert>
+
+    <!-- (8) <observationMedia> shall have a ID attribute value -->
+    <assert test="@ID">Error: Pharmacist Shared Medicines List -
+      Global Clinical Document check for 'observationMedia' tag -
+      The 'observationMedia' tag 'ID' attribute is missing. Check all
+      'cda:observationMedia' tags to find the missing 'ID' attribute.
+      Refer to "024482 - Conformance levels" of the
+      Clinical_Documents_Common_Conformance_Profile_v1.7
+      and Core_Level_One_Clinical_Document_CDA_Implementation_Guide_v1.1.
+    </assert>
+
+    <assert test="not(@ID) or normalize-space(@ID) != ''">Error: Pharmacist Shared Medicines List -
+      Global Clinical Document check for 'observationMedia' tag - The 'observationMedia' tag 'ID'
+      attribute shall contain a value. Check all
+      'cda:observationMedia' tags to find the empty 'ID' attribute.
+      Refer to "024482 - Conformance levels" of the
+      Clinical_Documents_Common_Conformance_Profile_v1.7
+      and Core_Level_One_Clinical_Document_CDA_Implementation_Guide_v1.1.
+    </assert>
+
+    <!-- (9) Value of 6 shall equal value of 8 -->
+    <assert test="
+                not(@ID) or
+                not(ancestor::cda:component/cda:section/cda:text) or
+                not(ancestor::cda:component/cda:section/cda:text//cda:renderMultiMedia) or
+                not(ancestor::cda:component/cda:section/cda:text//cda:renderMultiMedia/@referencedObject) or
+                ancestor::cda:component/cda:section/cda:text//cda:renderMultiMedia/@referencedObject = @ID">
+      Error: Pharmacist Shared Medicines List -
+      Global Clinical Document check for 'observationMedia' tag - The value of 'ID' attribute
+      and the value of 'referencedObject' attribute inside 'narrative' block of 'observationMedia'
+      shall be matched as per 'Common Conformance Requirements - Conformance Levels - CDA Level 1A'.
+      Refer to "024482 - Conformance levels" of the
+      Clinical_Documents_Common_Conformance_Profile_v1.7
+      and Core_Level_One_Clinical_Document_CDA_Implementation_Guide_v1.1.
+    </assert>
+
+    <!-- (10) There shall be a <value> element with mediaType attribute -->
+    <assert test="cda:value">Error: Pharmacist Shared Medicines List -
+      Global Clinical Document check for 'observationMedia' tag - The 'value' tag is missing.
+      Check all 'cda:observationMedia' tags to find the missing 'value ' tag.
+      Refer to "024482 - Conformance levels" of the
+      Clinical_Documents_Common_Conformance_Profile_v1.7
+      and Core_Level_One_Clinical_Document_CDA_Implementation_Guide_v1.1.
+    </assert>
+
+    <assert test="not(cda:value) or cda:value[@mediaType]"
+    >Error: Pharmacist Shared Medicines List -
+      Global Clinical Document check for 'observationMedia' tag - The 'value' tag 'mediaType'
+      attribute is missing.
+      Check all 'cda:observationMedia/cda:value' tags to find the missing 'mediaType ' attribute.
+      Refer to "024482 - Conformance levels" of the
+      Clinical_Documents_Common_Conformance_Profile_v1.7
+      and Core_Level_One_Clinical_Document_CDA_Implementation_Guide_v1.1.
+    </assert>
+
+    <report test="count(cda:value) > 1">Error: Pharmacist Shared Medicines List -
+      Global Clinical Document check for 'observationMedia' tag - The 'value' tag shall appear only
+      once.
+      Check all 'cda:observationMedia' tags to find the duplicated 'value ' tag.
+      Refer to "024482 - Conformance levels" of the
+      Clinical_Documents_Common_Conformance_Profile_v1.7
+      and Core_Level_One_Clinical_Document_CDA_Implementation_Guide_v1.1.
+    </report>
+
+  </rule>
+
+
+</pattern>
+

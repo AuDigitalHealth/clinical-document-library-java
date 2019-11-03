@@ -1,5 +1,6 @@
 package au.gov.nehta.builder.ereferral;
 
+import static au.gov.nehta.builder.DocumentCreatorUtil.HL7_TEXT_MEDIA_TYPE;
 import static au.gov.nehta.builder.DocumentCreatorUtil.add;
 import static au.gov.nehta.builder.DocumentCreatorUtil.addBody;
 import static au.gov.nehta.builder.DocumentCreatorUtil.addCaption;
@@ -146,6 +147,8 @@ import au.net.electronichealth.ns.cda._2_0.StrucDocTd;
 import au.net.electronichealth.ns.cda._2_0.StrucDocText;
 import au.net.electronichealth.ns.cda._2_0.XActMoodDocumentObservation;
 import au.net.electronichealth.ns.cda._2_0.XDocumentSubstanceMood;
+import au.net.electronichealth.ns.cda._2_0.XInformationRecipient;
+import au.net.electronichealth.ns.cda._2_0.XInformationRecipientRole;
 import au.net.electronichealth.ns.ci.cda.extensions._3.PersonalRelationship;
 import java.util.HashMap;
 import java.util.List;
@@ -285,6 +288,7 @@ public class EReferral3ACreator extends ClinicalDocumentCreator {
     //Subject of Care
     clinicalDocument.getRecordTarget()
         .add(HeaderUtil.createRecordTarget(clinicalModel.getContext().getSubjectOfCare()));
+
     //Document Author
     clinicalDocument.getAuthor().add(new DocumentAuthorComponent().getAuthor(clinicalModel
         .getContext().getDocumentAuthor(), cdaModel.getLegalAuthenticator()));
@@ -310,6 +314,18 @@ public class EReferral3ACreator extends ClinicalDocumentCreator {
       clinicalModel.getContext().getPatientNominatedContacts().stream().filter(Objects::nonNull)
           .forEach(patientNominatedContact -> clinicalDocument.getParticipant()
               .add(getPatientNominatedContact(patientNominatedContact)));
+    }
+
+    cdaModel.getInformationRecipients().stream().filter(Objects::nonNull).forEach(
+        informationRecipient -> clinicalDocument.getInformationRecipient()
+            .add(HeaderUtil.getInformationRecipient(informationRecipient,
+                XInformationRecipient.TRC, XInformationRecipientRole.ASSIGNED))
+    );
+
+    // Construct Legal Authenticator
+    if (cdaModel.getLegalAuthenticator() != null) {
+      clinicalDocument.setLegalAuthenticator(
+          HeaderUtil.createLegalAuthenticator(cdaModel.getLegalAuthenticator()));
     }
     clinicalDocument.setComponent(getCDABody());
     Document doc = getDocumentFilteredOfNull(
@@ -484,11 +500,11 @@ public class EReferral3ACreator extends ClinicalDocumentCreator {
     PersonHealthcareProvider healthcareProvider = serviceProvider.getHealthCareProvider();
     if (null != healthcareProvider.getPersonNames()
         && !healthcareProvider.getPersonNames().isEmpty()) {
-      healthcareProvider.getPersonNames().stream().filter(Objects::nonNull).forEach(
-          personName -> associatedPerson.getName().add(Converter.getPersonName(personName)));
+      associatedPerson.getName()
+          .addAll(Converter.convertNames(healthcareProvider.getPersonNames()));
     } else {
       throw new RuntimeException(
-          "Missing attribute: Nomincated Contact > Participant > Associated Person > Person Name");
+          "Missing attribute: Nominated Contact > Participant > Associated Person > Person Name");
     }
     if (null != serviceProvider.getAddresses() && !serviceProvider.getAddresses().isEmpty()) {
       associatedEntity.getAddr()
@@ -675,5 +691,68 @@ public class EReferral3ACreator extends ClinicalDocumentCreator {
             clinicalModel.getContent().getAdverseReactions()));
       }
     }
+  }
+
+  private POCDMT000040ClinicalDocument getClinicalDocumentWithHeaders() {
+    // Construct clinical document with headers
+    POCDMT000040ClinicalDocument clinicalDocument =
+        HeaderUtil.createClinicalDocument(cdaModel.getBaseClinicalDocument(), new DateTime());
+    clinicalDocument.setCode(SectionEntryCodeSet.E_REFERRAL);
+    clinicalDocument.setCompletionCode(
+        Converter.convertToCECode(cdaModel.getCompletionClinicalDocument().getCompletionCode()));
+    return clinicalDocument;
+  }
+
+  private POCDMT000040ClinicalDocument createCommonDocumentDetails() {
+    POCDMT000040ClinicalDocument clinicalDocument = getClinicalDocumentWithHeaders();
+    // Construct Document Author
+    DocumentAuthorComponent documentAuthorComponent = new DocumentAuthorComponent();
+    clinicalDocument.getAuthor().add(documentAuthorComponent.getAuthor(
+        this.clinicalModel.getContext().getDocumentAuthor(),
+        this.cdaModel.getLegalAuthenticator()));
+    // Construct Subject of Care (Record Target)
+    clinicalDocument.getRecordTarget()
+        .add(HeaderUtil.createRecordTarget(clinicalModel.getContext().getSubjectOfCare()));
+    // Construct Custodian
+    if (cdaModel.getCustodian() != null) {
+      clinicalDocument.setCustodian(
+          HeaderUtil.createCustodian(cdaModel.getCustodian().getAssignedCustodian()
+              .getRepresentedCustodianOrganization()));
+    }
+    return clinicalDocument;
+  }
+
+  @Override
+  public Document create1BFormatCDADocument()
+      throws JAXBException, ParserConfigurationException, SchematronValidationException {
+    POCDMT000040ClinicalDocument clinicalDocument = createCommonDocumentDetails();
+    // Create body part
+    POCDMT000040StructuredBody structuredBody = objectFactory.createPOCDMT000040StructuredBody();
+    POCDMT000040Component2 component = objectFactory.createPOCDMT000040Component2();
+    POCDMT000040Component3 attachmentComponent = objectFactory.createPOCDMT000040Component3();
+    POCDMT000040Section narrativeSection = objectFactory.createPOCDMT000040Section();
+    narrativeSection
+        .setTitle(CDATypeUtil.getST(clinicalModel.getContent().getCustomNarrativeTitle()));
+    StrucDocText narrative = objectFactory.createStrucDocText();
+    // narrative.getContent().add();
+    narrative.setMediaType(HL7_TEXT_MEDIA_TYPE);
+    narrativeSection.setText(clinicalModel.getContent().getCustomNarrative());
+    if (null != clinicalModel.getContent().getReferralDetail().getReferee()) {
+      clinicalDocument.getParticipant()
+          .add(getReferee(clinicalModel.getContent().getReferralDetail().getReferee()));
+    } else {
+      throw new RuntimeException("Mandatory info missing: Referee");
+    }
+    attachmentComponent.setSection(narrativeSection);
+    structuredBody.getComponent().add(attachmentComponent);
+    component.setStructuredBody(structuredBody);
+    clinicalDocument.setComponent(component);
+    Document doc = getDocumentFilteredOfNull(
+        CreatorUtil.convertClinicalDocumentToDomDocument(clinicalDocument));
+    // If strict checking is enabled, check this document.
+    if (isStrict()) {
+      check(doc);
+    }
+    return doc;
   }
 }

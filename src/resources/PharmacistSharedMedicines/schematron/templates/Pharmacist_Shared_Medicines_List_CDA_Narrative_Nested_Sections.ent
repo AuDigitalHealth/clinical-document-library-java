@@ -1,0 +1,35 @@
+<!--
+_________________________________________________________________________________________________________________________________________________________________________________________
+                  Generated File - Do Not Edit File Directly                                                                                                                             
+                  __________________________________________
+
+                  Generated          : 10/05/2018 11:36:00 AM
+
+                  Product            : Pharmacist Shared Medicines List
+                  Release            : CDA_Implementation_Guide_v1.0
+                  Generator Version  : 
+                                                                                                                                                                                         
+_________________________________________________________________________________________________________________________________________________________________________________________
+-->
+<pattern name="p-Pharmacist_Shared_Medicines_List_CDA_Narrative_Nested_Sections-errors"
+  id="p-Pharmacist_Shared_Medicines_List_CDA_Narrative_Nested_Sections-errors"
+  see="#p-Pharmacist_Shared_Medicines_List_CDA_Narrative_Nested_Sections-errors">
+
+
+  <rule
+    context="cda:component/cda:section[not(cda:entry/cda:observationMedia/@ID='LOGO') and not(cda:code/@code = '102.16080')][(cda:subject) or (cda:author) or (cda:informant) or (cda:entry) or (ext:coverage2)]">
+
+    <assert test="(cda:text)
+                         or 
+                         (parent::cda:component/ancestor::cda:component/cda:section[not(cda:entry/cda:observationMedia/@ID='LOGO') and not(cda:code/@code = '102.16080')]/cda:text)"
+    >Error: Pharmacist Shared Medicines List - The 'text' tag is missing.
+      Refer to "025052 Nested sections" of the
+      Clinical_Documents_Common_Conformance_Profile_v1.7 and the
+      Core_Level_One_Clinical_Document_CDA_Implementation_Guide_v1.1.
+    </assert>
+
+  </rule>
+
+
+</pattern>
+

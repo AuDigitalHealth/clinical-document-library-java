@@ -136,14 +136,18 @@ import org.w3c.dom.Document;
 public class EventSummaryMaxTest extends Base {
 
   private static final String SCHEMATRON = EVENT_SUMMARY_3A.resource().getSchematron();
-  //  private static final String SCHEMATRON = EVENT_SUMMARY_3B.resource().getSchematron();
-  private static final String SCHEMATRON_TEMPLATE_PATH = "resources/EventSummary";
+  private static String SCHEMATRON_TEMPLATE_PATH = "resources/EventSummary";
   private static final String DOCUMENT_FILE_NAME = TEST_GENERATION + "/es/es-max-java.xml";
 
 
   @Test
   public void test_MAX_Event_Summary_Creation() {
     try {
+
+      if (!new File(SCHEMATRON_TEMPLATE_PATH
+          + "/schematron/schematron-Validator-report.xsl").exists()) {
+        SCHEMATRON_TEMPLATE_PATH = "src/" + SCHEMATRON_TEMPLATE_PATH;
+      }
       generateMax();
       SchematronCheckResult check =
           Schematron.check(SCHEMATRON_TEMPLATE_PATH, SCHEMATRON, DOCUMENT_FILE_NAME);
@@ -266,8 +270,14 @@ public class EventSummaryMaxTest extends Base {
   }
 
   private OtherTestResult getOtherTestResultWithReportFile() {
-    AttachedMedia reportFile = new AttachedMedia(
-        new File(ATTACHMENTS_DIR + "radiologyreport.pdf"));
+    AttachedMedia reportFile;
+    if (!new File(ATTACHMENTS_DIR + "radiologyreport.pdf").exists()) {
+      reportFile = new AttachedMedia(
+          new File("src/" + ATTACHMENTS_DIR + "radiologyreport.pdf"));
+    } else {
+      reportFile = new AttachedMedia(
+          new File(ATTACHMENTS_DIR + "radiologyreport.pdf"));
+    }
     return new OtherTestResultImpl(new CodeImpl() {{
       setOriginalText("Report Name (with attachment)");
     }},

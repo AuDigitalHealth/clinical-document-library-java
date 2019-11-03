@@ -1,0 +1,538 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ClinicalDocument xmlns="urn:hl7-org:v3"
+                  xmlns:ns2="http://ns.electronichealth.net.au/Ci/Cda/Extensions/3.0">
+   <typeId extension="POCD_HD000040" root="2.16.840.1.113883.1.3"/>
+   <templateId extension="1.4" root="1.2.36.1.2001.1001.101.100.1002.120"/>
+   <templateId extension="1.0" root="1.2.36.1.2001.1001.100.149"/>
+   <id root="2.25.82748840190227888633072881587656701052"/>
+   <code code="60591-5" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"
+         displayName="Patient summary"/>
+   <title>Shared Health Summary</title>
+   <effectiveTime value="20191104081345+1000"/>
+   <confidentialityCode nullFlavor="NA"/>
+   <languageCode code="en-AU"/>
+   <versionNumber value="1"/>
+   <ns2:completionCode code="F" codeSystem="1.2.36.1.2001.1001.101.104.20104"
+                       codeSystemName="NCTIS Document Status Values"
+                       displayName="Final"/>
+   <recordTarget typeCode="RCT">
+      <patientRole classCode="PAT">
+         <id root="7fe9b3bc-37d3-4e6f-a5d6-bacdf166574c"/>
+         <addr use="H">
+            <streetAddressLine>The Complex</streetAddressLine>
+            <streetAddressLine>Unit 90210 / 10 Browning st</streetAddressLine>
+            <postalCode>4101</postalCode>
+            <city>West End</city>
+            <state>QLD</state>
+            <country>Australia</country>
+         </addr>
+         <telecom use="H" value="tel:0712345678"/>
+         <telecom use="H" value="mailto:frank.harding@electronichealth.net.au"/>
+         <patient>
+            <name use="M">
+               <prefix>Mister</prefix>
+               <family>Harding</family>
+               <given>Frank</given>
+               <suffix>Junior</suffix>
+            </name>
+            <administrativeGenderCode code="M" codeSystem="2.16.840.1.113883.13.68"
+                                      codeSystemName="AS 5017-2006 Health Care Client Identifier Sex"
+                                      displayName="Male"/>
+            <birthTime value="19821128"/>
+            <ethnicGroupCode code="9" codeSystem="2.16.840.1.113883.3.879.291036"
+                             codeSystemName="METeOR Indigenous Status"
+                             displayName="Not stated/inadequately described"/>
+            <ns2:multipleBirthInd value="true"/>
+            <ns2:multipleBirthOrderNumber value="2"/>
+            <ns2:asEntityIdentifier classCode="IDENT">
+               <ns2:id assigningAuthorityName="IHI" root="1.2.36.1.2001.1003.0.8003600300001283"/>
+               <ns2:assigningGeographicArea classCode="PLC">
+                  <ns2:name>National Identifier</ns2:name>
+               </ns2:assigningGeographicArea>
+            </ns2:asEntityIdentifier>
+            <ns2:asEntityIdentifier classCode="IDENT">
+               <ns2:id assigningAuthorityName="Medicare Card Number" extension="1234567881"
+                       root="1.2.36.1.5001.1.0.7.1"/>
+               <ns2:code code="MC" codeSystem="2.16.840.1.113883.12.203"
+                         codeSystemName="Identifier Type (HL7)"/>
+            </ns2:asEntityIdentifier>
+         </patient>
+      </patientRole>
+   </recordTarget>
+   <author>
+      <time value="20191104081345+1000"/>
+      <assignedAuthor>
+         <id root="0d8a43ea-b67a-4e2a-a4c6-c97e0ad32dbe"/>
+         <code code="253511" codeSystem="2.16.840.1.113883.13.62"
+               codeSystemName="1220.0 - ANZSCO - Australian and New Zealand Standard Classification of Occupations, First Edition, 2006"
+               displayName="Surgeon (General)"/>
+         <addr use="WP">
+            <streetAddressLine>The Public</streetAddressLine>
+            <streetAddressLine>400 George Street</streetAddressLine>
+            <postalCode>4000</postalCode>
+            <city>Brisbane</city>
+            <state>QLD</state>
+            <country>Australia</country>
+         </addr>
+         <addr use="WP">
+            <streetAddressLine>2 George Street</streetAddressLine>
+            <postalCode>4002</postalCode>
+            <city>Brisbane</city>
+            <state>QLD</state>
+            <country>Australia</country>
+         </addr>
+         <addr>
+            <streetAddressLine>Unknown</streetAddressLine>
+         </addr>
+         <telecom use="WP" value="tel:0712345678"/>
+         <telecom use="WP" value="fax:0712345678"/>
+         <assignedPerson>
+            <name use="L">
+               <prefix>Dr</prefix>
+               <family>Smith</family>
+               <given>Sarah</given>
+               <suffix>III</suffix>
+            </name>
+            <name use="M">
+               <family>Jones</family>
+               <given>Sarah</given>
+            </name>
+            <ns2:asEntityIdentifier classCode="IDENT">
+               <ns2:id assigningAuthorityName="HPI-I" root="1.2.36.1.2001.1003.0.8003610000001145"/>
+               <ns2:assigningGeographicArea classCode="PLC">
+                  <ns2:name>National Identifier</ns2:name>
+               </ns2:assigningGeographicArea>
+            </ns2:asEntityIdentifier>
+            <ns2:asEmployment classCode="EMP">
+               <ns2:code>
+                  <originalText>Staff Doctor</originalText>
+               </ns2:code>
+               <ns2:jobCode code="253111" codeSystem="2.16.840.1.113883.13.62"
+                            codeSystemName="1220.0 - ANZSCO - Australian and New Zealand Standard Classification of Occupations, First Edition, 2006"
+                            displayName="General Medical Practitioner"/>
+               <ns2:jobClassCode>
+                  <originalText>Permanent/Full Time</originalText>
+               </ns2:jobClassCode>
+               <ns2:employerOrganization>
+                  <name>Front Office</name>
+                  <asOrganizationPartOf>
+                     <wholeOrganization>
+                        <name>Sarahs Clinic</name>
+                        <telecom use="WP" value="tel:0712345678"/>
+                        <telecom use="WP" value="fax:0712345678"/>
+                        <addr use="WP">
+                           <streetAddressLine>The Public</streetAddressLine>
+                           <streetAddressLine>400 George Street</streetAddressLine>
+                           <postalCode>4000</postalCode>
+                           <city>Brisbane</city>
+                           <state>QLD</state>
+                           <country>Australia</country>
+                        </addr>
+                        <addr use="WP">
+                           <streetAddressLine>2 George Street</streetAddressLine>
+                           <postalCode>4002</postalCode>
+                           <city>Brisbane</city>
+                           <state>QLD</state>
+                           <country>Australia</country>
+                        </addr>
+                        <addr>
+                           <streetAddressLine>Unknown</streetAddressLine>
+                        </addr>
+                        <ns2:asEntityIdentifier classCode="IDENT">
+                           <ns2:id assigningAuthorityName="HPI-O" root="1.2.36.1.2001.1003.0.8003621231167886"/>
+                           <ns2:assigningGeographicArea classCode="PLC">
+                              <ns2:name>National Identifier</ns2:name>
+                           </ns2:assigningGeographicArea>
+                        </ns2:asEntityIdentifier>
+                     </wholeOrganization>
+                  </asOrganizationPartOf>
+               </ns2:employerOrganization>
+            </ns2:asEmployment>
+         </assignedPerson>
+      </assignedAuthor>
+   </author>
+   <custodian>
+      <assignedCustodian>
+         <representedCustodianOrganization>
+            <id root="25d530f7-49e6-4ea2-bc30-96a07855bfd1"/>
+            <name>Custodian organisation</name>
+            <telecom use="WP" value="mailto:example@custodian.com.au"/>
+            <addr use="PST">
+               <streetAddressLine>99 Clinician Street</streetAddressLine>
+               <postalCode>5555</postalCode>
+               <city>Nehtaville</city>
+               <state>QLD</state>
+               <country>Australia</country>
+               <additionalLocator>Level 2</additionalLocator>
+            </addr>
+            <ns2:asEntityIdentifier classCode="IDENT">
+               <ns2:id assigningAuthorityName="HPI-O" root="1.2.36.1.2001.1003.0.8003621231167886"/>
+               <ns2:assigningGeographicArea classCode="PLC">
+                  <ns2:name>National Identifier</ns2:name>
+               </ns2:assigningGeographicArea>
+            </ns2:asEntityIdentifier>
+         </representedCustodianOrganization>
+      </assignedCustodian>
+   </custodian>
+   <legalAuthenticator>
+      <time value="20191104081345+1000"/>
+      <signatureCode code="S"/>
+      <assignedEntity>
+         <id root="ccf34698-cf4a-4590-bd0c-6195b617fae7"/>
+         <code code="253511" codeSystem="2.16.840.1.113883.13.62"
+               codeSystemName="1220.0 - ANZSCO - Australian and New Zealand Standard Classification of Occupations, First Edition, 2006"
+               displayName="Surgeon (General)"/>
+         <addr use="WP">
+            <streetAddressLine>101 Browning Street</streetAddressLine>
+            <postalCode>4101</postalCode>
+            <city>Brisbane</city>
+            <state>QLD</state>
+            <country>Australia</country>
+         </addr>
+         <telecom use="WP H" value="mailto:example@sample.com"/>
+         <assignedPerson>
+            <name use="L">
+               <prefix>Mrs</prefix>
+               <family>Black</family>
+               <given>Jane</given>
+               <suffix>Junior</suffix>
+            </name>
+            <name use="M">
+               <prefix>Miss</prefix>
+               <family>Alias</family>
+               <given>other</given>
+            </name>
+            <ns2:asEntityIdentifier classCode="IDENT">
+               <ns2:id assigningAuthorityName="HPI-I" root="1.2.36.1.2001.1003.0.8003610000001145"/>
+               <ns2:assigningGeographicArea classCode="PLC">
+                  <ns2:name>National Identifier</ns2:name>
+               </ns2:assigningGeographicArea>
+            </ns2:asEntityIdentifier>
+         </assignedPerson>
+         <representedOrganization>
+            <name>GP Clinic</name>
+            <ns2:asEntityIdentifier classCode="IDENT">
+               <ns2:id assigningAuthorityName="HPI-O" root="1.2.36.1.2001.1003.0.8003621231167886"/>
+               <ns2:assigningGeographicArea classCode="PLC">
+                  <ns2:name>National Identifier</ns2:name>
+               </ns2:assigningGeographicArea>
+            </ns2:asEntityIdentifier>
+         </representedOrganization>
+      </assignedEntity>
+   </legalAuthenticator>
+   <component>
+      <structuredBody>
+         <component>
+            <section>
+               <id root="d1d23cf2-3d5d-4691-9f6f-0757f984dad0"/>
+               <code code="101.20113" codeSystem="1.2.36.1.2001.1001.101"
+                     codeSystemName="NCTIS Data Components"
+                     displayName="Adverse Reactions"/>
+               <title>Adverse Reactions</title>
+               <text>
+                  <paragraph>No Adverse Reactions are supplied</paragraph>
+               </text>
+               <entry>
+                  <observation classCode="OBS" moodCode="EVN">
+                     <id root="d1d23cf2-3d5d-4691-9f6f-0757f984dad0"/>
+                     <code code="103.16302.120.1.1" codeSystem="1.2.36.1.2001.1001.101"
+                           codeSystemName="NCTIS Data Components"
+                           displayName="Global Statement"/>
+                     <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" code="01"
+                            codeSystem="1.2.36.1.2001.1001.101.104.16299"
+                            codeSystemName="NCTIS Global Statement Values"
+                            displayName="None known"
+                            xsi:type="CD"/>
+                  </observation>
+               </entry>
+            </section>
+         </component>
+         <component>
+            <section>
+               <code code="101.16146" codeSystem="1.2.36.1.2001.1001.101"
+                     codeSystemName="NCTIS Data Components"
+                     displayName="Medication Orders"/>
+               <title>Medications</title>
+               <text>
+                  <paragraph>No Medications are supplied</paragraph>
+               </text>
+               <entry>
+                  <observation classCode="OBS" moodCode="EVN">
+                     <id root="cd9bedad-207a-4543-a7b3-b871c9f26cb2"/>
+                     <code code="103.16302.120.1.2" codeSystem="1.2.36.1.2001.1001.101"
+                           codeSystemName="NCTIS Data Components"
+                           displayName="Global Statement"/>
+                     <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" code="01"
+                            codeSystem="1.2.36.1.2001.1001.101.104.16299"
+                            codeSystemName="NCTIS Global Statement Values"
+                            displayName="None known"
+                            xsi:type="CD"/>
+                  </observation>
+               </entry>
+            </section>
+         </component>
+         <component>
+            <section>
+               <code code="101.16117" codeSystem="1.2.36.1.2001.1001.101"
+                     codeSystemName="NCTIS Data Components"
+                     displayName="Medical History"/>
+               <title>Medical History</title>
+               <text>
+                  <paragraph>No Problem Diagnosis are supplied</paragraph>
+                  <paragraph>No Procedures are supplied</paragraph>
+               </text>
+               <entry>
+                  <observation classCode="OBS" moodCode="EVN">
+                     <id root="2afb14e4-083b-44d6-abb8-46a6d1470270"/>
+                     <code code="103.16302.120.1.3" codeSystem="1.2.36.1.2001.1001.101"
+                           codeSystemName="NCTIS Data Components"
+                           displayName="Global Statement"/>
+                     <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" code="01"
+                            codeSystem="1.2.36.1.2001.1001.101.104.16299"
+                            codeSystemName="NCTIS Global Statement Values"
+                            displayName="None known"
+                            xsi:type="CD"/>
+                  </observation>
+               </entry>
+               <entry>
+                  <observation classCode="OBS" moodCode="EVN">
+                     <id root="feaab165-a66a-4b79-b5b0-2745d5b83397"/>
+                     <code code="103.16302.120.1.4" codeSystem="1.2.36.1.2001.1001.101"
+                           codeSystemName="NCTIS Data Components"
+                           displayName="Global Statement"/>
+                     <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" code="01"
+                            codeSystem="1.2.36.1.2001.1001.101.104.16299"
+                            codeSystemName="NCTIS Global Statement Values"
+                            displayName="None known"
+                            xsi:type="CD"/>
+                  </observation>
+               </entry>
+            </section>
+         </component>
+         <component>
+            <section>
+               <code code="101.16638" codeSystem="1.2.36.1.2001.1001.101"
+                     codeSystemName="NCTIS Data Components"
+                     displayName="Immunisations"/>
+               <title>Immunisations</title>
+               <text>
+                  <paragraph>No Immunisations are supplied</paragraph>
+               </text>
+               <entry>
+                  <observation classCode="OBS" moodCode="EVN">
+                     <id root="d5ee4be4-747a-4f1f-bc12-a1d1b78fbea5"/>
+                     <code code="103.16302.120.1.5" codeSystem="1.2.36.1.2001.1001.101"
+                           codeSystemName="NCTIS Data Components"
+                           displayName="Global Statement"/>
+                     <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" code="03"
+                            codeSystem="1.2.36.1.2001.1001.101.104.16299"
+                            codeSystemName="NCTIS Global Statement Values"
+                            displayName="None supplied"
+                            xsi:type="CD"/>
+                  </observation>
+               </entry>
+            </section>
+         </component>
+         <component>
+            <section>
+               <code code="102.16080" codeSystem="1.2.36.1.2001.1001.101"
+                     codeSystemName="NCTIS Data Components"
+                     displayName="Administrative Observations"/>
+               <title>Administrative Observations</title>
+               <text>
+                  <table>
+                     <caption>Demographic Data</caption>
+                     <thead>
+                        <tr>
+                           <th>Name</th>
+                           <th>Value</th>
+                        </tr>
+                     </thead>
+                     <tbody>
+                        <tr>
+                           <td>Date Of Birth is Calculated from Age</td>
+                           <td>Yes</td>
+                        </tr>
+                        <tr>
+                           <td>Date of Birth Accuracy Indicator</td>
+                           <td>AAA</td>
+                        </tr>
+                        <tr>
+                           <td>Birth Plurality</td>
+                           <td>5</td>
+                        </tr>
+                        <tr>
+                           <td>Age Accuracy Indicator</td>
+                           <td>Yes</td>
+                        </tr>
+                        <tr>
+                           <td>Date of Death Accuracy Indicator</td>
+                           <td>UUA</td>
+                        </tr>
+                        <tr>
+                           <td>Source Of Death Notification</td>
+                           <td>Health Care Provider</td>
+                        </tr>
+                        <tr>
+                           <td>Mothers Original Family Name</td>
+                           <td>Tester</td>
+                        </tr>
+                        <tr>
+                           <td>Age</td>
+                           <td>35</td>
+                        </tr>
+                     </tbody>
+                  </table>
+               </text>
+               <entry typeCode="DRIV">
+                  <observation classCode="OBS" moodCode="EVN">
+                     <id root="031c19c0-792a-4f83-8a0a-6a36c4b8884b"/>
+                     <code xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" code="103.16233"
+                           codeSystem="1.2.36.1.2001.1001.101"
+                           codeSystemName="NCTIS Data Components"
+                           displayName="Date of Birth is Calculated From Age"
+                           xsi:type="CE"/>
+                     <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" value="true" xsi:type="BL"/>
+                  </observation>
+               </entry>
+               <entry typeCode="DRIV">
+                  <observation classCode="OBS" moodCode="EVN">
+                     <id root="f640c356-6f57-4bb5-af9f-8073b410f0aa"/>
+                     <code xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" code="102.16234"
+                           codeSystem="1.2.36.1.2001.1001.101"
+                           codeSystemName="NCTIS Data Components"
+                           displayName="Date of Birth Accuracy Indicator"
+                           xsi:type="CE"/>
+                     <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" code="AAA" xsi:type="CS"/>
+                  </observation>
+               </entry>
+               <entry typeCode="DRIV">
+                  <observation classCode="OBS" moodCode="EVN">
+                     <id root="838d2965-bdf8-42bd-a7de-3efdd0137731"/>
+                     <code xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" code="102.16252"
+                           codeSystem="1.2.36.1.2001.1001.101"
+                           codeSystemName="NCTIS Data Components"
+                           displayName="Date of Death Accuracy Indicator"
+                           xsi:type="CE"/>
+                     <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" code="UUA" xsi:type="CS"/>
+                  </observation>
+               </entry>
+               <entry typeCode="DRIV">
+                  <observation classCode="OBS" moodCode="EVN">
+                     <id root="03dff223-70bf-43ca-b866-d392b3308a6c"/>
+                     <code xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" code="103.10243"
+                           codeSystem="1.2.36.1.2001.1001.101"
+                           codeSystemName="NCTIS Data Components"
+                           displayName="Source of Death Notification"
+                           xsi:type="CE"/>
+                     <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" code="H"
+                            codeSystem="2.16.840.1.113883.13.64"
+                            codeSystemName="AS 5017-2006 Health Care Client Source of Death Notification"
+                            displayName="Health Care Provider"
+                            xsi:type="CD"/>
+                  </observation>
+               </entry>
+               <entry typeCode="DRIV">
+                  <observation classCode="OBS" moodCode="EVN">
+                     <id root="61b28c38-132c-4062-ae50-5175417ab368"/>
+                     <code xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" code="103.10245"
+                           codeSystem="1.2.36.1.2001.1001.101"
+                           codeSystemName="NCTIS Data Components"
+                           displayName="Mother's Original Family Name"
+                           xsi:type="CE"/>
+                     <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" use="M" xsi:type="PN">
+                        <family>Tester</family>
+                     </value>
+                  </observation>
+               </entry>
+               <entry typeCode="DRIV">
+                  <observation classCode="OBS" moodCode="EVN">
+                     <id root="6c7d1d75-135e-4382-9c16-ebb483048418"/>
+                     <code xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" code="103.20109"
+                           codeSystem="1.2.36.1.2001.1001.101"
+                           codeSystemName="NCTIS Data Components"
+                           displayName="Age"
+                           xsi:type="CE"/>
+                     <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" unit="a" value="35"
+                            xsi:type="PQ"/>
+                  </observation>
+               </entry>
+               <entry typeCode="DRIV">
+                  <observation classCode="OBS" moodCode="EVN">
+                     <id root="005d48c2-ca0c-49dd-b4a1-426bf17f49a8"/>
+                     <code xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" code="103.16279"
+                           codeSystem="1.2.36.1.2001.1001.101"
+                           codeSystemName="NCTIS Data Components"
+                           displayName="Age Accuracy Indicator"
+                           xsi:type="CE"/>
+                     <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" value="true" xsi:type="BL"/>
+                  </observation>
+               </entry>
+               <entry typeCode="DRIV">
+                  <observation classCode="OBS" moodCode="EVN">
+                     <id root="f3363754-86e5-412a-9169-6c40763286dd"/>
+                     <code xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" code="103.16249"
+                           codeSystem="1.2.36.1.2001.1001.101"
+                           codeSystemName="NCTIS Data Components"
+                           displayName="Birth Plurality"
+                           xsi:type="CE"/>
+                     <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" value="5" xsi:type="INT"/>
+                  </observation>
+               </entry>
+               <ns2:coverage2 typeCode="COVBY">
+                  <ns2:entitlement classCode="COV" moodCode="EVN">
+                     <ns2:id assigningAuthorityName="Medicare Card Number" extension="1234567881"
+                             root="1.2.36.1.5001.1.0.7.1"/>
+                     <ns2:code code="1" codeSystem="1.2.36.1.2001.1001.101.104.16047"
+                               codeSystemName="NCTIS Entitlement Type Values"
+                               displayName="Medicare Benefits">
+                        <originalText>Medicare Benefits</originalText>
+                     </ns2:code>
+                     <ns2:effectiveTime>
+                        <low value="20191104"/>
+                        <width unit="wk" value="2"/>
+                     </ns2:effectiveTime>
+                     <ns2:participant typeCode="BEN">
+                        <ns2:participantRole classCode="PAT">
+                           <ns2:id root="7fe9b3bc-37d3-4e6f-a5d6-bacdf166574c"/>
+                        </ns2:participantRole>
+                     </ns2:participant>
+                  </ns2:entitlement>
+               </ns2:coverage2>
+               <ns2:coverage2 typeCode="COVBY">
+                  <ns2:entitlement classCode="COV" moodCode="EVN">
+                     <ns2:id assigningAuthorityName="Medicare Prescriber Number" extension="9919123A"
+                             root="1.2.36.174030967.0.3"/>
+                     <ns2:code code="10" codeSystem="1.2.36.1.2001.1001.101.104.16047"
+                               codeSystemName="NCTIS Entitlement Type Values"
+                               displayName="Medicare Prescriber Number"/>
+                     <ns2:effectiveTime>
+                        <low value="20191104"/>
+                        <width unit="wk" value="2"/>
+                     </ns2:effectiveTime>
+                     <ns2:participant typeCode="HLD">
+                        <ns2:participantRole classCode="ASSIGNED">
+                           <ns2:id root="0d8a43ea-b67a-4e2a-a4c6-c97e0ad32dbe"/>
+                        </ns2:participantRole>
+                     </ns2:participant>
+                  </ns2:entitlement>
+               </ns2:coverage2>
+               <ns2:coverage2 typeCode="COVBY">
+                  <ns2:entitlement classCode="COV" moodCode="EVN">
+                     <ns2:id assigningAuthorityName="Medicare Prescriber Number" extension="2919123A"
+                             root="1.2.36.174030967.0.3"/>
+                     <ns2:code code="11" codeSystem="1.2.36.1.2001.1001.101.104.16047"
+                               codeSystemName="NCTIS Entitlement Type Values"
+                               displayName="Medicare Pharmacy Approval Number"/>
+                     <ns2:participant typeCode="HLD">
+                        <ns2:participantRole classCode="ASSIGNED">
+                           <ns2:id root="0d8a43ea-b67a-4e2a-a4c6-c97e0ad32dbe"/>
+                        </ns2:participantRole>
+                     </ns2:participant>
+                  </ns2:entitlement>
+               </ns2:coverage2>
+            </section>
+         </component>
+      </structuredBody>
+   </component>
+</ClinicalDocument>

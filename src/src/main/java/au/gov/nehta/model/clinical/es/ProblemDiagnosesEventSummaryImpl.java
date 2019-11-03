@@ -48,6 +48,4 @@ public class ProblemDiagnosesEventSummaryImpl implements ProblemDiagnosesEventSu
   public void setProblemDiagnosisComment(String problemDiagnosisComment) {
     this.problemDiagnosisComment = problemDiagnosisComment;
   }
-
-  //TODO Validation Missing
 }

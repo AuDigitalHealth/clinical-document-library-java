@@ -169,6 +169,7 @@ import au.net.electronichealth.ns.cda._2_0.XDocumentActMood;
 import au.net.electronichealth.ns.cda._2_0.XDocumentProcedureMood;
 import au.net.electronichealth.ns.cda._2_0.XDocumentSubstanceMood;
 import au.net.electronichealth.ns.cda._2_0.XEncounterParticipant;
+import au.net.electronichealth.ns.cda._2_0.XInformationRecipient;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.LinkedList;
@@ -329,7 +330,8 @@ public class DischargeSummaryCreator extends ClinicalDocumentCreator {
         .isEmpty()) {
       cdaModel.getInformationRecipients().stream().filter(Objects::nonNull).forEach(
           informationRecipient -> clinicalDocument.getInformationRecipient()
-              .add(HeaderUtil.createInformationRecipient(informationRecipient))
+              .add(HeaderUtil
+                  .createInformationRecipient(informationRecipient, XInformationRecipient.PRCP))
       );
     }
     // Construct Custodian
@@ -354,8 +356,8 @@ public class DischargeSummaryCreator extends ClinicalDocumentCreator {
       clinicalDocument.getComponentOf().setEncompassingEncounter(getEncompassingEncounter());
     }
     //Facility
-    if (!isFormat2) {
-      if (null != clinicalModel.getContext().getFacility()) {
+
+    if (null != clinicalModel.getContext().getFacility()) {
         clinicalDocument.getComponentOf().getEncompassingEncounter().setLocation(
             HeaderUtil.getEncompassingEncounterFacility(clinicalModel.getContext().getFacility()));
       } else {
@@ -365,7 +367,6 @@ public class DischargeSummaryCreator extends ClinicalDocumentCreator {
       if (null == clinicalModel.getContext().getSubjectOfCare()) {
         throw new RuntimeException("Missing: Clinical Document > Subject Of Care");
       }
-    }
 
     clinicalDocument.getRecordTarget()
         .add(HeaderUtil.createRecordTarget(clinicalModel.getContext().getSubjectOfCare()));
@@ -390,7 +391,7 @@ public class DischargeSummaryCreator extends ClinicalDocumentCreator {
       }
     }
     //Location of Participant
-    clinicalDocument.getParticipant().add(processEncounter(clinicalDocument));
+    clinicalDocument.getParticipant().add(processEncounter());
 
     clinicalDocument.setComponent(getCDABody());
     Document doc = getDocumentFilteredOfNull(
@@ -402,7 +403,7 @@ public class DischargeSummaryCreator extends ClinicalDocumentCreator {
     return doc;
   }
 
-  private POCDMT000040Participant1 processEncounter(POCDMT000040ClinicalDocument clinicalDocument) {
+  private POCDMT000040Participant1 processEncounter() {
     if (null != clinicalModel.getContent().getEvent().getEncounter()) {
       Encounter encounterObj = clinicalModel.getContent().getEvent().getEncounter();
       POCDMT000040Participant1 locationOfDischargeParticipant = objectFactory
@@ -449,9 +450,8 @@ public class DischargeSummaryCreator extends ClinicalDocumentCreator {
 
       POCDMT000040Person associatedPerson = objectFactory.createPOCDMT000040Person();
       if (null != serviceProvider.getParticipant().getEntityIdentifiers()) {
-        serviceProvider.getParticipant().getEntityIdentifiers().stream().filter(Objects::nonNull)
-            .forEach(asEntityIdentifier -> associatedPerson.getAsEntityIdentifier()
-                .add(Converter.convert(asEntityIdentifier)));
+        associatedPerson.getAsEntityIdentifier().addAll(Converter
+            .convertEntityIdentifiers(serviceProvider.getParticipant().getEntityIdentifiers()));
       } else {
         throw new RuntimeException(
             "Missing attribute: Health Care Provider > Participant > Associated Person > "
@@ -477,9 +477,8 @@ public class DischargeSummaryCreator extends ClinicalDocumentCreator {
 
       if (null != serviceProvider.getParticipant().getHealthCareProvider().getPersonNames()
           && !serviceProvider.getParticipant().getHealthCareProvider().getPersonNames().isEmpty()) {
-        serviceProvider.getParticipant().getHealthCareProvider().getPersonNames().stream()
-            .filter(Objects::nonNull).forEach(
-            personName -> associatedPerson.getName().add(Converter.getPersonName(personName)));
+        associatedPerson.getName().addAll(Converter.convertNames(
+            serviceProvider.getParticipant().getHealthCareProvider().getPersonNames()));
       } else {
         throw new RuntimeException(
             "Missing attribute: Health Care Provider > Participant > Associated Person > "
@@ -513,9 +512,8 @@ public class DischargeSummaryCreator extends ClinicalDocumentCreator {
       }
       POCDMT000040Person associatedPerson = objectFactory.createPOCDMT000040Person();
       if (null != serviceProvider.getParticipant().getEntityIdentifiers()) {
-        serviceProvider.getParticipant().getEntityIdentifiers().stream().filter(Objects::nonNull)
-            .forEach(asEntityIdentifier -> associatedPerson.getAsEntityIdentifier()
-                .add(Converter.convert(asEntityIdentifier)));
+        associatedPerson.getAsEntityIdentifier().addAll(Converter
+            .convertEntityIdentifiers(serviceProvider.getParticipant().getEntityIdentifiers()));
       }
       if (null != serviceProvider.getParticipant().getAddresses()) {
         associatedEntity.getAddr().addAll(AddressConverter
@@ -525,9 +523,8 @@ public class DischargeSummaryCreator extends ClinicalDocumentCreator {
         associatedEntity.getTelecom().addAll(Converter.convertElectronicCommunicationDetail(
             serviceProvider.getParticipant().getElectronicCommunicationDetails()));
       }
-      serviceProvider.getParticipant().getHealthCareProvider().getPersonNames().stream()
-          .filter(Objects::nonNull).forEach(
-          personName -> associatedPerson.getName().add(Converter.getPersonName(personName)));
+      associatedPerson.getName().addAll(Converter
+          .convertNames(serviceProvider.getParticipant().getHealthCareProvider().getPersonNames()));
       associatedPerson.setAsEmployment(
           DiagnosticInvestigationComponent.getEmploymentDetails(serviceProvider.getParticipant()));
       associatedEntity.setAssociatedPerson(associatedPerson);
@@ -538,7 +535,6 @@ public class DischargeSummaryCreator extends ClinicalDocumentCreator {
   }
 
   private POCDMT000040EncompassingEncounter getEncompassingEncounter() {
-    //POCDMT000040Component1 componentOf = objectFactory.createPOCDMT000040Component1();
     POCDMT000040EncompassingEncounter encompassingEncounter =
         objectFactory.createPOCDMT000040EncompassingEncounter();
     POCDMT000040EncounterParticipant encounterParticipant = objectFactory
@@ -562,12 +558,10 @@ public class DischargeSummaryCreator extends ClinicalDocumentCreator {
   private POCDMT000040Person getAssignedPersonForEncounter(
       ServiceProvider responsibleHealthProfessional) {
     POCDMT000040Person assignedPerson = objectFactory.createPOCDMT000040Person();
-    responsibleHealthProfessional.getEntityIdentifiers().stream().filter(Objects::nonNull).forEach(
-        asEntityIdentifier -> assignedPerson.getAsEntityIdentifier()
-            .add(Converter.convert(asEntityIdentifier)));
-    responsibleHealthProfessional.getHealthCareProvider().getPersonNames().stream()
-        .filter(Objects::nonNull).forEach(
-        personName -> assignedPerson.getName().add(Converter.getPersonName(personName)));
+    assignedPerson.getAsEntityIdentifier().addAll(
+        Converter.convertEntityIdentifiers(responsibleHealthProfessional.getEntityIdentifiers()));
+    assignedPerson.getName().addAll(Converter
+        .convertNames(responsibleHealthProfessional.getHealthCareProvider().getPersonNames()));
     if (null != responsibleHealthProfessional.getHealthCareProvider().getQualifications()) {
       assignedPerson.setAsQualifications(
           DiagnosticInvestigationComponent.getQualifications(responsibleHealthProfessional));
@@ -654,15 +648,15 @@ public class DischargeSummaryCreator extends ClinicalDocumentCreator {
     planSection.setTitle(CDATypeUtil
         .getST(dischargeSummaryCodeMap.get(ClinicalDocumentCodes.PLAN).getDisplayName()));
     planSection.setText(NarrativeUtil.getPlan(planObj));
-      //Arranged Services
-      planSection.getComponent().add(getArrangedServicesForPlan(arrangedServices));
-      if (null != planObj.getRecordOfRecommendationsAndInfoProvided()) {
-        planSection.getComponent().add(getRecordOfRecommendationsAndInfoProvided(
-            planObj.getRecordOfRecommendationsAndInfoProvided()));
-      } else {
-        throw new RuntimeException(
-            "Missing: Discharge Summary > Content > Plan > Record of Recommendations & Info Provided");
-      }
+    //Arranged Services
+    planSection.getComponent().add(getArrangedServicesForPlan(arrangedServices));
+    if (null != planObj.getRecordOfRecommendationsAndInfoProvided()) {
+      planSection.getComponent().add(getRecordOfRecommendationsAndInfoProvided(
+          planObj.getRecordOfRecommendationsAndInfoProvided()));
+    } else {
+      throw new RuntimeException(
+          "Missing: Discharge Summary > Content > Plan > Record of Recommendations & Info Provided");
+    }
 
     planComponent.setSection(planSection);
     return planComponent;
@@ -921,100 +915,100 @@ public class DischargeSummaryCreator extends ClinicalDocumentCreator {
     Medications medicationsObj = clinicalModel.getContent().getMedications();
     medicationsSection.setText(NarrativeUtilCommon.DIAGNOSTIC_INVESTIGATIONS_SECTION_TEXT);
 
-      //Current Medications on Discharge
-      if (null != medicationsObj.getCurrentMedicationsOnDischarge().getExclusionStatement()
-          && null != medicationsObj.getCurrentMedicationsOnDischarge().getTherapeuticGoods()) {
-        throw new RuntimeException(
-            "Invalid current-medications data : person can only have either exclusion statement or therapeutic goods");
-      }
+    //Current Medications on Discharge
+    if (null != medicationsObj.getCurrentMedicationsOnDischarge().getExclusionStatement()
+        && null != medicationsObj.getCurrentMedicationsOnDischarge().getTherapeuticGoods()) {
+      throw new RuntimeException(
+          "Invalid current-medications data : person can only have either exclusion statement or therapeutic goods");
+    }
 
-      POCDMT000040Component5 currentMedicationsOnDischargeComponent = objectFactory
-          .createPOCDMT000040Component5();
-      POCDMT000040Section currentMedicationsOnDischargeSection = objectFactory
-          .createPOCDMT000040Section();
-      currentMedicationsOnDischargeSection.setCode(
-          (CE) dischargeSummaryCodeMap.get(ClinicalDocumentCodes.CURRENT_MEDICATIONS_ON_DISCHARGE));
-      currentMedicationsOnDischargeSection
-          .setTitle(CDATypeUtil.getST(
-              dischargeSummaryCodeMap.get(ClinicalDocumentCodes.CURRENT_MEDICATIONS_ON_DISCHARGE)
-                  .getDisplayName()));
-      currentMedicationsOnDischargeComponent.setSection(currentMedicationsOnDischargeSection);
-      if (null == medicationsObj.getCurrentMedicationsOnDischarge()) {
-        throw new RuntimeException(
-            "Mandatory section missing : Medications > Current Medications on Discharge");
-      }
-      CurrentMedicationsOnDischarge currentMedicationsOnDischargeObj = medicationsObj
-          .getCurrentMedicationsOnDischarge();
+    POCDMT000040Component5 currentMedicationsOnDischargeComponent = objectFactory
+        .createPOCDMT000040Component5();
+    POCDMT000040Section currentMedicationsOnDischargeSection = objectFactory
+        .createPOCDMT000040Section();
+    currentMedicationsOnDischargeSection.setCode(
+        (CE) dischargeSummaryCodeMap.get(ClinicalDocumentCodes.CURRENT_MEDICATIONS_ON_DISCHARGE));
+    currentMedicationsOnDischargeSection
+        .setTitle(CDATypeUtil.getST(
+            dischargeSummaryCodeMap.get(ClinicalDocumentCodes.CURRENT_MEDICATIONS_ON_DISCHARGE)
+                .getDisplayName()));
+    currentMedicationsOnDischargeComponent.setSection(currentMedicationsOnDischargeSection);
+    if (null == medicationsObj.getCurrentMedicationsOnDischarge()) {
+      throw new RuntimeException(
+          "Mandatory section missing : Medications > Current Medications on Discharge");
+    }
+    CurrentMedicationsOnDischarge currentMedicationsOnDischargeObj = medicationsObj
+        .getCurrentMedicationsOnDischarge();
     currentMedicationsOnDischargeSection
         .setText(NarrativeUtil.getCurrentMedicationsOnDischarge(currentMedicationsOnDischargeObj));
 
-      //Current Medications on Discharge -> Exclusion Statement / Global Statement (
-      if (null != currentMedicationsOnDischargeObj.getExclusionStatement()) {
-        if (null != currentMedicationsOnDischargeObj.getExclusionStatement().getGlobalStatement()) {
-          Coded globalStatement = currentMedicationsOnDischargeObj.getExclusionStatement()
-              .getGlobalStatement();
-          currentMedicationsOnDischargeSection.getEntry()
-              .add(exclusionStatementComponent
-                  .createExclusionStatement(CURRENT_MEDICATIONS_ON_DISCHARGE_GLOBAL_STATEMENT,
-                      globalStatement, ActClassObservation.OBS, XActMoodDocumentObservation.EVN));
-        } else {
-          throw new RuntimeException(
-              "Mandatory Attribute Missing : Medications > Current Medications on Discharge > Exclusion Statement > Global Statement");
-        }
+    //Current Medications on Discharge -> Exclusion Statement / Global Statement (
+    if (null != currentMedicationsOnDischargeObj.getExclusionStatement()) {
+      if (null != currentMedicationsOnDischargeObj.getExclusionStatement().getGlobalStatement()) {
+        Coded globalStatement = currentMedicationsOnDischargeObj.getExclusionStatement()
+            .getGlobalStatement();
+        currentMedicationsOnDischargeSection.getEntry()
+            .add(exclusionStatementComponent
+                .createExclusionStatement(CURRENT_MEDICATIONS_ON_DISCHARGE_GLOBAL_STATEMENT,
+                    globalStatement, ActClassObservation.OBS, XActMoodDocumentObservation.EVN));
+      } else {
+        throw new RuntimeException(
+            "Mandatory Attribute Missing : Medications > Current Medications on Discharge > Exclusion Statement > Global Statement");
       }
+    }
 
-      //Current Medications on Discharge -> Therapeutic Good
-      if (null != currentMedicationsOnDischargeObj.getTherapeuticGoods()
-          && !currentMedicationsOnDischargeObj.getTherapeuticGoods().isEmpty()) {
-        currentMedicationsOnDischargeObj.getTherapeuticGoods().stream().filter(Objects::nonNull)
-            .forEach(therapeuticGood -> currentMedicationsOnDischargeSection.getEntry()
-                .add(getCurrentMedicationsTherapeuticGoodEntry(therapeuticGood)));
-      }
-      medicationsSection.getComponent().add(currentMedicationsOnDischargeComponent);
-      //Ceased Medication
-      if (null != medicationsObj.getCeasedMedications().getExclusionStatement()
-          && null != medicationsObj.getCeasedMedications().getTherapeuticGoods()) {
-        throw new RuntimeException(
-            "Invalid ceased-medications data : person can only have either exclusion statement or therapeutic goods");
-      }
-      POCDMT000040Component5 ceasedMedicationComponent = objectFactory
-          .createPOCDMT000040Component5();
-      POCDMT000040Section ceasedMedicationSection = objectFactory.createPOCDMT000040Section();
-      ceasedMedicationSection.setCode(
-          (CE) dischargeSummaryCodeMap.get(ClinicalDocumentCodes.CEASED_MEDICATIONS));
-      ceasedMedicationSection.setTitle(CDATypeUtil.getST(
-          dischargeSummaryCodeMap.get(ClinicalDocumentCodes.CEASED_MEDICATIONS).getDisplayName()));
-      ceasedMedicationComponent.setSection(ceasedMedicationSection);
-      if (null == medicationsObj.getCeasedMedications()) {
-        throw new RuntimeException(
-            "Mandatory section missing : Medications > Ceased Medications");
-      }
-      CeasedMedications ceasedMedicationsObj = medicationsObj.getCeasedMedications();
+    //Current Medications on Discharge -> Therapeutic Good
+    if (null != currentMedicationsOnDischargeObj.getTherapeuticGoods()
+        && !currentMedicationsOnDischargeObj.getTherapeuticGoods().isEmpty()) {
+      currentMedicationsOnDischargeObj.getTherapeuticGoods().stream().filter(Objects::nonNull)
+          .forEach(therapeuticGood -> currentMedicationsOnDischargeSection.getEntry()
+              .add(getCurrentMedicationsTherapeuticGoodEntry(therapeuticGood)));
+    }
+    medicationsSection.getComponent().add(currentMedicationsOnDischargeComponent);
+    //Ceased Medication
+    if (null != medicationsObj.getCeasedMedications().getExclusionStatement()
+        && null != medicationsObj.getCeasedMedications().getTherapeuticGoods()) {
+      throw new RuntimeException(
+          "Invalid ceased-medications data : person can only have either exclusion statement or therapeutic goods");
+    }
+    POCDMT000040Component5 ceasedMedicationComponent = objectFactory
+        .createPOCDMT000040Component5();
+    POCDMT000040Section ceasedMedicationSection = objectFactory.createPOCDMT000040Section();
+    ceasedMedicationSection.setCode(
+        (CE) dischargeSummaryCodeMap.get(ClinicalDocumentCodes.CEASED_MEDICATIONS));
+    ceasedMedicationSection.setTitle(CDATypeUtil.getST(
+        dischargeSummaryCodeMap.get(ClinicalDocumentCodes.CEASED_MEDICATIONS).getDisplayName()));
+    ceasedMedicationComponent.setSection(ceasedMedicationSection);
+    if (null == medicationsObj.getCeasedMedications()) {
+      throw new RuntimeException(
+          "Mandatory section missing : Medications > Ceased Medications");
+    }
+    CeasedMedications ceasedMedicationsObj = medicationsObj.getCeasedMedications();
     ceasedMedicationSection.setText(NarrativeUtil.getCeasedMedications(ceasedMedicationsObj));
 
-      //Ceased Medications -> Exclusion Statement / Global Statement
-      if (null != ceasedMedicationsObj.getExclusionStatement()) {
-        if (null != ceasedMedicationsObj.getExclusionStatement().getGlobalStatement()) {
-          Coded globalStatement = ceasedMedicationsObj.getExclusionStatement().getGlobalStatement();
-          ceasedMedicationSection.getEntry()
-              .add(exclusionStatementComponent
-                  .createExclusionStatement(CEASED_MEDICATIONS_GLOBAL_STATEMENT, globalStatement,
-                      ActClassObservation.OBS, XActMoodDocumentObservation.EVN));
-        } else {
-          throw new RuntimeException(
-              "Mandatory Attribute Missing : Medications > Ceased Medications > Exclusion Statement > Global Statement");
-        }
+    //Ceased Medications -> Exclusion Statement / Global Statement
+    if (null != ceasedMedicationsObj.getExclusionStatement()) {
+      if (null != ceasedMedicationsObj.getExclusionStatement().getGlobalStatement()) {
+        Coded globalStatement = ceasedMedicationsObj.getExclusionStatement().getGlobalStatement();
+        ceasedMedicationSection.getEntry()
+            .add(exclusionStatementComponent
+                .createExclusionStatement(CEASED_MEDICATIONS_GLOBAL_STATEMENT, globalStatement,
+                    ActClassObservation.OBS, XActMoodDocumentObservation.EVN));
+      } else {
+        throw new RuntimeException(
+            "Mandatory Attribute Missing : Medications > Ceased Medications > Exclusion Statement > Global Statement");
       }
-      // medicationsSection.getComponent().add(ceasedMedicationComponent);
+    }
+    // medicationsSection.getComponent().add(ceasedMedicationComponent);
 
-      //Ceased Medications -> Therapeutic Good
-      if (null != ceasedMedicationsObj.getTherapeuticGoods()
-          && !ceasedMedicationsObj.getTherapeuticGoods().isEmpty()) {
-        ceasedMedicationsObj.getTherapeuticGoods().stream().filter(Objects::nonNull)
-            .forEach(therapeuticGood -> ceasedMedicationSection.getEntry()
-                .add(getCeasedMedicationsTherapeuticGoodEntry(therapeuticGood)));
+    //Ceased Medications -> Therapeutic Good
+    if (null != ceasedMedicationsObj.getTherapeuticGoods()
+        && !ceasedMedicationsObj.getTherapeuticGoods().isEmpty()) {
+      ceasedMedicationsObj.getTherapeuticGoods().stream().filter(Objects::nonNull)
+          .forEach(therapeuticGood -> ceasedMedicationSection.getEntry()
+              .add(getCeasedMedicationsTherapeuticGoodEntry(therapeuticGood)));
 
-      }
+    }
     medicationsSection.getComponent().add(ceasedMedicationComponent);
 
     return medicationsComponent;
@@ -1290,8 +1284,6 @@ public class DischargeSummaryCreator extends ClinicalDocumentCreator {
           eventObj.getClinicalInterventionsPerformedThisVisit()));
     }
 
-    //TODO MS : Check if procedures missing from all docs ?
-
     //Diagnostic Investigations
     if (null != eventObj.getDiagnosticInvestigations()) {
       DiagnosticInvestigationComponent diagnosticInvestigationComponent = new DiagnosticInvestigationComponent(
@@ -1523,7 +1515,8 @@ public class DischargeSummaryCreator extends ClinicalDocumentCreator {
     //Information Recipient
     cdaModel.getInformationRecipients().stream().filter(Objects::nonNull).forEach(
         informationRecipient -> clinicalDocument.getInformationRecipient()
-            .add(HeaderUtil.createInformationRecipient(informationRecipient))
+            .add(HeaderUtil
+                .createInformationRecipient(informationRecipient, XInformationRecipient.PRCP))
     );
     // Construct Custodian
     if (cdaModel.getCustodian() != null) {

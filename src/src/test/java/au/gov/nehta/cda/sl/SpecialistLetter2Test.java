@@ -14,6 +14,7 @@ import static au.gov.nehta.cda.test.TestHelper.getDocumentAuthor;
 import static au.gov.nehta.cda.test.TestHelper.getInformationRecipients;
 import static au.gov.nehta.cda.test.TestHelper.getLegalAuthenticator;
 import static au.gov.nehta.cda.test.TestHelper.getSubjectOfCareParticipant;
+import static au.gov.nehta.model.schematron.SchematronResource.SchematronResources.SPECIALIST_LETTER_2;
 
 import au.gov.nehta.builder.sl.SpecialistLetterCreator;
 import au.gov.nehta.builder.util.UUIDTool;
@@ -46,6 +47,8 @@ import au.gov.nehta.model.clinical.sl.SpecialistLetterContext;
 import au.gov.nehta.model.clinical.sl.SpecialistLetterContextImpl;
 import au.gov.nehta.model.clinical.sl.SpecialistLetterImpl;
 import au.gov.nehta.model.schematron.SchematronValidationException;
+import au.gov.nehta.schematron.Schematron;
+import au.gov.nehta.schematron.SchematronCheckResult;
 import au.net.electronichealth.ns.cda._2_0.ObjectFactory;
 import au.net.electronichealth.ns.cda._2_0.StrucDocList;
 import au.net.electronichealth.ns.cda._2_0.StrucDocTable;
@@ -54,14 +57,19 @@ import au.net.electronichealth.ns.cda._2_0.StrucDocTd;
 import au.net.electronichealth.ns.cda._2_0.StrucDocText;
 import au.net.electronichealth.ns.cda._2_0.StrucDocThead;
 import au.net.electronichealth.ns.cda._2_0.StrucDocTr;
+import java.io.File;
 import java.util.UUID;
 import javax.xml.bind.JAXBException;
 import javax.xml.parsers.ParserConfigurationException;
+import junit.framework.Assert;
 import org.joda.time.DateTime;
 import org.junit.Test;
 import org.w3c.dom.Document;
 
 public class SpecialistLetter2Test extends Base {
+
+  private static String SCHEMATRON = SPECIALIST_LETTER_2.resource().getSchematron();
+  private static String SCHEMATRON_TEMPLATE_PATH = "resources/SpecialistLetter";
 
   private static final String DOCUMENT_FILE_NAME =
       TEST_GENERATION + "/sl/SpecialistLetter_format_2.xml";
@@ -70,9 +78,25 @@ public class SpecialistLetter2Test extends Base {
   private DateTime now = new DateTime();
 
   @Test
-  public void test_Specialist_Letter_Format_2_Creation()
-      throws SchematronValidationException, JAXBException, ParserConfigurationException {
+  public void test_2_Specialist_Letter_Creation() {
+    try {
+      if (!new File(SCHEMATRON_TEMPLATE_PATH
+          + "/schematron/schematron-Validator-report.xsl").exists()) {
+        SCHEMATRON_TEMPLATE_PATH = "src/" + SCHEMATRON_TEMPLATE_PATH;
+      }
+      generate2();
+      SchematronCheckResult check =
+          Schematron.check(SCHEMATRON_TEMPLATE_PATH, SCHEMATRON, DOCUMENT_FILE_NAME);
+      show(check);
+      Assert.assertEquals(0, check.schemaErrors.size());
+      Assert.assertEquals(0, check.schematronErrors.size());
+    } catch (SchematronValidationException | ParserConfigurationException | JAXBException e) {
+      e.printStackTrace();
+    }
+  }
 
+  public void generate2()
+      throws SchematronValidationException, JAXBException, ParserConfigurationException {
     // Prepare Specialist Letter Context
     ParticipationServiceProvider usualGP = new ParticipationServiceProviderImpl();
     ParticipationServiceProvider referrer = new ParticipationServiceProviderImpl();
@@ -104,7 +128,6 @@ public class SpecialistLetter2Test extends Base {
     cdaClinicalDocument.setVersionNumber(1);
     cdaClinicalDocument.setCompletionCode(DocumentStatusCode.FINAL);
 
-
     SpecialistLetterCDAModel specialistLetterCDAModel = new SpecialistLetterCDAModel(
         cdaClinicalDocument, getInformationRecipients(), now);
     specialistLetterCDAModel.setCustodian(getCustodian());
@@ -118,7 +141,6 @@ public class SpecialistLetter2Test extends Base {
     String cdaString = TestHelper.documentToXML(clinicalDocument);
     TestHelper.printToFile(cdaString, DOCUMENT_FILE_NAME);
     System.out.println(cdaString);
-
   }
 
   private ResponseDetails getResponseDetails() {

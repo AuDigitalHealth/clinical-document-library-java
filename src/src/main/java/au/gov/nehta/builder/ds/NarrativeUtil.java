@@ -23,7 +23,6 @@ import au.gov.nehta.model.clinical.ds.ClinicalSynopsis;
 import au.gov.nehta.model.clinical.ds.CurrentMedicationsOnDischarge;
 import au.gov.nehta.model.clinical.ds.Event;
 import au.gov.nehta.model.clinical.ds.HealthProfile;
-import au.gov.nehta.model.clinical.ds.Medications;
 import au.gov.nehta.model.clinical.ds.Plan;
 import au.gov.nehta.model.clinical.ds.ProblemDiagnosesThisVisit;
 import au.gov.nehta.model.clinical.ds.RecordOfRecommendationsAndInfoProvided;
@@ -163,7 +162,7 @@ public class NarrativeUtil {
     }
     StrucDocText narrative = objectFactory.createStrucDocText();
     if (null != problemDiagnosesThisVisit.getProblemDiagnoses()
-        || !problemDiagnosesThisVisit.getProblemDiagnoses().isEmpty()) {
+        && !problemDiagnosesThisVisit.getProblemDiagnoses().isEmpty()) {
       StrucDocTable probDiagnosesTable = objectFactory.createStrucDocTable();
       StrucDocTbody problemDiagnosesTBody = addBody(probDiagnosesTable);
       addCaption(probDiagnosesTable, "Problem Diagnoses");
@@ -288,36 +287,6 @@ public class NarrativeUtil {
     return narrative;
   }
 
-  static StrucDocText getMedications(Medications medicationsObj) {
-    if (null != medicationsObj.getCustomNarrative()) {
-      return medicationsObj.getCustomNarrative();
-    }
-    StrucDocText narrative = objectFactory.createStrucDocText();
-  /*  if (null != medicationsObj.getCurrentMedicationsOnDischarge()) {
-      if (null != medicationsObj.getCurrentMedicationsOnDischarge().getExclusionStatement()) {
-        narrative.getContent().add(objectFactory.createStrucDocTdList(getExclusionStatement(
-            medicationsObj.getCurrentMedicationsOnDischarge().getExclusionStatement(),
-            "Current Medications On Discharge")));
-      }
-      if (null != medicationsObj.getCurrentMedicationsOnDischarge().getTherapeuticGoods()
-          && !medicationsObj.getCurrentMedicationsOnDischarge().getTherapeuticGoods().isEmpty()) {
-        addTable(narrative, getTherapeuticGoods(
-            medicationsObj.getCurrentMedicationsOnDischarge().getTherapeuticGoods(),
-            "Current Medications On Discharge"));
-      }
-    }*/
-   /* if (null != medicationsObj.getCeasedMedications().getExclusionStatement()) {
-      narrative.getContent().add(objectFactory.createStrucDocTdList(getExclusionStatement(
-          medicationsObj.getCeasedMedications().getExclusionStatement(), "Ceased Medications")));
-    }
-    if (null != medicationsObj.getCeasedMedications().getTherapeuticGoods()
-        && !medicationsObj.getCeasedMedications().getTherapeuticGoods().isEmpty()) {
-      addTable(narrative, getTherapeuticGoods(
-          medicationsObj.getCeasedMedications().getTherapeuticGoods(), "Ceased Medications"));
-    }*/
-    return narrative;
-  }
-
   static StrucDocText getCeasedMedications(CeasedMedications ceasedMedications) {
     if (null != ceasedMedications.getCustomNarrative()) {
       return ceasedMedications.getCustomNarrative();
@@ -342,18 +311,16 @@ public class NarrativeUtil {
       return currentMedicationsOnDischargeObj.getCustomNarrative();
     }
     StrucDocText narrative = objectFactory.createStrucDocText();
-    if (null != currentMedicationsOnDischargeObj) {
-      if (null != currentMedicationsOnDischargeObj.getExclusionStatement()) {
-        narrative.getContent().add(objectFactory.createStrucDocTdList(getExclusionStatement(
-            currentMedicationsOnDischargeObj.getExclusionStatement(),
-            "Current Medications On Discharge")));
-      }
-      if (null != currentMedicationsOnDischargeObj.getTherapeuticGoods()
-          && !currentMedicationsOnDischargeObj.getTherapeuticGoods().isEmpty()) {
-        addTable(narrative, getTherapeuticGoods(
-            currentMedicationsOnDischargeObj.getTherapeuticGoods(),
-            "Current Medications On Discharge"));
-      }
+    if (null != currentMedicationsOnDischargeObj.getExclusionStatement()) {
+      narrative.getContent().add(objectFactory.createStrucDocTdList(getExclusionStatement(
+          currentMedicationsOnDischargeObj.getExclusionStatement(),
+          "Current Medications On Discharge")));
+    }
+    if (null != currentMedicationsOnDischargeObj.getTherapeuticGoods()
+        && !currentMedicationsOnDischargeObj.getTherapeuticGoods().isEmpty()) {
+      addTable(narrative, getTherapeuticGoods(
+          currentMedicationsOnDischargeObj.getTherapeuticGoods(),
+          "Current Medications On Discharge"));
     }
     return narrative;
   }
@@ -426,47 +393,45 @@ public class NarrativeUtil {
       return adverseReactions.getCustomNarrative();
     }
     StrucDocText narrative = objectFactory.createStrucDocText();
-    if (null != adverseReactions) {
-      if (null != adverseReactions.getExclusionStatement()) {
-        narrative.getContent().add(objectFactory.createStrucDocTdList(
-            getExclusionStatement(adverseReactions.getExclusionStatement(),
-                "Health Profile > Adverse Reactions")));
-      }
-      if (null != adverseReactions.getAdverseReactionList()
-          && !adverseReactions.getAdverseReactionList().isEmpty()) {
-        StrucDocTable adverseReactionsTable = objectFactory.createStrucDocTable();
-        StrucDocTbody adverseReactionsTbody = addBody(adverseReactionsTable);
-        addCaption(adverseReactionsTable, "Health Profile > Adverse Reactions");
-        addHeader(adverseReactionsTable, "Reaction Type", "Agent Desc", "Reaction Detail");
-        adverseReactions.getAdverseReactionList().stream()
-            .filter(Objects::nonNull).forEach(adverseReaction -> {
-          StrucDocList reactionDetailList = objectFactory.createStrucDocList();
-          adverseReaction.getReactionDetail().stream().filter(Objects::nonNull)
-              .forEach(reactionDetail -> {
-                StrucDocItem item = objectFactory.createStrucDocItem();
-                item.getContent().add(print(reactionDetail.getReactionDesc()));
-                reactionDetailList.getItem().add(item);
+    if (null != adverseReactions.getExclusionStatement()) {
+      narrative.getContent().add(objectFactory.createStrucDocTdList(
+          getExclusionStatement(adverseReactions.getExclusionStatement(),
+              "Health Profile > Adverse Reactions")));
+    }
+    if (null != adverseReactions.getAdverseReactionList()
+        && !adverseReactions.getAdverseReactionList().isEmpty()) {
+      StrucDocTable adverseReactionsTable = objectFactory.createStrucDocTable();
+      StrucDocTbody adverseReactionsTbody = addBody(adverseReactionsTable);
+      addCaption(adverseReactionsTable, "Health Profile > Adverse Reactions");
+      addHeader(adverseReactionsTable, "Reaction Type", "Agent Desc", "Reaction Detail");
+      adverseReactions.getAdverseReactionList().stream()
+          .filter(Objects::nonNull).forEach(adverseReaction -> {
+        StrucDocList reactionDetailList = objectFactory.createStrucDocList();
+        adverseReaction.getReactionDetail().stream().filter(Objects::nonNull)
+            .forEach(reactionDetail -> {
+              StrucDocItem item = objectFactory.createStrucDocItem();
+              item.getContent().add(print(reactionDetail.getReactionDesc()));
+              reactionDetailList.getItem().add(item);
 
-              });
-          StrucDocTd reactionDetailTd = objectFactory.createStrucDocTd();
-          reactionDetailTd.getContent().add(objectFactory.createStrucDocTdList(reactionDetailList));
-          List<StrucDocTd> cols = new LinkedList<>();
-          // Reaction Type
-          StrucDocTd rttd = objectFactory.createStrucDocTd();
-          rttd.getContent().add(print(adverseReaction.getAdverseReactionType()));
-          cols.add(rttd);
-          // Agent Desc
-          StrucDocTd adtd = objectFactory.createStrucDocTd();
-          adtd.getContent().add(print(adverseReaction.getAgentDesc()));
-          cols.add(adtd);
-          // Reaction Detail
-          StrucDocTd rdList = objectFactory.createStrucDocTd();
-          rdList.getContent().add(objectFactory.createStrucDocTdList(reactionDetailList));
-          cols.add(rdList);
-          add(adverseReactionsTbody, cols);
-        });
-        addTable(narrative, adverseReactionsTable);
-      }
+            });
+        StrucDocTd reactionDetailTd = objectFactory.createStrucDocTd();
+        reactionDetailTd.getContent().add(objectFactory.createStrucDocTdList(reactionDetailList));
+        List<StrucDocTd> cols = new LinkedList<>();
+        // Reaction Type
+        StrucDocTd rttd = objectFactory.createStrucDocTd();
+        rttd.getContent().add(print(adverseReaction.getAdverseReactionType()));
+        cols.add(rttd);
+        // Agent Desc
+        StrucDocTd adtd = objectFactory.createStrucDocTd();
+        adtd.getContent().add(print(adverseReaction.getAgentDesc()));
+        cols.add(adtd);
+        // Reaction Detail
+        StrucDocTd rdList = objectFactory.createStrucDocTd();
+        rdList.getContent().add(objectFactory.createStrucDocTdList(reactionDetailList));
+        cols.add(rdList);
+        add(adverseReactionsTbody, cols);
+      });
+      addTable(narrative, adverseReactionsTable);
     }
     return narrative;
   }
@@ -476,8 +441,7 @@ public class NarrativeUtil {
       return alerts.getCustomNarrative();
     }
     StrucDocText narrative = objectFactory.createStrucDocText();
-    if (null != alerts && null != alerts.getAlertList()
-        && !alerts.getAlertList().isEmpty()) {
+    if (null != alerts.getAlertList() && !alerts.getAlertList().isEmpty()) {
       StrucDocTable alertsTable = objectFactory.createStrucDocTable();
       StrucDocTbody alertsTbody = addBody(alertsTable);
       addCaption(alertsTable, "Health Profile > Alerts");
@@ -490,8 +454,4 @@ public class NarrativeUtil {
     }
     return narrative;
   }
-
-
 }
-
-

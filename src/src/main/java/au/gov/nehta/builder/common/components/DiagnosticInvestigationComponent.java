@@ -577,14 +577,12 @@ public class DiagnosticInvestigationComponent {
     POCDMT000040Person assignedPerson = objectFactory.createPOCDMT000040Person();
 
     if (null != serviceProvider.getEntityIdentifiers()) {
-      serviceProvider.getEntityIdentifiers().stream().filter(Objects::nonNull)
-          .forEach(asEntityIdentifier -> assignedPerson.getAsEntityIdentifier()
-              .add(Converter.convert(asEntityIdentifier)));
+      assignedPerson.getAsEntityIdentifier()
+          .addAll(Converter.convertEntityIdentifiers(serviceProvider.getEntityIdentifiers()));
     }
     //Assigned Person Name
-    serviceProvider.getHealthCareProvider().getPersonNames().stream()
-        .filter(Objects::nonNull).forEach(personName ->
-        assignedPerson.getName().add(Converter.getPersonName(personName)));
+    assignedPerson.getName()
+        .addAll(Converter.convertNames(serviceProvider.getHealthCareProvider().getPersonNames()));
     if (null != serviceProvider.getHealthCareProvider().getDateOfBirth() && !isServiceReferral) {
       assignedPerson.setBirthTime(Converter
           .getTS(serviceProvider.getHealthCareProvider().getDateOfBirth().getDateTime(), true));

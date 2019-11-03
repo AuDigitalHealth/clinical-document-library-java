@@ -1,5 +1,6 @@
 package au.gov.nehta.model.clinical.sr;
 
+import au.net.electronichealth.ns.cda._2_0.StrucDocText;
 import java.util.List;
 
 public class ServiceReferralDetailImpl implements ServiceReferralDetail {
@@ -7,6 +8,7 @@ public class ServiceReferralDetailImpl implements ServiceReferralDetail {
   private List<RequestedService> requestedServices;
   private InterpreterRequiredAlert interpreterRequiredAlert;
   private List<OtherAlert> otherAlerts;
+  private StrucDocText customNarrative;
 
   @Override
   public List<RequestedService> getRequestedServices() {
@@ -36,5 +38,15 @@ public class ServiceReferralDetailImpl implements ServiceReferralDetail {
   @Override
   public void setOtherAlert(List<OtherAlert> otherAlerts) {
     this.otherAlerts = otherAlerts;
+  }
+
+  @Override
+  public StrucDocText getCustomNarrative() {
+    return customNarrative;
+  }
+
+  @Override
+  public void setCustomNarrative(StrucDocText customNarrative) {
+    this.customNarrative = customNarrative;
   }
 }

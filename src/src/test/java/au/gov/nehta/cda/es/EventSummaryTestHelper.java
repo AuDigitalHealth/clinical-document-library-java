@@ -965,9 +965,10 @@ public class EventSummaryTestHelper {
     // in a ORM order message not ORU reports
     //Optional: Can be a list of codified Diagnosis in SNOMED or some other terminiology
     //Generally not found in HL7 V2 Messages. More a concept used in Anatomical pathology then general pathology
-    // TODO [Optional] : pathologyTestResult.PathologicalDiagnosis = new List<ICodableText>();
+
+    //[Optional] : pathologyTestResult.PathologicalDiagnosis = new List<ICodableText>();
     //pathologyTestResult.setDiagnosticService();
-    //Optional: Rarely seen and difficult to obtain as a sperate element if coming from a HL7 V2 message.
+    //Optional: Rarely seen and difficult to obtain as a separate element if coming from a HL7 V2 message.
     //Not impossible  but difficult as it will be in one of the OBXs and needs to be located.
     //pathologyTestResult.Conclusion = "I could write a final conclusion for the whole FBC panel";
     pathologyTestResult.setConclusion("I could write a final conclusion for the whole FBC panel");
@@ -1019,8 +1020,20 @@ public class EventSummaryTestHelper {
       Optional<String> attachmentDirOverrideValue) {
     File media;
     media = attachmentDirOverrideValue
-        .map(s -> new File(String.format("%s/x-ray%s.jpg", s, fileNameStr)))
-        .orElseGet(() -> new File(String.format("%s/x-ray%s.jpg", ATTACHMENTS_DIR, fileNameStr)));
+        .map(s -> {
+          if (!new File(String.format("%s/x-ray%s.jpg", s, fileNameStr)).exists()) {
+            return new File(String.format("src/%s/x-ray%s.jpg", s, fileNameStr));
+          } else {
+            return new File(String.format("%s/x-ray%s.jpg", s, fileNameStr));
+          }
+        })
+        .orElseGet(() -> {
+          if (!new File(String.format("%s/x-ray%s.jpg", ATTACHMENTS_DIR, fileNameStr)).exists()) {
+            return new File(String.format("src/%s/x-ray%s.jpg", ATTACHMENTS_DIR, fileNameStr));
+          } else {
+            return new File(String.format("%s/x-ray%s.jpg", ATTACHMENTS_DIR, fileNameStr));
+          }
+        });
     if (!media.exists()) {
       throw new RuntimeException(
           "Attachment does not exist in DIR : : " + ATTACHMENTS_DIR + fileNameStr);

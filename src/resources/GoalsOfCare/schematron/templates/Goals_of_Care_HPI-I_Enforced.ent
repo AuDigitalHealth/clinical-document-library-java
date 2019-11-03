@@ -1,0 +1,19 @@
+    <pattern name="p-Goals_of_Care_HPI-I_Enforced-errors" id="p-Goals_of_Care_HPI-I_Enforced-errors"
+        see="#p-Goals_of_Care_HPI-I_Enforced-errors">
+
+        <rule
+            context="/cda:ClinicalDocument/cda:author/cda:assignedAuthor/cda:assignedPerson[ext:asEmployment]">
+
+            <assert
+                test="ext:asEntityIdentifier/ext:id[starts-with(@root, '1.2.36.1.2001.1003.0.800361')]"
+                >Error: Goals of Care - 6.1.2.2 Document Author as a Person (Healthcare Provider) -
+                The 'asEntityIdentifier' tag with a HPI-I is missing. Refer to 028630 - 'Document
+                Author Entity Identifier value' of the
+                Goals_of_Care_My_Health_Record_Conformance_Profile_v1.0 and section 6.1.2.2 Document
+                Author as a Person (Healthcare Provider) of the
+                Advance_Care_Information_CDA_Implementation_Guide_v1.0.</assert>
+
+        </rule>
+
+    </pattern>
+

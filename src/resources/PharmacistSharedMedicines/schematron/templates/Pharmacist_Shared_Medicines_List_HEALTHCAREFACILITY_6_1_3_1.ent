@@ -1,0 +1,227 @@
+<!--
+_________________________________________________________________________________________________________________________________________________________________________________________
+                  Generated File - Do Not Edit File Directly                                                                                                                             
+                  __________________________________________
+
+                  Generated          : 1/11/2018 9:46:48 AM
+
+                  Product            : Pharmacist Shared Medicines List
+                  Release            : CDA_Implementation_Guide_v1.0
+                  IG Guide Reference : 6.1.3.1
+                  IG Guide Title     : HEALTHCARE FACILITY
+                  Generator Version  : 2.28
+                                                                                                                                                                                         
+_________________________________________________________________________________________________________________________________________________________________________________________
+-->
+<pattern name="p-Pharmacist_Shared_Medicines_List_HEALTHCAREFACILITY_6_1_3_1-errors"
+  id="p-Pharmacist_Shared_Medicines_List_HEALTHCAREFACILITY_6_1_3_1-errors"
+  see="#p-Pharmacist_Shared_Medicines_List_HEALTHCAREFACILITY_6_1_3_1-errors">
+
+
+  <rule context="/cda:ClinicalDocument/cda:componentOf/cda:encompassingEncounter">
+
+    <report test="count(cda:location) > 1"
+    >Error: Pharmacist Shared Medicines List - 6.1.3.1 HEALTHCARE FACILITY -
+      "HEALTHCARE FACILITY" -
+      The 'location' tag shall appear only once.
+      Refer to section 6.1.3.1 of the
+      Core_Level_One_Clinical_Document_CDA_Implementation_Guide_v1.1.
+    </report>
+
+  </rule>
+
+
+  <rule context="/cda:ClinicalDocument/cda:componentOf/cda:encompassingEncounter/cda:location">
+
+    <report test="@typeCode and normalize-space(@typeCode) = ''"
+    >Error: Pharmacist Shared Medicines List - 6.1.3.1 HEALTHCARE FACILITY -
+      "HEALTHCARE FACILITY" -
+      The 'location' tag 'typeCode' attribute shall contain a value.
+      Refer to section 6.1.3.1 of the
+      Core_Level_One_Clinical_Document_CDA_Implementation_Guide_v1.1.
+    </report>
+
+    <report test="
+                @typeCode and normalize-space(@typeCode) != '' and @typeCode != 'LOC'"
+    >Error: Pharmacist Shared Medicines List - 6.1.3.1 HEALTHCARE FACILITY -
+      "HEALTHCARE FACILITY" -
+      The 'location' tag 'typeCode' attribute shall contain the value 'LOC'.
+      Refer to section 6.1.3.1 of the
+      Core_Level_One_Clinical_Document_CDA_Implementation_Guide_v1.1.
+    </report>
+
+    <assert test="cda:healthCareFacility"
+    >Error: Pharmacist Shared Medicines List - 6.1.3.1 HEALTHCARE FACILITY -
+      "HEALTHCARE FACILITY / Role" -
+      The 'healthCareFacility' tag is missing.
+      Refer to section 6.1.3.1 of the
+      Core_Level_One_Clinical_Document_CDA_Implementation_Guide_v1.1.
+    </assert>
+
+    <report test="count(cda:healthCareFacility) > 1"
+    >Error: Pharmacist Shared Medicines List - 6.1.3.1 HEALTHCARE FACILITY -
+      "HEALTHCARE FACILITY / Role" -
+      The 'healthCareFacility' tag shall appear only once.
+      Refer to section 6.1.3.1 of the
+      Core_Level_One_Clinical_Document_CDA_Implementation_Guide_v1.1.
+    </report>
+
+  </rule>
+
+
+  <rule
+    context="/cda:ClinicalDocument/cda:componentOf/cda:encompassingEncounter/cda:location/cda:healthCareFacility">
+
+    <report test="count(cda:id) > 1"
+    >Error: Pharmacist Shared Medicines List - 6.1.3.1 HEALTHCARE FACILITY -
+      "location/healthCareFacility/id" -
+      The 'id' tag shall appear only once.
+      Refer to section 6.1.3.1 of the
+      Core_Level_One_Clinical_Document_CDA_Implementation_Guide_v1.1.
+    </report>
+
+    <assert test="cda:code"
+    >Error: Pharmacist Shared Medicines List - 6.1.3.1 HEALTHCARE FACILITY -
+      "HEALTHCARE FACILITY / Role" -
+      The 'code' tag is missing.
+      Refer to section 6.1.3.1 of the
+      Core_Level_One_Clinical_Document_CDA_Implementation_Guide_v1.1.
+    </assert>
+
+    <report test="count(cda:code) > 1"
+    >Error: Pharmacist Shared Medicines List - 6.1.3.1 HEALTHCARE FACILITY -
+      "HEALTHCARE FACILITY / Role" -
+      The 'code' tag shall appear only once.
+      Refer to section 6.1.3.1 of the
+      Core_Level_One_Clinical_Document_CDA_Implementation_Guide_v1.1.
+    </report>
+
+    <assert test="cda:serviceProviderOrganization"
+    >Error: Pharmacist Shared Medicines List - 6.1.3.1 HEALTHCARE FACILITY -
+      "HEALTHCARE FACILITY / PARTICIPANT" -
+      The 'serviceProviderOrganization' tag is missing.
+      Refer to section 6.1.3.1 of the
+      Core_Level_One_Clinical_Document_CDA_Implementation_Guide_v1.1.
+    </assert>
+
+    <report test="count(cda:serviceProviderOrganization) > 1"
+    >Error: Pharmacist Shared Medicines List - 6.1.3.1 HEALTHCARE FACILITY -
+      "HEALTHCARE FACILITY / PARTICIPANT" -
+      The 'serviceProviderOrganization' tag shall appear only once.
+      Refer to section 6.1.3.1 of the
+      Core_Level_One_Clinical_Document_CDA_Implementation_Guide_v1.1.
+    </report>
+
+  </rule>
+
+
+  <rule
+    context="/cda:ClinicalDocument/cda:componentOf/cda:encompassingEncounter/cda:location/cda:healthCareFacility/cda:serviceProviderOrganization">
+
+    <assert test="cda:asOrganizationPartOf"
+    >Error: Pharmacist Shared Medicines List - 6.1.3.1 HEALTHCARE FACILITY -
+      "HEALTHCARE FACILITY / PARTICIPANT" -
+      The 'asOrganizationPartOf' tag is missing.
+      Refer to section 6.1.3.1 of the
+      Core_Level_One_Clinical_Document_CDA_Implementation_Guide_v1.1.
+    </assert>
+
+    <report test="count(cda:asOrganizationPartOf) > 1"
+    >Error: Pharmacist Shared Medicines List - 6.1.3.1 HEALTHCARE FACILITY -
+      "HEALTHCARE FACILITY / PARTICIPANT" -
+      The 'asOrganizationPartOf' tag shall appear only once.
+      Refer to section 6.1.3.1 of the
+      Core_Level_One_Clinical_Document_CDA_Implementation_Guide_v1.1.
+    </report>
+
+    <report test="count(cda:name) > 1"
+    >Error: Pharmacist Shared Medicines List - 6.1.3.1 HEALTHCARE FACILITY -
+      "HEALTHCARE FACILITY / PARTICIPANT / PERSON OR ORGANISATION OR DEVICE / ORGANISATION /
+      Department/Unit" -
+      The 'name' tag shall appear only once.
+      Refer to section 6.1.3.1 of the
+      Core_Level_One_Clinical_Document_CDA_Implementation_Guide_v1.1.
+    </report>
+
+  </rule>
+
+
+  <rule
+    context="/cda:ClinicalDocument/cda:componentOf/cda:encompassingEncounter/cda:location/cda:healthCareFacility/cda:serviceProviderOrganization/cda:asOrganizationPartOf">
+
+    <assert test="cda:wholeOrganization"
+    >Error: Pharmacist Shared Medicines List - 6.1.3.1 HEALTHCARE FACILITY -
+      "HEALTHCARE FACILITY / PARTICIPANT" -
+      The 'wholeOrganization' tag is missing.
+      Refer to section 6.1.3.1 of the
+      Core_Level_One_Clinical_Document_CDA_Implementation_Guide_v1.1.
+    </assert>
+
+    <report test="count(cda:wholeOrganization) > 1"
+    >Error: Pharmacist Shared Medicines List - 6.1.3.1 HEALTHCARE FACILITY -
+      "HEALTHCARE FACILITY / PARTICIPANT" -
+      The 'wholeOrganization' tag shall appear only once.
+      Refer to section 6.1.3.1 of the
+      Core_Level_One_Clinical_Document_CDA_Implementation_Guide_v1.1.
+    </report>
+
+  </rule>
+
+
+  <rule
+    context="/cda:ClinicalDocument/cda:componentOf/cda:encompassingEncounter/cda:location/cda:healthCareFacility/cda:serviceProviderOrganization/cda:asOrganizationPartOf/cda:wholeOrganization">
+
+    <assert test="ext:asEntityIdentifier"
+    >Error: Pharmacist Shared Medicines List - 6.1.3.1 HEALTHCARE FACILITY -
+      "HEALTHCARE FACILITY / PARTICIPANT / Entity Identifier" -
+      The 'asEntityIdentifier' tag is missing.
+      Refer to section 6.1.3.1 of the
+      Core_Level_One_Clinical_Document_CDA_Implementation_Guide_v1.1.
+    </assert>
+
+    <assert test="cda:addr"
+    >Error: Pharmacist Shared Medicines List - 6.1.3.1 HEALTHCARE FACILITY -
+      "HEALTHCARE FACILITY / PARTICIPANT / ADDRESS" -
+      The 'addr' tag is missing.
+      Refer to section 6.1.3.1 of the
+      Core_Level_One_Clinical_Document_CDA_Implementation_Guide_v1.1.
+    </assert>
+
+    <assert test="cda:name"
+    >Error: Pharmacist Shared Medicines List - 6.1.3.1 HEALTHCARE FACILITY -
+      "HEALTHCARE FACILITY / PARTICIPANT / PERSON OR ORGANISATION OR DEVICE / ORGANISATION /
+      Organisation Name" -
+      The 'name' tag is missing.
+      Refer to section 6.1.3.1 of the
+      Core_Level_One_Clinical_Document_CDA_Implementation_Guide_v1.1.
+    </assert>
+
+    <report test="count(cda:name) > 1"
+    >Error: Pharmacist Shared Medicines List - 6.1.3.1 HEALTHCARE FACILITY -
+      "HEALTHCARE FACILITY / PARTICIPANT / PERSON OR ORGANISATION OR DEVICE / ORGANISATION /
+      Organisation Name" -
+      The 'name' tag shall appear only once.
+      Refer to section 6.1.3.1 of the
+      Core_Level_One_Clinical_Document_CDA_Implementation_Guide_v1.1.
+    </report>
+
+  </rule>
+
+
+  <rule
+    context="/cda:ClinicalDocument/cda:componentOf/cda:encompassingEncounter/cda:location/cda:healthCareFacility/cda:serviceProviderOrganization/cda:asOrganizationPartOf/cda:wholeOrganization/cda:name">
+
+    <report test="@use and normalize-space(@use) = ''"
+    >Error: Pharmacist Shared Medicines List - 6.1.3.1 HEALTHCARE FACILITY -
+      "HEALTHCARE FACILITY / PARTICIPANT / PERSON OR ORGANISATION OR DEVICE / ORGANISATION /
+      Organisation Name" -
+      The 'name' tag 'use' attribute shall contain a value.
+      Refer to section 6.1.3.1 of the
+      Core_Level_One_Clinical_Document_CDA_Implementation_Guide_v1.1.
+    </report>
+
+  </rule>
+
+
+</pattern>
+

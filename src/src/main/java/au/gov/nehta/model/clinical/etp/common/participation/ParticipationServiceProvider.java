@@ -18,5 +18,4 @@ public interface ParticipationServiceProvider {
 
     void setParticipationPeriod(RestrictedTimeInterval participationPeriod);
 
-    //TODO Missing Validation
 }

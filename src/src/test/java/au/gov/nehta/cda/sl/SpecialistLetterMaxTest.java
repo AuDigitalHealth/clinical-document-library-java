@@ -3,6 +3,7 @@ package au.gov.nehta.cda.sl;
 import static au.gov.nehta.cda.es.EventSummaryTestHelper.getAttachedMedia;
 import static au.gov.nehta.cda.test.TestHelper.getCustodian;
 import static au.gov.nehta.cda.test.TestHelper.getDocumentAuthor;
+import static au.gov.nehta.cda.test.TestHelper.getInformationRecipients;
 import static au.gov.nehta.cda.test.TestHelper.getLegalAuthenticator;
 import static au.gov.nehta.cda.test.TestHelper.getSubjectOfCareParticipant;
 import static au.gov.nehta.model.schematron.SchematronResource.SchematronResources.SPECIALIST_LETTER_3A;
@@ -26,7 +27,6 @@ import au.gov.nehta.model.cda.common.document.ClinicalDocument;
 import au.gov.nehta.model.cda.common.document.ClinicalDocumentFactory;
 import au.gov.nehta.model.cda.common.id.AsEntityIdentifier;
 import au.gov.nehta.model.cda.common.id.AsEntityIdentifierImpl;
-import au.gov.nehta.model.cda.common.informationrecipient.InformationRecipient;
 import au.gov.nehta.model.cda.common.participant.EmploymentOrganization;
 import au.gov.nehta.model.cda.common.participant.EmploymentOrganizationImpl;
 import au.gov.nehta.model.cda.common.person_org.PersonHealthcareProvider;
@@ -118,6 +118,7 @@ import au.gov.nehta.model.clinical.sl.SpecialistLetterContentImpl;
 import au.gov.nehta.model.clinical.sl.SpecialistLetterContext;
 import au.gov.nehta.model.clinical.sl.SpecialistLetterContextImpl;
 import au.gov.nehta.model.clinical.sl.SpecialistLetterImpl;
+import au.gov.nehta.model.clinical.sr.ServiceReferral;
 import au.gov.nehta.model.schematron.SchematronValidationException;
 import au.gov.nehta.schematron.Schematron;
 import au.gov.nehta.schematron.SchematronCheckResult;
@@ -138,13 +139,16 @@ public class SpecialistLetterMaxTest extends Base {
 
   private static final String SCHEMATRON = SPECIALIST_LETTER_3A.resource().getSchematron();
   //  private static final String SCHEMATRON = SPECIALIST_LETTER_3B.resource().getSchematron();
-  private static final String SCHEMATRON_TEMPLATE_PATH = "resources/SpecialistLetter";
+  private static String SCHEMATRON_TEMPLATE_PATH = "resources/SpecialistLetter";
   private static final String DOCUMENT_FILE_NAME = TEST_GENERATION + "/sl/sl-max-java.xml";
   private DateTime now = new DateTime();
 
   @Test
   public void test_MAX_Specialist_Letter_Creation() {
     try {
+      if (!new File(SCHEMATRON_TEMPLATE_PATH + "/schematron/schematron-Validator-report.xsl").exists()) {
+        SCHEMATRON_TEMPLATE_PATH = "src/" + SCHEMATRON_TEMPLATE_PATH;
+      }
       generateMax();
       SchematronCheckResult check =
           Schematron.check(SCHEMATRON_TEMPLATE_PATH, SCHEMATRON, DOCUMENT_FILE_NAME);
@@ -159,9 +163,8 @@ public class SpecialistLetterMaxTest extends Base {
   private void generateMax()
       throws SchematronValidationException, JAXBException, ParserConfigurationException {
 
-    // Prepare Specialist Letter Context (TODO - Martin, properly initialize below)
-    ParticipationServiceProvider referrer = new ParticipationServiceProviderImpl();
-
+    // Prepare Specialist Letter Context
+    ParticipationServiceProvider referrer = getCurrentServiceProviderIndividual();
     DocumentAuthor documentAuthor = getDocumentAuthor(now);
     SpecialistLetterContext specialistLetterContext =
         new SpecialistLetterContextImpl(getSubjectOfCareParticipant(), documentAuthor,
@@ -189,12 +192,10 @@ public class SpecialistLetterMaxTest extends Base {
     cdaClinicalDocument.setVersionNumber(1);
     cdaClinicalDocument.setCompletionCode(DocumentStatusCode.FINAL);
 
-    List<InformationRecipient> informationRecipients = new ArrayList<>();
-    // informationRecipients.add(new InformationRecipientImpl(new AsEntityIdentifierImpl() {{
-    // }})); TODO fix information recipient on SpecialistLetter
-
     SpecialistLetterCDAModel specialistLetterCDAModel = new SpecialistLetterCDAModel(
-        cdaClinicalDocument, informationRecipients, now);
+        cdaClinicalDocument, getInformationRecipients(), now);
+    specialistLetterCDAModel.setUsualGP(getUsualGP());
+    specialistLetterCDAModel.setReferrer(referrer);
     specialistLetterCDAModel.setCustodian(getCustodian());
 
     specialistLetterCDAModel.setLegalAuthenticator(getLegalAuthenticator(now));
@@ -212,7 +213,7 @@ public class SpecialistLetterMaxTest extends Base {
   private ParticipationServiceProvider getUsualGP() {
     ParticipationServiceProvider usualGP = new ParticipationServiceProviderImpl();
     usualGP.setRole(new CodeImpl("253111", "2.16.840.1.113883.13.62",
-        "1220.0 - ANZSCO - Australian and New Zealand Standard Classification of Occupations, First Edition, Revision1",
+        "1220.0 - ANZSCO - Australian and New Zealand Standard Classification of Occupations, First Edition, 2006",
         "General Medical Practitioner"));
     usualGP.setParticipant(getServiceProviderIndividual());
     return usualGP;
@@ -241,8 +242,6 @@ public class SpecialistLetterMaxTest extends Base {
               Recommendations should be done for 5 days, it doesn't matter when you should do it.
           3.	A duration with a date. E.g.<effectiveTime value="20190901"><width unit="d" value="5"/></effectiveTime>
               This means the recommendations should be done for 5 days by the date "20190901".*/
-
-        //TODO MS : Revisit (see Davids email on dates)
         setTimeFrame(RestrictedTimeInterval.getLowWidthInstance(
             new PrecisionDate(Precision.DAY, new DateTime("2019-09-26")),
             new TimeQuantity(4, TimeUnitOfMeasure.MONTH)));
@@ -344,8 +343,7 @@ public class SpecialistLetterMaxTest extends Base {
   }
 
   private OtherTestResult getOtherTestResultWithReportFile() {
-    AttachedMedia reportFile = new AttachedMedia(
-        new File(ATTACHMENTS_DIR + "radiologyreport.pdf"));
+    AttachedMedia reportFile = TestHelper.getAttachedMediaPDF("radiologyreport.pdf");
     return new OtherTestResultImpl(new CodeImpl() {{
       setOriginalText("Report Name (with attachment)");
     }},
@@ -737,6 +735,23 @@ public class SpecialistLetterMaxTest extends Base {
             "None known"));
     medications.setExclusionStatement(exclusionStatement);
     return medications;
+  }
+
+  private ParticipationServiceProvider getCurrentServiceProviderIndividual() {
+    ParticipationServiceProvider serviceProvider = new ParticipationServiceProviderImpl();
+    serviceProvider.setParticipant(getServiceProviderIndividual());
+    serviceProvider.getParticipant().setExecutingClass(ServiceReferral.class);
+    serviceProvider.setRole(new CodeImpl(
+        "309964003",
+        "2.16.840.1.113883.6.96",
+        "SNOMED CT",
+        "Radiology Department",
+        "Radiology Department"));
+    serviceProvider.setParticipationPeriod(
+        RestrictedTimeInterval.getLowHighInstance(
+            new PrecisionDate(Precision.DAY, new DateTime("2013-01-1")),
+            new PrecisionDate(Precision.DAY, new DateTime("2013-04-1"))));
+    return serviceProvider;
   }
 
 }

@@ -1,0 +1,18 @@
+    <pattern
+        name="p-Goals_of_Care_DOCUMENTAUTHORasaPERSON-NotaHealthcareProvider_6_1_2_1_custom2-errors"
+        id="p-Goals_of_Care_DOCUMENTAUTHORasaPERSON-NotaHealthcareProvider_6_1_2_1_custom2-errors"
+        see="#p-Goals_of_Care_DOCUMENTAUTHORasaPERSON-NotaHealthcareProvider_6_1_2_1_custom2-errors">
+
+
+        <rule context="/cda:ClinicalDocument/cda:author/cda:assignedAuthor[cda:code/@code='AGNT']/cda:assignedPerson | 
+            /cda:ClinicalDocument/cda:author/cda:assignedAuthor[cda:code/@code='SELF']/cda:assignedPerson ">
+            
+            <report test="ext:asEmployment"
+                >Error: Goals of Care - 6.1.2.1 DOCUMENT AUTHOR as a PERSON - Not a Healthcare Provider -
+                "DOCUMENT AUTHOR / Role" - EMPLOYMENT DETAIL is prohibited if 'code' tag contains 'AGNT' or 'SELF'.
+                Refer to section 6.1.2.1 of the Advance_Care_Information_CDA_Implementation_Guide_v1.0.</report>
+            
+        </rule>
+        
+    </pattern>
+

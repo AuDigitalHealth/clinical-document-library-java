@@ -54,13 +54,13 @@ import au.gov.nehta.model.clinical.sr.AdverseReactionsImpl;
 import au.gov.nehta.model.schematron.SchematronValidationException;
 import au.gov.nehta.schematron.Schematron;
 import au.gov.nehta.schematron.SchematronCheckResult;
+import java.io.File;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.UUID;
 import javax.xml.bind.JAXBException;
 import javax.xml.parsers.ParserConfigurationException;
-import junit.framework.Assert;
 import org.joda.time.DateTime;
 import org.junit.Test;
 import org.w3c.dom.Document;
@@ -68,13 +68,17 @@ import org.w3c.dom.Document;
 public class EReferral3ATest extends Base {
 
   private static final String SCHEMATRON = SERVICE_REFERRAL_3A.resource().getSchematron();
-  private static final String SCHEMATRON_TEMPLATE_PATH = "resources/e-Referral";
+  private static String SCHEMATRON_TEMPLATE_PATH = "resources/e-Referral";
   private static final String DOCUMENT_FILE_NAME =
       TEST_GENERATION + "/eReferral/eReferral-3A-java.xml";
 
   @Test
   public void test_MAX_Discharge_Summary_Creation() {
     try {
+      if (!new File(SCHEMATRON_TEMPLATE_PATH
+          + "/schematron/schematron-Validator-report.xsl").exists()) {
+        SCHEMATRON_TEMPLATE_PATH = "src/" + SCHEMATRON_TEMPLATE_PATH;
+      }
       generateMax();
       SchematronCheckResult check =
           Schematron.check(SCHEMATRON_TEMPLATE_PATH, SCHEMATRON, DOCUMENT_FILE_NAME);

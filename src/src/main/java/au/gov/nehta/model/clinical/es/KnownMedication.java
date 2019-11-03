@@ -4,12 +4,11 @@ import au.gov.nehta.model.cda.common.code.Coded;
 
 public interface KnownMedication {
 
-  //TODO (ICodableText) Missing Medicine (.net)
 
-  Coded getTherapeuticGoodIdentification();  //TODO Check. Does not exist in IMedicationItem (.net), exists in CDA
+  Coded getTherapeuticGoodIdentification();
 
   void setTherapeuticGoodIdentification(
-      Coded therapeuticGoodIdentification); //TODO Check. Does not exist in IMedicationItem (.net), exists in CDA
+      Coded therapeuticGoodIdentification);
 
   String getDirections();
 
@@ -18,8 +17,6 @@ public interface KnownMedication {
   String getClinicalIndication();
 
   void setClinicalIndication(String clinicalIndication);
-
-  //TODO (String) Missing Comment class (.net) - NOT in CDA Doc
 
   String getMedicationInstructionComment();
 
@@ -37,7 +34,7 @@ public interface KnownMedication {
 
   void setChangeDesc(String changeDesc);
 
-  String getChangeOrRecommendationReason(); //TODO This is just called ChangeReason() in .Net
+  String getChangeOrRecommendationReason();
 
   void setChangeOrRecommendationReason(String changeOrRecommendationReason);
 }

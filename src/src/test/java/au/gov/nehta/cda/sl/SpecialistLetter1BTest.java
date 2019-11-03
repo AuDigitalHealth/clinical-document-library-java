@@ -6,6 +6,7 @@ import static au.gov.nehta.cda.test.TestHelper.getDocumentAuthor;
 import static au.gov.nehta.cda.test.TestHelper.getInformationRecipients;
 import static au.gov.nehta.cda.test.TestHelper.getLegalAuthenticator;
 import static au.gov.nehta.cda.test.TestHelper.getSubjectOfCareParticipant;
+import static au.gov.nehta.model.schematron.SchematronResource.SchematronResources.SPECIALIST_LETTER_1B;
 
 import au.gov.nehta.builder.sl.SpecialistLetterCreator;
 import au.gov.nehta.builder.util.UUIDTool;
@@ -27,17 +28,22 @@ import au.gov.nehta.model.clinical.sl.SpecialistLetterContext;
 import au.gov.nehta.model.clinical.sl.SpecialistLetterContextImpl;
 import au.gov.nehta.model.clinical.sl.SpecialistLetterImpl;
 import au.gov.nehta.model.schematron.SchematronValidationException;
+import au.gov.nehta.schematron.Schematron;
+import au.gov.nehta.schematron.SchematronCheckResult;
 import au.net.electronichealth.ns.cda._2_0.ObjectFactory;
 import au.net.electronichealth.ns.cda._2_0.StrucDocText;
+import java.io.File;
 import java.util.UUID;
 import javax.xml.bind.JAXBException;
 import javax.xml.parsers.ParserConfigurationException;
+import junit.framework.Assert;
 import org.joda.time.DateTime;
 import org.junit.Test;
 import org.w3c.dom.Document;
 
 public class SpecialistLetter1BTest extends Base {
-
+  private static final String SCHEMATRON = SPECIALIST_LETTER_1B.resource().getSchematron();
+  private static String SCHEMATRON_TEMPLATE_PATH = "resources/SpecialistLetter";
   private static final String DOCUMENT_FILE_NAME =
       TEST_GENERATION + "/sl/SpecialistLetter_format_1B.xml";
 
@@ -45,7 +51,20 @@ public class SpecialistLetter1BTest extends Base {
   private DateTime now = new DateTime();
 
   @Test
-  public void test_Specialist_Letter_Format_1B_Creation() {
+  public void test_1B_Specialist_Letter_Creation() {
+    if (!new File(SCHEMATRON_TEMPLATE_PATH
+        + "/schematron/schematron-Validator-report.xsl").exists()) {
+      SCHEMATRON_TEMPLATE_PATH = "src/" + SCHEMATRON_TEMPLATE_PATH;
+    }
+    generate1B();
+    SchematronCheckResult check =
+        Schematron.check(SCHEMATRON_TEMPLATE_PATH, SCHEMATRON, DOCUMENT_FILE_NAME);
+    show(check);
+    Assert.assertEquals(0, check.schemaErrors.size());
+    Assert.assertEquals(0, check.schematronErrors.size());
+  }
+
+  public void generate1B() {
     // Prepare Specialist Letter Context
     ParticipationServiceProvider usualGP = new ParticipationServiceProviderImpl();
     ParticipationServiceProvider referrer = new ParticipationServiceProviderImpl();
@@ -89,7 +108,6 @@ public class SpecialistLetter1BTest extends Base {
       e.printStackTrace();
     }
   }
-
 
   private ClinicalDocument getCDAClinicalDocument() {
     ClinicalDocument cdaClinicalDocument = ClinicalDocumentFactory.getSpecialistLetter();

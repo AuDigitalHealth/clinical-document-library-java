@@ -9,18 +9,17 @@ public class AdverseReactionsImpl implements AdverseReactions {
 
   private ExclusionStatement exclusionStatement;
   private List<AdverseReaction> adverseReactions;
+  private StrucDocText customNarrative;
 
   @Override
   public ExclusionStatement getExclusionStatement() {
     return exclusionStatement;
   }
 
-
   @Override
   public void setExclusionStatement(ExclusionStatement exclusionStatement) {
     this.exclusionStatement = exclusionStatement;
   }
-
 
   @Override
   public List<AdverseReaction> getAdverseReactions() {
@@ -34,11 +33,11 @@ public class AdverseReactionsImpl implements AdverseReactions {
 
   @Override
   public StrucDocText getCustomNarrative() {
-    return null;
+    return customNarrative;
   }
 
   @Override
-  public void setCustomNarrative(StrucDocText customNarrativeAdverseReactions) {
-
+  public void setCustomNarrative(StrucDocText customNarrative) {
+    this.customNarrative = customNarrative;
   }
 }

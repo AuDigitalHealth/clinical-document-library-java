@@ -5,7 +5,6 @@ import au.gov.nehta.model.cda.common.code.Coded;
 import au.gov.nehta.model.cda.common.id.AsEntityIdentifier;
 import au.gov.nehta.model.clinical.common.address.Address;
 import au.gov.nehta.model.clinical.common.participation.OrganisationNameUsage;
-
 import java.util.List;
 
 public interface EmploymentOrganization extends Organization {
@@ -40,5 +39,4 @@ public interface EmploymentOrganization extends Organization {
     void setOrganisationNameUsage(
         OrganisationNameUsage organisationNameUsage);
 
-    //TODO Missing Validation
 }

@@ -3,14 +3,20 @@ package au.gov.nehta.cda.test;
 import au.gov.nehta.model.clinical.common.types.UniqueIdentifier;
 import au.gov.nehta.model.clinical.common.types.UniqueIdentifierImpl;
 import au.gov.nehta.schematron.SchematronCheckResult;
+import java.io.File;
 import java.util.Objects;
 import java.util.UUID;
 
 public class Base {
 
-  protected static final String TEST_GENERATION = "src/test/generation/";
+  protected static String TEST_GENERATION = "src/test/generation/";
   public static final String ATTACHMENTS_DIR = "src/test/resources/";
 
+  static {
+    if (!new File(TEST_GENERATION).exists()) {
+      TEST_GENERATION = "src/" + TEST_GENERATION;
+    }
+  }
 
   /**
    * little helper method to generate a Unique ID with a random UUID as the root.

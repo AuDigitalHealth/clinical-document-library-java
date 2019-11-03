@@ -1,5 +1,7 @@
 package au.gov.nehta.cda.ereferral;
 
+import static au.gov.nehta.model.schematron.SchematronResource.SchematronResources.SERVICE_REFERRAL_1A;
+
 import au.gov.nehta.builder.ereferral.EReferralCreator;
 import au.gov.nehta.builder.ereferral.ReferralAuthor;
 import au.gov.nehta.builder.ereferral.ReferralAuthorImpl;
@@ -96,22 +98,23 @@ import org.w3c.dom.Document;
 
 public class EReferral1ATest extends Base {
 
-  private static final String SCHEMATRON = "ccd-1A.sch";
-  private static final String SCHEMATRON_TEMPLATE_PATH = "resources/e-Referral";
-
-
-  private static final String DOCUMENT_FILE_NAME = TEST_GENERATION + "ereferral-1A.xml";
+  private static final String SCHEMATRON = SERVICE_REFERRAL_1A.resource().getSchematron();
+  private static String SCHEMATRON_TEMPLATE_PATH = "resources/e-Referral";
+  private static final String DOCUMENT_FILE_NAME = TEST_GENERATION + "eReferral/ereferral-1A.xml";
 
 
   @Test
   public void test_E_REFERRAL_1A_Creation()
-      throws ParserConfigurationException, JAXBException, SchemaValidationException, SchematronValidationException, IOException {
+      throws ParserConfigurationException, JAXBException, SchemaValidationException,
+      SchematronValidationException, IOException {
+    if (!new File(SCHEMATRON_TEMPLATE_PATH
+        + "/schematron/schematron-Validator-report.xsl").exists()) {
+      SCHEMATRON_TEMPLATE_PATH = "src/" + SCHEMATRON_TEMPLATE_PATH;
+    }
     generate1A();
     SchematronCheckResult check = Schematron
         .check(SCHEMATRON_TEMPLATE_PATH, SCHEMATRON, DOCUMENT_FILE_NAME);
-
     show(check);
-
     Assert.assertTrue(check.schemaErrors.size() == 0);
     // RDS disabled Assert.assertTrue( check.schematronErrors.size() == 0 );
   }

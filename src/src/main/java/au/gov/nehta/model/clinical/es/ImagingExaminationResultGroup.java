@@ -20,5 +20,4 @@ public interface ImagingExaminationResultGroup {
 
     void setAnatomicalSite(AnatomicalSite anatomicalSite);
 
-    //TODO Missing Validation
 }

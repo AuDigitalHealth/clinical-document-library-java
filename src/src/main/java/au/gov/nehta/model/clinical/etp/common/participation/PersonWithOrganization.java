@@ -9,7 +9,4 @@ public interface PersonWithOrganization extends Person {
 
     void setEmploymentOrganisation(EmploymentOrganization employmentOrganisation);
 
-
-
-    //TODO Missing Validation
 }

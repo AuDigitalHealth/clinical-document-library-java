@@ -117,6 +117,7 @@ import au.net.electronichealth.ns.cda._2_0.XActClassDocumentEntryAct;
 import au.net.electronichealth.ns.cda._2_0.XActMoodDocumentObservation;
 import au.net.electronichealth.ns.cda._2_0.XDocumentActMood;
 import au.net.electronichealth.ns.cda._2_0.XDocumentProcedureMood;
+import au.net.electronichealth.ns.cda._2_0.XInformationRecipient;
 import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
@@ -236,7 +237,8 @@ public class SpecialistLetterCreator extends ClinicalDocumentCreator {
     //Information Recipient List (0..*)
     cdaModel.getInformationRecipients().stream().filter(Objects::nonNull)
         .forEach(informationRecipient -> clinicalDocument.getInformationRecipient()
-            .add(HeaderUtil.createInformationRecipient(informationRecipient))
+            .add(HeaderUtil
+                .createInformationRecipient(informationRecipient, XInformationRecipient.TRC))
         );
     // Construct Custodian
     if (cdaModel.getCustodian() != null) {
@@ -368,7 +370,7 @@ public class SpecialistLetterCreator extends ClinicalDocumentCreator {
           recommendationAct.getPerformer().add(getServiceProviderPerformer(recommendation));
           recommendationAct.setEffectiveTime(
               Converter
-                  .convert(recommendation.getTimeFrame(), true, true, true)); //TODO David dates
+                  .convert(recommendation.getTimeFrame(), true, true, true));
           recommendationAct
               .setText(CDATypeUtil.getST(recommendation.getRecommendationNarrative()));
           recommendationEntry.setAct(recommendationAct);
@@ -599,4 +601,5 @@ public class SpecialistLetterCreator extends ClinicalDocumentCreator {
     }
     return doc;
   }
+
 }

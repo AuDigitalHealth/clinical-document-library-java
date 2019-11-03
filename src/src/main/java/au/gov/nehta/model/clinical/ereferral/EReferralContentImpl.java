@@ -4,6 +4,7 @@ import au.gov.nehta.model.clinical.common.MedicalHistory;
 import au.gov.nehta.model.clinical.es.DiagnosticInvestigations;
 import au.gov.nehta.model.clinical.es.Medications;
 import au.gov.nehta.model.clinical.sr.AdverseReactions;
+import au.net.electronichealth.ns.cda._2_0.StrucDocText;
 
 public class EReferralContentImpl implements EReferralContent {
 
@@ -12,6 +13,28 @@ public class EReferralContentImpl implements EReferralContent {
   private Medications medications;
   private AdverseReactions adverseReactions;
   private DiagnosticInvestigations diagnosticInvestigations;
+  private StrucDocText customNarrative;
+  private String customNarrativeTitle;
+
+  @Override
+  public String getCustomNarrativeTitle() {
+    return customNarrativeTitle;
+  }
+
+  @Override
+  public void setCustomNarrativeTitle(String customNarrativeTitle) {
+    this.customNarrativeTitle = customNarrativeTitle;
+  }
+
+  @Override
+  public StrucDocText getCustomNarrative() {
+    return customNarrative;
+  }
+
+  @Override
+  public void setCustomNarrative(StrucDocText customNarrative) {
+    this.customNarrative = customNarrative;
+  }
 
   @Override
   public ReferralDetail getReferralDetail() {

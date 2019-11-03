@@ -1,0 +1,54 @@
+    <pattern
+        name="p-Goals_of_Care_DOCUMENTAUTHORasaPERSON-HealthcareProvider_6_1_2_2_custom-errors"
+        id="p-Goals_of_Care_DOCUMENTAUTHORasaPERSON-HealthcareProvider_6_1_2_2_custom-errors"
+        see="#p-Goals_of_Care_DOCUMENTAUTHORasaPERSON-HealthcareProvider_6_1_2_2_custom-errors">
+
+        <rule context="/cda:ClinicalDocument/cda:author/cda:assignedAuthor[cda:assignedPerson/ext:asEmployment]/cda:addr">
+
+            <report
+                test="
+                @use and normalize-space(@use) != '' and not(@use = 'WP')"
+                >Error: Goals of Care - 6.1.2.2 Document Author as a PERSON - Healthcare Provider 
+                - "DOCUMENT AUTHOR / Participant / Address / Australia or International Address / 
+                International Address / Country" - The 'addr' tag 'use' attribute shall be set to Business 
+                see AS 5017-2006: HealthCare Client Identifier Address Purpose. Refer to section 6.1.2.2 of the
+                Advance_Care_Information_CDA_Implementation_Guide_v1.0.</report>
+
+        </rule>
+
+
+        <rule
+            context="/cda:ClinicalDocument/cda:author/cda:assignedAuthor[cda:assignedPerson/ext:asEmployment]/cda:telecom">
+
+            <assert test="not(@use) or normalize-space(@use) = '' or  @use='WP' "
+                >Error: Goals of Care - 6.1.2.2 Document Author as a PERSON - Healthcare Provider
+                - "Document Author / Participant / Electronic Communication Detail" - The 'telecom' tag 'use' 
+                attribute shall be set to Workplace see HL7 v3: TelecommunicationAddressUse. Refer to section 
+                6.1.2.2 of the Advance_Care_Information_CDA_Implementation_Guide_v1.0.</assert>
+
+        </rule>
+        
+        <rule
+            context="/cda:ClinicalDocument/cda:author/cda:assignedAuthor/cda:assignedPerson[ext:asEmployment]/ext:asEntityIdentifier">
+         
+            
+            <report test="ext:id[starts-with(@root, '1.2.36.1.2001.1007.4.90')] 
+                or ext:id[starts-with(@root, '1.2.36.1.2001.1007.4.91')]
+                or ext:id[starts-with(@root, '1.2.36.1.2001.1007.4.92')] 
+                or ext:id[starts-with(@root, '1.2.36.1.2001.1007.4.93')] 
+                or ext:id[starts-with(@root, '1.2.36.1.2001.1007.4.94')] 
+                or ext:id[starts-with(@root, '1.2.36.1.2001.1007.4.95')] 
+                or ext:id[starts-with(@root, '1.2.36.1.2001.1007.4.96')] 
+                or ext:id[starts-with(@root, '1.2.36.1.2001.1007.4.97')] 
+                or ext:id[starts-with(@root, '1.2.36.1.2001.1007.4.98')] 
+                or ext:id[starts-with(@root, '1.2.36.1.2001.1007.4.99')]"
+                >Error: Goals of Care - 6.1.2.2 Document Author as a PERSON - Healthcare Provider
+                - "Document Author / Participant / Entity Identifier" - The 'asEntityIdentifier' tag with 
+                'Care Agency Employee Identifier' shall not exist. Refer to section 6.1.2.2 and 8.2 of the
+                Advance_Care_Information_CDA_Implementation_Guide_v1.0.</report>
+            
+        </rule>
+        
+
+    </pattern>
+

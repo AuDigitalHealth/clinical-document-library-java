@@ -4,6 +4,7 @@ import static au.gov.nehta.cda.test.TestHelper.getCustodian;
 import static au.gov.nehta.cda.test.TestHelper.getLegalAuthenticator;
 import static au.gov.nehta.cda.test.TestHelper.getSharedHealthSummaryAuthor;
 import static au.gov.nehta.cda.test.TestHelper.getSubjectOfCareParticipant;
+import static au.gov.nehta.model.schematron.SchematronResource.SchematronResources.SHARED_HEALTH_SUMMARY_3B;
 
 import au.gov.nehta.builder.shs.SharedHealthSummaryCreator;
 import au.gov.nehta.builder.util.UUIDTool;
@@ -114,8 +115,10 @@ import au.gov.nehta.model.clinical.shs.UncatagorisedMedicalHistoryItem;
 import au.gov.nehta.model.clinical.shs.UncatagorisedMedicalHistoryItemImpl;
 import au.gov.nehta.schematron.Schematron;
 import au.gov.nehta.schematron.SchematronCheckResult;
+import java.io.File;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 import java.util.UUID;
 import junit.framework.Assert;
@@ -127,36 +130,47 @@ import org.w3c.dom.Document;
 
 public class SharedHealthSummaryMaxTest extends Base {
 
-  private static final String SCHEMATRON = "ccd-3B.sch";
-  private static final String SCHEMATRON_TEMPLATE_PATH = "resources/SharedHealthSummary";
+  private static final String SCHEMATRON = SHARED_HEALTH_SUMMARY_3B.resource().getSchematron();
+  private static String SCHEMATRON_TEMPLATE_PATH = "resources/SharedHealthSummary";
 
-  private static final String DOCUMENT_FILE_NAME = TEST_GENERATION + "shs-max-java.xml";
+  private static final String DOCUMENT_FILE_NAME = TEST_GENERATION + "/shs/shs-max-java.xml";
   private static final String MAX_EXCLUDED_DOCUMENT_FILE_NAME =
-      TEST_GENERATION + "shs-max-excluded-java.xml";
+      TEST_GENERATION + "/shs/shs-max-excluded-java.xml";
 
   @Test
-    public void test_MAX_shsCreation() throws Exception {
-        generateMax();
+  public void test_MAX_shsCreation() throws Exception {
+    if (!new File(SCHEMATRON_TEMPLATE_PATH
+        + "/schematron/schematron-Validator-report.xsl").exists()) {
+      SCHEMATRON_TEMPLATE_PATH = "src/" + SCHEMATRON_TEMPLATE_PATH;
+    }
+    generateMax();
     SchematronCheckResult check =
         Schematron.check(SCHEMATRON_TEMPLATE_PATH, SCHEMATRON, DOCUMENT_FILE_NAME);
 
     show(check);
 
-    Assert.assertTrue(check.schemaErrors.size() == 0);
-    Assert.assertTrue(check.schematronErrors.size() == 0);
+    Assert.assertEquals(0, check.schemaErrors.size());
+    Assert.assertEquals(0, check.schematronErrors.size());
   }
 
   @Test
-    public void test_MAX_excludedall_shsCreation() throws Exception {
-        generateMaxExcluded();
+  public void test_MAX_excludedall_shsCreation() throws Exception {
+    if (!new File(SCHEMATRON_TEMPLATE_PATH
+        + "/schematron/schematron-Validator-report.xsl").exists()) {
+      SCHEMATRON_TEMPLATE_PATH = "src/" + SCHEMATRON_TEMPLATE_PATH;
+    }
+    if (!new File(DOCUMENT_FILE_NAME).exists()) {
+      generateMax();
+    }
+    generateMaxExcluded();
 
     SchematronCheckResult check =
         Schematron.check(SCHEMATRON_TEMPLATE_PATH, SCHEMATRON, DOCUMENT_FILE_NAME);
 
     show(check);
 
-    Assert.assertTrue(check.schemaErrors.size() == 0);
-    Assert.assertTrue(check.schematronErrors.size() == 0);
+    Assert.assertEquals(0, check.schemaErrors.size());
+    Assert.assertEquals(0, check.schematronErrors.size());
   }
 
   // test the exclusion statements
@@ -164,10 +178,10 @@ public class SharedHealthSummaryMaxTest extends Base {
     DateTime now = new DateTime();
 
     // *******************************
-        // ***** Legal Authenticator *****
-        // *******************************
+    // ***** Legal Authenticator *****
+    // *******************************
 
-    List<PersonName> legalAuthenticatorsNames = new ArrayList<PersonName>(2);
+    List<PersonName> legalAuthenticatorsNames = new ArrayList<>(2);
 
     legalAuthenticatorsNames.add(
         PersonNameImpl.getInstance(
@@ -187,13 +201,13 @@ public class SharedHealthSummaryMaxTest extends Base {
     Person legalAuthenticatorPerson =
         PersonImpl.getInstance(authenticatorHPII, legalAuthenticatorsNames);
 
-        // This is an alternate way of doing a HPIO, HPII or other identifier
-        // AsEntityIdentifier hpioTheHardWay =
-        // AsEntityIdentifierImpl.getInstance(
-        // "1.2.36.1.2001.1003.0.800362555555" );
-        // hpioTheHardWay.setAssigningAuthorityName( "HPI-O" );
-        // hpioTheHardWay.setAssigningGeographicAreaName( "National Identifier"
-        // );
+    // This is an alternate way of doing a HPIO, HPII or other identifier
+    // AsEntityIdentifier hpioTheHardWay =
+    // AsEntityIdentifierImpl.getInstance(
+    // "1.2.36.1.2001.1003.0.800362555555" );
+    // hpioTheHardWay.setAssigningAuthorityName( "HPI-O" );
+    // hpioTheHardWay.setAssigningGeographicAreaName( "National Identifier"
+    // );
 
     HPIO authenticatorHPIO = new HPIO("8003621231167886");
 
@@ -205,18 +219,18 @@ public class SharedHealthSummaryMaxTest extends Base {
         AssignedEntityImpl.getInstance(
             legalAuthenticatorID, legalAuthenticatorPerson, legalAuthenticatorOrganisation);
 
-        // You can also create a code the hard way...
+    // You can also create a code the hard way...
     Code cdaLegalAuthenticatorAssignedEntityCode = new CodeImpl("253111");
     cdaLegalAuthenticatorAssignedEntityCode.setCodeSystem("2.16.840.1.113883.13.62");
     cdaLegalAuthenticatorAssignedEntityCode.setCodeSystemName(
         "1220.0 - ANZSCO - Australian and New Zealand Standard Classification of Occupations, First Edition, 2006");
     cdaLegalAuthenticatorAssignedEntityCode.setDisplayName("General Medical Practitioner");
 
-        // ...or use a pre-baked version
+    // ...or use a pre-baked version
     cdaLegalAuthenticatorAssignedEntity.setCode(
         new ANZSCO_1ED_2006_CD("253511", "Surgeon (General)"));
 
-        AustralianAddress authenticatorAddress = new AustralianAddressImpl();
+    AustralianAddress authenticatorAddress = new AustralianAddressImpl();
     authenticatorAddress.addUnstructuredAddressLine("101 Browning Street");
     authenticatorAddress.setState("QLD");
     authenticatorAddress.setPostcode("4101");
@@ -224,19 +238,20 @@ public class SharedHealthSummaryMaxTest extends Base {
     PostalAddress authenticatorPostalAddress =
         new PostalAddressImpl(authenticatorAddress, PostalAddressUseEnum.WORKPLACE);
 
-    cdaLegalAuthenticatorAssignedEntity.setAddress(Arrays.asList(authenticatorPostalAddress));
+    cdaLegalAuthenticatorAssignedEntity.setAddress(
+        Collections.singletonList(authenticatorPostalAddress));
 
     Telecom authenticatorEmail =
         new TelecomImpl(
             TelecomMedium.EMAIL, "example@sample.com", TelecomUse.BUSINESS_AND_PERSONAL);
-    cdaLegalAuthenticatorAssignedEntity.setTelecom(Arrays.asList(authenticatorEmail));
+    cdaLegalAuthenticatorAssignedEntity.setTelecom(Collections.singletonList(authenticatorEmail));
 
     LegalAuthenticator cdaLegalAuthenticator =
         LegalAuthenticatorImpl.getInstance(now, cdaLegalAuthenticatorAssignedEntity);
 
     // *********************
-        // ***** Custodian *****
-        // *********************
+    // ***** Custodian *****
+    // *********************
 
     Custodian cdaCustodian = getCustodian();
 
@@ -275,7 +290,7 @@ public class SharedHealthSummaryMaxTest extends Base {
         new ExtendedDemographicDataImpl(Sex.MALE, subjectDOB);
     subjectDemographicData.setBirthPlurality(5);
     subjectDemographicData.setBirthOrder(2);
-        int socAge = 35;
+    int socAge = 35;
     subjectDemographicData.setAgeInYears(socAge);
     subjectDemographicData.setAgeAccurate(true);
     DateOfDeath dod =
@@ -283,8 +298,8 @@ public class SharedHealthSummaryMaxTest extends Base {
             now,
             new DateAccuracyImpl(false, false, true),
             SourceOfDeathNotificationCode.HEALTH_CARE_PROVIDER);
-        subjectDemographicData.setDateOfDeath(dod);
-        subjectDemographicData.setMothersOriginalFamilyName("Tester");
+    subjectDemographicData.setDateOfDeath(dod);
+    subjectDemographicData.setMothersOriginalFamilyName("Tester");
     subjectDemographicData.setIndigenousStatus(
         IndigenousStatus.NOT_STATED_OR_INADEQUATELY_DESCRIBED);
 
@@ -301,25 +316,25 @@ public class SharedHealthSummaryMaxTest extends Base {
         new TelecomImpl(
             TelecomMedium.EMAIL, "frank.harding@electronichealth.net.au", TelecomUse.PERSONAL);
 
-        List<Telecom> subjectOfCareElectronicCommunicationDetailList = new ArrayList<Telecom>();
+    List<Telecom> subjectOfCareElectronicCommunicationDetailList = new ArrayList<>();
     subjectOfCareElectronicCommunicationDetailList.add(subjectTelephone);
     subjectOfCareElectronicCommunicationDetailList.add(subjectEmail);
 
     subjectParticipant.setElectronicCommunicationDetails(
         subjectOfCareElectronicCommunicationDetailList);
 
-        AsEntityIdentifier subjectEntitlementNumber = new MedicareCardIdentifier("1234567881");
+    AsEntityIdentifier subjectEntitlementNumber = new MedicareCardIdentifier("1234567881");
 
     Entitlement subjectEntitlement =
         new EntitlementImpl(subjectEntitlementNumber, EntitlementType.MEDICARE_BENEFITS);
 
-        subjectEntitlement.setEntitlementValidityDuration(
-            RestrictedTimeInterval.getLowWidthInstance(
-                // from today(day only precision) for two weeks
-                new PrecisionDate(Precision.DAY, new DateTime()),
-                new TimeQuantity(2, TimeUnitOfMeasure.WEEK)));
+    subjectEntitlement.setEntitlementValidityDuration(
+        RestrictedTimeInterval.getLowWidthInstance(
+            // from today(day only precision) for two weeks
+            new PrecisionDate(Precision.DAY, new DateTime()),
+            new TimeQuantity(2, TimeUnitOfMeasure.WEEK)));
 
-        List<Entitlement> subjectOfCareEntitlementList = new ArrayList<Entitlement>();
+    List<Entitlement> subjectOfCareEntitlementList = new ArrayList<>();
     subjectOfCareEntitlementList.add(subjectEntitlement);
     subjectParticipant.setEntitlements(subjectOfCareEntitlementList);
 
@@ -387,7 +402,7 @@ public class SharedHealthSummaryMaxTest extends Base {
     HPIO authorHPIO = new HPIO("8003621231167886");
     ExtendedEmploymentOrganisationImpl employmentDetails =
         new ExtendedEmploymentOrganisationImpl(
-            Arrays.asList(authorHPIO),
+            Collections.singletonList(authorHPIO),
             Arrays.asList(authorOrgAddress, authorOrgAddress2, authorOrgAddress3),
             Arrays.asList(authorOrgTelephone, authorOrgFax),
             "Sarahs Clinic");
@@ -401,7 +416,7 @@ public class SharedHealthSummaryMaxTest extends Base {
         new SharedHealthSummaryAuthorImpl(
             occupation,
             now,
-            Arrays.asList(authorHPII),
+            Collections.singletonList(authorHPII),
             Arrays.asList(authorAddress, authorAddress2, authorAddress3),
             Arrays.asList(authorTelephone, authorFax),
             Arrays.asList(authorLegalName, authorAlias),
@@ -411,11 +426,11 @@ public class SharedHealthSummaryMaxTest extends Base {
     Entitlement authorEntitlement1 =
         new EntitlementImpl(authorEntitlementNumber1,
             EntitlementType.MEDICARE_PRESCRIBER_NUMBER);
-        authorEntitlement1.setEntitlementValidityDuration(
-            RestrictedTimeInterval.getLowWidthInstance(
-                // from today(day only precision) for two weeks
-                new PrecisionDate(Precision.DAY, new DateTime()),
-                new TimeQuantity(2, TimeUnitOfMeasure.WEEK)));
+    authorEntitlement1.setEntitlementValidityDuration(
+        RestrictedTimeInterval.getLowWidthInstance(
+            // from today(day only precision) for two weeks
+            new PrecisionDate(Precision.DAY, new DateTime()),
+            new TimeQuantity(2, TimeUnitOfMeasure.WEEK)));
 
     AsEntityIdentifier authorEntitlementNumber2 = new MedicarePrescriberNumber("2919123A");
     Entitlement authorEntitlement2 =
@@ -429,10 +444,10 @@ public class SharedHealthSummaryMaxTest extends Base {
         new SharedHealthSummaryContextImpl(subjectParticipant, author);
 
     // *********************************
-        // ***** CDA Document Content  *****
-        // *********************************
+    // ***** CDA Document Content  *****
+    // *********************************
 
-        AdverseReactions reactions = AdverseReactionsImpl.noneKnown();
+    AdverseReactions reactions = AdverseReactionsImpl.noneKnown();
 
     // alternative for above
     // AdverseReactions reactions = new AdverseReactionsImpl(NCTISGlobalStatement.NONE_KNOWN);
@@ -447,7 +462,7 @@ public class SharedHealthSummaryMaxTest extends Base {
     // alternative for above
     // ProblemDiagnoses problems = new ProblemDiagnosesImpl(NCTISGlobalStatement.NONE_KNOWN);
 
-        Procedures procedures = ProceduresImpl.noneKnown();
+    Procedures procedures = ProceduresImpl.noneKnown();
 
     // alternative for above
     // Procedures procedures = new ProceduresImplImpl(NCTISGlobalStatement.NONE_KNOWN);
@@ -455,29 +470,28 @@ public class SharedHealthSummaryMaxTest extends Base {
     MedicalHistory history = new MedicalHistoryImpl(problems, procedures, null);
 
     // Immunisations
-        Immunisations immunisations = ImmunisationsImpl.noneSupplied();
+    Immunisations immunisations = ImmunisationsImpl.noneSupplied();
 
     SharedHealthSummaryContent content =
         new SharedHealthSummaryContentImpl(reactions, meds, history, immunisations);
 
     // ***********************************
-        // ***** Clinical Document Setup *****
-        // ***********************************
+    // ***** Clinical Document Setup *****
+    // ***********************************
 
     ClinicalDocument cdaClinicalDocument = ClinicalDocumentFactory.getSharedHealthSummary();
     cdaClinicalDocument.setLanguageCode("en-AU");
     cdaClinicalDocument.setVersionNumber(1);
 
     // ClinicalDocumentFactory sets that standard template for a SharedhealthSummary
-        // as an example we can add another template if needed.
+    // as an example we can add another template if needed.
     cdaClinicalDocument.addTemplateId(
         TemplateIdImpl.getInstance("1.0", "1.2.36.1.2001.1001.100.149"));
     cdaClinicalDocument.setCompletionCode(DocumentStatusCode.FINAL);
 
-        // You can also use the conversion tool to create an OID from a UUID
+    // You can also use the conversion tool to create an OID from a UUID
     String doucmentUUID = UUID.randomUUID().toString();
-    String documentIdAsAnOid = UUIDTool.uuidToOid(doucmentUUID);
-    String shsDocumentId = documentIdAsAnOid;
+    String shsDocumentId = UUIDTool.uuidToOid(doucmentUUID);
 
     cdaClinicalDocument.setClinicalDocumentId(shsDocumentId);
 
@@ -485,7 +499,7 @@ public class SharedHealthSummaryMaxTest extends Base {
         new SharedHealthSummaryCDAModel(
             cdaClinicalDocument, cdaLegalAuthenticator, cdaCustodian, null, now);
 
-        SharedHealthSummary clinicalModel = new SharedHealthSummaryImpl(context, content);
+    SharedHealthSummary clinicalModel = new SharedHealthSummaryImpl(context, content);
     SharedHealthSummaryCreator shsCreator = new SharedHealthSummaryCreator(cdaModel,
         clinicalModel);
     // shsCreator.useStrict();
@@ -509,8 +523,8 @@ public class SharedHealthSummaryMaxTest extends Base {
         new SharedHealthSummaryContextImpl(subjectParticipant, author);
 
     // ******************************
-        // ***** Adverse Reactions  *****
-        // ******************************
+    // ***** Adverse Reactions  *****
+    // ******************************
 
     Coded substance = new SNOMED_AU_Code("75247008", "Benzathine benzylpenicillin");
     List<? extends Manifestation> manifestations =
@@ -539,8 +553,8 @@ public class SharedHealthSummaryMaxTest extends Base {
     AdverseReactions reactions = new AdverseReactionsImpl(Arrays.asList(reaction1, reaction2));
 
     // *************************
-        // *****  Medications  *****
-        // *************************
+    // *****  Medications  *****
+    // *************************
 
     KnownMedication med1 =
         new KnownMedicationImpl(
@@ -562,8 +576,8 @@ public class SharedHealthSummaryMaxTest extends Base {
     // Medications meds = MedicationsImpl.noneKnown();
 
     // ******************************
-        // *****   Medical History  *****
-        // ******************************
+    // *****   Medical History  *****
+    // ******************************
 
     // problem/diagnoses
     ProblemDiagnosis problem1 =
@@ -619,7 +633,7 @@ public class SharedHealthSummaryMaxTest extends Base {
         RestrictedTimeInterval.getLowHighInstance(
             new PrecisionDate(Precision.DAY, new DateTime("2003-01-1")), PrecisionDate.today());
     // set the explicit narrative form of this time interval
-        time.setNarrative("since 1 Jan 2003, (ongoing)");
+    time.setNarrative("since 1 Jan 2003, (ongoing)");
 
     // create a new time interval with a low and a high
     RestrictedTimeInterval time2 =
@@ -628,8 +642,8 @@ public class SharedHealthSummaryMaxTest extends Base {
             new PrecisionDate(Precision.YEAR, new DateTime("2013-01-1")));
 
     // create a new time interval with a different time zone
-        DateTime aLocalTime = new DateTime("2013-01-1T11:34");
-        DateTime aUTCTime = aLocalTime.withZoneRetainFields(DateTimeZone.UTC);
+    DateTime aLocalTime = new DateTime("2013-01-1T11:34");
+    DateTime aUTCTime = aLocalTime.withZoneRetainFields(DateTimeZone.UTC);
 
     RestrictedTimeInterval time3 =
         RestrictedTimeInterval.getLowInstance(new PrecisionDate(Precision.MINUTE, aUTCTime));
@@ -658,8 +672,7 @@ public class SharedHealthSummaryMaxTest extends Base {
             new AMTCode(
                 "74993011000036102",
                 "measles virus (Schwarz) live attenuated vaccine + mumps virus (Jeryl Lynn, strain RIT 4385) live attenuated vaccine + rubella virus (Wistar RA 27/3) live attenuated vaccine"),
-            new PrecisionDate(Precision.DAY, new DateTime("2013-01-01")),
-            new Integer(1));
+            new PrecisionDate(Precision.DAY, new DateTime("2013-01-01")), 1);
 
     Immunisation im2 =
         new ImmunisationImpl(
@@ -675,31 +688,30 @@ public class SharedHealthSummaryMaxTest extends Base {
         new SharedHealthSummaryContentImpl(reactions, meds, history, immunisations);
 
     // ***********************************
-        // ***** Clinical Document Setup *****
-        // ***********************************
+    // ***** Clinical Document Setup *****
+    // ***********************************
 
     ClinicalDocument cdaClinicalDocument = ClinicalDocumentFactory.getSharedHealthSummary();
     cdaClinicalDocument.setLanguageCode("en-AU");
     cdaClinicalDocument.setVersionNumber(1);
 
     // ClinicalDocumentFactory sets that standard template for a SharedhealthSummary
-        // as an example we can add another template if needed.
+    // as an example we can add another template if needed.
     cdaClinicalDocument.addTemplateId(
         TemplateIdImpl.getInstance("1.0", "1.2.36.1.2001.1001.100.149"));
     cdaClinicalDocument.setCompletionCode(DocumentStatusCode.FINAL);
 
-        // You can also use the conversion tool to create an OID from a UUID
+    // You can also use the conversion tool to create an OID from a UUID
     String doucmentUUID = UUID.randomUUID().toString();
     String documentIdAsAnOid = UUIDTool.uuidToOid(doucmentUUID);
-    String shsDocumentId = documentIdAsAnOid;
 
-    cdaClinicalDocument.setClinicalDocumentId(shsDocumentId);
+    cdaClinicalDocument.setClinicalDocumentId(documentIdAsAnOid);
 
     SharedHealthSummaryCDAModel cdaModel =
         new SharedHealthSummaryCDAModel(
             cdaClinicalDocument, cdaLegalAuthenticator, cdaCustodian, null, now);
 
-        SharedHealthSummary clinicalModel = new SharedHealthSummaryImpl(context, content);
+    SharedHealthSummary clinicalModel = new SharedHealthSummaryImpl(context, content);
     SharedHealthSummaryCreator shsCreator = new SharedHealthSummaryCreator(cdaModel,
         clinicalModel);
     // shsCreator.useStrict();

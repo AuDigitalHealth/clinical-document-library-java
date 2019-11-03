@@ -8,8 +8,6 @@ import java.util.List;
 
 public interface PathologyTestResult {
 
-  //TODO Missing XPreNarrative as per .net
-
   Coded getTestResultName();
 
   void setTestResultName(Coded testResultName);

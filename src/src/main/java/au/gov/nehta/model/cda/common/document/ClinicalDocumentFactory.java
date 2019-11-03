@@ -41,12 +41,16 @@ public class ClinicalDocumentFactory {
       TemplateIdImpl.getInstance("1.0", "1.2.36.1.2001.1001.101.100.1002.156");
   private static final TemplateId ADVANCE_CARE_PLANNING =
       TemplateIdImpl.getInstance("1.0", "1.2.36.1.2001.1001.100.1002.226");
+  private static final TemplateId GOALS_OF_CARE =
+      TemplateIdImpl.getInstance("1.0", "1.2.36.1.2001.1001.100.1003.100001");
   private static final TemplateId PHARMACIST_SHARED_MEDICINES_LIST =
       TemplateIdImpl.getInstance("1.1", "1.2.36.1.2001.1001.100.1002.218");
 
   public static ClinicalDocument getPharmacistSharedMedicinesList() {
     ClinicalDocument clinicalDoc = new ClinicalDocumentImpl(PHARMACIST_SHARED_MEDICINES_LIST,
         "Pharmacist Shared Medicines List");
+    clinicalDoc.getTemplateIds()
+        .add(TemplateIdImpl.getInstance("1.0", "1.2.36.1.2001.1001.100.1002.237"));
     addTemplateIds(clinicalDoc);
     return clinicalDoc;
   }
@@ -96,7 +100,7 @@ public class ClinicalDocumentFactory {
   private static void addTemplateIds(ClinicalDocument clinicalDoc) {
     clinicalDoc.getTemplateIds().addAll(new LinkedList<TemplateId>() {{
       add(TemplateIdImpl.getInstance("1.0", "1.2.36.1.2001.1001.100.149"));
-      add(TemplateIdImpl.getInstance("1.0", "1.2.36.1.2001.1001.100.1002.237"));
+      //add(TemplateIdImpl.getInstance("1.0", "1.2.36.1.2001.1001.100.1002.237"));
     }});
   }
 
@@ -105,7 +109,9 @@ public class ClinicalDocumentFactory {
   }
 
   public static ClinicalDocument getEReferral() {
-    return new ClinicalDocumentImpl(E_REFERRAL, "e-Referral");
+    ClinicalDocument clinicalDoc = new ClinicalDocumentImpl(E_REFERRAL, "e-Referral");
+    addTemplateIds(clinicalDoc);
+    return clinicalDoc;
   }
 
   public static ClinicalDocument getDiagnosticImagingReport() {
@@ -141,6 +147,13 @@ public class ClinicalDocumentFactory {
     ClinicalDocumentImpl clinicalDoc =
         new ClinicalDocumentImpl(ADVANCE_CARE_DIRECTIVE, "Advance Care Directive");
     addTemplateIds(clinicalDoc);
+    return clinicalDoc;
+  }
+
+  public static ClinicalDocument getGoalsOfCare() {
+    ClinicalDocumentImpl clinicalDoc =
+        new ClinicalDocumentImpl(GOALS_OF_CARE, "Goals of Care");
+    clinicalDoc.getTemplateIds().addAll(getAdvanceCarePlanning().getTemplateIds());
     return clinicalDoc;
   }
 }

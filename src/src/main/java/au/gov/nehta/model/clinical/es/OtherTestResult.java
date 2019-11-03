@@ -13,8 +13,6 @@ public interface OtherTestResult {
 
     PreciseDate getReportDate();
 
-    //TODO  public EncapsulatedData ReportContent as per .net
-
     StrucDocText getCustomNarrative();
 
     void setReportName(Coded reportName);

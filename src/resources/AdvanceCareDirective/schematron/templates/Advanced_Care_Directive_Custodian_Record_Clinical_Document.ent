@@ -1,0 +1,357 @@
+
+    <!-- Advanced Care Directive Custodian Record Clinical Document:  5.1 Clinical Document -->
+
+    <!-- This Schematron file validates Clinical Document of CDA Header -->
+
+    <!-- Context:  Clinical Document / -->
+
+
+    <!-- Status: Last Reviewed: 
+         Status: Last Updated : 22/05/2012 -->
+
+
+
+    <pattern name="p-Advanced_Care_Directive_Custodian_Record_Clinical_Document-errors"
+        id="p-Advanced_Care_Directive_Custodian_Record_Clinical_Document-errors"
+        see="#p-Advanced_Care_Directive_Custodian_Record_Clinical_Document-errors">
+
+
+          <rule context="/">
+            <!-- ClinicalDocument - 1..1 -->
+            <!-- 27/04 - Updated as per MANTIS task 3389 -->
+
+            <assert test="cda:ClinicalDocument">Error: Advanced Care Directive Custodian Record - 5.1 Clinical Document - The 
+                'ClinicalDocument' tag is missing. Refer to section 5.1 of the 
+                Advanced_Care_Directive_Custodian_Record_CDA_Implementation_Guide_v1.0.</assert>
+
+            <report test="count(cda:ClinicalDocument) > 1">Error: Advanced Care Directive Custodian Record - 5.1 
+                Clinical Document - The 'ClinicalDocument' tag shall appear only once. Refer to 
+                section 5.1 of the Advanced_Care_Directive_Custodian_Record_CDA_Implementation_Guide_v1.0.</report>
+
+          </rule>
+        
+        <rule context="/cda:ClinicalDocument">
+
+            <!-- typeId - 1..1 -->
+
+            <assert test="cda:typeId">Error: Advanced Care Directive Custodian Record - 5.1 Clinical Document - The
+                'typeId' tag is missing. Refer to section 5.1 of the
+                Advanced_Care_Directive_Custodian_Record_CDA_Implementation_Guide_v1.0.</assert>
+
+            <report test="count(cda:typeId) > 1">Error: Advanced Care Directive Custodian Record - 5.1 Clinical
+                Document - The 'typeId' tag shall appear only once. Refer to section 5.1 of the
+                Advanced_Care_Directive_Custodian_Record_CDA_Implementation_Guide_v1.0.</report>
+
+            <!-- See below rule context:  <rule context = "/cda:ClinicalDocument/cda:typeId"> -->
+
+<!--Updated UC 16/04/2012 ID:3080 -->
+
+            <!-- templateId - 1..* -->
+
+            <assert test="cda:templateId">Error: Advanced Care Directive Custodian Record - 5.1 Clinical Document -
+                The 'templateId' tag is missing. Refer to section 5.1 of the
+                Advanced_Care_Directive_Custodian_Record_CDA_Implementation_Guide_v1.0.</assert>
+          
+            <!-- See below rule context:  <rule context = "/cda:ClinicalDocument/cda:templateId"> -->
+            
+             <assert
+                test="count(cda:templateId[@root = '1.2.36.1.2001.1001.101.100.1002.156' and @extension='1.0'])>0"
+                >Error: Advanced Care Directive Custodian Record - 5.1 Clinical Document - "ClinicalDocument /
+                templateId" - The 'templateId' tag 'root' attribute shall contain the value
+                "1.2.36.1.2001.1001.101.100.1002.156". If the 'root' value is
+                '1.2.36.1.2001.1001.101.100.1002.156' then the 'extension' attribute shall contain the
+                value '1.0'. Refer to section 5.1 of the
+                Advanced_Care_Directive_Custodian_Record_CDA_Implementation_Guide_v1.0.</assert>
+
+            <assert
+                test="count(cda:templateId[@root = '1.2.36.1.2001.1001.100.149' and @extension='1.0'])>0"
+                >Error: Advanced Care Directive Custodian Record - 5.1 Clinical Document - "ClinicalDocument /
+                templateId" - The 'templateId' tag 'root' attribute shall contain the value
+                "1.2.36.1.2001.1001.100.149" . If the 'root' value is
+                '1.2.36.1.2001.1001.100.149' then the 'extension' attribute shall contain
+                the value '1.0'. Refer to requirement CDA-RS 64 of the CDA_Rendering_Specification_Clinical_Documentation_v1.0
+                and section 1.8 of the Advanced_Care_Directive_Custodian_Record_CDA_Implementation_Guide_v1.0.</assert>
+
+
+<!--End update-->
+            <!-- id - 1..1 -->
+
+            <assert test="cda:id">Error: Advanced Care Directive Custodian Record - 5.1 Clinical Document - The 'id'
+                tag is missing. Refer to section 5.1 of the
+                Advanced_Care_Directive_Custodian_Record_CDA_Implementation_Guide_v1.0.</assert>
+
+            <report test="count(cda:id) > 1">Error: Advanced Care Directive Custodian Record - 5.1 Clinical Document -
+                The 'id' tag shall appear only once. Refer to section 5.1 of the
+                Advanced_Care_Directive_Custodian_Record_CDA_Implementation_Guide_v1.0.</report>
+
+            <!-- The 'id' tag and its attrubutes are being checked inside Advanced_Care_Directive_Custodian_Record_Global_Checks.sch -->
+
+
+            <!-- code - 1..1 -->
+
+            <assert test="cda:code">Error: Advanced Care Directive Custodian Record - 5.1 Clinical Document - The
+                'code' tag is missing. Refer to section 5.1 of the
+                Advanced_Care_Directive_Custodian_Record_CDA_Implementation_Guide_v1.0.</assert>
+
+            <report test="count(cda:code) > 1">Error: Advanced Care Directive Custodian Record - 5.1 Clinical Document
+                - The 'code' tag shall appear only once. Refer to section 5.1 of the
+                Advanced_Care_Directive_Custodian_Record_CDA_Implementation_Guide_v1.0.</report>
+
+            <!-- See below rule context:  <rule context = "/cda:ClinicalDocument/cda:code"> -->
+
+            <!-- effectiveTime - 1..1 -->
+
+            <assert test="cda:effectiveTime">Error: Advanced Care Directive Custodian Record - 5.1 Clinical Document
+                - The 'effectiveTime' tag is missing. Refer to section 5.1 of the
+                Advanced_Care_Directive_Custodian_Record_CDA_Implementation_Guide_v1.0.</assert>
+
+            <report test="count(cda:effectiveTime) > 1">Error: Advanced Care Directive Custodian Record - 5.1 Clinical
+                Document - The 'effectiveTime' tag shall appear only once. Refer to section 5.1 of
+                the Advanced_Care_Directive_Custodian_Record_CDA_Implementation_Guide_v1.0.</report>
+
+            <!-- See below rule context:  <rule context = "/cda:ClinicalDocument/cda:effectiveTime"> -->
+
+
+            <!-- confidentialityCode - 1..1 -->
+
+            <assert test="cda:confidentialityCode">Error: Advanced Care Directive Custodian Record - 5.1 Clinical
+                Document - The 'confidentialityCode' tag is missing. Refer to section 5.1 of the
+                Advanced_Care_Directive_Custodian_Record_CDA_Implementation_Guide_v1.0.</assert>
+
+            <report test="count(cda:confidentialityCode) > 1">Error: Advanced Care Directive Custodian Record - 5.1
+                Clinical Document - The 'confidentialityCode' tag shall appear only once. Refer to
+                section 5.1 of the
+                Advanced_Care_Directive_Custodian_Record_CDA_Implementation_Guide_v1.0.</report>
+
+            <!-- See below rule context:  <rule context = "/cda:ClinicalDocument/cda:confidentialityCode"> -->
+
+
+
+            <!-- languageCode - 0..1 -->
+
+            <report test="count(cda:languageCode) > 1">Error: Advanced Care Directive Custodian Record - 5.1 Clinical
+                Document - The 'languageCode' tag shall appear only once. Refer to section 5.1 of
+                the Advanced_Care_Directive_Custodian_Record_CDA_Implementation_Guide_v1.0.</report>
+
+            <!-- See below rule context:  <rule context = "/cda:ClinicalDocument/cda:languageCode"> -->
+
+            <!-- versionNumber - 0..1 -->
+
+            <report test="count(cda:versionNumber) > 1">Error: Advanced Care Directive Custodian Record - 5.1 Clinical
+                Document - The 'versionNumber' tag shall appear only once. Refer to section 5.1 of
+                the Advanced_Care_Directive_Custodian_Record_CDA_Implementation_Guide_v1.0.</report>
+
+            <!-- See below rule context:  <rule context = "/cda:ClinicalDocument/cda:versionNumber"> -->
+
+            <!-- ext:completionCode - 1..1 -->
+
+            <assert test="ext:completionCode">Error: Advanced Care Directive Custodian Record - 5.1 Clinical Document
+                - The 'completionCode' tag is missing. Refer to section 5.1 of the
+                Advanced_Care_Directive_Custodian_Record_CDA_Implementation_Guide_v1.0.</assert>
+
+            <report test="count(ext:completionCode) > 1">Error: Advanced Care Directive Custodian Record - 5.1
+                Clinical Document - The 'completionCode' tag shall appear only once. Refer to
+                section 5.1 of the
+                Advanced_Care_Directive_Custodian_Record_CDA_Implementation_Guide_v1.0.</report>
+
+            <!-- See below rule context:  <rule context = "/cda:ClinicalDocument/cda:completionCode"> -->
+
+
+        </rule>
+
+
+        <!-- typeId - 1..1 -->
+
+        <rule context="/cda:ClinicalDocument/cda:typeId">
+
+            <!-- @root -->
+            <assert test="@root = '2.16.840.1.113883.1.3'">Error: Advanced Care Directive Custodian Record - 5.1
+                Clinical Document - The 'typeId' tag 'root' attribute shall be
+                "2.16.840.1.113883.1.3". Refer to section 5.1 of the
+                Advanced_Care_Directive_Custodian_Record_CDA_Implementation_Guide_v1.0.</assert>
+
+            <!-- @extension -->
+            <assert test="@extension = 'POCD_HD000040'">Error: Advanced Care Directive Custodian Record - 5.1 Clinical
+                Document - The 'typeId' tag 'extension' attribute shall contain the value "POCD_HD000040". Refer to section
+                5.1 of the
+                Advanced_Care_Directive_Custodian_Record_CDA_Implementation_Guide_v1.0.</assert>
+
+            <!-- @nullFlavor -->
+            <report test="@nullFlavor and normalize-space(@nullFlavor) = ''">Error: Advanced Care Directive Custodian Record
+                - 5.1 Clinical Document - "ClinicalDocument / typeId" - The 'typeId' tag
+                'nullFlavor' attribute shall contain a value. Refer to section 5.1 of the
+                Advanced_Care_Directive_Custodian_Record_CDA_Implementation_Guide_v1.0.</report>
+
+            <!-- @assigningScopingEntity -->
+            <report test="@assigningScopingEntity and normalize-space(@assigningScopingEntity) = ''"
+                >Error: Advanced Care Directive Custodian Record - 5.1 Clinical Document - "ClinicalDocument / typeId"
+                - The 'typeId' tag 'assigningScopingEntity' attribute shall contain a value. Refer
+                to section 5.1 of the
+                Advanced_Care_Directive_Custodian_Record_CDA_Implementation_Guide_v1.0.</report>
+
+        </rule>
+
+
+  <!--Updated UC 16/04/2012 ID:3080 -->
+        <!-- templateId - 1..* -->
+
+        <rule context="/cda:ClinicalDocument/cda:templateId">
+
+              <report test="@root and normalize-space(@root) = ''">Error: Advanced Care Directive Custodian Record - 5.1
+                Clinical Document - "ClinicalDocument / templateId" - The 'templateId' tag 'root'
+                attribute shall contain a value. Refer
+                to section 5.1 of the
+                Advanced_Care_Directive_Custodian_Record_CDA_Implementation_Guide_v1.0.</report>
+
+            <!-- @extension -->
+            <report test="@extension and normalize-space(@extension) = ''">Error: Advanced Care Directive Custodian Record 
+                - 5.1 Clinical Document - "ClinicalDocument / templateId" - The 'templateId'
+                tag 'extension' attribute shall contain a value. Refer
+                to section 5.1 of the
+                Advanced_Care_Directive_Custodian_Record_CDA_Implementation_Guide_v1.0.</report>
+
+            <!-- @nullFlavor -->
+            <report test="@nullFlavor and normalize-space(@nullFlavor) = ''">Error: Advanced Care Directive Custodian Record
+                - 5.1 Clinical Document - "ClinicalDocument / templateId" - The 'templateId'
+                tag 'nullFlavor' attribute shall contain a value. Refer
+                to section 5.1 of the
+                Advanced_Care_Directive_Custodian_Record_CDA_Implementation_Guide_v1.0.</report>
+
+            <!-- @assigningScopingEntity -->
+            <report test="@assigningScopingEntity and normalize-space(@assigningScopingEntity) = ''"
+                >Error: Advanced Care Directive Custodian Record - 5.1 Clinical Document - "ClinicalDocument /
+                templateId" - The 'templateId' tag 'assigningScopingEntity' attribute shall contain
+                a value. Refer
+                to section 5.1 of the
+                Advanced_Care_Directive_Custodian_Record_CDA_Implementation_Guide_v1.0.</report>
+        </rule>
+
+<!--End Update-->
+
+        <!-- code - 1..1 -->
+
+        <rule context="/cda:ClinicalDocument/cda:code">
+
+            <assert test="@code = '100.16696'">Error: Advanced Care Directive Custodian Record - 5.1 Clinical Document
+                - The 'code' tag 'code' attribute shall contain the value "100.16696". Refer to section 5.1 of
+                the Advanced_Care_Directive_Custodian_Record_CDA_Implementation_Guide_v1.0.</assert>
+
+            <assert test="@codeSystem = '1.2.36.1.2001.1001.101'">Error: Advanced Care Directive Custodian Record - 5.1
+                Clinical Document - The 'code' tag 'codeSystem' attribute shall be
+                '1.2.36.1.2001.1001.101'. Refer to section 5.1 of the
+                Advanced_Care_Directive_Custodian_Record_CDA_Implementation_Guide_v1.0.</assert>
+
+            <assert
+                test="translate(@codeSystemName, 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ') = 'NCTIS DATA COMPONENTS'"
+                >Error: Advanced Care Directive Custodian Record - 5.1 Clinical Document - The 'code' tag
+                'codeSystemName' attribute shall contain the value 'NCTIS Data Components'. Refer to section 5.1 of the
+                Advanced_Care_Directive_Custodian_Record_CDA_Implementation_Guide_v1.0.</assert>
+
+            <assert
+                test="translate(@displayName, 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ') = 'ADVANCE CARE DIRECTIVE CUSTODIAN RECORD'"
+                >Error: Advanced Care Directive Custodian Record - 5.1 Clinical Document -The 'code' tag
+                'displayName' attribute shall contain the value "Advanced Care Directive Custodian Record". Refer to section
+                5.1 of the
+                Advanced_Care_Directive_Custodian_Record_CDA_Implementation_Guide_v1.0.</assert>
+
+            <!-- Other attribute are checked by the Global_Checks file -->
+
+        </rule>
+
+
+
+        <!-- effectiveTime - 1..1 -->
+        <!-- <rule context="/cda:ClinicalDocument/cda:effectiveTime"> -->
+        <!-- The tags and attributes of cda:effectiveTime is not being tested inside "Advanced_Care_Directive_Custodian_Record_Global_Checks.ent" -->
+
+
+
+        <!-- confidentialityCode - 1..1 -->
+
+        <rule context="/cda:ClinicalDocument/cda:confidentialityCode">
+
+            <assert test="@nullFlavor = 'NA'">Error: Advanced Care Directive Custodian Record - 5.1 Clinical Document
+                - "ClinicalDocument/confidentialityCode" - The 'confidentialityCode' tag
+                'nullFlavor' attribute shall contain the value "NA". Refer to section 5.1 of the
+                Advanced_Care_Directive_Custodian_Record_CDA_Implementation_Guide_v1.0.</assert>
+
+        </rule>
+
+
+
+        <!-- languageCode - 0..1 -->
+
+        <rule context="/cda:ClinicalDocument/cda:languageCode">
+
+            <assert test="normalize-space(@code) != ''">Error: Advanced Care Directive Custodian Record -
+                5.1 Clinical Document - "ClinicalDocument / languageCode" - The 'languageCode' tag
+                'code' attribute shall contain a value in the format 'LanguageCode-COUNTRYCODE' as
+                per 'RFC3066' . Refer to section 5.1 of the
+                Advanced_Care_Directive_Custodian_Record_CDA_Implementation_Guide_v1.0.</assert>
+
+        </rule>
+
+        <!-- versionNumber - 0..1 -->
+
+        <rule context="/cda:ClinicalDocument/cda:versionNumber">
+
+            <assert test="normalize-space(@value) != ''">Error: Advanced Care Directive Custodian Record -
+                5.1 Clinical Document - "ClinicalDocument / versionNumber" - The 'versionNumber' tag
+                'value' attribute shall be an integer value. Refer to section 5.1 of the
+                Advanced_Care_Directive_Custodian_Record_CDA_Implementation_Guide_v1.0.</assert>
+
+            <assert test="floor(@value) = number(@value)">Error: Advanced Care Directive Custodian Record - 5.1
+                Clinical Document - "ClinicalDocument / versionNumber" - The 'versionNumber' tag
+                'value' attribute shall be an integer value. Refer to section 5.1 of the
+                Advanced_Care_Directive_Custodian_Record_CDA_Implementation_Guide_v1.0.</assert>
+
+            <!-- 'no value', 'negative number', 'fraction number', '0', 'non numerical value' -->
+
+        </rule>
+
+
+
+        <!-- ext:completionCode - 1..1 -->
+
+        <rule context="/cda:ClinicalDocument/ext:completionCode">
+
+            <assert
+                test="document('CDAValidate_Vocabs.xml')/systems/system
+                [@codeSystemName = 'NCTIS_Document_Status_Values']/code[(@code = (current()/@code))]"
+                >Error: Advanced Care Directive Custodian Record - 5.1 Clinical Document - "ClinicalDocument /
+                ext:completionCode" - The 'code' attribute shall be as per 10.13 NCTIS: Admin Codes
+                - Document Status. Refer to section 5.1 of the
+                Advanced_Care_Directive_Custodian_Record_CDA_Implementation_Guide_v1.0.</assert>
+
+            <assert test="@codeSystem = '1.2.36.1.2001.1001.101.104.20104'">Error: Advanced Care Directive Custodian Record
+                - 5.1 Clinical Document - "ClinicalDocument / ext:completionCode" - The
+                'codeSystem' attribute shall contain the value "1.2.35.1.2001.1001.101.104.20104". Refer to section
+                5.1 of the
+                Advanced_Care_Directive_Custodian_Record_CDA_Implementation_Guide_v1.0.</assert>
+
+            <assert
+                test="translate(@codeSystemName, 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ') 
+                = 'NCTIS DOCUMENT STATUS VALUES'"
+                >Error: Advanced Care Directive Custodian Record - 5.1 Clinical Document - "ClinicalDocument /
+                ext:completionCode" - The 'codeSystemName' attribute shall contain the value "NCTIS Document Status
+                Values". Refer to section 5.1 of the
+                Advanced_Care_Directive_Custodian_Record_CDA_Implementation_Guide_v1.0.</assert>
+
+            <assert
+                test="document('CDAValidate_Vocabs.xml')/systems/system
+                [@codeSystemName = 'NCTIS_Document_Status_Values']/code[(translate(@displayName,  'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ') = (translate(current()/@displayName, 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ')))]"
+                >Error: Advanced Care Directive Custodian Record - 5.1 Clinical Document - "ClinicalDocument /
+                ext:completionCode" - The 'displayName' attribute shall be as per 10.13 NCTIS: Admin Codes -
+                Document Status. Refer to section 5.1 of the
+                Advanced_Care_Directive_Custodian_Record_CDA_Implementation_Guide_v1.0.</assert>
+
+            <assert test="@code = substring(@displayName,1,1)">Error: Advanced Care Directive Custodian Record - 5.1
+                Clinical Document - "ClinicalDocument / ext:completionCode" - The 'code' and
+                'displayName' attributes shall match as per 10.13 NCTIS: Admin Codes - Document Status. Refer
+                to section 5.1 of the
+                Advanced_Care_Directive_Custodian_Record_CDA_Implementation_Guide_v1.0.</assert>
+
+        </rule>
+
+    </pattern>
+

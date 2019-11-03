@@ -83,12 +83,15 @@ import org.w3c.dom.Document;
 public class ServiceReferralMaxTest extends Base {
 
   private static final String SCHEMATRON = SERVICE_REFERRAL_3A.resource().getSchematron();
-  private static final String SCHEMATRON_TEMPLATE_PATH = "resources/ServiceReferral";
+  private static String SCHEMATRON_TEMPLATE_PATH = "resources/ServiceReferral";
   private static final String DOCUMENT_FILE_NAME = TEST_GENERATION + "/sr/sr-max-java.xml";
 
   @Test
   public void test_MAX_Discharge_Summary_Creation() {
     try {
+      if (!new File(SCHEMATRON_TEMPLATE_PATH + "/schematron/schematron-Validator-report.xsl").exists()) {
+        SCHEMATRON_TEMPLATE_PATH = "src/" + SCHEMATRON_TEMPLATE_PATH;
+      }
       generateMax();
       SchematronCheckResult check =
           Schematron.check(SCHEMATRON_TEMPLATE_PATH, SCHEMATRON, DOCUMENT_FILE_NAME);
@@ -124,8 +127,7 @@ public class ServiceReferralMaxTest extends Base {
   }
 
   private ServiceReferralContent getContent() {
-    AttachedMedia reportFile = new AttachedMedia(
-        new File(ATTACHMENTS_DIR + "radiologyreport.pdf"));
+    AttachedMedia reportFile = TestHelper.getAttachedMediaPDF("radiologyreport.pdf");
     ServiceReferralContent content = new ServiceReferralContentImpl(reportFile);
     content.setCurrentServices(getCurrentServices());
     TestHelper.executingClass = ServiceReferral.class;
@@ -365,7 +367,7 @@ public class ServiceReferralMaxTest extends Base {
     currentService.setServiceDesc(
         new CodeImpl("241646009", "2.16.840.1.113883.6.96", "SNOMED CT", "MRI of cervical spine"));
     currentService.setServiceProvider(
-        getCurrentServiceProviderOrganisation()); //TODO MS : Change to Organization
+        getCurrentServiceProviderOrganisation());
     currentService
         .setRequestedServiceDateTime(new PrecisionDate(Precision.DAY, new DateTime("2019-03-1")));
     currentServicesList.add(currentService);

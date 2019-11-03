@@ -1,0 +1,181 @@
+<!--
+_________________________________________________________________________________________________________________________________________________________________________________________
+                  Generated File - Do Not Edit File Directly                                                                                                                             
+                  __________________________________________
+
+                  Generated          : 27/09/2019 3:09:48 PM
+
+                  Product            : Goals of Care
+                  Release            : CDA_Implementation_Guide_v1.0
+                  Generator Version  : 
+                                                                                                                                                                                         
+_________________________________________________________________________________________________________________________________________________________________________________________
+-->
+    <pattern name="p-Goals_of_Care_ANZSCO_Checks_Revision1-errors"
+        id="p-Goals_of_Care_ANZSCO_Checks_Revision1-errors"
+        see="#p-Goals_of_Care_ANZSCO_Checks_Revision1-errors">
+
+
+
+
+        <rule context="*[@codeSystem='2.16.840.1.113883.13.62'][not(self::ext:jobCode)]">            
+            
+            <assert test="number(@code) = floor(@code)">Error: Goals of Care - ANZSCO code
+                check for "*[@codeSystem='2.16.840.1.113883.13.62']/@code" attribute - The 'code' attribute
+                ANZSCO code value shall be a number. Check all such 'code' attributes to find the incorrect 
+                attribute(s). Refer to the 1220.0_ANZSCO_First_Edition_Revision_1 and section 'Reference List [ABS2009]' of the
+                Advance_Care_Information_CDA_Implementation_Guide_v1.0.</assert>
+            
+            <assert test="string-length(@code) = 6">Error: Goals of Care - ANZSCO code check for 
+                "*[@codeSystem='2.16.840.1.113883.13.62']/@code" attribute - The 'code' attribute
+                ANZSCO code value shall have 6 digits. Check all such 'code' attributes to find the incorrect attribute(s). 
+                Refer to the 1220.0_ANZSCO_First_Edition_Revision_1 and section 'Reference List [ABS2009]' of the
+                Advance_Care_Information_CDA_Implementation_Guide_v1.0.</assert>
+            
+        </rule>
+
+
+        <rule context="ext:asEmployment/ext:jobCode">
+            
+            <!-- To be updated after the Jira issue resolution to write tests related to this tag -->
+            <!-- The code attributes must also checked against the Vocabs file in the ANZSCO FE 2006 meteor 350899 code values after we get a resolution -->
+                 
+            <!-- jobCode/@code - 1..1 -->
+            
+            <assert test="number(@code) = floor(@code)">Error: Goals of Care - 8.8 Employment - The 'code' attribute
+                ANZSCO code value shall be a number.
+                Check all such 'code' attributes to find the incorrect 
+                attribute(s). Refer to the 1220.0_ANZSCO_First_Edition_2006 and the
+                Advance_Care_Information_CDA_Implementation_Guide_v1.0.</assert>
+            
+            <assert test="string-length(@code) = 6">Error: Goals of Care - 8.8 Employment - The 'code' attribute
+                ANZSCO code value shall have 6 digits.
+                Check all such 'code' attributes to find the incorrect 
+                attribute(s). Refer to the 1220.0_ANZSCO_First_Edition_2006 and the
+                Advance_Care_Information_CDA_Implementation_Guide_v1.0.</assert>
+            
+            <assert test="@code"
+                >Error: Goals of Care - 8.8 Employment -
+                The 'jobCode' tag 'code' attribute is missing. Check all
+                'ext:asEmployment/ext:jobCode' tags to find the missing attribute.
+                Refer to section 8.8 Employment of the
+                Advance_Care_Information_CDA_Implementation_Guide_v1.0.</assert>
+            
+            <assert test="not(@code) or normalize-space(@code) != ''"
+                >Error: Goals of Care - 8.8 Employment -
+                The 'jobCode' tag 'code' attribute shall contain a value. Check all
+                'ext:asEmployment/ext:jobCode' tags to find the missing attribute.
+                Refer to section 8.8 Employment of the
+                Advance_Care_Information_CDA_Implementation_Guide_v1.0.</assert>
+            
+            <assert
+                test="
+                not(@code) or
+                normalize-space(@code) = '' or
+                document('TEMPLATE/VALDN/CDAValidate_Vocabs.xml', .)/systems/system[@codeSystemName = '1220.0 - ANZSCO - Australian and New Zealand Standard Classification of Occupations, First Edition, Revision 1']/code[
+                @code = current()/@code]"
+                >Error: Goals of Care - 8.8 Employment -
+                The 'jobCode' tag 'code' attribute shall be as per '1220.0 - ANZSCO - Australian and New Zealand 
+                Standard Classification of Occupations, First Edition, Revision 1'. Check all 'ext:asEmployment/ext:jobCode' tags to find the incorrect attribute.
+                Refer to section 8.8 Employment of the
+                Advance_Care_Information_CDA_Implementation_Guide_v1.0.</assert>
+            
+            <!-- jobCode/@codeSystem - 1..1 -->
+            <assert test="@codeSystem"
+                >Error: Goals of Care - 8.8 Employment -
+                The 'jobCode' tag 'codeSystem' attribute is missing. Check all
+                'ext:asEmployment/ext:jobCode' tags to find the missing attribute.
+                Refer to section 8.8 Employment of the
+                Advance_Care_Information_CDA_Implementation_Guide_v1.0.</assert>
+            
+            <assert test="not(@codeSystem) or normalize-space(@codeSystem) != ''"
+                >Error: Goals of Care - 8.8 Employment -
+                The 'jobCode' tag 'codeSystem' attribute shall contain a value. Check all
+                'ext:asEmployment/ext:jobCode' tags to find the missing attribute.
+                Refer to section 8.8 Employment of the
+                Advance_Care_Information_CDA_Implementation_Guide_v1.0.</assert>
+            
+            <assert
+                test="
+                not(@codeSystem) or
+                normalize-space(@codeSystem) = '' or
+                document('TEMPLATE/VALDN/CDAValidate_Vocabs.xml', .)/systems/system[@codeSystemName = '1220.0 - ANZSCO - Australian and New Zealand Standard Classification of Occupations, First Edition, Revision 1']/code[
+                @codeSystem = current()/@codeSystem]"
+                >Error: Goals of Care - 8.8 Employment -
+                The 'jobCode' tag 'codeSystem' attribute shall be as per '1220.0 - ANZSCO - Australian and New Zealand Standard 
+                Classification of Occupations, First Edition, Revision 1'. Check all 'ext:asEmployment/ext:jobCode' tags to find the incorrect attribute.
+                Refer to section 8.8 Employment of the
+                Advance_Care_Information_CDA_Implementation_Guide_v1.0.</assert>
+            
+            <!-- jobCode/@codeSystemName -->
+            <!--
+                    <assert test="@codeSystemName"
+                        >Error: Goals of Care - 8.8 Employment -
+                        The 'jobCode' tag 'codeSystemName' attribute is missing. Check all
+                        'ext:asEmployment/ext:jobCode' tags to find the missing attribute.
+                        Refer to section 8.8 Employment of the
+                        Advance_Care_Information_CDA_Implementation_Guide_v1.0.</assert>
+                    -->
+            
+            <report test="@codeSystemName and normalize-space(@codeSystemName) = ''"
+                >Error: Goals of Care - 8.8 Employment -
+                The 'jobCode' tag 'codeSystemName' attribute shall contain a value. Check all
+                'ext:asEmployment/ext:jobCode' tags to find the missing attribute.
+                Refer to section 8.8 Employment of the
+                Advance_Care_Information_CDA_Implementation_Guide_v1.0.</report>
+            
+            <!-- commented the test below because the changes required for Pathology Report described in the following ticket RPSA-2075 also needs to be applied to all the packages -->
+            <!--<report test="
+                        @codeSystemName and
+                        normalize-space(@codeSystemName) != '' and
+                        translate(@codeSystemName, 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ') != '1220.0 - ANZSCO - AUSTRALIAN AND NEW ZEALAND STANDARD CLASSIFICATION OF OCCUPATIONS, FIRST EDITION, REVISION 1'"
+                        >Error: Goals of Care - 8.8 Employment -
+                        The 'jobCode' tag 'codeSystemName' attribute shall be '1220.0 - ANZSCO - Australian and New Zealand Standard 
+                        Classification of Occupations, First Edition, Revision 1'. Check all 'ext:asEmployment/ext:jobCode' tags to find the incorrect attribute.
+                        Refer to section 8.8 Employment of the
+                        Advance_Care_Information_CDA_Implementation_Guide_v1.0.            
+                        <!-\- commented the test as it is the similar test as described in the ticket RPSA-2075 -\->
+                    </report>-->
+            
+            <!-- jobCode/@codeSystemVersion -->
+            <report test="@codeSystemVersion and normalize-space(@codeSystemVersion) = ''"
+                >Error: Goals of Care - 8.8 Employment -
+                The 'jobCode' tag 'codeSystemVersion' attribute shall contain a value. Check all
+                'ext:asEmployment/ext:jobCode' tags to find the missing attribute.
+                Refer to section 8.8 Employment of the
+                Advance_Care_Information_CDA_Implementation_Guide_v1.0.</report>
+            
+            <!-- jobCode/@displayName -->
+            <!--
+                    <assert test="@displayName"
+                        >Error: Goals of Care - 8.8 Employment -
+                        The 'jobCode' tag 'displayName' attribute is missing. Check all
+                        'ext:asEmployment/ext:jobCode' tags to find the missing attribute.
+                        Refer to section 8.8 Employment of the
+                        Advance_Care_Information_CDA_Implementation_Guide_v1.0.</assert>
+                    -->
+            
+            <report test="@displayName and normalize-space(@displayName) = ''"
+                >Error: Goals of Care - 8.8 Employment -
+                The 'jobCode' tag 'displayName' attribute shall contain a value. Check all
+                'ext:asEmployment/ext:jobCode' tags to find the missing attribute.
+                Refer to section 8.8 Employment of the
+                Advance_Care_Information_CDA_Implementation_Guide_v1.0.</report>
+            
+            <report test="
+                @displayName and
+                normalize-space(@displayName) != '' and
+                document('TEMPLATE/VALDN/CDAValidate_Vocabs.xml', .)/systems/system[@codeSystemName = '1220.0 - ANZSCO - Australian and New Zealand Standard Classification of Occupations, First Edition, Revision 1']
+                /code[(@code = current()/@code) and (translate(@displayName, 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ') != translate(current()/@displayName, 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'))]"
+                >Error: Goals of Care - 8.8 Employment -
+                The 'jobCode' tag 'code' and 'displayName' attributes shall match as per '1220.0 - ANZSCO - Australian and New Zealand Standard 
+                Classification of Occupations, First Edition, Revision 1'. Check all 'ext:asEmployment/ext:jobCode' tags to find the
+                incorrect attribute. Refer to section 8.8 Employment of the
+                Advance_Care_Information_CDA_Implementation_Guide_v1.0.</report>
+            
+        </rule>
+
+
+
+    </pattern>
+

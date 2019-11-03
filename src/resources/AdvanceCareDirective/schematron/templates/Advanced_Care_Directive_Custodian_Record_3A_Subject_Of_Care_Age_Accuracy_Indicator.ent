@@ -1,0 +1,137 @@
+    
+    
+    <!-- Advanced Care Directive Custodian Record Clinical Document:  6.1.2 Subject of Care -->
+    
+    <!-- Context: ClinicalDocument//component/structuredBody/component[admin_obs]/section -->
+    
+    <!-- Status: Last Reviewed: 
+        Status: Last Updated : 10/04/2012 -->
+    
+    <pattern name = "p-Advanced_Care_Directive_Custodian_Record_3A_Subject_Of_Care_Age_Accuracy_Indicator-errors"
+        id = "p-Advanced_Care_Directive_Custodian_Record_3A_Subject_Of_Care_Age_Accuracy_Indicator-errors"
+        see = "#p-Advanced_Care_Directive_Custodian_Record_3A_Subject_Of_Care_Age_Accuracy_Indicator-errors">
+        
+        <!-- Age Accuracy Indicator - 0..1 -->
+        
+        <rule context = "/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code = '102.16080']">
+            
+            <report test = "count(cda:entry/cda:observation/cda:code[@code = 103.16279]) > 1">Error:
+                Advanced Care Directive Custodian Record - 6.1.2 Subject of Care - "Subject of Care / Participant / Person or
+                Organisation or Device / Person / Demographic Data / Age Detail / Age Accuracy
+                Indicator" - The 'entry' tag shall appear only once. Refer to section 6.1.2 of the
+                Advanced_Care_Directive_Custodian_Record_CDA_Implementation_Guide_v1.0.</report>
+            
+        </rule>
+        
+        <rule context = "/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code = '102.16080']/cda:entry[cda:observation/cda:code/@code = '103.16279']">
+            
+            <report test = "count(cda:observation) >1">Error: Advanced Care Directive Custodian Record - 6.1.2 Subject Of Care
+                - "Subject of Care / Participant / Person or Organisation or Device / Person /
+                Demographic Data / Age Detail / Age Accuracy Indicator" - The 'observation' tag
+                shall appear only once. Refer to section 6.1.2 of the
+                Advanced_Care_Directive_Custodian_Record_CDA_Implementation_Guide_v1.0.</report>
+            
+        </rule>
+        
+        <rule context = "/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code = '102.16080']/cda:entry/cda:observation[cda:code/@code = '103.16279']">
+            
+            <!-- observation/@classCode -->
+            <assert test = "@classCode = 'OBS'">Error: Advanced Care Directive Custodian Record - 6.1.2 Subject Of Care - "Subject
+                of Care / Participant / Person or Organisation or Device / Person / Demographic Data
+                / Age Detail / Age Accuracy Indicator" - The 'observation' tag 'classCode' attribute
+                shall be 'OBS'. Refer to section 6.1.2 of the
+                Advanced_Care_Directive_Custodian_Record_CDA_Implementation_Guide_v1.0.</assert>
+            
+            <!-- observation/@moodCode -->
+            <assert test = "@moodCode = 'EVN'">Error: Advanced Care Directive Custodian Record - 6.1.2 Subject Of Care - "Subject
+                of Care / Participant / Person or Organisation or Device / Person / Demographic Data
+                / Age Detail / Age Accuracy Indicator" - The 'observation' tag 'moodCode' attribute
+                shall be 'EVN'. Refer to section 6.1.2 of the
+                Advanced_Care_Directive_Custodian_Record_CDA_Implementation_Guide_v1.0.</assert>
+            
+            <!-- id -->
+            <assert test = "cda:id">Error: Advanced Care Directive Custodian Record - 6.1.2 Subject Of Care - "Subject of Care
+                / Participant / Person or Organisation or Device / Person / Demographic Data / Age
+                Detail / Age Accuracy Indicator" - The 'id' tag is missing. Refer to section 6.1.2
+                of the Advanced_Care_Directive_Custodian_Record_CDA_Implementation_Guide_v1.0.</assert>
+            
+            <report test = "count(cda:id) >1">Error: Advanced Care Directive Custodian Record - 6.1.2 Subject Of Care -
+                "Subject of Care / Participant / Person or Organisation or Device / Person /
+                Demographic Data / Age Detail / Age Accuracy Indicator" - The 'id' tag shall appear
+                only once. Refer to section 6.1.2 of the
+                Advanced_Care_Directive_Custodian_Record_CDA_Implementation_Guide_v1.0.</report>
+
+            <!-- The 'id' tag and its attrubutes are being checked inside Advanced_Care_Directive_Custodian_Record_Global_Checks.sch -->
+
+            
+            <!-- value:BL -->
+            <assert test = "cda:value">Error: Advanced Care Directive Custodian Record - 6.1.2 Subject Of Care - "Subject of
+                Care / Participant / Person or Organisation or Device / Person / Demographic Data /
+                Age Detail / Age Accuracy Indicator" - The 'value' tag is missing. Refer to section
+                6.1.2 of the Advanced_Care_Directive_Custodian_Record_CDA_Implementation_Guide_v1.0.</assert>
+            
+            <report test = "count(cda:value) > 1">Error: Advanced Care Directive Custodian Record - 6.1.2 Subject Of Care -
+                "Subject of Care / Participant / Person or Organisation or Device / Person /
+                Demographic Data / Age Detail / Age Accuracy Indicator" - The 'value' tag shall
+                appear only once. Refer to section 6.1.2 of the
+                Advanced_Care_Directive_Custodian_Record_CDA_Implementation_Guide_v1.0.</report>
+            
+            <!-- code -->
+            <report test = "count(cda:code) >1">Error: Advanced Care Directive Custodian Record - 6.1.2 Subject Of Care -
+                "Subject of Care / Participant / Person or Organisation or Device / Person /
+                Demographic Data / Age Detail / Age Accuracy Indicator" - The 'code' tag shall
+                appear only once. Refer to section 6.1.2 of the
+                Advanced_Care_Directive_Custodian_Record_CDA_Implementation_Guide_v1.0.</report>
+            
+        </rule>
+        
+        <rule context = "cda:code[@code = '103.16279']">
+            
+            <assert test = "/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code = '102.16080']/cda:entry/cda:observation/cda:code[@code = '103.16279']">
+                Error: Advanced Care Directive Custodian Record - 6.1.2 Subject Of Care - "Subject of Care / Participant / Person or Organisation or Device / Person / Demographic Data / Age Detail / Age Accuracy Indicator" - 
+                The "/ClinicalDocument/component/structuredBody/component/section[code/@code = '102.16080']/entry/observation/code[@code = '103.16279']" path - 
+                1 or more tags are missing. Refer to section
+                6.1.2 of the Advanced_Care_Directive_Custodian_Record_CDA_Implementation_Guide_v1.0.</assert>
+            
+            <!-- code/@codeSystem -->
+            <assert test = "@codeSystem = '1.2.36.1.2001.1001.101'">Error: Advanced Care Directive Custodian Record - 6.1.2 Subject
+                Of Care - "Subject of Care / Participant / Person or Organisation or Device / Person
+                / Demographic Data / Age Detail / Age Accuracy Indicator" - The 'code' tag
+                'codeSystem' attribute shall contain the value '1.2.36.1.2001.1001.101'. Refer to section
+                6.1.2 of the Advanced_Care_Directive_Custodian_Record_CDA_Implementation_Guide_v1.0.</assert>
+            
+            <!-- code/@codeSystemName -->
+            <assert
+                test = "translate(@codeSystemName, 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ') = 'NCTIS DATA COMPONENTS'"
+                >Error: Advanced Care Directive Custodian Record - 6.1.2 Subject Of Care - "Subject of Care / Participant /
+                Person or Organisation or Device / Person / Demographic Data / Age Detail / Age
+                Accuracy Indicator" - The 'code' tag 'codeSystemName' attribute shall be
+                'NCTIS Data Components'. Refer to section 6.1.2 of the
+                Advanced_Care_Directive_Custodian_Record_CDA_Implementation_Guide_v1.0.</assert>
+            
+            <!-- code/@displayName -->
+            <assert
+                test = "translate(@displayName, 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ') = 'AGE ACCURACY INDICATOR'"
+                >Error: Advanced Care Directive Custodian Record - 6.1.2 Subject Of Care - "Subject of Care / Participant /
+                Person or Organisation or Device / Person / Demographic Data / Age Detail / Age
+                Accuracy Indicator" - The 'code' tag 'displayName' attribute shall contain the value 'Age
+                Accuracy Indicator'. Refer to section 6.1.2 of the
+                Advanced_Care_Directive_Custodian_Record_CDA_Implementation_Guide_v1.0.</assert>
+            
+            
+            
+        </rule>
+        
+        
+        <rule context = "/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code = '102.16080']/cda:entry/cda:observation[cda:code/@code = '103.16279']/cda:value">
+            
+            <!-- value/@value:BL -->
+            <assert test = "@value and @value = 'true' or @value = 'false'">Error: Advanced Care Directive Custodian Record - 6.1.2
+                Subject Of Care - "Subject of Care / Participant / Person or Organisation or Device
+                / Person / Demographic Data / Age Detail / Age Accuracy Indicator" - The 'value' tag
+                'value' attribute shall contain the value "true" or "false". Refer to section 6.1.2 of the
+                Advanced_Care_Directive_Custodian_Record_CDA_Implementation_Guide_v1.0.</assert>
+            
+        </rule>
+    </pattern>
+

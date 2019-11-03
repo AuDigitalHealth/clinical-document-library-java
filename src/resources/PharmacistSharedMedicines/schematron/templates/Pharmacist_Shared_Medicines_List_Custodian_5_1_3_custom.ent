@@ -1,0 +1,58 @@
+<pattern name="p-Pharmacist_Shared_Medicines_List_Custodian_5_1_3_custom-errors"
+  id="p-Pharmacist_Shared_Medicines_List_Custodian_5_1_3_custom-errors"
+  see="#p-Pharmacist_Shared_Medicines_List_Custodian_5_1_3_custom-errors">
+
+
+  <rule
+    context="/cda:ClinicalDocument/cda:custodian/cda:assignedCustodian/cda:representedCustodianOrganization/ext:asEntityIdentifier/ext:id">
+
+    <report
+      test="(starts-with(@root, '1.2.36.1.2001.1003.0.80036')) and not( (starts-with(@root, '1.2.36.1.2001.1003.0.800362')) or (starts-with(@root, '1.2.36.1.2001.1003.0.800363')) )"
+    >Error: Pharmacist Shared Medicines List - 5.1.3 Custodian - "custodian / assignedCustodian /
+      representedCustodianOrganization / Entity Identifier" - The 'id' tag 'root'
+      attribute shall begin with either '1.2.36.1.2001.1003.0.800362' or
+      '1.2.36.1.2001.1003.0.800363' if it begins with '1.2.36.1.2001.1003.0.80036'. Refer
+      to 023734 Clinical document must include custodian organisation's name and entity
+      identifier of COMMON-ConformProfileClinDoc-v1.7 and section 5.1.3 of the
+      Core_Level_One_Clinical_Document_CDA_Implementation_Guide_v1.1.
+    </report>
+
+    <report
+      test="(starts-with(@root, '1.2.36.1.2001.1007.1.80036')) and not(starts-with(@root, '1.2.36.1.2001.1007.1.800364'))"
+    >Error: Pharmacist Shared Medicines List - 5.1.3 Custodian - "custodian / assignedCustodian /
+      representedCustodianOrganization / Entity Identifier" - The 'id' tag 'root'
+      attribute shall begin with '1.2.36.1.2001.1007.1.800364' if it begins with
+      '1.2.36.1.2001.1007.1.80036'. Refer to 023734 Clinical document must include
+      custodian organisation's name and entity identifier of
+      COMMON-ConformProfileClinDoc-v1.7 and section 5.1.3 of the
+      Core_Level_One_Clinical_Document_CDA_Implementation_Guide_v1.1.
+    </report>
+
+    <report
+      test="(starts-with(@root, '1.2.36.1.2001.1007.10.80036')) and not(starts-with(@root, '1.2.36.1.2001.1007.10.800364'))"
+    >Error: Pharmacist Shared Medicines List - 5.1.3 Custodian - "custodian / assignedCustodian /
+      representedCustodianOrganization / Entity Identifier" - The 'id' tag 'root'
+      attribute shall begin with '1.2.36.1.2001.1007.10.800364' if it begins with
+      '1.2.36.1.2001.1007.10.80036'. Refer to 023734 Clinical document must include
+      custodian organisation's name and entity identifier of
+      COMMON-ConformProfileClinDoc-v1.7 and section 5.1.3 of the
+      Core_Level_One_Clinical_Document_CDA_Implementation_Guide_v1.1.
+    </report>
+
+    <report
+      test="(starts-with(@root, '1.2.36.1.2001.1007.20.80036')) and not(starts-with(@root, '1.2.36.1.2001.1007.20.800364'))"
+    >Error: Pharmacist Shared Medicines List - 5.1.3 Custodian - "custodian / assignedCustodian /
+      representedCustodianOrganization / Entity Identifier" - The 'id' tag 'root'
+      attribute shall begin with '1.2.36.1.2001.1007.20.800364' if it begins with
+      '1.2.36.1.2001.1007.20.80036'. Refer to 023734 Clinical document must include
+      custodian organisation's name and entity identifier of
+      COMMON-ConformProfileClinDoc-v1.7 and section 5.1.3 of the
+      Core_Level_One_Clinical_Document_CDA_Implementation_Guide_v1.1.
+    </report>
+
+
+  </rule>
+
+
+</pattern>
+

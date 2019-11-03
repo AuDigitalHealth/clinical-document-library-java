@@ -22,5 +22,4 @@ public interface PersonHealthcareProvider extends PersonWithOrganization, Person
   Gender getGender();
 
   void setGender(Gender gender);
-  //TODO Validation Missing
 }

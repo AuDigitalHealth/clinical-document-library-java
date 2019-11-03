@@ -685,7 +685,7 @@ public class NarrativeUtil {
     return "Addresses Empty";
   }
 
-  private static String getPersonNamesNarrative(RequestedService requestedService) {
+  public static String getPersonNamesNarrative(RequestedService requestedService) {
     String personNames = "";
     if (null != requestedService.getParticipant()
         && null != requestedService.getParticipant().getParticipant()) {

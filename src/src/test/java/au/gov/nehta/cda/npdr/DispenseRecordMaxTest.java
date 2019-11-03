@@ -1,5 +1,6 @@
 package au.gov.nehta.cda.npdr;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Calendar;
@@ -116,13 +117,16 @@ import au.gov.nehta.test.exceptions.SchemaValidationException;
 public class DispenseRecordMaxTest extends Base{
     
     private static final String SCHEMATRON = "ccd-3B.sch";
-    private static final String SCHEMATRON_TEMPLATE_PATH =      "resources/PCEHR-DispenseRecord/";
+    private static String SCHEMATRON_TEMPLATE_PATH =      "resources/PCEHR-DispenseRecord/";
     
     private static final String DOCUMENT_FILE_NAME = TEST_GENERATION+"npdr-dispense-max.xml";
     
 
     @Test
     public void test_MAX__NPDR_DispenseDocumentCreation() throws ParserConfigurationException, JAXBException, SchemaValidationException, SchematronValidationException {
+        if (!new File(SCHEMATRON_TEMPLATE_PATH + "/schematron/schematron-Validator-report.xsl").exists()) {
+            SCHEMATRON_TEMPLATE_PATH = "src/" + SCHEMATRON_TEMPLATE_PATH;
+        }
         generateMaxDocument();
         SchematronCheckResult check = Schematron.check( SCHEMATRON_TEMPLATE_PATH, SCHEMATRON, DOCUMENT_FILE_NAME );
         
