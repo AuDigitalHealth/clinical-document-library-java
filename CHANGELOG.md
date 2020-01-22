@@ -1,5 +1,10 @@
 # Change Log/Revision History
 
+  = 1.X = 
+  =======
+  + fixed location of generated shs min file
+  + removed validation check for telephone
+
   = 1.2 = 
   =======
    + Java library now supports following CDA documents' formats: 

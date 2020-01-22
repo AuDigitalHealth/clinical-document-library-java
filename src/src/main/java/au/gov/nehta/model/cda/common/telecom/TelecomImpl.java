@@ -32,11 +32,12 @@ public class TelecomImpl implements Telecom {
 		
 		
 		//check that telephone numbers contain only digits
-		if(TelecomMedium.TELEPHONE.equals( medium )){
-		    if(p.matcher( communicationvalue ).find() ){
-		        throw new IllegalArgumentException( "Telephone '"+communicationvalue+"' contains a non digit character " );
-		    }
-		}
+		// 22/01 Removed this check as not required
+		//if(TelecomMedium.TELEPHONE.equals( medium )){
+		//    if(p.matcher( communicationvalue ).find() ){
+		//        throw new IllegalArgumentException( "Telephone '"+communicationvalue+"' contains a non digit character " );
+		//    }
+		//}
 		
 		this.medium = medium;
 		this.value = communicationvalue;
