@@ -4,11 +4,11 @@
    <typeId extension="POCD_HD000040" root="2.16.840.1.113883.1.3"/>
    <templateId extension="1.3" root="1.2.36.1.2001.1001.101.100.1002.136"/>
    <templateId extension="1.0" root="1.2.36.1.2001.1001.100.149"/>
-   <id root="2.25.20505279619270508559376223835988400630"/>
+   <id root="2.25.295006197566807475936030076712283283471"/>
    <code code="34133-9" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"
          displayName="Summary of episode note"/>
    <title>Event Summary</title>
-   <effectiveTime value="20191104081339+1000"/>
+   <effectiveTime value="20200214102426+1000"/>
    <confidentialityCode nullFlavor="NA"/>
    <languageCode code="en-AU"/>
    <versionNumber value="1"/>
@@ -17,7 +17,7 @@
                        displayName="Final"/>
    <recordTarget typeCode="RCT">
       <patientRole classCode="PAT">
-         <id root="77761e49-69ce-4aa7-85d2-e1d54897502a"/>
+         <id root="996f61ef-d8ac-47ab-ab8e-364d0d1ad59d"/>
          <addr use="H">
             <streetAddressLine>The Complex</streetAddressLine>
             <streetAddressLine>Unit 90210 / 10 Browning st</streetAddressLine>
@@ -54,9 +54,9 @@
       </patientRole>
    </recordTarget>
    <author typeCode="AUT">
-      <time value="20191104081339+1000"/>
+      <time value="20200214102426+1000"/>
       <assignedAuthor>
-         <id root="67e749ab-dba0-4769-84b4-cb608a757627"/>
+         <id root="d73779c1-5885-44f0-a10f-9e8d5b6fed98"/>
          <code code="253111" codeSystem="2.16.840.1.113883.13.62"
                codeSystemName="1220.0 - ANZSCO - Australian and New Zealand Standard Classification of Occupations, First Edition, 2006"
                displayName="General Medical Practitioner"/>
@@ -128,7 +128,7 @@
    <custodian>
       <assignedCustodian>
          <representedCustodianOrganization>
-            <id root="bd1f9f58-c269-4215-8808-d15c1e28c067"/>
+            <id root="24429a5e-506a-4263-be29-ed2658ef60af"/>
             <name>Custodian organisation</name>
             <telecom use="WP" value="mailto:example@custodian.com.au"/>
             <addr use="PST">
@@ -149,10 +149,10 @@
       </assignedCustodian>
    </custodian>
    <legalAuthenticator>
-      <time value="20191104081339+1000"/>
+      <time value="20200214102426+1000"/>
       <signatureCode code="S"/>
       <assignedEntity>
-         <id root="b3060290-27c7-41b5-bd79-2d79f7d3e9fa"/>
+         <id root="60a249fc-96b5-4d9d-8326-e7556eb1413c"/>
          <code code="253511" codeSystem="2.16.840.1.113883.13.62"
                codeSystemName="1220.0 - ANZSCO - Australian and New Zealand Standard Classification of Occupations, First Edition, 2006"
                displayName="Surgeon (General)"/>
@@ -206,7 +206,7 @@
       <structuredBody>
          <component typeCode="COMP">
             <section classCode="DOCSECT" moodCode="EVN">
-               <id root="d5a20fe7-9604-4b6d-9dac-0616aea41f6a"/>
+               <id root="81bbb982-3bae-4c52-8bd0-856d12150407"/>
                <code code="101.16672" codeSystem="1.2.36.1.2001.1001.101"
                      codeSystemName="NCTIS Data Components"
                      displayName="Event Overview"/>
@@ -228,7 +228,7 @@
                </text>
                <entry>
                   <act classCode="ACT" moodCode="EVN">
-                     <id root="e5255fec-3086-40f8-862b-b6b2cf63d1db"/>
+                     <id root="3c577551-ce41-4d0b-8c05-4b3f728d8407"/>
                      <code code="102.15513" codeSystem="1.2.36.1.2001.1001.101"
                            codeSystemName="NCTIS Data Components"
                            displayName="Clinical Synopsis"/>
@@ -239,7 +239,7 @@
          </component>
          <component typeCode="COMP">
             <section>
-               <id root="b776a930-92e4-4e9e-80c3-983859dd99d8"/>
+               <id root="7a42e837-6da5-4e34-9dd6-76fd8156ad2b"/>
                <code code="101.20113" codeSystem="1.2.36.1.2001.1001.101"
                      codeSystemName="NCTIS Data Components"
                      displayName="Adverse Reactions"/>
@@ -270,7 +270,7 @@
                </text>
                <entry>
                   <act classCode="ACT" moodCode="EVN">
-                     <id root="3827bd1f-491b-4187-851d-12c54c4f36f5"/>
+                     <id root="0de610ba-5cfa-4c45-a64f-8487fec33845"/>
                      <code code="102.15517" codeSystem="1.2.36.1.2001.1001.101"
                            codeSystemName="NCTIS Data Components"
                            displayName="Adverse Reaction"/>
@@ -286,7 +286,7 @@
                      </participant>
                      <entryRelationship typeCode="CAUS">
                         <observation classCode="OBS" moodCode="EVN">
-                           <id root="156b6faf-28f4-4037-830b-7b82eb87d4ef"/>
+                           <id root="c1b59294-b9f6-491b-ae99-f0bae381554a"/>
                            <code code="102.16474" codeSystem="1.2.36.1.2001.1001.101"
                                  codeSystemName="NCTIS Data Components"
                                  displayName="Reaction Event"/>
@@ -299,7 +299,7 @@
                            </value>
                            <entryRelationship inversionInd="true" typeCode="MFST">
                               <observation classCode="OBS" moodCode="EVN">
-                                 <id root="10cb417a-284c-4fab-9c09-89632c55a31f"/>
+                                 <id root="d776fdb5-1190-43cc-afc7-0e9efb182747"/>
                                  <code code="74776002" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED CT"
                                        displayName="Itching of eye">
                                     <originalText>Itching of eye</originalText>
@@ -321,7 +321,7 @@
          </component>
          <component typeCode="COMP">
             <section classCode="DOCSECT" moodCode="EVN">
-               <id root="1ffb8316-e5e4-4bcc-bc6e-1a89e116bce9"/>
+               <id root="fb52a0a0-a047-4154-be1a-5c821dbdd876"/>
                <code code="101.16146" codeSystem="1.2.36.1.2001.1001.101"
                      codeSystemName="NCTIS Data Components"
                      displayName="Medication Orders"/>
@@ -367,7 +367,7 @@
                </text>
                <entry>
                   <substanceAdministration classCode="SBADM" moodCode="EVN">
-                     <id root="4fc80af2-4b98-4d22-a656-26ac64a297d2"/>
+                     <id root="0eda2ef5-aa47-4186-a95a-8a6748ea63fc"/>
                      <text xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ST">4-6 Units before meals</text>
                      <consumable>
                         <manufacturedProduct>
@@ -382,7 +382,7 @@
                      </consumable>
                      <entryRelationship typeCode="RSON">
                         <act classCode="INFRM" moodCode="EVN">
-                           <id root="98aa87c5-c5fc-42ba-ad8e-6e60a67be9b6"/>
+                           <id root="0c8d75fc-85ef-4fb0-9d5a-00243b7ef5bc"/>
                            <code code="103.10141" codeSystem="1.2.36.1.2001.1001.101"
                                  codeSystemName="NCTIS Data Components"
                                  displayName="Clinical Indication"/>
@@ -391,7 +391,7 @@
                      </entryRelationship>
                      <entryRelationship typeCode="COMP">
                         <act classCode="INFRM" moodCode="EVN">
-                           <id root="df43a090-a13d-4f04-89d2-5661e43d7bee"/>
+                           <id root="72c21fef-10fa-4915-901b-4d7582f1323b"/>
                            <code code="103.16044" codeSystem="1.2.36.1.2001.1001.101"
                                  codeSystemName="NCTIS Data Components"
                                  displayName="Additional Comments"/>
@@ -400,7 +400,7 @@
                      </entryRelationship>
                      <entryRelationship typeCode="SPRT">
                         <observation classCode="OBS" moodCode="EVN">
-                           <id root="de31ef4b-a95e-4d7f-88cc-251038e44ba1"/>
+                           <id root="1b54d8fb-c3f1-4bff-9905-1f497b4757a3"/>
                            <code code="103.16593" codeSystem="1.2.36.1.2001.1001.101"
                                  codeSystemName="NCTIS Data Components"
                                  displayName="Change Type"/>
@@ -412,7 +412,7 @@
                                   xsi:type="CD"/>
                            <entryRelationship typeCode="COMP">
                               <observation classCode="OBS" moodCode="EVN">
-                                 <id root="fa368657-d9fd-4d57-9605-41a0225fddaf"/>
+                                 <id root="d09a8111-c468-49ba-b25a-4f58c280a82b"/>
                                  <code code="103.16595" codeSystem="1.2.36.1.2001.1001.101"
                                        codeSystemName="NCTIS Data Components"
                                        displayName="Change Status"/>
@@ -425,7 +425,7 @@
                            </entryRelationship>
                            <entryRelationship typeCode="RSON">
                               <act classCode="INFRM" moodCode="EVN">
-                                 <id root="f508b7aa-bd26-4fcc-8083-3cd4e325dc8e"/>
+                                 <id root="ee94c2ad-a2e8-4a6a-b9e8-fb84bd06ae59"/>
                                  <code code="103.10177" codeSystem="1.2.36.1.2001.1001.101"
                                        codeSystemName="NCTIS Data Components"
                                        displayName="Change or Recommendation Reason"/>
@@ -438,7 +438,7 @@
                </entry>
                <entry>
                   <substanceAdministration classCode="SBADM" moodCode="EVN">
-                     <id root="2b6f7120-664f-46ae-b658-7ee47e494014"/>
+                     <id root="e40794c3-bc6a-448e-85f0-65d31dffed09"/>
                      <text xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ST">4-8 Units before bed</text>
                      <consumable>
                         <manufacturedProduct>
@@ -453,7 +453,7 @@
                      </consumable>
                      <entryRelationship typeCode="RSON">
                         <act classCode="INFRM" moodCode="EVN">
-                           <id root="d57307a8-34be-4445-8cc6-c693e3228ecc"/>
+                           <id root="85e635de-b22c-4469-8db3-a6a60388f490"/>
                            <code code="103.10141" codeSystem="1.2.36.1.2001.1001.101"
                                  codeSystemName="NCTIS Data Components"
                                  displayName="Clinical Indication"/>
@@ -462,7 +462,7 @@
                      </entryRelationship>
                      <entryRelationship typeCode="COMP">
                         <act classCode="INFRM" moodCode="EVN">
-                           <id root="5b7148cf-d714-4b2e-aebf-f0a3972cdeff"/>
+                           <id root="a4442e86-be0d-40ee-9476-b519058e17c3"/>
                            <code code="103.16044" codeSystem="1.2.36.1.2001.1001.101"
                                  codeSystemName="NCTIS Data Components"
                                  displayName="Additional Comments"/>
@@ -471,7 +471,7 @@
                      </entryRelationship>
                      <entryRelationship typeCode="SPRT">
                         <observation classCode="OBS" moodCode="EVN">
-                           <id root="34412316-e1f1-4ba5-8fa6-25c345a8b288"/>
+                           <id root="6553bc0f-6f8f-412a-a6bf-ae1369b44a10"/>
                            <code code="103.16593" codeSystem="1.2.36.1.2001.1001.101"
                                  codeSystemName="NCTIS Data Components"
                                  displayName="Change Type"/>
@@ -483,7 +483,7 @@
                                   xsi:type="CD"/>
                            <entryRelationship typeCode="COMP">
                               <observation classCode="OBS" moodCode="EVN">
-                                 <id root="55068abb-4b27-4a09-8744-71eaa3cd712a"/>
+                                 <id root="6b09cf3d-7cd2-48a9-a580-964f3764dfa9"/>
                                  <code code="103.16595" codeSystem="1.2.36.1.2001.1001.101"
                                        codeSystemName="NCTIS Data Components"
                                        displayName="Change Status"/>
@@ -496,7 +496,7 @@
                            </entryRelationship>
                            <entryRelationship typeCode="RSON">
                               <act classCode="INFRM" moodCode="EVN">
-                                 <id root="b4164a0c-c9ed-4917-b688-962f567af508"/>
+                                 <id root="fcf7b64a-d71f-4d29-be5f-69cd77641d87"/>
                                  <code code="103.10177" codeSystem="1.2.36.1.2001.1001.101"
                                        codeSystemName="NCTIS Data Components"
                                        displayName="Change or Recommendation Reason"/>
@@ -511,7 +511,7 @@
          </component>
          <component typeCode="COMP">
             <section classCode="DOCSECT" moodCode="EVN">
-               <id root="5b44cd19-d1f8-426a-b38e-e07aa33ba7f6"/>
+               <id root="3b4ed0f6-68f3-4ac6-9366-0b60cb7ed979"/>
                <code code="101.16117" codeSystem="1.2.36.1.2001.1001.101"
                      codeSystemName="NCTIS Data Components"
                      displayName="Medical History"/>
@@ -537,7 +537,7 @@
                </text>
                <entry>
                   <observation classCode="OBS" moodCode="EVN">
-                     <id root="47c62d42-f773-4d08-81de-826083992d4f"/>
+                     <id root="838cd765-4524-44b6-82d9-e78791db5215"/>
                      <code code="282291009" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED CT"
                            displayName="Diagnosis interpretation"/>
                      <effectiveTime>
@@ -550,7 +550,7 @@
                             xsi:type="CD"/>
                      <entryRelationship typeCode="COMP">
                         <act classCode="INFRM" moodCode="EVN">
-                           <id root="f9405c7a-a30a-4a3c-a0a9-ded11c9a8742"/>
+                           <id root="33b591ac-4594-4795-9f0d-dd387300f7c4"/>
                            <code code="103.16545" codeSystem="1.2.36.1.2001.1001.101"
                                  codeSystemName="NCTIS Data Components"
                                  displayName="Problem/Diagnosis Comment"/>
@@ -563,7 +563,7 @@
          </component>
          <component>
             <section classCode="DOCSECT" moodCode="EVN">
-               <id root="0a55c48d-89ff-46b5-b24c-5240cd7c0ca1"/>
+               <id root="04d84776-181d-4080-bf6d-fc10a0bd08b9"/>
                <code code="101.16638" codeSystem="1.2.36.1.2001.1001.101"
                      codeSystemName="NCTIS Data Components"
                      displayName="Immunisations"/>
@@ -587,7 +587,7 @@
                </text>
                <entry>
                   <substanceAdministration classCode="SBADM" moodCode="EVN">
-                     <id root="73ac9073-6d88-49c2-a37f-90140cf98c9e"/>
+                     <id root="8776cef5-8409-407f-bf6c-e4229ca550c7"/>
                      <effectiveTime value="20190715000000+1000"/>
                      <consumable>
                         <manufacturedProduct>
@@ -604,7 +604,7 @@
          </component>
          <component typeCode="COMP">
             <section classCode="DOCSECT" moodCode="EVN">
-               <id root="d382f9b2-0945-4e79-b39b-7458e137a036"/>
+               <id root="c9424381-8e69-4b2b-b789-2fdb2cb866c8"/>
                <code code="101.20117" codeSystem="1.2.36.1.2001.1001.101"
                      codeSystemName="NCTIS Data Components"
                      displayName="Diagnostic Investigations"/>
@@ -614,7 +614,7 @@
                </text>
                <component>
                   <section>
-                     <id root="c3c0603a-6d34-4668-a1fe-dd3f612255df"/>
+                     <id root="20ae6336-a436-4fc2-bc48-7de7c71e6e24"/>
                      <code code="102.16029" codeSystem="1.2.36.1.2001.1001.101"
                            codeSystemName="NCTIS Data Components"
                            displayName="Diagnostic Investigation"/>
@@ -660,7 +660,7 @@ Recommendation: Glucose level above the normal range, consider Oral Glucose tole
                      </text>
                      <entry>
                         <observation classCode="OBS" moodCode="EVN">
-                           <id root="28f0ea95-0af3-42c9-9e5e-e23cbcfd0678"/>
+                           <id root="c2dbe375-fcd0-45a1-8035-0163f45678b8"/>
                            <code>
                               <originalText>Report Name</originalText>
                            </code>
@@ -677,7 +677,7 @@ Recommendation: Glucose level above the normal range, consider Oral Glucose tole
 Recommendation: Glucose level above the normal range, consider Oral Glucose tolerance test and / or HbA1c to confirm Gestational Diabetes.</value>
                            <entryRelationship typeCode="COMP">
                               <observation classCode="OBS" moodCode="EVN">
-                                 <id root="36ba87c1-5932-49b5-864e-3147d2355c75"/>
+                                 <id root="685cdfd4-7008-48d8-a888-0543faba8122"/>
                                  <code code="308552006" codeSystem="2.16.840.1.113883.6.96"
                                        codeSystemName="SNOMED CT-AU"
                                        codeSystemVersion="20110531"
@@ -695,7 +695,7 @@ Recommendation: Glucose level above the normal range, consider Oral Glucose tole
                </component>
                <component>
                   <section>
-                     <id root="05cc5994-2f46-4f13-b130-eb3811952b60"/>
+                     <id root="98efd009-1df1-460b-aa8d-701e07c46e38"/>
                      <code code="102.16029" codeSystem="1.2.36.1.2001.1001.101"
                            codeSystemName="NCTIS Data Components"
                            displayName="Diagnostic Investigation"/>
@@ -741,7 +741,7 @@ Recommendation: Impaired glucose tolerance consistent with Gestational Diabetes.
                      </text>
                      <entry>
                         <observation classCode="OBS" moodCode="EVN">
-                           <id root="aa30eaaa-2960-4610-a8a7-fe550fc05085"/>
+                           <id root="9ae06a72-b1b3-407b-9fa3-d04486487a48"/>
                            <code>
                               <originalText>Report Name</originalText>
                            </code>
@@ -758,7 +758,7 @@ Time Collected:
 Recommendation: Impaired glucose tolerance consistent with Gestational Diabetes.</value>
                            <entryRelationship typeCode="COMP">
                               <observation classCode="OBS" moodCode="EVN">
-                                 <id root="efec5453-c175-49ed-aab4-fa8f2634ddd6"/>
+                                 <id root="b2cf440f-4224-4d9c-86eb-131db4374237"/>
                                  <code code="308552006" codeSystem="2.16.840.1.113883.6.96"
                                        codeSystemName="SNOMED CT-AU"
                                        codeSystemVersion="20110531"
@@ -817,7 +817,7 @@ Recommendation: Impaired glucose tolerance consistent with Gestational Diabetes.
                </text>
                <entry typeCode="DRIV">
                   <observation classCode="OBS" moodCode="EVN">
-                     <id root="6b94f514-b6b6-4ec8-ac27-34c52119b2b4"/>
+                     <id root="749c12dd-e92a-4bfc-816b-6057b068e99f"/>
                      <code xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" code="103.16233"
                            codeSystem="1.2.36.1.2001.1001.101"
                            codeSystemName="NCTIS Data Components"
@@ -828,7 +828,7 @@ Recommendation: Impaired glucose tolerance consistent with Gestational Diabetes.
                </entry>
                <entry typeCode="DRIV">
                   <observation classCode="OBS" moodCode="EVN">
-                     <id root="6caacb72-44f4-4bd2-b824-5b112a884bce"/>
+                     <id root="7816a81f-2c45-49ee-b5df-aa7546527591"/>
                      <code xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" code="102.16234"
                            codeSystem="1.2.36.1.2001.1001.101"
                            codeSystemName="NCTIS Data Components"
@@ -839,7 +839,7 @@ Recommendation: Impaired glucose tolerance consistent with Gestational Diabetes.
                </entry>
                <entry typeCode="DRIV">
                   <observation classCode="OBS" moodCode="EVN">
-                     <id root="a47a63d7-ad4b-4f73-8772-20ef91ae5347"/>
+                     <id root="5e2bdce4-7aa9-406c-970c-89ee7a0e2117"/>
                      <code xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" code="103.20109"
                            codeSystem="1.2.36.1.2001.1001.101"
                            codeSystemName="NCTIS Data Components"
@@ -851,7 +851,7 @@ Recommendation: Impaired glucose tolerance consistent with Gestational Diabetes.
                </entry>
                <entry typeCode="DRIV">
                   <observation classCode="OBS" moodCode="EVN">
-                     <id root="52fbdd1e-ffa6-450d-9696-be618d3ea097"/>
+                     <id root="dd03afeb-2e36-43d9-bb2b-b48a2e35b3a5"/>
                      <code xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" code="103.16279"
                            codeSystem="1.2.36.1.2001.1001.101"
                            codeSystemName="NCTIS Data Components"
@@ -862,7 +862,7 @@ Recommendation: Impaired glucose tolerance consistent with Gestational Diabetes.
                </entry>
                <entry typeCode="DRIV">
                   <observation classCode="OBS" moodCode="EVN">
-                     <id root="69474e79-2326-45ac-b495-3cd17b81afc7"/>
+                     <id root="3df299ea-e8b7-4a40-8f2a-7b08c6f3ef62"/>
                      <code xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" code="103.16249"
                            codeSystem="1.2.36.1.2001.1001.101"
                            codeSystemName="NCTIS Data Components"
@@ -881,11 +881,11 @@ Recommendation: Impaired glucose tolerance consistent with Gestational Diabetes.
                         <originalText>Medicare Benefits</originalText>
                      </ns2:code>
                      <ns2:effectiveTime>
-                        <high value="20201104"/>
+                        <high value="20210214"/>
                      </ns2:effectiveTime>
                      <ns2:participant typeCode="BEN">
                         <ns2:participantRole classCode="PAT">
-                           <ns2:id root="77761e49-69ce-4aa7-85d2-e1d54897502a"/>
+                           <ns2:id root="996f61ef-d8ac-47ab-ab8e-364d0d1ad59d"/>
                         </ns2:participantRole>
                      </ns2:participant>
                   </ns2:entitlement>

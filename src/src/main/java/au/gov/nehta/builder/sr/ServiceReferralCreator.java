@@ -1018,7 +1018,12 @@ public class ServiceReferralCreator extends ClinicalDocumentCreator {
             .setEffectiveTime(Converter.convert(requestedService.getServiceCommencementWindow()));
       }
     }
-    reqServiceAct.setPriorityCode((CE) serviceReferralCodeMap.get(ClinicalDocumentCodes.URGENT));
+    
+	// Added a flag to the model to decide to include this or not
+	if (null != requestedService.getIncludePrioriyCode() && requestedService.getIncludePrioriyCode()) {
+		reqServiceAct.setPriorityCode((CE) serviceReferralCodeMap.get(ClinicalDocumentCodes.URGENT));
+    }
+	
     //reqServiceAct.setMoodCode(requestedService.getServiceBookingStatusMoodCode());
     if (null != requestedService.getServiceProvider()) {
       POCDMT000040Performer2 serviceProviderPerformer = DiagnosticInvestigationComponent

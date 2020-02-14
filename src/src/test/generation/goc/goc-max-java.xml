@@ -5,12 +5,12 @@
    <templateId extension="1.0" root="1.2.36.1.2001.1001.100.1003.100001"/>
    <templateId extension="1.0" root="1.2.36.1.2001.1001.100.1002.226"/>
    <templateId extension="1.0" root="1.2.36.1.2001.1001.100.149"/>
-   <id root="9615e3d5-7933-441c-a762-458d689a634b"/>
+   <id root="8d4a36eb-33c4-4c2a-90a4-6b60a280f3f5"/>
    <code code="100.16975" codeSystem="1.2.36.1.2001.1001.101"
          codeSystemName="NCTIS Data Components"
          displayName="Advance Care Information"/>
    <title>Goals of Care Document</title>
-   <effectiveTime value="20191104081342+1000"/>
+   <effectiveTime value="20200214102427+1000"/>
    <confidentialityCode nullFlavor="NA"/>
    <languageCode code="en-AU"/>
    <versionNumber value="1"/>
@@ -19,7 +19,7 @@
                        displayName="Final"/>
    <recordTarget typeCode="RCT">
       <patientRole classCode="PAT">
-         <id root="173ebdee-bfd0-4824-8542-1ceef71e2fb2"/>
+         <id root="284ef9c7-e5c7-4feb-9902-725588347926"/>
          <addr use="H">
             <streetAddressLine>The Complex</streetAddressLine>
             <streetAddressLine>Unit 90210 / 10 Browning st</streetAddressLine>
@@ -56,9 +56,9 @@
       </patientRole>
    </recordTarget>
    <author typeCode="AUT">
-      <time value="20191104081342+1000"/>
+      <time value="20200214102427+1000"/>
       <assignedAuthor>
-         <id root="31087d55-9322-474a-bb67-2483e51914e7"/>
+         <id root="b6fb4ff6-35fe-450f-bfbe-ed585d70895b"/>
          <code code="253111" codeSystem="2.16.840.1.113883.13.62"
                codeSystemName="1220.0 - ANZSCO - Australian and New Zealand Standard Classification of Occupations, First Edition, 2006"
                displayName="General Medical Practitioner"/>
@@ -130,7 +130,7 @@
    <custodian>
       <assignedCustodian>
          <representedCustodianOrganization>
-            <id root="5cc3b3dd-8bc8-45bf-ae6d-27e977b6eb7d"/>
+            <id root="3f1dc584-d919-41ec-aac5-29c76f640550"/>
             <name>Custodian organisation</name>
             <telecom use="WP" value="mailto:example@custodian.com.au"/>
             <addr use="PST">
@@ -151,10 +151,10 @@
       </assignedCustodian>
    </custodian>
    <legalAuthenticator>
-      <time value="20191104081342+1000"/>
+      <time value="20200214102427+1000"/>
       <signatureCode code="S"/>
       <assignedEntity>
-         <id root="134aaf35-aaf0-4af6-8bac-1ebe379c0ec5"/>
+         <id root="69e0d8a4-7a91-4db8-94c6-939b1c7f5f81"/>
          <code code="253511" codeSystem="2.16.840.1.113883.13.62"
                codeSystemName="1220.0 - ANZSCO - Australian and New Zealand Standard Classification of Occupations, First Edition, 2006"
                displayName="Surgeon (General)"/>
@@ -200,7 +200,7 @@
       <structuredBody>
          <component>
             <section>
-               <id root="61b98a5b-13e1-4781-b919-4e329e50371c"/>
+               <id root="f13eb653-054c-43b3-bef7-64dcba04b219"/>
                <code code="101.16973" codeSystem="1.2.36.1.2001.1001.101"
                      codeSystemName="NCTIS Data Components"
                      displayName="Advance Care Information Section"/>
@@ -267,15 +267,15 @@
                </text>
                <entry>
                   <act classCode="ACT" moodCode="EVN">
-                     <id root="c45f6dca-aac0-483e-bae4-657647260816"/>
+                     <id root="d6780112-b017-449d-bdf5-b9101013ed4a"/>
                      <code code="102.16971" codeSystem="1.2.36.1.2001.1001.101"
                            codeSystemName="NCTIS Data Components"
                            displayName="Related Document"/>
                      <author>
-                        <time xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" value="20191104081342+1000"
+                        <time xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" value="20200214102427+1000"
                               xsi:type="IVL_TS"/>
                         <assignedAuthor>
-                           <id root="2f139f34-4d2a-4534-9621-bbaf0abf3553"/>
+                           <id root="f842f8f3-3e93-41ba-94c9-4291cfb19f8e"/>
                            <code code="253111" codeSystem="2.16.840.1.113883.13.62"
                                  codeSystemName="1220.0 - ANZSCO - Australian and New Zealand Standard Classification of Occupations, First Edition, 2006"
                                  displayName="General Medical Practitioner"/>
@@ -365,7 +365,7 @@
                </text>
                <entry typeCode="DRIV">
                   <observation classCode="OBS" moodCode="EVN">
-                     <id root="dbd94966-599b-4af9-b3bb-68d8b041acdc"/>
+                     <id root="66866e57-c684-4906-bdf4-943d303f60d7"/>
                      <code xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" code="103.16233"
                            codeSystem="1.2.36.1.2001.1001.101"
                            codeSystemName="NCTIS Data Components"
@@ -376,7 +376,7 @@
                </entry>
                <entry typeCode="DRIV">
                   <observation classCode="OBS" moodCode="EVN">
-                     <id root="4abdfe51-7a64-4ad8-bb2d-1e2bf3ea67fe"/>
+                     <id root="4d4d9bee-7e79-43b9-a3be-fb4cd13a313f"/>
                      <code xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" code="102.16234"
                            codeSystem="1.2.36.1.2001.1001.101"
                            codeSystemName="NCTIS Data Components"
@@ -387,7 +387,7 @@
                </entry>
                <entry typeCode="DRIV">
                   <observation classCode="OBS" moodCode="EVN">
-                     <id root="02893708-af71-48b7-b26d-1e27b1605d12"/>
+                     <id root="5f7c3318-50ed-4590-a802-3c6235240e8c"/>
                      <code xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" code="103.20109"
                            codeSystem="1.2.36.1.2001.1001.101"
                            codeSystemName="NCTIS Data Components"
@@ -399,7 +399,7 @@
                </entry>
                <entry typeCode="DRIV">
                   <observation classCode="OBS" moodCode="EVN">
-                     <id root="300a2102-0ddc-4eff-b5a1-9a435346a888"/>
+                     <id root="a56ec8b0-33cc-4b0a-aed1-ca6ee62db312"/>
                      <code xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" code="103.16279"
                            codeSystem="1.2.36.1.2001.1001.101"
                            codeSystemName="NCTIS Data Components"
@@ -410,7 +410,7 @@
                </entry>
                <entry typeCode="DRIV">
                   <observation classCode="OBS" moodCode="EVN">
-                     <id root="b60e41a5-09f5-4303-8790-16812b2715d7"/>
+                     <id root="f3ef1a27-fe9c-4889-90db-74f6caacb218"/>
                      <code xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" code="103.16249"
                            codeSystem="1.2.36.1.2001.1001.101"
                            codeSystemName="NCTIS Data Components"
@@ -429,11 +429,11 @@
                         <originalText>Medicare Benefits</originalText>
                      </ns2:code>
                      <ns2:effectiveTime>
-                        <high value="20201104"/>
+                        <high value="20210214"/>
                      </ns2:effectiveTime>
                      <ns2:participant typeCode="BEN">
                         <ns2:participantRole classCode="PAT">
-                           <ns2:id root="173ebdee-bfd0-4824-8542-1ceef71e2fb2"/>
+                           <ns2:id root="284ef9c7-e5c7-4feb-9902-725588347926"/>
                         </ns2:participantRole>
                      </ns2:participant>
                   </ns2:entitlement>

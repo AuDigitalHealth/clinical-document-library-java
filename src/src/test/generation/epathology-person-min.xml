@@ -4,22 +4,22 @@
    <typeId extension="POCD_HD000040" root="2.16.840.1.113883.1.3"/>
    <templateId extension="1.0" root="1.2.36.1.2001.1001.100.1002.220"/>
    <templateId extension="1.0" root="1.2.36.1.2001.1001.100.149"/>
-   <id root="2.25.105846720433863478238652508949564727815"/>
+   <id root="2.25.101937566368842772901999821896232335360"/>
    <code code="100.32001" codeSystem="1.2.36.1.2001.1001.101"
          codeSystemName="NCTIS Data Components"
          displayName="Pathology Report"/>
    <title>Pathology Result Report</title>
-   <effectiveTime value="20191104081334+1000"/>
+   <effectiveTime value="20200214102423+1000"/>
    <confidentialityCode nullFlavor="NA"/>
    <languageCode code="en-AU"/>
-   <setId root="d4fb1238-f8f9-4d85-9593-08dc78b7ba95"/>
+   <setId root="d4522232-af89-4d87-838e-279da29eedfc"/>
    <versionNumber value="1"/>
    <ns2:completionCode code="F" codeSystem="1.2.36.1.2001.1001.101.104.20104"
                        codeSystemName="NCTIS Document Status Values"
                        displayName="Final"/>
    <recordTarget typeCode="RCT">
       <patientRole classCode="PAT">
-         <id root="cb96445a-1196-4ab7-8540-f6392b3df8ff"/>
+         <id root="545f9ffa-6a31-4da7-82e9-3a9c276e0990"/>
          <addr use="H">
             <streetAddressLine>10 browning st</streetAddressLine>
             <postalCode>4101</postalCode>
@@ -58,9 +58,9 @@
       </patientRole>
    </recordTarget>
    <author typeCode="AUT">
-      <time value="20191104081334+1000"/>
+      <time value="20200214102423+1000"/>
       <assignedAuthor>
-         <id root="6f44d3a1-67aa-455c-8976-0421605e21b0"/>
+         <id root="4bfea4e7-ef39-4255-b1b0-87e206e1d00f"/>
          <code code="253915" codeSystem="2.16.840.1.113883.13.62"
                codeSystemName="1220.0 - ANZSCO - Australian and New Zealand Standard Classification of Occupations, First Edition, Revision 1"
                displayName="Pathologist"/>
@@ -109,8 +109,8 @@
    <custodian>
       <assignedCustodian>
          <representedCustodianOrganization>
-            <id root="4324f548-eba5-41f2-94d8-068efe3c9548"/>
-            <id root="d4fb1238-f8f9-4d85-9593-08dc78b7ba95"/>
+            <id root="1ed7503d-b8f9-4271-ac04-bed9f5b3d242"/>
+            <id root="d4522232-af89-4d87-838e-279da29eedfc"/>
             <name>Custodian organisation</name>
             <ns2:asEntityIdentifier classCode="IDENT">
                <ns2:id assigningAuthorityName="HPI-O" root="1.2.36.1.2001.1003.0.8003621231167886"/>
@@ -122,9 +122,9 @@
       </assignedCustodian>
    </custodian>
    <participant typeCode="REF">
-      <time value="20191104081334+1000"/>
+      <time value="20200214102423+1000"/>
       <associatedEntity classCode="ASSIGNED">
-         <id root="89207495-c05c-47f7-96c3-5d12b88167d7"/>
+         <id root="9b956509-5636-4f1a-9192-a77b10d7c0e6"/>
          <code code="253915" codeSystem="2.16.840.1.113883.13.62"
                codeSystemName="1220.0 - ANZSCO - Australian and New Zealand Standard Classification of Occupations, First Edition, Revision 1"
                displayName="Pathologist"/>
@@ -149,7 +149,7 @@
             </ns2:asEntityIdentifier>
             <ns2:asEmployment classCode="EMP">
                <ns2:employerOrganization>
-                  <id root="31987334-b86e-49d2-8ff0-810792506c0e"/>
+                  <id root="ce33dc54-5885-4b07-bbd4-b1c54d42923d"/>
                   <asOrganizationPartOf>
                      <wholeOrganization>
                         <name use="ORGB">Cool CLinic</name>
@@ -168,7 +168,7 @@
    </participant>
    <inFulfillmentOf typeCode="FLFS">
       <order classCode="ACT" moodCode="RQO">
-         <id extension="56004d00-589d-4376-850c-85e35dbf75f3"
+         <id extension="bf6bec4d-df6e-4eea-ac3b-8714c272e190"
              root="1.2.36.1.2001.1005.52.8003621231167886"/>
          <code code="26604007" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED CT"
                displayName="Complete blood count"/>
@@ -178,7 +178,7 @@
       <structuredBody>
          <component typeCode="COMP">
             <section classCode="DOCSECT" moodCode="EVN">
-               <id root="05c9a722-f01f-49a7-b167-af0dea20ea1b"/>
+               <id root="7eba85cb-21fa-4dcd-a337-0b5155e8c008"/>
                <code code="101.20018" codeSystem="1.2.36.1.2001.1001.101"
                      codeSystemName="NCTIS Data Components"
                      displayName="Pathology"/>
@@ -196,7 +196,7 @@
                      </thead>
                      <tbody>
                         <tr>
-                           <td>4 Nov 2019 08:13:34+1000</td>
+                           <td>14 Feb 2020 10:24:23+1000</td>
                            <td>
                               <content>
                                  <linkHtml href="test-result.pdf">Hematology Report for Peter Patient</linkHtml>
@@ -210,9 +210,9 @@
                   </table>
                </text>
                <author typeCode="AUT">
-                  <time value="20191104081334+1000"/>
+                  <time value="20200214102423+1000"/>
                   <assignedAuthor>
-                     <id root="6f44d3a1-67aa-455c-8976-0421605e21b0"/>
+                     <id root="4bfea4e7-ef39-4255-b1b0-87e206e1d00f"/>
                      <code code="253915" codeSystem="2.16.840.1.113883.13.62"
                            codeSystemName="1220.0 - ANZSCO - Australian and New Zealand Standard Classification of Occupations, First Edition, Revision 1"
                            displayName="Pathologist"/>
@@ -260,12 +260,12 @@
                </author>
                <entry typeCode="COMP">
                   <act classCode="ACT" moodCode="EVN">
-                     <id root="25e33a6b-b9ad-4290-adc2-09bda0308721"/>
+                     <id root="8c8007c6-3032-423d-9e47-c128752b8ae0"/>
                      <code code="102.16971" codeSystem="1.2.36.1.2001.1001.101"
                            codeSystemName="NCTIS Data Components"
                            displayName="Related Document"/>
                      <effectiveTime>
-                        <low value="20191104081334+1000"/>
+                        <low value="20200214102423+1000"/>
                      </effectiveTime>
                      <entryRelationship typeCode="COMP">
                         <act classCode="ACT" moodCode="EVN">
@@ -303,7 +303,7 @@
                </entry>
                <component>
                   <section classCode="DOCSECT" moodCode="EVN">
-                     <id root="fb99e822-35c3-410e-8f5c-39b34aac86d4"/>
+                     <id root="fe752e42-5cfb-48f5-ae2e-570505c3827c"/>
                      <code code="102.16144" codeSystem="1.2.36.1.2001.1001.101"
                            codeSystemName="NCTIS Data Components"
                            displayName="Pathology Test Result"/>
@@ -322,8 +322,8 @@
                            </thead>
                            <tbody>
                               <tr>
-                                 <td>4 Nov 2019 08:13:34+1000</td>
-                                 <td>4 Nov 2019 08:13:34+1000</td>
+                                 <td>14 Feb 2020 10:24:23+1000</td>
+                                 <td>14 Feb 2020 10:24:23+1000</td>
                                  <td>Serum Chemistry Test</td>
                                  <td>Hematology</td>
                                  <td>Final results; results stored and verified. Can only be changed with a corrected result.</td>
@@ -350,11 +350,11 @@
                            </entryRelationship>
                            <entryRelationship typeCode="COMP">
                               <observation classCode="OBS" moodCode="EVN">
-                                 <id root="cc14a166-2f80-469a-9d91-572a55ef7991"/>
+                                 <id root="553bdf4d-0a60-462e-a4ea-5897d94ab943"/>
                                  <code code="103.16605" codeSystem="1.2.36.1.2001.1001.101"
                                        codeSystemName="NCTIS Data Components"
                                        displayName="Pathology Test Result DateTime"/>
-                                 <effectiveTime value="20191104081334+1000"/>
+                                 <effectiveTime value="20200214102423+1000"/>
                               </observation>
                            </entryRelationship>
                            <entryRelationship typeCode="SUBJ">
@@ -362,21 +362,21 @@
                                  <code code="102.16156" codeSystem="1.2.36.1.2001.1001.101"
                                        codeSystemName="NCTIS Data Components"
                                        displayName="Specimen"/>
-                                 <effectiveTime value="20191104081334+1000"/>
+                                 <effectiveTime value="20200214102423+1000"/>
                                  <specimen>
                                     <specimenRole>
-                                       <id root="f6aeda8e-301c-4218-8177-71f501656485"/>
+                                       <id root="b8d95086-e00d-46b5-9b59-0fd62f06d5e7"/>
                                     </specimenRole>
                                  </specimen>
                               </observation>
                            </entryRelationship>
                            <entryRelationship typeCode="COMP">
                               <observation classCode="OBS" moodCode="EVN">
-                                 <id root="fb99e822-35c3-410e-8f5c-39b34aac86d4"/>
+                                 <id root="fe752e42-5cfb-48f5-ae2e-570505c3827c"/>
                                  <code code="308552006" codeSystem="2.16.840.1.113883.6.96"
                                        codeSystemName="SNOMED CT-AU"
                                        displayName="report status"/>
-                                 <effectiveTime value="20191104081334+1000"/>
+                                 <effectiveTime value="20200214102423+1000"/>
                                  <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" code="F"
                                         codeSystem="2.16.840.1.113883.12.123"
                                         codeSystemName="HL7 Result Status"
@@ -412,26 +412,26 @@
                         </tr>
                         <tr>
                            <td>Age</td>
-                           <td>36</td>
+                           <td>37</td>
                         </tr>
                      </tbody>
                   </table>
                </text>
                <entry typeCode="DRIV">
                   <observation classCode="OBS" moodCode="EVN">
-                     <id root="1d50cd35-e9ff-43fb-bf08-df21c140f4d4"/>
+                     <id root="863377a6-ebcb-49e6-8c73-aaaa41453893"/>
                      <code xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" code="103.20109"
                            codeSystem="1.2.36.1.2001.1001.101"
                            codeSystemName="NCTIS Data Components"
                            displayName="Age"
                            xsi:type="CE"/>
-                     <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" unit="a" value="36"
+                     <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" unit="a" value="37"
                             xsi:type="PQ"/>
                   </observation>
                </entry>
                <entry typeCode="DRIV">
                   <observation classCode="OBS" moodCode="EVN">
-                     <id root="a00872f1-657c-4fa8-b4b3-3ad7e00f1073"/>
+                     <id root="39ab241a-41b5-4fd9-b1db-b7962f1d5b38"/>
                      <code xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" code="103.16279"
                            codeSystem="1.2.36.1.2001.1001.101"
                            codeSystemName="NCTIS Data Components"

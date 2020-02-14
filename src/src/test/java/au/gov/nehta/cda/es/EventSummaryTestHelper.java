@@ -1036,7 +1036,7 @@ public class EventSummaryTestHelper {
         });
     if (!media.exists()) {
       throw new RuntimeException(
-          "Attachment does not exist in DIR : : " + ATTACHMENTS_DIR + fileNameStr);
+          "Attachment (pattern x-ray%s.jpg) does not exist in DIR : " + ATTACHMENTS_DIR + fileNameStr);
     }
     return new AttachedMedia(media);
   }

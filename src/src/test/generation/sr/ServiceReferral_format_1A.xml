@@ -4,11 +4,11 @@
    <typeId extension="POCD_HD000040" root="2.16.840.1.113883.1.3"/>
    <templateId extension="1.1" root="1.2.36.1.2001.1001.100.1002.231"/>
    <templateId extension="1.0" root="1.2.36.1.2001.1001.100.149"/>
-   <id root="2.25.55226711808465831437617923649372954993"/>
+   <id root="2.25.281004219144425718362923903860941264739"/>
    <code code="57133-1" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"
          displayName="Referral note"/>
    <title>Service Referral</title>
-   <effectiveTime value="20191104081349+1000"/>
+   <effectiveTime value="20200214102432+1000"/>
    <confidentialityCode nullFlavor="NA"/>
    <languageCode code="en-AU"/>
    <versionNumber value="1"/>
@@ -17,7 +17,7 @@
                        displayName="Final"/>
    <recordTarget typeCode="RCT">
       <patientRole classCode="PAT">
-         <id root="721aa7e1-4d72-46c2-8c91-684419319c41"/>
+         <id root="c0a85788-a2c3-420d-a659-91a761b74616"/>
          <addr use="H">
             <streetAddressLine>The Complex</streetAddressLine>
             <streetAddressLine>Unit 90210 / 10 Browning st</streetAddressLine>
@@ -54,9 +54,9 @@
       </patientRole>
    </recordTarget>
    <author typeCode="AUT">
-      <time value="20191104081349+1000"/>
+      <time value="20200214102432+1000"/>
       <assignedAuthor>
-         <id root="54128151-38e9-4d3a-a908-5f13680c292f"/>
+         <id root="2d5aa904-b968-43f8-879a-05250d2ee212"/>
          <code code="253111" codeSystem="2.16.840.1.113883.13.62"
                codeSystemName="1220.0 - ANZSCO - Australian and New Zealand Standard Classification of Occupations, First Edition, 2006"
                displayName="General Medical Practitioner"/>
@@ -128,7 +128,7 @@
    <custodian>
       <assignedCustodian>
          <representedCustodianOrganization>
-            <id root="127fc24e-42bf-419f-8593-ee5d51f36243"/>
+            <id root="dbeacddb-0e57-4967-a5e9-0e29d7668248"/>
             <name>Custodian organisation</name>
             <telecom use="WP" value="mailto:example@custodian.com.au"/>
             <addr use="PST">
@@ -150,7 +150,7 @@
    </custodian>
    <informationRecipient typeCode="PRCP">
       <intendedRecipient>
-         <id root="ac92789f-dcbc-4997-a44f-ee6a410b556f"/>
+         <id root="14381839-2ff2-4151-9ec4-8669986a93a5"/>
          <addr use="WP">
             <streetAddressLine>616 Bromley Street</streetAddressLine>
             <postalCode>4169</postalCode>
@@ -186,13 +186,13 @@
             <section>
                <title>radiologyreport.pdf</title>
                <text>
-                  <renderMultiMedia referencedObject="a5ae4a54-6c7d-4785-b08b-33ce180d1095">
+                  <renderMultiMedia referencedObject="e1656442-24ef-4197-bb69-480f00051eb6">
                      <caption>Specialist Letter (1A) radiologyreport.pdf</caption>
                   </renderMultiMedia>
                </text>
                <entry>
-                  <observationMedia ID="a5ae4a54-6c7d-4785-b08b-33ce180d1095" classCode="OBS" moodCode="EVN">
-                     <id root="19e5a92a-0fc9-4ead-8020-f6678392e4ac"/>
+                  <observationMedia ID="e1656442-24ef-4197-bb69-480f00051eb6" classCode="OBS" moodCode="EVN">
+                     <id root="466c3ab6-805a-4568-a7c4-2d30adbeea27"/>
                      <value integrityCheck="WuGzArOJ0d+HNGnOw7xj3uKVXig=" mediaType="application/pdf">
                         <reference value="radiologyreport.pdf"/>
                      </value>

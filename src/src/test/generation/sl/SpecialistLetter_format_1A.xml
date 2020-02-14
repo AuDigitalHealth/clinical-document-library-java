@@ -4,11 +4,11 @@
    <typeId extension="POCD_HD000040" root="2.16.840.1.113883.1.3"/>
    <templateId extension="1.3" root="1.2.36.1.2001.1001.101.100.1002.132"/>
    <templateId extension="1.0" root="1.2.36.1.2001.1001.100.149"/>
-   <id root="2.25.80506360926793653568466858258890962164"/>
+   <id root="2.25.33211803947911274699122597129001624967"/>
    <code code="51852-2" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"
          displayName="Letter"/>
    <title>Specialist Letter</title>
-   <effectiveTime value="20191104081347+1000"/>
+   <effectiveTime value="20200214102431+1000"/>
    <confidentialityCode nullFlavor="NA"/>
    <languageCode code="en-AU"/>
    <versionNumber value="1"/>
@@ -17,7 +17,7 @@
                        displayName="Final"/>
    <recordTarget typeCode="RCT">
       <patientRole classCode="PAT">
-         <id root="57e0c404-cd7a-4fae-83bc-f97aa0827cb3"/>
+         <id root="1885e3c0-3f1a-434b-8218-bd95e9a91ac5"/>
          <addr use="H">
             <streetAddressLine>The Complex</streetAddressLine>
             <streetAddressLine>Unit 90210 / 10 Browning st</streetAddressLine>
@@ -54,9 +54,9 @@
       </patientRole>
    </recordTarget>
    <author typeCode="AUT">
-      <time value="20191104081347+1000"/>
+      <time value="20200214102431+1000"/>
       <assignedAuthor>
-         <id root="8ff972d5-8e5f-4777-90fc-631910571ac1"/>
+         <id root="0841c2e8-2028-4e98-b481-68132278f06d"/>
          <code code="253111" codeSystem="2.16.840.1.113883.13.62"
                codeSystemName="1220.0 - ANZSCO - Australian and New Zealand Standard Classification of Occupations, First Edition, 2006"
                displayName="General Medical Practitioner"/>
@@ -128,7 +128,7 @@
    <custodian>
       <assignedCustodian>
          <representedCustodianOrganization>
-            <id root="63778aed-1ccd-4747-bf94-af3357c2bfde"/>
+            <id root="cf9983ad-226c-4c03-b6fe-e5544acb8f92"/>
             <name>Custodian organisation</name>
             <telecom use="WP" value="mailto:example@custodian.com.au"/>
             <addr use="PST">
@@ -150,7 +150,7 @@
    </custodian>
    <componentOf>
       <encompassingEncounter>
-         <effectiveTime value="20191103"/>
+         <effectiveTime value="20200213"/>
       </encompassingEncounter>
    </componentOf>
    <component>
@@ -159,13 +159,13 @@
             <section>
                <title>radiologyreport.pdf</title>
                <text>
-                  <renderMultiMedia referencedObject="c0bf1030-f986-4c07-be98-085f3cf64a01">
+                  <renderMultiMedia referencedObject="c3400dd0-ab68-49d9-81e6-49cbe8a4bc48">
                      <caption>Specialist Letter (1A) radiologyreport.pdf</caption>
                   </renderMultiMedia>
                </text>
                <entry>
-                  <observationMedia ID="c0bf1030-f986-4c07-be98-085f3cf64a01" classCode="OBS" moodCode="EVN">
-                     <id root="c3ad09f6-6720-4f6c-8125-4e6bcd2aa9ae"/>
+                  <observationMedia ID="c3400dd0-ab68-49d9-81e6-49cbe8a4bc48" classCode="OBS" moodCode="EVN">
+                     <id root="b5dc90ba-074f-4bcd-9049-4b61c0318eaf"/>
                      <value integrityCheck="WuGzArOJ0d+HNGnOw7xj3uKVXig=" mediaType="application/pdf">
                         <reference value="radiologyreport.pdf"/>
                      </value>

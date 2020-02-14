@@ -262,6 +262,10 @@ public class ServiceReferralMaxTest extends Base {
     requestedService.setRequestValidityPeriod((RestrictedTimeInterval.getLowHighInstance(
         new PrecisionDate(Precision.DAY, new DateTime("2013-03-13")),
         new PrecisionDate(Precision.DAY, new DateTime("2019-09-1")))));
+	
+	// Optional - will only include in CDA if set to true;
+	requestedService.setIncludePrioriyCode(true);
+	
     return requestedService;
   }
 
@@ -275,15 +279,15 @@ public class ServiceReferralMaxTest extends Base {
     requestedService.setServiceCommencementWindow((RestrictedTimeInterval.getLowHighInstance(
         new PrecisionDate(Precision.DAY, new DateTime("2013-02-1")),
         new PrecisionDate(Precision.DAY, new DateTime("2019-04-15")))));
-    requestedService.setReasonForService(new CodeImpl("426721006", "2.16.840.1.113883.6.96",
-        "SNOMED-CT", "X-ray of right ankle",
-        "X-ray of right ankle") {{
+    requestedService.setReasonForService(new CodeImpl("426420006", "2.16.840.1.113883.6.96",
+        "SNOMED-CT", "X-ray of left ankle",
+        "X-ray of left ankle") {{
       setCodeSystemVersion("http://snomed.info/sct/32506021000036107/version/20190831");
     }});
     requestedService.setReasonForServiceDesc("Thank you for seeing this 14-year-old schoolboy "
         + "who fell whilst playing football at\n"
         + "school yesterday. On examination he has a swollen painful R ankle and cannot weight\n"
-        + "bear on it today. I suspect he has a fracture of his right tibia and fibula.");
+        + "bear on it today. I suspect he has a fracture of his left tibia and fibula.");
     requestedService.setServiceCategory(new CodeImpl("102.20158",
         "1.2.36.1.2001.1001.101", "NCTIS Data Components",
         "Requested Service"));
@@ -296,9 +300,12 @@ public class ServiceReferralMaxTest extends Base {
       add("Drip dry.");
       add("Something else.");
     }});
-    requestedService
-        .setDateTimeServiceScheduled(new PrecisionDate(Precision.DAY, new DateTime("2018-09-09")));
+    requestedService.setDateTimeServiceScheduled(new PrecisionDate(Precision.DAY, new DateTime("2018-09-09")));
     requestedService.setServiceBookingStatus(EventTypes.APPOINTMENT);
+	
+	// Optional - will only include in CDA if set to true;
+	requestedService.setIncludePrioriyCode(true);
+	
     return requestedServices;
   }
 
@@ -370,8 +377,13 @@ public class ServiceReferralMaxTest extends Base {
         getCurrentServiceProviderOrganisation());
     currentService
         .setRequestedServiceDateTime(new PrecisionDate(Precision.DAY, new DateTime("2019-03-1")));
+
+	// Optional - will only include in CDA if set to true;
+	currentService.setIncludePrioriyCode(true);
+
     currentServicesList.add(currentService);
     currentServices.setCurrentServices(currentServicesList);
+	
     return currentServices;
   }
 

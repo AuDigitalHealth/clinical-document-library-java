@@ -25,6 +25,7 @@ public class RequestedServiceImpl implements RequestedService {
   private RestrictedTimeInterval requestValidityPeriod;
   private PreciseDate requestedServiceDateTime;
   private PreciseDate dateTimeServiceScheduled;
+  private Boolean includePrioriyCode;
   private List<String> subjectOfCareInstructionDesc;
   private StrucDocText customNarrative;
 
@@ -177,6 +178,16 @@ public class RequestedServiceImpl implements RequestedService {
   @Override
   public void setDateTimeServiceScheduled(PreciseDate dateTimeServiceScheduled) {
     this.dateTimeServiceScheduled = dateTimeServiceScheduled;
+  }
+
+  @Override
+  public void setIncludePrioriyCode(Boolean includePrioriyCode) {
+    this.includePrioriyCode = includePrioriyCode;
+  }
+
+  @Override
+  public Boolean getIncludePrioriyCode() {
+    return includePrioriyCode;
   }
 
   @Override

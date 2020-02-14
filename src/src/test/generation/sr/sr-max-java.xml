@@ -4,11 +4,11 @@
    <typeId extension="POCD_HD000040" root="2.16.840.1.113883.1.3"/>
    <templateId extension="1.1" root="1.2.36.1.2001.1001.100.1002.231"/>
    <templateId extension="1.0" root="1.2.36.1.2001.1001.100.149"/>
-   <id root="2.25.273802368881335634234061655875615255652"/>
+   <id root="2.25.100793263916685993195378147488791036175"/>
    <code code="57133-1" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"
          displayName="Referral note"/>
    <title>Referral</title>
-   <effectiveTime value="20191104081351+1000"/>
+   <effectiveTime value="20200214102433+1000"/>
    <confidentialityCode nullFlavor="NA"/>
    <languageCode code="en-AU"/>
    <versionNumber value="1"/>
@@ -17,7 +17,7 @@
                        displayName="Final"/>
    <recordTarget typeCode="RCT">
       <patientRole classCode="PAT">
-         <id root="e565f37b-1f09-4a65-b0ca-eef5fa322734"/>
+         <id root="9c34c184-83c7-4190-8784-662a35dfb9e6"/>
          <addr use="H">
             <streetAddressLine>The Complex</streetAddressLine>
             <streetAddressLine>Unit 90210 / 10 Browning st</streetAddressLine>
@@ -54,9 +54,9 @@
       </patientRole>
    </recordTarget>
    <author typeCode="AUT">
-      <time value="20191104081351+1000"/>
+      <time value="20200214102433+1000"/>
       <assignedAuthor>
-         <id root="cb71ac9a-750e-414d-938e-9cc475751aac"/>
+         <id root="d61eca5f-8b9a-4aa5-aac5-82f4aa261398"/>
          <code code="253111" codeSystem="2.16.840.1.113883.13.62"
                codeSystemName="1220.0 - ANZSCO - Australian and New Zealand Standard Classification of Occupations, First Edition, 2006"
                displayName="General Medical Practitioner"/>
@@ -128,7 +128,7 @@
    <custodian>
       <assignedCustodian>
          <representedCustodianOrganization>
-            <id root="203e69ca-3744-4a7a-9c29-c110abd639e3"/>
+            <id root="a9f5a0af-23b6-4ea3-8f54-1be22efa48de"/>
             <name>Custodian organisation</name>
             <telecom use="WP" value="mailto:example@custodian.com.au"/>
             <addr use="PST">
@@ -150,7 +150,7 @@
    </custodian>
    <informationRecipient typeCode="TRC">
       <intendedRecipient classCode="ASSIGNED">
-         <id root="e914a647-823f-4ddf-8f0f-c45a79ba11ae"/>
+         <id root="a850dc9c-8994-422c-b8d6-0ab2da5e5b16"/>
          <ns2:code code="HOSP" codeSystem="2.16.840.1.113883.1.11.17660"
                    codeSystemName="HL7 ServiceDeliveryLocationRoleType"
                    displayName="Hospital"/>
@@ -178,7 +178,7 @@
    </informationRecipient>
    <informationRecipient typeCode="PRCP">
       <intendedRecipient classCode="ASSIGNED">
-         <id root="b86c7f46-7752-486a-bba1-1939641bc588"/>
+         <id root="d119baba-a8c8-47ef-a04a-906bc477699c"/>
          <addr use="WP">
             <streetAddressLine>616 Bromley Street</streetAddressLine>
             <postalCode>4169</postalCode>
@@ -209,10 +209,10 @@
       </intendedRecipient>
    </informationRecipient>
    <legalAuthenticator>
-      <time value="20191104081351+1000"/>
+      <time value="20200214102433+1000"/>
       <signatureCode code="S"/>
       <assignedEntity>
-         <id root="c8a52ced-30cf-4f95-b66e-0b4e69732188"/>
+         <id root="4f49d249-3abc-4a82-9b20-e0d701c1077f"/>
          <code code="253511" codeSystem="2.16.840.1.113883.13.62"
                codeSystemName="1220.0 - ANZSCO - Australian and New Zealand Standard Classification of Occupations, First Edition, 2006"
                displayName="Surgeon (General)"/>
@@ -256,7 +256,7 @@
    </legalAuthenticator>
    <participant typeCode="IRCP">
       <associatedEntity classCode="CON">
-         <id root="c28f9abf-e806-45a5-a403-452c9a4e59ae"/>
+         <id root="c192f502-74a2-4ba5-a749-9875daa804ee"/>
          <code code="309964003" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED CT"
                displayName="Radiology Department">
             <originalText>Radiology Department</originalText>
@@ -326,7 +326,7 @@
    </participant>
    <participant typeCode="IRCP">
       <associatedEntity classCode="CON">
-         <id root="99ba781c-0c8e-4a96-aae7-98468361c4a4"/>
+         <id root="21700246-a859-49ba-8e32-3aeb6e8b1584"/>
          <code code="309964003" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED CT"
                displayName="Radiology Department">
             <originalText>Radiology Department</originalText>
@@ -397,7 +397,7 @@
    <participant typeCode="PART">
       <functionCode code="PCP"/>
       <associatedEntity classCode="PROV">
-         <id root="bf2c11e8-5cbd-4e50-b5d3-0b6216fd5a1b"/>
+         <id root="6cf722a5-993e-4b14-bd83-1ebade74033d"/>
          <code code="309964003" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED CT"
                displayName="Radiology Department">
             <originalText>Radiology Department</originalText>
@@ -475,7 +475,7 @@
       <structuredBody>
          <component>
             <section>
-               <id root="a5f83388-0b1b-4496-9b29-5ace00f1b2e1"/>
+               <id root="43b10be7-d31b-4eee-9a2e-a4d25030e406"/>
                <code code="101.17032" codeSystem="1.2.36.1.2001.1001.101"
                      codeSystemName="NCTIS Data Components"
                      displayName="Service Referral Detail"/>
@@ -637,13 +637,13 @@ minor neurological impairment and is at risk of quick deterioration.</td>
                </text>
                <entry>
                   <act classCode="ACT" moodCode="EVN">
-                     <id root="6d3bef9a-5d7e-48bb-a66e-613619334d67"/>
+                     <id root="0d0ccf5a-d5b9-45a4-bfb8-75671ecc8f77"/>
                      <code code="102.16971" codeSystem="1.2.36.1.2001.1001.101"
                            codeSystemName="NCTIS Data Components"
                            displayName="Related Document"/>
                      <entryRelationship typeCode="COMP">
                         <act classCode="ACT" moodCode="EVN">
-                           <id root="4e1cb727-3aa5-4eb7-86c6-2e181cf0f80f"/>
+                           <id root="5ca59b57-b82b-48a6-9431-8422b714ec99"/>
                            <code code="103.16966" codeSystem="1.2.36.1.2001.1001.101"
                                  codeSystemName="NCTIS Data Components"
                                  displayName="Document Title"/>
@@ -653,7 +653,7 @@ minor neurological impairment and is at risk of quick deterioration.</td>
                      <reference typeCode="REFR">
                         <seperatableInd value="true"/>
                         <externalDocument classCode="DOC" moodCode="EVN">
-                           <id extension="123A45" root="a1008f14-5f47-42d0-bbdf-acac5502109e"/>
+                           <id extension="123A45" root="a1a36691-1bb5-47ea-9240-aec2f8418e41"/>
                            <code code="100.16998" codeSystem="1.2.36.1.2001.1001.101"
                                  codeSystemName="NCTIS Data Components"
                                  displayName="Advance Care Planning Document"/>
@@ -666,7 +666,7 @@ minor neurological impairment and is at risk of quick deterioration.</td>
                </entry>
                <entry>
                   <act classCode="ACT" moodCode="EVN">
-                     <id root="1b8c3b49-3880-45f7-b34c-56f2c79e75ec"/>
+                     <id root="ab7f9606-ad3c-443b-af02-2f9c31379b7f"/>
                      <code code="102.20158" codeSystem="1.2.36.1.2001.1001.101"
                            codeSystemName="NCTIS Data Components"
                            displayName="Requested Service"/>
@@ -679,7 +679,7 @@ minor neurological impairment and is at risk of quick deterioration.</td>
                                    displayName="Urgent"/>
                      <performer typeCode="PRF">
                         <assignedEntity>
-                           <id root="6e5aca27-76df-49ec-a6b6-0121f308eb57"/>
+                           <id root="aacfa3b9-3934-49da-b825-07ad12f4b663"/>
                            <code code="309964003" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED CT"
                                  displayName="Radiology Department">
                               <originalText>Radiology Department</originalText>
@@ -752,7 +752,7 @@ minor neurological impairment and is at risk of quick deterioration.</td>
                      </performer>
                      <entryRelationship typeCode="COMP">
                         <act classCode="ACT" moodCode="EVN">
-                           <id root="9871acbe-c3dc-4581-8a6f-1e50f2c76098"/>
+                           <id root="da51ba14-bf84-4e40-98b8-e8522aed382c"/>
                            <code code="426721006" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED-CT"
                                  codeSystemVersion="http://snomed.info/sct/32506021000036107/version/20190831"
                                  displayName="X-ray of right ankle">
@@ -777,7 +777,7 @@ bear on it today. I suspect he has a fracture of his right tibia and fibula.</te
                      </entryRelationship>
                      <entryRelationship typeCode="COMP">
                         <act classCode="INFRM" moodCode="EVN">
-                           <id root="909f1653-d922-4f1e-8b19-229974346863"/>
+                           <id root="f75124aa-5035-49e9-91cd-4ce5263512ce"/>
                            <code code="103.17022" codeSystem="1.2.36.1.2001.1001.101"
                                  codeSystemName="NCTIS Data Components"
                                  displayName="Request Urgency Notes"/>
@@ -787,7 +787,7 @@ minor neurological impairment and is at risk of quick deterioration.</text>
                      </entryRelationship>
                      <entryRelationship typeCode="COMP">
                         <act classCode="INFRM" moodCode="EVN">
-                           <id root="e6e78ebf-2e39-40ac-80c2-934429605304"/>
+                           <id root="6d0fa5ab-4d0c-4c2c-9a1f-3a8aa0628397"/>
                            <code code="103.16132" codeSystem="1.2.36.1.2001.1001.101"
                                  codeSystemName="NCTIS Data Components"
                                  displayName="Request Validity Period"/>
@@ -799,7 +799,7 @@ minor neurological impairment and is at risk of quick deterioration.</text>
                      </entryRelationship>
                      <entryRelationship typeCode="COMP">
                         <act classCode="ACT" moodCode="EVN">
-                           <id root="ce53fa1c-83f4-4bff-be28-68ad323cc4d4"/>
+                           <id root="e9c42f11-ad77-4549-8ab3-b4e40a954626"/>
                            <code code="103.16635" codeSystem="1.2.36.1.2001.1001.101"
                                  codeSystemName="NCTIS Data Components"
                                  displayName="Requested Service DateTime"/>
@@ -810,7 +810,7 @@ minor neurological impairment and is at risk of quick deterioration.</text>
                </entry>
                <entry>
                   <observation classCode="ALRT" moodCode="EVN">
-                     <id root="b1b609a4-c042-450e-90ce-27fa94a353c5"/>
+                     <id root="0bb82c23-41d2-438f-8754-56028cf5d238"/>
                      <code code="78648007" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED-CT"
                            displayName="At risk for infection">
                         <originalText>At risk for infection</originalText>
@@ -892,7 +892,7 @@ minor neurological impairment and is at risk of quick deterioration.</text>
                </text>
                <entry typeCode="DRIV">
                   <observation classCode="OBS" moodCode="EVN">
-                     <id root="e316df4a-a652-41dc-bc59-3d8c9e7fddaf"/>
+                     <id root="086d8902-3b21-412d-8588-0cbe18b8e664"/>
                      <code xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" code="103.16233"
                            codeSystem="1.2.36.1.2001.1001.101"
                            codeSystemName="NCTIS Data Components"
@@ -903,7 +903,7 @@ minor neurological impairment and is at risk of quick deterioration.</text>
                </entry>
                <entry typeCode="DRIV">
                   <observation classCode="OBS" moodCode="EVN">
-                     <id root="6325eeeb-b655-43b9-a67b-cde38bee1fab"/>
+                     <id root="f18eb822-9fd9-4830-830d-d7407c0e1e83"/>
                      <code xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" code="102.16234"
                            codeSystem="1.2.36.1.2001.1001.101"
                            codeSystemName="NCTIS Data Components"
@@ -914,7 +914,7 @@ minor neurological impairment and is at risk of quick deterioration.</text>
                </entry>
                <entry typeCode="DRIV">
                   <observation classCode="OBS" moodCode="EVN">
-                     <id root="7108c71c-00a6-44c0-920d-5328d07bf63b"/>
+                     <id root="65184abd-8c73-47d0-8d84-264102782869"/>
                      <code xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" code="103.20109"
                            codeSystem="1.2.36.1.2001.1001.101"
                            codeSystemName="NCTIS Data Components"
@@ -926,7 +926,7 @@ minor neurological impairment and is at risk of quick deterioration.</text>
                </entry>
                <entry typeCode="DRIV">
                   <observation classCode="OBS" moodCode="EVN">
-                     <id root="c8f2f765-c2bb-473d-9bdb-983b20eb4e3a"/>
+                     <id root="2426c231-a14b-41fd-a6bb-2efe833a0944"/>
                      <code xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" code="103.16279"
                            codeSystem="1.2.36.1.2001.1001.101"
                            codeSystemName="NCTIS Data Components"
@@ -937,7 +937,7 @@ minor neurological impairment and is at risk of quick deterioration.</text>
                </entry>
                <entry typeCode="DRIV">
                   <observation classCode="OBS" moodCode="EVN">
-                     <id root="fd47811e-66a6-41ea-87bd-3eed07eba760"/>
+                     <id root="7264d060-e32d-41af-a09e-a9d960be2467"/>
                      <code xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" code="103.16249"
                            codeSystem="1.2.36.1.2001.1001.101"
                            codeSystemName="NCTIS Data Components"
@@ -948,7 +948,7 @@ minor neurological impairment and is at risk of quick deterioration.</text>
                </entry>
                <entry>
                   <observation classCode="OBS" moodCode="EVN">
-                     <id root="50859545-99ce-4d99-87ca-f14c2a6879f4"/>
+                     <id root="97c2a673-23df-466a-bcdd-876aed9e7c2f"/>
                      <code code="102.17040" codeSystem="1.2.36.1.2001.1001.101"
                            codeSystemName="NCTIS Data Components"
                            displayName="Interpreter Required"/>
@@ -966,11 +966,11 @@ minor neurological impairment and is at risk of quick deterioration.</text>
                         <originalText>Medicare Benefits</originalText>
                      </ns2:code>
                      <ns2:effectiveTime>
-                        <high value="20201104"/>
+                        <high value="20210214"/>
                      </ns2:effectiveTime>
                      <ns2:participant typeCode="BEN">
                         <ns2:participantRole classCode="PAT">
-                           <ns2:id root="e565f37b-1f09-4a65-b0ca-eef5fa322734"/>
+                           <ns2:id root="9c34c184-83c7-4190-8784-662a35dfb9e6"/>
                         </ns2:participantRole>
                      </ns2:participant>
                   </ns2:entitlement>
@@ -1021,7 +1021,7 @@ minor neurological impairment and is at risk of quick deterioration.</text>
                </text>
                <entry>
                   <act classCode="ACT" moodCode="EVN">
-                     <id root="e6afe3de-f4a4-4750-9162-40b20628d2a2"/>
+                     <id root="eb587492-2be5-4c66-a1fe-a08c269d5b60"/>
                      <code code="102.20158" codeSystem="1.2.36.1.2001.1001.101"
                            codeSystemName="NCTIS Data Components"
                            displayName="Requested Service"/>
@@ -1034,7 +1034,7 @@ minor neurological impairment and is at risk of quick deterioration.</text>
                            <high value="20130401"/>
                         </time>
                         <assignedEntity>
-                           <id root="96d32bab-4306-4c48-904b-19eea98d892d"/>
+                           <id root="95814030-64c9-43e2-b373-4b25925db65d"/>
                            <code code="309964003" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED CT"
                                  displayName="Radiology Department">
                               <originalText>Radiology Department</originalText>
@@ -1076,7 +1076,7 @@ minor neurological impairment and is at risk of quick deterioration.</text>
                      </entryRelationship>
                      <entryRelationship typeCode="COMP">
                         <act classCode="ACT" moodCode="EVN">
-                           <id root="778acbef-b58a-412c-a18b-6ed56924cbd7"/>
+                           <id root="1b1d2286-57e5-4004-a53a-34204e1ac1e5"/>
                            <code code="103.16635" codeSystem="1.2.36.1.2001.1001.101"
                                  codeSystemName="NCTIS Data Components"
                                  displayName="Requested Service DateTime"/>
@@ -1089,7 +1089,7 @@ minor neurological impairment and is at risk of quick deterioration.</text>
          </component>
          <component typeCode="COMP">
             <section>
-               <id root="68c74d6c-8031-4d27-87af-4ee587173d7c"/>
+               <id root="93de53a1-ecb5-4e21-aa6f-352d6b87bb04"/>
                <code code="101.20113" codeSystem="1.2.36.1.2001.1001.101"
                      codeSystemName="NCTIS Data Components"
                      displayName="Adverse Reactions"/>
@@ -1120,7 +1120,7 @@ minor neurological impairment and is at risk of quick deterioration.</text>
                </text>
                <entry>
                   <act classCode="ACT" moodCode="EVN">
-                     <id root="ca5dd606-b7a7-4178-b0bc-b9c1fa174ec6"/>
+                     <id root="eb681e74-0008-4a7d-95a1-e7e8eec5a33f"/>
                      <code code="102.15517" codeSystem="1.2.36.1.2001.1001.101"
                            codeSystemName="NCTIS Data Components"
                            displayName="Adverse Reaction"/>
@@ -1136,7 +1136,7 @@ minor neurological impairment and is at risk of quick deterioration.</text>
                      </participant>
                      <entryRelationship typeCode="CAUS">
                         <observation classCode="OBS" moodCode="EVN">
-                           <id root="4655f761-d405-4280-9e38-5a7eb6b3f359"/>
+                           <id root="d9e1463b-b191-44ff-945a-27e66918be37"/>
                            <code code="102.16474" codeSystem="1.2.36.1.2001.1001.101"
                                  codeSystemName="NCTIS Data Components"
                                  displayName="Reaction Event"/>
@@ -1149,7 +1149,7 @@ minor neurological impairment and is at risk of quick deterioration.</text>
                            </value>
                            <entryRelationship inversionInd="true" typeCode="MFST">
                               <observation classCode="OBS" moodCode="EVN">
-                                 <id root="22ca145e-4bd5-4cba-8ab8-ce025816a313"/>
+                                 <id root="5d0a81d6-09ee-4d61-8398-71ced201478c"/>
                                  <code code="39579001" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED CT"
                                        displayName="Anaphylaxis">
                                     <originalText>Anaphylaxis</originalText>
@@ -1171,7 +1171,7 @@ minor neurological impairment and is at risk of quick deterioration.</text>
          </component>
          <component>
             <section>
-               <id root="2e1bff7f-f649-491b-bfd0-d91db5cc5d78"/>
+               <id root="fa8d98b8-40a2-42d8-a3d8-569e662999a0"/>
                <code code="101.16146" codeSystem="1.2.36.1.2001.1001.101"
                      codeSystemName="NCTIS Data Components"
                      displayName="Medication Orders"/>
@@ -1207,7 +1207,7 @@ minor neurological impairment and is at risk of quick deterioration.</text>
                </text>
                <entry>
                   <substanceAdministration classCode="SBADM" moodCode="EVN">
-                     <id root="d7cb5af5-0091-4c12-8790-d7cdbc5d2902"/>
+                     <id root="4fef4a26-b0e7-4c05-a02e-847d22981d84"/>
                      <text xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ST">Directions Text</text>
                      <consumable>
                         <manufacturedProduct>
@@ -1222,7 +1222,7 @@ minor neurological impairment and is at risk of quick deterioration.</text>
                      </consumable>
                      <entryRelationship typeCode="RSON">
                         <act classCode="INFRM" moodCode="EVN">
-                           <id root="fdd9c233-dc2b-4ae0-9a4c-eb8ecbd24796"/>
+                           <id root="1a541eb6-2355-48dd-8aae-196ecd2a3b55"/>
                            <code code="103.10141" codeSystem="1.2.36.1.2001.1001.101"
                                  codeSystemName="NCTIS Data Components"
                                  displayName="Clinical Indication"/>
@@ -1231,7 +1231,7 @@ minor neurological impairment and is at risk of quick deterioration.</text>
                      </entryRelationship>
                      <entryRelationship typeCode="COMP">
                         <act classCode="INFRM" moodCode="EVN">
-                           <id root="f8ccf7be-61ac-43c5-838b-a172952e59b3"/>
+                           <id root="8964875d-eee3-43e0-a8ee-b69ecb1c4e6c"/>
                            <code code="103.16044" codeSystem="1.2.36.1.2001.1001.101"
                                  codeSystemName="NCTIS Data Components"
                                  displayName="Additional Comments"/>
@@ -1244,7 +1244,7 @@ minor neurological impairment and is at risk of quick deterioration.</text>
          </component>
          <component typeCode="COMP">
             <section classCode="DOCSECT" moodCode="EVN">
-               <id root="2621216f-e7e5-4c1e-90f4-1e7cebe76806"/>
+               <id root="f0cb1274-994a-4c36-b7f0-cc8578bb23ad"/>
                <code code="101.16117" codeSystem="1.2.36.1.2001.1001.101"
                      codeSystemName="NCTIS Data Components"
                      displayName="Medical History"/>
@@ -1280,7 +1280,7 @@ minor neurological impairment and is at risk of quick deterioration.</text>
                </text>
                <entry>
                   <observation classCode="OBS" moodCode="EVN">
-                     <id root="e4eb5186-a6f1-45a5-9e01-906d28dcb1e4"/>
+                     <id root="6d31d916-0688-4c02-9c4c-cd799486b0a1"/>
                      <code code="282291009" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED CT"
                            displayName="Diagnosis interpretation"/>
                      <effectiveTime>
@@ -1294,7 +1294,7 @@ minor neurological impairment and is at risk of quick deterioration.</text>
                             xsi:type="CD"/>
                      <entryRelationship typeCode="COMP">
                         <act classCode="INFRM" moodCode="EVN">
-                           <id root="a8f5f7ea-1983-4685-812a-ea6a911f7a30"/>
+                           <id root="ac323eeb-a468-4e35-a797-05da348212d0"/>
                            <code code="103.16545" codeSystem="1.2.36.1.2001.1001.101"
                                  codeSystemName="NCTIS Data Components"
                                  displayName="Problem/Diagnosis Comment"/>
@@ -1305,7 +1305,7 @@ minor neurological impairment and is at risk of quick deterioration.</text>
                </entry>
                <entry>
                   <procedure classCode="PROC" moodCode="EVN">
-                     <id root="a66699cd-d5d3-419b-b12e-579f62a4c1f4"/>
+                     <id root="40f42cdc-2d9b-47c9-8b79-d74d8e1f1373"/>
                      <code code="80146002" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED CT"
                            displayName="Appendicectomy"/>
                      <effectiveTime>
@@ -1314,7 +1314,7 @@ minor neurological impairment and is at risk of quick deterioration.</text>
                      </effectiveTime>
                      <entryRelationship typeCode="COMP">
                         <act classCode="INFRM" moodCode="EVN">
-                           <id root="dd2d0b14-54c8-4ebd-b038-ba4eed8070b4"/>
+                           <id root="4e543e2f-df81-4865-a77c-016372954462"/>
                            <code code="103.15595" codeSystem="1.2.36.1.2001.1001.101"
                                  codeSystemName="NCTIS Data Components"
                                  displayName="Procedure Comment"/>
@@ -1325,7 +1325,7 @@ minor neurological impairment and is at risk of quick deterioration.</text>
                </entry>
                <entry>
                   <act classCode="ACT" moodCode="EVN">
-                     <id root="72e97226-a45c-4474-b28f-fe6fe9516316"/>
+                     <id root="8f97a726-c6b7-42cb-9df0-542802285e42"/>
                      <code code="102.16627" codeSystem="1.2.36.1.2001.1001.101"
                            codeSystemName="NCTIS Data Components"
                            displayName="Uncategorised Medical History Item"/>
@@ -1336,7 +1336,7 @@ minor neurological impairment and is at risk of quick deterioration.</text>
                      </effectiveTime>
                      <entryRelationship typeCode="COMP">
                         <act classCode="INFRM" moodCode="EVN">
-                           <id root="64138489-3f4e-4717-be15-66a24cc18e57"/>
+                           <id root="cc62af2b-b4ce-47dd-ae2a-bafeb08cf7c2"/>
                            <code code="103.16630" codeSystem="1.2.36.1.2001.1001.101"
                                  codeSystemName="NCTIS Data Components"
                                  displayName="Medical History Item Comment"/>
@@ -1349,7 +1349,7 @@ minor neurological impairment and is at risk of quick deterioration.</text>
          </component>
          <component typeCode="COMP">
             <section classCode="DOCSECT" moodCode="EVN">
-               <id root="16272105-5f73-42d5-9405-76c4b51ae47c"/>
+               <id root="e5314873-6046-4aca-9913-44606dc30828"/>
                <code code="101.20117" codeSystem="1.2.36.1.2001.1001.101"
                      codeSystemName="NCTIS Data Components"
                      displayName="Diagnostic Investigations"/>
@@ -1375,13 +1375,13 @@ minor neurological impairment and is at risk of quick deterioration.</text>
                         </tr>
                         <tr>
                            <td styleCode="Bold">Reason for Service</td>
-                           <td>X-ray of right ankle</td>
+                           <td>X-ray of left ankle</td>
                         </tr>
                         <tr>
                            <td styleCode="Bold">Reason for Service Desc</td>
                            <td>Thank you for seeing this 14-year-old schoolboy who fell whilst playing football at
 school yesterday. On examination he has a swollen painful R ankle and cannot weight
-bear on it today. I suspect he has a fracture of his right tibia and fibula.</td>
+bear on it today. I suspect he has a fracture of his left tibia and fibula.</td>
                         </tr>
                         <tr>
                            <td styleCode="Bold">Request Urgency</td>
@@ -1473,7 +1473,7 @@ bear on it today. I suspect he has a fracture of his right tibia and fibula.</td
                </text>
                <entry>
                   <act classCode="ACT" moodCode="EVN">
-                     <id root="ed301822-bfbe-49c8-ac0a-bbedc211a650"/>
+                     <id root="304b0cd1-313a-4a65-a4d4-f89048ef3ba7"/>
                      <code code="102.20158" codeSystem="1.2.36.1.2001.1001.101"
                            codeSystemName="NCTIS Data Components"
                            displayName="Requested Service"/>
@@ -1483,7 +1483,7 @@ bear on it today. I suspect he has a fracture of his right tibia and fibula.</td
                                    displayName="Urgent"/>
                      <performer typeCode="PRF">
                         <assignedEntity>
-                           <id root="d8a3d734-3851-449d-8d1e-83ca364ff782"/>
+                           <id root="c8710b95-5850-40ea-b7ff-4203685316ce"/>
                            <code code="309964003" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED CT"
                                  displayName="Radiology Department">
                               <originalText>Radiology Department</originalText>
@@ -1556,15 +1556,15 @@ bear on it today. I suspect he has a fracture of his right tibia and fibula.</td
                      </performer>
                      <entryRelationship typeCode="COMP">
                         <act classCode="ACT" moodCode="EVN">
-                           <id root="e97b97c0-b9a0-4e3a-ac0e-3acca2b88adb"/>
-                           <code code="426721006" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED-CT"
+                           <id root="8f454bbb-c3aa-4972-a77b-f372e1574ba9"/>
+                           <code code="426420006" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED-CT"
                                  codeSystemVersion="http://snomed.info/sct/32506021000036107/version/20190831"
-                                 displayName="X-ray of right ankle">
-                              <originalText>X-ray of right ankle</originalText>
+                                 displayName="X-ray of left ankle">
+                              <originalText>X-ray of left ankle</originalText>
                            </code>
                            <text xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ST">Thank you for seeing this 14-year-old schoolboy who fell whilst playing football at
 school yesterday. On examination he has a swollen painful R ankle and cannot weight
-bear on it today. I suspect he has a fracture of his right tibia and fibula.</text>
+bear on it today. I suspect he has a fracture of his left tibia and fibula.</text>
                         </act>
                      </entryRelationship>
                      <entryRelationship typeCode="COMP">
@@ -1581,7 +1581,7 @@ bear on it today. I suspect he has a fracture of his right tibia and fibula.</te
                      </entryRelationship>
                      <entryRelationship typeCode="COMP">
                         <act classCode="ACT" moodCode="EVN">
-                           <id root="4025acf5-7cc4-46e1-b023-236707718b1b"/>
+                           <id root="535a37a8-bb3c-4df2-9ddb-36134da9a027"/>
                            <code code="103.16635" codeSystem="1.2.36.1.2001.1001.101"
                                  codeSystemName="NCTIS Data Components"
                                  displayName="Requested Service DateTime"/>
@@ -1592,7 +1592,7 @@ bear on it today. I suspect he has a fracture of his right tibia and fibula.</te
                </entry>
                <component>
                   <section>
-                     <id root="b1575637-6901-42d8-9ecc-26253af289e8"/>
+                     <id root="492371e0-a7fc-41ff-b396-46e94586a200"/>
                      <code code="102.16029" codeSystem="1.2.36.1.2001.1001.101"
                            codeSystemName="NCTIS Data Components"
                            displayName="Diagnostic Investigation"/>
@@ -1651,7 +1651,7 @@ bear on it today. I suspect he has a fracture of his right tibia and fibula.</te
                      </text>
                      <entry>
                         <observation classCode="OBS" moodCode="EVN">
-                           <id root="33471506-0afc-4aa3-8b95-eab51a9cdc09"/>
+                           <id root="d5ad7c1e-71d4-4d08-b09e-321c11f92e34"/>
                            <code>
                               <originalText>Report Name</originalText>
                            </code>
@@ -1681,7 +1681,7 @@ bear on it today. I suspect he has a fracture of his right tibia and fibula.</te
     BLOOD GLUCOSE   : 10.8 *     mmol/L     (3.9-6.0)</value>
                            <entryRelationship typeCode="COMP">
                               <observation classCode="OBS" moodCode="EVN">
-                                 <id root="e5ec19ec-81e7-4a7d-9ff9-1c0ea2b9f72e"/>
+                                 <id root="dd44f21e-4655-48b1-bc14-72449a6765c6"/>
                                  <code code="308552006" codeSystem="2.16.840.1.113883.6.96"
                                        codeSystemName="SNOMED CT-AU"
                                        codeSystemVersion="20110531"
@@ -1699,7 +1699,7 @@ bear on it today. I suspect he has a fracture of his right tibia and fibula.</te
                </component>
                <component>
                   <section>
-                     <id root="ebea1ebc-b5cd-48be-bc4e-30e71f3b19e2"/>
+                     <id root="dea967ce-2c93-42eb-b9ce-80c089c17a9a"/>
                      <code code="102.16029" codeSystem="1.2.36.1.2001.1001.101"
                            codeSystemName="NCTIS Data Components"
                            displayName="Diagnostic Investigation"/>
@@ -1728,7 +1728,7 @@ bear on it today. I suspect he has a fracture of his right tibia and fibula.</te
                               </tr>
                               <tr>
                                  <td>
-                                    <renderMultiMedia referencedObject="ca644f7b-0b39-4c0d-9591-aaabdfd0316c">
+                                    <renderMultiMedia referencedObject="da89dc64-e413-479d-98be-10bd4c9160c7">
                                        <caption>Other Test Result</caption>
                                     </renderMultiMedia>
                                  </td>
@@ -1743,7 +1743,7 @@ bear on it today. I suspect he has a fracture of his right tibia and fibula.</te
                      </text>
                      <entry>
                         <observation classCode="OBS" moodCode="EVN">
-                           <id root="db19edce-2fec-49be-beeb-bf48b9797ffe"/>
+                           <id root="db1784ff-5c5c-4214-90e2-97999fcaa8fe"/>
                            <code>
                               <originalText>Report Name (with attachment)</originalText>
                            </code>
@@ -1755,7 +1755,7 @@ bear on it today. I suspect he has a fracture of his right tibia and fibula.</te
                               <reference value="radiologyreport.pdf"/>
                            </value>
                            <entryRelationship typeCode="COMP">
-                              <observationMedia ID="ca644f7b-0b39-4c0d-9591-aaabdfd0316c" classCode="OBS" moodCode="EVN">
+                              <observationMedia ID="da89dc64-e413-479d-98be-10bd4c9160c7" classCode="OBS" moodCode="EVN">
                                  <value integrityCheck="WuGzArOJ0d+HNGnOw7xj3uKVXig=" mediaType="application/pdf">
                                     <reference value="radiologyreport.pdf"/>
                                  </value>
@@ -1763,7 +1763,7 @@ bear on it today. I suspect he has a fracture of his right tibia and fibula.</te
                            </entryRelationship>
                            <entryRelationship typeCode="COMP">
                               <observation classCode="OBS" moodCode="EVN">
-                                 <id root="345b5829-f949-495b-8f95-5a57d846f5c7"/>
+                                 <id root="a95d146f-3773-4890-992f-a90e24c0337d"/>
                                  <code code="308552006" codeSystem="2.16.840.1.113883.6.96"
                                        codeSystemName="SNOMED CT-AU"
                                        codeSystemVersion="20110531"
@@ -1781,7 +1781,7 @@ bear on it today. I suspect he has a fracture of his right tibia and fibula.</te
                </component>
                <component>
                   <section>
-                     <id root="25e5885e-bd52-4e8b-aaf2-6ebe028d0ab5"/>
+                     <id root="f373273f-9eb5-437b-b0e7-156fb3d6fc08"/>
                      <code code="102.16144" codeSystem="1.2.36.1.2001.1001.101"
                            codeSystemName="NCTIS Data Components"
                            displayName="Pathology Test Result"/>
@@ -1852,10 +1852,10 @@ bear on it today. I suspect he has a fracture of his right tibia and fibula.</te
                               </tr>
                            </tbody>
                         </table>
-                        <renderMultiMedia referencedObject="b68efbdb-08bf-424c-b5fb-742eebcde4b4">
+                        <renderMultiMedia referencedObject="bd86ffbd-6130-4f1d-94c9-ec12d1cf24a1">
                            <caption>Anatomical Site x-raySpecimenDetail.jpg</caption>
                         </renderMultiMedia>
-                        <renderMultiMedia referencedObject="baa4eec7-2ed0-46b9-b75f-8e859203e427">
+                        <renderMultiMedia referencedObject="ca4eda16-a5a0-44b9-8554-8d7039273c36">
                            <caption>Anatomical Site x-raySpecimenDetail.jpg</caption>
                         </renderMultiMedia>
                         <table>
@@ -1877,7 +1877,7 @@ bear on it today. I suspect he has a fracture of his right tibia and fibula.</te
                               </tr>
                            </tbody>
                         </table>
-                        <renderMultiMedia referencedObject="d555c4c8-47ea-4aba-b1f4-e1005824d2d7">
+                        <renderMultiMedia referencedObject="f67813f0-494f-440e-8dbe-f4dc59cfafb8">
                            <caption>Physical Detail Image x-ray.jpg</caption>
                         </renderMultiMedia>
                         <table>
@@ -2089,7 +2089,7 @@ bear on it today. I suspect he has a fracture of his right tibia and fibula.</te
                            <tbody>
                               <tr>
                                  <td>
-                                    <renderMultiMedia referencedObject="abf37cf8-7f24-45b3-b570-1e6b1cbeefe2">
+                                    <renderMultiMedia referencedObject="a97d69cc-f7d1-4bb7-ab7b-b5ae3f23f9cc">
                                        <caption>Test Result Representation</caption>
                                     </renderMultiMedia>
                                  </td>
@@ -2120,7 +2120,7 @@ bear on it today. I suspect he has a fracture of his right tibia and fibula.</te
                            </value>
                            <entryRelationship typeCode="COMP">
                               <observation classCode="OBS" moodCode="EVN">
-                                 <id root="73047e5c-086b-4565-942c-eaadc97854a0"/>
+                                 <id root="a792132f-8e51-47d6-bd38-f00894d80fc6"/>
                                  <code code="310074003" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED CT"
                                        displayName="Pathology service"/>
                                  <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" code="HM"
@@ -2132,7 +2132,7 @@ bear on it today. I suspect he has a fracture of his right tibia and fibula.</te
                            </entryRelationship>
                            <entryRelationship typeCode="COMP">
                               <observation classCode="OBS" moodCode="EVN">
-                                 <id root="2c028f20-8007-4e29-86da-357cbe4a7adc"/>
+                                 <id root="72f35d37-c6d7-405a-8106-78fbf779fa2c"/>
                                  <code code="308552006" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED CT"
                                        displayName="Report status"/>
                                  <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" code="3"
@@ -2151,7 +2151,7 @@ bear on it today. I suspect he has a fracture of his right tibia and fibula.</te
                            </entryRelationship>
                            <entryRelationship typeCode="REFR">
                               <observation classCode="OBS" moodCode="EVN">
-                                 <id root="a1a5242a-b989-4166-b3d4-49c76a836413"/>
+                                 <id root="51cf6587-d0ac-4d8b-a347-0979bbd03325"/>
                                  <code code="386344002" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED CT"
                                        displayName="Laboratory data interpretation"/>
                                  <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ST">I could write a final conclusion for the whole FBC panel</value>
@@ -2159,7 +2159,7 @@ bear on it today. I suspect he has a fracture of his right tibia and fibula.</te
                            </entryRelationship>
                            <entryRelationship typeCode="COMP">
                               <act classCode="INFRM" moodCode="EVN">
-                                 <id root="a3eb4a00-d923-4972-b28f-55f9ef312d15"/>
+                                 <id root="297c09a8-64ee-489c-b7bc-bf76f33c456a"/>
                                  <code code="103.16468" codeSystem="1.2.36.1.2001.1001.101"
                                        codeSystemName="NCTIS Data Components"
                                        displayName="Test Comment"/>
@@ -2168,13 +2168,13 @@ bear on it today. I suspect he has a fracture of his right tibia and fibula.</te
                            </entryRelationship>
                            <entryRelationship inversionInd="true" typeCode="SUBJ">
                               <act classCode="ACT" moodCode="EVN">
-                                 <id root="dabc4113-fd3b-4630-b46a-1e98a457fe52"/>
+                                 <id root="bcab7a44-e025-4a26-9513-1296d6560472"/>
                                  <code code="102.16160" codeSystem="1.2.36.1.2001.1001.101"
                                        codeSystemName="NCTIS Data Components"
                                        displayName="Test Request Details"/>
                                  <entryRelationship typeCode="COMP">
                                     <observation classCode="OBS" moodCode="RQO">
-                                       <id root="90b64cd5-f129-4ba8-8e4e-fd0a627ca0f6"/>
+                                       <id root="8663a03b-f300-4948-8f86-abf32980eb69"/>
                                        <code code="103.16404" codeSystem="1.2.36.1.2001.1001.101"
                                              codeSystemName="NCTIS Data Components"
                                              displayName="Test Requested Name"/>
@@ -2191,7 +2191,7 @@ bear on it today. I suspect he has a fracture of his right tibia and fibula.</te
                            </entryRelationship>
                            <entryRelationship typeCode="COMP">
                               <observation classCode="OBS" moodCode="EVN">
-                                 <id root="39606613-0cdc-4277-8a1a-d20300b2a158"/>
+                                 <id root="2c635be1-ffc1-4387-b3fa-8e79f2493b47"/>
                                  <code code="103.16605" codeSystem="1.2.36.1.2001.1001.101"
                                        codeSystemName="NCTIS Data Components"
                                        displayName="Pathology Test Result DateTime"/>
@@ -2200,7 +2200,7 @@ bear on it today. I suspect he has a fracture of his right tibia and fibula.</te
                            </entryRelationship>
                            <entryRelationship typeCode="COMP">
                               <organizer classCode="BATTERY" moodCode="EVN">
-                                 <id root="a85ce0f2-a1ca-4016-9d3b-75770caacfec"/>
+                                 <id root="4e5f2aac-1c50-4410-a2e2-2f84593eb2ea"/>
                                  <code code="FBC" codeSystem="2.999.100"
                                        codeSystemName="ACME Laboratories Report CodeSystem"
                                        displayName="Full blood count">
@@ -2211,7 +2211,7 @@ bear on it today. I suspect he has a fracture of his right tibia and fibula.</te
                                  <statusCode code="completed"/>
                                  <component>
                                     <observation classCode="OBS" moodCode="EVN">
-                                       <id root="c46d7cbe-5b93-4ba3-a226-138dfaa3bec9"/>
+                                       <id root="f7a66cd7-451c-425f-bb3e-90304296934f"/>
                                        <code code="58745656" codeSystem="2.999.200"
                                              codeSystemName="ACME Laboratories Atomic Result CodeSystem"
                                              displayName="Haemoglobin">
@@ -2226,7 +2226,7 @@ bear on it today. I suspect he has a fracture of his right tibia and fibula.</te
                                                            displayName="High"/>
                                        <entryRelationship typeCode="COMP">
                                           <act classCode="INFRM" moodCode="EVN">
-                                             <id root="13b35c1f-ea12-46fe-ab5c-67eae79ab700"/>
+                                             <id root="2ab27c10-4042-4e9c-aa48-bbfda53a385e"/>
                                              <code code="281296001" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED CT"
                                                    displayName="result comments"/>
                                              <text xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ST">This is a comment that could be provided about the HB result</text>
@@ -2234,7 +2234,7 @@ bear on it today. I suspect he has a fracture of his right tibia and fibula.</te
                                        </entryRelationship>
                                        <entryRelationship typeCode="COMP">
                                           <act classCode="INFRM" moodCode="EVN">
-                                             <id root="287d37fb-f407-4a42-83d4-bc895313fdb0"/>
+                                             <id root="5383a89c-a715-4327-bf23-a5d0505dd5aa"/>
                                              <code code="281298000" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED CT"
                                                    displayName="Reference range comments"/>
                                              <text xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ST">Hb normal ranges were modified on the 20/02/018</text>
@@ -2242,7 +2242,7 @@ bear on it today. I suspect he has a fracture of his right tibia and fibula.</te
                                        </entryRelationship>
                                        <entryRelationship typeCode="COMP">
                                           <observation classCode="OBS" moodCode="EVN">
-                                             <id root="5955aa7e-e076-4385-8354-af01a091caf7"/>
+                                             <id root="fa0e5bae-83be-4e8b-9d1a-ed3d0111b8e7"/>
                                              <code code="308552006" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED CT"
                                                    displayName="Report status"/>
                                              <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" code="3"
@@ -2270,7 +2270,7 @@ bear on it today. I suspect he has a fracture of his right tibia and fibula.</te
                                  </component>
                                  <component>
                                     <observation classCode="OBS" moodCode="EVN">
-                                       <id root="337853d3-0d4c-4a5b-9dbe-dbe370df2e3f"/>
+                                       <id root="2e9e904e-d716-40b4-a7a7-03a863d4d52a"/>
                                        <code code="456337895" codeSystem="2.999.200"
                                              codeSystemName="ACME Laboratories Atomic Result CodeSystem"
                                              displayName="Red Cell Count">
@@ -2285,7 +2285,7 @@ bear on it today. I suspect he has a fracture of his right tibia and fibula.</te
                                                            displayName="Normal"/>
                                        <entryRelationship typeCode="COMP">
                                           <act classCode="INFRM" moodCode="EVN">
-                                             <id root="9ca71b2d-bdc1-453e-a06e-d7d836ec1f1e"/>
+                                             <id root="a07bde62-dd44-44ee-bfb2-bdac0fbb1cb3"/>
                                              <code code="281296001" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED CT"
                                                    displayName="result comments"/>
                                              <text xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ST">NA</text>
@@ -2293,7 +2293,7 @@ bear on it today. I suspect he has a fracture of his right tibia and fibula.</te
                                        </entryRelationship>
                                        <entryRelationship typeCode="COMP">
                                           <act classCode="INFRM" moodCode="EVN">
-                                             <id root="178a1a88-118e-4770-8bbf-2e78c4467166"/>
+                                             <id root="6d2612f8-dc22-4207-8f07-6e8f72d281bb"/>
                                              <code code="281298000" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED CT"
                                                    displayName="Reference range comments"/>
                                              <text xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ST">NA</text>
@@ -2301,7 +2301,7 @@ bear on it today. I suspect he has a fracture of his right tibia and fibula.</te
                                        </entryRelationship>
                                        <entryRelationship typeCode="COMP">
                                           <observation classCode="OBS" moodCode="EVN">
-                                             <id root="bc4ff0e9-3748-4b38-910a-e0f1c5f41042"/>
+                                             <id root="5160506e-c2bc-4146-8325-fa01db514d53"/>
                                              <code code="308552006" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED CT"
                                                    displayName="Report status"/>
                                              <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" code="3"
@@ -2329,7 +2329,7 @@ bear on it today. I suspect he has a fracture of his right tibia and fibula.</te
                                  </component>
                                  <component>
                                     <observation classCode="OBS" moodCode="EVN">
-                                       <id root="b6607650-682a-48ff-a21d-eed42d149b80"/>
+                                       <id root="d77ca133-5c18-42de-b7bc-212aa63b5212"/>
                                        <code code="7854343223" codeSystem="2.999.200"
                                              codeSystemName="ACME Laboratories Atomic Result CodeSystem"
                                              displayName="Hematocrit">
@@ -2344,7 +2344,7 @@ bear on it today. I suspect he has a fracture of his right tibia and fibula.</te
                                                            displayName="Normal"/>
                                        <entryRelationship typeCode="COMP">
                                           <act classCode="INFRM" moodCode="EVN">
-                                             <id root="f69d4156-eea4-4342-9012-7ea309101a0a"/>
+                                             <id root="fa7c247c-b000-49fa-a5b1-c50ade3a4b84"/>
                                              <code code="281296001" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED CT"
                                                    displayName="result comments"/>
                                              <text xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ST">NA</text>
@@ -2352,7 +2352,7 @@ bear on it today. I suspect he has a fracture of his right tibia and fibula.</te
                                        </entryRelationship>
                                        <entryRelationship typeCode="COMP">
                                           <act classCode="INFRM" moodCode="EVN">
-                                             <id root="c4bbbe95-0eab-4e15-8509-411cde5e41e8"/>
+                                             <id root="3a0f5b96-d8ec-42be-983e-a5d71ecee575"/>
                                              <code code="281298000" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED CT"
                                                    displayName="Reference range comments"/>
                                              <text xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ST">NA</text>
@@ -2360,7 +2360,7 @@ bear on it today. I suspect he has a fracture of his right tibia and fibula.</te
                                        </entryRelationship>
                                        <entryRelationship typeCode="COMP">
                                           <observation classCode="OBS" moodCode="EVN">
-                                             <id root="936e639d-a669-4a7a-b5d1-29ef3fefde75"/>
+                                             <id root="abeac93a-9fef-44f3-9d2b-1e8c08a2fc2f"/>
                                              <code code="308552006" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED CT"
                                                    displayName="Report status"/>
                                              <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" code="3"
@@ -2388,7 +2388,7 @@ bear on it today. I suspect he has a fracture of his right tibia and fibula.</te
                                  </component>
                                  <component>
                                     <observation classCode="OBS" moodCode="EVN">
-                                       <id root="39d2387d-4bfc-4350-8445-25857bd596d2"/>
+                                       <id root="c829f9ce-576c-4982-938a-82c8a325ace2"/>
                                        <code code="6322353455" codeSystem="2.999.200"
                                              codeSystemName="ACME Laboratories Atomic Result CodeSystem"
                                              displayName="Mean Cell Volume">
@@ -2401,7 +2401,7 @@ bear on it today. I suspect he has a fracture of his right tibia and fibula.</te
                                                            displayName="Normal"/>
                                        <entryRelationship typeCode="COMP">
                                           <act classCode="INFRM" moodCode="EVN">
-                                             <id root="2ba2c714-a3f7-45d4-9283-8ac4c3785f48"/>
+                                             <id root="14fc5009-66d7-4f52-97d4-38ae4cd67f03"/>
                                              <code code="281296001" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED CT"
                                                    displayName="result comments"/>
                                              <text xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ST">NA</text>
@@ -2409,7 +2409,7 @@ bear on it today. I suspect he has a fracture of his right tibia and fibula.</te
                                        </entryRelationship>
                                        <entryRelationship typeCode="COMP">
                                           <act classCode="INFRM" moodCode="EVN">
-                                             <id root="d6391499-a94a-4006-9bf3-6be49c95a57a"/>
+                                             <id root="8ac672bd-fde8-4877-89a3-2f37f70ca6b2"/>
                                              <code code="281298000" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED CT"
                                                    displayName="Reference range comments"/>
                                              <text xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ST">NA</text>
@@ -2417,7 +2417,7 @@ bear on it today. I suspect he has a fracture of his right tibia and fibula.</te
                                        </entryRelationship>
                                        <entryRelationship typeCode="COMP">
                                           <observation classCode="OBS" moodCode="EVN">
-                                             <id root="1b94d6d4-fb5f-4e92-98aa-7d4c60ce0a09"/>
+                                             <id root="9d945ce7-628d-44da-b971-8485cde608ca"/>
                                              <code code="308552006" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED CT"
                                                    displayName="Report status"/>
                                              <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" code="3"
@@ -2444,7 +2444,7 @@ bear on it today. I suspect he has a fracture of his right tibia and fibula.</te
                                  </component>
                                  <component>
                                     <observation classCode="OBS" moodCode="EVN">
-                                       <id root="141886ea-d4f1-49c6-b344-6ac9cd8a0789"/>
+                                       <id root="a024b3d9-801a-4931-ae7b-3be3804b44a6"/>
                                        <code code="62109543" codeSystem="2.999.200"
                                              codeSystemName="ACME Laboratories Atomic Result CodeSystem"
                                              displayName="Mean Cell Hemoglobin">
@@ -2457,7 +2457,7 @@ bear on it today. I suspect he has a fracture of his right tibia and fibula.</te
                                                            displayName="Normal"/>
                                        <entryRelationship typeCode="COMP">
                                           <act classCode="INFRM" moodCode="EVN">
-                                             <id root="c9d22866-05fa-4c54-997c-c4ffd8140ba5"/>
+                                             <id root="cc2089ad-c1cd-4352-8bdd-a0fd37e61c09"/>
                                              <code code="281296001" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED CT"
                                                    displayName="result comments"/>
                                              <text xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ST">NA</text>
@@ -2465,7 +2465,7 @@ bear on it today. I suspect he has a fracture of his right tibia and fibula.</te
                                        </entryRelationship>
                                        <entryRelationship typeCode="COMP">
                                           <act classCode="INFRM" moodCode="EVN">
-                                             <id root="7118d6a6-0350-4e87-b671-7af645a2e3d3"/>
+                                             <id root="ed704611-b41b-43ec-a9ec-94121b0fb574"/>
                                              <code code="281298000" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED CT"
                                                    displayName="Reference range comments"/>
                                              <text xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ST">NA</text>
@@ -2473,7 +2473,7 @@ bear on it today. I suspect he has a fracture of his right tibia and fibula.</te
                                        </entryRelationship>
                                        <entryRelationship typeCode="COMP">
                                           <observation classCode="OBS" moodCode="EVN">
-                                             <id root="018c4114-47be-4766-9a84-36314796396b"/>
+                                             <id root="ba86d8d2-6b61-4a4d-ac06-78bb48d4cbd7"/>
                                              <code code="308552006" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED CT"
                                                    displayName="Report status"/>
                                              <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" code="3"
@@ -2500,7 +2500,7 @@ bear on it today. I suspect he has a fracture of his right tibia and fibula.</te
                                  </component>
                                  <component>
                                     <observation classCode="OBS" moodCode="EVN">
-                                       <id root="d040d785-fcec-4f92-8bf6-bf05a5daf8be"/>
+                                       <id root="a831781f-4abe-4a0e-96d0-fa42174bb0c3"/>
                                        <code code="2333342107" codeSystem="2.999.200"
                                              codeSystemName="ACME Laboratories Atomic Result CodeSystem"
                                              displayName="Mean Cell Hemoglobin Concentration">
@@ -2513,7 +2513,7 @@ bear on it today. I suspect he has a fracture of his right tibia and fibula.</te
                                                            displayName="Normal"/>
                                        <entryRelationship typeCode="COMP">
                                           <act classCode="INFRM" moodCode="EVN">
-                                             <id root="aded659e-4d1f-402a-ad41-52cc789f51d1"/>
+                                             <id root="f3ab9a7d-b521-4cd9-ae6b-32193a48ada2"/>
                                              <code code="281296001" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED CT"
                                                    displayName="result comments"/>
                                              <text xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ST">NA</text>
@@ -2521,7 +2521,7 @@ bear on it today. I suspect he has a fracture of his right tibia and fibula.</te
                                        </entryRelationship>
                                        <entryRelationship typeCode="COMP">
                                           <act classCode="INFRM" moodCode="EVN">
-                                             <id root="dd1a457b-7a8d-46a0-9b99-6982a38b7621"/>
+                                             <id root="a42937da-b96b-4b7a-9966-9d759b18792b"/>
                                              <code code="281298000" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED CT"
                                                    displayName="Reference range comments"/>
                                              <text xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ST">NA</text>
@@ -2529,7 +2529,7 @@ bear on it today. I suspect he has a fracture of his right tibia and fibula.</te
                                        </entryRelationship>
                                        <entryRelationship typeCode="COMP">
                                           <observation classCode="OBS" moodCode="EVN">
-                                             <id root="f007d01e-556e-4fa5-8999-eecdf1108189"/>
+                                             <id root="cb902d7e-2338-486f-94d2-6e27d49f9c50"/>
                                              <code code="308552006" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED CT"
                                                    displayName="Report status"/>
                                              <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" code="3"
@@ -2557,7 +2557,7 @@ bear on it today. I suspect he has a fracture of his right tibia and fibula.</te
                                  </component>
                                  <component>
                                     <observation classCode="OBS" moodCode="EVN">
-                                       <id root="1e6da7c6-21f9-4337-95c5-d1f378f60be3"/>
+                                       <id root="768ca5ef-0e64-404f-af1c-54093cbf4e3a"/>
                                        <code code="87687987" codeSystem="2.999.200"
                                              codeSystemName="ACME Laboratories Atomic Result CodeSystem"
                                              displayName="Platelet">
@@ -2570,7 +2570,7 @@ bear on it today. I suspect he has a fracture of his right tibia and fibula.</te
                                                            displayName="Normal"/>
                                        <entryRelationship typeCode="COMP">
                                           <act classCode="INFRM" moodCode="EVN">
-                                             <id root="991fcd54-e361-4df1-836e-44c32bb3af64"/>
+                                             <id root="c8773f0e-2a71-46e7-8230-abc4f5040126"/>
                                              <code code="281296001" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED CT"
                                                    displayName="result comments"/>
                                              <text xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ST">NA</text>
@@ -2578,7 +2578,7 @@ bear on it today. I suspect he has a fracture of his right tibia and fibula.</te
                                        </entryRelationship>
                                        <entryRelationship typeCode="COMP">
                                           <act classCode="INFRM" moodCode="EVN">
-                                             <id root="a8a560b3-9608-4437-8c0c-1d2460bcc568"/>
+                                             <id root="ce4be02c-1602-4331-8fd0-9b02d88688c9"/>
                                              <code code="281298000" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED CT"
                                                    displayName="Reference range comments"/>
                                              <text xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ST">NA</text>
@@ -2586,7 +2586,7 @@ bear on it today. I suspect he has a fracture of his right tibia and fibula.</te
                                        </entryRelationship>
                                        <entryRelationship typeCode="COMP">
                                           <observation classCode="OBS" moodCode="EVN">
-                                             <id root="c6194c34-6b03-4abf-b9c7-1643abcd855c"/>
+                                             <id root="fb7a9e32-3527-47f4-ac8e-7ace48a5715d"/>
                                              <code code="308552006" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED CT"
                                                    displayName="Report status"/>
                                              <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" code="3"
@@ -2614,7 +2614,7 @@ bear on it today. I suspect he has a fracture of his right tibia and fibula.</te
                                  </component>
                                  <component>
                                     <observation classCode="OBS" moodCode="EVN">
-                                       <id root="b4ac6463-d0a6-45ed-a54d-a7bd478eb01f"/>
+                                       <id root="ce1641d6-14a4-4291-b0fe-9fa18d8ca67f"/>
                                        <code code="87736222225" codeSystem="2.999.200"
                                              codeSystemName="ACME Laboratories Atomic Result CodeSystem"
                                              displayName="White Cell Count">
@@ -2629,7 +2629,7 @@ bear on it today. I suspect he has a fracture of his right tibia and fibula.</te
                                                            displayName="Normal"/>
                                        <entryRelationship typeCode="COMP">
                                           <act classCode="INFRM" moodCode="EVN">
-                                             <id root="ebf5668c-45ad-4548-9307-a96ba57babb8"/>
+                                             <id root="69890164-548e-4d52-8b30-50e7e25d85fc"/>
                                              <code code="281296001" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED CT"
                                                    displayName="result comments"/>
                                              <text xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ST">NA</text>
@@ -2637,7 +2637,7 @@ bear on it today. I suspect he has a fracture of his right tibia and fibula.</te
                                        </entryRelationship>
                                        <entryRelationship typeCode="COMP">
                                           <act classCode="INFRM" moodCode="EVN">
-                                             <id root="2b821e9a-789d-4319-a5a6-ac401fcbb508"/>
+                                             <id root="1cd3cb64-a928-493a-b22f-ca254aae9d8f"/>
                                              <code code="281298000" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED CT"
                                                    displayName="Reference range comments"/>
                                              <text xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ST">NA</text>
@@ -2645,7 +2645,7 @@ bear on it today. I suspect he has a fracture of his right tibia and fibula.</te
                                        </entryRelationship>
                                        <entryRelationship typeCode="COMP">
                                           <observation classCode="OBS" moodCode="EVN">
-                                             <id root="6a75a3f4-1c3b-4e30-840f-95d6e35dd22a"/>
+                                             <id root="b36573d0-7786-41fa-a4d3-dd9c8fe8fe8f"/>
                                              <code code="308552006" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED CT"
                                                    displayName="Report status"/>
                                              <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" code="3"
@@ -2673,7 +2673,7 @@ bear on it today. I suspect he has a fracture of his right tibia and fibula.</te
                                  </component>
                                  <component>
                                     <observation classCode="OBS" moodCode="EVN">
-                                       <id root="df47107b-bd68-43fa-8b02-9c454ba4c09c"/>
+                                       <id root="ca8dee9e-2be2-4624-b74d-9942f0a05394"/>
                                        <code code="13546224" codeSystem="2.999.200"
                                              codeSystemName="ACME Laboratories Atomic Result CodeSystem"
                                              displayName="Neutrophils">
@@ -2686,7 +2686,7 @@ bear on it today. I suspect he has a fracture of his right tibia and fibula.</te
                                                            displayName="Normal"/>
                                        <entryRelationship typeCode="COMP">
                                           <act classCode="INFRM" moodCode="EVN">
-                                             <id root="7cc5fa12-033c-4ef1-bdca-3012944dbba4"/>
+                                             <id root="89d678f0-f249-4767-bb2b-a7c2b06e8b54"/>
                                              <code code="281296001" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED CT"
                                                    displayName="result comments"/>
                                              <text xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ST">NA</text>
@@ -2694,7 +2694,7 @@ bear on it today. I suspect he has a fracture of his right tibia and fibula.</te
                                        </entryRelationship>
                                        <entryRelationship typeCode="COMP">
                                           <act classCode="INFRM" moodCode="EVN">
-                                             <id root="113a89b8-00d3-47c1-b55f-e18376ddf640"/>
+                                             <id root="7d4c4271-f1fd-4bed-bdeb-dbb87c393038"/>
                                              <code code="281298000" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED CT"
                                                    displayName="Reference range comments"/>
                                              <text xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ST">NA</text>
@@ -2702,7 +2702,7 @@ bear on it today. I suspect he has a fracture of his right tibia and fibula.</te
                                        </entryRelationship>
                                        <entryRelationship typeCode="COMP">
                                           <observation classCode="OBS" moodCode="EVN">
-                                             <id root="eb9fa993-3b62-419e-918f-fd7f684e3838"/>
+                                             <id root="e74792d9-7aab-40e3-959a-155ebaac3550"/>
                                              <code code="308552006" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED CT"
                                                    displayName="Report status"/>
                                              <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" code="3"
@@ -2730,7 +2730,7 @@ bear on it today. I suspect he has a fracture of his right tibia and fibula.</te
                                  </component>
                                  <component>
                                     <observation classCode="OBS" moodCode="EVN">
-                                       <id root="e7e8aae7-8abc-4b06-b60d-cae2dec36e74"/>
+                                       <id root="e3eee7f0-678d-4ffd-8c57-c20fb1e724fc"/>
                                        <code code="34268543" codeSystem="2.999.200"
                                              codeSystemName="ACME Laboratories Atomic Result CodeSystem"
                                              displayName="Lymphocytes">
@@ -2743,7 +2743,7 @@ bear on it today. I suspect he has a fracture of his right tibia and fibula.</te
                                                            displayName="Normal"/>
                                        <entryRelationship typeCode="COMP">
                                           <act classCode="INFRM" moodCode="EVN">
-                                             <id root="e70856ed-6159-4edd-9eaa-ee17467278bb"/>
+                                             <id root="a9096d30-6a9e-4931-9b38-eb664b326960"/>
                                              <code code="281296001" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED CT"
                                                    displayName="result comments"/>
                                              <text xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ST">NA</text>
@@ -2751,7 +2751,7 @@ bear on it today. I suspect he has a fracture of his right tibia and fibula.</te
                                        </entryRelationship>
                                        <entryRelationship typeCode="COMP">
                                           <act classCode="INFRM" moodCode="EVN">
-                                             <id root="2361de08-5181-40f2-b3e6-71370bb47a40"/>
+                                             <id root="f1945878-16dc-4450-9803-86e1c24cb260"/>
                                              <code code="281298000" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED CT"
                                                    displayName="Reference range comments"/>
                                              <text xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ST">NA</text>
@@ -2759,7 +2759,7 @@ bear on it today. I suspect he has a fracture of his right tibia and fibula.</te
                                        </entryRelationship>
                                        <entryRelationship typeCode="COMP">
                                           <observation classCode="OBS" moodCode="EVN">
-                                             <id root="b43f1696-1275-498b-99a9-5a078eec9f8c"/>
+                                             <id root="a40a1459-669b-459a-a487-e1a962d1a3bf"/>
                                              <code code="308552006" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED CT"
                                                    displayName="Report status"/>
                                              <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" code="3"
@@ -2787,7 +2787,7 @@ bear on it today. I suspect he has a fracture of his right tibia and fibula.</te
                                  </component>
                                  <component>
                                     <observation classCode="OBS" moodCode="EVN">
-                                       <id root="5310753b-d728-4ee7-8caa-669c2dd54e56"/>
+                                       <id root="34ac6edb-23e4-444e-839d-970ee0e1dcb3"/>
                                        <code code="867645352" codeSystem="2.999.200"
                                              codeSystemName="ACME Laboratories Atomic Result CodeSystem"
                                              displayName="Monocytes">
@@ -2800,7 +2800,7 @@ bear on it today. I suspect he has a fracture of his right tibia and fibula.</te
                                                            displayName="Normal"/>
                                        <entryRelationship typeCode="COMP">
                                           <act classCode="INFRM" moodCode="EVN">
-                                             <id root="18ac99fa-cee3-4768-b282-159453026da8"/>
+                                             <id root="0836078a-084d-4812-9288-5ad7ab70d86a"/>
                                              <code code="281296001" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED CT"
                                                    displayName="result comments"/>
                                              <text xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ST">NA</text>
@@ -2808,7 +2808,7 @@ bear on it today. I suspect he has a fracture of his right tibia and fibula.</te
                                        </entryRelationship>
                                        <entryRelationship typeCode="COMP">
                                           <act classCode="INFRM" moodCode="EVN">
-                                             <id root="f45d4daf-35b7-4fa9-ab44-73362512ba4f"/>
+                                             <id root="a93854ef-7a55-4116-acc6-42da25e6234e"/>
                                              <code code="281298000" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED CT"
                                                    displayName="Reference range comments"/>
                                              <text xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ST">NA</text>
@@ -2816,7 +2816,7 @@ bear on it today. I suspect he has a fracture of his right tibia and fibula.</te
                                        </entryRelationship>
                                        <entryRelationship typeCode="COMP">
                                           <observation classCode="OBS" moodCode="EVN">
-                                             <id root="7cc4a935-f6ee-472b-9622-10e84c58dbea"/>
+                                             <id root="68e77d46-9809-47ac-81fb-14de79727300"/>
                                              <code code="308552006" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED CT"
                                                    displayName="Report status"/>
                                              <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" code="3"
@@ -2844,7 +2844,7 @@ bear on it today. I suspect he has a fracture of his right tibia and fibula.</te
                                  </component>
                                  <component>
                                     <observation classCode="OBS" moodCode="EVN">
-                                       <id root="fea1ff31-bcc7-40e9-8d52-32acb3a0c713"/>
+                                       <id root="fd5b8a1d-950a-44c8-8268-7d8199a23af8"/>
                                        <code code="53075433" codeSystem="2.999.1"
                                              codeSystemName="ACME Laboratories Atomic Result CodeSystem"
                                              displayName="Eosinophils">
@@ -2857,7 +2857,7 @@ bear on it today. I suspect he has a fracture of his right tibia and fibula.</te
                                                            displayName="Normal"/>
                                        <entryRelationship typeCode="COMP">
                                           <act classCode="INFRM" moodCode="EVN">
-                                             <id root="510acd8c-df0e-4185-be4c-e1439a173f6b"/>
+                                             <id root="168208a4-34dc-410c-9466-73a4d19fe707"/>
                                              <code code="281296001" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED CT"
                                                    displayName="result comments"/>
                                              <text xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ST">NA</text>
@@ -2865,7 +2865,7 @@ bear on it today. I suspect he has a fracture of his right tibia and fibula.</te
                                        </entryRelationship>
                                        <entryRelationship typeCode="COMP">
                                           <act classCode="INFRM" moodCode="EVN">
-                                             <id root="05052a12-1598-4cdf-96b4-b13bc7627242"/>
+                                             <id root="93305705-3c27-4468-89d0-5413b50d393f"/>
                                              <code code="281298000" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED CT"
                                                    displayName="Reference range comments"/>
                                              <text xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ST">NA</text>
@@ -2873,7 +2873,7 @@ bear on it today. I suspect he has a fracture of his right tibia and fibula.</te
                                        </entryRelationship>
                                        <entryRelationship typeCode="COMP">
                                           <observation classCode="OBS" moodCode="EVN">
-                                             <id root="d4a9324b-f3c6-45cf-8fbc-9a1e1ce62d6e"/>
+                                             <id root="d2d780f6-9d37-40bb-aafb-bdd8895e13e4"/>
                                              <code code="308552006" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED CT"
                                                    displayName="Report status"/>
                                              <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" code="3"
@@ -2901,7 +2901,7 @@ bear on it today. I suspect he has a fracture of his right tibia and fibula.</te
                                  </component>
                                  <component>
                                     <observation classCode="OBS" moodCode="EVN">
-                                       <id root="a14af088-c72f-4545-969b-5db51a7577e8"/>
+                                       <id root="3f2e0356-9c5c-4f90-ad2a-12f1358e82ff"/>
                                        <code code="917542254" codeSystem="2.999.2"
                                              codeSystemName="ACME Laboratories Atomic Result CodeSystem"
                                              displayName="Basophils">
@@ -2914,7 +2914,7 @@ bear on it today. I suspect he has a fracture of his right tibia and fibula.</te
                                                            displayName="Normal"/>
                                        <entryRelationship typeCode="COMP">
                                           <act classCode="INFRM" moodCode="EVN">
-                                             <id root="eabe26e3-926b-4c14-87dd-3f6901569eb8"/>
+                                             <id root="e0fff464-7e8c-4db7-a19f-74d85450a2b3"/>
                                              <code code="281296001" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED CT"
                                                    displayName="result comments"/>
                                              <text xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ST">NA</text>
@@ -2922,7 +2922,7 @@ bear on it today. I suspect he has a fracture of his right tibia and fibula.</te
                                        </entryRelationship>
                                        <entryRelationship typeCode="COMP">
                                           <act classCode="INFRM" moodCode="EVN">
-                                             <id root="6965c735-2c9b-4e39-9921-07af0a844264"/>
+                                             <id root="900ebe02-6bd1-4b35-9c63-c1612096f76d"/>
                                              <code code="281298000" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED CT"
                                                    displayName="Reference range comments"/>
                                              <text xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ST">NA</text>
@@ -2930,7 +2930,7 @@ bear on it today. I suspect he has a fracture of his right tibia and fibula.</te
                                        </entryRelationship>
                                        <entryRelationship typeCode="COMP">
                                           <observation classCode="OBS" moodCode="EVN">
-                                             <id root="4430bf55-8816-4f59-9a46-dbb9994ad73f"/>
+                                             <id root="1716586b-5f15-4c26-a01b-9224d45816bb"/>
                                              <code code="308552006" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED CT"
                                                    displayName="Report status"/>
                                              <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" code="3"
@@ -2960,7 +2960,7 @@ bear on it today. I suspect he has a fracture of his right tibia and fibula.</te
                            </entryRelationship>
                            <entryRelationship typeCode="SUBJ">
                               <observation classCode="OBS" moodCode="EVN">
-                                 <id root="f2ac139d-f3bb-4810-a0d6-02d84ac6163e"/>
+                                 <id root="8162327a-e4bf-46d0-93c9-550006d0d241"/>
                                  <code code="102.16156.231.1.1" codeSystem="1.2.36.1.2001.1001.101"
                                        codeSystemName="NCTIS Data Components"
                                        displayName="Specimen"/>
@@ -2996,24 +2996,24 @@ bear on it today. I suspect he has a fracture of his right tibia and fibula.</te
                                     </specimenRole>
                                  </specimen>
                                  <entryRelationship typeCode="SPRT">
-                                    <observationMedia ID="b68efbdb-08bf-424c-b5fb-742eebcde4b4" classCode="OBS" moodCode="EVN">
-                                       <id root="21692625-0da7-429d-9a53-87e26f613794"/>
+                                    <observationMedia ID="bd86ffbd-6130-4f1d-94c9-ec12d1cf24a1" classCode="OBS" moodCode="EVN">
+                                       <id root="f1dc4be3-890d-4f84-9cf6-752c6b6349cc"/>
                                        <value integrityCheck="rnDKallcoMMOWpcYSZ6jjezO4GQ=" mediaType="image/jpeg">
                                           <reference value="x-raySpecimenDetail.jpg"/>
                                        </value>
                                     </observationMedia>
                                  </entryRelationship>
                                  <entryRelationship typeCode="SPRT">
-                                    <observationMedia ID="baa4eec7-2ed0-46b9-b75f-8e859203e427" classCode="OBS" moodCode="EVN">
-                                       <id root="3b8290c4-3b4f-4a05-9078-a0d6304f47f1"/>
+                                    <observationMedia ID="ca4eda16-a5a0-44b9-8554-8d7039273c36" classCode="OBS" moodCode="EVN">
+                                       <id root="ca4837f3-68c7-49a8-907a-93058339f2e9"/>
                                        <value integrityCheck="rnDKallcoMMOWpcYSZ6jjezO4GQ=" mediaType="image/jpeg">
                                           <reference value="x-raySpecimenDetail.jpg"/>
                                        </value>
                                     </observationMedia>
                                  </entryRelationship>
                                  <entryRelationship typeCode="SPRT">
-                                    <observationMedia ID="d555c4c8-47ea-4aba-b1f4-e1005824d2d7" classCode="OBS" moodCode="EVN">
-                                       <id root="e286e6fe-be5c-4d07-9b03-f9e0bd34c4e5"/>
+                                    <observationMedia ID="f67813f0-494f-440e-8dbe-f4dc59cfafb8" classCode="OBS" moodCode="EVN">
+                                       <id root="8181f915-4044-4cb2-9d46-afa8b4a52a59"/>
                                        <value integrityCheck="xARVz193m689kRoZe0c6ZXJ2wvs=" mediaType="image/jpeg">
                                           <reference value="x-ray.jpg"/>
                                        </value>
@@ -3021,7 +3021,7 @@ bear on it today. I suspect he has a fracture of his right tibia and fibula.</te
                                  </entryRelationship>
                                  <entryRelationship typeCode="COMP">
                                     <observation classCode="OBS" moodCode="EVN">
-                                       <id root="105ffdcf-682e-4573-88f4-6b2e3c4a5c44"/>
+                                       <id root="e072afeb-a61b-48c7-80ae-232f512fa77b"/>
                                        <code code="103.16171" codeSystem="1.2.36.1.2001.1001.101"
                                              codeSystemName="NCTIS Data Components"
                                              displayName="Sampling Preconditions"/>
@@ -3034,7 +3034,7 @@ bear on it today. I suspect he has a fracture of his right tibia and fibula.</te
                                  </entryRelationship>
                                  <entryRelationship typeCode="COMP">
                                     <observation classCode="OBS" moodCode="EVN">
-                                       <id root="5125c780-9176-4e64-9aba-455ad25dede5"/>
+                                       <id root="46dd2562-a6c5-4528-9cf9-27a3d7d75743"/>
                                        <code code="103.11014" codeSystem="1.2.36.1.2001.1001.101"
                                              codeSystemName="NCTIS Data Components"
                                              displayName="DateTime Received"/>
@@ -3044,7 +3044,7 @@ bear on it today. I suspect he has a fracture of his right tibia and fibula.</te
                                  </entryRelationship>
                                  <entryRelationship typeCode="COMP">
                                     <observation classCode="OBS" moodCode="EVN">
-                                       <id root="e8c05112-7f12-4ca4-abc6-510462a0d0fc"/>
+                                       <id root="aa870419-d180-49ea-ab54-f32dc947d2d8"/>
                                        <code code="103.16187" codeSystem="1.2.36.1.2001.1001.101"
                                              codeSystemName="NCTIS Data Components"
                                              displayName="Parent Specimen Identifier"/>
@@ -3060,8 +3060,8 @@ bear on it today. I suspect he has a fracture of his right tibia and fibula.</te
                         </observation>
                      </entry>
                      <entry>
-                        <observationMedia ID="abf37cf8-7f24-45b3-b570-1e6b1cbeefe2" classCode="OBS" moodCode="EVN">
-                           <id root="ded986da-5e68-414d-8742-2dc3427b5483"/>
+                        <observationMedia ID="a97d69cc-f7d1-4bb7-ab7b-b5ae3f23f9cc" classCode="OBS" moodCode="EVN">
+                           <id root="3f0021ae-ffde-4492-a2ed-d06e049b528e"/>
                            <value integrityCheck="WuGzArOJ0d+HNGnOw7xj3uKVXig=" mediaType="application/pdf">
                               <reference value="radiologyreport.pdf"/>
                            </value>
@@ -3071,7 +3071,7 @@ bear on it today. I suspect he has a fracture of his right tibia and fibula.</te
                </component>
                <component>
                   <section>
-                     <id root="5fc0c534-2b2a-4ba1-999d-cf967dfc6e95"/>
+                     <id root="f52ec0a2-6753-4af4-ae78-afadfe8178fe"/>
                      <code code="102.16145" codeSystem="1.2.36.1.2001.1001.101"
                            codeSystemName="NCTIS Data Components"
                            displayName="Imaging Examination Result"/>
@@ -3102,10 +3102,10 @@ bear on it today. I suspect he has a fracture of his right tibia and fibula.</te
                               </tr>
                            </tbody>
                         </table>
-                        <renderMultiMedia referencedObject="f3dafa6e-a040-41c3-baf4-e4d182e877aa">
+                        <renderMultiMedia referencedObject="b51f8553-19ab-4b80-9717-8f82a680fb2f">
                            <caption>Imaging Examination Result x-rayImagingExaminationResult.jpg</caption>
                         </renderMultiMedia>
-                        <renderMultiMedia referencedObject="c652f273-d3fa-48a8-92cc-0fbd397f872d">
+                        <renderMultiMedia referencedObject="d8dbc20d-ac83-4dce-a596-0a82f803260f">
                            <caption>Imaging Examination Result x-rayImagingExaminationResult.jpg</caption>
                         </renderMultiMedia>
                         <table>
@@ -3123,10 +3123,10 @@ bear on it today. I suspect he has a fracture of his right tibia and fibula.</te
                               </tr>
                            </tbody>
                         </table>
-                        <renderMultiMedia referencedObject="d26aa8ee-485c-46fe-9e07-4ed747358025">
+                        <renderMultiMedia referencedObject="c37735d0-294e-4dbd-9ee0-506693e3c115">
                            <caption>Result Group Image x-rayimagingExaminationResultGroup.jpg</caption>
                         </renderMultiMedia>
-                        <renderMultiMedia referencedObject="ecb5b097-f98b-4e12-9111-37cd543a9010">
+                        <renderMultiMedia referencedObject="c3b57b37-3646-419e-8517-03297f6d8aa6">
                            <caption>Result Group Image x-rayimagingExaminationResultGroup.jpg</caption>
                         </renderMultiMedia>
                         <table>
@@ -3192,13 +3192,13 @@ bear on it today. I suspect he has a fracture of his right tibia and fibula.</te
                               </tr>
                            </tbody>
                         </table>
-                        <renderMultiMedia referencedObject="d8022f08-199d-4158-8774-79a057b32cb3">
+                        <renderMultiMedia referencedObject="ebe9e808-7d2a-42f9-9567-be91dab191b1">
                            <caption>Image x-ray.jpg</caption>
                         </renderMultiMedia>
                      </text>
                      <entry>
                         <observation classCode="OBS" moodCode="EVN">
-                           <id root="6d37e227-4df1-49fc-bb83-8cb56f5d4a91"/>
+                           <id root="e39fbcba-143a-45fa-9033-e19183e8a7d6"/>
                            <code>
                               <originalText>Result Name</originalText>
                            </code>
@@ -3223,16 +3223,16 @@ bear on it today. I suspect he has a fracture of his right tibia and fibula.</te
                               </qualifier>
                            </targetSiteCode>
                            <entryRelationship typeCode="REFR">
-                              <observationMedia ID="f3dafa6e-a040-41c3-baf4-e4d182e877aa" classCode="OBS" moodCode="EVN">
-                                 <id root="b521f6c6-0260-414e-8fd1-539b2542b9e2"/>
+                              <observationMedia ID="b51f8553-19ab-4b80-9717-8f82a680fb2f" classCode="OBS" moodCode="EVN">
+                                 <id root="330c1261-37d4-479b-9df5-455c9e42be29"/>
                                  <value integrityCheck="1OiMgK1xVcbWQvhVPI8LOVuvg5A=" mediaType="image/jpeg">
                                     <reference value="x-rayImagingExaminationResult.jpg"/>
                                  </value>
                               </observationMedia>
                            </entryRelationship>
                            <entryRelationship typeCode="REFR">
-                              <observationMedia ID="c652f273-d3fa-48a8-92cc-0fbd397f872d" classCode="OBS" moodCode="EVN">
-                                 <id root="8fdfe98e-23d2-49df-bab8-66c7ae54fdf3"/>
+                              <observationMedia ID="d8dbc20d-ac83-4dce-a596-0a82f803260f" classCode="OBS" moodCode="EVN">
+                                 <id root="245d2b21-939d-40cd-9517-cc313c4d6223"/>
                                  <value integrityCheck="1OiMgK1xVcbWQvhVPI8LOVuvg5A=" mediaType="image/jpeg">
                                     <reference value="x-rayImagingExaminationResult.jpg"/>
                                  </value>
@@ -3240,7 +3240,7 @@ bear on it today. I suspect he has a fracture of his right tibia and fibula.</te
                            </entryRelationship>
                            <entryRelationship typeCode="COMP">
                               <observation classCode="OBS" moodCode="EVN">
-                                 <id root="8bc66ce1-0cdf-4611-9ffd-797ffb79ee01"/>
+                                 <id root="9cd98d17-ad68-4e56-98ba-727544c3de6a"/>
                                  <code xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" code="308552006"
                                        codeSystem="2.16.840.1.113883.6.96"
                                        codeSystemName="SNOMED CT"
@@ -3257,7 +3257,7 @@ bear on it today. I suspect he has a fracture of his right tibia and fibula.</te
                            </entryRelationship>
                            <entryRelationship typeCode="COMP">
                               <act classCode="INFRM" moodCode="EVN">
-                                 <id root="90726b20-7186-4f9c-ab9e-ffc73da7b963"/>
+                                 <id root="200cf6fa-8953-44cf-84d3-40be78cf11fd"/>
                                  <code code="55752-0" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"
                                        displayName="Clinical information"/>
                                  <text xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ST">Fluid Retention.</text>
@@ -3265,7 +3265,7 @@ bear on it today. I suspect he has a fracture of his right tibia and fibula.</te
                            </entryRelationship>
                            <entryRelationship typeCode="REFR">
                               <observation classCode="OBS" moodCode="EVN">
-                                 <id root="f07b66b1-0159-4445-9eea-a30c8dbbb834"/>
+                                 <id root="116a8464-eeb7-4769-b64f-ac52640dfb43"/>
                                  <code xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" code="103.16503"
                                        codeSystem="1.2.36.1.2001.1001.101"
                                        codeSystemName="NCTIS Data Components"
@@ -3276,14 +3276,14 @@ bear on it today. I suspect he has a fracture of his right tibia and fibula.</te
                            </entryRelationship>
                            <entryRelationship typeCode="COMP">
                               <organizer classCode="BATTERY" moodCode="EVN">
-                                 <id root="55821b6f-8d9e-4cd1-89a8-7237f0c33847"/>
-                                 <code code="51751261-9367-4c75-ae1e-d3e72b104fe2" codeSystem="2.999.333">
+                                 <id root="48113551-fc9f-4b77-a5e4-172eb7d01692"/>
+                                 <code code="94f9b520-0aab-4ce7-8619-99c2a236aef4" codeSystem="2.999.333">
                                     <originalText>Result Group Name</originalText>
                                  </code>
                                  <statusCode code="completed"/>
                                  <component>
                                     <observation classCode="OBS" moodCode="EVN">
-                                       <id root="ed0792d5-e3e3-4110-a6ba-6bf9f302ed83"/>
+                                       <id root="9098ebb9-7edc-4d0b-aaaf-53f249d24aae"/>
                                        <code>
                                           <originalText>Imaging Result Name</originalText>
                                        </code>
@@ -3304,7 +3304,7 @@ bear on it today. I suspect he has a fracture of his right tibia and fibula.</te
                                        </targetSiteCode>
                                        <entryRelationship typeCode="COMP">
                                           <act classCode="INFRM" moodCode="EVN">
-                                             <id root="58c44460-95cd-49f7-85f9-34c69c278e12"/>
+                                             <id root="3bce52fa-32d3-4f07-b462-3dfd0ca03bdb"/>
                                              <code code="281296001" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED CT"
                                                    displayName="result comments"/>
                                              <text xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ST">Please</text>
@@ -3312,23 +3312,23 @@ bear on it today. I suspect he has a fracture of his right tibia and fibula.</te
                                        </entryRelationship>
                                        <entryRelationship typeCode="COMP">
                                           <act classCode="INFRM" moodCode="EVN">
-                                             <id root="7c5a2a34-f2fa-4c86-9745-b711c7bd2533"/>
+                                             <id root="67dc11f0-3ef4-48a3-bd40-5caf98754fc9"/>
                                              <code code="281296001" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED CT"
                                                    displayName="result comments"/>
                                              <text xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ST">Add Comments</text>
                                           </act>
                                        </entryRelationship>
                                        <entryRelationship typeCode="REFR">
-                                          <observationMedia ID="d26aa8ee-485c-46fe-9e07-4ed747358025" classCode="OBS" moodCode="EVN">
-                                             <id root="19943960-3772-46ae-a18d-9d034023eb5d"/>
+                                          <observationMedia ID="c37735d0-294e-4dbd-9ee0-506693e3c115" classCode="OBS" moodCode="EVN">
+                                             <id root="1e765b15-2683-4271-988a-5f6ab4e46438"/>
                                              <value integrityCheck="V2GuSB9DTpOJbLtPYZcAH/ebEpI=" mediaType="image/jpeg">
                                                 <reference value="x-rayimagingExaminationResultGroup.jpg"/>
                                              </value>
                                           </observationMedia>
                                        </entryRelationship>
                                        <entryRelationship typeCode="REFR">
-                                          <observationMedia ID="ecb5b097-f98b-4e12-9111-37cd543a9010" classCode="OBS" moodCode="EVN">
-                                             <id root="8f4ccb61-ab65-4c32-b571-88c203561dbe"/>
+                                          <observationMedia ID="c3b57b37-3646-419e-8517-03297f6d8aa6" classCode="OBS" moodCode="EVN">
+                                             <id root="55d7f984-3fe6-412e-9ee0-7cdf0e2dbade"/>
                                              <value integrityCheck="V2GuSB9DTpOJbLtPYZcAH/ebEpI=" mediaType="image/jpeg">
                                                 <reference value="x-rayimagingExaminationResultGroup.jpg"/>
                                              </value>
@@ -3354,7 +3354,7 @@ bear on it today. I suspect he has a fracture of his right tibia and fibula.</te
                            </entryRelationship>
                            <entryRelationship inversionInd="true" typeCode="SUBJ">
                               <act classCode="ACT" moodCode="EVN">
-                                 <id root="6f776a8c-6698-4cf3-a22f-7fe14166a866"/>
+                                 <id root="a9c623ca-1aba-4f4f-9d19-403492ca8fcf"/>
                                  <code code="102.16511" codeSystem="1.2.36.1.2001.1001.101"
                                        codeSystemName="NCTIS Data Components"
                                        displayName="Examination Request Details"/>
@@ -3369,7 +3369,7 @@ bear on it today. I suspect he has a fracture of his right tibia and fibula.</te
                                  </entryRelationship>
                                  <entryRelationship typeCode="COMP">
                                     <observation classCode="OBS" moodCode="EVN">
-                                       <id root="cdc2fcdd-e6f6-4440-b470-39d738b92f22"/>
+                                       <id root="bed7f9bc-e6ec-450b-8c0d-3b01cc8d1719"/>
                                        <code code="103.16514" codeSystem="1.2.36.1.2001.1001.101"
                                              codeSystemName="NCTIS Data Components"
                                              displayName="Report Identifier"/>
@@ -3383,7 +3383,7 @@ bear on it today. I suspect he has a fracture of his right tibia and fibula.</te
                                              displayName="DICOM Study Identifier"/>
                                        <entryRelationship typeCode="COMP">
                                           <observation classCode="OBS" moodCode="EVN">
-                                             <id extension="Image Identifier" root="76249f6c-5a82-48cd-82bf-3139453a6957"/>
+                                             <id extension="Image Identifier" root="5860dc12-e7a7-442d-8268-4e89f3a8608f"/>
                                              <code code="102.16515" codeSystem="1.2.36.1.2001.1001.101"
                                                    codeSystemName="NCTIS Data Components"
                                                    displayName="Image Details"/>
@@ -3408,8 +3408,8 @@ bear on it today. I suspect he has a fracture of his right tibia and fibula.</te
                                                 </observation>
                                              </entryRelationship>
                                              <entryRelationship typeCode="SPRT">
-                                                <observationMedia ID="d8022f08-199d-4158-8774-79a057b32cb3" classCode="OBS" moodCode="EVN">
-                                                   <id root="4b02baed-5d1b-41c4-b159-2343cdf2d1ef"/>
+                                                <observationMedia ID="ebe9e808-7d2a-42f9-9567-be91dab191b1" classCode="OBS" moodCode="EVN">
+                                                   <id root="db92fb8c-db61-446c-bab4-2e36e7391edb"/>
                                                    <value integrityCheck="xARVz193m689kRoZe0c6ZXJ2wvs=" mediaType="image/jpeg">
                                                       <reference value="x-ray.jpg"/>
                                                    </value>
@@ -3423,7 +3423,7 @@ bear on it today. I suspect he has a fracture of his right tibia and fibula.</te
                            </entryRelationship>
                            <entryRelationship typeCode="COMP">
                               <observation classCode="OBS" moodCode="EVN">
-                                 <id root="c81405cb-efff-414a-a241-ab3c511ff8f8"/>
+                                 <id root="7143bca5-c8a3-4d4c-bdd2-3d06627cd7bc"/>
                                  <code xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" code="103.16589"
                                        codeSystem="1.2.36.1.2001.1001.101"
                                        codeSystemName="NCTIS Data Components"

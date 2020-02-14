@@ -1,9 +1,12 @@
 # Change Log/Revision History
 
-  = 1.X = 
+  = 1.2.1 = 
   =======
   + fixed location of generated shs min file
   + removed validation check for telephone
+  + for PSML, made the urgency flag optional + updated sample
+  + for ES, updated error mess for attachment in helper
+  + removed 6 files no longer required
 
   = 1.2 = 
   =======

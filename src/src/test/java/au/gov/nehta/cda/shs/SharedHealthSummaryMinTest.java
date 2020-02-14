@@ -110,9 +110,9 @@ public class SharedHealthSummaryMinTest extends Base {
   private static final String SCHEMATRON = SHARED_HEALTH_SUMMARY_3B.resource().getSchematron();
   private static String SCHEMATRON_TEMPLATE_PATH = "resources/SharedHealthSummary";
 
-
   private static final String DOCUMENT_FILE_NAME = TEST_GENERATION + "/shs/shs-min-java.xml";
-  private static final String MIN_EXCLUDED_DOCUMENT_FILE_NAME = "/shs/shs-min-excluded-java.xml";
+  private static final String MIN_EXCLUDED_DOCUMENT_FILE_NAME =
+      TEST_GENERATION + "/shs/shs-min-excluded-java.xml";
 
 
   @Test

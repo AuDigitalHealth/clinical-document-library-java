@@ -65,6 +65,10 @@ public interface RequestedService {
 
   void setDateTimeServiceScheduled(PreciseDate dateTimeServiceScheduled);
 
+  void setIncludePrioriyCode(Boolean includePrioriyCode);
+  
+  public Boolean getIncludePrioriyCode();
+
   void setSubjectOfCareInstructionDesc(List<String> subjectOfCareInstructionDesc);
 
   List<String> getSubjectOfCareInstructionDesc();
