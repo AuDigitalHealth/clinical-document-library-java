@@ -1,0 +1,4 @@
+**/target/
+**/test/generation/**
+test.failed.file
+
