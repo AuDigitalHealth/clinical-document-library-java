@@ -5,9 +5,17 @@
 
 	<groupId>au.gov.digitalhealth</groupId>
 	<artifactId>clinical-document-library</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>1.0-SNAPSHOT</version>
 
 	<name>Clinical Document Library</name>
+
+	<repositories>
+		<repository>
+			<id>github</id>
+			<name>GitHub stav09 Apache Maven Packages</name>
+			<url>https://maven.pkg.github.com/stav09/clinical-document-library-java</url>
+		</repository>
+	</repositories>
 
 	<dependencies>
 		<dependency>
@@ -24,34 +32,26 @@
 
 		<dependency>
 			<groupId>au.gov.nehta</groupId>
-			<artifactId>xsd-cda-common</artifactId>
+			<artifactId>nehta-rpvis-compiled-xsd-cda-common</artifactId>
 			<version>2.1</version>
-			<scope>system</scope>
-			<systemPath>${basedir}/lib/provided/nehta-rpvis-compiled-xsd-cda-common-2.1.jar</systemPath>
 		</dependency>
 
 		<dependency>
 			<groupId>au.gov.nehta</groupId>
-			<artifactId>schematron-check</artifactId>
+			<artifactId>nehta-schematron-check</artifactId>
 			<version>1.0</version>
-			<scope>system</scope>
-			<systemPath>${basedir}/lib/provided/nehta-schematron-check-1.0.jar</systemPath>
 		</dependency>
 
 		<dependency>
 			<groupId>au.gov.nehta</groupId>
-			<artifactId>vendorlibrary-common</artifactId>
+			<artifactId>nehta-vendorlibrary-java-common</artifactId>
 			<version>1.0.1</version>
-			<scope>system</scope>
-			<systemPath>${basedir}/lib/provided/nehta-vendorlibrary-java-common-1.0.1.jar</systemPath>
 		</dependency>
 
 		<dependency>
 			<groupId>au.gov.nehta</groupId>
-			<artifactId>smi-common-utils</artifactId>
+			<artifactId>nehta-smi-common-utils</artifactId>
 			<version>1.2</version>
-			<scope>system</scope>
-			<systemPath>${basedir}/lib/provided/nehta-smi-common-utils-1.2.jar</systemPath>
 		</dependency>
 
 		<dependency>
@@ -100,4 +100,5 @@
 			</plugin>
 		</plugins>
 	</build>
+
 </project>
