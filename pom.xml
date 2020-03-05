@@ -9,14 +9,6 @@
 
 	<name>Clinical Document Library</name>
 
-	<repositories>
-		<repository>
-			<id>github</id>
-			<name>GitHub stav09 Apache Maven Packages</name>
-			<url>https://maven.pkg.github.com/stav09/clinical-document-library-java</url>
-		</repository>
-	</repositories>
-
 	<dependencies>
 		<dependency>
 			<groupId>commons-jxpath</groupId>
