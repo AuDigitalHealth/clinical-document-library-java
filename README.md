@@ -1,6 +1,6 @@
 # CDA&copy; Document Library
 
-[![Build Status](https://travis-ci.org/stav09/clinical-document-library-java.png?branch=master)](https://travis-ci.org/stav09/clinical-document-library-java)
+[![Build Status](https://travis-ci.com/stav09/clinical-document-library-java.png?branch=master)](https://travis-ci.com/stav09/clinical-document-library-java)
 
 This is a Java software library that aims to make the generation of Clinical Document Architecture&copy; (CDA) documents easy and encapsulates validation logic to ensure that the result document conforms to the standards outlines by CDA, HL7 v3 and the relevant implementation guide.
 
