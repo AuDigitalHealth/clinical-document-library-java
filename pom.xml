@@ -1,0 +1,97 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<groupId>au.gov.digitalhealth</groupId>
+	<artifactId>clinical-document-library</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+
+	<name>Clinical Document Library</name>
+
+	<dependencies>
+		<dependency>
+			<groupId>commons-jxpath</groupId>
+			<artifactId>commons-jxpath</artifactId>
+			<version>1.3</version>
+		</dependency>
+
+		<dependency>
+			<groupId>joda-time</groupId>
+			<artifactId>joda-time</artifactId>
+			<version>1.6.2</version>
+		</dependency>
+
+		<dependency>
+			<groupId>au.gov.nehta</groupId>
+			<artifactId>xsd-cda-common</artifactId>
+			<version>2.1</version>
+			<scope>system</scope>
+			<systemPath>${basedir}/lib/provided/nehta-rpvis-compiled-xsd-cda-common-2.1.jar</systemPath>
+		</dependency>
+
+		<dependency>
+			<groupId>au.gov.nehta</groupId>
+			<artifactId>schematron-check</artifactId>
+			<version>1.0</version>
+			<scope>system</scope>
+			<systemPath>${basedir}/lib/provided/nehta-schematron-check-1.0.jar</systemPath>
+		</dependency>
+
+		<dependency>
+			<groupId>au.gov.nehta</groupId>
+			<artifactId>vendorlibrary-common</artifactId>
+			<version>1.0.1</version>
+			<scope>system</scope>
+			<systemPath>${basedir}/lib/provided/nehta-vendorlibrary-java-common-1.0.1.jar</systemPath>
+		</dependency>
+
+		<dependency>
+			<groupId>au.gov.nehta</groupId>
+			<artifactId>smi-common-utils</artifactId>
+			<version>1.2</version>
+			<scope>system</scope>
+			<systemPath>${basedir}/lib/provided/nehta-smi-common-utils-1.2.jar</systemPath>
+		</dependency>
+
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>4.8</version>
+			<scope>test</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>net.sf.saxon</groupId>
+			<artifactId>saxon</artifactId>
+			<version>8.7</version>
+			<scope>test</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>net.sf.saxon</groupId>
+			<artifactId>saxon-dom</artifactId>
+			<version>8.7</version>
+		</dependency>
+
+	</dependencies>
+
+	<build>
+		<plugins>
+			<plugin>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>3.8.0</version>
+				<configuration>
+					<source>1.8</source>
+					<target>1.8</target>
+				</configuration>
+			</plugin>
+
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-surefire-plugin</artifactId>
+				<version>2.22.0</version>
+			</plugin>
+		</plugins>
+	</build>
+</project>
