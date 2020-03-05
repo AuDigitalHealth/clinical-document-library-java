@@ -1,4 +1,8 @@
 **/target/
 **/test/generation/**
 test.failed.file
+.project
+.metadata/
+.settings
+.classpath
 
