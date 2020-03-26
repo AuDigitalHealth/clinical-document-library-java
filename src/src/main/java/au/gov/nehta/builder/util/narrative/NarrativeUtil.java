@@ -498,10 +498,15 @@ public class NarrativeUtil {
     List<StrucDocItem> addresseeDetailsItems = new LinkedList<>();
     serviceProvider = participationServiceProvider.getParticipant();
     StrucDocItem participationPeriodItem = objectFactory.createStrucDocItem();
-    participationPeriodItem.getContent().add(
-        print(participationServiceProvider.getParticipationPeriod().getLow()) + " -> "
-            + print(participationServiceProvider.getParticipationPeriod().getHigh()));
-    addresseeDetailsItems.add(participationPeriodItem);
+	
+	// Check if populated
+	if (participationServiceProvider.getParticipationPeriod() != null) {
+		participationPeriodItem.getContent().add(
+			print(participationServiceProvider.getParticipationPeriod().getLow()) + " -> "
+				+ print(participationServiceProvider.getParticipationPeriod().getHigh()));
+		addresseeDetailsItems.add(participationPeriodItem);
+	}
+
     StrucDocItem participationRoleItem = objectFactory.createStrucDocItem();
     participationRoleItem.getContent()
         .add(print(participationServiceProvider.getRole()));

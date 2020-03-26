@@ -1,5 +1,9 @@
 # Change Log/Revision History
 
+  = 1.2.2 = 
+  =======
+  + fixed optional date in Service Referral [SERVICE PROVIDER > Participation Period]
+
   = 1.2.1 = 
   =======
   + fixed location of generated shs min file
