@@ -1,0 +1,32 @@
+<!--
+_________________________________________________________________________________________________________________________________________________________________________________________
+                  Generated File - Do Not Edit File Directly                                                                                                                             
+                  __________________________________________
+
+                  Generated          : 30/10/2015 10:03:31 AM
+
+                  Product            : Goals of Care
+                  Release            : CDA_Implementation_Guide_v1.0
+                  Generator Version  : 
+                                                                                                                                                                                         
+_________________________________________________________________________________________________________________________________________________________________________________________
+-->
+    <pattern name="p-Goals_of_Care_Xml_Stylesheet_Exclusion-errors"
+        id="p-Goals_of_Care_Xml_Stylesheet_Exclusion-errors"
+        see="#p-Goals_of_Care_Xml_Stylesheet_Exclusion-errors">
+
+
+      
+
+
+<rule context="/">
+
+    <report test="processing-instruction('xml-stylesheet')">Error: Goals of Care - There shall be no
+        direct reference to a stylesheet in the CDA document. Refer to
+        "025254 - Prohibit specific rendering of CDA content" of the
+        Clinical_Documents_Common_Conformance_Profile_v1.6 and Goals_of_Care_CDA_Implementation_Guide_v1.0.</report>
+
+</rule>
+
+    </pattern>
+

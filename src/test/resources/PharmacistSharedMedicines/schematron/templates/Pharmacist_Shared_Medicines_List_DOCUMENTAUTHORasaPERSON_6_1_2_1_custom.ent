@@ -1,0 +1,43 @@
+<pattern
+  name="p-Pharmacist_Shared_Medicines_List_DOCUMENTAUTHORasaPERSON_6_1_2_1_custom-errors"
+  id="p-Pharmacist_Shared_Medicines_List_DOCUMENTAUTHORasaPERSON_6_1_2_1_custom-errors"
+  see="#p-Pharmacist_Shared_Medicines_List_DOCUMENTAUTHORasaPERSON_6_1_2_1_custom-errors">
+
+  <rule context="/cda:ClinicalDocument/cda:author/cda:assignedAuthor">
+
+    <assert test="(cda:addr[@use = 'WP'])">Error: Pharmacist Shared Medicines List
+      - 6.1.2.1 DOCUMENT AUTHOR as a PERSON - "Document Author / Participant / Address" -
+      The 'addr' tag with 'use' attribute having value 'WP' shall exist. Refer to section "027993
+      Document author workplace address" of the
+      Pharmacist_Shared_Medicines_List_Conformance_Profile and section 6.1.2.1 of the
+      Core_Level_One_Clinical_Document_CDA_Implementation_Guide_v1.1.
+    </assert>
+
+    <report test="count(cda:addr[@use = 'WP']) > 1">Error: Pharmacist Shared Medicines List
+      - 6.1.2.1 DOCUMENT AUTHOR as a PERSON - "Document Author / Participant / Address" -
+      The 'addr' tag with 'use' attribute having value 'WP' shall exist only
+      once. Refer to section "027993 Document author workplace address" of the
+      Pharmacist_Shared_Medicines_List_Conformance_Profile and section 6.1.2.1 of the
+      Core_Level_One_Clinical_Document_CDA_Implementation_Guide_v1.1.
+    </report>
+
+
+  </rule>
+
+
+  <rule context="/cda:ClinicalDocument/cda:author/cda:assignedAuthor/cda:addr[@use = 'WP']">
+
+    <report
+      test="cda:country and (translate(cda:country, 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ') != 'AUSTRALIA')">
+      Error: Pharmacist
+      Shared Medicines List - 6.1.2.1 DOCUMENT AUTHOR as a PERSON - "Document Author /
+      Participant / Address" - The 'country' tag shall have the value 'Australia'. Refer to section
+      "027993 Document author workplace address" of the
+      Pharmacist_Shared_Medicines_List_Conformance_Profile and section 6.1.2.1 of the
+      Core_Level_One_Clinical_Document_CDA_Implementation_Guide_v1.1.
+    </report>
+
+  </rule>
+
+</pattern>
+

@@ -1,0 +1,84 @@
+
+
+    <!-- e-Discharge Summary Clinical Document:  6.1.2 Subject of Care -->
+
+    <!-- Context: ClinicalDocument/Subject of Care -->
+
+    <!-- Status: Last Reviewed: Not reviewed.
+         Status: Last Updated : 11/07/2012 -->
+
+
+    <pattern name="p-e-Discharge_Summary_Subject_Of_Care_Administrative_Gender_Code-errors"
+        id="p-e-Discharge_Summary_Subject_Of_Care_Administrative_Gender_Code-errors"
+        see="#p-e-Discharge_Summary_Subject_Of_Care_Administrative_Gender_Code-errors">
+
+        <rule context="/cda:ClinicalDocument/cda:recordTarget/cda:patientRole/cda:patient">
+
+            <!-- Sex - 1..1 -->
+
+            <assert test="cda:administrativeGenderCode">Error: e-Discharge Summary - 6.1.2 Subject
+                Of Care - "Subject of Care / Participant / Person or Organisation or Device / Person
+                / Demographic Data / Sex" - The 'administrativeGenderCode' tag is missing. Refer to
+                section 6.1.2 of the
+                e-Discharge_Summary_CDA_Implementation_Guide_v3.4.</assert>
+
+            <report test="count(cda:administrativeGenderCode) > 1">Error: e-Discharge Summary -
+                6.1.2 Subject Of Care - "Subject of Care / Participant / Person or Organisation or
+                Device / Person / Demographic Data / Sex" - The 'administrativeGenderCode' tag shall
+                appear only once. Refer to section 6.1.2 of the
+                e-Discharge_Summary_CDA_Implementation_Guide_v3.4.</report>
+
+            <assert test="cda:administrativeGenderCode[@code]">Error: e-Discharge Summary - 6.1.2
+                Subject Of Care - "Subject of Care / Participant / Person or Organisation or Device
+                / Person / Demographic Data / Sex" - The 'administrativeGenderCode' tag 'code'
+                attribute is missing. Refer to section 6.1.2 and 10.2 of the
+                e-Discharge_Summary_CDA_Implementation_Guide_v3.4.</assert>
+
+            <assert test="cda:administrativeGenderCode[@codeSystem]">Error: e-Discharge Summary -
+                6.1.2 Subject Of Care - "Subject of Care / Participant / Person or Organisation or
+                Device / Person / Demographic Data / Sex" - The 'administrativeGenderCode' tag
+                'codeSystem' attribute is missing. Refer to section 6.1.2 an 10.2 of the
+                e-Discharge_Summary_CDA_Implementation_Guide_v3.4.</assert>
+
+            <assert test="cda:administrativeGenderCode[@codeSystemName]">Error: e-Discharge Summary
+                - 6.1.2 Subject Of Care - "Subject of Care / Participant / Person or Organisation or
+                Device / Person / Demographic Data / Sex" - The 'administrativeGenderCode' tag
+                'codeSystemName' attribute is missing. Refer to section 6.1.2 and 10.2 of the
+                e-Discharge_Summary_CDA_Implementation_Guide_v3.4.</assert>
+
+            <assert test="cda:administrativeGenderCode[@displayName]">Error: e-Discharge Summary -
+                6.1.2 Subject Of Care - "Subject of Care / Participant / Person or Organisation or
+                Device / Person / Demographic Data / Sex" - The 'administrativeGenderCode' tag
+                'displayName' attribute is missing. Refer to section 6.1.2 and 10.2 of the
+                e-Discharge_Summary_CDA_Implementation_Guide_v3.4.</assert>
+
+            <assert
+                test="document('TEMPLATE/VALDN/CDAValidate_Vocabs.xml', .)/systems/system[@codeSystemName = 'AS_5017-2006_Health_Care_Client_Identifier_Sex']/code[(@code = current()/cda:administrativeGenderCode/@code) and (@codeSystemName = current()/cda:administrativeGenderCode/@codeSystemName) and (@codeSystem = current()/cda:administrativeGenderCode/@codeSystem) and (translate(@displayName,  'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ') = translate(current()/cda:administrativeGenderCode/@displayName, 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'))]"
+                >Error: e-Discharge Summary - 6.1.2 Subject Of Care - "Subject of Care / Participant
+                / Person or Organisation or Device / Person / Demographic Data / Sex" - The
+                'administrativeGenderCode' tag 'code', 'codeSystem', 'codeSystemName' and
+                'displayName' attributes shall contain values as per AS 5017-2006 Health Care Client
+                Identifier Sex. Refer to section 6.1.2 and 10.2 of the
+                e-Discharge_Summary_CDA_Implementation_Guide_v3.4.</assert>
+
+            <assert test="cda:administrativeGenderCode[@code = substring(@displayName,1,1)]">Error:
+                e-Discharge Summary - 6.1.2 Subject Of Care - "Subject of Care / Participant /
+                Person or Organisation or Device / Person / Demographic Data / Sex" - The
+                'administrativeGenderCode' tag 'code' and 'displayName' attributes shall match as
+                per AS 5017-2006 Health Care Client Identifier Sex. Refer to section 6.1.2 and 10.2
+                of the e-Discharge_Summary_CDA_Implementation_Guide_v3.4.</assert>
+
+        </rule>
+
+         <rule context="/cda:ClinicalDocument/cda:recordTarget/cda:patientRole/cda:patient/cda:administrativeGenderCode">
+
+            <assert test="not(@nullFlavor)">Error: e-Discharge Summary - 6.1.2 Subject Of Care - "Subject of Care / Participant /
+                Person or Organisation or Device / Person / Demographic Data / Sex"  - The 'administrativeGenderCode' tag 'nullFlavor' attribute shall not be
+                present. Refer to requirements in the NullFlavor Usage Clarification FAQ and section 6.1.2 of the
+                e-Discharge_Summary_CDA_Implementation_Guide_v3.4. </assert>
+
+         </rule>
+
+    </pattern>
+
+

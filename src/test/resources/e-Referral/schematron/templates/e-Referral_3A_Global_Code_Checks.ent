@@ -1,0 +1,1012 @@
+
+    <!-- e-Referral Clinical Document:  7.1.1 Event Details -->
+
+    <!-- Context: ClinicalDocument/component/structuredBody -->
+
+    <!-- Status: Last Reviewed: 07/12/2011.
+         Status: Last Updated : 03/12/2012 -->
+
+    <pattern name="p-e-Referral_3A_Global_Code_Checks-errors"
+        id="p-e-Referral_3A_Global_Code_Checks-errors" 
+        see="#p-e-Referral_3A_Global_Code_Checks-errors">
+
+  
+        <!-- 7.1.2.3 OTHER MEDICAL HISTORY ITEM' -->
+        
+       <rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[(cda:code/@code = '101.16117') or (cda:code/@code = '101.20113')]/cda:entry/cda:act[
+            cda:code[ (translate(@displayName, 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ') = 'OTHER MEDICAL HISTORY ITEM') or
+                      (@code = '102.16627')]]">
+                       
+            <assert test="cda:code[@code = '102.16627']"
+                >Error: e-Referral - Global Code Checks - The 'code' tag 'code' attribute shall be
+                '102.16627'. Refer to section '7.1.2.3 OTHER MEDICAL HISTORY ITEM' of the
+                e-Referral_CDA_Implementation_Guide_v2.2.</assert>
+            
+            <assert test="cda:code[(translate(@displayName, 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ') = 'OTHER MEDICAL HISTORY ITEM')]"
+                >Error: e-Referral - Global Code Checks - The 'code' tag 'displayName' attribute shall be
+                'Other Medical History Item'. Refer to section '7.1.2.3 OTHER MEDICAL HISTORY ITEM' of the
+                e-Referral_CDA_Implementation_Guide_v2.2.</assert>
+
+       </rule>
+        
+        <!-- 7.1.4.1 :: ADVERSE REACTION -->
+        
+        <rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[(cda:code/@code = '101.16117') or (cda:code/@code = '101.20113')]/cda:entry/cda:act[
+            cda:code[ (translate(@displayName, 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ') = 'ADVERSE REACTION') or
+                      (@code = '102.15517')]]">
+                       
+            <assert test="cda:code[@code = '102.15517']"
+                >Error: e-Referral - Global Code Checks - The 'code' tag 'code' attribute shall be
+                '102.15517'. Refer to section '7.1.4.1 ADVERSE REACTION' of the
+                e-Referral_CDA_Implementation_Guide_v2.2.</assert>
+            
+            <assert test="cda:code[(translate(@displayName, 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ') = 'ADVERSE REACTION')]"
+                >Error: e-Referral - Global Code Checks - The 'code' tag 'displayName' attribute shall be
+                'Adverse Reaction'. Refer to section '7.1.4.1 ADVERSE REACTION' of the
+                e-Referral_CDA_Implementation_Guide_v2.2.</assert>
+
+         </rule>
+                
+                
+        <!-- 7.1.2.1 :: Problem/Diagnosis -->
+        
+        <rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[(cda:code/@code = '101.16117') or (cda:code/@code = '102.16080') or (cda:code/@code = '102.16347') or (cda:code/@code = '101.16117') or (cda:code/@code = '101.20113')]/cda:entry/cda:observation[cda:code[
+            (translate(@displayName, 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ') = 'DIAGNOSIS INTERPRETATION') or
+            (@code = '282291009')]]">
+
+            <assert
+                test="cda:code[@code = '282291009']"
+                >Error: e-Referral - Global Code Checks - The 'code' tag 'code' attribute shall be
+                '282291009'. Refer to section '7.1.2.1 PROBLEM/DIAGNOSIS' of the e-Referral_CDA_Implementation_Guide_v2.2.</assert>
+            
+            <assert test="cda:code[(translate(@displayName, 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ') = 'DIAGNOSIS INTERPRETATION')]"
+                >Error: e-Referral - Global Code Checks - The 'code' tag 'displayName' attribute shall be
+                'Diagnosis interpretation'. Refer to section '7.1.2.1 PROBLEM/DIAGNOSIS' of the e-Referral_CDA_Implementation_Guide_v2.2.</assert>
+            
+        </rule>
+        
+        <!-- 6.1.2 SUBJECT OF CARE -->
+        
+        <rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[(cda:code/@code = '101.16117') or (cda:code/@code = '102.16080') or (cda:code/@code = '102.16347') or (cda:code/@code = '101.16117') or (cda:code/@code = '101.20113')]/cda:entry/cda:observation[cda:code[
+            (translate(@displayName, 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ') = 'DATE OF BIRTH IS CALCULATED FROM AGE') or
+            (@code = '103.16233')]]">
+
+            <assert
+                test="cda:code[@code = '103.16233']"
+                >Error: e-Referral - Global Code Checks - The 'code' tag 'code' attribute shall be
+                '103.16233'. Refer to section '6.1.2 SUBJECT OF CARE' of the e-Referral_CDA_Implementation_Guide_v2.2.</assert>
+            
+            <assert test="cda:code[(translate(@displayName, 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ') = 'DATE OF BIRTH IS CALCULATED FROM AGE')]"
+                >Error: e-Referral - Global Code Checks - The 'code' tag 'displayName' attribute shall be
+                'Date of Birth is Calculated From Age'. Refer to section '6.1.2 SUBJECT OF CARE' of the e-Referral_CDA_Implementation_Guide_v2.2.</assert>
+            
+        </rule>
+        
+         <!-- 6.1.2 :: DATE OF BIRTH ACCURACY INDICATOR -->
+        
+        <rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[(cda:code/@code = '101.16117') or (cda:code/@code = '102.16080') or (cda:code/@code = '102.16347') or (cda:code/@code = '101.16117') or (cda:code/@code = '101.20113')]/cda:entry/cda:observation[cda:code[
+            (translate(@displayName, 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ') = 'DATE OF BIRTH ACCURACY INDICATOR') or
+            (@code = '102.16234')]]">
+
+            <assert
+                test="cda:code[@code = '102.16234']"
+                >Error: e-Referral - Global Code Checks - The 'code' tag 'code' attribute shall be
+                '102.16234'. Refer to section '6.1.2 SUBJECT OF CARE' of the e-Referral_CDA_Implementation_Guide_v2.2.</assert>
+            
+            <assert test="cda:code[(translate(@displayName, 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ') = 'DATE OF BIRTH ACCURACY INDICATOR')]"
+                >Error: e-Referral - Global Code Checks - The 'code' tag 'displayName' attribute shall be
+                'Date of Birth Accuracy Indicator'. Refer to section '6.1.2 SUBJECT OF CARE' of the e-Referral_CDA_Implementation_Guide_v2.2.</assert>
+            
+        </rule>
+        
+        
+         <!-- 6.1.2 :: AGE-->
+        
+        <rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[(cda:code/@code = '101.16117') or (cda:code/@code = '102.16080') or (cda:code/@code = '102.16347') or (cda:code/@code = '101.16117') or (cda:code/@code = '101.20113')]/cda:entry/cda:observation[cda:code[
+            (translate(@displayName, 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ') = 'AGE') or
+            (@code = '103.20109')]]">
+
+            <assert
+                test="cda:code[@code = '103.20109']"
+                >Error: e-Referral - Global Code Checks - The 'code' tag 'code' attribute shall be
+                '103.20109'. Refer to section '6.1.2 SUBJECT OF CARE' of the e-Referral_CDA_Implementation_Guide_v2.2.</assert>
+            
+            <assert test="cda:code[(translate(@displayName, 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ') = 'AGE')]"
+                >Error: e-Referral - Global Code Checks - The 'code' tag 'displayName' attribute shall be
+                'Age'. Refer to section '6.1.2 SUBJECT OF CARE' of the e-Referral_CDA_Implementation_Guide_v2.2.</assert>
+            
+        </rule>
+        
+         <!-- 6.1.2 :: Age Accuracy Indicator-->
+        
+        <rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[(cda:code/@code = '101.16117') or (cda:code/@code = '102.16080') or (cda:code/@code = '102.16347') or (cda:code/@code = '101.16117') or (cda:code/@code = '101.20113')]/cda:entry/cda:observation[cda:code[
+            (translate(@displayName, 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ') = 'AGE ACCURACY INDICATOR') or
+            (@code = '103.16279')]]">
+
+            <assert
+                test="cda:code[@code = '103.16279']"
+                >Error: e-Referral - Global Code Checks - The 'code' tag 'code' attribute shall be
+                '103.16279'. Refer to section '6.1.2 SUBJECT OF CARE' of the e-Referral_CDA_Implementation_Guide_v2.2.</assert>
+            
+            <assert test="cda:code[(translate(@displayName, 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ') = 'AGE ACCURACY INDICATOR')]"
+                >Error: e-Referral - Global Code Checks - The 'code' tag 'displayName' attribute shall be
+                'Age Accuracy Indicator'. Refer to section '6.1.2 SUBJECT OF CARE' of the e-Referral_CDA_Implementation_Guide_v2.2.</assert>
+            
+        </rule>
+        
+        <!-- 6.1.2 :: Birth Plurality -->
+        
+        <rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[(cda:code/@code = '101.16117') or (cda:code/@code = '102.16080') or (cda:code/@code = '102.16347') or (cda:code/@code = '101.16117') or (cda:code/@code = '101.20113')]/cda:entry/cda:observation[cda:code[
+            (translate(@displayName, 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ') = 'BIRTH PLURALITY') or
+            (@code = '103.16249')]]">
+
+            <assert
+                test="cda:code[@code = '103.16249']"
+                >Error: e-Referral - Global Code Checks - The 'code' tag 'code' attribute shall be
+                '103.16249'. Refer to section '6.1.2 SUBJECT OF CARE' of the e-Referral_CDA_Implementation_Guide_v2.2.</assert>
+            
+            <assert test="cda:code[(translate(@displayName, 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ') = 'BIRTH PLURALITY')]"
+                >Error: e-Referral - Global Code Checks - The 'code' tag 'displayName' attribute shall be
+                'Birth Plurality'. Refer to section '6.1.2 SUBJECT OF CARE' of the e-Referral_CDA_Implementation_Guide_v2.2.</assert>
+            
+        </rule>
+        
+        <!-- 6.1.2 :: Date of Death Accuracy Indicator -->
+        
+        <rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[(cda:code/@code = '101.16117') or (cda:code/@code = '102.16080') or (cda:code/@code = '102.16347') or (cda:code/@code = '101.16117') or (cda:code/@code = '101.20113')]/cda:entry/cda:observation[cda:code[
+            (translate(@displayName, 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ') = 'DATE OF DEATH ACCURACY INDICATOR') or
+            (@code = '102.16252')]]">
+
+            <assert
+                test="cda:code[@code = '102.16252']"
+                >Error: e-Referral - Global Code Checks - The 'code' tag 'code' attribute shall be
+                '102.16252'. Refer to section '6.1.2 SUBJECT OF CARE' of the e-Referral_CDA_Implementation_Guide_v2.2.</assert>
+            
+            <assert test="cda:code[(translate(@displayName, 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ') = 'DATE OF DEATH ACCURACY INDICATOR')]"
+                >Error: e-Referral - Global Code Checks - The 'code' tag 'displayName' attribute shall be
+                'Date of Death Accuracy Indicator'. Refer to section '6.1.2 SUBJECT OF CARE' of the e-Referral_CDA_Implementation_Guide_v2.2.</assert>
+            
+        </rule>
+        
+         <!-- 7.1.1 :: Referral DateTime -->
+        
+        <rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[(cda:code/@code = '101.16117') or (cda:code/@code = '102.16080') or (cda:code/@code = '102.16347') or (cda:code/@code = '101.16117') or (cda:code/@code = '101.20113')]/cda:entry/cda:observation[cda:code[
+            (translate(@displayName, 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ') = 'REFERRAL DATETIME') or
+            (@code = '103.16620')]]">
+
+            <assert
+                test="cda:code[@code = '103.16620']"
+                >Error: e-Referral - Global Code Checks - The 'code' tag 'code' attribute shall be
+                '103.16620'. Refer to section '7.1.1 Referral Detail' of the e-Referral_CDA_Implementation_Guide_v2.2.</assert>
+            
+            <assert test="cda:code[(translate(@displayName, 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ') = 'REFERRAL DATETIME')]"
+                >Error: e-Referral - Global Code Checks - The 'code' tag 'displayName' attribute shall be
+                'Referral DateTime'. Refer to section '7.1.1 Referral Detail' of the e-Referral_CDA_Implementation_Guide_v2.2.</assert>
+            
+        </rule>
+        
+         <!-- 7.1.1 :: Reason for referral -->
+        
+        <rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[(cda:code/@code = '101.16117') or (cda:code/@code = '102.16080') or (cda:code/@code = '102.16347') or (cda:code/@code = '101.16117') or (cda:code/@code = '101.20113')]/cda:entry/cda:observation[cda:code[
+            (translate(@displayName, 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ') = 'REASON FOR REFERRAL') or
+            (@code = '42349-1')]]">
+
+            <assert
+                test="cda:code[@code = '42349-1']"
+                >Error: e-Referral - Global Code Checks - The 'code' tag 'code' attribute shall be
+                '42349-1'. Refer to section '7.1.1 Referral Detail' of the e-Referral_CDA_Implementation_Guide_v2.2.</assert>
+            
+            <assert test="cda:code[(translate(@displayName, 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ') = 'REASON FOR REFERRAL')]"
+                >Error: e-Referral - Global Code Checks - The 'code' tag 'displayName' attribute shall be
+                'Reason for referral'. Refer to section '7.1.1 Referral Detail' of the e-Referral_CDA_Implementation_Guide_v2.2.</assert>
+            
+        </rule>
+        
+        
+        <!-- 7.1.1 :: Referral Validity Duration -->
+        
+        <rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[(cda:code/@code = '101.16117') or (cda:code/@code = '102.16080') or (cda:code/@code = '102.16347') or (cda:code/@code = '101.16117') or (cda:code/@code = '101.20113')]/cda:entry/cda:observation[cda:code[
+            (translate(@displayName, 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ') = 'REFERRAL VALIDITY DURATION') or
+            (@code = '103.16622')]]">
+
+            <assert
+                test="cda:code[@code = '103.16622']"
+                >Error: e-Referral - Global Code Checks - The 'code' tag 'code' attribute shall be
+                '103.16622'. Refer to section '7.1.1 Referral Detail' of the e-Referral_CDA_Implementation_Guide_v2.2.</assert>
+            
+            <assert test="cda:code[(translate(@displayName, 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ') = 'REFERRAL VALIDITY DURATION')]"
+                >Error: e-Referral - Global Code Checks - The 'code' tag 'displayName' attribute shall be
+                'Referral Validity Duration'. Refer to section '7.1.1 Referral Detail' of the e-Referral_CDA_Implementation_Guide_v2.2.</assert>
+            
+        </rule>
+        
+         <!-- 7.1.3.2 :: EXCLUSION STATEMENT - MEDICATIONS 
+         7.1.4.2 :: EXCLUSION STATEMENT - ADVERSE REACTIONS -->
+        <!-- cannot seperate as the @displayName is same for both the codes-->
+        
+        <rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[(cda:code/@code = '101.16117') or (cda:code/@code = '102.16080') or (cda:code/@code = '102.16347') or (cda:code/@code = '101.16117') or (cda:code/@code = '101.20113')]/cda:entry/cda:observation[cda:code[
+            (translate(@displayName, 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ') = 'GLOBAL STATEMENT') or
+            (@code = '103.16302.2.2.1') or
+            (@code = '103.16302.2.2.2')]]">
+
+            <assert
+                test="cda:code[(@code = '103.16302.2.2.1') or (@code = '103.16302.2.2.2')]"
+                >Error: e-Referral - Global Code Checks - The 'code' tag 'code' attribute shall be
+                '103.16302.2.2.1' or '103.16302.2.2.2'. Refer to section '7.1.3.2 :: EXCLUSION STATEMENT - MEDICATIONS' or
+                '7.1.4.2 EXCLUSION STATEMENT - ADVERSE REACTIONS' of the e-Referral_CDA_Implementation_Guide_v2.2.</assert>
+            
+            <assert test="cda:code[(translate(@displayName, 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ') = 'GLOBAL STATEMENT')]"
+                >Error: e-Referral - Global Code Checks - The 'code' tag 'displayName' attribute shall be
+                'Global Statement'. Refer to section '7.1.3.2 :: EXCLUSION STATEMENT - MEDICATIONS' or 
+                '7.1.4.2 EXCLUSION STATEMENT - ADVERSE REACTIONS' of the e-Referral_CDA_Implementation_Guide_v2.2.</assert>
+            
+        </rule>
+   
+   
+        <!-- 7.1.2.2 :: PROCEDURE -->
+        
+        <rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code = '101.16117']/cda:entry/cda:procedure[@classCode='PROC']/cda:entryRelationship/cda:act[
+            cda:code[(translate(@displayName, 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ') = 'PROCEDURE COMMENT') or
+                     (@code = '103.15595')]]">
+            
+            <assert test="cda:code[(@code = '103.15595')]">Error: e-Referral - Global Code Checks -
+                The 'code' tag 'code' attribute shall contain the value '103.15595'. Refer to section '7.1.2.2
+                PROCEDURE'of the e-Referral_CDA_Implementation_Guide_v2.2.</assert>
+            
+            <assert test="cda:code[(translate(@displayName, 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ') = 'PROCEDURE COMMENT')]"
+                >Error: e-Referral - Global Code Checks - The 'code' tag 'displayName' attribute shall contain the 
+                value 'Procedure Comment'. Refer to section '7.1.2.2 PROCEDURE' of the e-Referral_CDA_Implementation_Guide_v2.2.</assert>
+            
+        </rule>       
+
+
+        <!-- 7.1.2.1 PROBLEM/DIAGNOSIS -->
+        
+        <rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code = '101.16117']/cda:entry/cda:observation/cda:entryRelationship/cda:act[
+            cda:code[(translate(@displayName, 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ') = 'PROBLEM/DIAGNOSIS COMMENT') or
+                     (@code = '103.16545')]]">
+            
+            <assert test="cda:code[(@code = '103.16545')]">Error: e-Referral - Global Code Checks -
+                The 'code' tag 'code' attribute shall contain the value '103.16545'. Refer to section '7.1.2.1 PROBLEM/DIAGNOSIS' 
+                of the e-Referral_CDA_Implementation_Guide_v2.2.</assert>
+            
+            <assert test="cda:code[(translate(@displayName, 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ') = 'PROBLEM/DIAGNOSIS COMMENT')]"
+                >Error: e-Referral - Global Code Checks - The 'code' tag 'displayName' attribute shall contain the 
+                value 'Problem/Diagnosis Comment'. Refer to section '7.1.2.1 PROBLEM/DIAGNOSIS' of the 
+                e-Referral_CDA_Implementation_Guide_v2.2.</assert>
+            
+        </rule>  
+        
+         <!-- 7.1.4.1 ADVERSE SUBSTANCE REACTION -->
+        
+        <rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code = '101.20113']/cda:entry/cda:act[cda:code/@code = '102.15517']/cda:entryRelationship/cda:observation[
+            cda:code[(translate(@displayName, 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ') = 'REACTION EVENT') or 
+                     (@code = '102.16474')]]">
+          
+            <assert test="cda:code[(@code = '102.16474')]">Error: e-Referral - Global Code Checks -
+                The 'code' tag 'code' attribute shall contain the value '102.16474''. Refer to section '7.1.4.1
+                ADVERSE SUBSTANCE REACTION' of the e-Referral_CDA_Implementation_Guide_v2.2.</assert>
+            
+            <assert test="cda:code[(translate(@displayName, 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ') = 'REACTION EVENT')]"
+                >Error: e-Referral - Global Code Checks -
+                The 'code' tag 'displayName' attribute shall contain the value 'Reaction Event'. Refer to section '7.1.4.1
+                ADVERSE SUBSTANCE REACTION' of the e-Referral_CDA_Implementation_Guide_v2.2.</assert>
+            
+        </rule>
+        
+  
+        <!-- 7.1.2.1 PROBLEM/DIAGNOSIS -->
+        
+        <rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code = '101.16117']/cda:entry/cda:observation[cda:code/@code = '282291009']/cda:entryRelationship/cda:observation[
+            cda:code[(translate(@displayName, 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ') = 'DATE OF RESOLUTION/REMISSION') or
+                     (@code = '103.15510')]]">
+
+            <assert test="cda:code[(@code = '103.15510')]">Error: e-Referral - Global Code Checks -
+                The 'code' tag 'code' attribute shall contain the value '103.15510''. Refer to section '7.1.2.1
+                PROBLEM/DIAGNOSIS' of the e-Referral_CDA_Implementation_Guide_v2.2.</assert>
+            
+            <assert test="cda:code[(translate(@displayName, 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ') = 'DATE OF RESOLUTION/REMISSION')]"
+                >Error: e-Referral - Global Code Checks - The 'code' tag 'displayName' attribute shall contain the value 'Date of Resolution/Remission'. 
+                Refer to section '7.1.2.1 PROBLEM/DIAGNOSIS' of the e-Referral_CDA_Implementation_Guide_v2.2.</assert>
+            
+        </rule>
+        
+  
+        <!-- 7.1.5.1 :: PATHOLOGY TEST RESULT 
+            7.1.5.2 :: IMAGING EXAMINATION RESULT -->
+        
+        <rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code = '101.20117']/cda:component/cda:section[(cda:code/@code = '102.16144') or cda:code/@code = '102.16145']/cda:entry/cda:observation[@classCode='OBS']/cda:entryRelationship/cda:act[cda:code[
+            (translate(@displayName, 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ') = 'CLINICAL INFORMATION') or
+            (@code = '55752-0')]]">
+
+           <assert
+                test="cda:code[@code = '55752-0']"
+                >Error: e-Referral - Global Code Checks - The 'code' tag 'code' attribute shall contain the value
+                '55752-0'. Refer to section '7.1.5.1 PATHOLOGY TEST RESULT' or '7.1.5.2
+                IMAGING EXAMINATION RESULT' of the e-Referral_CDA_Implementation_Guide_v2.2.</assert>
+            
+            <assert test="cda:code[(translate(@displayName, 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ') = 'CLINICAL INFORMATION')]"
+                >Error: e-Referral - Global Code Checks - The 'code' tag 'displayName' attribute shall contain the 
+                value 'Clinical Information'. Refer to section '7.1.5.1 PATHOLOGY TEST RESULT' or '7.1.5.2
+                IMAGING EXAMINATION RESULT' of the e-Referral_CDA_Implementation_Guide_v2.2.</assert>
+            
+        </rule>
+        
+        <!-- 7.1.5.1 PATHOLOGY TEST RESULT -->
+        
+        <rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code = '101.20117']/cda:component/cda:section[(cda:code/@code = '102.16144') or cda:code/@code = '102.16145']/cda:entry/cda:observation[@classCode='OBS']/cda:entryRelationship/cda:act[cda:code[
+            (translate(@displayName, 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ') = 'TEST COMMENT') or
+            (@code = '103.16468')]]">
+
+           <assert
+                test="cda:code[@code = '103.16468']"
+                >Error: e-Referral - Global Code Checks - The 'code' tag 'code' attribute shall contain the value
+                '103.16468'. Refer to section '7.1.5.1 PATHOLOGY TEST RESULT' of the e-Referral_CDA_Implementation_Guide_v2.2.</assert>
+            
+            <assert test="cda:code[(translate(@displayName, 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ') = 'TEST COMMENT')]"
+                >Error: e-Referral - Global Code Checks - The 'code' tag 'displayName' attribute shall contain the 
+                value 'Test Comment'. Refer to section '7.1.5.1 PATHOLOGY TEST RESULT' of the e-Referral_CDA_Implementation_Guide_v2.2.</assert>
+            
+        </rule>
+        
+        <!-- 7.1.5.1 PATHOLOGY TEST RESULT -->
+        
+        <rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code = '101.20117']/cda:component/cda:section[(cda:code/@code = '102.16144') or cda:code/@code = '102.16145']/cda:entry/cda:observation[@classCode='OBS']/cda:entryRelationship/cda:act[cda:code[
+            (translate(@displayName, 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ') = 'TEST REQUEST DETAILS') or
+            (@code = '102.16160')]]">
+
+           <assert
+                test="cda:code[@code = '102.16160']"
+                >Error: e-Referral - Global Code Checks - The 'code' tag 'code' attribute shall contain the value
+                '102.16160'. Refer to section '7.1.5.1 PATHOLOGY TEST RESULT' of the e-Referral_CDA_Implementation_Guide_v2.2.</assert>
+            
+            <assert test="cda:code[(translate(@displayName, 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ') = 'TEST REQUEST DETAILS')]"
+                >Error: e-Referral - Global Code Checks - The 'code' tag 'displayName' attribute shall contain the 
+                value 'Test Request Details'. Refer to section '7.1.5.1 PATHOLOGY TEST RESULT' of the e-Referral_CDA_Implementation_Guide_v2.2.</assert>
+            
+        </rule>     
+        
+         <!-- 7.1.5.2.2 :: EXAMINATION REQUEST DETAILS -->
+        
+        <rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code = '101.20117']/cda:component/cda:section[(cda:code/@code = '102.16144') or cda:code/@code = '102.16145']/cda:entry/cda:observation[@classCode='OBS']/cda:entryRelationship/cda:act[cda:code[
+            (translate(@displayName, 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ') = 'EXAMINATION REQUEST DETAILS') or
+            (@code = '102.16511')]]">
+
+           <assert
+                test="cda:code[@code = '102.16511']"
+                >Error: e-Referral - Global Code Checks - The 'code' tag 'code' attribute shall contain the value
+                '102.16511'. Refer to section '7.1.5.2.2 EXAMINATION REQUEST DETAILS' of the e-Referral_CDA_Implementation_Guide_v2.2.</assert>
+            
+            <assert test="cda:code[(translate(@displayName, 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ') = 'EXAMINATION REQUEST DETAILS')]"
+                >Error: e-Referral - Global Code Checks - The 'code' tag 'displayName' attribute shall contain the 
+                value 'Examination Request Details'. Refer to section '7.1.5.2.2 EXAMINATION REQUEST DETAILS' of the e-Referral_CDA_Implementation_Guide_v2.2.</assert>
+            
+        </rule>
+        
+      
+        <!-- 7.1.5.1.1 TEST SPECIMEN DETAIL -->
+        
+        <rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code = '101.20117']/cda:component/cda:section[cda:code/@code = '102.16144']/cda:entry/cda:observation[@classCode='OBS']/cda:entryRelationship/cda:observation[cda:code/@code = '102.16156.2.2.1']/cda:targetSiteCode/cda:qualifier
+            [cda:name[(translate(@displayName, 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ') = 'WITH LATERALITY') or (@code = '78615007')]]">
+           
+            <assert test="cda:name[(@code = '78615007')]">Error: e-Referral - Global Code Checks -
+                'name' tag 'code' attribute shall contain the value '78615007'. Refer to section '7.1.5.1.1
+                TEST SPECIMEN DETAIL' of the e-Referral_CDA_Implementation_Guide_v2.2.</assert>
+            
+            <assert test="cda:name[(translate(@displayName, 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ') = 'WITH LATERALITY')]"
+                >Error: e-Referral - Global Code Checks - The 'name' tag 'displayName' attribute shall contain the 
+                value 'with laterality'. Refer to section '7.1.5.1.1 TEST SPECIMEN DETAIL' of the
+                e-Referral_CDA_Implementation_Guide_v2.2.</assert>
+       
+        </rule>
+       
+     <!-- 7.1.5.2.1 IMAGING EXAMINATION RESULT GROUP 
+          7.1.5.1.2.1 RESULT GROUP SPECIMEN DETAIL -->
+        
+        <rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code = '101.20117']/cda:component/cda:section[cda:code/@code = '102.16144']/cda:entry/cda:observation[@classCode='OBS']/cda:entryRelationship/cda:organizer[@classCode='BATTERY']/cda:component/cda:observation[cda:code/@code = '102.16156.2.2.2']/cda:targetSiteCode/cda:qualifier
+            [cda:name[(translate(@displayName, 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ') = 'WITH LATERALITY') or (@code = '78615007')]]">
+
+            <assert test="cda:name[@code = '78615007']">Error: e-Referral - Global Code Checks -
+                'name' tag 'code' attribute shall contain the value '78615007'. 
+                Refer to section '7.1.5.2.1 IMAGING EXAMINATION RESULT GROUP' or '7.1.5.1.2.1 RESULT GROUP SPECIMEN DETAIL' of the
+                e-Referral_CDA_Implementation_Guide_v2.2.</assert>
+            
+            <assert test="cda:name[(translate(@displayName, 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ') = 'WITH LATERALITY')]"
+                >Error: e-Referral - Global Code Checks - The 'code' tag 'displayName' attribute shall be
+                'with laterality'. 
+                Refer to section '7.1.5.2.1 IMAGING EXAMINATION RESULT GROUP' or '7.1.5.1.2.1 RESULT GROUP SPECIMEN DETAIL'
+                of the e-Referral_CDA_Implementation_Guide_v2.2.</assert>
+                </rule>
+        
+        
+        <!-- 7.1.5.2 Imaging Examination Result -->
+        
+       <rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code = '101.20117']/cda:component/cda:section[cda:code/@code = '102.16145']/cda:entry/cda:observation[@classCode='OBS']/cda:targetSiteCode/cda:qualifier
+            [cda:name[(translate(@displayName, 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ') = 'WITH LATERALITY') or (@code = '78615007')]]">
+ 
+            <assert test="cda:name[@code = '78615007']">YYError: e-Referral - Global Code Checks -
+                The 'name' tag 'code' attribute shall contain the value '78615007'. Refer to section '7.1.5.2 Imaging Examination Result' 
+                of the e-Referral_CDA_Implementation_Guide_v2.2.</assert>
+            
+            <assert test="cda:name[(translate(@displayName, 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ') = 'WITH LATERALITY')]"
+                >Error: e-Referral - Global Code Checks - The 'code' tag 'displayName' attribute shall contain the 
+                value 'with laterality'. Refer to section '7.1.5.2 Imaging Examination Result' of the
+                e-Referral_CDA_Implementation_Guide_v2.2.</assert>
+            
+        </rule> 
+        
+        
+        <!-- 7.1.5.1 PATHOLOGY TEST RESULT -->
+        
+       <rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code = '101.20117']/cda:component/cda:section[(cda:code/@code = '102.16144') or (cda:code/@code = '102.16145')]/cda:entry/cda:observation[@classCode='OBS']/cda:entryRelationship/cda:observation[cda:code[
+            (translate(@displayName, 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ') = 'PATHOLOGY TEST RESULT DATETIME') or
+            (@code = '103.16605')]]">
+
+            <assert test="cda:code[@code = '103.16605']"
+                >Error: e-Referral - Global Code Checks - The 'code' tag 'code' attribute shall be
+                '103.16605'. Refer to section '7.1.5.1 PATHOLOGY TEST' of the e-Referral_CDA_Implementation_Guide_v2.2.</assert>
+
+
+            <assert test="cda:code[(translate(@displayName, 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ') = 'PATHOLOGY TEST RESULT DATETIME')]"
+                >Error: e-Referral - Global Code Checks - The 'code' tag 'displayName' attribute shall be
+                'Pathology Test Result Datetime'. Refer to section '7.1.5.1 PATHOLOGY TEST RESULT' 
+                of the e-Referral_CDA_Implementation_Guide_v2.2.</assert>
+
+       </rule>
+        
+       <!-- 7.1.5.1 PATHOLOGY TEST RESULT -->
+        
+       <rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code = '101.20117']/cda:component/cda:section[(cda:code/@code = '102.16144') or (cda:code/@code = '102.16145')]/cda:entry/cda:observation[@classCode='OBS']/cda:entryRelationship/cda:observation[cda:code[
+            (translate(@displayName, 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ') = 'PATHOLOGY SERVICE') or
+            (@code = '310074003')]]">
+
+            <assert test="cda:code[@code = '310074003']"
+                >Error: e-Referral - Global Code Checks - The 'code' tag 'code' attribute shall be
+                '310074003'. Refer to section '7.1.5.1 PATHOLOGY TEST RESULT' of the e-Referral_CDA_Implementation_Guide_v2.2.</assert>
+
+
+            <assert test="cda:code[(translate(@displayName, 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ') = 'PATHOLOGY SERVICE')]"
+                >Error: e-Referral - Global Code Checks - The 'code' tag 'displayName' attribute shall be
+                'pathology service'. Refer to section '7.1.5.1 PATHOLOGY TEST RESULT' 
+                of the e-Referral_CDA_Implementation_Guide_v2.2.</assert>
+
+       </rule>
+        
+         <!-- 7.1.5.1 :: PATHOLOGY TEST RESULT 
+              7.1.5.1.2 :: PATHOLOGY TEST RESULT GROUP -->
+        
+         <rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code = '101.20117']/cda:component/cda:section[cda:code/@code = '102.16029']/cda:entry/cda:observation[@classCode='OBS']/cda:entryRelationship/cda:observation[cda:code[
+            (translate(@displayName, 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ') = 'REPORT STATUS') or
+            (@code = '308552006')]]">
+
+            <assert test="cda:code[@code = '308552006']"
+                >Error: e-Referral - Global Code Checks - The 'code' tag 'code' attribute shall be
+                '308552006'. Refer to section '7.1.5.1 PATHOLOGY TEST RESULT' or 7.1.5.1.2 PATHOLOGY TEST RESULT GROUP of the e-Referral_CDA_Implementation_Guide_v2.2.</assert>
+
+
+            <assert test="cda:code[(translate(@displayName, 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ') = 'REPORT STATUS')]"
+                >Error: e-Referral - Global Code Checks - The 'code' tag 'displayName' attribute shall be
+                'report status'. Refer to section '7.1.5.1 PATHOLOGY TEST RESULT' or '7.1.5.1.2 PATHOLOGY TEST RESULT GROUP' 
+                of the e-Referral_CDA_Implementation_Guide_v2.2.</assert>
+
+       </rule>
+        
+        <!-- 7.1.5.1.2 :: PATHOLOGY TEST RESULT GROUP 
+             7.1.5.2 :: IMAGING EXAMINATION RESULT -->
+        
+        <rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code = '101.20117']/cda:component/cda:section[(cda:code/@code = '102.16144') or (cda:code/@code = '102.16145')]/cda:entry/cda:observation[@classCode='OBS']/cda:entryRelationship/cda:observation[cda:code[
+            (translate(@displayName, 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ') = 'REPORT STATUS') or
+            (@code = '308552006')]]">
+
+            <assert test="cda:code[@code = '308552006']"
+                >Error: e-Referral - Global Code Checks - The 'code' tag 'code' attribute shall be
+                '308552006'. Refer to section '7.1.5.1.2 Pathology Test Result Group' or '7.1.5.2 IMAGING EXAMINATION RESULT'
+                of the e-Referral_CDA_Implementation_Guide_v2.2.</assert>
+
+
+            <assert test="cda:code[(translate(@displayName, 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ') = 'REPORT STATUS')]"
+                >Error: e-Referral - Global Code Checks - The 'code' tag 'displayName' attribute shall be
+                'report status'. Refer to section '7.1.5.1.2 Pathology Test Result Group' or '7.1.5.2 IMAGING EXAMINATION RESULT' 
+                of the e-Referral_CDA_Implementation_Guide_v2.2.</assert>
+
+        </rule>
+        
+        <!-- 7.1.5.1 :: PATHOLOGY TEST RESULT  -->
+        
+         <rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code = '101.20117']/cda:component/cda:section[(cda:code/@code = '102.16144') or (cda:code/@code = '102.16145')]/cda:entry/cda:observation[@classCode='OBS']/cda:entryRelationship/cda:observation[cda:code[
+            (translate(@displayName, 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ') = 'PATHOLOGY DIAGNOSIS') or
+            (@code = '88101002')]]">
+
+            <assert test="cda:code[@code = '88101002']"
+                >Error: e-Referral - Global Code Checks - The 'code' tag 'code' attribute shall be
+                '88101002'. Refer to section '7.1.5.1 PATHOLOGY TEST RESULT' of the e-Referral_CDA_Implementation_Guide_v2.2.</assert>
+
+
+            <assert test="cda:code[(translate(@displayName, 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ') = 'PATHOLOGY DIAGNOSIS')]"
+                >Error: e-Referral - Global Code Checks - The 'code' tag 'displayName' attribute shall be
+                'pathology diagnosis'. Refer to section '7.1.5.1 PATHOLOGY TEST RESULT' 
+                of the e-Referral_CDA_Implementation_Guide_v2.2.</assert>
+
+         </rule>
+        
+        <!-- 7.1.5.1 :: PATHOLOGY TEST RESULT  -->
+        
+         <rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code = '101.20117']/cda:component/cda:section[(cda:code/@code = '102.16144') or (cda:code/@code = '102.16145')]/cda:entry/cda:observation[@classCode='OBS']/cda:entryRelationship/cda:observation[cda:code[
+            (translate(@displayName, 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ') = 'LABORATORY FINDINGS DATA INTERPRETATION') or
+            (@code = '386344002')]]">
+
+            <assert test="cda:code[@code = '386344002']"
+                >Error: e-Referral - Global Code Checks - The 'code' tag 'code' attribute shall be
+                '386344002'. Refer to section '7.1.5.1 PATHOLOGY TEST RESULT' of the e-Referral_CDA_Implementation_Guide_v2.2.</assert>
+
+
+            <assert test="cda:code[(translate(@displayName, 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ') = 'LABORATORY FINDINGS DATA INTERPRETATION')]"
+                >Error: e-Referral - Global Code Checks - The 'code' tag 'displayName' attribute shall be
+                'laboratory findings data interpretation'. Refer to section '7.1.5.1 PATHOLOGY TEST RESULT' 
+                of the e-Referral_CDA_Implementation_Guide_v2.2.</assert>
+
+         </rule>
+        
+        <!-- 7.1.5.2 :: IMAGING EXAMINATION RESULT -->
+        
+         <rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code = '101.20117']/cda:component/cda:section[(cda:code/@code = '102.16144') or (cda:code/@code = '102.16145')]/cda:entry/cda:observation[@classCode='OBS']/cda:entryRelationship/cda:observation[cda:code[
+            (translate(@displayName, 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ') = 'FINDINGS') or
+            (@code = '103.16503')]]">
+
+            <assert test="cda:code[@code = '103.16503']"
+                >Error: e-Referral - Global Code Checks - The 'code' tag 'code' attribute shall be
+                '103.16503'. Refer to section '7.1.5.2 IMAGING EXAMINATION RESULT' of the e-Referral_CDA_Implementation_Guide_v2.2.</assert>
+
+
+            <assert test="cda:code[(translate(@displayName, 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ') = 'FINDINGS')]"
+                >Error: e-Referral - Global Code Checks - The 'code' tag 'displayName' attribute shall be
+                'Findings'. Refer to section '7.1.5.2 IMAGING EXAMINATION RESULT' 
+                of the e-Referral_CDA_Implementation_Guide_v2.2.</assert>
+
+         </rule>
+        
+        <!-- 7.1.5.2 :: IMAGING EXAMINATION RESULT -->
+        
+         <rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code = '101.20117']/cda:component/cda:section[(cda:code/@code = '102.16144') or (cda:code/@code = '102.16145')]/cda:entry/cda:observation[@classCode='OBS']/cda:entryRelationship/cda:observation[cda:code[
+            (translate(@displayName, 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ') = 'IMAGING EXAMINATION RESULT DATETIME') or
+            (@code = '103.16589')]]">
+
+            <assert test="cda:code[@code = '103.16589']"
+                >Error: e-Referral - Global Code Checks - The 'code' tag 'code' attribute shall be
+                '103.16589'. Refer to section '7.1.5.2 IMAGING EXAMINATION RESULT' of the e-Referral_CDA_Implementation_Guide_v2.2.</assert>
+
+
+            <assert test="cda:code[(translate(@displayName, 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ') = 'IMAGING EXAMINATION RESULT DATETIME')]"
+                >Error: e-Referral - Global Code Checks - The 'code' tag 'displayName' attribute shall be
+                'Imaging Examination Result DateTime'. Refer to section '7.1.5.2 IMAGING EXAMINATION RESULT' 
+                of the e-Referral_CDA_Implementation_Guide_v2.2.</assert>
+
+         </rule>
+        
+         <!-- 7.1.5.1.1 :: TEST SPECIMEN DETAIL -->
+        
+         <rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code = '101.20117']/cda:component/cda:section[(cda:code/@code = '102.16144') or (cda:code/@code = '102.16145')]/cda:entry/cda:observation[@classCode='OBS']/cda:entryRelationship/cda:observation[cda:code[
+            (translate(@displayName, 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ') = 'TEST SPECIMEN DETAIL') or
+            (@code = '102.16156.2.2.1')]]">
+
+            <assert test="cda:code[@code = '102.16156.2.2.1']"
+                >Error: e-Referral - Global Code Checks - The 'code' tag 'code' attribute shall be
+                '102.16156.2.2.1'. Refer to section '7.1.5.2 IMAGING EXAMINATION RESULT' of the e-Referral_CDA_Implementation_Guide_v2.2.</assert>
+
+
+            <assert test="cda:code[(translate(@displayName, 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ') = 'TEST SPECIMEN DETAIL')]"
+                >Error: e-Referral - Global Code Checks - The 'code' tag 'displayName' attribute shall be
+                'Test Specimen Detail'. Refer to section '7.1.5.1.1 TEST SPECIMEN DETAIL' 
+                of the e-Referral_CDA_Implementation_Guide_v2.2.</assert>
+
+         </rule>
+        
+        <!-- 7.1.5.1.1 :: PATHOLOGY TEST SPECIMEN DETAIL -->
+        
+        <rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code = '101.20117']/cda:component/cda:section[cda:code/@code = '102.16144']/cda:entry/cda:observation[@classCode='OBS']/cda:entryRelationship/cda:observation[cda:code/@code = '102.16156.2.2.1']/cda:entryRelationship/cda:observation[cda:code[
+            (translate(@displayName, 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ') = 'SAMPLING PRECONDITIONS') or
+            (@code = '103.16171')]]"> 
+    
+            <assert test="cda:code[@code = '103.16171']"
+                >Error: e-Referral - Global Code Checks - 
+                The 'code' tag 'code' attribute shall be '103.16171'. Refer to section '7.1.5.1.1 PATHOLOGY TEST SPECIMEN DETAIL' of the
+                e-Referral_CDA_Implementation_Guide_v2.2.</assert>
+
+
+            <assert test="cda:code[(translate(@displayName, 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ') = 'SAMPLING PRECONDITIONS')]"
+                >Error: e-Referral - Global Code Checks -
+                The 'code' tag 'displayName' attribute shall be 'Samplings Precondition'. Refer to section '7.1.5.1.1 PATHOLOGY TEST SPECIMEN DETAIL' of the 
+                e-Referral_CDA_Implementation_Guide_v2.2.</assert>
+
+        </rule>
+
+
+        <!-- 7.1.5.1.2.1 :: Result Group Specimen Detail -->
+            
+        <rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code = '101.20117']/cda:component/cda:section[cda:code/@code = '102.16144']/cda:entry/cda:observation[@classCode='OBS']/cda:entryRelationship/cda:organizer[@classCode='BATTERY']/cda:component/cda:observation[@classCode='OBS']/cda:entryRelationship/cda:observation[cda:code[
+            (translate(@displayName, 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ') = 'SAMPLING PRECONDITIONS') or
+            (@code = '103.16171')]]">
+    
+            <assert test="cda:code[@code = '103.16171']"
+                >Error: e-Referral - Global Code Checks - 
+                The 'code' tag 'code' attribute shall be '103.16171'. Refer to section '7.1.5.1.2.1 Result Group Specimen Detail' of the
+                e-Referral_CDA_Implementation_Guide_v2.2.</assert>
+
+            <assert test="cda:code[(translate(@displayName, 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ') = 'SAMPLING PRECONDITIONS')]"
+                >Error: e-Referral - Global Code Checks -
+                The 'code' tag 'displayName' attribute shall be 'Samplings Precondition'. Refer to section '7.1.5.1.2.1 Result Group Specimen Detail' of the 
+                e-Referral_CDA_Implementation_Guide_v2.2.</assert>
+
+        </rule>
+        
+        <!-- 7.1.5.1.1 :: PATHOLOGY TEST SPECIMEN DETAIL -->
+        
+        <rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code = '101.20117']/cda:component/cda:section[cda:code/@code = '102.16144']/cda:entry/cda:observation[@classCode='OBS']/cda:entryRelationship/cda:observation[cda:code/@code = '102.16156.2.2.1']/cda:entryRelationship/cda:observation[cda:code[
+            (translate(@displayName, 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ') = 'COLLECTION SETTING') or
+            (@code = '103.16529')]]"> 
+    
+            <assert test="cda:code[@code = '103.16529']"
+                >Error: e-Referral - Global Code Checks - 
+                The 'code' tag 'code' attribute shall be '103.16529'. Refer to section '7.1.5.1.1 PATHOLOGY TEST SPECIMEN DETAIL' of the
+                e-Referral_CDA_Implementation_Guide_v2.2.</assert>
+
+
+            <assert test="cda:code[(translate(@displayName, 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ') = 'COLLECTION SETTING')]"
+                >Error: e-Referral - Global Code Checks -
+                The 'code' tag 'displayName' attribute shall be 'Samplings Precondition'. Refer to section '7.1.5.1.1 PATHOLOGY TEST SPECIMEN DETAIL' of the 
+                e-Referral_CDA_Implementation_Guide_v2.2.</assert>
+
+        </rule>
+
+
+        <!-- 7.1.5.1.2.1 :: Result Group Specimen Detail -->
+            
+        <rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code = '101.20117']/cda:component/cda:section[cda:code/@code = '102.16144']/cda:entry/cda:observation[@classCode='OBS']/cda:entryRelationship/cda:organizer[@classCode='BATTERY']/cda:component/cda:observation[@classCode='OBS']/cda:entryRelationship/cda:observation[cda:code[
+            (translate(@displayName, 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ') = 'COLLECTION SETTING') or
+            (@code = '103.16529')]]">
+    
+            <assert test="cda:code[@code = '103.16529']"
+                >Error: e-Referral - Global Code Checks - 
+                The 'code' tag 'code' attribute shall be '103.16529'. Refer to section '7.1.5.1.2.1 Result Group Specimen Detail' of the
+                e-Referral_CDA_Implementation_Guide_v2.2.</assert>
+
+            <assert test="cda:code[(translate(@displayName, 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ') = 'COLLECTION SETTING')]"
+                >Error: e-Referral - Global Code Checks -
+                The 'code' tag 'displayName' attribute shall be 'Collection Setting'. Refer to section '7.1.5.1.2.1 Result Group Specimen Detail' of the 
+                e-Referral_CDA_Implementation_Guide_v2.2.</assert>
+
+        </rule>
+        
+        <!-- 7.1.5.1.1 :: PATHOLOGY TEST SPECIMEN DETAIL -->
+        
+        <rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code = '101.20117']/cda:component/cda:section[cda:code/@code = '102.16144']/cda:entry/cda:observation[@classCode='OBS']/cda:entryRelationship/cda:observation[cda:code/@code = '102.16156.2.2.1']/cda:entryRelationship/cda:observation[cda:code[
+            (translate(@displayName, 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ') = 'DATETIME RECEIVED') or
+            (@code = '103.11014')]]"> 
+    
+            <assert test="cda:code[@code = '103.11014']"
+                >Error: e-Referral - Global Code Checks - 
+                The 'code' tag 'code' attribute shall be '103.11014'. Refer to section '7.1.5.1.1 PATHOLOGY TEST SPECIMEN DETAIL' of the
+                e-Referral_CDA_Implementation_Guide_v2.2.</assert>
+
+
+            <assert test="cda:code[(translate(@displayName, 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ') = 'DATETIME RECEIVED')]"
+                >Error: e-Referral - Global Code Checks -
+                The 'code' tag 'displayName' attribute shall be 'DateTime Received'. Refer to section '7.1.5.1.1 PATHOLOGY TEST SPECIMEN DETAIL' of the 
+                e-Referral_CDA_Implementation_Guide_v2.2.</assert>
+
+        </rule>
+
+
+        <!-- 7.1.5.1.2.1 :: Result Group Specimen Detail -->
+            
+        <rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code = '101.20117']/cda:component/cda:section[cda:code/@code = '102.16144']/cda:entry/cda:observation[@classCode='OBS']/cda:entryRelationship/cda:organizer[@classCode='BATTERY']/cda:component/cda:observation[@classCode='OBS']/cda:entryRelationship/cda:observation[cda:code[
+            (translate(@displayName, 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ') = 'DATETIME RECEIVED') or
+            (@code = '103.11014')]]">
+    
+            <assert test="cda:code[@code = '103.11014']"
+                >Error: e-Referral - Global Code Checks - 
+                The 'code' tag 'code' attribute shall be '103.11014'. Refer to section '7.1.5.1.2.1 Result Group Specimen Detail' of the
+                e-Referral_CDA_Implementation_Guide_v2.2.</assert>
+
+            <assert test="cda:code[(translate(@displayName, 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ') = 'DATETIME RECEIVED')]"
+                >Error: e-Referral - Global Code Checks -
+                The 'code' tag 'displayName' attribute shall be 'DateTime Received'. Refer to section '7.1.5.1.2.1 Result Group Specimen Detail' of the 
+                e-Referral_CDA_Implementation_Guide_v2.2.</assert>
+
+        </rule>
+        
+        <!-- 7.1.5.1.1 :: PATHOLOGY TEST SPECIMEN DETAIL -->
+        
+        <rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code = '101.20117']/cda:component/cda:section[cda:code/@code = '102.16144']/cda:entry/cda:observation[@classCode='OBS']/cda:entryRelationship/cda:observation[cda:code/@code = '102.16156.2.2.1']/cda:entryRelationship/cda:observation[cda:code[
+            (translate(@displayName, 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ') = 'PARENT SPECIMEN IDENTIFIER') or
+            (@code = '103.16187')]]"> 
+    
+            <assert test="cda:code[@code = '103.16187']"
+                >Error: e-Referral - Global Code Checks - 
+                The 'code' tag 'code' attribute shall be '103.16187'. Refer to section '7.1.5.1.1 PATHOLOGY TEST SPECIMEN DETAIL' of the
+                e-Referral_CDA_Implementation_Guide_v2.2.</assert>
+
+
+            <assert test="cda:code[(translate(@displayName, 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ') = 'PARENT SPECIMEN IDENTIFIER')]"
+                >Error: e-Referral - Global Code Checks -
+                The 'code' tag 'displayName' attribute shall be 'Parent Specimen Identifier'. Refer to section '7.1.5.1.1 PATHOLOGY TEST SPECIMEN DETAIL' of the 
+                e-Referral_CDA_Implementation_Guide_v2.2.</assert>
+
+        </rule>
+
+
+        <!-- 7.1.5.1.2.1 :: Result Group Specimen Detail -->
+            
+        <rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code = '101.20117']/cda:component/cda:section[cda:code/@code = '102.16144']/cda:entry/cda:observation[@classCode='OBS']/cda:entryRelationship/cda:organizer[@classCode='BATTERY']/cda:component/cda:observation[@classCode='OBS']/cda:entryRelationship/cda:observation[cda:code[
+            (translate(@displayName, 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ') = 'PARENT SPECIMEN IDENTIFIER') or
+            (@code = '103.16187')]]">
+    
+            <assert test="cda:code[@code = '103.16187']"
+                >Error: e-Referral - Global Code Checks - 
+                The 'code' tag 'code' attribute shall be '103.16187'. Refer to section '7.1.5.1.2.1 Result Group Specimen Detail' of the
+                e-Referral_CDA_Implementation_Guide_v2.2.</assert>
+
+            <assert test="cda:code[(translate(@displayName, 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ') = 'PARENT SPECIMEN IDENTIFIER')]"
+                >Error: e-Referral - Global Code Checks -
+                The 'code' tag 'displayName' attribute shall be 'Parent Specimen Identifier'. Refer to section '7.1.5.1.2.1 Result Group Specimen Detail' of the 
+                e-Referral_CDA_Implementation_Guide_v2.2.</assert>
+
+        </rule>
+        
+        <!-- 7.1.5.1.2 :: PATHOLOGY TEST RESULT GROUP -->
+        
+        <!--/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code = '101.20117']/cda:component/cda:section[cda:code/@code = '102.16145']/cda:entry/cda:observation[@classCode='OBS']/cda:entryRelationship/cda:organizer[@classCode='BATTERY']/cda:statusCode/@code = "completed"   7.1.5.1.2 PATHOLOGY TEST RESULT GROUP -->
+        <rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code = '101.20117']/cda:component/cda:section[(cda:code/@code = '102.16144') or (cda:code/@code = '102.16145')]/cda:entry/cda:observation[@classCode='OBS']/cda:entryRelationship/cda:organizer[@classCode='BATTERY']">
+
+            <assert test="cda:statusCode">Error: e-Referral - Global Code Checks - 'statusCode' tag
+                is missing. Refer to section '7.1.5.1.2 PATHOLOGY TEST RESULT GROUP' of the
+                e-Referral_CDA_Implementation_Guide_v2.2.</assert>
+
+            <assert test="cda:statusCode[(@code = 'completed')]">Error: e-Referral - Global Code
+                Checks - 'statusCode' tag 'code' attribute shall contain the value 'completed'. Refer to
+                section '7.1.5.1.2 PATHOLOGY TEST RESULT GROUP' of the
+                e-Referral_CDA_Implementation_Guide_v2.2.</assert>
+
+        </rule>
+
+
+        <!--7.1.5.2.2 :: EXAMINATION REQUEST DETAILS-->
+        
+        <rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code = '101.20117']/cda:component/cda:section[cda:code/@code = '102.16145']/cda:entry/cda:observation[@classCode='OBS']/cda:entryRelationship/cda:act[cda:code/@code = '102.16511']/cda:entryRelationship/cda:act
+            [cda:code[(translate(@displayName, 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ') = 'DICOM STUDY IDENTIFIER') or
+                      (@code = '103.16513')]]">
+        
+            <assert test="cda:code[@code = '103.16513']"
+                >Error: e-Referral - Global Code Checks - The 'code' tag 'code' attribute shall be
+                '103.16513'. Refer to section '7.1.5.2.2 EXAMINATION REQUEST DETAILS' of the
+                e-Referral_CDA_Implementation_Guide_v2.2.</assert>
+
+            <assert test="cda:code[(translate(@displayName, 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ') = 'DICOM STUDY IDENTIFIER')]"
+                >Error: e-Referral - Global Code Checks - The 'code' tag 'displayName' attribute shall be
+                'Dicom Study Identifier'. 
+                Refer to section '7.1.5.2.2 EXAMINATION REQUEST DETAILS' of the
+                e-Referral_CDA_Implementation_Guide_v2.2.</assert>
+
+        </rule>
+        
+       <!--7.1.5.2.2 :: EXAMINATION REQUEST DETAILS -->
+        
+        <rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code = '101.20117']/cda:component/cda:section[(cda:code/@code = '102.16144') or (cda:code/@code = '102.16145')]/cda:entry/cda:observation[@classCode='OBS']/cda:entryRelationship/cda:act[(cda:code/@code = '102.16511') or (cda:code/@code = '102.16160')]/cda:entryRelationship/cda:observation[cda:code[
+            (translate(@displayName, 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ') = 'EXAMINATION REQUESTED NAME') or
+            (@code = '103.16512')]]">
+
+            <assert test="cda:code[@code = '103.16512']"
+                >Error: e-Referral - Global Code Checks - The 'code' tag 'code' attribute shall be
+                '103.16512'. Refer to section '7.1.5.2.2 EXAMINATION REQUEST DETAILS' of the e-Referral_CDA_Implementation_Guide_v2.2.</assert>
+            
+            <assert test="cda:code[(translate(@displayName, 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ') = 'EXAMINATION REQUESTED NAME')]"
+                >Error: e-Referral - Global Code Checks - The 'code' tag 'displayName' attribute shall be
+                'Dicom Study Identifier'. Refer to section '7.1.5.2.2 EXAMINATION REQUEST DETAILS' of the e-Referral_CDA_Implementation_Guide_v2.2.</assert>
+
+        </rule>
+  
+        <!--7.1.5.2.2 :: EXAMINATION REQUEST DETAILS -->
+        <rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code = '101.20117']/cda:component/cda:section[(cda:code/@code = '102.16144') or (cda:code/@code = '102.16145')]/cda:entry/cda:observation[@classCode='OBS']/cda:entryRelationship/cda:act[(cda:code/@code = '102.16511') or (cda:code/@code = '102.16160')]/cda:entryRelationship/cda:observation[cda:code[
+            (translate(@displayName, 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ') = 'REPORT IDENTIFIER') or
+            (@code = '103.16514')]]">
+
+            <assert test="cda:code[@code = '103.16514']"
+                >Error: e-Referral - Global Code Checks - The 'code' tag 'code' attribute shall be
+                '103.16514'. Refer to section '7.1.5.2.2 EXAMINATION REQUEST DETAILS' of the e-Referral_CDA_Implementation_Guide_v2.2.</assert>
+            
+            <assert test="cda:code[(translate(@displayName, 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ') = 'REPORT IDENTIFIER')]"
+                >Error: e-Referral - Global Code Checks - The 'code' tag 'displayName' attribute shall be
+                'Report Identifier'. Refer to section '7.1.5.2.2 EXAMINATION REQUEST DETAILS' of the e-Referral_CDA_Implementation_Guide_v2.2.</assert>
+
+        </rule>
+
+  
+        <!-- 7.1.5.1 :: PATHOLOGY TEST RESULT -->
+        
+        <rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code = '101.20117']/cda:component/cda:section[(cda:code/@code = '102.16144') or (cda:code/@code = '102.16145')]/cda:entry/cda:observation[@classCode='OBS']/cda:entryRelationship/cda:act[(cda:code/@code = '102.16511') or (cda:code/@code = '102.16160')]/cda:entryRelationship/cda:observation[cda:code[
+            (translate(@displayName, 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ') = 'TEST REQUESTED NAME') or
+            (@code = '103.11017')]]">
+
+            <assert test="cda:code[@code = '103.11017']"
+                >Error: e-Referral - Global Code Checks - The 'code' tag 'code' attribute shall be
+                '103.11017'. Refer to section '7.1.5.1 PATHOLOGY TEST RESULT' of the e-Referral_CDA_Implementation_Guide_v2.2.</assert>
+            
+            <assert test="cda:code[(translate(@displayName, 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ') = 'TEST REQUESTED NAME')]"
+                >Error: e-Referral - Global Code Checks - The 'code' tag 'displayName' attribute shall be
+                'Test Requested Name'. Refer to section '7.1.5.1 PATHOLOGY TEST RESULT' of the e-Referral_CDA_Implementation_Guide_v2.2.</assert>
+
+        </rule>
+       
+        <!-- 7.1.5.1.2 :: PATHOLOGY TEST RESULT GROUP and 7.1.5.2.1 ::IMAGING EXAMINATION RESULT GROUP -->
+        
+        <rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code = '101.20117']/cda:component/cda:section[(cda:code/@code = '102.16144') or (cda:code/@code = '102.16145')]/cda:entry/cda:observation[@classCode='OBS']/cda:entryRelationship/cda:organizer[@classCode='BATTERY']/cda:component/cda:observation[@classCode='OBS']/cda:entryRelationship/cda:act[cda:code[
+            (translate(@displayName, 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ') = 'RESULT COMMENTS') or
+            (@code = '281296001')]]">
+           
+            <assert test="cda:code[@code = '281296001']"
+                >Error: e-Referral - Global Code Checks - The 'code' tag 'code' attribute shall be
+                '281296001'. Refer to section '7.1.5.1.2 PATHOLOGY TEST RESULT GROUP'
+                or '7.1.5.2.1 IMAGING EXAMINATION RESULT GROUP' of the
+                e-Referral_CDA_Implementation_Guide_v2.2.</assert>
+            
+            <assert test="cda:code[(translate(@displayName, 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ') = 'RESULT COMMENTS')]"
+                >Error: e-Referral - Global Code Checks - The 'code' tag 'displayName' attribute shall be
+                'Result Comments'. Refer to section '7.1.5.1.2 PATHOLOGY TEST RESULT GROUP' or '7.1.5.2.1 IMAGING
+                EXAMINATION RESULT GROUP' of the
+                e-Referral_CDA_Implementation_Guide_v2.2.</assert>
+
+        </rule>
+        
+        <!-- 7.1.5.2.1 ::IMAGING EXAMINATION RESULT GROUP -->
+        
+        <rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code = '101.20117']/cda:component/cda:section[(cda:code/@code = '102.16144') or (cda:code/@code = '102.16145')]/cda:entry/cda:observation[@classCode='OBS']/cda:entryRelationship/cda:organizer[@classCode='BATTERY']/cda:component/cda:observation[@classCode='OBS']/cda:entryRelationship/cda:act[cda:code[
+            (translate(@displayName, 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ') = 'REFERENCE RANGE COMMENTS') or
+            (@code = '281298000')]]">
+           
+            <assert test="cda:code[@code = '281298000']"
+                >Error: e-Referral - Global Code Checks - The 'code' tag 'code' attribute shall be
+                '281298000'. Refer to section '7.1.5.2.1 IMAGING EXAMINATION RESULT GROUP' of the
+                e-Referral_CDA_Implementation_Guide_v2.2.</assert>
+            
+            <assert test="cda:code[(translate(@displayName, 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ') = 'REFERENCE RANGE COMMENTS')]"
+                >Error: e-Referral - Global Code Checks - The 'code' tag 'displayName' attribute shall be
+                'reference range comments'. Refer to section '7.1.5.2.1 IMAGING EXAMINATION RESULT GROUP' of the
+                e-Referral_CDA_Implementation_Guide_v2.2.</assert>
+
+        </rule>
+        
+        <!-- 7.1.5.2.2 :: EXAMINATION REQUEST DETAILS -->
+        
+        <!--/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code = '101.20117']/cda:component/cda:section[cda:code/@code = '102.16145']/cda:entry/cda:observation[@classCode='OBS']/cda:entryRelationship/cda:act[cda:code/@code = '102.16511']/cda:entryRelationship/cda:act[cda:code/@code = '103.16513']/cda:entryRelationship/cda:observation/cda:code/@code = "103.16515"	7.1.5.2.2 EXAMINATION REQUEST DETAILS-->
+        <rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code = '101.20117']/cda:component/cda:section[cda:code/@code = '102.16145']/cda:entry/cda:observation[@classCode='OBS']/cda:entryRelationship/cda:act[cda:code/@code = '102.16511']/cda:entryRelationship/cda:act[cda:code/@code = '103.16513']/cda:entryRelationship/cda:observation[cda:code[
+            (translate(@displayName, 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ') = 'IMAGE DETAILS') or
+            (@code = '103.16515')]]">
+
+            <assert test="cda:code[(@code = '103.16515')]">Error: e-Referral - Global Code Checks -
+                'code' tag 'code' attribute shall contain the value '103.16515'. Refer to section '7.1.5.2.2
+                EXAMINATION REQUEST DETAILS' of the
+                e-Referral_CDA_Implementation_Guide_v2.2.</assert>
+
+            <assert test="cda:code[(translate(@displayName, 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ') = 'IMAGE DETAILS')]"
+                >Error: e-Referral - Global Code Checks - The 'code' tag 'displayName' attribute shall be
+                'Image Details'. Refer to section '7.1.5.2.2 EXAMINATION REQUEST DETAILS' of the
+                e-Referral_CDA_Implementation_Guide_v2.2.</assert>
+            
+        </rule>
+
+
+        <!-- 7.1.5.1.2 ::PATHOLOGY TEST RESULT GROUP -->           
+        <!--/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code = '101.20117']/cda:component/cda:section[cda:code/@code = '102.16144']/cda:entry/cda:observation[@classCode='OBS']/cda:entryRelationship/cda:organizer[@classCode='BATTERY']/cda:component/cda:observation[@classCode='OBS']/cda:entryRelationship/cda:observation/cda:code/@code = "308552006"         7.1.5.1.2 PATHOLOGY TEST RESULT GROUP-->
+        <rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code = '101.20117']/cda:component/cda:section[cda:code/@code = '102.16144']/cda:entry/cda:observation[@classCode='OBS']/cda:entryRelationship/cda:organizer[@classCode='BATTERY']/cda:component/cda:observation[@classCode='OBS']/cda:entryRelationship/cda:observation
+            [cda:code[(translate(@displayName, 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ') = 'REPORT STATUS')  or
+                      (@code = '308552006')]]">
+            
+          
+            <assert test="cda:code[@code = '308552006']"
+                >Error: e-Referral - Global Code Checks - The 'code' tag 'code' attribute shall be
+                '308552006'. Refer to section '7.1.5.1.2 PATHOLOGY TEST RESULT GROUP' of the
+                e-Referral_CDA_Implementation_Guide_v2.2.</assert>
+
+            <assert test="cda:code[translate(@displayName, 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ') = 'REPORT STATUS']"
+                >Error: e-Referral - Global Code Checks - The 'code' tag 'displayName' attribute shall be
+                'Report Status'. 
+                Refer to section '7.1.5.1.2 PATHOLOGY TEST RESULT GROUP' of the
+                e-Referral_CDA_Implementation_Guide_v2.2.</assert>
+            
+        </rule>
+
+        <!-- 7.1.5.1.2.1 RESULT GROUP SPECIMEN DETAIL -->           
+        <!--/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code = '101.20117']/cda:component/cda:section[cda:code/@code = '102.16144']/cda:entry/cda:observation[@classCode='OBS']/cda:entryRelationship/cda:organizer[@classCode='BATTERY']/cda:component/cda:observation/cda:code/@code = "102.16156.2.2.2" 	7.1.5.1.2.1 RESULT GROUP SPECIMEN DETAIL-->
+        <rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code = '101.20117']/cda:component/cda:section[cda:code/@code = '102.16144']/cda:entry/cda:observation[@classCode='OBS']/cda:entryRelationship/cda:organizer[@classCode='BATTERY']/cda:component/cda:observation
+            [cda:code[(translate(@displayName, 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ') = 'RESULT GROUP SPECIMEN DETAIL') or
+                      (@code = '102.16156.2.2.2')]]">
+           
+     
+            <assert test="cda:code[ @code = '102.16156.2.2.2']"
+                >Error: e-Referral - Global Code Checks - The 'code' tag 'code' attribute shall be
+                '308552006' or '102.16156.2.2.2' or '103.16171' or '103.16529' or '103.11014' or
+                '103.16187'. Refer to section '7.1.5.1.2 PATHOLOGY TEST RESULT GROUP' or
+                '7.1.5.1.2.1 RESULT GROUP SPECIMEN DETAIL' of the
+                e-Referral_CDA_Implementation_Guide_v2.2.</assert>
+
+            <assert test="cda:code[translate(@displayName, 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ') = 'RESULT GROUP SPECIMEN DETAIL']"
+                >Error: e-Referral - Global Code Checks - The 'code' tag 'displayName' attribute shall be
+                'Report Status' or 'Result Group Specimen Detail' or 'Sampling Preconditions',or 'Collection Setting',or 'DateTime Received',or 'Parent Specimen Identifier'. 
+                Refer to section '7.1.5.1.2 PATHOLOGY TEST RESULT GROUP' or
+                '7.1.5.1.2.1 RESULT GROUP SPECIMEN DETAIL' of the
+                e-Referral_CDA_Implementation_Guide_v2.2.</assert>
+            
+        </rule>
+
+
+                  
+        <!-- /cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code = '101.20117']/cda:component/cda:section[cda:code/@code = '102.16145']/cda:entry/cda:observation[@classCode='OBS']/cda:entryRelationship/cda:act[cda:code/@code = '102.16511']/cda:entryRelationship/cda:act[cda:code/@code = '103.16513']/cda:entryRelationship/cda:observation/cda:entryRelationship/cda:observation/cda:code/@code = "103.16519" 	7.1.5.2.2 EXAMINATION REQUEST DETAILS -->  
+        <rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code = '101.20117']/cda:component/cda:section[cda:code/@code = '102.16145']/cda:entry/cda:observation[@classCode='OBS']/cda:entryRelationship/cda:act[cda:code/@code = '102.16511']/cda:entryRelationship/cda:act[cda:code/@code = '103.16513']/cda:entryRelationship/cda:observation[@classCode='OBS']/cda:entryRelationship/cda:observation[cda:code[
+            (translate(@displayName, 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ') = 'SUBJECT POSITION') or 
+            (@code = '103.16519')]]">
+
+            <assert test="cda:code[(@code = '103.16519')]">Error: e-Referral - Global Code Checks -
+                'code' tag 'code' attribute shall contain the value '103.16519'. Refer to section '7.1.5.2.2
+                EXAMINATION REQUEST DETAILS' of the
+                e-Referral_CDA_Implementation_Guide_v2.2.</assert>
+
+            <assert test="cda:code[(translate(@displayName, 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ') = 'SUBJECT POSITION')]"
+                >Error: e-Referral - Global Code Checks - The 'code' tag 'displayName' attribute shall be
+                'Subject Position'. Refer to section '7.1.5.2.2 EXAMINATION REQUEST DETAILS' of the
+                e-Referral_CDA_Implementation_Guide_v2.2.</assert>
+        </rule>
+          
+        <!-- /cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code = '101.20117']/cda:component/cda:section[cda:code/@code = '102.16145']/cda:entry/cda:observation[@classCode='OBS']/cda:entryRelationship/cda:act[cda:code/@code = '102.16511']/cda:entryRelationship/cda:act[cda:code/@code = '103.16513']/cda:entryRelationship/cda:observation[@classCode='OBS']/cda:entryRelationship/cda:act/cda:code/@code = "103.16517"     7.1.5.2.2 EXAMINATION REQUEST DETAILS -->  
+        <rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code = '101.20117']/cda:component/cda:section[cda:code/@code = '102.16145']/cda:entry/cda:observation[@classCode='OBS']/cda:entryRelationship/cda:act[cda:code/@code = '102.16511']/cda:entryRelationship/cda:act[cda:code/@code = '103.16513']/cda:entryRelationship/cda:observation[@classCode='OBS']/cda:entryRelationship/cda:act[cda:code[
+            (translate(@displayName, 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ') = 'DICOM SERIES IDENTIFIER') or 
+            (@code = '103.16517')]]">
+
+            <assert test="cda:code[(@code = '103.16517')]">Error: e-Referral - Global Code Checks -
+                'code' tag 'code' attribute shall contain the value '103.16517' or '103.16519'. Refer to
+                section '7.1.5.2.2 EXAMINATION REQUEST DETAILS' of the
+                e-Referral_CDA_Implementation_Guide_v2.2.</assert>
+            
+            <assert test="cda:code[(translate(@displayName, 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ') = 'DICOM SERIES IDENTIFIER')]"
+                >Error: e-Referral - Global Code Checks - The 'code' tag 'displayName' attribute shall be
+                'Dicom Series Identifier'. 
+                Refer to section '7.1.5.2.2
+                EXAMINATION REQUEST DETAILS' of the
+                e-Referral_CDA_Implementation_Guide_v2.2.</assert>
+          
+        </rule>
+        
+        <!-- 7.1.5.3 :: Requested Service -->
+        
+        <rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code = '101.20117']/cda:component/cda:section[cda:code/@code = '102.20158']/cda:entry/cda:act[@classCode='ACT']/cda:entryRelationship/cda:act[cda:code[
+            (translate(@displayName, 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ') = 'SUBJECT OF CARE INSTRUCTION DESCRIPTION') or
+            (@code = '103.10146')]]">
+
+            <assert test="cda:code[@code = '103.10146']"
+                >Error: e-Referral - Global Code Checks - The 'code' tag 'code' attribute shall
+                be '103.10146'. Refer to section '7.1.5.3 Requested Service' of the
+                e-Referral_CDA_Implementation_Guide_v2.2.</assert>
+            
+            <assert test="cda:code[(translate(@displayName, 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ') = 'SUBJECT OF CARE INSTRUCTION DESCRIPTION')]"
+                >Error: e-Referral - Global Code Checks - The 'code' tag 'displayName' attribute shall be
+                'Subject of Care Instruction Description'. Refer to section '7.1.5.3 Requested Service' 
+                of the e-Referral_CDA_Implementation_Guide_v2.2.</assert>
+        </rule>    
+        
+        <!-- 7.1.5.3 :: Requested Service -->
+        
+        <rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code = '101.20117']/cda:component/cda:section[cda:code/@code = '102.20158']/cda:entry/cda:act[@classCode='ACT']/cda:entryRelationship/cda:act[cda:code[
+            (translate(@displayName, 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ') = 'REQUESTED SERVICE DATETIME') or
+            (@code = '103.16635')]]">
+
+            <assert test="cda:code[@code = '103.16635']"
+                >Error: e-Referral - Global Code Checks - The 'code' tag 'code' attribute shall
+                be '103.16635. Refer to section '7.1.5.3 Requested Service' of the
+                e-Referral_CDA_Implementation_Guide_v2.2.</assert>
+            
+            <assert test="cda:code[(translate(@displayName, 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ') = 'REQUESTED SERVICE DATETIME')]"
+                >Error: e-Referral - Global Code Checks - The 'code' tag 'displayName' attribute shall be
+                'Requested Service DateTime'. Refer to section '7.1.5.3 Requested Service' 
+                of the e-Referral_CDA_Implementation_Guide_v2.2.</assert>
+        </rule>
+        
+    </pattern>

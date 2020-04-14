@@ -1,0 +1,40 @@
+    <pattern name="p-Specialist_Letter_DOCUMENTAUTHOR_6_1_2_custom-errors"
+        id="p-Specialist_Letter_DOCUMENTAUTHOR_6_1_2_custom-errors"
+        see="#p-Specialist_Letter_DOCUMENTAUTHOR_6_1_2_custom-errors">
+
+        <rule context="/cda:ClinicalDocument/cda:author/cda:assignedAuthor/cda:addr">
+
+            <!-- Address - country -  0..1 -->
+
+            <assert
+                test="@nullFlavor or document('CDAValidate_Vocabs.xml')/systems/system[@codeSystemName = 'ISO3166-1']/code[translate(@displayName, 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ') = translate(current()/cda:country, 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ')]/@code = 'AU'"
+                >Error: Specialist Letter - 6.1.2 Document Author - "Document Author / Participant /
+                Address / Australia or International Address / International Address / Country" -
+                The 'country' tag shall contain the value 'Australia' or 'nullFlavor'. Refer to section 6.1.2 of the
+                Specialist_Letter_CDA_Implementation_Guide_v1.3.</assert>
+
+        </rule>
+
+        <rule
+            context="/cda:ClinicalDocument/cda:author/cda:assignedAuthor/cda:assignedPerson/cda:name">
+
+            <assert test="cda:family">Error: Specialist Letter - 6.1.2 Document Author - Participant /
+                Person or Organisation or Device / Person / Person Name - The 'family' tag is
+                missing. Refer to section section 6.1.2 and section 8.5 Person Name of the
+                Specialist_Letter_CDA_Implementation_Guide_v1.3.</assert>
+        </rule>
+
+        <rule context="/cda:ClinicalDocument/cda:author/cda:time[@value]">
+
+            <report
+                test="(/cda:ClinicalDocument/cda:legalAuthenticator/cda:time[@value]) and (/cda:ClinicalDocument/cda:legalAuthenticator/cda:time/@value != /cda:ClinicalDocument/cda:author/cda:time/@value)"
+                >Error: Specialist Letter - 6.1.2 DOCUMENT AUTHOR - "Document Author / Participation
+                Period" - The 'time' tag 'value' attribute value shall be same as
+                /cda:ClinicalDocument/cda:legalAuthenticator/cda:time/@value value. Refer to section
+                6.1.2 of the Specialist_Letter_CDA_Implementation_Guide_v1.3.</report>           
+        
+        </rule>
+
+
+    </pattern>
+

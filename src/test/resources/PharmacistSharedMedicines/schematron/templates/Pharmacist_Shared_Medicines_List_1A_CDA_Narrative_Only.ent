@@ -1,0 +1,96 @@
+<pattern name="p-Pharmacist_Shared_Medicines_List_1A_CDA_Narrative_Only-errors"
+  id="p-Pharmacist_Shared_Medicines_List_1A_CDA_Narrative_Only-errors"
+  see="#p-Pharmacist_Shared_Medicines_List_1A_CDA_Narrative_Only-errors">
+
+
+  <rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody">
+
+    <report test="count(cda:component) > 1">Error: Pharmacist Shared Medicines List - The
+      'component' tag shall appear only once. Refer to "027987 - Levels of conformance" of
+      the Pharmacist_Shared_Medicines_List_Conformance_Profile and the "024482 -
+      Conformance levels" of the Clinical_Documents_Common_Conformance_Profile_v1.7 and
+      the Core_Level_One_Clinical_Document_CDA_Implementation_Guide_v1.1.
+    </report>
+
+  </rule>
+
+
+  <rule
+    context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:templateId/@root = '1.2.36.1.2001.1001.101.101.16886']">
+
+    <report test="cda:title and normalize-space(cda:title) = ''">Error: Pharmacist Shared
+      Medicines List - The 'title' tag shall contain a value. Refer to "027987 - Levels of
+      conformance" of the Pharmacist_Shared_Medicines_List_Conformance_Profile and the
+      "024482 - Conformance levels" of the
+      Clinical_Documents_Common_Conformance_Profile_v1.7 and the
+      Core_Level_One_Clinical_Document_CDA_Implementation_Guide_v1.1.
+    </report>
+
+    <assert test="cda:text">Error: Pharmacist Shared Medicines List - The 'text' tag is
+      missing. Refer to "027987 - Levels of conformance" of the
+      Pharmacist_Shared_Medicines_List_Conformance_Profile and the "024482 - Conformance
+      levels" of the Clinical_Documents_Common_Conformance_Profile_v1.7 and the
+      Core_Level_One_Clinical_Document_CDA_Implementation_Guide_v1.1.
+    </assert>
+
+  </rule>
+
+
+  <rule
+    context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:templateId/@root = '1.2.36.1.2001.1001.101.101.16886']/cda:text">
+
+    <assert
+      test="
+                    normalize-space(concat(text()[1], text()[2], text()[3], text()[4], text()[5], text()[6], text()[7], text()[8], text()[9], text()[10],
+                    text()[11], text()[12], text()[13], text()[14], text()[15], text()[16], text()[17], text()[18], text()[19], text()[20],
+                    text()[21], text()[22], text()[23], text()[24], text()[25], text()[26], text()[27], text()[28], text()[29], text()[30],
+                    text()[31], text()[32], text()[33], text()[34], text()[35], text()[36], text()[37], text()[38], text()[39], text()[40],
+                    text()[41], text()[42], text()[43], text()[44], text()[45], text()[46], text()[47], text()[48], text()[49], text()[50])) = ''"
+    >Error: Pharmacist Shared Medicines List - The 'text' tag shall not contain an
+      immediate text value. Refer to "024482 - Conformance levels" of the
+      Clinical_Documents_Common_Conformance_Profile_v1.7 and section 7.1.1 of the
+      Core_Level_One_Clinical_Document_CDA_Implementation_Guide_v1.1.
+    </assert>
+
+    <report test="count(child::*) != count(cda:renderMultiMedia) + count(cda:paragraph)"
+    >Error: Pharmacist Shared Medicines List - The 'text' tag shall contain only
+      "renderMultiMedia" or "paragraph" child tags. Refer to "024482 - Conformance levels"
+      of the Clinical_Documents_Common_Conformance_Profile_v1.7 and "027987 - Levels of
+      Conformance" of the Pharmacist_Shared_Medicines_List_Conformance_Profile and
+      section 7.1.1 of the
+      Core_Level_One_Clinical_Document_CDA_Implementation_Guide_v1.1.
+    </report>
+
+  </rule>
+
+
+  <rule
+    context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section/cda:text/cda:paragraph">
+
+    <assert
+      test="
+                    normalize-space(concat(text()[1], text()[2], text()[3], text()[4], text()[5], text()[6], text()[7], text()[8], text()[9], text()[10],
+                    text()[11], text()[12], text()[13], text()[14], text()[15], text()[16], text()[17], text()[18], text()[19], text()[20],
+                    text()[21], text()[22], text()[23], text()[24], text()[25], text()[26], text()[27], text()[28], text()[29], text()[30],
+                    text()[31], text()[32], text()[33], text()[34], text()[35], text()[36], text()[37], text()[38], text()[39], text()[40],
+                    text()[41], text()[42], text()[43], text()[44], text()[45], text()[46], text()[47], text()[48], text()[49], text()[50])) = ''"
+    >Error: Pharmacist Shared Medicines List - The 'paragraph' tag shall not contain an
+      immediate text value. Refer to "024482 - Conformance levels" of the
+      Clinical_Documents_Common_Conformance_Profile_v1.7 and the
+      Core_Level_One_Clinical_Document_CDA_Implementation_Guide_v1.1.
+    </assert>
+
+    <report test="count(child::*) != count(cda:renderMultiMedia)">Error: Pharmacist Shared
+      Medicines List - The 'text' tag shall contain only "renderMultiMedia" or "paragraph"
+      child tags. Refer to "024482 - Conformance levels" of the
+      Clinical_Documents_Common_Conformance_Profile_v1.7 and "027987 - Levels of
+      Conformance" of the Pharmacist_Shared_Medicines_List_Conformance_Profile and the
+      Core_Level_One_Clinical_Document_CDA_Implementation_Guide_v1.1.
+    </report>
+
+  </rule>
+
+
+</pattern>
+
+

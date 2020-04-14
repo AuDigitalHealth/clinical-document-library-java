@@ -1,0 +1,119 @@
+    <pattern name="p-Event_Summary_3A_ResultGroup_PATHOLOGYTESTRESULTGROUP_7_1_6_1_2_custom-errors"
+        id="p-Event_Summary_3A_ResultGroup_PATHOLOGYTESTRESULTGROUP_7_1_6_1_2_custom-errors"
+        see="#p-Event_Summary_3A_ResultGroup_PATHOLOGYTESTRESULTGROUP_7_1_6_1_2_custom-errors">
+
+
+        <rule
+            context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code='101.20117']/cda:component/cda:section[cda:code/@code='102.16144']/cda:entry/cda:observation[@classCode='OBS']/cda:entryRelationship/cda:organizer">
+
+            <assert test="@classCode">Error: Event Summary - 7.1.6.1.2 Result Group (PATHOLOGY TEST
+                RESULT GROUP) - "Result Group (PATHOLOGY TEST RESULT GROUP)" - The 'organizer' tag
+                'classCode' attribute is missing. Refer to section 7.1.6.1.2 of the
+                Event_Summary_CDA_Implementation_Guide_v1.3.</assert>
+
+            <assert test="not(@classCode) or normalize-space(@classCode) != ''">Error: Event Summary
+                - 7.1.6.1.2 Result Group (PATHOLOGY TEST RESULT GROUP) - "Result Group (PATHOLOGY
+                TEST RESULT GROUP)" - The 'organizer' tag 'classCode' attribute shall contain a
+                value. Refer to section 7.1.6.1.2 of the
+                Event_Summary_CDA_Implementation_Guide_v1.3.</assert>
+
+            <assert
+                test="
+                not(@classCode) or normalize-space(@classCode) = '' or @classCode = 'BATTERY'"
+                >Error: Event Summary - 7.1.6.1.2 Result Group (PATHOLOGY TEST RESULT GROUP) -
+                "Result Group (PATHOLOGY TEST RESULT GROUP)" - The 'organizer' tag 'classCode'
+                attribute shall contain the value 'BATTERY'. Refer to section 7.1.6.1.2 of the
+                Event_Summary_CDA_Implementation_Guide_v1.3.</assert>
+
+
+        </rule>
+
+      
+
+        <rule
+            context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code='101.20117']/
+            cda:component/cda:section[cda:code/@code = '102.16144']/
+            cda:entry/cda:observation[@classCode='OBS']/
+            cda:entryRelationship/cda:organizer[translate(@classCode, 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ') = 'BATTERY']/
+            cda:component/cda:observation[cda:code[not(@code) or (@code!='102.16156.136.2.2')]]/
+            cda:value">
+
+            <!-- Refer to RPSA-793 -->
+            <assert
+                test="
+                not(@xsi:type) or normalize-space(@xsi:type) = '' or
+                normalize-space(@xsi:type) = 'CD' or
+                (substring-before(normalize-space(@xsi:type), ':') != '' and
+                substring-after(normalize-space(@xsi:type), ':') = 'CD') or 
+                normalize-space(@xsi:type) = 'CE' or
+                (substring-before(normalize-space(@xsi:type), ':') != '' and
+                substring-after(normalize-space(@xsi:type), ':') = 'CE') or 
+                normalize-space(@xsi:type) = 'PQ' or
+                (substring-before(normalize-space(@xsi:type), ':') != '' and
+                substring-after(normalize-space(@xsi:type), ':') = 'PQ') or 
+                normalize-space(@xsi:type) = 'BL' or
+                (substring-before(normalize-space(@xsi:type), ':') != '' and
+                substring-after(normalize-space(@xsi:type), ':') = 'BL') or 
+                normalize-space(@xsi:type) = 'ST' or
+                (substring-before(normalize-space(@xsi:type), ':') != '' and
+                substring-after(normalize-space(@xsi:type), ':') = 'ST') or 
+                normalize-space(@xsi:type) = 'INT' or
+                (substring-before(normalize-space(@xsi:type), ':') != '' and
+                substring-after(normalize-space(@xsi:type), ':') = 'INT') or 
+                normalize-space(@xsi:type) = 'RTO_PQ_PQ' or
+                (substring-before(normalize-space(@xsi:type), ':') != '' and
+                substring-after(normalize-space(@xsi:type), ':') = 'RTO_PQ_PQ') or 
+                normalize-space(@xsi:type) = 'IVL_PQ' or
+                (substring-before(normalize-space(@xsi:type), ':') != '' and
+                substring-after(normalize-space(@xsi:type), ':') = 'IVL_PQ') or 
+                normalize-space(@xsi:type) = 'PPD_PQ' or
+                (substring-before(normalize-space(@xsi:type), ':') != '' and
+                substring-after(normalize-space(@xsi:type), ':') = 'PPD_PQ') or 
+                normalize-space(@xsi:type) = 'IVL_PPD_PQ' or
+                (substring-before(normalize-space(@xsi:type), ':') != '' and
+                substring-after(normalize-space(@xsi:type), ':') = 'IVL_PPD_PQ')"
+                >Error: Event Summary - 7.1.6.1.2 Result Group (PATHOLOGY TEST RESULT GROUP) -
+                "Result Group (PATHOLOGY TEST RESULT GROUP) / Result (INDIVIDUAL PATHOLOGY TEST
+                RESULT) / Result Value (INDIVIDUAL PATHOLOGY TEST RESULT VALUE) > Individual
+                Pathology Test Result Value" - The 'value' tag 'xsi:type' attributes shall be 'CD',
+                'CE', 'PQ', 'BL', 'ST', 'INT', 'RTO_PQ_PQ', 'IVL_PQ', 'PPD_PQ', 'IVL_PPD_PQ'. Refer
+                to section 7.1.6.1.2 of the Event_Summary_CDA_Implementation_Guide_v1.3.</assert>
+
+
+
+        </rule>
+
+        <rule
+            context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code='101.20117']/cda:component/cda:section[cda:code/@code='102.16144']/cda:entry[cda:observation/@classCode='OBS']/cda:observation/cda:entryRelationship/cda:organizer[@classCode='BATTERY']/cda:component/cda:observation[cda:code[not(@code) or (@code!='102.16156.136.2.2')]]/cda:entryRelationship/cda:observation[cda:code/@code='308552006']/cda:value">
+
+            <assert
+                test="
+                not(@xsi:type) or normalize-space(@xsi:type) = '' or 
+                normalize-space(@xsi:type) = 'CD' or
+                (substring-before(normalize-space(@xsi:type), ':') != '' and
+                substring-after(normalize-space(@xsi:type), ':') = 'CD') or 
+                normalize-space(@xsi:type) = 'CE' or
+                (substring-before(normalize-space(@xsi:type), ':') != '' and
+                substring-after(normalize-space(@xsi:type), ':') = 'CE')"
+                > Error: Event Summary - 7.1.6.1.2 Result Group (PATHOLOGY TEST RESULT GROUP)-
+                "Result Group (PATHOLOGY TEST RESULT GROUP) / Result (INDIVIDUAL PATHOLOGY TEST
+                RESULT) / Individual Pathology Test Result Status" - The 'value' tag 'xsi:type'
+                attribute shall contain the value 'CD' or 'CE'. Refer to section 7.1.6.1.2 of the
+                Event_Summary_CDA_Implementation_Guide_v1.3.</assert>
+            
+            
+            <assert
+                test="(@code and @codeSystem) or (@codeSystem and cda:originalText and @nullFlavor = 'OTH')"
+                >Error: Event Summary - 7.1.6.1.2 Result Group (PATHOLOGY TEST RESULT GROUP) -
+                "Result Group (PATHOLOGY TEST RESULT GROUP) / Result (INDIVIDUAL PATHOLOGY TEST
+                RESULT) / Individual Pathology Test Result Status" -
+                The 'value' tag shall have 'code and codeSystem' or 'originalText' tag, 'codeSystem'
+                attribute and 'nullFlavor' attribute with a value 'OTH'. Refer to section 2.6.2 of
+                the HL7_Version_3_Standard_Data_Types_Abstract_Specification_Release_1 and section 7.1.6.1.2 of the
+                Event_Summary_CDA_Implementation_Guide_v1.3.</assert>
+
+        </rule>
+
+        
+    </pattern>
+

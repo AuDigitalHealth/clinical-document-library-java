@@ -1,0 +1,47 @@
+
+    <!-- Status: Last Reviewed: 25/11/2011
+         Status: Last Updated : 29/06/2012 -->
+
+
+    <!-- This schematron covers the below mandatory 3A paths/sections.
+
+Subject of Care - age   1..1
+/ClinicalDocument/component/structuredBody/component[admin_obs]/section/entry[age]/observation/code/@code = '103.20109'
+
+ACD Custodian Entry  1..*
+/ClinicalDocument/component/structuredBody/component[cust_ent]/section/entry[cust]/act/code/@code="102.16690"
+ -->
+
+
+    <pattern name="p-Advanced_Care_Directive_Custodian_Record_3A_Common_Sections_Mandatory_Paths-errors"
+        id="p-Advanced_Care_Directive_Custodian_Record_3A_Common_Sections_Mandatory_Paths-errors"
+        see="#p-Advanced_Care_Directive_Custodian_Record_3A_Common_Sections_Mandatory_Paths-errors">
+
+        <rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody">
+
+            <!-- code '103.20109' - 1..1 -->
+
+<!--     Commented since the Age Detail (upper lever) is 0..1
+     
+            <assert test="cda:component/cda:section[cda:code/@code='102.16080']/cda:entry/cda:observation/cda:code[@code = '103.20109']">
+                Error: Advanced Care Directive Custodian Record - 6.1.2 Subject of Care - 
+                The "/ClinicalDocument/component/structuredBody/component/section[code/@code='102.16080']/entry/observation/code[@code = '103.20109']" tag 
+                is missing. Refer to section 6.1.2 of the
+                Advanced_Care_Directive_Custodian_Record_CDA_Implementation_Guide_v1.0.</assert>
+-->
+            
+            <report test="count(cda:component/cda:section[cda:code/@code='102.16080']/cda:entry[cda:observation/cda:code/@code = '103.20109']) > 1"
+                >Error: Advanced Care Directive Custodian Record - 6.1.2 Subject of Care - The 
+               'cda:entry[cda:observation/code/@code = '103.20109']' tag shall appear only once. Refer to section 6.1.2 of the
+                Advanced_Care_Directive_Custodian_Record_CDA_Implementation_Guide_v1.0.</report>
+           
+            <!-- code '102.16690' - 1..* -->
+
+            <assert test="cda:component/cda:section[cda:code/@code = '101.16694']/cda:entry[cda:act/cda:code/@code = '102.16690']">
+                Error: Advanced Care Directive Custodian Record - 7.1.1.1 ACD Custodian Entry - 
+                The 'cda:entry[cda:act/cda:code/@code = '102.16690']' tag is missing. Refer to section 7.1.1.1 of the
+                Advanced_Care_Directive_Custodian_Record_CDA_Implementation_Guide_v1.0.</assert>
+        </rule>
+   
+ 
+    </pattern>

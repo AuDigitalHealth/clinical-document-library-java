@@ -1,0 +1,62 @@
+<!--
+_________________________________________________________________________________________________________________________________________________________________________________________
+                  Generated File - Do Not Edit File Directly                                                                                                                             
+                  __________________________________________
+
+                  Generated          : 16/03/2017 8:46:22 AM
+
+                  Product            : Service Referral
+                  Release            : CDA_Implementation_Guide_v1.0
+                  Generator Version  : 
+                                                                                                                                                                                         
+_________________________________________________________________________________________________________________________________________________________________________________________
+-->
+    <pattern name="p-Service_Referral_Local_Identifier_Healthcare_Provider_Individual_Author-errors"
+        id="p-Service_Referral_Local_Identifier_Healthcare_Provider_Individual_Author-errors"
+        see="#p-Service_Referral_Local_Identifier_Healthcare_Provider_Individual_Author-errors">
+
+
+        <!-- NOTE :: Please make sure that the Section Number 6.1.2 is replaced by corresponding section numbers -->
+
+        <!-- Refer to section 2.4.10 of the Common Conformance Profile -->
+
+        <rule context="/cda:ClinicalDocument/cda:author/cda:assignedAuthor/cda:assignedPerson[ext:asEmployment]">
+
+            <report
+                test="count(ext:asEntityIdentifier/ext:id[starts-with(@root, '1.2.36.1.2001.1003.0.800361')]) > 1"
+                >Error: Service Referral - 6.1.2 Document Author - The
+                'asEntityIdentifier' tag with a HPI-I shall not exist more than once. Refer to
+                "027791 - Root attribute for individual healthcare provider or legal authenticator of
+                the Clinical_Documents_Common_Conformance_Profile_v1.7" and "section 6.1.2 Document Author" of the Service_Referral_CDA_Implementation_Guide_v1.1.</report>
+
+        </rule>
+
+
+        <rule context="/cda:ClinicalDocument/cda:author/cda:assignedAuthor/cda:assignedPerson[ext:asEmployment]/ext:asEntityIdentifier">
+
+            <report
+                test="(ext:id[starts-with(@root, '1.2.36.1.2001.1003.0.800360') or starts-with(@root, '1.2.36.1.2001.1005.29.') or (@root = '1.2.36.1.2001.1005.29')])"
+                >Error: Service Referral - 6.1.2 Document Author - The
+                'asEntityIdentifier' tag shall not have an IHI or the local identifier of the
+                consumer. Refer to "027791 - Root attribute for individual healthcare provider or legal authenticator of the Clinical_Documents_Common_Conformance_Profile_v1.7" and
+                "section 6.1.2 Document Author" of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</report>
+
+        </rule>
+
+
+        <rule context="/cda:ClinicalDocument/cda:author/cda:assignedAuthor/cda:assignedPerson[ext:asEmployment]/ext:asEntityIdentifier/ext:id">
+
+            <report
+                test="(starts-with(@root, '1.2.36.1.2001.1003.0.')) and not(starts-with(@root, '1.2.36.1.2001.1003.0.800361'))"
+                >Error: Service Referral - 6.1.2 Document Author - The 'asEntityIdentifier' tag shall not
+                have a National Identifier other than an HPI-I if it starts with
+                "1.2.36.1.2001.1003.0.".Refer to "027791 - Root attribute for individual healthcare provider or legal authenticator of the
+                Clinical_Documents_Common_Conformance_Profile_v1.7" and "section 6.1.2 Document
+                Author" of the Service_Referral_CDA_Implementation_Guide_v1.1.</report>
+
+        </rule>
+
+
+    </pattern>
+

@@ -1,0 +1,246 @@
+<!--
+_________________________________________________________________________________________________________________________________________________________________________________________
+                  Generated File - Do Not Edit File Directly                                                                                                                             
+                  __________________________________________
+
+                  Generated          : 21-02-2014 08:58:26
+
+                  Product            : e-Referral
+                  Release            : CDA_Implementation_Guide_v1.0
+                  IG Guide Reference : 7.1.1.1.2
+                  IG Guide Title     : REFEREE ORGANISATION
+                  Generator Version  : 2.27
+                                                                                                                                                                                         
+_________________________________________________________________________________________________________________________________________________________________________________________
+-->
+    <pattern name="p-e-Referral_REFEREEORGANISATION_7_1_1_1_2-errors"
+        id="p-e-Referral_REFEREEORGANISATION_7_1_1_1_2-errors"
+        see="#p-e-Referral_REFEREEORGANISATION_7_1_1_1_2-errors">
+
+
+        <rule context="/cda:ClinicalDocument">
+
+            <report test="count(cda:participant[@typeCode = 'REFT'][cda:associatedEntity/cda:scopingOrganization]) > 1"
+                >Error: e-Referral - 7.1.1.1.2 REFEREE ORGANISATION -
+                "Referee (Organisation)" -
+                The 'participant' tag shall appear only once for 'Referee (Organisation)'.
+                Refer to section 7.1.1.1.2 of the
+                e-Referral_CDA_Implementation_Guide_v2.2.</report>
+
+        </rule>
+
+
+        <rule context="/cda:ClinicalDocument/cda:participant[@typeCode = 'REFT'][cda:associatedEntity/cda:scopingOrganization]">
+
+            <report test="count(cda:associatedEntity) > 1"
+                >Error: e-Referral - 7.1.1.1.2 REFEREE ORGANISATION -
+                "Referee / Participation Type" -
+                The 'associatedEntity' tag shall appear only once.
+                Refer to section 7.1.1.1.2 of the
+                e-Referral_CDA_Implementation_Guide_v2.2.</report>
+
+        </rule>
+
+
+        <rule context="/cda:ClinicalDocument/cda:participant[@typeCode = 'REFT']/cda:associatedEntity[cda:scopingOrganization]">
+
+            <assert test="@classCode"
+                >Error: e-Referral - 7.1.1.1.2 REFEREE ORGANISATION -
+                "Referee / Participation Type" -
+                The 'associatedEntity' tag 'classCode' attribute is missing.
+                Refer to section 7.1.1.1.2 of the
+                e-Referral_CDA_Implementation_Guide_v2.2.</assert>
+
+            <assert test="not(@classCode) or normalize-space(@classCode) != ''"
+                >Error: e-Referral - 7.1.1.1.2 REFEREE ORGANISATION -
+                "Referee / Participation Type" -
+                The 'associatedEntity' tag 'classCode' attribute shall contain a value.
+                Refer to section 7.1.1.1.2 of the
+                e-Referral_CDA_Implementation_Guide_v2.2.</assert>
+
+            <assert test="cda:code"
+                >Error: e-Referral - 7.1.1.1.2 REFEREE ORGANISATION -
+                "Referee / Role" -
+                The 'code' tag is missing.
+                Refer to section 7.1.1.1.2 of the
+                e-Referral_CDA_Implementation_Guide_v2.2.</assert>
+
+            <report test="count(cda:code) > 1"
+                >Error: e-Referral - 7.1.1.1.2 REFEREE ORGANISATION -
+                "Referee / Role" -
+                The 'code' tag shall appear only once.
+                Refer to section 7.1.1.1.2 of the
+                e-Referral_CDA_Implementation_Guide_v2.2.</report>
+
+            <assert test="cda:id"
+                >Error: e-Referral - 7.1.1.1.2 REFEREE ORGANISATION -
+                "Referee / id" -
+                The 'id' tag is missing.
+                Refer to section 7.1.1.1.2 of the
+                e-Referral_CDA_Implementation_Guide_v2.2.</assert>
+
+            <report test="count(cda:id) > 1"
+                >Error: e-Referral - 7.1.1.1.2 REFEREE ORGANISATION -
+                "Referee / id" -
+                The 'id' tag shall appear only once.
+                Refer to section 7.1.1.1.2 of the
+                e-Referral_CDA_Implementation_Guide_v2.2.</report>
+
+            <report test="count(cda:scopingOrganization) > 1"
+                >Error: e-Referral - 7.1.1.1.2 REFEREE ORGANISATION -
+                "Referee / Participant" -
+                The 'scopingOrganization' tag shall appear only once.
+                Refer to section 7.1.1.1.2 of the
+                e-Referral_CDA_Implementation_Guide_v2.2.</report>
+
+            <assert test="cda:addr"
+                >Error: e-Referral - 7.1.1.1.2 REFEREE ORGANISATION -
+                "Referee / Participant / Address" -
+                The 'addr' tag is missing.
+                Refer to section 7.1.1.1.2 of the
+                e-Referral_CDA_Implementation_Guide_v2.2.</assert>
+
+            <assert test="cda:telecom"
+                >Error: e-Referral - 7.1.1.1.2 REFEREE ORGANISATION -
+                "Referee / Participant / Electronic Communication Detail" -
+                The 'telecom' tag is missing.
+                Refer to section 7.1.1.1.2 of the
+                e-Referral_CDA_Implementation_Guide_v2.2.</assert>
+
+        </rule>
+
+
+        <rule context="/cda:ClinicalDocument/cda:participant[@typeCode = 'REFT']/cda:associatedEntity[cda:scopingOrganization]/cda:id">
+
+            <report test="
+                contains(@root, '-') and not(
+                string-length(@root) = 36 and
+                substring(@root,  9, 1) = '-' and substring(@root, 14, 1) = '-' and
+                substring(@root, 19, 1) = '-' and substring(@root, 24, 1) = '-' and
+                translate(substring(@root,  1,  8), '0123456789ABCDEFabcdef', '0000000000000000000000') = '00000000' and
+                translate(substring(@root, 10,  4), '0123456789ABCDEFabcdef', '0000000000000000000000') = '0000' and
+                translate(substring(@root, 15,  4), '0123456789ABCDEFabcdef', '0000000000000000000000') = '0000' and
+                translate(substring(@root, 20,  4), '0123456789ABCDEFabcdef', '0000000000000000000000') = '0000' and
+                translate(substring(@root, 25, 12), '0123456789ABCDEFabcdef', '0000000000000000000000') = '000000000000')"
+                >Error: e-Referral - 7.1.1.1.2 REFEREE ORGANISATION -
+                "Referee / id" -
+                The 'id' tag 'root' attribute shall be a valid UUID.
+                Refer to section 7.1.1.1.2 of the
+                e-Referral_CDA_Implementation_Guide_v2.2.</report>
+
+        </rule>
+
+
+        <rule context="/cda:ClinicalDocument/cda:participant[@typeCode = 'REFT']/cda:associatedEntity[cda:scopingOrganization]/cda:scopingOrganization">
+
+            <report test="count(cda:asOrganizationPartOf) > 1"
+                >Error: e-Referral - 7.1.1.1.2 REFEREE ORGANISATION -
+                "Referee / Participant" -
+                The 'asOrganizationPartOf' tag shall appear only once.
+                Refer to section 7.1.1.1.2 of the
+                e-Referral_CDA_Implementation_Guide_v2.2.</report>
+
+            <assert test="cda:asOrganizationPartOf"
+                >Error: e-Referral - 7.1.1.1.2 REFEREE ORGANISATION -
+                "Referee / Participant" -
+                The 'asOrganizationPartOf' tag is missing.
+                Refer to section 7.1.1.1.2 of the
+                e-Referral_CDA_Implementation_Guide_v2.2.</assert>
+
+            <report test="count(cda:name) > 1"
+                >Error: e-Referral - 7.1.1.1.2 REFEREE ORGANISATION -
+                "Referee / Participant / Person or Organisation or Device / Organisation / Department/Unit" -
+                The 'name' tag shall appear only once.
+                Refer to section 7.1.1.1.2 of the
+                e-Referral_CDA_Implementation_Guide_v2.2.</report>
+
+        </rule>
+
+
+        <rule context="/cda:ClinicalDocument/cda:participant[@typeCode = 'REFT']/cda:associatedEntity[cda:scopingOrganization]/cda:scopingOrganization/cda:asOrganizationPartOf">
+
+            <report test="count(cda:wholeOrganization) > 1"
+                >Error: e-Referral - 7.1.1.1.2 REFEREE ORGANISATION -
+                "Referee / Participant" -
+                The 'wholeOrganization' tag shall appear only once.
+                Refer to section 7.1.1.1.2 of the
+                e-Referral_CDA_Implementation_Guide_v2.2.</report>
+
+            <assert test="cda:wholeOrganization"
+                >Error: e-Referral - 7.1.1.1.2 REFEREE ORGANISATION -
+                "Referee / Participant" -
+                The 'wholeOrganization' tag is missing.
+                Refer to section 7.1.1.1.2 of the
+                e-Referral_CDA_Implementation_Guide_v2.2.</assert>
+
+        </rule>
+
+
+        <rule context="/cda:ClinicalDocument/cda:participant[@typeCode = 'REFT']/cda:associatedEntity[cda:scopingOrganization]/cda:scopingOrganization/cda:asOrganizationPartOf/cda:wholeOrganization">
+
+            <assert test="ext:asEntityIdentifier"
+                >Error: e-Referral - 7.1.1.1.2 REFEREE ORGANISATION -
+                "Referee / Participant / Entity Identifier" -
+                The 'asEntityIdentifier' tag is missing.
+                Refer to section 7.1.1.1.2 of the
+                e-Referral_CDA_Implementation_Guide_v2.2.</assert>
+
+            <assert test="not(ext:asEntityIdentifier) or ext:asEntityIdentifier/ext:id[starts-with(@root, '1.2.36.1.2001.1003.0.800362')]"
+                >Error: e-Referral - 7.1.1.1.2 REFEREE ORGANISATION -
+                "Referee / Participant / Entity Identifier" -
+                The 'asEntityIdentifier' tag for 'HPI-O' is missing.
+                "The value of one Entity Identifier SHALL be an Australian HPI-O." although there could be multiple Entity Identifiers.
+                Refer to section 7.1.1.1.2 of the
+                e-Referral_CDA_Implementation_Guide_v2.2.</assert>
+
+            <assert test="cda:name"
+                >Error: e-Referral - 7.1.1.1.2 REFEREE ORGANISATION -
+                "Referee / Participant / Person or Organisation or Device / Organisation / Organisation Name" -
+                The 'name' tag is missing.
+                Refer to section 7.1.1.1.2 of the
+                e-Referral_CDA_Implementation_Guide_v2.2.</assert>
+
+            <report test="count(cda:name) > 1"
+                >Error: e-Referral - 7.1.1.1.2 REFEREE ORGANISATION -
+                "Referee / Participant / Person or Organisation or Device / Organisation / Organisation Name" -
+                The 'name' tag shall appear only once.
+                Refer to section 7.1.1.1.2 of the
+                e-Referral_CDA_Implementation_Guide_v2.2.</report>
+
+        </rule>
+
+
+        <rule context="/cda:ClinicalDocument/cda:participant[@typeCode = 'REFT']/cda:associatedEntity[cda:scopingOrganization]/cda:scopingOrganization/cda:asOrganizationPartOf/cda:wholeOrganization/cda:name">
+
+            <report test="@use and normalize-space(@use) = ''"
+                >Error: e-Referral - 7.1.1.1.2 REFEREE ORGANISATION -
+                "Referee / Participant / Person or Organisation or Device / Organisation / Organisation Name" -
+                The 'name' tag 'use' attribute shall contain a value.
+                Refer to section 7.1.1.1.2 of the
+                e-Referral_CDA_Implementation_Guide_v2.2.</report>
+
+            <report test="
+                @use and normalize-space(@use) != '' and
+                not(document('TEMPLATE/VALDN/CDAValidate_Vocabs.xml', .)/systems/system[@codeSystemName = 'Health_Care_Provider_Organisation_Name_Usage']/code[
+                    (@code = current()/@use) or
+                    (@alternativeCode = current()/@use) or
+                    (@hl7Code = current()/@use)
+                ])"
+                >Error: e-Referral - 7.1.1.1.2 REFEREE ORGANISATION -
+                "Referee / Participant / Person or Organisation or Device / Organisation / Organisation Name" -
+                The 'name' tag 'use' attribute shall be as per 10.4 AS 4846-2006: Health Care Provider Organisation Name Usage.
+                Refer to section 7.1.1.1.2 of the
+                e-Referral_CDA_Implementation_Guide_v2.2.</report>
+
+            <assert test="not(@nullFlavor)"
+                >Error: e-Referral - 7.1.1.1.2 REFEREE ORGANISATION -
+                "Referee / Participant / Person or Organisation or Device / Organisation / Organisation Name" -
+                The 'name' tag 'nullFlavor' attribute shall not be present.
+                Refer to section 7.1.1.1.2 of the
+                e-Referral_CDA_Implementation_Guide_v2.2.</assert>
+
+        </rule>
+
+
+    </pattern>
+

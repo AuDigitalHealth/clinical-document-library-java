@@ -1,0 +1,56 @@
+    <pattern name="p-Event_Summary_HPI-I_Common_Conformance_Requirements_Part3-errors"
+        id="p-Event_Summary_HPI-I_Common_Conformance_Requirements_Part3-errors"
+        see="#p-Event_Summary_HPI-I_Common_Conformance_Requirements_Part3-errors">
+
+        <rule
+            context="/cda:ClinicalDocument/cda:legalAuthenticator/cda:assignedEntity/cda:assignedPerson/ext:asEntityIdentifier[not(ext:id[starts-with(@root, '1.2.36.1.2001.1003.0.') or (@root = '1.2.36.1.2001.1003.0')])] |
+            /cda:ClinicalDocument/cda:author/cda:assignedAuthor/cda:assignedPerson/ext:asEntityIdentifier[not(ext:id[starts-with(@root, '1.2.36.1.2001.1003.0.') or (@root = '1.2.36.1.2001.1003.0')])] |
+            /cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code = '101.20117']/cda:component/cda:section[cda:code/@code = '102.20158']/cda:entry/cda:act/cda:performer/cda:assignedEntity/cda:assignedPerson/ext:asEntityIdentifier[not(ext:id[starts-with(@root, '1.2.36.1.2001.1003.0.') or (@root = '1.2.36.1.2001.1003.0')])]">
+
+            <assert test="ext:code">Error: Event Summary - 5.1.1 Legal Authenticator and 6.1.1
+                Document Author and 7.1.6.3.1.1 Service Provider as a Healthcare Person - The
+                'ext:code' tag is missing. Refer to "023876 - Local identifier details for a person
+                in an Entity Identifier element" of the
+                Clinical_Documents_Common_Conformance_Profile_v1.6 and "023858 - Document Author
+                Entity Identifier value and/or 023859 - Diagnostic Investigations Service Provider
+                Entity Identifier value" of the Event_Summary_PCEHR_Conformance_Profile_v1.4 and
+                "section 5.1.1 Legal Authenticator and/or section 6.1.1 Document Author and/or
+                section 7.1.6.3.1.1 Service Provider as a Healthcare Person" of the
+                Event_Summary_CDA_Implementation_Guide_v1.3.</assert>
+
+        </rule>
+
+
+
+        <rule
+            context="/cda:ClinicalDocument/cda:legalAuthenticator/cda:assignedEntity/cda:assignedPerson/ext:asEntityIdentifier[not(ext:id[starts-with(@root, '1.2.36.1.2001.1003.0.') or (@root = '1.2.36.1.2001.1003.0')])]/ext:id |
+            /cda:ClinicalDocument/cda:author/cda:assignedAuthor/cda:assignedPerson/ext:asEntityIdentifier[not(ext:id[starts-with(@root, '1.2.36.1.2001.1003.0.') or (@root = '1.2.36.1.2001.1003.0')])]/ext:id |
+            /cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code = '101.20117']/cda:component/cda:section[cda:code/@code = '102.20158']/cda:entry/cda:act/cda:performer/cda:assignedEntity/cda:assignedPerson/ext:asEntityIdentifier[not(ext:id[starts-with(@root, '1.2.36.1.2001.1003.0.') or (@root = '1.2.36.1.2001.1003.0')])]/ext:id">
+
+            <assert test="@extension">Error: Event Summary - 5.1.1 Legal Authenticator and 6.1.2
+                Document Author and 7.1.6.3.1.1 Service Provider as a Healthcare Person - The
+                'ext:id' tag 'extension' attribute is missing. Refer to "023876 - Local identifier
+                details for a person in an Entity Identifier element" of the
+                Clinical_Documents_Common_Conformance_Profile_v1.6 and "023858 - Document Author
+                Entity Identifier value and/or 023859 - Diagnostic Investigations Service Provider
+                Entity Identifier value" of the Event_Summary_PCEHR_Conformance_Profile_v1.4 and
+                "section 5.1.1 Legal Authenticator and/or section 6.1.1 Document Author and/or
+                section 7.1.6.3.1.1 Service Provider as a Healthcare Person" of the
+                Event_Summary_CDA_Implementation_Guide_v1.3.</assert>
+
+            <assert test="@assigningAuthorityName">Error: Event Summary - 5.1.1 Legal Authenticator
+                and 6.1.1 Document Author and 7.1.6.3.1.1 Service Provider as a Healthcare Person -
+                The 'ext:id' tag 'assigningAuthorityName' attribute is missing. Refer to "023876 -
+                Local identifier details for a person in an Entity Identifier element" of the
+                Clinical_Documents_Common_Conformance_Profile_v1.6 and "023858 - Document Author
+                Entity Identifier value and/or 023859 - Diagnostic Investigations Service Provider
+                Entity Identifier value" of the Event_Summary_PCEHR_Conformance_Profile_v1.4 and
+                "section 5.1.1 Legal Authenticator and/or section 6.1.1 Document Author and/or
+                section 7.1.6.3.1.1 Service Provider as a Healthcare Person" of the
+                Event_Summary_CDA_Implementation_Guide_v1.3.</assert>
+
+        </rule>
+
+
+    </pattern>
+

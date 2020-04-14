@@ -1,0 +1,532 @@
+
+
+    <!-- Discharge Summary Clinical Document:  7.1.1.5.1 'Pathology Test Result'       and
+                                               7.1.1.5.1.2 'Pathology Test Result Group' and
+                                               7.1.1.5.2   'Imaging Examination Result'  -->
+
+    <!-- Context: /ClinicalDocument/component/structuredBody/component[event]/section/component[diag_inv]/section/component[path_test]/section/ -->
+    <!-- Context: /ClinicalDocument/component/structuredBody/component[event]/section/component[diag_inv]/section/component[path_test]/section/entry[path_test_res]/observation/ -->
+    <!-- Context: /ClinicalDocument/component/structuredBody/component[event]/section/component[diag_inv]/section/component[img_exam]/section/ -->
+
+    <!-- Status: Last Reviewed: 14/2/12
+         Status: Last Updated : 18/12/2012 -->
+
+    <pattern name="p-e-Discharge_Summary_3A_Common_Sections_Result_Status-errors"
+        id="p-e-Discharge_Summary_3A_Common_Sections_Result_Status-errors"
+        see="#p-e-Discharge_Summary_3A_Common_Sections_Result_Status-errors">
+
+        <rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code = '101.16006']/cda:component/cda:section[cda:code/@code = '101.20117']/cda:component/cda:section[cda:code/@code = '102.16144']/cda:entry/cda:observation[@classCode='OBS']/cda:entryRelationship[cda:observation/cda:code/@code = '308552006'] |
+                       /cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code = '101.16006']/cda:component/cda:section[cda:code/@code = '101.20117']/cda:component/cda:section[cda:code/@code = '102.16144']/cda:entry/cda:observation[@classCode='OBS']/cda:entryRelationship/cda:organizer[@classCode='BATTERY']/cda:component[cda:observation/@classCode='OBS']/cda:observation/cda:entryRelationship[cda:observation/cda:code/@code = '308552006']">
+
+            <!--<rule context = "/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section/cda:component/cda:section/cda:entry/cda:observation/cda:entryRelationship[cda:observation/cda:code/@code = '308552006']">-->
+            <!-- -->
+            <!-- Pathology Test Result - OVERALL PATHOLOGY TEST RESULT STATUS - 1..1 -->
+            <!-- Imaging Examination Result - IMAGING EXAMINATION RESULT STATUS - 1..1 -->
+            <!-- To count  structure entry[path_test_res]/observation/entryRelationship[res_stat]/observation/code/@code="308552006"-->
+
+
+            <!--<rule context = "/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section/cda:component/cda:section/cda:entry/cda:observation[@classCode='OBS']/cda:entryRelationship/cda:organizer[@classCode='BATTERY']/cda:component[cda:observation/@classCode='OBS']/cda:observation/cda:entryRelationship[cda:observation/cda:code/@code = '308552006']">-->
+            <!-- -->
+            <!-- Pathology Test Result Group - Individual Pathology Test Result - INDIVIDUAL PATHOLOGY TEST RESULT STATUS - 1..1 -->
+            <!-- To count  structure entryRelationship[res_gp]/organizer/component[ind_res]/observation/entryRelationship[res_stat]/observation/code/@code="308552006"-->
+
+            <report test="count(cda:observation[cda:code/@code='308552006'])>1">Error: e-Discharge
+                Summary - 7.1.1.5.1 'Pathology Test Result' and 7.1.1.5.1.2 'Pathology Test Result
+                Group' and 7.1.1.5.2 'Imaging Examination Result' - The
+                'observation' tag shall appear only once.
+                Refer to section 7.1.1.5.1 and/or 7.1.1.5.1.2 and/or 7.1.1.5.2 of the
+                e-Discharge_Summary_CDA_Implementation_Guide_v3.4.</report>
+
+            <!-- entryRelationship[res_stat] -->
+            <assert test="@typeCode = 'COMP'">Error: e-Discharge Summary - 7.1.1.5.1 'Pathology Test
+                Result' and 7.1.1.5.1.2 'Pathology Test Result Group' and 7.1.1.5.2 'Imaging
+                Examination Result' - The 'entryRelationship' tag 'typeCode' attribute shall be
+                'COMP'. Refer to section 7.1.1.5.1 and/or 7.1.1.5.1.2 and/or 7.1.1.5.2 of the
+                e-Discharge_Summary_CDA_Implementation_Guide_v3.4.</assert>
+
+        </rule>
+
+        <rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code = '101.16006']/cda:component/cda:section[cda:code/@code = '101.20117']/cda:component/cda:section[cda:code/@code = '102.16144']/cda:entry/cda:observation[@classCode='OBS']/cda:entryRelationship/cda:observation[cda:code/@code = '308552006'] |
+                       /cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code = '101.16006']/cda:component/cda:section[cda:code/@code = '101.20117']/cda:component/cda:section[cda:code/@code = '102.16144']/cda:entry/cda:observation[@classCode='OBS']/cda:entryRelationship/cda:organizer[@classCode='BATTERY']/cda:component[cda:observation/@classCode='OBS']/cda:observation/cda:entryRelationship/cda:observation[cda:code/@code = '308552006']">
+
+            <assert test="@classCode">Error: e-Discharge Summary - 7.1.1.5.1 'Pathology Test Result'
+                and 7.1.1.5.1.2 'Pathology Test Result Group' and 7.1.1.5.2 'Imaging Examination
+                Result' - The 'observation' tag 'classCode' attribute is missing.
+                Refer to section 7.1.1.5.1 and/or 7.1.1.5.1.2 and/or 7.1.1.5.2 of the
+                e-Discharge_Summary_CDA_Implementation_Guide_v3.4.</assert>
+
+            <assert test="@classCode = 'OBS'">Error: e-Discharge Summary - 7.1.1.5.1 'Pathology Test
+                Result' and 7.1.1.5.1.2 'Pathology Test Result Group' and 7.1.1.5.2 'Imaging
+                Examination Result' - The 'observation' tag 'classCode' attribute shall contain the value 'OBS'.
+                Refer to section 7.1.1.5.1 and/or 7.1.1.5.1.2 and/or 7.1.1.5.2 of the
+                e-Discharge_Summary_CDA_Implementation_Guide_v3.4.</assert>
+
+            <assert test="@moodCode">Error: e-Discharge Summary - 7.1.1.5.1 'Pathology Test Result'
+                and 7.1.1.5.1.2 'Pathology Test Result Group' and 7.1.1.5.2 'Imaging Examination
+                Result' - The 'observation' tag 'moodCode' attribute is missing.
+                Refer to section 7.1.1.5.1 and/or 7.1.1.5.1.2 and/or 7.1.1.5.2 of the
+                e-Discharge_Summary_CDA_Implementation_Guide_v3.4.</assert>
+
+            <assert test="@moodCode = 'EVN'">Error: e-Discharge Summary - 7.1.1.5.1 'Pathology Test
+                Result' and 7.1.1.5.1.2 'Pathology Test Result Group' and 7.1.1.5.2 'Imaging
+                Examination Result' - The 'observation' tag 'moodCode' attribute shall be
+                'EVN'. Refer to section 7.1.1.5.1 and/or 7.1.1.5.1.2 and/or 7.1.1.5.2 of the
+                e-Discharge_Summary_CDA_Implementation_Guide_v3.4.</assert>
+
+
+            <!-- code -->
+            <report test="count(cda:code) > 1">Error: e-Discharge Summary - 7.1.1.5.1 'Pathology Test
+                Result' and 7.1.1.5.1.2 'Pathology Test Result Group' and 7.1.1.5.2 'Imaging
+                Examination Result' - The 'code' tag shall appear only once.
+                Refer to section 7.1.1.5.1 and/or 7.1.1.5.1.2 and/or 7.1.1.5.2 of the
+                e-Discharge_Summary_CDA_Implementation_Guide_v3.4.</report>
+
+            <!-- value:CD -->
+            <assert test="cda:value">Error: e-Discharge Summary - 7.1.1.5.1 'Pathology Test
+                Result' and 7.1.1.5.1.2 'Pathology Test Result Group' and 7.1.1.5.2 'Imaging
+                Examination Result' - The 'value' tag is missing.
+                Refer to section 7.1.1.5.1 and/or 7.1.1.5.1.2 and/or 7.1.1.5.2 of the
+                e-Discharge_Summary_CDA_Implementation_Guide_v3.4.</assert>
+
+            <report test="count(cda:value) > 1">Error: e-Discharge Summary - 7.1.1.5.1 'Pathology Test
+                Result' and 7.1.1.5.1.2 'Pathology Test Result Group' and 7.1.1.5.2 'Imaging
+                Examination Result' - The 'value' tag shall appear only once.
+                Refer to section 7.1.1.5.1 and/or 7.1.1.5.1.2 and/or 7.1.1.5.2 of the
+                e-Discharge_Summary_CDA_Implementation_Guide_v3.4.</report>
+
+            <assert test="not(@nullFlavor)">Error: e-Discharge Summary - 7.1.1.5.1 'Pathology Test Result' and 7.1.1.5.1.2
+                'Pathology Test Result Group' and 7.1.1.5.2 'Imaging Examination Result'   - The 'observation' tag 'nullFlavor' attribute shall not be
+                present. Refer to requirements in the NullFlavor Usage Clarification FAQ and sections
+                e-Discharge_Summary_CDA_Implementation_Guide_v3.4. </assert>
+
+        </rule>
+
+        <rule context="cda:code[@code = '308552006']">
+
+            <!--this rule only triggers is both paths are corrupted - needs to be fixed -->
+
+            <assert test="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code = '101.16006']/cda:component/cda:section[cda:code/@code = '101.20117']/cda:component/cda:section[(cda:code/@code = '102.16144') or (cda:code/@code = '102.16145')]/cda:entry/cda:observation[@classCode='OBS']/cda:entryRelationship/cda:observation/cda:code[@code = '308552006'] |
+                          /cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code = '101.16006']/cda:component/cda:section[cda:code/@code = '101.20117']/cda:component/cda:section[cda:code/@code = '102.16144']/cda:entry/cda:observation[@classCode='OBS']/cda:entryRelationship/cda:organizer[@classCode='BATTERY']/cda:component/cda:observation/cda:entryRelationship/cda:observation/cda:code[@code = '308552006'] |
+                          /cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code='101.16006']/cda:component/cda:section[cda:code/@code = '101.20117']/cda:component/cda:section[cda:code/@code = '102.16029']/cda:entry/cda:observation[@classCode = 'OBS']/cda:entryRelationship/cda:observation/cda:code[@code = '308552006']"
+                >Error: e-Discharge Summary - 7.1.1.5.1 'Pathology Test Result' and 7.1.1.5.1.2 'Pathology Test Result Group' and 7.1.1.5.2 'Imaging Examination Result' -
+                The '/ClinicalDocument/component/structuredBody/component/section[code/@code = '101.16006']/component/section[code/@code = '101.20117']/component/section[(code/@code = '102.16144') or (code/@code = '102.16145')]/entry[observation/@classCode='OBS']/observation/entryRelationship/observation/code/@code = "308552006"' or
+                    '/ClinicalDocument/component/structuredBody/component/section[code/@code = '101.16006']/component/section[code/@code = '101.20117']/component/section[code/@code = '102.16144']/entry[observation/@classCode='OBS']/observation/entryRelationship[organizer/@classCode='BATTERY']/organizer/component[observation/@classCode='OBS']/observation/entryRelationship/observation/code/@code = "308552006"' path -
+                    1 or more tags are missing.
+                    Refer to section 7.1.1.5.1 and/or 7.1.1.5.1.2 and/or 7.1.1.5.2 of the
+                e-Discharge_Summary_CDA_Implementation_Guide_v3.4.</assert>
+
+            <assert test="@codeSystem = '2.16.840.1.113883.6.96'">Error: e-Discharge Summary -
+                7.1.1.5.1 'Pathology Test Result' and 7.1.1.5.1.2 'Pathology Test Result Group' and
+                7.1.1.5.2 'Imaging Examination Result' - The 'code' tag 'codeSystem'
+                attribute shall contain the value '2.16.840.1.113883.6.96'.
+                Refer to section 7.1.1.5.1 and/or 7.1.1.5.1.2 and/or 7.1.1.5.2 of the
+                e-Discharge_Summary_CDA_Implementation_Guide_v3.4.</assert>
+
+            <assert test="@codeSystemVersion = '20110531'">Error: e-Discharge Summary - 7.1.1.5.1
+                'Pathology Test Result' and 7.1.1.5.1.2 'Pathology Test Result Group' and 7.1.1.5.2
+                'Imaging Examination Result' - The 'code' tag 'codeSystemVersion'
+                attribute shall contain the value '20110531'.
+                Refer to section 7.1.1.5.1 and/or 7.1.1.5.1.2 and/or 7.1.1.5.2 of the
+                e-Discharge_Summary_CDA_Implementation_Guide_v3.4.</assert>
+
+            <assert test="translate(@codeSystemName, 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ') = 'SNOMED CT-AU'"
+                >Error: e-Discharge Summary - 7.1.1.5.1 'Pathology Test Result' and 7.1.1.5.1.2
+                'Pathology Test Result Group' and 7.1.1.5.2 'Imaging Examination Result' - The
+                'code' tag 'codeSystemName' attribute shall contain the value 'SNOMED CT-AU'.
+                Refer to section 7.1.1.5.1 and/or 7.1.1.5.1.2 and/or 7.1.1.5.2 of the
+                e-Discharge_Summary_CDA_Implementation_Guide_v3.4.</assert>
+
+            <assert test="translate(@displayName, 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ') = 'REPORT STATUS'"
+                >Error: e-Discharge Summary - 7.1.1.5.1 'Pathology Test Result' and 7.1.1.5.1.2
+                'Pathology Test Result Group' and 7.1.1.5.2 'Imaging Examination Result' - The
+                'code' tag 'displayName' attribute shall contain the value 'report status'. Refer
+                to the
+                e-Discharge_Summary_CDA_Implementation_Guide_v3.4.</assert>
+
+             <assert test="not(@nullFlavor)">Error: e-Discharge Summary - 7.1.1.5.1 'Pathology Test Result' and 7.1.1.5.1.2
+                'Pathology Test Result Group' and 7.1.1.5.2 'Imaging Examination Result'   - The 'code' tag 'nullFlavor' attribute shall not be
+                present. Refer to requirements in the NullFlavor Usage Clarification FAQ and sections
+                e-Discharge_Summary_CDA_Implementation_Guide_v3.4. </assert>
+
+        </rule>
+
+        <rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code = '101.16006']/cda:component/cda:section[cda:code/@code = '101.20117']/cda:component/cda:section[cda:code/@code = '102.16144']/cda:entry/cda:observation[@classCode='OBS']/cda:entryRelationship/cda:observation[cda:code/@code = '308552006']/cda:value |
+                       /cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code = '101.16006']/cda:component/cda:section[cda:code/@code = '101.20117']/cda:component/cda:section[cda:code/@code = '102.16144']/cda:entry/cda:observation[@classCode='OBS']/cda:entryRelationship/cda:organizer[@classCode='BATTERY']/cda:component[cda:observation/@classCode='OBS']/cda:observation/cda:entryRelationship/cda:observation[cda:code/@code = '308552006']/cda:value">
+
+            <!-- value:CD -->
+
+            <report test="cda:originalText and normalize-space(cda:originalText) = ''">Error: e-Discharge Summary -
+                7.1.1.5.1 'Pathology Test Result' and 7.1.1.5.1.2
+                'Pathology Test Result Group' and 7.1.1.5.2 'Imaging Examination Result'  - The 'originalText' tag
+                shall contain a value. Refer to section 8.1 of the
+                e-Discharge_Summary_CDA_Implementation_Guide_v3.4.</report>
+
+            <report test="count(cda:originalText) > 1">Error: e-Discharge Summary -
+                7.1.1.5.1 'Pathology Test Result' and 7.1.1.5.1.2
+                'Pathology Test Result Group' and 7.1.1.5.2 'Imaging Examination Result'  - The 'originalText' tag
+                shall appear only once. Refer to section 8.1 of the
+                e-Discharge_Summary_CDA_Implementation_Guide_v3.4.</report>
+
+            <assert test="cda:originalText or cda:translation or (@code and @codeSystem)"
+                >Error: e-Discharge Summary - 7.1.1.5.1 'Pathology Test Result' and 7.1.1.5.1.2
+                'Pathology Test Result Group' and 7.1.1.5.2 'Imaging Examination Result'  - The 'value' tag shall have 'originalText' or 'translation' tag or
+                'code and codeSystem' attribute. Refer to section 8.1 of the
+                e-Discharge_Summary_CDA_Implementation_Guide_v3.4.</assert>
+
+             <assert test="not(@nullFlavor)">Error: e-Discharge Summary - 7.1.1.5.1 'Pathology Test Result' and 7.1.1.5.1.2
+                'Pathology Test Result Group' and 7.1.1.5.2 'Imaging Examination Result'   - The 'value' tag 'nullFlavor' attribute shall not be
+                present. Refer to requirements in the NullFlavor Usage Clarification FAQ and sections
+                e-Discharge_Summary_CDA_Implementation_Guide_v3.4. </assert>
+
+            <report test="@code and normalize-space(@code) = ''">Error: e-Discharge Summary - 7.1.1.5.1 'Pathology Test Result' and 7.1.1.5.1.2
+                'Pathology Test Result Group' and 7.1.1.5.2 'Imaging Examination Result'
+                - The 'value' tag 'code' attribute shall contain a value.
+                Refer to section 7.1.1.5.1 and/or 7.1.1.5.1.2 and/or 7.1.1.5.2 of the
+                e-Discharge_Summary_CDA_Implementation_Guide_v3.4.</report>
+
+            <report test="@codeSystem and normalize-space(@codeSystem) = ''">Error: e-Discharge Summary - 7.1.1.5.1 'Pathology Test Result' and 7.1.1.5.1.2
+                'Pathology Test Result Group' and 7.1.1.5.2 'Imaging Examination Result'
+                - The 'value' tag 'codeSystem' attribute shall contain a value.
+                Refer to section 7.1.1.5.1 and/or 7.1.1.5.1.2 and/or 7.1.1.5.2 of the
+                e-Discharge_Summary_CDA_Implementation_Guide_v3.4.</report>
+
+            <report test="@codeSystemName and normalize-space(@codeSystemName) = ''">Error: e-Discharge Summary - 7.1.1.5.1 'Pathology Test Result' and 7.1.1.5.1.2
+                'Pathology Test Result Group' and 7.1.1.5.2 'Imaging Examination Result'
+                - The 'value' tag 'codeSystemName' attribute shall contain a value.
+                Refer to section 7.1.1.5.1 and/or 7.1.1.5.1.2 and/or 7.1.1.5.2 of the
+                e-Discharge_Summary_CDA_Implementation_Guide_v3.4.</report>
+
+            <report test="@displayName and normalize-space(@displayName) = ''">Error: e-Discharge Summary - 7.1.1.5.1 'Pathology Test Result' and 7.1.1.5.1.2
+                'Pathology Test Result Group' and 7.1.1.5.2 'Imaging Examination Result'
+                - The 'value' tag 'displayName' attribute shall contain a value.
+                Refer to section 7.1.1.5.1 and/or 7.1.1.5.1.2 and/or 7.1.1.5.2 of the
+                e-Discharge_Summary_CDA_Implementation_Guide_v3.4.</report>
+
+            <report test="cda:translation and normalize-space(cda:translation) = ''">Error: e-Discharge Summary - 7.1.1.5.1 'Pathology Test Result' and 7.1.1.5.1.2
+                'Pathology Test Result Group' and 7.1.1.5.2 'Imaging Examination Result'
+                - The 'translation' tag shall contain a value.
+                Refer to section 7.1.1.5.1 and/or 7.1.1.5.1.2 and/or 7.1.1.5.2 of the
+                e-Discharge_Summary_CDA_Implementation_Guide_v3.4.</report>
+
+            <!-- Start Mantis Task 2782 -->
+            <assert test="@xsi:type">
+                Error: e-Discharge Summary - 7.1.1.5.1 'Pathology Test Result' and 7.1.1.5.1.2
+                'Pathology Test Result Group' and 7.1.1.5.2 'Imaging Examination Result' - The 'value' tag 'xsi:type' attribute is missing.
+                Refer to section 7.1.1.5.1 and/or 7.1.1.5.1.2 and/or 7.1.1.5.2 of the
+                e-Discharge_Summary_CDA_Implementation_Guide_v3.4.
+            </assert>
+
+            <assert test="not(@xsi:type) or normalize-space(@xsi:type) !=  ''">
+                Error: e-Discharge Summary - 7.1.1.5.1 'Pathology Test Result' and 7.1.1.5.1.2
+                'Pathology Test Result Group' and 7.1.1.5.2 'Imaging Examination Result' - The 'value' tag 'xsi:type' attribute shall contain a value.
+                Refer to section 7.1.1.5.1 and/or 7.1.1.5.1.2 and/or 7.1.1.5.2 of the
+                e-Discharge_Summary_CDA_Implementation_Guide_v3.4.
+            </assert>
+
+            <assert test="normalize-space(@xsi:type) = 'CD'">
+                Error: e-Discharge Summary - 7.1.1.5.1 'Pathology Test Result' and 7.1.1.5.1.2
+                'Pathology Test Result Group' and 7.1.1.5.2 'Imaging Examination Result' - The 'value' tag 'xsi:type' attribute shall contain the value 'CD'.
+                Refer to section 7.1.1.5.1 and/or 7.1.1.5.1.2 and/or 7.1.1.5.2 of the
+                e-Discharge_Summary_CDA_Implementation_Guide_v3.4.
+            </assert>
+
+<!--            <assert test="@xsi:type = 'CD'">Error: e-Discharge Summary - 7.1.1.5.1 'Pathology Test Result' and 7.1.1.5.1.2
+                'Pathology Test Result Group' and 7.1.1.5.2 'Imaging Examination Result' - The
+                'value' tag 'xsi:type' attribute shall contain the value 'CD'.
+                Refer to section 7.1.1.5.1 and/or 7.1.1.5.1.2 and/or 7.1.1.5.2 of the
+                e-Discharge_Summary_CDA_Implementation_Guide_v3.4.</assert>-->
+
+            <!-- End Mantis Task 2782 -->
+
+            <!-- PL - Updated - 28/02/2012 - Mantis ID 0002429 -->
+            <!-- @code -->
+
+            <assert test = "document('TEMPLATE/VALDN/CDAValidate_Vocabs.xml', .)/systems/system[@codeSystemName = 'NCTIS_Admin_Codes_Result_Status']/code[(@code = current()/@code)]"
+                >Error: e-Discharge Summary - 7.1.1.5.1 'Pathology Test Result' and 7.1.1.5.1.2
+                'Pathology Test Result Group' and 7.1.1.5.2 'Imaging Examination Result' - The 'value' tag 'code'
+                attribute shall be as per 'NCTIS_Admin_Codes_Result_Status'.
+                Refer to section 7.1.1.5.1 and/or 7.1.1.5.1.2 and/or 7.1.1.5.2 of the
+                e-Discharge_Summary_CDA_Implementation_Guide_v3.4.</assert>
+
+            <!-- @codeSystem -->
+
+            <assert test = "document('TEMPLATE/VALDN/CDAValidate_Vocabs.xml', .)/systems/system[@codeSystemName = 'NCTIS_Admin_Codes_Result_Status']/code[(@codeSystem = current()/@codeSystem)]"
+                >Error: e-Discharge Summary - 7.1.1.5.1 'Pathology Test Result' and 7.1.1.5.1.2
+                'Pathology Test Result Group' and 7.1.1.5.2 'Imaging Examination Result' - The 'value' tag
+                'codeSystem' attribute shall be as per 'NCTIS_Admin_Codes_Result_Status'.
+                Refer to section 7.1.1.5.1 and/or 7.1.1.5.1.2 and/or 7.1.1.5.2 of the
+                e-Discharge_Summary_CDA_Implementation_Guide_v3.4.</assert>
+
+            <!-- @displayName -->
+
+            <report  test="@displayName and not(document('TEMPLATE/VALDN/CDAValidate_Vocabs.xml', .)/systems/system[@codeSystemName = 'NCTIS_Admin_Codes_Result_Status']/code[(@code = current()/@code) and (translate(@displayName,  'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ') = translate(current()/@displayName, 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'))])"
+                >Error: e-Discharge Summary - 7.1.1.5.1 'Pathology Test Result' and 7.1.1.5.1.2
+                'Pathology Test Result Group' and 7.1.1.5.2 'Imaging Examination Result' - The 'value' tag
+                'displayName' attribute shall be as per 'NCTIS_Admin_Codes_Result_Status'.
+                Refer to section 7.1.1.5.1 and/or 7.1.1.5.1.2 and/or 7.1.1.5.2 of the
+                e-Discharge_Summary_CDA_Implementation_Guide_v3.4.</report>
+
+            <!-- @xsi:type -->
+
+            <!-- Start Mantis Task 2782 -->
+            <assert test="@xsi:type">
+                Error: e-Discharge Summary - 7.1.1.5.1 'Pathology Test Result' and 7.1.1.5.1.2
+                'Pathology Test Result Group' and 7.1.1.5.2 'Imaging Examination Result' - The 'value' tag 'xsi:type' attribute is missing.
+                Refer to section 7.1.1.5.1 and/or 7.1.1.5.1.2 and/or 7.1.1.5.2 of the
+                e-Discharge_Summary_CDA_Implementation_Guide_v3.4.
+            </assert>
+
+            <assert test="not(@xsi:type) or normalize-space(@xsi:type) !=  ''">
+                Error: e-Discharge Summary - 7.1.1.5.1 'Pathology Test Result' and 7.1.1.5.1.2
+                'Pathology Test Result Group' and 7.1.1.5.2 'Imaging Examination Result' - The 'value' tag 'xsi:type' attribute shall contain a value.
+                Refer to section 7.1.1.5.1 and/or 7.1.1.5.1.2 and/or 7.1.1.5.2 of the
+                e-Discharge_Summary_CDA_Implementation_Guide_v3.4.
+            </assert>
+
+            <assert test="normalize-space(@xsi:type) = 'CD'">
+                Error: e-Discharge Summary - 7.1.1.5.1 'Pathology Test Result' and 7.1.1.5.1.2
+                'Pathology Test Result Group' and 7.1.1.5.2 'Imaging Examination Result' - The 'value' tag 'xsi:type' attribute shall contain the value 'CD'.
+                Refer to section 7.1.1.5.1 and/or 7.1.1.5.1.2 and/or 7.1.1.5.2 of the
+                e-Discharge_Summary_CDA_Implementation_Guide_v3.4.
+            </assert>
+
+            <!--<assert test = "@xsi:type = 'CD'">Error: e-Discharge Summary - 7.1.1.5.1 'Pathology Test Result' and 7.1.1.5.1.2
+                'Pathology Test Result Group' and 7.1.1.5.2 'Imaging Examination Result' -
+                The 'value' tag 'xsi:type' attribute shall contain the value 'CD'.
+                Refer to section 7.1.1.5.1 and/or 7.1.1.5.1.2 and/or 7.1.1.5.2 of the
+                e-Discharge_Summary_CDA_Implementation_Guide_v3.4.</assert>-->
+
+            <!-- End Mantis Task 2782 -->
+
+            <!--End of PL's - Update - 28/02/2012 - Mantis ID 0002429 -->
+        </rule>
+
+
+        <!-- Below is a copy of the above   replacing (cda:code/@code = '102.16144') or (cda:code/@code = '102.16145')    with    [cda:code/@code = '102.16144']  /  [cda:code/@code = '102.16145'] -->
+        <rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code = '101.16006']/cda:component/cda:section[cda:code/@code = '101.20117']/cda:component/cda:section[cda:code/@code = '102.16145']/cda:entry/cda:observation[@classCode='OBS']/cda:entryRelationship[cda:observation/cda:code/@code = '308552006']">
+
+            <!--<rule context = "/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section/cda:component/cda:section/cda:entry/cda:observation/cda:entryRelationship[cda:observation/cda:code/@code = '308552006']">-->
+            <!-- -->
+            <!-- Pathology Test Result - OVERALL PATHOLOGY TEST RESULT STATUS - 1..1 -->
+            <!-- Imaging Examination Result - IMAGING EXAMINATION RESULT STATUS - 1..1 -->
+            <!-- To count  structure entry[path_test_res]/observation/entryRelationship[res_stat]/observation/code/@code="308552006"-->
+
+
+            <!--<rule context = "/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section/cda:component/cda:section/cda:entry/cda:observation[@classCode='OBS']/cda:entryRelationship/cda:organizer[@classCode='BATTERY']/cda:component[cda:observation/@classCode='OBS']/cda:observation/cda:entryRelationship[cda:observation/cda:code/@code = '308552006']">-->
+            <!-- -->
+            <!-- Pathology Test Result Group - Individual Pathology Test Result - INDIVIDUAL PATHOLOGY TEST RESULT STATUS - 1..1 -->
+            <!-- To count  structure entryRelationship[res_gp]/organizer/component[ind_res]/observation/entryRelationship[res_stat]/observation/code/@code="308552006"-->
+
+            <report test="count(cda:observation[cda:code/@code='308552006'])>1">Error: e-Discharge
+                Summary - 7.1.1.5.1 'Pathology Test Result' and 7.1.1.5.1.2 'Pathology Test Result
+                Group' and 7.1.1.5.2 'Imaging Examination Result' - The
+                'observation' tag shall appear only once.
+                Refer to section 7.1.1.5.1 and/or 7.1.1.5.1.2 and/or 7.1.1.5.2 of the
+                e-Discharge_Summary_CDA_Implementation_Guide_v3.4.</report>
+
+            <!-- entryRelationship[res_stat] -->
+            <assert test="@typeCode = 'COMP'">Error: e-Discharge Summary - 7.1.1.5.1 'Pathology Test
+                Result' and 7.1.1.5.1.2 'Pathology Test Result Group' and 7.1.1.5.2 'Imaging
+                Examination Result' - The 'entryRelationship' tag 'typeCode' attribute shall be
+                'COMP'. Refer to section 7.1.1.5.1 and/or 7.1.1.5.1.2 and/or 7.1.1.5.2 of the
+                e-Discharge_Summary_CDA_Implementation_Guide_v3.4.</assert>
+
+        </rule>
+
+        <rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code = '101.16006']/cda:component/cda:section[cda:code/@code = '101.20117']/cda:component/cda:section[cda:code/@code = '102.16145']/cda:entry/cda:observation[@classCode='OBS']/cda:entryRelationship/cda:observation[cda:code/@code = '308552006']">
+
+            <assert test="@classCode">Error: e-Discharge Summary - 7.1.1.5.1 'Pathology Test Result'
+                and 7.1.1.5.1.2 'Pathology Test Result Group' and 7.1.1.5.2 'Imaging Examination
+                Result' - The 'observation' tag 'classCode' attribute is missing.
+                Refer to section 7.1.1.5.1 and/or 7.1.1.5.1.2 and/or 7.1.1.5.2 of the
+                e-Discharge_Summary_CDA_Implementation_Guide_v3.4.</assert>
+
+            <assert test="@classCode = 'OBS'">Error: e-Discharge Summary - 7.1.1.5.1 'Pathology Test
+                Result' and 7.1.1.5.1.2 'Pathology Test Result Group' and 7.1.1.5.2 'Imaging
+                Examination Result' - The 'observation' tag 'classCode' attribute shall contain the value 'OBS'.
+                Refer to section 7.1.1.5.1 and/or 7.1.1.5.1.2 and/or 7.1.1.5.2 of the
+                e-Discharge_Summary_CDA_Implementation_Guide_v3.4.</assert>
+
+            <assert test="@moodCode">Error: e-Discharge Summary - 7.1.1.5.1 'Pathology Test Result'
+                and 7.1.1.5.1.2 'Pathology Test Result Group' and 7.1.1.5.2 'Imaging Examination
+                Result' - The 'observation' tag 'moodCode' attribute is missing.
+                Refer to section 7.1.1.5.1 and/or 7.1.1.5.1.2 and/or 7.1.1.5.2 of the
+                e-Discharge_Summary_CDA_Implementation_Guide_v3.4.</assert>
+
+            <assert test="@moodCode = 'EVN'">Error: e-Discharge Summary - 7.1.1.5.1 'Pathology Test
+                Result' and 7.1.1.5.1.2 'Pathology Test Result Group' and 7.1.1.5.2 'Imaging
+                Examination Result' - The 'observation' tag 'moodCode' attribute shall be
+                'EVN'. Refer to section 7.1.1.5.1 and/or 7.1.1.5.1.2 and/or 7.1.1.5.2 of the
+                e-Discharge_Summary_CDA_Implementation_Guide_v3.4.</assert>
+
+
+            <!-- code -->
+            <report test="count(cda:code) > 1">Error: e-Discharge Summary - 7.1.1.5.1 'Pathology Test
+                Result' and 7.1.1.5.1.2 'Pathology Test Result Group' and 7.1.1.5.2 'Imaging
+                Examination Result' - The 'code' tag shall appear only once.
+                Refer to section 7.1.1.5.1 and/or 7.1.1.5.1.2 and/or 7.1.1.5.2 of the
+                e-Discharge_Summary_CDA_Implementation_Guide_v3.4.</report>
+
+            <!-- value:CD -->
+            <assert test="cda:value">Error: e-Discharge Summary - 7.1.1.5.1 'Pathology Test
+                Result' and 7.1.1.5.1.2 'Pathology Test Result Group' and 7.1.1.5.2 'Imaging
+                Examination Result' - The 'value' tag is missing.
+                Refer to section 7.1.1.5.1 and/or 7.1.1.5.1.2 and/or 7.1.1.5.2 of the
+                e-Discharge_Summary_CDA_Implementation_Guide_v3.4.</assert>
+
+            <report test="count(cda:value) > 1">Error: e-Discharge Summary - 7.1.1.5.1 'Pathology Test
+                Result' and 7.1.1.5.1.2 'Pathology Test Result Group' and 7.1.1.5.2 'Imaging
+                Examination Result' - The 'value' tag shall appear only once.
+                Refer to section 7.1.1.5.1 and/or 7.1.1.5.1.2 and/or 7.1.1.5.2 of the
+                e-Discharge_Summary_CDA_Implementation_Guide_v3.4.</report>
+
+        </rule>
+
+        <rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code = '101.16006']/cda:component/cda:section[cda:code/@code = '101.20117']/cda:component/cda:section[cda:code/@code = '102.16145']/cda:entry/cda:observation[@classCode='OBS']/cda:entryRelationship/cda:observation[cda:code/@code = '308552006']/cda:value">
+
+            <!-- value:CD -->
+
+            <report test="cda:originalText and normalize-space(cda:originalText) = ''">Error: e-Discharge Summary -
+                7.1.1.5.1 'Pathology Test Result' and 7.1.1.5.1.2
+                'Pathology Test Result Group' and 7.1.1.5.2 'Imaging Examination Result'  - The 'originalText' tag
+                shall contain a value. Refer to section 8.1 of the
+                e-Discharge_Summary_CDA_Implementation_Guide_v3.4.</report>
+
+            <report test="count(cda:originalText) > 1">Error: e-Discharge Summary -
+                7.1.1.5.1 'Pathology Test Result' and 7.1.1.5.1.2
+                'Pathology Test Result Group' and 7.1.1.5.2 'Imaging Examination Result'  - The 'originalText' tag
+                shall appear only once. Refer to section 8.1 of the
+                e-Discharge_Summary_CDA_Implementation_Guide_v3.4.</report>
+
+            <assert test="cda:originalText or cda:translation or (@code and @codeSystem)"
+                >Error: e-Discharge Summary - 7.1.1.5.1 'Pathology Test Result' and 7.1.1.5.1.2
+                'Pathology Test Result Group' and 7.1.1.5.2 'Imaging Examination Result'  - The 'value' tag shall have 'originalText' or 'translation' tag or
+                'code and codeSystem' attribute. Refer to section 8.1 of the
+                e-Discharge_Summary_CDA_Implementation_Guide_v3.4.</assert>
+
+            <report test="@code and normalize-space(@code) = ''">Error: e-Discharge Summary - 7.1.1.5.1 'Pathology Test Result' and 7.1.1.5.1.2
+                'Pathology Test Result Group' and 7.1.1.5.2 'Imaging Examination Result'
+                - The 'value' tag 'code' attribute shall contain a value.
+                Refer to section 7.1.1.5.1 and/or 7.1.1.5.1.2 and/or 7.1.1.5.2 of the
+                e-Discharge_Summary_CDA_Implementation_Guide_v3.4.</report>
+
+            <report test="@codeSystem and normalize-space(@codeSystem) = ''">Error: e-Discharge Summary - 7.1.1.5.1 'Pathology Test Result' and 7.1.1.5.1.2
+                'Pathology Test Result Group' and 7.1.1.5.2 'Imaging Examination Result'
+                - The 'value' tag 'codeSystem' attribute shall contain a value.
+                Refer to section 7.1.1.5.1 and/or 7.1.1.5.1.2 and/or 7.1.1.5.2 of the
+                e-Discharge_Summary_CDA_Implementation_Guide_v3.4.</report>
+
+            <report test="@codeSystemName and normalize-space(@codeSystemName) = ''">Error: e-Discharge Summary - 7.1.1.5.1 'Pathology Test Result' and 7.1.1.5.1.2
+                'Pathology Test Result Group' and 7.1.1.5.2 'Imaging Examination Result'
+                - The 'value' tag 'codeSystemName' attribute shall contain a value.
+                Refer to section 7.1.1.5.1 and/or 7.1.1.5.1.2 and/or 7.1.1.5.2 of the
+                e-Discharge_Summary_CDA_Implementation_Guide_v3.4.</report>
+
+            <report test="@displayName and normalize-space(@displayName) = ''">Error: e-Discharge Summary - 7.1.1.5.1 'Pathology Test Result' and 7.1.1.5.1.2
+                'Pathology Test Result Group' and 7.1.1.5.2 'Imaging Examination Result'
+                - The 'value' tag 'displayName' attribute shall contain a value.
+                Refer to section 7.1.1.5.1 and/or 7.1.1.5.1.2 and/or 7.1.1.5.2 of the
+                e-Discharge_Summary_CDA_Implementation_Guide_v3.4.</report>
+
+            <report test="cda:translation and normalize-space(cda:translation) = ''">Error: e-Discharge Summary - 7.1.1.5.1 'Pathology Test Result' and 7.1.1.5.1.2
+                'Pathology Test Result Group' and 7.1.1.5.2 'Imaging Examination Result'
+                - The 'translation' tag shall contain a value.
+                Refer to section 7.1.1.5.1 and/or 7.1.1.5.1.2 and/or 7.1.1.5.2 of the
+                e-Discharge_Summary_CDA_Implementation_Guide_v3.4.</report>
+
+
+            <!-- Start Mantis Task 2782 -->
+            <assert test="@xsi:type">
+                Error: e-Discharge Summary - 7.1.1.5.1 'Pathology Test Result' and 7.1.1.5.1.2
+                'Pathology Test Result Group' and 7.1.1.5.2 'Imaging Examination Result' - The 'value' tag 'xsi:type' attribute is missing.
+                Refer to section 7.1.1.5.1 and/or 7.1.1.5.1.2 and/or 7.1.1.5.2 of the
+                e-Discharge_Summary_CDA_Implementation_Guide_v3.4.
+            </assert>
+
+            <assert test="not(@xsi:type) or normalize-space(@xsi:type) !=  ''">
+                Error: e-Discharge Summary - 7.1.1.5.1 'Pathology Test Result' and 7.1.1.5.1.2
+                'Pathology Test Result Group' and 7.1.1.5.2 'Imaging Examination Result' - The 'value' tag 'xsi:type' attribute shall contain a value.
+                Refer to section 7.1.1.5.1 and/or 7.1.1.5.1.2 and/or 7.1.1.5.2 of the
+                e-Discharge_Summary_CDA_Implementation_Guide_v3.4.
+            </assert>
+
+            <assert test="normalize-space(@xsi:type) = 'CD'">
+                Error: e-Discharge Summary - 7.1.1.5.1 'Pathology Test Result' and 7.1.1.5.1.2
+                'Pathology Test Result Group' and 7.1.1.5.2 'Imaging Examination Result' - The 'value' tag 'xsi:type' attribute shall contain the value 'CD'.
+                Refer to section 7.1.1.5.1 and/or 7.1.1.5.1.2 and/or 7.1.1.5.2 of the
+                e-Discharge_Summary_CDA_Implementation_Guide_v3.4.
+            </assert>
+
+            <!--<assert test="@xsi:type = 'CD'">Error: e-Discharge Summary - 7.1.1.5.1 'Pathology Test Result' and 7.1.1.5.1.2
+                'Pathology Test Result Group' and 7.1.1.5.2 'Imaging Examination Result' - The
+                'value' tag 'xsi:type' attribute shall contain the value 'CD'.
+                Refer to section 7.1.1.5.1 and/or 7.1.1.5.1.2 and/or 7.1.1.5.2 of the
+                e-Discharge_Summary_CDA_Implementation_Guide_v3.4.</assert>-->
+
+            <!-- End Mantis Task 2782 -->
+
+            <!-- PL - Updated - 28/02/2012 - Mantis ID 0002429 -->
+            <!-- @code -->
+
+            <assert test = "document('TEMPLATE/VALDN/CDAValidate_Vocabs.xml', .)/systems/system[@codeSystemName = 'NCTIS_Admin_Codes_Result_Status']/code[(@code = current()/@code)]"
+                >Error: e-Discharge Summary - 7.1.1.5.1 'Pathology Test Result' and 7.1.1.5.1.2
+                'Pathology Test Result Group' and 7.1.1.5.2 'Imaging Examination Result' - The 'value' tag 'code'
+                attribute shall be as per 'NCTIS_Admin_Codes_Result_Status'.
+                Refer to section 7.1.1.5.1 and/or 7.1.1.5.1.2 and/or 7.1.1.5.2 of the
+                e-Discharge_Summary_CDA_Implementation_Guide_v3.4.</assert>
+
+            <!-- @codeSystem -->
+
+            <assert test = "document('TEMPLATE/VALDN/CDAValidate_Vocabs.xml', .)/systems/system[@codeSystemName = 'NCTIS_Admin_Codes_Result_Status']/code[(@codeSystem = current()/@codeSystem)]"
+                >Error: e-Discharge Summary - 7.1.1.5.1 'Pathology Test Result' and 7.1.1.5.1.2
+                'Pathology Test Result Group' and 7.1.1.5.2 'Imaging Examination Result' - The 'value' tag
+                'codeSystem' attribute shall be as per 'NCTIS_Admin_Codes_Result_Status'.
+                Refer to section 7.1.1.5.1 and/or 7.1.1.5.1.2 and/or 7.1.1.5.2 of the
+                e-Discharge_Summary_CDA_Implementation_Guide_v3.4.</assert>
+
+            <!-- @displayName -->
+
+            <report  test="@displayName and not(document('TEMPLATE/VALDN/CDAValidate_Vocabs.xml', .)/systems/system[@codeSystemName = 'NCTIS_Admin_Codes_Result_Status']/code[(@code = current()/@code) and (translate(@displayName,  'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ') = translate(current()/@displayName, 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'))])"
+                >Error: e-Discharge Summary - 7.1.1.5.1 'Pathology Test Result' and 7.1.1.5.1.2
+                'Pathology Test Result Group' and 7.1.1.5.2 'Imaging Examination Result' - The 'value' tag
+                'displayName' attribute shall be as per 'NCTIS_Admin_Codes_Result_Status'.
+                Refer to section 7.1.1.5.1 and/or 7.1.1.5.1.2 and/or 7.1.1.5.2 of the
+                e-Discharge_Summary_CDA_Implementation_Guide_v3.4.</report>
+
+            <!-- @xsi:type -->
+
+            <!-- Start Mantis Task 2782 -->
+            <assert test="@xsi:type">
+                Error: e-Discharge Summary - 7.1.1.5.1 'Pathology Test Result' and 7.1.1.5.1.2
+                'Pathology Test Result Group' and 7.1.1.5.2 'Imaging Examination Result' - The 'value' tag 'xsi:type' attribute is missing.
+                Refer to section 7.1.1.5.1 and/or 7.1.1.5.1.2 and/or 7.1.1.5.2 of the
+                e-Discharge_Summary_CDA_Implementation_Guide_v3.4.
+            </assert>
+
+            <assert test="not(@xsi:type) or normalize-space(@xsi:type) !=  ''">
+                Error: e-Discharge Summary - 7.1.1.5.1 'Pathology Test Result' and 7.1.1.5.1.2
+                'Pathology Test Result Group' and 7.1.1.5.2 'Imaging Examination Result' - The 'value' tag 'xsi:type' attribute shall contain a value.
+                Refer to section 7.1.1.5.1 and/or 7.1.1.5.1.2 and/or 7.1.1.5.2 of the
+                e-Discharge_Summary_CDA_Implementation_Guide_v3.4.
+            </assert>
+
+            <assert test="normalize-space(@xsi:type) = 'CD'">
+                Error: e-Discharge Summary - 7.1.1.5.1 'Pathology Test Result' and 7.1.1.5.1.2
+                'Pathology Test Result Group' and 7.1.1.5.2 'Imaging Examination Result' - The 'value' tag 'xsi:type' attribute shall contain the value 'CD'.
+                Refer to section 7.1.1.5.1 and/or 7.1.1.5.1.2 and/or 7.1.1.5.2 of the
+                e-Discharge_Summary_CDA_Implementation_Guide_v3.4.
+            </assert>
+
+            <!--<assert test = "@xsi:type = 'CD'">Error: e-Discharge Summary - 7.1.1.5.1 'Pathology Test Result' and 7.1.1.5.1.2
+                'Pathology Test Result Group' and 7.1.1.5.2 'Imaging Examination Result' -
+                The 'value' tag 'xsi:type' attribute shall contain the value 'CD'.
+                Refer to section 7.1.1.5.1 and/or 7.1.1.5.1.2 and/or 7.1.1.5.2 of the
+                e-Discharge_Summary_CDA_Implementation_Guide_v3.4.</assert>-->
+
+            <!-- End Mantis Task 2782 -->
+
+            <!--End of PL's - Update - 28/02/2012 - Mantis ID 0002429 -->
+        </rule>
+
+    </pattern>
+

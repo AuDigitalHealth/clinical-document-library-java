@@ -1,0 +1,16 @@
+    <pattern name="p-Service_Referral_LegalAuthenticator_5_1_1_custom-errors"
+        id="p-Service_Referral_LegalAuthenticator_5_1_1_custom-errors"
+        see="#p-Service_Referral_LegalAuthenticator_5_1_1_custom-errors">
+
+
+        <rule context="/cda:ClinicalDocument/cda:legalAuthenticator/cda:time">
+
+            <assert test="not(@value) or string-length(@value) &gt;= 12">Error: Service Referral -
+                5.1.1 LegalAuthenticator - "LegalAuthenticator/time" - The 'time' tag 'value'
+                attribute shall contain both a time and a date. Refer to section 5.1.1 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</assert>
+
+        </rule>
+
+    </pattern>
+

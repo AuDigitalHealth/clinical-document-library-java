@@ -1,0 +1,23 @@
+    <pattern name="p-Service_Referral_PATIENTNOMINATEDCONTACTasaPERSON-NotaHealthcareorHumanServicesProvider_6_1_3_2_custom-errors"
+        id="p-Service_Referral_PATIENTNOMINATEDCONTACTasaPERSON-NotaHealthcareorHumanServicesProvider_6_1_3_2_custom-errors"
+        see="#p-Service_Referral_PATIENTNOMINATEDCONTACTasaPERSON-NotaHealthcareorHumanServicesProvider_6_1_3_2_custom-errors">
+
+        <rule context="/cda:ClinicalDocument/cda:participant[@typeCode = 'IRCP']/cda:associatedEntity/cda:associatedPerson/ext:personalRelationship/ext:asPersonalRelationship/cda:id">
+            
+            <assert test="
+                    not(@root)
+                    or normalize-space(@root) = ''
+                    or not(/cda:ClinicalDocument/cda:recordTarget/cda:patientRole[@classCode = 'PAT']/cda:id/@root)
+                    or normalize-space(/cda:ClinicalDocument/cda:recordTarget/cda:patientRole[@classCode = 'PAT']/cda:id/@root) = ''
+                    or (@root) = normalize-space(/cda:ClinicalDocument/cda:recordTarget/cda:patientRole[@classCode = 'PAT']/cda:id/@root)"
+                >Error: Service Referral - 6.1.3.2 PATIENT NOMINATED CONTACT as a PERSON - Not a
+                Healthcare or Human Services Provider - "PATIENT NOMINATED CONTACT / Participant /
+                Person or Organisation or Device / Person / Relationship to Subject of Care" - The
+                'ext:id' tag 'root' attribute shall hold the same value as
+                ClinicalDocument/recordTarget/patientRole/id/@root. Refer to section 6.1.3.2 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</assert>
+            
+        </rule>      
+
+    </pattern>
+

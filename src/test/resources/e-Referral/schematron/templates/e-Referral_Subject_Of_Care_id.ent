@@ -1,0 +1,32 @@
+
+
+    <!-- e-Referral Clinical Document: 6.1.2 Subject of Care id -->
+
+    <!-- Context: ClinicalDocument/recordTarget/patientRole/patient -->
+
+    <!-- Status: Last Reviewed: 13/12/2011
+         Status: Last Updated: 31/01/2012 -->
+
+
+    <pattern name="p-e-Referral_Subject_Of_Care_id-errors" id="p-e-Referral_Subject_Of_Care_id-errors"
+        see="#p-e-Referral_Subject_Of_Care_id-errors">
+
+        <!-- patientRole - 1..1 -->
+
+        <rule context="/cda:ClinicalDocument/cda:recordTarget/cda:patientRole">
+
+            <!-- id - 1..1 -->
+
+            <assert test="cda:id">Error: e-Referral - 6.1.2 Subject of Care -
+                "recordTarget/patientRole/id" - The 'id' tag is missing. Refer to section 6.1.2 in
+                the e-Referral_CDA_Implementation_Guide_v2.2.</assert>
+
+            <report test="count(cda:id) > 1">Error: e-Referral - 6.1.2 Subject of Care -
+                "recordTarget/patientRole/id" - The 'id' tag shall appear only once. Refer to
+                section 6.1.2 of the e-Referral_CDA_Implementation_Guide_v2.2.</report>
+
+        </rule>
+
+        <!--The id attributes are being tested in Global Checks-->
+
+    </pattern>

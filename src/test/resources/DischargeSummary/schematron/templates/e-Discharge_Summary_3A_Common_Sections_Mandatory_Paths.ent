@@ -1,0 +1,285 @@
+
+
+    <!-- Status: Last Reviewed: 
+         Status: Last Updated : 24/04/2012 -->
+
+
+    <!-- This schematron covers the below mandatory 3A paths/sections.
+
+1. Subject of Care - age (6.1.2)   1..1 
+/ClinicalDocument/component/structuredBody/component[admin_obs]/section/entry[age]/observation/code/@code = '103.20109'
+
+2. Exclusion Statement - Problems and Diagnoses > Global Statement  (7.1.1.2.1)  1..1
+/ClinicalDocument/component/structuredBody/component[event]/section/component[prob_visit]/section/entry[gbl_prob]/observation/code/@code="103.16302.4.3.1"
+
+3. Clinical Interventions Performed This Visit > Clinical Intervention   (7.1.1.3)  1..*
+/ClinicalDocument/component/structuredBody/component[event]/section/component[inter_visit]/section/entry[inter]/procedure/@classCode="PROC"
+
+4. Clinical Synopsis (7.1.1.4)     1..1
+/ClinicalDocument/component/structuredBody/component[event]/section/component[synop]/section/entry/act/@code="103.15582"
+
+5. Test Specimen Detail  (7.1.1.5.1.1)     1..*
+/ClinicalDocument/component/structuredBody/component[event]/section/component[diag_inv]/section/component[path_test]/section/entry[path_test_res]/observation/entryRelationship[spec]/observation/code/@code="102.16156.2.2.1"
+
+6. Pathology Test Result Group > Individual Pathology Test Result > IndividualPathology Test Result Status    (7.1.1.5.1.2)   1..1
+/ClinicalDocument/component/structuredBody/component[event]/section/component[diag_inv]/section/component[path_test]/section/entry[path_test_res]/observation/entryRelationship[res_gp]/organizer/component[ind_res]/observation/entryRelationship[res_stat]/observation/code/@code="308552006"
+
+7. Imaging Examination Result > Imaging Examination Result DateTime (7.1.1.5.2)  1..1
+/ClinicalDocument/component/structuredBody/component[event]/section/component[diag_inv]/section/component[img_exam]/section/entry[img_exam_res]/observation/entryRelationship[res_date]/observation/code/@code="103.16589"
+
+8. Imaging Examination Result Group > Individual Imaging Examination Result (7.1.1.5.2.1)   1..1
+/ClinicalDocument/component/structuredBody/component[event]/section/component[diag_inv]/section/component[img_exam]/section/entry[img_exam_res]/observation/entryRelationship[im_res_gp]/organizer/component[ind_im_res]/observation/@classCode="OBS"
+
+9. Exclusion Statement - Medications (current)> Global Statement  (7.1.2.1.1)    1..1
+/ClinicalDocument/component/structuredBody/component[meds]/section/component[current]/section/entry[gbl_meds]/observation/code/@code="103.16302.4.3.2"
+
+10. Exclusion Statement - Medications (deceased) > Global Statement  (7.1.2.2.1)   1..1
+/ClinicalDocument/component/structuredBody/component[meds]/section/component[ceased]/section/entry[gbl_meds]/observation/code/@code="103.16302.4.3.3"
+
+11. Exclusion Statement - Adverse Reactions (adverse reactions)> Global Statement  (7.1.3.2.1) 1..1
+/ClinicalDocument/component/structuredBody/component[health]/section/component[adverse]/section/entry[gbl_adv]/observation/code/@code="103.16302.4.3.4"
+
+12. Alerts > Alert   (7.1.3.3)  1..*
+/ClinicalDocument/component/structuredBody/component[health]/section/component[alerts]/section/entry/observation/@classCode="OBS"
+
+13. Arranged Services > Arranged Service   (7.1.4.1)   1..*
+/ClinicalDocument/component/structuredBody/component[health]/section/component[arranged]/section/entry[service]/act/@classCode="ACT"
+
+ -->
+
+
+    <pattern name="p-e-Discharge_Summary_3A_Common_Sections_Mandatory_Paths-errors"
+        id="p-e-Discharge_Summary_3A_Common_Sections_Mandatory_Paths-errors"
+        see="#p-e-Discharge_Summary_3A_Common_Sections_Mandatory_Paths-errors">
+
+        <rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody">
+
+
+<!--
+    1. Subject of Care - age  1..1
+/ClinicalDocument/component/structuredBody/component[admin_obs]/section/entry[age]/observation/code/@code = '103.20109'
+ -->
+<!-- Parent "Age Detail" is 0..1
+            <assert test="cda:component/cda:section[cda:code/@code='102.16080']/cda:entry/cda:observation/cda:code[@code = '103.20109']">
+                Error: e-Discharge Summary - 6.1.2 Subject of Care - 
+                The '/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code='102.16080']/cda:entry/cda:observation/cda:code[@code = '103.20109']' tag 
+                is missing. Refer to section 6.1.2 of the
+                e-Discharge_Summary_CDA_Implementation_Guide_v3.4</assert>
+-->
+            <report test="count(cda:component/cda:section[cda:code/@code='102.16080']/cda:entry[cda:observation/cda:code[@code = '103.20109'] ]) > 1"
+                >Error: e-Discharge Summary - 6.1.2 Subject of Care - The '/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code='102.16080']/cda:entry[cda:observation/cda:code' tag
+                shall appear only once for 'Age'. Refer to section 6.1.2 of the
+                e-Discharge_Summary_CDA_Implementation_Guide_v3.4</report>
+            
+<!--            
+2. Exclusion Statement - Problems and Diagnoses > Global Statement  (7.1.1.2.1)  1..1
+/ClinicalDocument/component/structuredBody/component[event]/section/component[prob_visit]/section/entry[gbl_prob]/observation/code/@code="103.16302.4.3.1"
+-->
+<!--  Parent "Exclusion Statement - Problems and Diagnoses" is 0..1 ****************************          
+            <assert test="cda:component/cda:section[cda:code/@code = '101.16006']/cda:component/cda:section[cda:code/@code = '101.16142']/cda:entry/cda:observation[cda:code/@code = '103.16302.4.3.1']">
+                Error: e-Discharge Summary - 7.1.1.2.1 Exclusion Statement - "Problems and Diagnoses
+                / Global Statement" - The '/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code = '101.16006']/cda:component/cda:section[cda:code/@code = '101.16142']/cda:entry/cda:observation[cda:code/@code = '103.16302.4.3.1]' tag
+                is missing. Refer to section 7.1.1.2.1 of the
+                e-Discharge_Summary_CDA_Implementation_Guide_v3.4</assert>
+-->
+            
+<!--  Mandatory to have "EXCLUSION STATEMENT - PROBLEMS AND DIAGNOSES" 0..1 ("103.16302.4.3.1") or "PROBLEM/DIAGNOSIS" 0..*.   -->      
+            <assert test="cda:component/cda:section[cda:code/@code = '101.16006']/cda:component/cda:section[cda:code/@code = '101.16142']/cda:entry/cda:observation[cda:code/@code = '103.16302.4.3.1'] |
+                          cda:component/cda:section[cda:code/@code = '101.16006']/cda:component/cda:section[cda:code/@code = '101.16142']/cda:entry/cda:observation[@classCode='OBS']/cda:code">
+                Error: e-Discharge Summary - 7.1.1.2.1 Exclusion Statement - "Problems and Diagnoses
+                / Global Statement" or "7.1.1.2.2 PROBLEM/DIAGNOSIS" - The '/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code = '101.16006']/cda:component/cda:section[cda:code/@code = '101.16142']/cda:entry/cda:observation[cda:code@code = '103.16302.4.3.1' or cda:code]' tag
+                is missing. Refer to section 7.1.1.2.1 of the
+                e-Discharge_Summary_CDA_Implementation_Guide_v3.4</assert>
+
+            
+            
+            <report test="count(cda:component/cda:section[cda:code/@code = '101.16006']/cda:component/cda:section[cda:code/@code = '101.16142']/cda:entry/cda:observation[cda:code/@code = '103.16302.4.3.1']) > 1"
+                >Error: e-Discharge Summary - 7.1.1.2.1 Exclusion Statement - "Problems and Diagnoses
+                / Global Statement" - The '/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code = '101.16006']/cda:component/cda:section[cda:code/@code = '101.16142']/cda:entry/cda:observation[cda:code/@code = '103.16302.4.3.1]'
+                tag shall appear only once. Refer to section
+                7.1.1.2.1 of the
+                e-Discharge_Summary_CDA_Implementation_Guide_v3.4.</report>
+
+<!--
+3. Clinical Interventions Performed This Visit > Clinical Intervention   (7.1.1.3)  1..*
+/ClinicalDocument/component/structuredBody/component[event]/section/component[inter_visit]/section/entry[inter]/procedure/@classCode="PROC"
+-->
+
+<!--  Parent 101.20109 - "Clinical Interventions Performed This Visit" is 0..1 ****************************
+            <assert test="cda:component/cda:section[cda:code/@code = '101.16006']/cda:component/cda:section[cda:code/@code = '101.20109']/cda:entry[cda:procedure/@classCode = 'PROC']">
+                Error: e-Discharge Summary - 7.1.1.3 Clinical Interventions Performed This Visit > Clinical Intervention - The 
+                '/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code = '101.16006']/cda:component/cda:section[cda:code/@code = '101.20109']/cda:entry[cda:procedure/@classCode = 'PROC']' tag
+                is missing. Refer to section 7.1.1.3 of the
+                e-Discharge_Summary_CDA_Implementation_Guide_v3.4</assert>
+-->
+            
+<!--      
+4. Clinical Synopsis (7.1.1.4)     1..1
+/ClinicalDocument/component/structuredBody/component[event]/section/component[synop]/section/entry/act/code@code="103.15582"
+-->      
+            
+            <assert test="cda:component/cda:section[cda:code/@code = '101.16006']/cda:component/cda:section[cda:code/@code = '102.15513.4.1.1']/cda:entry/cda:act[cda:code/@code = '103.15582']">
+                Error: e-Discharge Summary - 7.1.1.4 Clinical Synopsis - The 
+                '/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code = '101.16006']/cda:component/cda:section[cda:code/@code = '102.15513.4.1.1']/cda:entry/cda:act[cda:code@code = '103.15582']' tag
+                is missing. Refer to section 7.1.1.4 of the
+                e-Discharge_Summary_CDA_Implementation_Guide_v3.4</assert>
+        
+            <report test="count(cda:component/cda:section[cda:code/@code = '101.16006']/cda:component/cda:section[cda:code/@code = '102.15513.4.1.1']/cda:entry/cda:act[cda:code/@code = '103.15582']) > 1"
+                >Error: e-Discharge Summary - 7.1.1.4 Clinical Synopsis - The 
+                '/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code = '101.16006']/cda:component/cda:section[cda:code/@code = '102.15513.4.1.1']/cda:entry/cda:act[cda:code@code = '103.15582']'
+                tag shall appear only once. Refer to section 7.1.1.4 of the
+                e-Discharge_Summary_CDA_Implementation_Guide_v3.4.</report>
+            
+<!--            
+5. Test Specimen Detail  (7.1.1.5.1.1)     1..*
+/ClinicalDocument/component/structuredBody/component[event]/section/component[diag_inv]/section/component[path_test]/section/entry[path_test_res]/observation/entryRelationship[spec]/observation/code/@code="102.16156.2.2.1"
+-->            
+<!--  Parent 102.16144 - "Pathology Test Result" is 0..1 ****************************
+      "18719-5" is not a "hardcoded" code in IG.
+            <assert test="cda:component/cda:section[cda:code/@code = '101.16006']/cda:component/cda:section[cda:code/@code = '101.20117']/cda:component/cda:section[cda:code/@code = '102.16144']/cda:entry/cda:observation[cda:code/@code = '18719-5']/cda:entryRelationship/cda:observation[cda:code/@code = '102.16156.2.2.1']">
+                Error: e-Discharge Summary - 7.1.1.5.1.1 Test Specimen Detail - The 
+                '/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code = '101.16006']/cda:component/cda:section[cda:code/@code = '101.20117']/cda:component/cda:section[cda:code/@code = '102.16144']/cda:entry/cda:observation[cda:code/@code = '18719-5']/cda:entryRelationship/cda:observation[cda:code/@code = '102.16156.2.2.1']' tag
+                is missing. Refer to section 7.1.1.5.1.1 of the
+                e-Discharge_Summary_CDA_Implementation_Guide_v3.4</assert>
+-->    
+            
+<!--
+6. Pathology Test Result Group > Individual Pathology Test Result > IndividualPathology Test Result Status    (7.1.1.5.1.2)   1..1
+/ClinicalDocument/component/structuredBody/component[event]/section/component[diag_inv]/section/component[path_test]/section/entry[path_test_res]/observation/entryRelationship[res_gp]/organizer/component[ind_res]/observation/entryRelationship[res_stat]/observation/code/@code="308552006"
+-->
+<!--  Parent 102.16144 - "Pathology Test Result" is 0..1 ****************************
+            <assert test="cda:component/cda:section[cda:code/@code = '101.16006']/cda:component/cda:section[cda:code/@code = '101.20117']/cda:component/cda:section[cda:code/@code = '102.16144']/cda:entry/cda:observation[cda:code/@code = '18719-5']/cda:entryRelationship/cda:organizer/cda:component/cda:observation[cda:code/@code = '14682-9']/cda:entryRelationship/cda:observation[cda:code/@code = '308552006']">
+                Error: e-Discharge Summary - 7.1.1.5.1.2 Pathology Test Result Group > Individual Pathology Test Result > IndividualPathology Test Result Status - The 
+                '/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code = '101.16006']/cda:component/cda:section[cda:code/@code = '101.20117']/cda:component/cda:section[cda:code/@code = '102.16144']/cda:entry/cda:observation[cda:code/@code = '18719-5']/cda:entryRelationship/cda:organizer/cda:component/cda:observation[cda:code/@code = '14682-9']/cda:entryRelationship/cda:observation[cda:code/@code = '308552006']"' tag
+                is missing. Refer to section 7.1.1.5.1.2 of the
+                e-Discharge_Summary_CDA_Implementation_Guide_v3.4</assert>
+ -->
+            <report test="count(cda:component/cda:section[cda:code/@code = '101.16006']/cda:component/cda:section[cda:code/@code = '101.20117']/cda:component/cda:section[cda:code/@code = '102.16144']/cda:entry/cda:observation[cda:code/@code = '18719-5']/cda:entryRelationship/cda:organizer/cda:component/cda:observation[cda:code/@code = '14682-9']/cda:entryRelationship/cda:observation[cda:code/@code = '308552006']) > 1"
+                >Error: e-Discharge Summary - 7.1.1.5.1.2 Pathology Test Result Group > Individual Pathology Test Result > IndividualPathology Test Result Status - The 
+                '/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code = '101.16006']/cda:component/cda:section[cda:code/@code = '101.20117']/cda:component/cda:section[cda:code/@code = '102.16144']/cda:entry/cda:observation[cda:code/@code = '18719-5']/cda:entryRelationship/cda:organizer/cda:component/cda:observation[cda:code/@code = '14682-9']/cda:entryRelationship/cda:observation[cda:code/@code = '308552006']'
+                tag shall appear only once. Refer to section 7.1.1.5.1.2 of the
+                e-Discharge_Summary_CDA_Implementation_Guide_v3.4.</report>
+
+<!--
+7. Imaging Examination Result > Imaging Examination Result DateTime (7.1.1.5.2)  1..1
+/ClinicalDocument/component/structuredBody/component[event]/section/component[diag_inv]/section/component[img_exam]/section/entry[img_exam_res]/observation/entryRelationship[res_date]/observation/code/@code="103.16589"
+-->
+<!--  Parent 102.16145 - "Imaging Examination Result" is 0..1 ****************************
+            <assert test="cda:component/cda:section[cda:code/@code = '101.16006']/cda:component/cda:section[cda:code/@code = '101.20117']/cda:component/cda:section[cda:code/@code = '102.16145']/cda:entry/cda:observation[cda:code/@code = '399208008']/cda:entryRelationship/cda:observation[cda:code/@code = '103.16589']">
+                Error: e-Discharge Summary - 7.1.1.5.2 Imaging Examination Result > Imaging Examination Result DateTime - The 
+                '/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code = '101.16006']/cda:component/cda:section[cda:code/@code = '101.20117']/cda:component/cda:section[cda:code/@code = '102.16145']/cda:entry/cda:observation[cda:code/@code = '399208008']/cda:entryRelationship/cda:observation[cda:code/@code = '103.16589']' tag
+                is missing. Refer to section 7.1.1.5.2 of the
+                e-Discharge_Summary_CDA_Implementation_Guide_v3.4</assert>
+-->
+            <report test="count(cda:component/cda:section[cda:code/@code = '101.16006']/cda:component/cda:section[cda:code/@code = '101.20117']/cda:component/cda:section[cda:code/@code = '102.16145']/cda:entry/cda:observation[cda:code/@code = '399208008']/cda:entryRelationship/cda:observation[cda:code/@code = '103.16589']) > 1"
+                >Error: e-Discharge Summary - 7.1.1.5.2 Pathology Test Result Group > Individual Pathology Test Result > IndividualPathology Test Result Status - The 
+                '/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code = '101.16006']/cda:component/cda:section[cda:code/@code = '101.20117']/cda:component/cda:section[cda:code/@code = '102.16145']/cda:entry/cda:observation[cda:code/@code = '399208008']/cda:entryRelationship/cda:observation[cda:code/@code = '103.16589']'
+                tag shall appear only once. Refer to section 7.1.1.5.2 of the
+                e-Discharge_Summary_CDA_Implementation_Guide_v3.4.</report>
+
+<!--
+8. Imaging Examination Result Group > Individual Imaging Examination Result (7.1.1.5.2.1)   1..1
+/ClinicalDocument/component/structuredBody/component[event]/section/component[diag_inv]/section/component[img_exam]/section/entry[img_exam_res]/observation/entryRelationship[im_res_gp]/organizer/component[ind_im_res]/observation/@classCode="OBS"
+-->
+<!--  Parent 102.16145 - "Imaging Examination Result" is 0..1 ****************************
+            <assert test="cda:component/cda:section[cda:code/@code = '101.16006']/cda:component/cda:section[cda:code/@code = '101.20117']/cda:component/cda:section[cda:code/@code = '102.16145']/cda:entry/cda:observation[cda:code/@code = '399208008']/cda:entryRelationship/cda:organizer/cda:component[cda:observation/@classCode = 'OBS']">
+                Error: e-Discharge Summary - 7.1.1.5.2.1 Imaging Examination Result Group > Individual Imaging Examination Result - The 
+                '/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code = '101.16006']/cda:component/cda:section[cda:code/@code = '101.20117']/cda:component/cda:section[cda:code/@code = '102.16145']/cda:entry/cda:observation[cda:code/@code = '399208008']/cda:entryRelationship/cda:organizer/cda:component/[cda:observation/@classCode = 'OBS']' tag
+                is missing. Refer to section 7.1.1.5.2.1 of the
+                e-Discharge_Summary_CDA_Implementation_Guide_v3.4</assert>
+-->
+            <report test="count(cda:component/cda:section[cda:code/@code = '101.16006']/cda:component/cda:section[cda:code/@code = '101.20117']/cda:component/cda:section[cda:code/@code = '102.16145']/cda:entry/cda:observation[cda:code/@code = '399208008']/cda:entryRelationship/cda:organizer/cda:component[cda:observation/@classCode = 'OBS']) > 1"
+                >Error: e-Discharge Summary - 7.1.1.5.2.1 Imaging Examination Result Group > Individual Imaging Examination Result - The 
+                '/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code = '101.16006']/cda:component/cda:section[cda:code/@code = '101.20117']/cda:component/cda:section[cda:code/@code = '102.16145']/cda:entry/cda:observation[cda:code/@code = '399208008']/cda:entryRelationship/cda:organizer/cda:component/[cda:observation/@classCode = 'OBS']'
+                tag shall appear only once. Refer to section 7.1.1.5.2.1 of the
+                e-Discharge_Summary_CDA_Implementation_Guide_v3.4.</report>
+            
+            
+<!--
+9. Exclusion Statement - Medications (current)> Global Statement  (7.1.2.1.1)    1..1
+/ClinicalDocument/component/structuredBody/component[meds]/section/component[current]/section/entry[gbl_meds]/observation/code/@code="103.16302.4.3.2"
+-->        
+<!--  Parent "Exclusion Statement - Medications" is 0..1
+            <assert test="cda:component/cda:section[cda:code/@code = '101.16022']/cda:component/cda:section[cda:code/@code = '101.16146.4.1.1']/cda:entry/cda:observation[cda:code/@code = '103.16302.4.3.2']">
+                Error: e-Discharge Summary - 7.1.2.1.1 Exclusion Statement - Medications (current)> Global Statement - The 
+                '/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code = '101.16022']/cda:component/cda:section[cda:code/@code = '101.16146.4.1.1']/cda:entry/cda:observation[cda:code/@code = '103.16302.4.3.2']' tag
+                is missing. Refer to section 7.1.2.1.1 of the
+                e-Discharge_Summary_CDA_Implementation_Guide_v3.4</assert>
+-->
+            <report test="count(cda:component/cda:section[cda:code/@code = '101.16022']/cda:component/cda:section[cda:code/@code = '101.16146.4.1.1']/cda:entry/cda:observation[cda:code/@code = '103.16302.4.3.2']) > 1"
+                >Error: e-Discharge Summary - 7.1.2.1.1 Exclusion Statement - Medications (current)> Global Statement - The 
+                '/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code = '101.16022']/cda:component/cda:section[cda:code/@code = '101.16146.4.1.1']/cda:entry/cda:observation[cda:code/@code = '103.16302.4.3.2']'
+                tag shall appear only once. Refer to section 7.1.2.1.1 of the
+                e-Discharge_Summary_CDA_Implementation_Guide_v3.4.</report>
+            
+<!--
+10. Exclusion Statement - Medications (ceased) > Global Statement  (7.1.2.2.1)   1..1
+/ClinicalDocument/component/structuredBody/component[meds]/section/component[ceased]/section/entry[gbl_meds]/observation/code/@code="103.16302.4.3.3"
+-->
+<!--  Parent "Exclusion Statement - Medications" is 0..1
+            <assert test="cda:component/cda:section[cda:code/@code = '101.16022']/cda:component/cda:section[cda:code/@code = '101.16146.4.1.2']/cda:entry/cda:observation[cda:code/@code = '103.16302.4.3.3']">
+                Error: e-Discharge Summary - 7.1.2.2.1 Exclusion Statement - Medications (ceased)> Global Statement - The 
+                '/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code = '101.16022']/cda:component/cda:section[cda:code/@code = '101.16146.4.1.2']/cda:entry/cda:observation[cda:code/@code = '103.16302.4.3.3']' tag
+                is missing. Refer to section 7.1.2.2.1 of the
+                e-Discharge_Summary_CDA_Implementation_Guide_v3.4</assert>
+-->
+            <report test="count(cda:component/cda:section[cda:code/@code = '101.16022']/cda:component/cda:section[cda:code/@code = '101.16146.4.1.2']/cda:entry/cda:observation[cda:code/@code = '103.16302.4.3.3']) > 1"
+                >Error: e-Discharge Summary - 7.1.2.2.1 Exclusion Statement - Medications (ceased)> Global Statement - The 
+                '/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code = '101.16022']/cda:component/cda:section[cda:code/@code = '101.16146.4.1.2']/cda:entry/cda:observation[cda:code/@code = '103.16302.4.3.3']'
+                tag shall appear only once. Refer to section 7.1.2.2.1 of the
+                e-Discharge_Summary_CDA_Implementation_Guide_v3.4.</report>
+
+<!--
+11. Exclusion Statement - Adverse Reactions (adverse reactions)> Global Statement  (7.1.3.2.1) 1..1
+/ClinicalDocument/component/structuredBody/component[health]/section/component[adverse]/section/entry[gbl_adv]/observation/code/@code="103.16302.4.3.4"
+-->
+<!--  Parent "Exclusion Statement - Adverse Reactions" is 0..1      
+            <assert test="cda:component/cda:section[cda:code/@code = '101.16011']/cda:component/cda:section[cda:code/@code = '101.20113']/cda:entry/cda:observation[cda:code/@code = '103.16302.4.3.4']">
+                Error: e-Discharge Summary - 7.1.3.2.1 Adverse Reactions (adverse reactions)> Global Statement - The 
+                '/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code = '101.16011']/cda:component/cda:section[cda:code/@code = '101.20113']/cda:entry/cda:observation[cda:code/@code = '103.16302.4.3.4']' tag
+                is missing. Refer to section 7.1.3.2.1 of the
+                e-Discharge_Summary_CDA_Implementation_Guide_v3.4</assert>
+-->
+            <report test="count(cda:component/cda:section[cda:code/@code = '101.16011']/cda:component/cda:section[cda:code/@code = '101.20113']/cda:entry/cda:observation[cda:code/@code = '103.16302.4.3.4']) > 1"
+                >Error: e-Discharge Summary - 7.1.3.2.1 Adverse Reactions (adverse reactions)> Global Statement - The 
+                '/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code = '101.16011']/cda:component/cda:section[cda:code/@code = '101.20113']/cda:entry/cda:observation[cda:code/@code = '103.16302.4.3.4']'
+                tag shall appear only once. Refer to section 7.1.3.2.1 of the
+                e-Discharge_Summary_CDA_Implementation_Guide_v3.4.</report>
+
+<!--
+12. Alerts > Alert   (7.1.3.3)  1..*
+/ClinicalDocument/component/structuredBody/component[health]/section/component[alerts]/section/entry/observation/@classCode="OBS"
+-->
+
+<!--  Parent 101.20021 - "Alerts" is 0..1 ****************************
+            <assert test="cda:component/cda:section[cda:code/@code = '101.16011']/cda:component/cda:section[cda:code/@code = '101.20021']/cda:entry[cda:observation/@classCode = 'OBS']">
+                Error: e-Discharge Summary - 7.1.3.3 Alerts > Alert - The 
+                '/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code = '101.16011']/cda:component/cda:section[cda:code/@code = '101.20021']/cda:entry[cda:observation/@classCode = 'OBS']' tag
+                is missing. Refer to section 7.1.3.3 of the
+                e-Discharge_Summary_CDA_Implementation_Guide_v3.4</assert>
+-->
+
+<!--
+13. Arranged Services > Arranged Service   (7.1.4.1)   1..*
+/ClinicalDocument/component/structuredBody/component[health]/section/component[arranged]/section/entry[service]/act/@classCode="ACT"
+-->  
+<!--  Parent 101.16021 - "Arranged Services" is 0..1 ****************************
+            <assert test="cda:component/cda:section[cda:code/@code = '101.16020']/cda:component/cda:section[cda:code/@code = '101.16021']/cda:entry[cda:act/@classCode = 'ACT']">
+                Error: e-Discharge Summary - 7.1.4.1 Arranged Services > Arranged Service - The 
+                '/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code = '101.16020']/cda:component/cda:section[cda:code/@code = '101.16021']/cda:entry[cda:act/@classCode = 'ACT']' tag
+                is missing. Refer to section 7.1.4.1 of the
+                e-Discharge_Summary_CDA_Implementation_Guide_v3.4</assert>
+-->
+<!--   1..*         
+            <report test="count(cda:component/cda:section[cda:code/@code = '101.16020']/cda:component/cda:section[cda:code/@code = '101.16021']/cda:entry[cda:act/@classCode = 'ACT']) > 1"
+                >Error: e-Discharge Summary - 7.1.4.1 Arranged Services > Arranged Service - The 
+                '/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code = '101.16020']/cda:component/cda:section[cda:code/@code = '101.16021']/cda:entry[cda:act/@classCode = 'ACT']'
+                tag shall appear only once. Refer to section 7.1.4.1 of the
+                e-Discharge_Summary_CDA_Implementation_Guide_v3.4.</report>
+-->
+        
+        </rule>
+    
+    </pattern>
+
+

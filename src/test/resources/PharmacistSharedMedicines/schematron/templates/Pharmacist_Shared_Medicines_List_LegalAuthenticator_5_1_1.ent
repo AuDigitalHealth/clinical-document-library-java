@@ -1,0 +1,270 @@
+<!--
+_________________________________________________________________________________________________________________________________________________________________________________________
+                  Generated File - Do Not Edit File Directly                                                                                                                             
+                  __________________________________________
+
+                  Generated          : 1/11/2018 9:46:46 AM
+
+                  Product            : Pharmacist Shared Medicines List
+                  Release            : CDA_Implementation_Guide_v1.0
+                  IG Guide Reference : 5.1.1
+                  IG Guide Title     : Legal Authenticator
+                  Generator Version  : 2.28
+                                                                                                                                                                                         
+_________________________________________________________________________________________________________________________________________________________________________________________
+-->
+<pattern name="p-Pharmacist_Shared_Medicines_List_LegalAuthenticator_5_1_1-errors"
+  id="p-Pharmacist_Shared_Medicines_List_LegalAuthenticator_5_1_1-errors"
+  see="#p-Pharmacist_Shared_Medicines_List_LegalAuthenticator_5_1_1-errors">
+
+
+  <rule context="/cda:ClinicalDocument">
+
+    <report test="count(cda:legalAuthenticator) > 1"
+    >Error: Pharmacist Shared Medicines List - 5.1.1 Legal Authenticator -
+      "LegalAuthenticator" -
+      The 'legalAuthenticator' tag shall appear only once.
+      Refer to section 5.1.1 of the
+      Core_Level_One_Clinical_Document_CDA_Implementation_Guide_v1.1.
+    </report>
+
+  </rule>
+
+
+  <rule context="/cda:ClinicalDocument/cda:legalAuthenticator">
+
+    <assert test="cda:time"
+    >Error: Pharmacist Shared Medicines List - 5.1.1 Legal Authenticator -
+      "LegalAuthenticator/time" -
+      The 'time' tag is missing.
+      Refer to section 5.1.1 of the
+      Core_Level_One_Clinical_Document_CDA_Implementation_Guide_v1.1.
+    </assert>
+
+    <report test="count(cda:time) > 1"
+    >Error: Pharmacist Shared Medicines List - 5.1.1 Legal Authenticator -
+      "LegalAuthenticator/time" -
+      The 'time' tag shall appear only once.
+      Refer to section 5.1.1 of the
+      Core_Level_One_Clinical_Document_CDA_Implementation_Guide_v1.1.
+    </report>
+
+    <assert test="cda:signatureCode"
+    >Error: Pharmacist Shared Medicines List - 5.1.1 Legal Authenticator -
+      "LegalAuthenticator/signatureCode" -
+      The 'signatureCode' tag is missing.
+      Refer to section 5.1.1 of the
+      Core_Level_One_Clinical_Document_CDA_Implementation_Guide_v1.1.
+    </assert>
+
+    <report test="count(cda:signatureCode) > 1"
+    >Error: Pharmacist Shared Medicines List - 5.1.1 Legal Authenticator -
+      "LegalAuthenticator/signatureCode" -
+      The 'signatureCode' tag shall appear only once.
+      Refer to section 5.1.1 of the
+      Core_Level_One_Clinical_Document_CDA_Implementation_Guide_v1.1.
+    </report>
+
+    <report test="count(cda:assignedEntity) > 1"
+    >Error: Pharmacist Shared Medicines List - 5.1.1 Legal Authenticator -
+      "LegalAuthenticator/assignedEntity" -
+      The 'assignedEntity' tag shall appear only once.
+      Refer to section 5.1.1 of the
+      Core_Level_One_Clinical_Document_CDA_Implementation_Guide_v1.1.
+    </report>
+
+    <assert test="cda:assignedEntity"
+    >Error: Pharmacist Shared Medicines List - 5.1.1 Legal Authenticator -
+      "LegalAuthenticator/assignedEntity" -
+      The 'assignedEntity' tag is missing.
+      Refer to section 5.1.1 of the
+      Core_Level_One_Clinical_Document_CDA_Implementation_Guide_v1.1.
+    </assert>
+
+  </rule>
+
+
+  <rule context="/cda:ClinicalDocument/cda:legalAuthenticator/cda:time">
+
+    <assert test="@value"
+    >Error: Pharmacist Shared Medicines List - 5.1.1 Legal Authenticator -
+      "LegalAuthenticator/time" -
+      The 'time' tag 'value' attribute is missing.
+      Refer to section 5.1.1 of the
+      Core_Level_One_Clinical_Document_CDA_Implementation_Guide_v1.1.
+    </assert>
+
+    <assert test="not(@value) or normalize-space(@value) != ''"
+    >Error: Pharmacist Shared Medicines List - 5.1.1 Legal Authenticator -
+      "LegalAuthenticator/time" -
+      The 'time' tag 'value' attribute shall contain a value.
+      Refer to section 5.1.1 of the
+      Core_Level_One_Clinical_Document_CDA_Implementation_Guide_v1.1.
+    </assert>
+
+  </rule>
+
+
+  <rule context="/cda:ClinicalDocument/cda:legalAuthenticator/cda:signatureCode">
+
+    <assert test="@code"
+    >Error: Pharmacist Shared Medicines List - 5.1.1 Legal Authenticator -
+      "LegalAuthenticator/signatureCode" -
+      The 'signatureCode' tag 'code' attribute is missing.
+      Refer to section 5.1.1 of the
+      Core_Level_One_Clinical_Document_CDA_Implementation_Guide_v1.1.
+    </assert>
+
+    <assert test="
+                not(@code) or normalize-space(@code) = '' or @code = 'S'"
+    >Error: Pharmacist Shared Medicines List - 5.1.1 Legal Authenticator -
+      "LegalAuthenticator/signatureCode" -
+      The 'signatureCode' tag 'code' attribute shall contain the value 'S'.
+      Refer to section 5.1.1 of the
+      Core_Level_One_Clinical_Document_CDA_Implementation_Guide_v1.1.
+    </assert>
+
+    <assert test="not(@code) or normalize-space(@code) != ''"
+    >Error: Pharmacist Shared Medicines List - 5.1.1 Legal Authenticator -
+      "LegalAuthenticator/signatureCode" -
+      The 'signatureCode' tag 'code' attribute shall contain a value.
+      Refer to section 5.1.1 of the
+      Core_Level_One_Clinical_Document_CDA_Implementation_Guide_v1.1.
+    </assert>
+
+  </rule>
+
+
+  <rule context="/cda:ClinicalDocument/cda:legalAuthenticator/cda:assignedEntity">
+
+    <report test="count(cda:code) > 1"
+    >Error: Pharmacist Shared Medicines List - 5.1.1 Legal Authenticator -
+      "LegalAuthenticator/assignedEntity/code" -
+      The 'code' tag shall appear only once.
+      Refer to section 5.1.1 of the
+      Core_Level_One_Clinical_Document_CDA_Implementation_Guide_v1.1.
+    </report>
+
+    <assert test="cda:id"
+    >Error: Pharmacist Shared Medicines List - 5.1.1 Legal Authenticator -
+      "LegalAuthenticator/assignedEntity/id" -
+      The 'id' tag is missing.
+      Refer to section 5.1.1 of the
+      Core_Level_One_Clinical_Document_CDA_Implementation_Guide_v1.1.
+    </assert>
+
+    <report test="count(cda:id) > 1"
+    >Error: Pharmacist Shared Medicines List - 5.1.1 Legal Authenticator -
+      "LegalAuthenticator/assignedEntity/id" -
+      The 'id' tag shall appear only once.
+      Refer to section 5.1.1 of the
+      Core_Level_One_Clinical_Document_CDA_Implementation_Guide_v1.1.
+    </report>
+
+    <report test="count(cda:assignedPerson) > 1"
+    >Error: Pharmacist Shared Medicines List - 5.1.1 Legal Authenticator -
+      "LegalAuthenticator/assignedEntity/assignedPerson" -
+      The 'assignedPerson' tag shall appear only once.
+      Refer to section 5.1.1 of the
+      Core_Level_One_Clinical_Document_CDA_Implementation_Guide_v1.1.
+    </report>
+
+    <assert test="cda:assignedPerson"
+    >Error: Pharmacist Shared Medicines List - 5.1.1 Legal Authenticator -
+      "LegalAuthenticator/assignedEntity/assignedPerson" -
+      The 'assignedPerson' tag is missing.
+      Refer to section 5.1.1 of the
+      Core_Level_One_Clinical_Document_CDA_Implementation_Guide_v1.1.
+    </assert>
+
+    <report test="count(cda:representedOrganization) > 1"
+    >Error: Pharmacist Shared Medicines List - 5.1.1 Legal Authenticator -
+      "LegalAuthenticator/assignedEntity/representedOrganization" -
+      The 'representedOrganization' tag shall appear only once.
+      Refer to section 5.1.1 of the
+      Core_Level_One_Clinical_Document_CDA_Implementation_Guide_v1.1.
+    </report>
+
+  </rule>
+
+
+  <rule
+    context="/cda:ClinicalDocument/cda:legalAuthenticator/cda:assignedEntity/cda:assignedPerson">
+
+    <assert test="ext:asEntityIdentifier"
+    >Error: Pharmacist Shared Medicines List - 5.1.1 Legal Authenticator -
+      "LegalAuthenticator/assignedEntity/assignedPerson/Entity Identifier" -
+      The 'asEntityIdentifier' tag is missing.
+      Refer to section 023728 - Include the person's name and an entity identifier in the
+      legalAuthenticator element of the Clinical_Documents_Common_Conformance_Profile_v1.7 and
+      section 5.1.1 of the
+      Core_Level_One_Clinical_Document_CDA_Implementation_Guide_v1.1.
+    </assert>
+
+    <assert test="cda:name"
+    >Error: Pharmacist Shared Medicines List - 5.1.1 Legal Authenticator -
+      "LegalAuthenticator/assignedEntity/assignedPerson/Person Name" -
+      The 'name' tag is missing.
+      Refer to section 023728 - Include the person's name and an entity identifier in the
+      legalAuthenticator element of the Clinical_Documents_Common_Conformance_Profile_v1.7 and
+      section 5.1.1 of the
+      Core_Level_One_Clinical_Document_CDA_Implementation_Guide_v1.1.
+    </assert>
+
+  </rule>
+
+
+  <rule
+    context="/cda:ClinicalDocument/cda:legalAuthenticator/cda:assignedEntity/cda:representedOrganization">
+
+    <report test="cda:name and normalize-space(cda:name) = ''"
+    >Error: Pharmacist Shared Medicines List - 5.1.1 Legal Authenticator -
+      "LegalAuthenticator/assignedEntity/representedOrganization/name" -
+      The 'name' tag shall contain a value.
+      Refer to section 5.1.1 of the
+      Core_Level_One_Clinical_Document_CDA_Implementation_Guide_v1.1.
+    </report>
+
+  </rule>
+
+
+  <rule
+    context="/cda:ClinicalDocument/cda:legalAuthenticator/cda:assignedEntity/cda:assignedPerson/ext:asEntityIdentifier">
+
+    <report test="count(ext:id) > 1"
+    >Error: Pharmacist Shared Medicines List - 5.1.1 Legal Authenticator -
+      "LegalAuthenticator/assignedEntity/assignedPerson/Entity Identifier" -
+      The 'id' tag shall appear only once.
+      Refer to section 5.1.1 of the
+      Core_Level_One_Clinical_Document_CDA_Implementation_Guide_v1.1.
+    </report>
+
+    <assert test="ext:id"
+    >Error: Pharmacist Shared Medicines List - 5.1.1 Legal Authenticator -
+      "LegalAuthenticator/assignedEntity/assignedPerson/Entity Identifier" -
+      The 'id' tag is missing.
+      Refer to section 023728 - Include the person's name and an entity identifier in the
+      legalAuthenticator element of the Clinical_Documents_Common_Conformance_Profile_v1.7 and
+      section 5.1.1 of the
+      Core_Level_One_Clinical_Document_CDA_Implementation_Guide_v1.1.
+    </assert>
+
+  </rule>
+
+
+  <rule
+    context="/cda:ClinicalDocument/cda:legalAuthenticator/cda:assignedEntity/cda:assignedPerson/ext:asEntityIdentifier/ext:id">
+
+    <assert test="not(@nullFlavor)"
+    >Error: Pharmacist Shared Medicines List - 5.1.1 Legal Authenticator -
+      "LegalAuthenticator/assignedEntity/assignedPerson/Entity Identifier" -
+      The 'id' tag 'nullFlavor' attribute shall not be present.
+      Refer to section 5.1.1 of the
+      Core_Level_One_Clinical_Document_CDA_Implementation_Guide_v1.1.
+    </assert>
+
+  </rule>
+
+
+</pattern>
+

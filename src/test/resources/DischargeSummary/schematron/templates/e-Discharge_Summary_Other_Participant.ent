@@ -1,0 +1,250 @@
+
+
+    <!-- e-Discharge Summary Clinical Document:  7.1.1.1.2 Other Participant -->
+
+    <!-- Context: ClinicalDocument/Other Participant -->
+
+    <!-- Status: Last Reviewed:
+         Status: Last Updated : 31/07/2012 -->
+
+
+    <pattern name="p-e-Discharge_Summary_Other_Participant-errors"
+        id="p-e-Discharge_Summary_Other_Participant-errors"
+        see="#p-e-Discharge_Summary_Other_Participant-errors">
+
+
+        <!-- Other Participant - 0..* -->
+
+
+        <rule
+            context="/cda:ClinicalDocument/cda:participant[not(cda:functionCode) and not(@typeCode='ORG')]">
+
+            <!-- Participation Type - 1..1 -->
+
+            <report test="@typeCode !=  'PART'">Error: e-Discharge Summary - 7.1.1.1.2 Other
+                Participant - "Other Participant / Participation Type" - The 'participant' tag
+                'typeCode' attribute shall contain the value 'PART'. Refer to section 7.1.1.1.2
+                of the e-Discharge_Summary_CDA_Implementation_Guide_v3.4.</report>
+
+            <!-- Participation Period - 0..1 -->
+
+            <report test="count(cda:time) > 1">Error: e-Discharge Summary 7.1.1.1.2 Other
+                Participant - "Other Participant / Participation Period" - The 'time' tag shall
+                appear only once. Refer to section 7.1.1.1.2 of the
+                e-Discharge_Summary_CDA_Implementation_Guide_v3.4.</report>
+
+            <!-- The attributes of "cda:time" are being tested by e-Discharge_Summary_Global_Checks.sch. -->
+
+
+        </rule>
+
+
+        <rule
+            context="/cda:ClinicalDocument/cda:participant[not(cda:functionCode) and not(@typeCode='ORG')]/cda:associatedEntity">
+
+            <!-- Role - 1..1 -->
+
+            <assert test="@classCode">Error: e-Discharge Summary - 7.1.1.1.2 Other Participant -
+                "Other Participant / Role" - The 'associatedEntity' tag 'classCode' attribute is
+                missing. Refer to section 7.1.1.1.2 of the
+                e-Discharge_Summary_CDA_Implementation_Guide_v3.4.</assert>
+
+             <assert test="not(@nullFlavor)">Error: e-Discharge Summary - 7.1.1.1.2 Other Participant -
+                "Other Participant / Role" - The 'associatedEntity' tag 'nullFlavor' attribute shall not be
+                present. Refer to requirements in the NullFlavor Usage Clarification FAQ and section 7.1.1.1.2 of the
+                e-Discharge_Summary_CDA_Implementation_Guide_v3.4. </assert>
+
+            <!-- Start Mantis 3704 -->
+
+            <report
+                test="@classCode and not(document('TEMPLATE/VALDN/CDAValidate_Vocabs.xml', .)/systems/system[@codeSystemName = 'RoleClassAssociative']/code[(@code = (current()/@classCode))])"
+                >Error: e-Discharge Summary - 7.1.1.1.2 Other Participant -
+                "Other Participant / Role" - The 'associatedEntity' tag 'classCode' attribute shall be as per HL7
+                RoleClassAssociative. Refer to section 7.1.1.1.2 of the
+                e-Discharge_Summary_CDA_Implementation_Guide_v3.4.
+            </report>
+
+            <!-- End Mantis 3704 -->
+
+            <assert test="cda:code">Error: e-Discharge Summary - 7.1.1.1.2 Other Participant -
+                "Other Participant / Role" - The 'code' tag is missing. Refer to section 8.1 code
+                and 7.1.1.1.2 Other Participant of the
+                e-Discharge_Summary_CDA_Implementation_Guide_v3.4.</assert>
+
+            <report test="count(cda:code) > 1">Error: e-Discharge Summary - 7.1.1.1.2 Other
+                Participant - "Other Participant / Role" - The 'code' tag shall appear only once.
+                Refer to section 7.1.1.1.2 of the
+                e-Discharge_Summary_CDA_Implementation_Guide_v3.4.</report>
+
+            <!-- For 'code' tag see below context:
+                <rule context="/cda:ClinicalDocument/cda:participant[not(cda:functionCode) and not(@typeCode='ORG')]/cda:associatedEntity/cda:code"> -->
+
+
+            <!-- Participant - 1..1 -->
+
+            <assert test="cda:associatedPerson">Error: e-Discharge Summary - 7.1.1.1.2 Other
+                Participant - "Other Participant / Participant" The 'associatedPerson' tag is
+                missing. Refer to section 7.1.1.1.2 of the
+                e-Discharge_Summary_CDA_Implementation_Guide_v3.4.</assert>
+
+            <report test="count(cda:associatedPerson) > 1"> Error: e-Discharge Summary 7.1.1.1.2
+                Other Participant - "Other Participant / Participant" - The 'associatedPerson' tag -
+                'associatedPerson' tag shall appear only once. Refer to section 7.1.1.1.2 of the
+                e-Discharge_Summary_CDA_Implementation_Guide_v3.4.</report>
+
+
+            <!-- Address - 0..* -->
+            <!-- The tags and attributes of "cda:addr" are being tested by e-Discharge_Summary_Global_Checks.sch. -->
+
+
+            <!-- Electronic Communication Detail - 0..* -->
+            <!-- The tags and attributes of "cda:telecom" are being tested by e-Discharge_Summary_Global_Checks.sch. -->
+
+        </rule>
+
+
+        <rule context="/cda:ClinicalDocument/cda:participant[not(cda:functionCode) and not(@typeCode='ORG')]/cda:associatedEntity/cda:code">
+
+         <assert test="not(@nullFlavor)">Error: e-Discharge Summary - 7.1.1.1.2 Other Participant -
+                "Other Participant / Role" - The 'code' tag 'nullFlavor' attribute shall not be
+                present. Refer to requirements in the NullFlavor Usage Clarification FAQ and section 7.1.1.1.2 of the
+                e-Discharge_Summary_CDA_Implementation_Guide_v3.4. </assert>
+
+        </rule>
+
+        <!-- Start Mantis 3699 -->
+        <!--<rule context="/cda:ClinicalDocument/cda:participant[not(cda:functionCode) and not(@typeCode='ORG')]/cda:associatedEntity/cda:code">
+
+<!-\- Updated SY 22/02/2012 ID:2030 -\->
+
+            <!-\- @code - 1..1 -\->
+
+            <assert test="@code">Error: e-Discharge Summary - 7.1.1.1.2 Other Participant -
+                "Other Participant / Role" - The 'code' tag 'code' attribute is missing.
+                Refer to section 7.1.1.1.2 and 8.1 of the
+                e-Discharge_Summary_CDA_Implementation_Guide_v3.4.</assert>
+
+            <report
+                test="
+                @code and
+                not(document('TEMPLATE/VALDN/CDAValidate_Vocabs.xml', .)/systems/system[@codeSystemName = '1220.0 - ANZSCO - Australian and New Zealand Standard Classification of Occupations, First Edition, 2006']/code[
+                @code = current()/@code])"
+                >Error: e-Discharge Summary - 7.1.1.1.2 Other Participant -
+                "Other Participant / Role" - The 'code' tag 'code' attribute shall be
+                as per '1220.0 - ANZSCO - Australian and New Zealand
+                Standard Classification of Occupations, First Edition, 2006'.
+                Refer to section 7.1.1.1.2 and 8.1 of the
+                e-Discharge_Summary_CDA_Implementation_Guide_v3.4.</report>
+
+            <!-\- @codeSystem - 1..1 -\->
+
+            <assert test="@codeSystem">Error: e-Discharge Summary - 7.1.1.1.2 Other
+                Participant - "Other Participant / Role" - The 'code' tag 'codeSystem'
+                attribute is missing. Refer to section 7.1.1.1.2 and 8.1 of the
+                e-Discharge_Summary_CDA_Implementation_Guide_v3.4.</assert>
+
+            <report test="@codeSystem and @codeSystem != '2.16.840.1.113883.13.62'"
+                >Error: e-Discharge Summary - 7.1.1.1.2 Other Participant -
+                "Other Participant / Role" - The 'code' tag 'codeSystem' attribute shall
+                be '2.16.840.1.113883.13.62'. Refer to section 7.1.1.1.2 and 8.1 of the
+                e-Discharge_Summary_CDA_Implementation_Guide_v3.4.</report>
+
+            <!-\- @codeSystemName -\->
+
+            <assert
+                test="translate(@codeSystemName, 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ') = '1220.0 - ANZSCO - AUSTRALIAN AND NEW ZEALAND STANDARD CLASSIFICATION OF OCCUPATIONS, FIRST EDITION, 2006'"
+                >Error: e-Discharge Summary - 7.1.1.1.2 Other Participant -
+                "Other Participant / Role" - The 'code' tag 'codeSystemName' attribute
+                shall contain the value '1220.0 - ANZSCO - Australian and New Zealand Standard
+                Classification of Occupations, First Edition, 2006'.
+                Refer to section 7.1.1.1.2 and 8.1 of the
+                e-Discharge_Summary_CDA_Implementation_Guide_v3.4.</assert>
+
+            <!-\- @displayName -\->
+
+            <report
+                test="
+                @displayName and
+                not(document('TEMPLATE/VALDN/CDAValidate_Vocabs.xml', .) /systems/system[@codeSystemName = '1220.0 - ANZSCO - Australian and New Zealand Standard Classification of Occupations, First Edition, 2006']/code[
+                (@code = current()/@code) and
+                (translate(@displayName,  'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ') = translate(current()/@displayName, 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'))
+                ])"
+                >Error: e-Discharge Summary - 7.1.1.1.2 Other Participant -
+                "Other Participant / Role" - The 'Code' tag 'code' and
+                'displayName' attributes shall be as per '1220.0 - ANZSCO - Australian and
+                New Zealand Standard Classification of Occupations, First Edition, 2006'.
+                Refer to section 7.1.1.1.2 and 8.1 of the
+                e-Discharge_Summary_CDA_Implementation_Guide_v3.4.</report>
+
+<!-\- End of SY's Update ID:2030 -\->
+        </rule>-->
+
+        <!-- End Mantis 3699 -->
+
+        <!--Participant 1..1-->
+
+        <rule
+            context="/cda:ClinicalDocument/cda:participant[not(cda:functionCode) and not(@typeCode='ORG')]/cda:associatedEntity/cda:associatedPerson">
+
+
+            <!--Other Participant > Participant > Entity Identifier - 1..* / 0..*-->
+            <!--If the Other Participant has an Australian HPI-I, then Entity Identifier is ESSENTIAL, otherwise
+            it is OPTIONAL. If the Other Participant has an Australian HPI-I, then one value of Entity
+            Identifier SHALL be an Australian HPI-I.-->
+
+             <!--The following tests are commented out to relax the requirement of HPI-Is temporarily.
+            CCRG unanimously endorsed the proposal for the HPI-I to be optional in Discharge Summary as the interim solution see Mantis 3719-->
+
+     <!--
+            <assert
+            test="ext:asEntityIdentifier/ext:id[[starts-with(@root, '1.2.36.1.2001.1007.1.800361)] or not(ext:asEntityIdentifier)">
+            Error: e-Discharge Summary - 7.1.1.1.2 Other Participant -
+            "Other Participant / Participant / Entity Identifier" - The 'HPI-I asEntityIdentifier' tag is missing. "The value of one Entity
+            Identifier SHALL be an Australian HPI-I." although there could be multiple Entity Identifiers.Refer to section 7.1.1.1.2 of the
+            e-Discharge_Summary_CDA_Implementation_Guide_v3.4.</assert>
+
+                <report test="count(ext:asEntityIdentifier/ext:id[starts-with(@root, '1.2.36.1.2001.1003.0.800361')]) > 1">
+                Error: e-Discharge Summary - 7.1.1.1.2 Other Participant -
+                "Other Participant / Participant / Entity Identifier" - The
+                'asEntityIdentifier/ext:id' tag shall appear only once and its root attribute shall
+                be HPI-I. "The value of one Entity Identifier SHALL be an Australian HPI-I."
+                although there could be multiple Entity Identifiers.
+                Refer to section 7.1.1.1.2 of the
+                e-Discharge_Summary_CDA_Implementation_Guide_v3.4.</report>
+-->
+
+            <!-- The tags and attributes of 'ext:asEntityIdentifier' are being tested in 'e-Discharge_Summary_Global_Checks.sch'. -->
+
+
+            <!-- Person Name - 1..* -->
+
+            <assert test="cda:name">Error: e-Discharge Summary - 7.1.1.1.2 Other Participant -
+                "Other Participant / Participant / Person or Organisation or Device / Person /
+                Person Name - The 'Name' tag is missing. Refer to section 7.1.1.1.2 Other
+                Participant of the
+                e-Discharge_Summary_CDA_Implementation_Guide_v3.4.</assert>
+
+            <!-- The attributes of cda:name are being tested inside "e-Discharge_Summary_Global_Checks.ent" -->
+
+
+            <!-- Employment Detail - 0..1-->
+
+            <report test="count(ext:asEmployment) > 1">Error: e-Discharge Summary - 7.1.1.1.2 Other
+                Participant - "Other Participant / Participant / Person or Organisation or Device /
+                Person / Employment Detail" - The 'asEmployment' tag shall appear only once. Refer
+                to section 7.1.1.1.2 of the
+                e-Discharge_Summary_CDA_Implementation_Guide_v3.4.</report>
+
+            <!-- Other tags and attributes of "ext:asEmployment" are being tested by Global_Checks file -->
+
+            <!--Updated NG 27/02/2012 ID:2374-->
+
+        </rule>
+
+
+            <!-- Person Name - 1..* -->
+        <!--<rule context="/cda:ClinicalDocument/cda:participant[not(cda:functionCode) and not(@typeCode='ORG')]/cda:associatedEntity/cda:associatedPerson/cda:name">-->
+        <!-- The attributes of cda:name are being tested inside "e-Discharge_Summary_Global_Checks.ent" -->
+
+    </pattern>
+

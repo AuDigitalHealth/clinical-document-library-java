@@ -1,0 +1,84 @@
+
+    <!-- e-Discharge Summary Clinical Document:  6.1.2 Subject of Care -->
+
+    <!-- Context: ClinicalDocument/Subject of Care -->
+
+
+    <!-- Status: Last Reviewed: Not reviewed.
+         Status: Last Updated : 11/07/2012 -->
+
+
+    <pattern name="p-e-Discharge_Summary_Subject_Of_Care_Date_Of_Death-errors"
+        id="p-e-Discharge_Summary_Subject_Of_Care_Date_Of_Death-errors"
+        see="#p-e-Discharge_Summary_Subject_Of_Care_Date_Of_Death-errors">
+
+        <!--Updated NG 21/02/2012 ID:2006 -->
+
+        <!-- patient - 1..1 -->
+
+        <!-- Date of Death - 0..1 -->
+
+        <rule context="/cda:ClinicalDocument/cda:recordTarget/cda:patientRole/cda:patient">
+
+            <report test="ext:deceasedInd[@value='true'] and not(ext:deceasedTime)">Error:
+                e-Discharge Summary - 6.1.2 Subject Of Care - "Subject of Care / Participant / Person or Organisation or Device / Person / Demographic Data / Date of Death Detail / Date of Death" -
+                The 'deceasedTime' tag is missing for the existence of 'deceasedInd=true'.
+                Refer to section 6.1.2 of the
+                e-Discharge_Summary_CDA_Implementation_Guide_v3.4.</report>
+
+            <report test="ext:deceasedInd[@value='false'] and (ext:deceasedTime)">Error:
+                e-Discharge Summary - 6.1.2 Subject Of Care - "Subject of Care / Participant / Person or Organisation or Device / Person / Demographic Data / Date of Death Detail / Date of Death" -
+                The 'deceasedTime' tag shall not be present for the missing of 'deceasedInd=false'.
+                Refer to section 6.1.2 of the
+                of the e-Discharge_Summary_CDA_Implementation_Guide_v3.4.</report>
+
+            <report test="count(ext:deceasedInd) > 1">Error: e-Discharge Summary - 6.1.2 Subject Of
+                Care - "Subject of Care / Participant / Person or Organisation or Device / Person /
+                Demographic Data / Date of Death Detail / Date of Death" - The 'deceasedInd' tag
+                shall appear only once. Refer to section 6.1.2 of the
+                e-Discharge_Summary_CDA_Implementation_Guide_v3.4.</report>
+
+            <report test="count(ext:deceasedTime) > 1">Error: e-Discharge Summary - 6.1.2 Subject Of
+                Care - "Subject of Care / Participant / Person or Organisation or Device / Person /
+                Demographic Data / Date of Death Detail / Date of Death" - The 'deceasedTime' tag
+                shall appear only once. Refer to section 6.1.2 of the
+                e-Discharge_Summary_CDA_Implementation_Guide_v3.4.</report>
+
+            <assert test="not(ext:deceasedInd) or ext:deceasedInd[@value]">Error: e-Discharge
+                Summary - 6.1.2 Subject Of Care - "Subject of Care / Participant / Person or
+                Organisation or Device / Person / Demographic Data / Date of Death Detail / Date of
+                Death" - The 'deceasedInd' tag 'value' attribute is missing. Refer to section 6.1.2
+                of the e-Discharge_Summary_CDA_Implementation_Guide_v3.4.</assert>
+
+            <report
+                test="ext:deceasedInd[@value] and ext:deceasedInd[not(@value = 'true' or @value = 'false')]"
+                >Error: e-Discharge Summary - 6.1.2 Subject Of Care - "Subject of Care / Participant
+                / Person or Organisation or Device / Person / Demographic Data / Date of Death
+                Detail / Date of Death" - The 'deceasedInd' tag 'value' attribute shall contain an
+                boolean value. Refer to section 6.1.2 of the
+                e-Discharge_Summary_CDA_Implementation_Guide_v3.4.</report>
+
+        </rule>
+
+        <rule context="/cda:ClinicalDocument/cda:recordTarget/cda:patientRole/cda:patient/ext:deceasedInd">
+
+            <assert test="not(@nullFlavor)">Error: e-Discharge Summary - 6.1.2 Subject Of Care - "Subject of Care / Participant /
+                Person or Organisation or Device / Person / Demographic Data / Date of Death
+                Detail / Date of Death"  - The 'deceasedInd' tag 'nullFlavor' attribute shall not be
+                present. Refer to requirements in the NullFlavor Usage Clarification FAQ and section 6.1.2 of the
+                e-Discharge_Summary_CDA_Implementation_Guide_v3.4. </assert>
+
+        </rule>
+
+         <rule context="/cda:ClinicalDocument/cda:recordTarget/cda:patientRole/cda:patient/ext:deceasedTime">
+
+           <assert test="not(@nullFlavor)">Error: e-Discharge Summary - 6.1.2 Subject Of Care - "Subject of Care / Participant /
+                Person or Organisation or Device / Person / Demographic Data / Date of Death
+                Detail / Date of Death"  - The 'deceasedTime' tag 'nullFlavor' attribute shall not be
+                present. Refer to requirements in the NullFlavor Usage Clarification FAQ and section 6.1.2 of the
+                e-Discharge_Summary_CDA_Implementation_Guide_v3.4. </assert>
+
+        </rule>
+
+    </pattern>
+

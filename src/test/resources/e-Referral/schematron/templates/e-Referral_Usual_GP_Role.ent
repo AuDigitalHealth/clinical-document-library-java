@@ -1,0 +1,126 @@
+
+
+    <!-- e-Referral Clinical Document:  7.1.1.2.1 Usual GP -->
+
+    <!-- Context: ClinicalDocument/UsualGP/associatedEntity -->
+
+
+    <!-- Status: Last Reviewed: Not reviewed
+    Status: Last Updated : 22/02/2012 -->
+
+
+    <pattern name="p-e-Referral_Usual_GP_Role-errors" id="p-e-Referral_Usual_GP_Role-errors"
+        see="#p-e-Referral_Usual_GP_Role-errors">
+
+        <!-- UsualGP/associatedEntity -->
+
+        <rule
+            context="/cda:ClinicalDocument/cda:participant[translate(@typeCode, 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ') = 'PART']/cda:associatedEntity">
+
+            <!-- code - 1..1 -->
+
+            <assert test="cda:code">Error: e-Referral - 7.1.1.2.1 Usual GP - "participant /
+                associatedEntity / code" - The 'code' tag is missing. Refer to section 7.1.1.2.1 in
+                the e-Referral_CDA_Implementation_Guide_v2.2.</assert>
+
+            <report test="count(cda:code) > 1">Error: e-Referral - 7.1.1.2.1 Usual GP - "participant
+                / associatedEntity / code" - The 'code' tag shall appear only once. Refer to section
+                7.1.1.2.1 of the e-Referral_CDA_Implementation_Guide_v2.2.</report>
+
+            <!-- Start Mantis 3704 -->
+            <assert test="@classCode">Error: e-Referral - 7.1.1.2.1 Usual GP - "participant
+                / associatedEntity - The 'associatedEntity' tag 'classCode' attribute is
+                missing. Refer to section
+                7.1.1.2.1 of the e-Referral_CDA_Implementation_Guide_v2.2.
+            </assert>
+            
+            
+            <report
+                test="@classCode and not(document('CDAValidate_Vocabs.xml')/systems/system[@codeSystemName = 'RoleClassAssociative']/code[(@code = (current()/@classCode))])"
+                >Error: E-Referral - 7.1.1.1 Referee - "participant /
+                associatedEntity" - The 'associatedEntity' tag 'classCode' attribute shall be as per HL7
+                RoleClassAssociative. Refer to section
+                7.1.1.2.1 of the e-Referral_CDA_Implementation_Guide_v2.2.
+            </report>
+            
+            
+            <!-- End Mantis 3704 -->
+
+            <!-- For 'code' tag see below rule context:  
+                <rule context = "/cda:ClinicalDocument/cda:participant[translate(@typeCode, 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ') = 'PART']/cda:associatedEntity/cda:code"> -->
+
+        </rule>
+
+
+        <!-- Start Mantix 3699 -->
+        <!-- Context: 7.1.1.2.1  USUAL GP - ROLE 1..1 -->
+        <!-- code - 1..1 -->
+
+        <!--<rule
+            context="/cda:ClinicalDocument/cda:participant[translate(@typeCode, 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ') = 'PART']/cda:associatedEntity[not(cda:scopingOrganization)]/cda:code">
+
+<!-\- Updated SY 22/02/2012 ID:2028 -\->
+
+            <!-\- @code - 1..1 -\->
+
+			<assert test="@code">Error: e-Referral - 7.1.1.2.1 Usual GP - "Usual GP / Role" -
+				The 'code' tag 'code' attribute is missing.
+				Refer to section 7.1.1.2.1 and 8.1 of the
+                e-Referral_CDA_Implementation_Guide_v2.2.</assert>
+
+            <report
+                test="
+                @code and
+                not(document('CDAValidate_Vocabs.xml')/systems/system[@codeSystemName = '1220.0 - ANZSCO - Australian and New Zealand Standard Classification of Occupations, First Edition, 2006']/code[
+                @code = current()/@code])"
+				>Error: e-Referral - 7.1.1.2.1 Usual GP - "Usual GP / Role" - The 'code' tag
+				'code' attribute shall be as per '1220.0 - ANZSCO - Australian and New
+				Zealand Standard Classification of Occupations, First Edition, 2006'.
+				Refer to section 7.1.1.2.1 and 8.1 of the
+                e-Referral_CDA_Implementation_Guide_v2.2.</report>
+
+            <!-\- @codeSystem - 1..1 -\->
+
+			<assert test="@codeSystem">Error: e-Referral - 7.1.1.2.1 Usual GP -
+				"Usual GP / Role" - The 'code' tag 'codeSystem' attribute is missing.
+				Refer to section 7.1.1.2.1 and 8.1 of the
+                e-Referral_CDA_Implementation_Guide_v2.2.</assert>
+
+			<report test="@codeSystem and @codeSystem != '2.16.840.1.113883.13.62'"
+				>Error: e-Referral - 7.1.1.2.1 Usual GP - "Usual GP / Role" - The 'code'
+				tag 'codeSystem' attribute shall contain the value '2.16.840.1.113883.13.62'.
+				Refer to section 7.1.1.2.1 and 8.1 of the
+                e-Referral_CDA_Implementation_Guide_v2.2.</report>
+
+            <!-\- @codeSystemName -\->
+
+            <assert
+                test="translate(@codeSystemName, 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ') = '1220.0 - ANZSCO - AUSTRALIAN AND NEW ZEALAND STANDARD CLASSIFICATION OF OCCUPATIONS, FIRST EDITION, 2006'"
+				>Error: e-Referral - 7.1.1.2.1 Usual GP - "Usual GP / Role" - The 'code' tag
+				'codeSystemName' attribute shall contain the value '1220.0 - ANZSCO - Australian and New
+				Zealand Standard Classification of Occupations, First Edition, 2006'.
+				Refer to section 7.1.1.2.1 and 8.1 of the
+                e-Referral_CDA_Implementation_Guide_v2.2.</assert>
+
+            <!-\- @displayName -\->
+
+            <report
+                test="
+                @displayName and
+                not(document('CDAValidate_Vocabs.xml') /systems/system[@codeSystemName = '1220.0 - ANZSCO - Australian and New Zealand Standard Classification of Occupations, First Edition, 2006']/code[
+                (@code = current()/@code) and
+                (translate(@displayName,  'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ') = translate(current()/@displayName, 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'))
+                ])"
+				>Error: e-Referral - 7.1.1.2.1 Usual GP - "Usual GP / Role" - The 'Code' tag
+				'code' and 'displayName' attributes shall be as per '1220.0 - ANZSCO -
+                Australian and New Zealand Standard Classification of Occupations, First Edition,
+                2006'. Refer to section 7.1.1.2.1 and 8.1 of the
+                e-Referral_CDA_Implementation_Guide_v2.2.</report>
+
+<!-\- End of SY's Update ID:2028 -\->
+
+        </rule>-->
+        <!-- End Mantix 3699 -->
+        
+    </pattern>
+

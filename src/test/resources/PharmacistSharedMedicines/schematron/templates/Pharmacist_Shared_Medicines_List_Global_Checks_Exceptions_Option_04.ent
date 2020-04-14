@@ -1,0 +1,86 @@
+<!--
+_________________________________________________________________________________________________________________________________________________________________________________________
+                  Generated File - Do Not Edit File Directly                                                                                                                             
+                  __________________________________________
+
+                  Generated          : 22/11/2017 3:17:24 PM
+
+                  Product            : Pharmacist Shared Medicines List
+                  Release            : CDA_Implementation_Guide_v1.0
+                  Generator Version  : 
+                                                                                                                                                                                         
+_________________________________________________________________________________________________________________________________________________________________________________________
+-->
+<pattern name="p-Pharmacist_Shared_Medicines_List_Global_Checks_Exceptions_Option_04-errors"
+  id="p-Pharmacist_Shared_Medicines_List_Global_Checks_Exceptions_Option_04-errors"
+  see="#p-Pharmacist_Shared_Medicines_List_Global_Checks_Exceptions_Option_04-errors">
+
+
+  <!-- Option 4 :
+  1) cda:name tag (with exceptions where it has following ancestors) can only be a structured name
+  2) ext:addr/cda:addr tag is allowed to have a @nullFlavor attribute with the value 'NA' only, except in the SoC where cda:addr/@nullFlavor has the options to choose between 'NA', 'UNK' and 'MSK' -->
+
+
+  <rule context="cda:name[not(
+                ancestor::cda:manufacturedMaterial or
+                ancestor::cda:product or
+                ancestor::cda:receivedOrganization or
+                ancestor::cda:representedOrganization or
+                ancestor::cda:representedCustodianOrganization or
+                ancestor::cda:scopingOrganization or
+                ancestor::cda:serviceProviderOrganization or
+                ancestor::cda:targetSiteCode or
+                ancestor::ext:employerOrganization or
+                ancestor::cda:playingEntity or
+                ancestor::cda:qualifier or
+                @nullFlavor='MSK')]">
+
+
+    <!-- ****************** CAUTION BEGINS **************************** -->
+
+    <!-- For the following test refer to the Jira tickets ccp-47, ccas-85 and ccas-86
+        For eDischarge Summary, Event Summary, eReferral and Specialist Letter unstructured names are allowed -->
+
+
+    <!-- family 1..1 ... Check to enforce that only structured name is allowed -->
+    <!-- This test is for all the packages except  eDischarge Summary, Event Summary, eReferral and Specialist Letter.
+        Please see Global_checks_Exceptions_1 file for family element tests for above four packages -->
+    <assert test="cda:family"
+    >Error: Pharmacist Shared Medicines List -
+      Global Clinical Document check for "name" tag - The 'family' tag is missing.
+      Check all 'cda:name' tags to find the missing 'family' child tag.
+      Refer to section 8.5 Person Name of the
+      Core_Level_One_Clinical_Document_CDA_Implementation_Guide_v1.1.
+    </assert>
+
+    <!-- ************* CAUTION ENDS ********************** -->
+  </rule>
+
+
+  <!--Commented out these tests as the new interpretation from CDOCIBX-925 and CDA IG's state that cda:addr element can have any nullFlavor value-->
+
+  <!--<rule context="cda:addr[not(ancestor::cda:birthplace or ancestor::cda:recordTarget)] | ext:addr">
+
+       <report test="@nullFlavor and normalize-space(@nullFlavor) != '' and @nullFlavor != 'NA'"
+             >Error: Pharmacist Shared Medicines List - Global Clinical Document check for 'addr' tag -
+             "Address / Address Purpose" and "Address / No Fixed Address Indicator" -
+             The 'addr' tag 'nullFlavor' attribute shall contain the value 'NA'.
+             Check all 'cda:addr' and/or 'ext:addr' tags to find the incorrect 'nullFlavor' attribute value.
+             Refer to section 8.6 of the
+             Core_Level_One_Clinical_Document_CDA_Implementation_Guide_v1.1.</report>
+
+  </rule>
+
+  <rule context="/cda:ClinicalDocument/cda:recordTarget/cda:patientRole/cda:addr">
+
+          <report test="@nullFlavor and normalize-space(@nullFlavor) != '' and @nullFlavor != 'NA' and @nullFlavor != 'UNK' and @nullFlavor != 'MSK'"
+           >Error: Pharmacist Shared Medicines List - SSSSSSSS SUBJECT OF CARE -
+           "Subject of Care" -  The 'addr' tag 'nullFlavor' attribute shall contain the value 'NA' or 'UNK' or 'MSK'.
+            Refer to section 8.6 of the
+           Core_Level_One_Clinical_Document_CDA_Implementation_Guide_v1.1.</report>
+
+  </rule>-->
+
+
+</pattern>
+

@@ -1,0 +1,28 @@
+    <pattern name="p-Service_Referral_INTERESTEDPARTYasanORGANISATION_6_1_5_2_custom-errors"
+        id="p-Service_Referral_INTERESTEDPARTYasanORGANISATION_6_1_5_2_custom-errors"
+        see="#p-Service_Referral_INTERESTEDPARTYasanORGANISATION_6_1_5_2_custom-errors">
+
+
+        <rule context="/cda:ClinicalDocument/cda:informationRecipient/cda:intendedRecipient[cda:receivedOrganization/cda:asOrganizationPartOf/cda:wholeOrganization/ext:asEntityIdentifier]/cda:addr">
+
+            <assert
+                test="not(cda:country) or document('TEMPLATE/VALDN/CDAValidate_Vocabs.xml', .)/systems/system[@codeSystemName = 'ISO3166-1']/code[translate(@displayName, 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ') = translate(current()/cda:country, 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ')]/@code = 'AU'"
+                >Error: Service Referral - 6.1.5.2 INTERESTED PARTY as an ORGANISATION - "INTERESTED PARTY / Participant / Address" - The 'country' tag shall contain the value 'Australia'. Refer to section
+                6.1.5.2 of the Service_Referral_CDA_Implementation_Guide_v1.1.</assert>
+
+        </rule>
+        
+        <rule context="/cda:ClinicalDocument/cda:informationRecipient/cda:intendedRecipient/cda:receivedOrganization/cda:asOrganizationPartOf/cda:wholeOrganization">
+            
+            <assert test="ext:asEntityIdentifier"
+                >Error: Service Referral - 6.1.5.2 INTERESTED PARTY as an ORGANISATION -
+                "INTERESTED PARTY / Participant / Entity Identifier" -
+                The 'asEntityIdentifier' tag is missing.
+                Refer to section 6.1.5.2 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</assert>
+            
+        </rule>
+
+
+    </pattern>
+

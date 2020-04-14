@@ -1,0 +1,24 @@
+    <pattern name="p-Specialist_Letter_SpecialistLetter_6_1_custom-errors"
+        id="p-Specialist_Letter_SpecialistLetter_6_1_custom-errors"
+        see="#p-Specialist_Letter_SpecialistLetter_6_1_custom-errors">
+
+
+    
+
+        <rule context="/cda:ClinicalDocument/cda:componentOf/cda:encompassingEncounter/cda:effectiveTime">
+
+           
+           
+            <report test="@value and normalize-space(@value) = '' or string-length(@value) = 4 or string-length(@value) = 6 "
+                >Error: Specialist Letter - 6.1 Specialist Letter  "Event Summary / Encounter Period" -
+                The 'effectiveTime' tag 'value' attribute shall be a number formatted as YYYYMMDD or 'YYYYMMDDHHMMSS.UUUU[+|-ZZzz]'.
+                Refer to section 6.1 of the
+                Specialist_Letter_CDA_Implementation_Guide_v1.3.</report>
+
+        
+
+        </rule>
+
+
+    </pattern>
+

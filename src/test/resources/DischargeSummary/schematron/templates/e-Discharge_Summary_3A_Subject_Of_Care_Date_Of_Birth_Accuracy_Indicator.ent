@@ -1,0 +1,210 @@
+
+
+    <!-- e-Discharge Summary Clinical Document:  6.1.2 Subject of Care -->
+
+    <!-- Context: ClinicalDocument//component/structuredBody/component[admin_obs]/section -->
+
+    <!-- Status: Last Reviewed: Not reviewed.
+         Status: Last Updated : 14/02/2012 -->
+
+    <pattern name="p-e-Discharge_Summary_3A_Subject_Of_Care_Date_Of_Birth_Accuracy_Indicator-errors"
+        id="p-e-Discharge_Summary_3A_Subject_Of_Care_Date_Of_Birth_Accuracy_Indicator-errors"
+        see="#p-e-Discharge_Summary_3A_Subject_Of_Care_Date_Of_Birth_Accuracy_Indicator-errors">
+
+        <!-- Date of Birth Accuracy Indicator - 0..1 -->
+        <rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[(cda:code/@code = '102.16080') and (cda:entry/cda:observation/cda:code/@code = '102.16234')]">
+
+            <!-- entry - 0..1 -->
+
+            <report test="count(cda:entry[cda:observation/cda:code/@code = '102.16234']) > 1">Error:
+                e-Discharge Summary - 6.1.2 Subject of Care - "Subject of Care / Participant / Person
+                or Organisation or Device / Person / Demographic Data / Date of Birth Detail / Date
+                of Birth Accuracy Indicator" - The 'entry' tag shall appear only once. Refer to
+                section 6.1.2 of the e-Discharge_Summary_CDA_Implementation_Guide_v3.4.</report>
+
+            <!-- For 'entry' tag see below rule context:  
+                <rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section/cda:entry[cda:observation/cda:code/@code = '102.16234']"> -->
+
+        </rule>
+
+        <!-- entry - 0..1 -->
+        <rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code = '102.16080']/cda:entry[cda:observation/cda:code/@code = '102.16234']">
+
+            <!-- observation - 1..1 -->
+
+            <report test="count(cda:observation[cda:code/@code = '102.16234']) > 1">Error: e-Discharge
+                Summary - 6.1.2 Subject of Care - "Subject of Care / Participant / Person or
+                Organisation or Device / Person / Demographic Data / Date of Birth Detail / Date of
+                Birth Accuracy Indicator" - The 'observation' tag shall appear only once. Refer to
+                section 6.1.2 of the e-Discharge_Summary_CDA_Implementation_Guide_v3.4.</report>
+
+            <!-- For 'observation' tag see below rule context:  
+                <rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section/cda:entry/cda:observation[cda:code/@code = '102.16234']"> -->
+
+        </rule>
+
+        <!-- observation - 1..1 -->
+        <rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code = '102.16080']/cda:entry/cda:observation[cda:code/@code = '102.16234']">
+
+            <!-- @classCode - 1..1 -->
+
+            <assert test="@classCode = 'OBS'">Error: e-Discharge Summary - 6.1.2 Subject Of Care -
+                "Subject of Care / Participant / Person or Organisation or Device / Person /
+                Demographic Data / Date of Birth Detail / Date of Birth Accuracy Indicator" - The
+                'observation' tag 'classCode' attribute shall contain the value 'OBS'. Refer to section 6.1.2 of
+                the e-Discharge_Summary_CDA_Implementation_Guide_v3.4.</assert>
+
+            <!-- @moodCode - 1..1 -->
+
+            <assert test="@moodCode = 'EVN'">Error: e-Discharge Summary - 6.1.2 Subject Of Care -
+                "Subject of Care / Participant / Person or Organisation or Device / Person /
+                Demographic Data / Date of Birth Detail / Date of Birth Accuracy Indicator" - The
+                'observation' tag 'moodCode' attribute shall contain the value 'EVN'. Refer to section 6.1.2 of the
+                e-Discharge_Summary_CDA_Implementation_Guide_v3.4.</assert>
+
+            <!-- code -->
+
+            <report test="count(cda:code[@code = '102.16234']) > 1">Error: e-Discharge Summary - 6.1.2
+                Subject of Care - "Subject of Care / Participant / Person or Organisation or Device
+                / Person / Demographic Data / Date of Birth Detail / Date of Birth Accuracy
+                Indicator" - The 'code' tag shall appear only once. Refer to section 6.1.2 of the
+                e-Discharge_Summary_CDA_Implementation_Guide_v3.4.</report>
+
+            <!-- For 'code' tag see below rule context:  <rule context="cda:code[@code = '102.16234']"> -->
+
+
+            <!-- id - 1..1 -->
+
+            <assert test="cda:id">Error: e-Discharge Summary - 6.1.2 Subject Of Care - "Subject of
+                Care / Participant / Person or Organisation or Device / Person / Demographic Data /
+                Date of Birth Detail / Date of Birth Accuracy Indicator" - The 'id' tag is missing.
+                Refer to section 6.1.2 of the
+                e-Discharge_Summary_CDA_Implementation_Guide_v3.4.</assert>
+
+            <report test="count(cda:id) > 1">Error: e-Discharge Summary - 6.1.2 Subject Of Care -
+                "Subject of Care / Participant / Person or Organisation or Device / Person /
+                Demographic Data / Date of Birth Detail / Date of Birth Accuracy Indicator" - The
+                'id' tag shall appear only once. Refer to section 6.1.2 of the
+                e-Discharge_Summary_CDA_Implementation_Guide_v3.4.</report>
+
+            <!-- For 'id' tag see below rule context:  
+                <rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section/cda:entry/cda:observation[cda:code/@code = '102.16234']/cda:id"> -->
+
+
+            <!-- value - 1..1 -->
+
+            <assert test="cda:value">Error: e-Discharge Summary - 6.1.2 Subject Of Care - "Subject of
+                Care / Participant / Person or Organisation or Device / Person / Demographic Data /
+                Date of Birth Detail / Date of Birth Accuracy Indicator" - The 'value' tag is
+                missing. Refer to section 6.1.2 of the
+                e-Discharge_Summary_CDA_Implementation_Guide_v3.4.</assert>
+
+            <report test="count(cda:value) > 1">Error: e-Discharge Summary - 6.1.2 Subject Of Care -
+                "Subject of Care / Participant / Person or Organisation or Device / Person /
+                Demographic Data / Date of Birth Detail / Date of Birth Accuracy Indicator" - The
+                'value' tag shall appear only once. Refer to section 6.1.2 of the
+                e-Discharge_Summary_CDA_Implementation_Guide_v3.4.</report>
+
+            <!-- For 'value' tag see below rule context:  
+                <rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section/cda:entry/cda:observation[cda:code/@code = '102.16234']/cda:value"> -->
+
+        </rule>
+
+        <!-- code -->
+        <rule context="cda:code[@code = '102.16234']">
+
+            <!-- checking parent path -->
+
+            <assert test="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code = '102.16080']/cda:entry/cda:observation/cda:code[@code = '102.16234']"
+                >Error: e-Discharge Summary - 6.1.2 Subject Of Care - 
+                The '/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code = '102.16080']/cda:entry/cda:observation/cda:code[@code = '102.16234']' path - 
+                1 or more tags are missing. Refer to section 6.1.2 of the
+                e-Discharge_Summary_CDA_Implementation_Guide_v3.4.</assert>
+
+            <!-- @codeSystem -->
+
+            <assert test="@codeSystem = '1.2.36.1.2001.1001.101'">Error: e-Discharge Summary - 6.1.2
+                Subject Of Care - "Subject of Care / Participant / Person or Organisation or Device
+                / Person / Demographic Data / Date of Birth Detail / Date of Birth Accuracy
+                Indicator" - The 'code' tag 'codeSystem' attribute shall be
+                '1.2.36.1.2001.1001.101'. Refer to section 6.1.2 of the
+                e-Discharge_Summary_CDA_Implementation_Guide_v3.4.</assert>
+
+            <!-- @codeSystemName -->
+
+            <assert
+                test="translate(@codeSystemName, 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ') = 'NCTIS DATA COMPONENTS'"
+                >Error: e-Discharge Summary - 6.1.2 Subject Of Care - "Subject of Care / Participant /
+                Person or Organisation or Device / Person / Demographic Data / Date of Birth Detail
+                / Date of Birth Accuracy Indicator" - The 'code' tag 'codeSystemName' attribute
+                shall contain the value 'NCTIS Data Components'. Refer to section 6.1.2 of the
+                e-Discharge_Summary_CDA_Implementation_Guide_v3.4.</assert>
+
+            <!-- @displayName -->
+
+            <assert
+                test="translate(@displayName, 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ') = 'DATE OF BIRTH ACCURACY INDICATOR'"
+                >Error: e-Discharge Summary - 6.1.2 Subject Of Care - "Subject of Care / Participant /
+                Person or Organisation or Device / Person / Demographic Data / Date of Birth Detail
+                / Date of Birth Accuracy Indicator" - The 'code' tag 'displayName' attribute shall
+                be 'Date of Birth Accuracy Indicator'. Refer to section 6.1.2 of the
+                e-Discharge_Summary_CDA_Implementation_Guide_v3.4.</assert>
+
+        </rule>
+
+
+        <!-- id - 1..1 -->
+        <!--
+        <rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code = '102.16080']/cda:entry/cda:observation[cda:code/@code = '102.16234']/cda:id">
+        -->
+
+        <!-- value - 1..1 -->
+        <rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code = '102.16080']/cda:entry/cda:observation[cda:code/@code = '102.16234']/cda:value">
+
+            <!-- @xsi:type -->
+            <!-- Start Mantis Task 2782 -->
+            <assert test="@xsi:type">
+                Error: e-Discharge Summary - 6.1.2 Subject
+                Of Care - "Subject of Care / Participant / Person or Organisation or Device / Person
+                / Demographic Data / Date of Birth Detail / Date of Birth Accuracy Indicator" - The 'value' tag 'xsi:type' attribute is missing. 
+                Refer to section 6.1.2 of the e-Discharge_Summary_CDA_Implementation_Guide_v3.4.
+            </assert>
+            
+            <assert test="not(@xsi:type) or normalize-space(@xsi:type) !=  ''">
+                Error: e-Discharge Summary - 6.1.2 Subject
+                Of Care - "Subject of Care / Participant / Person or Organisation or Device / Person
+                / Demographic Data / Date of Birth Detail / Date of Birth Accuracy Indicator" - The 'value' tag 'xsi:type' attribute shall contain a value. 
+                Refer to section 6.1.2 of the e-Discharge_Summary_CDA_Implementation_Guide_v3.4.
+            </assert>
+            
+            <assert test="normalize-space(@xsi:type) = 'CS'">
+                Error: e-Discharge Summary - 6.1.2 Subject
+                Of Care - "Subject of Care / Participant / Person or Organisation or Device / Person
+                / Demographic Data / Date of Birth Detail / Date of Birth Accuracy Indicator" - The 'value' tag 'xsi:type' attribute shall contain the value 'CS'. 
+                Refer to section 6.1.2 of the e-Discharge_Summary_CDA_Implementation_Guide_v3.4.
+            </assert>           
+            
+            <!--<report test="@xsi:type and @xsi:type !=  'CS'">Error: e-Discharge Summary - 6.1.2 Subject
+                Of Care - "Subject of Care / Participant / Person or Organisation or Device / Person
+                / Demographic Data / Date of Birth Detail / Date of Birth Accuracy Indicator" - The
+                'value' tag 'xsi:type' attribute shall contain the value 'CS'. Refer to section
+                6.1.2 of the e-Discharge_Summary_CDA_Implementation_Guide_v3.4.</report>-->
+            
+            <!-- End Mantis Task 2782 -->
+            
+            <!-- @code -->
+
+            <assert
+                test="document('TEMPLATE/VALDN/CDAValidate_Vocabs.xml', .)/systems/system[@codeSystemName = 'Health_Care_Client_Identifier_Date_Accuracy_Indicator']/code[(@code = current()/@code)]"
+                >Error: e-Discharge Summary - 6.1.2 Subject Of Care - "Subject of Care / Participant /
+                Person or Organisation or Device / Person / Demographic Data / Date of Birth Detail
+                / Date of Birth Accuracy Indicator" - The 'value' tag 'code' attribute shall be as
+                per AS 5017-2006 Health Care Client Identifier Date Accuracy Indicator. Refer to
+                section 6.1.2 and 10.11 of the
+                e-Discharge_Summary_CDA_Implementation_Guide_v3.4.</assert>
+
+        </rule>
+
+    </pattern>
+
+

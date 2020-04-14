@@ -1,0 +1,178 @@
+<!--
+_________________________________________________________________________________________________________________________________________________________________________________________
+                  Generated File - Do Not Edit File Directly                                                                                                                             
+                  __________________________________________
+
+                  Generated          : 29/12/2015 11:42:53 AM
+
+                  Product            : Advance Care Information
+                  Release            : CDA_Implementation_Guide_v1.0
+                  IG Guide Reference : 7.1.1
+                  IG Guide Title     : ADVANCE CARE INFORMATION SECTION
+                  Generator Version  : 2.28
+                                                                                                                                                                                         
+_________________________________________________________________________________________________________________________________________________________________________________________
+-->
+    <pattern name="p-Advance_Care_Information_2_ADVANCECAREINFORMATIONSECTION_7_1_1-errors"
+        id="p-Advance_Care_Information_2_ADVANCECAREINFORMATIONSECTION_7_1_1-errors"
+        see="#p-Advance_Care_Information_2_ADVANCECAREINFORMATIONSECTION_7_1_1-errors">
+
+
+        <rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody">
+
+            <assert test="cda:component[cda:section/cda:code/@code = '101.16973']"
+                >Error: Advance Care Information - 7.1.1 ADVANCE CARE INFORMATION SECTION -
+                "ADVANCE CARE INFORMATION SECTION" -
+                The 'component' tag is missing for 'ADVANCE CARE INFORMATION SECTION'.
+                Refer to section 7.1.1 of the
+                Advance_Care_Information_CDA_Implementation_Guide_v1.0.</assert>
+
+            <report test="count(cda:component[cda:section/cda:code/@code = '101.16973']) > 1"
+                >Error: Advance Care Information - 7.1.1 ADVANCE CARE INFORMATION SECTION -
+                "ADVANCE CARE INFORMATION SECTION" -
+                The 'component' tag shall appear only once for 'ADVANCE CARE INFORMATION SECTION'.
+                Refer to section 7.1.1 of the
+                Advance_Care_Information_CDA_Implementation_Guide_v1.0.</report>
+
+        </rule>
+
+
+        <rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component[cda:section/cda:code/@code = '101.16973']">
+
+            <report test="count(cda:section) > 1"
+                >Error: Advance Care Information - 7.1.1 ADVANCE CARE INFORMATION SECTION -
+                "ADVANCE CARE INFORMATION SECTION" -
+                The 'section' tag shall appear only once.
+                Refer to section 7.1.1 of the
+                Advance_Care_Information_CDA_Implementation_Guide_v1.0.</report>
+
+        </rule>
+
+
+        <rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code = '101.16973']">
+
+            <assert test="cda:title"
+                >Error: Advance Care Information - 7.1.1 ADVANCE CARE INFORMATION SECTION -
+                "ADVANCE CARE INFORMATION SECTION" -
+                The 'title' tag is missing.
+                Refer to section 7.1.1 of the
+                Advance_Care_Information_CDA_Implementation_Guide_v1.0.</assert>
+
+            <report test="count(cda:title) > 1"
+                >Error: Advance Care Information - 7.1.1 ADVANCE CARE INFORMATION SECTION -
+                "ADVANCE CARE INFORMATION SECTION" -
+                The 'title' tag shall appear only once.
+                Refer to section 7.1.1 of the
+                Advance_Care_Information_CDA_Implementation_Guide_v1.0.</report>
+
+            <assert test="not(cda:title) or normalize-space(cda:title) != ''"
+                >Error: Advance Care Information - 7.1.1 ADVANCE CARE INFORMATION SECTION -
+                "ADVANCE CARE INFORMATION SECTION" -
+                The 'title' tag shall contain a value.
+                Refer to section 7.1.1 of the
+                Advance_Care_Information_CDA_Implementation_Guide_v1.0.</assert>
+
+            <assert test="
+                not(cda:title) or normalize-space(cda:title) = '' or
+                cda:title = 'Advance Care Information Section'"
+                >Error: Advance Care Information - 7.1.1 ADVANCE CARE INFORMATION SECTION -
+                "ADVANCE CARE INFORMATION SECTION" -
+                The 'title' tag shall contain the value 'Advance Care Information Section'.
+                Refer to section 7.1.1 of the
+                Advance_Care_Information_CDA_Implementation_Guide_v1.0.</assert>
+
+            <assert test="cda:text"
+                >Error: Advance Care Information - 7.1.1 ADVANCE CARE INFORMATION SECTION -
+                "ADVANCE CARE INFORMATION SECTION" -
+                The 'text' tag is missing.
+                Refer to section 7.1.1 of the
+                Advance_Care_Information_CDA_Implementation_Guide_v1.0.</assert>
+
+            <report test="count(cda:text) > 1"
+                >Error: Advance Care Information - 7.1.1 ADVANCE CARE INFORMATION SECTION -
+                "ADVANCE CARE INFORMATION SECTION" -
+                The 'text' tag shall appear only once.
+                Refer to section 7.1.1 of the
+                Advance_Care_Information_CDA_Implementation_Guide_v1.0.</report>
+
+            <report test="count(cda:id) > 1"
+                >Error: Advance Care Information - 7.1.1 ADVANCE CARE INFORMATION SECTION -
+                "ADVANCE CARE INFORMATION SECTION / Advance Care Information Section Instance Identifier" -
+                The 'id' tag shall appear only once.
+                Refer to section 7.1.1 of the
+                Advance_Care_Information_CDA_Implementation_Guide_v1.0.</report>
+
+            <report test="count(cda:code[@code = '101.16973']) > 1"
+                >Error: Advance Care Information - 7.1.1 ADVANCE CARE INFORMATION SECTION -
+                "ADVANCE CARE INFORMATION SECTION / Section Type" -
+                The 'code' tag shall appear only once for ' Section Type'.
+                Refer to section 7.1.1 of the
+                Advance_Care_Information_CDA_Implementation_Guide_v1.0.</report>
+
+        </rule>
+
+
+        <rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code = '101.16973']/cda:id">
+
+            <report test="
+                contains(@root, '-') and not(
+                string-length(@root) = 36 and
+                substring(@root,  9, 1) = '-' and substring(@root, 14, 1) = '-' and
+                substring(@root, 19, 1) = '-' and substring(@root, 24, 1) = '-' and
+                translate(substring(@root,  1,  8), '0123456789ABCDEFabcdef', '0000000000000000000000') = '00000000' and
+                translate(substring(@root, 10,  4), '0123456789ABCDEFabcdef', '0000000000000000000000') = '0000' and
+                translate(substring(@root, 15,  4), '0123456789ABCDEFabcdef', '0000000000000000000000') = '0000' and
+                translate(substring(@root, 20,  4), '0123456789ABCDEFabcdef', '0000000000000000000000') = '0000' and
+                translate(substring(@root, 25, 12), '0123456789ABCDEFabcdef', '0000000000000000000000') = '000000000000')"
+                >Error: Advance Care Information - 7.1.1 ADVANCE CARE INFORMATION SECTION -
+                "ADVANCE CARE INFORMATION SECTION / Advance Care Information Section Instance Identifier" -
+                The 'id' tag 'root' attribute shall be a valid UUID.
+                Refer to section 7.1.1 of the
+                Advance_Care_Information_CDA_Implementation_Guide_v1.0.</report>
+
+        </rule>
+
+
+        <rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section/cda:code[@code = '101.16973']">
+
+            <assert test="@codeSystem"
+                >Error: Advance Care Information - 7.1.1 ADVANCE CARE INFORMATION SECTION -
+                "ADVANCE CARE INFORMATION SECTION / Section Type" -
+                The 'code' tag 'codeSystem' attribute is missing.
+                Refer to section 7.1.1 of the
+                Advance_Care_Information_CDA_Implementation_Guide_v1.0.</assert>
+
+            <assert test="
+                not(@codeSystem) or normalize-space(@codeSystem) = '' or @codeSystem = '1.2.36.1.2001.1001.101'"
+                >Error: Advance Care Information - 7.1.1 ADVANCE CARE INFORMATION SECTION -
+                "ADVANCE CARE INFORMATION SECTION / Section Type" -
+                The 'code' tag 'codeSystem' attribute shall contain the value '1.2.36.1.2001.1001.101'.
+                Refer to section 7.1.1 of the
+                Advance_Care_Information_CDA_Implementation_Guide_v1.0.</assert>
+
+            <assert test="@displayName"
+                >Error: Advance Care Information - 7.1.1 ADVANCE CARE INFORMATION SECTION -
+                "ADVANCE CARE INFORMATION SECTION / Section Type" -
+                The 'code' tag 'displayName' attribute is missing.
+                Refer to section 7.1.1 of the
+                Advance_Care_Information_CDA_Implementation_Guide_v1.0.</assert>
+
+            <assert test="
+                not(@displayName) or normalize-space(@displayName) = '' or @displayName = 'Advance Care Information Section'"
+                >Error: Advance Care Information - 7.1.1 ADVANCE CARE INFORMATION SECTION -
+                "ADVANCE CARE INFORMATION SECTION / Section Type" -
+                The 'code' tag 'displayName' attribute shall contain the value 'Advance Care Information Section'.
+                Refer to section 7.1.1 of the
+                Advance_Care_Information_CDA_Implementation_Guide_v1.0.</assert>
+
+            <assert test="not(cda:translation)"
+                >Error: Advance Care Information - 7.1.1 ADVANCE CARE INFORMATION SECTION -
+                "ADVANCE CARE INFORMATION SECTION / Section Type" -
+                The 'translation' tag shall not be present within 'code'.
+                Refer to section 7.1.1 of the
+                Advance_Care_Information_CDA_Implementation_Guide_v1.0.</assert>
+        </rule>
+
+
+    </pattern>
+

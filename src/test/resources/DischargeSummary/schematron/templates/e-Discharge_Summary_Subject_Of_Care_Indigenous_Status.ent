@@ -1,0 +1,83 @@
+
+    <!-- e-Discharge Summary Clinical Document:  6.1.2 Subject of Care -->
+
+    <!-- Context: ClinicalDocument/Subject of Care -->
+
+
+    <!-- Status: Last Reviewed: Not reviewed.
+         Status: Last Updated : 14/02/2012 -->
+
+
+    <pattern name="p-e-Discharge_Summary_Subject_Of_Care_Indigenous_Status-errors"
+        id="p-e-Discharge_Summary_Subject_Of_Care_Indigenous_Status-errors"
+        see="#p-e-Discharge_Summary_Subject_Of_Care_Indigenous_Status-errors">
+
+        <rule context="/cda:ClinicalDocument/cda:recordTarget/cda:patientRole/cda:patient">
+
+            <!-- Indigenous Status - 0..1 -->
+
+            <report test="count(cda:ethnicGroupCode) > 1">Error: e-Discharge Summary- 6.1.2 Subject
+                of Care - Subject of Care / Participant / Person or Organisation or Device / Person
+                / Demographic Data / Indigenous Status - The 'ethnicGroupCode' tag shall appear only
+                once. Refer to section 10.19 of the
+                e-Discharge_Summary_CDA_Implementation_Guide_v3.4.</report>
+
+        </rule>
+
+
+        <rule
+            context="/cda:ClinicalDocument/cda:recordTarget/cda:patientRole/cda:patient/cda:ethnicGroupCode">
+
+            <!-- ethnicGroupCode/@ -->
+
+            <assert test = "@code">Error: e-Discharge Summary - 6.1.2 Subject
+                of Care - Subject of Care / Participant / Person or Organisation or Device / Person
+                > Demographic Data / Indigenous Status - The 'ethnicGroupCode' tag 'code' attribute
+                is missing. Refer to section 10.19 of the
+                e-Discharge_Summary_CDA_Implementation_Guide_v3.4.</assert>
+            
+            <assert test = "@codeSystem">Error: e-Discharge Summary - 6.1.2
+                Subject of Care - Subject of Care / Participant / Person or Organisation or Device /
+                Person / Demographic Data / Indigenous Status - The 'ethnicGroupCode' tag
+                'codeSystem' attribute is missing. Refer to section 10.19 of the
+                e-Discharge_Summary_CDA_Implementation_Guide_v3.4.</assert>
+            
+            <assert
+                test = "document('TEMPLATE/VALDN/CDAValidate_Vocabs.xml', .)/systems/system[@codeSystemName = 'METeOR_Indigenous_Status']/code[(@code = current()/@code) ]"
+                >Error: e-Discharge Summary - 6.1.2 Subject of Care - Subject of Care /
+                Participant / Person or Organisation or Device / Person / Demographic Data /
+                Indigenous Status - The 'ethnicGroupCode' tag 'code' attribute shall be as per METeOR 291036: Indigenous Status.
+                Refer to section 10.19 of the e-Discharge_Summary_CDA_Implementation_Guide_v3.4.</assert>
+            
+            <assert
+                test = "document('TEMPLATE/VALDN/CDAValidate_Vocabs.xml', .)/systems/system[@codeSystemName = 'METeOR_Indigenous_Status']/code[(@codeSystem = current()/@codeSystem)]"
+                >Error: e-Discharge Summary - 6.1.2 Subject of Care - Subject of Care /
+                Participant / Person or Organisation or Device / Person / Demographic Data /
+                Indigenous Status - The 'ethnicGroupCode' tag 'codeSystem' attribute shall be as per METeOR 291036: Indigenous Status.
+                Refer to section 10.19 of the e-Discharge_Summary_CDA_Implementation_Guide_v3.4.</assert>
+            
+            <report
+                test = "@codeSystemName and not(document('TEMPLATE/VALDN/CDAValidate_Vocabs.xml', .)/systems/system[@codeSystemName = 'METeOR_Indigenous_Status']/code[(@codeSystemName = current()/@codeSystemName)])"
+                >Error: e-Discharge Summary - 6.1.2 Subject of Care - Subject of Care /
+                Participant / Person or Organisation or Device / Person / Demographic Data /
+                Indigenous Status - The 'ethnicGroupCode' tag 'codeSystemName' attribute shall be as per METeOR 291036: Indigenous Status.
+                Refer to section 10.19 of the e-Discharge_Summary_CDA_Implementation_Guide_v3.4.</report>
+ 
+             <report
+                test = "@displayName and not(document('TEMPLATE/VALDN/CDAValidate_Vocabs.xml', .)/systems/system[@codeSystemName = 'METeOR_Indigenous_Status']/code[(translate(@displayName,  'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ') = translate(current()/@displayName, 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'))])"
+                >Error: e-Discharge Summary - 6.1.2 Subject of Care - Subject of Care /
+                Participant / Person or Organisation or Device / Person / Demographic Data /
+                Indigenous Status - The 'ethnicGroupCode' tag 'displayName' attribute shall be as per METeOR 291036: Indigenous Status.
+                Refer to section 10.19 of the e-Discharge_Summary_CDA_Implementation_Guide_v3.4.</report>
+ 
+            <report
+                test = "@displayName and not(document('TEMPLATE/VALDN/CDAValidate_Vocabs.xml', .)/systems/system[@codeSystemName = 'METeOR_Indigenous_Status']/code[(@code = current()/@code) and (translate(@displayName,  'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ') = translate(current()/@displayName, 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'))])"
+                >Error: e-Discharge Summary - 6.1.2 Subject of Care - Subject of Care /
+                Participant / Person or Organisation or Device / Person / Demographic Data /
+                Indigenous Status - The 'ethnicGroupCode' tag 'code' and 'displayName' attributes shall be match as per METeOR 291036: Indigenous Status.
+                Refer to section 10.19 of the e-Discharge_Summary_CDA_Implementation_Guide_v3.4.</report>
+
+        </rule>
+
+    </pattern>
+

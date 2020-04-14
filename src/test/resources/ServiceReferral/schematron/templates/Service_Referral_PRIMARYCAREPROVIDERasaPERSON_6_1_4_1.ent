@@ -1,0 +1,381 @@
+<!--
+_________________________________________________________________________________________________________________________________________________________________________________________
+                  Generated File - Do Not Edit File Directly                                                                                                                             
+                  __________________________________________
+
+                  Generated          : 30/11/2017 9:03:37 AM
+
+                  Product            : Service Referral
+                  Release            : CDA_Implementation_Guide_v1.0
+                  IG Guide Reference : 6.1.4.1
+                  IG Guide Title     : PRIMARY CARE PROVIDER as a PERSON
+                  Generator Version  : 2.28
+                                                                                                                                                                                         
+_________________________________________________________________________________________________________________________________________________________________________________________
+-->
+    <pattern name="p-Service_Referral_PRIMARYCAREPROVIDERasaPERSON_6_1_4_1-errors"
+        id="p-Service_Referral_PRIMARYCAREPROVIDERasaPERSON_6_1_4_1-errors"
+        see="#p-Service_Referral_PRIMARYCAREPROVIDERasaPERSON_6_1_4_1-errors">
+
+
+        <rule context="/cda:ClinicalDocument/cda:participant[cda:functionCode/@code = 'PCP']/cda:associatedEntity/cda:associatedPerson/ext:asEmployment/ext:employerOrganization">
+
+            <report test="count(cda:name) > 1"
+                >Error: Service Referral - 6.1.4.1 PRIMARY CARE PROVIDER as a PERSON -
+                "PRIMARY CARE PROVIDER / Participant / Person or Organisation or Device / Person / Employment Detail / Employer Organisation / Organisation / Department/Unit" -
+                The 'name' tag shall appear only once.
+                Refer to section 6.1.4.1 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</report>
+
+            <report test="count(cda:asOrganizationPartOf) > 1"
+                >Error: Service Referral - 6.1.4.1 PRIMARY CARE PROVIDER as a PERSON -
+                "PRIMARY CARE PROVIDER / Participant / Person or Organisation or Device / Person / Employment Detail / Employer Organisation" -
+                The 'asOrganizationPartOf' tag shall appear only once.
+                Refer to section 6.1.4.1 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</report>
+
+        </rule>
+
+
+        <rule context="/cda:ClinicalDocument">
+
+            <report test="count(cda:participant[cda:associatedEntity/cda:associatedPerson][cda:functionCode/@code = 'PCP']) > 1"
+                >Error: Service Referral - 6.1.4.1 PRIMARY CARE PROVIDER as a PERSON -
+                "PRIMARY CARE PROVIDER" -
+                The 'participant' tag shall appear only once for 'PRIMARY CARE PROVIDER'.
+                Refer to section 6.1.4.1 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</report>
+
+        </rule>
+
+
+        <rule context="/cda:ClinicalDocument/cda:participant[cda:associatedEntity/cda:associatedPerson][cda:functionCode/@code = 'PCP']">
+
+            <assert test="@typeCode"
+                >Error: Service Referral - 6.1.4.1 PRIMARY CARE PROVIDER as a PERSON -
+                "PRIMARY CARE PROVIDER" -
+                The 'participant' tag 'typeCode' attribute is missing.
+                Refer to section 6.1.4.1 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</assert>
+
+            <assert test="not(@typeCode) or normalize-space(@typeCode) != ''"
+                >Error: Service Referral - 6.1.4.1 PRIMARY CARE PROVIDER as a PERSON -
+                "PRIMARY CARE PROVIDER" -
+                The 'participant' tag 'typeCode' attribute shall contain a value.
+                Refer to section 6.1.4.1 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</assert>
+
+            <assert test="
+                not(@typeCode) or normalize-space(@typeCode) = '' or @typeCode = 'PART'"
+                >Error: Service Referral - 6.1.4.1 PRIMARY CARE PROVIDER as a PERSON -
+                "PRIMARY CARE PROVIDER" -
+                The 'participant' tag 'typeCode' attribute shall contain the value 'PART'.
+                Refer to section 6.1.4.1 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</assert>
+
+            <assert test="not(cda:time)"
+                >Error: Service Referral - 6.1.4.1 PRIMARY CARE PROVIDER as a PERSON -
+                "PRIMARY CARE PROVIDER / Participation Period" -
+                The 'time' tag shall not be present.
+                Refer to section 6.1.4.1 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</assert>
+
+        </rule>
+
+
+        <rule context="/cda:ClinicalDocument/cda:participant[cda:functionCode/@code = 'PCP']/cda:associatedEntity/cda:associatedPerson/ext:asEmployment/ext:employerOrganization/cda:asOrganizationPartOf/cda:wholeOrganization">
+
+            <assert test="cda:name"
+                >Error: Service Referral - 6.1.4.1 PRIMARY CARE PROVIDER as a PERSON -
+                "PRIMARY CARE PROVIDER / Participant / Person or Organisation or Device / Person / Employment Detail / Employer Organisation / Organisation / Organisation Name" -
+                The 'name' tag is missing.
+                Refer to section 6.1.4.1 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</assert>
+
+            <report test="count(cda:name) > 1"
+                >Error: Service Referral - 6.1.4.1 PRIMARY CARE PROVIDER as a PERSON -
+                "PRIMARY CARE PROVIDER / Participant / Person or Organisation or Device / Person / Employment Detail / Employer Organisation / Organisation / Organisation Name" -
+                The 'name' tag shall appear only once.
+                Refer to section 6.1.4.1 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</report>
+
+        </rule>
+
+
+        <rule context="/cda:ClinicalDocument/cda:participant[cda:functionCode/@code = 'PCP']/cda:associatedEntity/cda:associatedPerson/ext:asEmployment/ext:employerOrganization/cda:asOrganizationPartOf/cda:wholeOrganization/cda:name">
+
+            <report test="@use and normalize-space(@use) = ''"
+                >Error: Service Referral - 6.1.4.1 PRIMARY CARE PROVIDER as a PERSON -
+                "PRIMARY CARE PROVIDER / Participant / Person or Organisation or Device / Person / Employment Detail / Employer Organisation / Organisation / Organisation Name" -
+                The 'name' tag 'use' attribute shall contain a value.
+                Refer to section 6.1.4.1 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</report>
+
+            <assert test="
+                not(@use) or normalize-space(@use) = '' or
+                document('TEMPLATE/VALDN/CDAValidate_Vocabs.xml', .)/systems/system[@codeSystemName = 'Health_Care_Provider_Organisation_Name_Usage']/code[
+                    (@code = current()/@use) or
+                    (@alternativeCode = current()/@use) or
+                    (@hl7Code = current()/@use)
+                ]"
+                >Error: Service Referral - 6.1.4.1 PRIMARY CARE PROVIDER as a PERSON -
+                "PRIMARY CARE PROVIDER / Participant / Person or Organisation or Device / Person / Employment Detail / Employer Organisation / Organisation / Organisation Name" -
+                The 'name' tag 'use' attribute shall be as per AS 4846-2006: Health Care Provider Organisation Name Usage.
+                Refer to section 6.1.4.1 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</assert>
+
+        </rule>
+
+
+        <rule context="/cda:ClinicalDocument/cda:participant[cda:associatedEntity/cda:associatedPerson]/cda:functionCode">
+
+            <assert test="@code"
+                >Error: Service Referral - 6.1.4.1 PRIMARY CARE PROVIDER as a PERSON -
+                "PRIMARY CARE PROVIDER / Participation Type" -
+                The 'functionCode' tag 'code' attribute is missing.
+                Refer to section 6.1.4.1 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</assert>
+
+            <assert test="not(@code) or normalize-space(@code) != ''"
+                >Error: Service Referral - 6.1.4.1 PRIMARY CARE PROVIDER as a PERSON -
+                "PRIMARY CARE PROVIDER / Participation Type" -
+                The 'functionCode' tag 'code' attribute shall contain a value.
+                Refer to section 6.1.4.1 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</assert>
+
+            <assert test="
+                not(@code) or normalize-space(@code) = '' or @code = 'PCP'"
+                >Error: Service Referral - 6.1.4.1 PRIMARY CARE PROVIDER as a PERSON -
+                "PRIMARY CARE PROVIDER / Participation Type" -
+                The 'functionCode' tag 'code' attribute shall contain the value 'PCP'.
+                Refer to section 6.1.4.1 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</assert>
+
+        </rule>
+
+
+        <rule context="/cda:ClinicalDocument/cda:participant[cda:functionCode/@code = 'PCP']/cda:associatedEntity/cda:associatedPerson/ext:asEmployment/ext:employerOrganization/cda:asOrganizationPartOf">
+
+            <report test="count(cda:wholeOrganization) > 1"
+                >Error: Service Referral - 6.1.4.1 PRIMARY CARE PROVIDER as a PERSON -
+                "PRIMARY CARE PROVIDER / Participant / Person or Organisation or Device / Person / Employment Detail / Employer Organisation" -
+                The 'wholeOrganization' tag shall appear only once.
+                Refer to section 6.1.4.1 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</report>
+
+        </rule>
+
+
+        <rule context="/cda:ClinicalDocument/cda:participant[cda:functionCode/@code = 'PCP']/cda:associatedEntity[cda:associatedPerson]">
+
+            <assert test="@classCode"
+                >Error: Service Referral - 6.1.4.1 PRIMARY CARE PROVIDER as a PERSON -
+                "PRIMARY CARE PROVIDER / Role" -
+                The 'associatedEntity' tag 'classCode' attribute is missing.
+                Refer to section 6.1.4.1 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</assert>
+
+            <assert test="not(@classCode) or normalize-space(@classCode) != ''"
+                >Error: Service Referral - 6.1.4.1 PRIMARY CARE PROVIDER as a PERSON -
+                "PRIMARY CARE PROVIDER / Role" -
+                The 'associatedEntity' tag 'classCode' attribute shall contain a value.
+                Refer to section 6.1.4.1 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</assert>
+
+            <assert test="
+                not(@classCode) or normalize-space(@classCode) = '' or
+                document('TEMPLATE/VALDN/CDAValidate_Vocabs.xml', .)/systems/system[@codeSystemName = 'RoleClassAssociative']/code[(@code = current()/@classCode)]"
+                >Error: Service Referral - 6.1.4.1 PRIMARY CARE PROVIDER as a PERSON -
+                "PRIMARY CARE PROVIDER / Role" -
+                The 'associatedEntity' tag 'classCode' attribute shall be as per HL7:RoleClassAssociative.
+                Refer to section 6.1.4.1 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</assert>
+
+            <assert test="cda:code"
+                >Error: Service Referral - 6.1.4.1 PRIMARY CARE PROVIDER as a PERSON -
+                "PRIMARY CARE PROVIDER / Role" -
+                The 'code' tag is missing.
+                Refer to section 6.1.4.1 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</assert>
+
+            <report test="count(cda:code) > 1"
+                >Error: Service Referral - 6.1.4.1 PRIMARY CARE PROVIDER as a PERSON -
+                "PRIMARY CARE PROVIDER / Role" -
+                The 'code' tag shall appear only once.
+                Refer to section 6.1.4.1 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</report>
+
+            <assert test="cda:id"
+                >Error: Service Referral - 6.1.4.1 PRIMARY CARE PROVIDER as a PERSON -
+                "PRIMARY CARE PROVIDER / Role" -
+                The 'id' tag is missing.
+                Refer to section 6.1.4.1 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</assert>
+
+            <report test="count(cda:id) > 1"
+                >Error: Service Referral - 6.1.4.1 PRIMARY CARE PROVIDER as a PERSON -
+                "PRIMARY CARE PROVIDER / Role" -
+                The 'id' tag shall appear only once.
+                Refer to section 6.1.4.1 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</report>
+
+        </rule>
+
+
+        <rule context="/cda:ClinicalDocument/cda:participant[cda:functionCode/@code = 'PCP']/cda:associatedEntity/cda:associatedPerson">
+
+            <assert test="cda:name"
+                >Error: Service Referral - 6.1.4.1 PRIMARY CARE PROVIDER as a PERSON -
+                "PRIMARY CARE PROVIDER / Participant / Person or Organisation or Device / Person / Person Name" -
+                The 'name' tag is missing.
+                Refer to section 6.1.4.1 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</assert>
+
+            <assert test="not(ext:personalRelationship)"
+                >Error: Service Referral - 6.1.4.1 PRIMARY CARE PROVIDER as a PERSON -
+                "PRIMARY CARE PROVIDER / Participant / Person or Organisation or Device / Person / Relationship to Subject of Care" -
+                The 'personalRelationship' tag shall not be present.
+                Refer to section 6.1.4.1 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</assert>
+
+            <report test="count(ext:asEmployment) > 1"
+                >Error: Service Referral - 6.1.4.1 PRIMARY CARE PROVIDER as a PERSON -
+                "PRIMARY CARE PROVIDER / Participant / Person or Organisation or Device / Person / Employment Detail / Employment Type" -
+                The 'asEmployment' tag shall appear only once.
+                Refer to section 6.1.4.1 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</report>
+
+            <assert test="ext:asEmployment"
+                >Error: Service Referral - 6.1.4.1 PRIMARY CARE PROVIDER as a PERSON -
+                "PRIMARY CARE PROVIDER / Participant / Person or Organisation or Device / Person / Employment Detail / Employment Type" -
+                The 'asEmployment' tag is missing.
+                Refer to section 6.1.4.1 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</assert>
+
+            <assert test="not(ext:administrativeGenderCode)"
+                >Error: Service Referral - 6.1.4.1 PRIMARY CARE PROVIDER as a PERSON -
+                "PRIMARY CARE PROVIDER / Participant / Person or Organisation or Device / Person / Demographic Data" -
+                The 'administrativeGenderCode' tag shall not be present.
+                Refer to section 6.1.4.1 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</assert>
+
+            <assert test="not(ext:birthTime)"
+                >Error: Service Referral - 6.1.4.1 PRIMARY CARE PROVIDER as a PERSON -
+                "PRIMARY CARE PROVIDER / Participant / Person or Organisation or Device / Person / Demographic Data" -
+                The 'birthTime' tag shall not be present.
+                Refer to section 6.1.4.1 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</assert>
+
+            <report test="count(ext:asQualifications) > 1"
+                >Error: Service Referral - 6.1.4.1 PRIMARY CARE PROVIDER as a PERSON -
+                "PRIMARY CARE PROVIDER / Participant / Qualifications" -
+                The 'asQualifications' tag shall appear only once.
+                Refer to section 6.1.4.1 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</report>
+
+        </rule>
+
+
+        <rule context="/cda:ClinicalDocument/cda:participant[cda:functionCode/@code = 'PCP']/cda:associatedEntity/cda:associatedPerson/ext:asEmployment">
+
+            <assert test="@classCode"
+                >Error: Service Referral - 6.1.4.1 PRIMARY CARE PROVIDER as a PERSON -
+                "PRIMARY CARE PROVIDER / Participant / Person or Organisation or Device / Person / Employment Detail / Employment Type" -
+                The 'asEmployment' tag 'classCode' attribute is missing.
+                Refer to section 6.1.4.1 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</assert>
+
+            <assert test="not(@classCode) or normalize-space(@classCode) != ''"
+                >Error: Service Referral - 6.1.4.1 PRIMARY CARE PROVIDER as a PERSON -
+                "PRIMARY CARE PROVIDER / Participant / Person or Organisation or Device / Person / Employment Detail / Employment Type" -
+                The 'asEmployment' tag 'classCode' attribute shall contain a value.
+                Refer to section 6.1.4.1 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</assert>
+
+            <assert test="
+                not(@classCode) or normalize-space(@classCode) = '' or @classCode = 'EMP'"
+                >Error: Service Referral - 6.1.4.1 PRIMARY CARE PROVIDER as a PERSON -
+                "PRIMARY CARE PROVIDER / Participant / Person or Organisation or Device / Person / Employment Detail / Employment Type" -
+                The 'asEmployment' tag 'classCode' attribute shall contain the value 'EMP'.
+                Refer to section 6.1.4.1 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</assert>
+
+            <assert test="ext:employerOrganization"
+                >Error: Service Referral - 6.1.4.1 PRIMARY CARE PROVIDER as a PERSON -
+                "PRIMARY CARE PROVIDER / Participant / Person or Organisation or Device / Person / Employment Detail / Employer Organisation" -
+                The 'employerOrganization' tag is missing.
+                Refer to section 6.1.4.1 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</assert>
+
+            <report test="count(ext:employerOrganization) > 1"
+                >Error: Service Referral - 6.1.4.1 PRIMARY CARE PROVIDER as a PERSON -
+                "PRIMARY CARE PROVIDER / Participant / Person or Organisation or Device / Person / Employment Detail / Employer Organisation" -
+                The 'employerOrganization' tag shall appear only once.
+                Refer to section 6.1.4.1 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</report>
+
+            <report test="count(ext:jobClassCode) > 1"
+                >Error: Service Referral - 6.1.4.1 PRIMARY CARE PROVIDER as a PERSON -
+                "PRIMARY CARE PROVIDER / Participant / Person or Organisation or Device / Person / Employment Detail / Employment Type" -
+                The 'jobClassCode' tag shall appear only once.
+                Refer to section 6.1.4.1 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</report>
+
+            <report test="count(ext:code) > 1"
+                >Error: Service Referral - 6.1.4.1 PRIMARY CARE PROVIDER as a PERSON -
+                "PRIMARY CARE PROVIDER / Participant / Person or Organisation or Device / Person / Employment Detail / Position In Organisation" -
+                The 'code' tag shall appear only once.
+                Refer to section 6.1.4.1 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</report>
+
+        </rule>
+
+
+        <rule context="/cda:ClinicalDocument/cda:participant[cda:functionCode/@code = 'PCP']/cda:associatedEntity/cda:associatedPerson/ext:asQualifications">
+
+            <assert test="@classCode"
+                >Error: Service Referral - 6.1.4.1 PRIMARY CARE PROVIDER as a PERSON -
+                "PRIMARY CARE PROVIDER / Participant / Qualifications" -
+                The 'asQualifications' tag 'classCode' attribute is missing.
+                Refer to section 6.1.4.1 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</assert>
+
+            <assert test="not(@classCode) or normalize-space(@classCode) != ''"
+                >Error: Service Referral - 6.1.4.1 PRIMARY CARE PROVIDER as a PERSON -
+                "PRIMARY CARE PROVIDER / Participant / Qualifications" -
+                The 'asQualifications' tag 'classCode' attribute shall contain a value.
+                Refer to section 6.1.4.1 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</assert>
+
+            <assert test="
+                not(@classCode) or normalize-space(@classCode) = '' or @classCode = 'QUAL'"
+                >Error: Service Referral - 6.1.4.1 PRIMARY CARE PROVIDER as a PERSON -
+                "PRIMARY CARE PROVIDER / Participant / Qualifications" -
+                The 'asQualifications' tag 'classCode' attribute shall contain the value 'QUAL'.
+                Refer to section 6.1.4.1 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</assert>
+
+            <report test="count(ext:code) > 1"
+                >Error: Service Referral - 6.1.4.1 PRIMARY CARE PROVIDER as a PERSON -
+                "PRIMARY CARE PROVIDER / Participant / Qualifications" -
+                The 'code' tag shall appear only once.
+                Refer to section 6.1.4.1 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</report>
+
+        </rule>
+
+
+        <rule context="/cda:ClinicalDocument/cda:participant[cda:functionCode/@code = 'PCP']/cda:associatedEntity/cda:associatedPerson/ext:asQualifications/ext:code">
+
+            <report test="count(cda:originalText) > 1"
+                >Error: Service Referral - 6.1.4.1 PRIMARY CARE PROVIDER as a PERSON -
+                "PRIMARY CARE PROVIDER / Participant / Qualifications" -
+                The 'originalText' tag shall appear only once.
+                Refer to section 6.1.4.1 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</report>
+
+        </rule>
+
+
+    </pattern>
+

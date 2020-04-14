@@ -1,0 +1,196 @@
+<!--
+_________________________________________________________________________________________________________________________________________________________________________________________
+                  Generated File - Do Not Edit File Directly                                                                                                                             
+                  __________________________________________
+
+                  Generated          : 19/03/2015 6:55:51 PM
+
+                  Product            : Event Summary
+                  Release            : CDA_Implementation_Guide_v1.0
+                  IG Guide Reference : 7.1.5.1
+                  IG Guide Title     : Administered Immunisation (MEDICATION ACTION)
+                  Generator Version  : 2.28
+                                                                                                                                                                                         
+_________________________________________________________________________________________________________________________________________________________________________________________
+-->
+    <pattern name="p-Event_Summary_3A_AdministeredImmunisation_MEDICATIONACTION_7_1_5_1-errors"
+        id="p-Event_Summary_3A_AdministeredImmunisation_MEDICATIONACTION_7_1_5_1-errors"
+        see="#p-Event_Summary_3A_AdministeredImmunisation_MEDICATIONACTION_7_1_5_1-errors">
+
+
+        <rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code = '101.16638']">
+
+            <assert test="cda:entry[cda:substanceAdministration/@classCode = 'SBADM']"
+                >Error: Event Summary - 7.1.5.1 Administered Immunisation (MEDICATION ACTION) -
+                "Administered Immunisation MEDICATION ACTION)" -
+                The 'entry' tag is missing for 'Administered Immunisation MEDICATION ACTION)'.
+                Refer to section 7.1.5.1 of the
+                Event_Summary_CDA_Implementation_Guide_v1.3.</assert>
+
+        </rule>
+
+
+        <rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code = '101.16638']/cda:entry[cda:substanceAdministration/@classCode = 'SBADM']">
+
+            <report test="count(cda:substanceAdministration) > 1"
+                >Error: Event Summary - 7.1.5.1 Administered Immunisation (MEDICATION ACTION) -
+                "Administered Immunisation MEDICATION ACTION)" -
+                The 'substanceAdministration' tag shall appear only once.
+                Refer to section 7.1.5.1 of the
+                Event_Summary_CDA_Implementation_Guide_v1.3.</report>
+
+        </rule>
+
+
+        <rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code = '101.16638']/cda:entry/cda:substanceAdministration[@classCode = 'SBADM']">
+
+            <assert test="@moodCode"
+                >Error: Event Summary - 7.1.5.1 Administered Immunisation (MEDICATION ACTION) -
+                "Administered Immunisation MEDICATION ACTION)" -
+                The 'substanceAdministration' tag 'moodCode' attribute is missing.
+                Refer to section 7.1.5.1 of the
+                Event_Summary_CDA_Implementation_Guide_v1.3.</assert>
+
+            <assert test="not(@moodCode) or normalize-space(@moodCode) != ''"
+                >Error: Event Summary - 7.1.5.1 Administered Immunisation (MEDICATION ACTION) -
+                "Administered Immunisation MEDICATION ACTION)" -
+                The 'substanceAdministration' tag 'moodCode' attribute shall contain a value.
+                Refer to section 7.1.5.1 of the
+                Event_Summary_CDA_Implementation_Guide_v1.3.</assert>
+
+            <assert test="
+                not(@moodCode) or normalize-space(@moodCode) = '' or @moodCode = 'EVN'"
+                >Error: Event Summary - 7.1.5.1 Administered Immunisation (MEDICATION ACTION) -
+                "Administered Immunisation MEDICATION ACTION)" -
+                The 'substanceAdministration' tag 'moodCode' attribute shall contain the value 'EVN'.
+                Refer to section 7.1.5.1 of the
+                Event_Summary_CDA_Implementation_Guide_v1.3.</assert>
+
+            <assert test="cda:id"
+                >Error: Event Summary - 7.1.5.1 Administered Immunisation (MEDICATION ACTION) -
+                "Administered Immunisation MEDICATION ACTION) / Medication Action Instance Identifier" -
+                The 'id' tag is missing.
+                Refer to section 7.1.5.1 of the
+                Event_Summary_CDA_Implementation_Guide_v1.3.</assert>
+
+            <report test="count(cda:id) > 1"
+                >Error: Event Summary - 7.1.5.1 Administered Immunisation (MEDICATION ACTION) -
+                "Administered Immunisation MEDICATION ACTION) / Medication Action Instance Identifier" -
+                The 'id' tag shall appear only once.
+                Refer to section 7.1.5.1 of the
+                Event_Summary_CDA_Implementation_Guide_v1.3.</report>
+
+            <assert test="cda:consumable"
+                >Error: Event Summary - 7.1.5.1 Administered Immunisation (MEDICATION ACTION) -
+                "Administered Immunisation MEDICATION ACTION) / Therapeutic Good Identification" -
+                The 'consumable' tag is missing.
+                Refer to section 7.1.5.1 of the
+                Event_Summary_CDA_Implementation_Guide_v1.3.</assert>
+
+            <report test="count(cda:consumable) > 1"
+                >Error: Event Summary - 7.1.5.1 Administered Immunisation (MEDICATION ACTION) -
+                "Administered Immunisation MEDICATION ACTION) / Therapeutic Good Identification" -
+                The 'consumable' tag shall appear only once.
+                Refer to section 7.1.5.1 of the
+                Event_Summary_CDA_Implementation_Guide_v1.3.</report>
+
+            <assert test="cda:effectiveTime"
+                >Error: Event Summary - 7.1.5.1 Administered Immunisation (MEDICATION ACTION) -
+                "Administered Immunisation MEDICATION ACTION) / Medication Action DateTime" -
+                The 'effectiveTime' tag is missing.
+                Refer to section 7.1.5.1 of the
+                Event_Summary_CDA_Implementation_Guide_v1.3.</assert>
+
+            <report test="count(cda:effectiveTime) > 1"
+                >Error: Event Summary - 7.1.5.1 Administered Immunisation (MEDICATION ACTION) -
+                "Administered Immunisation MEDICATION ACTION) / Medication Action DateTime" -
+                The 'effectiveTime' tag shall appear only once.
+                Refer to section 7.1.5.1 of the
+                Event_Summary_CDA_Implementation_Guide_v1.3.</report>
+
+        </rule>
+
+
+        <rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code = '101.16638']/cda:entry/cda:substanceAdministration[@classCode = 'SBADM']/cda:consumable">
+
+            <assert test="cda:manufacturedProduct"
+                >Error: Event Summary - 7.1.5.1 Administered Immunisation (MEDICATION ACTION) -
+                "Administered Immunisation MEDICATION ACTION) / Therapeutic Good Identification" -
+                The 'manufacturedProduct' tag is missing.
+                Refer to section 7.1.5.1 of the
+                Event_Summary_CDA_Implementation_Guide_v1.3.</assert>
+
+            <report test="count(cda:manufacturedProduct) > 1"
+                >Error: Event Summary - 7.1.5.1 Administered Immunisation (MEDICATION ACTION) -
+                "Administered Immunisation MEDICATION ACTION) / Therapeutic Good Identification" -
+                The 'manufacturedProduct' tag shall appear only once.
+                Refer to section 7.1.5.1 of the
+                Event_Summary_CDA_Implementation_Guide_v1.3.</report>
+
+        </rule>
+
+
+        <rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code = '101.16638']/cda:entry/cda:substanceAdministration[@classCode = 'SBADM']/cda:consumable/cda:manufacturedProduct">
+
+            <assert test="cda:manufacturedMaterial"
+                >Error: Event Summary - 7.1.5.1 Administered Immunisation (MEDICATION ACTION) -
+                "Administered Immunisation MEDICATION ACTION) / Therapeutic Good Identification" -
+                The 'manufacturedMaterial' tag is missing.
+                Refer to section 7.1.5.1 of the
+                Event_Summary_CDA_Implementation_Guide_v1.3.</assert>
+
+            <report test="count(cda:manufacturedMaterial) > 1"
+                >Error: Event Summary - 7.1.5.1 Administered Immunisation (MEDICATION ACTION) -
+                "Administered Immunisation MEDICATION ACTION) / Therapeutic Good Identification" -
+                The 'manufacturedMaterial' tag shall appear only once.
+                Refer to section 7.1.5.1 of the
+                Event_Summary_CDA_Implementation_Guide_v1.3.</report>
+
+        </rule>
+
+
+        <rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code = '101.16638']/cda:entry/cda:substanceAdministration[@classCode = 'SBADM']/cda:consumable/cda:manufacturedProduct/cda:manufacturedMaterial">
+
+            <assert test="cda:code"
+                >Error: Event Summary - 7.1.5.1 Administered Immunisation (MEDICATION ACTION) -
+                "Administered Immunisation MEDICATION ACTION) / Therapeutic Good Identification" -
+                The 'code' tag is missing.
+                Refer to section 7.1.5.1 of the
+                Event_Summary_CDA_Implementation_Guide_v1.3.</assert>
+
+            <report test="count(cda:code) > 1"
+                >Error: Event Summary - 7.1.5.1 Administered Immunisation (MEDICATION ACTION) -
+                "Administered Immunisation MEDICATION ACTION) / Therapeutic Good Identification" -
+                The 'code' tag shall appear only once.
+                Refer to section 7.1.5.1 of the
+                Event_Summary_CDA_Implementation_Guide_v1.3.</report>
+
+        </rule>
+
+
+        <rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code = '101.16638']/cda:entry/cda:substanceAdministration[@classCode = 'SBADM']/cda:consumable/cda:manufacturedProduct/cda:manufacturedMaterial/cda:code">
+
+            <assert test="not(@nullFlavor)"
+                >Error: Event Summary - 7.1.5.1 Administered Immunisation (MEDICATION ACTION) -
+                "Administered Immunisation MEDICATION ACTION) / Therapeutic Good Identification" -
+                The 'code' tag 'nullFlavor' attribute shall not be present.
+                Refer to Common - Continuity of Care - FAQ Nullable Fields Guidance v1.1 and section 7.1.5.1 of the
+                Event_Summary_CDA_Implementation_Guide_v1.3.</assert>
+
+        </rule>
+
+
+        <rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code = '101.16638']/cda:entry/cda:substanceAdministration[@classCode = 'SBADM']/cda:effectiveTime">
+
+            <assert test="not(@nullFlavor)"
+                >Error: Event Summary - 7.1.5.1 Administered Immunisation (MEDICATION ACTION) -
+                "Administered Immunisation MEDICATION ACTION) / Medication Action DateTime" -
+                The 'effectiveTime' tag 'nullFlavor' attribute shall not be present.
+                Refer to Common - Continuity of Care - FAQ Nullable Fields Guidance v1.1 and section 7.1.5.1 of the
+                Event_Summary_CDA_Implementation_Guide_v1.3.</assert>
+
+        </rule>
+
+
+    </pattern>
+
