@@ -1,4 +1,13 @@
-package nehta.cda.sl;
+package au.gov.nehta.cda.sl;
+
+import static au.gov.nehta.cda.es.EventSummaryTestHelper.getAttachedMedia;
+import static au.gov.nehta.cda.test.TestHelper.getCustodian;
+import static au.gov.nehta.cda.test.TestHelper.getDocumentAuthor;
+import static au.gov.nehta.cda.test.TestHelper.getInformationRecipients;
+import static au.gov.nehta.cda.test.TestHelper.getLegalAuthenticator;
+import static au.gov.nehta.cda.test.TestHelper.getSubjectOfCareParticipant;
+import static au.gov.nehta.model.schematron.SchematronResource.SchematronResources.SPECIALIST_LETTER_3A;
+import static org.junit.Assert.assertEquals;
 
 import au.gov.nehta.builder.common.NCTISChanceTypeValues;
 import au.gov.nehta.builder.common.NCTISRecommendationOrChangeValues;
@@ -10,7 +19,11 @@ import au.gov.nehta.cda.test.TestHelper;
 import au.gov.nehta.model.cda.common.ElectronicCommunicationDetail;
 import au.gov.nehta.model.cda.common.ElectronicCommunicationMedium;
 import au.gov.nehta.model.cda.common.ElectronicCommunicationUsage;
-import au.gov.nehta.model.cda.common.code.*;
+import au.gov.nehta.model.cda.common.code.CodeImpl;
+import au.gov.nehta.model.cda.common.code.Coded;
+import au.gov.nehta.model.cda.common.code.DocumentStatusCode;
+import au.gov.nehta.model.cda.common.code.HL7ObservationInterpretationNormality;
+import au.gov.nehta.model.cda.common.code.SNOMED_AU_Code;
 import au.gov.nehta.model.cda.common.document.ClinicalDocument;
 import au.gov.nehta.model.cda.common.document.ClinicalDocumentFactory;
 import au.gov.nehta.model.cda.common.id.AsEntityIdentifier;
@@ -19,63 +32,124 @@ import au.gov.nehta.model.cda.common.participant.EmploymentOrganization;
 import au.gov.nehta.model.cda.common.participant.EmploymentOrganizationImpl;
 import au.gov.nehta.model.cda.common.person_org.PersonHealthcareProvider;
 import au.gov.nehta.model.cda.common.person_org.PersonImpl;
-import au.gov.nehta.model.cda.common.time.*;
+import au.gov.nehta.model.cda.common.time.Precision;
+import au.gov.nehta.model.cda.common.time.PrecisionDate;
+import au.gov.nehta.model.cda.common.time.RestrictedTimeInterval;
+import au.gov.nehta.model.cda.common.time.TimeQuantity;
+import au.gov.nehta.model.cda.common.time.TimeUnitOfMeasure;
 import au.gov.nehta.model.cda.sl.SpecialistLetterCDAModel;
 import au.gov.nehta.model.clinical.common.DocumentAuthor;
 import au.gov.nehta.model.clinical.common.EventTypes;
 import au.gov.nehta.model.clinical.common.address.Address;
+import au.gov.nehta.model.clinical.common.address.AddressImpl;
 import au.gov.nehta.model.clinical.common.address.AustralianAddress;
-import au.gov.nehta.model.clinical.common.address.*;
-import au.gov.nehta.model.clinical.common.participation.*;
-import au.gov.nehta.model.clinical.common.types.*;
+import au.gov.nehta.model.clinical.common.address.AustralianAddressLevelType;
+import au.gov.nehta.model.clinical.common.address.PostalDeliveryType;
+import au.gov.nehta.model.clinical.common.address.StreetSuffix;
+import au.gov.nehta.model.clinical.common.address.StreetType;
+import au.gov.nehta.model.clinical.common.address.UnitType;
+import au.gov.nehta.model.clinical.common.participation.AddressPurpose;
+import au.gov.nehta.model.clinical.common.participation.AustralianStateTerritory;
+import au.gov.nehta.model.clinical.common.participation.Organisation;
+import au.gov.nehta.model.clinical.common.participation.OrganisationImpl;
+import au.gov.nehta.model.clinical.common.participation.OrganisationNameUsage;
+import au.gov.nehta.model.clinical.common.participation.PersonName;
+import au.gov.nehta.model.clinical.common.participation.PersonNameImpl;
+import au.gov.nehta.model.clinical.common.participation.PersonNameUsage;
+import au.gov.nehta.model.clinical.common.types.HPII;
+import au.gov.nehta.model.clinical.common.types.HPIO;
+import au.gov.nehta.model.clinical.common.types.Quantity;
+import au.gov.nehta.model.clinical.common.types.QuantityRange;
+import au.gov.nehta.model.clinical.common.types.UniqueIdentifierImpl;
 import au.gov.nehta.model.clinical.es.AdverseReaction;
 import au.gov.nehta.model.clinical.es.AdverseReactionImpl;
-import au.gov.nehta.model.clinical.es.*;
+import au.gov.nehta.model.clinical.es.AnatomicalSite;
+import au.gov.nehta.model.clinical.es.AnatomicalSiteImpl;
+import au.gov.nehta.model.clinical.es.DiagnosticInvestigations;
+import au.gov.nehta.model.clinical.es.DiagnosticInvestigationsImpl;
+import au.gov.nehta.model.clinical.es.ExaminationRequestDetails;
+import au.gov.nehta.model.clinical.es.ExaminationRequestDetailsImpl;
+import au.gov.nehta.model.clinical.es.ImageDetails;
+import au.gov.nehta.model.clinical.es.ImageDetailsImpl;
+import au.gov.nehta.model.clinical.es.ImagingExaminationResult;
+import au.gov.nehta.model.clinical.es.ImagingExaminationResultGroup;
+import au.gov.nehta.model.clinical.es.ImagingExaminationResultGroupImpl;
+import au.gov.nehta.model.clinical.es.ImagingExaminationResultImpl;
+import au.gov.nehta.model.clinical.es.ImagingResult;
+import au.gov.nehta.model.clinical.es.ImagingResultImpl;
+import au.gov.nehta.model.clinical.es.KnownMedication;
+import au.gov.nehta.model.clinical.es.KnownMedicationImpl;
+import au.gov.nehta.model.clinical.es.Medications;
+import au.gov.nehta.model.clinical.es.MedicationsImpl;
+import au.gov.nehta.model.clinical.es.NewlyIdentifiedAdverseReactions;
+import au.gov.nehta.model.clinical.es.NewlyIdentifiedAdverseReactionsImpl;
+import au.gov.nehta.model.clinical.es.OtherTestResult;
+import au.gov.nehta.model.clinical.es.OtherTestResultImpl;
+import au.gov.nehta.model.clinical.es.PathologyTestResult;
+import au.gov.nehta.model.clinical.es.ReactionEvent;
+import au.gov.nehta.model.clinical.es.ReactionEventImpl;
+import au.gov.nehta.model.clinical.es.ReferenceRange;
+import au.gov.nehta.model.clinical.es.ReferenceRangeDetails;
+import au.gov.nehta.model.clinical.es.RequestedService;
+import au.gov.nehta.model.clinical.es.RequestedServiceImpl;
+import au.gov.nehta.model.clinical.es.ResultValue;
+import au.gov.nehta.model.clinical.es.SpecificLocation;
 import au.gov.nehta.model.clinical.etp.common.item.AttachedMedia;
+import au.gov.nehta.model.clinical.etp.common.participation.Entitlement;
+import au.gov.nehta.model.clinical.etp.common.participation.EntitlementImpl;
 import au.gov.nehta.model.clinical.etp.common.participation.EntitlementType;
-import au.gov.nehta.model.clinical.etp.common.participation.*;
+import au.gov.nehta.model.clinical.etp.common.participation.ParticipationServiceProvider;
+import au.gov.nehta.model.clinical.etp.common.participation.ParticipationServiceProviderImpl;
+import au.gov.nehta.model.clinical.etp.common.participation.ServiceProvider;
+import au.gov.nehta.model.clinical.etp.common.participation.ServiceProviderImpl;
 import au.gov.nehta.model.clinical.shs.ExclusionStatement;
 import au.gov.nehta.model.clinical.shs.ExclusionStatementImpl;
+import au.gov.nehta.model.clinical.sl.Diagnosis;
+import au.gov.nehta.model.clinical.sl.OtherDiagnosisProcedureEntry;
 import au.gov.nehta.model.clinical.sl.Procedure;
-import au.gov.nehta.model.clinical.sl.*;
+import au.gov.nehta.model.clinical.sl.Recommendation;
+import au.gov.nehta.model.clinical.sl.Recommendations;
+import au.gov.nehta.model.clinical.sl.RecommendationsImpl;
+import au.gov.nehta.model.clinical.sl.ResponseDetails;
+import au.gov.nehta.model.clinical.sl.ResponseDetailsImpl;
+import au.gov.nehta.model.clinical.sl.ResponseNarrative;
+import au.gov.nehta.model.clinical.sl.SpecialistLetter;
+import au.gov.nehta.model.clinical.sl.SpecialistLetterContent;
+import au.gov.nehta.model.clinical.sl.SpecialistLetterContentImpl;
+import au.gov.nehta.model.clinical.sl.SpecialistLetterContext;
+import au.gov.nehta.model.clinical.sl.SpecialistLetterContextImpl;
+import au.gov.nehta.model.clinical.sl.SpecialistLetterImpl;
 import au.gov.nehta.model.clinical.sr.ServiceReferral;
 import au.gov.nehta.model.schematron.SchematronValidationException;
 import au.gov.nehta.schematron.Schematron;
 import au.gov.nehta.schematron.SchematronCheckResult;
-import junit.framework.Assert;
+import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Optional;
+import java.util.UUID;
+import javax.xml.bind.JAXBException;
+import javax.xml.parsers.ParserConfigurationException;
 import org.joda.time.DateTime;
 import org.junit.Test;
 import org.w3c.dom.Document;
 
-import javax.xml.bind.JAXBException;
-import javax.xml.parsers.ParserConfigurationException;
-import java.io.File;
-import java.util.*;
-
-import static au.gov.nehta.cda.es.EventSummaryTestHelper.getAttachedMedia;
-import static au.gov.nehta.cda.test.TestHelper.*;
-import static au.gov.nehta.model.schematron.SchematronResource.SchematronResources.SPECIALIST_LETTER_3A;
-
 public class SpecialistLetterMaxTest extends Base {
 
   private static final String SCHEMATRON = SPECIALIST_LETTER_3A.resource().getSchematron();
-  //  private static final String SCHEMATRON = SPECIALIST_LETTER_3B.resource().getSchematron();
-  private static String SCHEMATRON_TEMPLATE_PATH = "resources/SpecialistLetter";
-  private static final String DOCUMENT_FILE_NAME = TEST_GENERATION + "/sl/sl-max-java.xml";
-  private DateTime now = new DateTime();
+  private static String SCHEMATRON_TEMPLATE_PATH = "src/test/resources/SpecialistLetter";
+  private static final String DOCUMENT_FILE_NAME = "src/test/resources/generated_xml/specialist_letter/sl-max-java.xml";
+  private final DateTime now = new DateTime();
 
   @Test
   public void test_MAX_Specialist_Letter_Creation() {
     try {
-      if (!new File(SCHEMATRON_TEMPLATE_PATH + "/schematron/schematron-Validator-report.xsl").exists()) {
-        SCHEMATRON_TEMPLATE_PATH = "src/" + SCHEMATRON_TEMPLATE_PATH;
-      }
       generateMax();
       SchematronCheckResult check =
           Schematron.check(SCHEMATRON_TEMPLATE_PATH, SCHEMATRON, DOCUMENT_FILE_NAME);
       show(check);
-      Assert.assertEquals(0, check.schemaErrors.size());
-      Assert.assertEquals(0, check.schematronErrors.size());
+      assertEquals(0, check.schemaErrors.size());
+      assertEquals(0, check.schematronErrors.size());
     } catch (SchematronValidationException | ParserConfigurationException | JAXBException e) {
       e.printStackTrace();
     }

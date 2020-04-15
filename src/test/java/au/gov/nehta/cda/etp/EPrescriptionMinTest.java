@@ -117,7 +117,7 @@ import java.util.List;
 import java.util.UUID;
 import javax.xml.bind.JAXBException;
 import javax.xml.parsers.ParserConfigurationException;
-import junit.framework.Assert;
+import org.junit.Assert;
 import org.joda.time.DateTime;
 import org.joda.time.LocalDate;
 import org.joda.time.format.DateTimeFormat;

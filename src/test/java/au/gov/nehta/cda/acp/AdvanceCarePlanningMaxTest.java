@@ -1,5 +1,10 @@
 package au.gov.nehta.cda.acp;
 
+import static au.gov.nehta.cda.test.TestHelper.getAttachedMediaPDF;
+import static au.gov.nehta.cda.test.TestHelper.getCustodian;
+import static au.gov.nehta.cda.test.TestHelper.getDocumentAuthor;
+import static au.gov.nehta.cda.test.TestHelper.getLegalAuthenticator;
+
 import au.gov.nehta.builder.acp.AdvanceCarePlanningCreator;
 import au.gov.nehta.builder.util.CDATypeUtil;
 import au.gov.nehta.cda.test.Base;
@@ -9,20 +14,26 @@ import au.gov.nehta.model.cda.common.code.CodeImpl;
 import au.gov.nehta.model.cda.common.code.DocumentStatusCode;
 import au.gov.nehta.model.cda.common.document.ClinicalDocument;
 import au.gov.nehta.model.cda.common.document.ClinicalDocumentFactory;
-import au.gov.nehta.model.clinical.acp.*;
+import au.gov.nehta.model.clinical.acp.AdvanceCareInformationSection;
+import au.gov.nehta.model.clinical.acp.AdvanceCareInformationSectionImpl;
+import au.gov.nehta.model.clinical.acp.AdvanceCarePlanning;
+import au.gov.nehta.model.clinical.acp.AdvanceCarePlanningContent;
+import au.gov.nehta.model.clinical.acp.AdvanceCarePlanningContentImpl;
+import au.gov.nehta.model.clinical.acp.AdvanceCarePlanningContext;
+import au.gov.nehta.model.clinical.acp.AdvanceCarePlanningContextImpl;
+import au.gov.nehta.model.clinical.acp.AdvanceCarePlanningImpl;
+import au.gov.nehta.model.clinical.acp.DocumentDetails;
+import au.gov.nehta.model.clinical.acp.RelatedDocument;
 import au.gov.nehta.model.clinical.common.types.UniqueIdentifierImpl;
 import au.gov.nehta.model.schematron.SchematronValidationException;
 import au.gov.nehta.schematron.Schematron;
 import au.gov.nehta.schematron.SchematronCheckResult;
-import junit.framework.Assert;
-import org.joda.time.DateTime;
-import org.junit.Test;
-import org.w3c.dom.Document;
-
 import javax.xml.bind.JAXBException;
 import javax.xml.parsers.ParserConfigurationException;
-
-import static au.gov.nehta.cda.test.TestHelper.*;
+import org.joda.time.DateTime;
+import org.junit.Assert;
+import org.junit.Test;
+import org.w3c.dom.Document;
 
 public class AdvanceCarePlanningMaxTest extends Base {
 

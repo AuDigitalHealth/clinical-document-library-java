@@ -36,7 +36,7 @@ import au.gov.nehta.model.schematron.SchematronValidationException;
 import au.gov.nehta.schematron.Schematron;
 import au.gov.nehta.schematron.SchematronCheckResult;
 import au.net.electronichealth.ns.cda._2_0.NullFlavor;
-import junit.framework.Assert;
+import org.junit.Assert;
 import org.joda.time.DateTime;
 import org.joda.time.LocalDate;
 import org.junit.Test;

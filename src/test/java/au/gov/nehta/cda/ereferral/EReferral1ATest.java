@@ -1,7 +1,7 @@
 package au.gov.nehta.cda.ereferral;
 
 import static au.gov.nehta.model.schematron.SchematronResource.SchematronResources.SERVICE_REFERRAL_1A;
-import static junit.framework.Assert.assertEquals;
+import static org.junit.Assert.assertEquals;
 
 import au.gov.nehta.builder.ereferral.EReferralCreator;
 import au.gov.nehta.builder.ereferral.ReferralAuthor;

@@ -1,5 +1,13 @@
 package au.gov.nehta.cda.acd;
 
+import static au.gov.nehta.cda.test.TestHelper.getCustodian;
+import static au.gov.nehta.cda.test.TestHelper.getDocumentAuthor;
+import static au.gov.nehta.cda.test.TestHelper.getLegalAuthenticator;
+import static au.gov.nehta.cda.test.TestHelper.getServiceProviderIndividual;
+import static au.gov.nehta.cda.test.TestHelper.getServiceProviderOrganization;
+import static au.gov.nehta.cda.test.TestHelper.getSubjectOfCareParticipant;
+import static au.gov.nehta.model.schematron.SchematronResource.SchematronResources.ADVANCE_CARE_DIRECTIVE_3A;
+
 import au.gov.nehta.builder.acd.AdvanceCareDirectiveCreator;
 import au.gov.nehta.cda.test.Base;
 import au.gov.nehta.cda.test.TestHelper;
@@ -12,24 +20,25 @@ import au.gov.nehta.model.cda.common.time.PreciseDate;
 import au.gov.nehta.model.cda.common.time.Precision;
 import au.gov.nehta.model.cda.common.time.PrecisionDate;
 import au.gov.nehta.model.cda.common.time.RestrictedTimeInterval;
-import au.gov.nehta.model.clinical.acd.*;
+import au.gov.nehta.model.clinical.acd.AdvanceCareDirective;
+import au.gov.nehta.model.clinical.acd.AdvanceCareDirectiveContent;
+import au.gov.nehta.model.clinical.acd.AdvanceCareDirectiveContentImpl;
+import au.gov.nehta.model.clinical.acd.AdvanceCareDirectiveContext;
+import au.gov.nehta.model.clinical.acd.AdvanceCareDirectiveContextImpl;
+import au.gov.nehta.model.clinical.acd.AdvanceCareDirectiveImpl;
 import au.gov.nehta.model.clinical.etp.common.participation.ParticipationServiceProvider;
 import au.gov.nehta.model.clinical.etp.common.participation.ParticipationServiceProviderImpl;
 import au.gov.nehta.model.schematron.SchematronValidationException;
 import au.gov.nehta.schematron.Schematron;
 import au.gov.nehta.schematron.SchematronCheckResult;
-import junit.framework.Assert;
-import org.joda.time.DateTime;
-import org.junit.Test;
-import org.w3c.dom.Document;
-
-import javax.xml.bind.JAXBException;
-import javax.xml.parsers.ParserConfigurationException;
 import java.util.LinkedList;
 import java.util.List;
-
-import static au.gov.nehta.cda.test.TestHelper.*;
-import static au.gov.nehta.model.schematron.SchematronResource.SchematronResources.ADVANCE_CARE_DIRECTIVE_3A;
+import javax.xml.bind.JAXBException;
+import javax.xml.parsers.ParserConfigurationException;
+import org.joda.time.DateTime;
+import org.junit.Assert;
+import org.junit.Test;
+import org.w3c.dom.Document;
 
 public class AdvanceCareDirectiveMaxTest extends Base {
 

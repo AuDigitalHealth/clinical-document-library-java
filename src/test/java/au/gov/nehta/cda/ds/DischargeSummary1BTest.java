@@ -23,7 +23,7 @@ import au.gov.nehta.schematron.Schematron;
 import au.gov.nehta.schematron.SchematronCheckResult;
 import au.net.electronichealth.ns.cda._2_0.ObjectFactory;
 import au.net.electronichealth.ns.cda._2_0.StrucDocText;
-import junit.framework.Assert;
+import org.junit.Assert;
 import org.joda.time.DateTime;
 import org.junit.Test;
 import org.w3c.dom.Document;

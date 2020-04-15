@@ -52,7 +52,7 @@ import java.util.*;
 import static au.gov.nehta.cda.es.EventSummaryTestHelper.getAttachedMedia;
 import static au.gov.nehta.cda.test.TestHelper.*;
 import static au.gov.nehta.model.schematron.SchematronResource.SchematronResources.EVENT_SUMMARY_3A;
-import static junit.framework.Assert.assertEquals;
+import static org.junit.Assert.assertEquals;
 
 public class EventSummaryMaxTest extends Base {
 

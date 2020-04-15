@@ -1,11 +1,27 @@
-package nehta.cda.sr;
+package au.gov.nehta.cda.sr;
+
+import static au.gov.nehta.cda.test.TestHelper.getAttachedMediaPDF;
+import static au.gov.nehta.cda.test.TestHelper.getCustodian;
+import static au.gov.nehta.cda.test.TestHelper.getDiagnosticInvestigations;
+import static au.gov.nehta.cda.test.TestHelper.getInformationRecipients;
+import static au.gov.nehta.cda.test.TestHelper.getLegalAuthenticator;
+import static au.gov.nehta.cda.test.TestHelper.getMedications;
+import static au.gov.nehta.cda.test.TestHelper.getServiceProviderIndividual;
+import static au.gov.nehta.cda.test.TestHelper.getServiceProviderOrganization;
+import static au.gov.nehta.cda.test.TestHelper.getSubjectOfCareParticipant;
+import static au.gov.nehta.model.schematron.SchematronResource.SchematronResources.SERVICE_REFERRAL_3A;
+import static org.junit.Assert.assertEquals;
 
 import au.gov.nehta.builder.sr.ServiceReferralCreator;
 import au.gov.nehta.builder.util.CDATypeUtil;
 import au.gov.nehta.builder.util.UUIDTool;
 import au.gov.nehta.cda.test.Base;
 import au.gov.nehta.cda.test.TestHelper;
-import au.gov.nehta.model.cda.common.code.*;
+import au.gov.nehta.model.cda.common.code.Code;
+import au.gov.nehta.model.cda.common.code.CodeImpl;
+import au.gov.nehta.model.cda.common.code.Coded;
+import au.gov.nehta.model.cda.common.code.DocumentStatusCode;
+import au.gov.nehta.model.cda.common.code.SNOMED_AU_Code;
 import au.gov.nehta.model.cda.common.document.ClinicalDocument;
 import au.gov.nehta.model.cda.common.document.ClinicalDocumentFactory;
 import au.gov.nehta.model.cda.common.time.PreciseDate;
@@ -13,61 +29,71 @@ import au.gov.nehta.model.cda.common.time.Precision;
 import au.gov.nehta.model.cda.common.time.PrecisionDate;
 import au.gov.nehta.model.cda.common.time.RestrictedTimeInterval;
 import au.gov.nehta.model.cda.sr.ServiceReferralCDAModel;
-import au.gov.nehta.model.clinical.common.*;
+import au.gov.nehta.model.clinical.common.DocumentAuthor;
+import au.gov.nehta.model.clinical.common.EventTypes;
+import au.gov.nehta.model.clinical.common.MedicalHistory;
+import au.gov.nehta.model.clinical.common.ProblemDiagnosis;
+import au.gov.nehta.model.clinical.common.ProblemDiagnosisImpl;
+import au.gov.nehta.model.clinical.common.UncategorisedMedicalHistoryItem;
+import au.gov.nehta.model.clinical.common.UncategorisedMedicalHistoryItemImpl;
 import au.gov.nehta.model.clinical.common.types.UniqueIdentifierImpl;
 import au.gov.nehta.model.clinical.es.AdverseReaction;
 import au.gov.nehta.model.clinical.es.AdverseReactionImpl;
+import au.gov.nehta.model.clinical.es.DiagnosticInvestigations;
 import au.gov.nehta.model.clinical.es.Medications;
 import au.gov.nehta.model.clinical.es.Procedure;
 import au.gov.nehta.model.clinical.es.ProcedureImpl;
 import au.gov.nehta.model.clinical.es.ReactionEvent;
 import au.gov.nehta.model.clinical.es.ReactionEventImpl;
-import au.gov.nehta.model.clinical.es.*;
 import au.gov.nehta.model.clinical.etp.common.item.AttachedMedia;
 import au.gov.nehta.model.clinical.etp.common.participation.ParticipationServiceProvider;
 import au.gov.nehta.model.clinical.etp.common.participation.ParticipationServiceProviderImpl;
 import au.gov.nehta.model.clinical.sr.AdverseReactions;
 import au.gov.nehta.model.clinical.sr.AdverseReactionsImpl;
+import au.gov.nehta.model.clinical.sr.CurrentServices;
+import au.gov.nehta.model.clinical.sr.DocumentDetail;
+import au.gov.nehta.model.clinical.sr.InterpreterRequiredAlert;
+import au.gov.nehta.model.clinical.sr.OtherAlert;
+import au.gov.nehta.model.clinical.sr.RelatedDocument;
+import au.gov.nehta.model.clinical.sr.RelatedDocumentImpl;
 import au.gov.nehta.model.clinical.sr.RequestedService;
 import au.gov.nehta.model.clinical.sr.RequestedServiceImpl;
-import au.gov.nehta.model.clinical.sr.*;
+import au.gov.nehta.model.clinical.sr.ServiceReferral;
+import au.gov.nehta.model.clinical.sr.ServiceReferralContent;
+import au.gov.nehta.model.clinical.sr.ServiceReferralContentImpl;
+import au.gov.nehta.model.clinical.sr.ServiceReferralContext;
+import au.gov.nehta.model.clinical.sr.ServiceReferralContextImpl;
+import au.gov.nehta.model.clinical.sr.ServiceReferralDetail;
+import au.gov.nehta.model.clinical.sr.ServiceReferralDetailImpl;
+import au.gov.nehta.model.clinical.sr.ServiceReferralImpl;
 import au.gov.nehta.model.schematron.SchematronValidationException;
 import au.gov.nehta.schematron.Schematron;
 import au.gov.nehta.schematron.SchematronCheckResult;
-import junit.framework.Assert;
-import org.joda.time.DateTime;
-import org.junit.Test;
-import org.w3c.dom.Document;
-
-import javax.xml.bind.JAXBException;
-import javax.xml.parsers.ParserConfigurationException;
-import java.io.File;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.UUID;
-
-import static au.gov.nehta.cda.test.TestHelper.*;
-import static au.gov.nehta.model.schematron.SchematronResource.SchematronResources.SERVICE_REFERRAL_3A;
+import javax.xml.bind.JAXBException;
+import javax.xml.parsers.ParserConfigurationException;
+import org.joda.time.DateTime;
+import org.junit.Test;
+import org.w3c.dom.Document;
 
 public class ServiceReferralMaxTest extends Base {
 
   private static final String SCHEMATRON = SERVICE_REFERRAL_3A.resource().getSchematron();
-  private static String SCHEMATRON_TEMPLATE_PATH = "resources/ServiceReferral";
-  private static final String DOCUMENT_FILE_NAME = TEST_GENERATION + "/sr/sr-max-java.xml";
+  private static String SCHEMATRON_TEMPLATE_PATH = "src/test/resources/ServiceReferral";
+  private static final String DOCUMENT_FILE_NAME = "src/test/resources/generated_xml/service_referral/sr-max-java.xml";
 
   @Test
   public void test_MAX_Discharge_Summary_Creation() {
     try {
-      if (!new File(SCHEMATRON_TEMPLATE_PATH + "/schematron/schematron-Validator-report.xsl").exists()) {
-        SCHEMATRON_TEMPLATE_PATH = "src/" + SCHEMATRON_TEMPLATE_PATH;
-      }
       generateMax();
       SchematronCheckResult check =
           Schematron.check(SCHEMATRON_TEMPLATE_PATH, SCHEMATRON, DOCUMENT_FILE_NAME);
       show(check);
-      Assert.assertEquals(0, check.schemaErrors.size());
-      Assert.assertEquals(0, check.schematronErrors.size());
+      assertEquals(0, check.schemaErrors.size());
+      assertEquals(0, check.schematronErrors.size());
     } catch (SchematronValidationException | ParserConfigurationException | JAXBException e) {
       e.printStackTrace();
     }

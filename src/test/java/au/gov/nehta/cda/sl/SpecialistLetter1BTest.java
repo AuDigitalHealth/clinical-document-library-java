@@ -1,4 +1,13 @@
-package nehta.cda.sl;
+package au.gov.nehta.cda.sl;
+
+import static au.gov.nehta.builder.DocumentCreatorUtil.HL7_TEXT_MEDIA_TYPE;
+import static au.gov.nehta.cda.test.TestHelper.getCustodian;
+import static au.gov.nehta.cda.test.TestHelper.getDocumentAuthor;
+import static au.gov.nehta.cda.test.TestHelper.getInformationRecipients;
+import static au.gov.nehta.cda.test.TestHelper.getLegalAuthenticator;
+import static au.gov.nehta.cda.test.TestHelper.getSubjectOfCareParticipant;
+import static au.gov.nehta.model.schematron.SchematronResource.SchematronResources.SPECIALIST_LETTER_1B;
+import static org.junit.Assert.assertEquals;
 
 import au.gov.nehta.builder.sl.SpecialistLetterCreator;
 import au.gov.nehta.builder.util.UUIDTool;
@@ -13,47 +22,41 @@ import au.gov.nehta.model.cda.sl.SpecialistLetterCDAModel;
 import au.gov.nehta.model.clinical.common.DocumentAuthor;
 import au.gov.nehta.model.clinical.etp.common.participation.ParticipationServiceProvider;
 import au.gov.nehta.model.clinical.etp.common.participation.ParticipationServiceProviderImpl;
-import au.gov.nehta.model.clinical.sl.*;
+import au.gov.nehta.model.clinical.sl.SpecialistLetter;
+import au.gov.nehta.model.clinical.sl.SpecialistLetterContent;
+import au.gov.nehta.model.clinical.sl.SpecialistLetterContentImpl;
+import au.gov.nehta.model.clinical.sl.SpecialistLetterContext;
+import au.gov.nehta.model.clinical.sl.SpecialistLetterContextImpl;
+import au.gov.nehta.model.clinical.sl.SpecialistLetterImpl;
 import au.gov.nehta.model.schematron.SchematronValidationException;
 import au.gov.nehta.schematron.Schematron;
 import au.gov.nehta.schematron.SchematronCheckResult;
 import au.net.electronichealth.ns.cda._2_0.ObjectFactory;
 import au.net.electronichealth.ns.cda._2_0.StrucDocText;
-import junit.framework.Assert;
+import java.util.UUID;
+import javax.xml.bind.JAXBException;
+import javax.xml.parsers.ParserConfigurationException;
 import org.joda.time.DateTime;
 import org.junit.Test;
 import org.w3c.dom.Document;
 
-import javax.xml.bind.JAXBException;
-import javax.xml.parsers.ParserConfigurationException;
-import java.io.File;
-import java.util.UUID;
-
-import static au.gov.nehta.builder.DocumentCreatorUtil.HL7_TEXT_MEDIA_TYPE;
-import static au.gov.nehta.cda.test.TestHelper.*;
-import static au.gov.nehta.model.schematron.SchematronResource.SchematronResources.SPECIALIST_LETTER_1B;
-
 public class SpecialistLetter1BTest extends Base {
-  private static final String SCHEMATRON = SPECIALIST_LETTER_1B.resource().getSchematron();
-  private static String SCHEMATRON_TEMPLATE_PATH = "resources/SpecialistLetter";
-  private static final String DOCUMENT_FILE_NAME =
-      TEST_GENERATION + "/sl/SpecialistLetter_format_1B.xml";
 
-  private static ObjectFactory objectFactory = new ObjectFactory();
-  private DateTime now = new DateTime();
+  private static final String SCHEMATRON = SPECIALIST_LETTER_1B.resource().getSchematron();
+  private static final String DOCUMENT_FILE_NAME = "src/test/resources/generated_xml/specialist_letter/SpecialistLetter_format_1B.xml";
+
+  private static final ObjectFactory objectFactory = new ObjectFactory();
+  private final DateTime now = new DateTime();
 
   @Test
   public void test_1B_Specialist_Letter_Creation() {
-    if (!new File(SCHEMATRON_TEMPLATE_PATH
-        + "/schematron/schematron-Validator-report.xsl").exists()) {
-      SCHEMATRON_TEMPLATE_PATH = "src/" + SCHEMATRON_TEMPLATE_PATH;
-    }
     generate1B();
+    String SCHEMATRON_TEMPLATE_PATH = "src/test/resources/SpecialistLetter";
     SchematronCheckResult check =
         Schematron.check(SCHEMATRON_TEMPLATE_PATH, SCHEMATRON, DOCUMENT_FILE_NAME);
     show(check);
-    Assert.assertEquals(0, check.schemaErrors.size());
-    Assert.assertEquals(0, check.schematronErrors.size());
+    assertEquals(0, check.schemaErrors.size());
+    assertEquals(0, check.schematronErrors.size());
   }
 
   public void generate1B() {

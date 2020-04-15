@@ -1,4 +1,9 @@
-package nehta.cda.goc;
+package au.gov.nehta.cda.goc;
+
+import static au.gov.nehta.cda.test.TestHelper.getAttachedMediaPDF;
+import static au.gov.nehta.cda.test.TestHelper.getCustodian;
+import static au.gov.nehta.cda.test.TestHelper.getDocumentAuthor;
+import static au.gov.nehta.cda.test.TestHelper.getLegalAuthenticator;
 
 import au.gov.nehta.builder.goc.GoalsOfCareCreator;
 import au.gov.nehta.builder.util.CDATypeUtil;
@@ -9,35 +14,36 @@ import au.gov.nehta.model.cda.common.code.CodeImpl;
 import au.gov.nehta.model.cda.common.code.DocumentStatusCode;
 import au.gov.nehta.model.cda.common.document.ClinicalDocument;
 import au.gov.nehta.model.cda.common.document.ClinicalDocumentFactory;
-import au.gov.nehta.model.clinical.acp.*;
+import au.gov.nehta.model.clinical.acp.AdvanceCareInformationSection;
+import au.gov.nehta.model.clinical.acp.AdvanceCareInformationSectionImpl;
+import au.gov.nehta.model.clinical.acp.AdvanceCarePlanning;
+import au.gov.nehta.model.clinical.acp.AdvanceCarePlanningContent;
+import au.gov.nehta.model.clinical.acp.AdvanceCarePlanningContentImpl;
+import au.gov.nehta.model.clinical.acp.AdvanceCarePlanningContext;
+import au.gov.nehta.model.clinical.acp.AdvanceCarePlanningContextImpl;
+import au.gov.nehta.model.clinical.acp.AdvanceCarePlanningImpl;
+import au.gov.nehta.model.clinical.acp.DocumentDetails;
+import au.gov.nehta.model.clinical.acp.RelatedDocument;
 import au.gov.nehta.model.clinical.common.types.UniqueIdentifierImpl;
 import au.gov.nehta.model.schematron.SchematronValidationException;
 import au.gov.nehta.schematron.Schematron;
 import au.gov.nehta.schematron.SchematronCheckResult;
-import junit.framework.Assert;
+import javax.xml.bind.JAXBException;
+import javax.xml.parsers.ParserConfigurationException;
+import org.junit.Assert;
 import org.joda.time.DateTime;
 import org.junit.Test;
 import org.w3c.dom.Document;
 
-import javax.xml.bind.JAXBException;
-import javax.xml.parsers.ParserConfigurationException;
-import java.io.File;
-
-import static au.gov.nehta.cda.test.TestHelper.*;
-
 public class GoalsOfCareMaxTest extends Base {
 
   private static final String SCHEMATRON = "ccd-3A.sch";
-  private static String SCHEMATRON_TEMPLATE_PATH = "resources/GoalsOfCare";
-  private static final String DOCUMENT_FILE_NAME = TEST_GENERATION + "/goc/goc-max-java.xml";
+  private static String SCHEMATRON_TEMPLATE_PATH = "src/test/resources/GoalsOfCare";
+  private static final String DOCUMENT_FILE_NAME = "src/test/resources/generated_xml/goals_of_care/goc-max-java.xml";
 
   @Test
   public void test_MAX_Advance_Care_Planning_Creation() {
     try {
-
-      if (!new File(SCHEMATRON_TEMPLATE_PATH + "/schematron/schematron-Validator-report.xsl").exists()) {
-        SCHEMATRON_TEMPLATE_PATH = "src/" + SCHEMATRON_TEMPLATE_PATH;
-      }
       generateMax();
       SchematronCheckResult check =
           Schematron.check(SCHEMATRON_TEMPLATE_PATH, SCHEMATRON, DOCUMENT_FILE_NAME);

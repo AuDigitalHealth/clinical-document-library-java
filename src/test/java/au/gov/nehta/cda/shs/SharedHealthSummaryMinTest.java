@@ -1,4 +1,7 @@
-package nehta.cda.shs;
+package au.gov.nehta.cda.shs;
+
+import static au.gov.nehta.model.schematron.SchematronResource.SchematronResources.SHARED_HEALTH_SUMMARY_3B;
+import static org.junit.Assert.assertEquals;
 
 import au.gov.nehta.builder.shs.SharedHealthSummaryCreator;
 import au.gov.nehta.builder.util.UUIDTool;
@@ -8,10 +11,20 @@ import au.gov.nehta.model.cda.common.code.AMTCode;
 import au.gov.nehta.model.cda.common.code.Coded;
 import au.gov.nehta.model.cda.common.code.DocumentStatusCode;
 import au.gov.nehta.model.cda.common.code.SNOMED_AU_Code;
-import au.gov.nehta.model.cda.common.custodian.*;
+import au.gov.nehta.model.cda.common.custodian.AssignedCustodian;
+import au.gov.nehta.model.cda.common.custodian.AssignedCustodianImpl;
+import au.gov.nehta.model.cda.common.custodian.Custodian;
+import au.gov.nehta.model.cda.common.custodian.CustodianImpl;
+import au.gov.nehta.model.cda.common.custodian.CustodianOrganization;
+import au.gov.nehta.model.cda.common.custodian.CustodianOrganizationImpl;
 import au.gov.nehta.model.cda.common.document.ClinicalDocument;
 import au.gov.nehta.model.cda.common.document.ClinicalDocumentFactory;
-import au.gov.nehta.model.cda.common.id.*;
+import au.gov.nehta.model.cda.common.id.AsEntityIdentifier;
+import au.gov.nehta.model.cda.common.id.AssignedEntityImpl;
+import au.gov.nehta.model.cda.common.id.LegalAuthenticator;
+import au.gov.nehta.model.cda.common.id.LegalAuthenticatorImpl;
+import au.gov.nehta.model.cda.common.id.MedicareCardIdentifier;
+import au.gov.nehta.model.cda.common.id.TemplateIdImpl;
 import au.gov.nehta.model.cda.common.org.OrganizationNameImpl;
 import au.gov.nehta.model.cda.common.telecom.Telecom;
 import au.gov.nehta.model.cda.common.telecom.TelecomImpl;
@@ -20,48 +33,89 @@ import au.gov.nehta.model.cda.common.telecom.TelecomUse;
 import au.gov.nehta.model.cda.common.time.Precision;
 import au.gov.nehta.model.cda.common.time.PrecisionDate;
 import au.gov.nehta.model.cda.shs.SharedHealthSummaryCDAModel;
-import au.gov.nehta.model.clinical.common.*;
-import au.gov.nehta.model.clinical.common.participation.*;
+import au.gov.nehta.model.clinical.common.Immunisation;
+import au.gov.nehta.model.clinical.common.ImmunisationImpl;
+import au.gov.nehta.model.clinical.common.KnownMedication;
+import au.gov.nehta.model.clinical.common.KnownMedicationImpl;
+import au.gov.nehta.model.clinical.common.ProblemDiagnosis;
+import au.gov.nehta.model.clinical.common.ProblemDiagnosisImpl;
+import au.gov.nehta.model.clinical.common.Procedure;
+import au.gov.nehta.model.clinical.common.ProcedureImpl;
+import au.gov.nehta.model.clinical.common.SubjectOfCareDemographicData;
+import au.gov.nehta.model.clinical.common.SubjectOfCareDemographicDataImpl;
+import au.gov.nehta.model.clinical.common.SubjectOfCareParticipant;
+import au.gov.nehta.model.clinical.common.SubjectOfCareParticipantImpl;
+import au.gov.nehta.model.clinical.common.SubjectOfCarePerson;
+import au.gov.nehta.model.clinical.common.SubjectOfCarePersonImpl;
+import au.gov.nehta.model.clinical.common.participation.ANZSCO_1ED_2006;
+import au.gov.nehta.model.clinical.common.participation.AddressContextImpl;
+import au.gov.nehta.model.clinical.common.participation.AddressPurpose;
+import au.gov.nehta.model.clinical.common.participation.AustralianAddress;
+import au.gov.nehta.model.clinical.common.participation.AustralianAddressImpl;
+import au.gov.nehta.model.clinical.common.participation.AustralianStateTerritory;
+import au.gov.nehta.model.clinical.common.participation.DateOfBirthDetail;
+import au.gov.nehta.model.clinical.common.participation.DateOfBirthDetailImpl;
+import au.gov.nehta.model.clinical.common.participation.IndigenousStatus;
+import au.gov.nehta.model.clinical.common.participation.PersonName;
+import au.gov.nehta.model.clinical.common.participation.PersonNameImpl;
+import au.gov.nehta.model.clinical.common.participation.Sex;
 import au.gov.nehta.model.clinical.common.types.AdverseReaction;
 import au.gov.nehta.model.clinical.common.types.AdverseReactionImpl;
-import au.gov.nehta.model.clinical.common.types.*;
+import au.gov.nehta.model.clinical.common.types.HPII;
+import au.gov.nehta.model.clinical.common.types.HPIO;
+import au.gov.nehta.model.clinical.common.types.IHI;
+import au.gov.nehta.model.clinical.common.types.Manifestation;
+import au.gov.nehta.model.clinical.common.types.ManifestationImpl;
+import au.gov.nehta.model.clinical.common.types.UniqueIdentifier;
+import au.gov.nehta.model.clinical.common.types.UniqueIdentifierImpl;
 import au.gov.nehta.model.clinical.diagnostic.pathology.ExtendedEmploymentOrganisationImpl;
 import au.gov.nehta.model.clinical.etp.common.participation.AddressContext;
+import au.gov.nehta.model.clinical.shs.AdverseReactions;
+import au.gov.nehta.model.clinical.shs.AdverseReactionsImpl;
+import au.gov.nehta.model.clinical.shs.Immunisations;
+import au.gov.nehta.model.clinical.shs.ImmunisationsImpl;
 import au.gov.nehta.model.clinical.shs.MedicalHistory;
-import au.gov.nehta.model.clinical.shs.*;
+import au.gov.nehta.model.clinical.shs.MedicalHistoryImpl;
+import au.gov.nehta.model.clinical.shs.Medications;
+import au.gov.nehta.model.clinical.shs.MedicationsImpl;
+import au.gov.nehta.model.clinical.shs.ProblemDiagnoses;
+import au.gov.nehta.model.clinical.shs.ProblemDiagnosesImpl;
+import au.gov.nehta.model.clinical.shs.Procedures;
+import au.gov.nehta.model.clinical.shs.ProceduresImpl;
+import au.gov.nehta.model.clinical.shs.SharedHealthSummary;
+import au.gov.nehta.model.clinical.shs.SharedHealthSummaryAuthor;
+import au.gov.nehta.model.clinical.shs.SharedHealthSummaryAuthorImpl;
+import au.gov.nehta.model.clinical.shs.SharedHealthSummaryContent;
+import au.gov.nehta.model.clinical.shs.SharedHealthSummaryContentImpl;
+import au.gov.nehta.model.clinical.shs.SharedHealthSummaryContext;
+import au.gov.nehta.model.clinical.shs.SharedHealthSummaryContextImpl;
+import au.gov.nehta.model.clinical.shs.SharedHealthSummaryImpl;
+import au.gov.nehta.model.clinical.shs.UncatagorisedMedicalHistoryItem;
+import au.gov.nehta.model.clinical.shs.UncatagorisedMedicalHistoryItemImpl;
 import au.gov.nehta.schematron.Schematron;
 import au.gov.nehta.schematron.SchematronCheckResult;
-import junit.framework.Assert;
-import org.joda.time.DateTime;
-import org.joda.time.LocalDate;
-import org.junit.Test;
-import org.w3c.dom.Document;
-
 import java.io.File;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 import java.util.UUID;
-
-import static au.gov.nehta.model.schematron.SchematronResource.SchematronResources.SHARED_HEALTH_SUMMARY_3B;
+import org.joda.time.DateTime;
+import org.joda.time.LocalDate;
+import org.junit.Test;
+import org.w3c.dom.Document;
 
 
 public class SharedHealthSummaryMinTest extends Base {
 
   private static final String SCHEMATRON = SHARED_HEALTH_SUMMARY_3B.resource().getSchematron();
-  private static String SCHEMATRON_TEMPLATE_PATH = "resources/SharedHealthSummary";
+  private static String SCHEMATRON_TEMPLATE_PATH = "src/test/resources/SharedHealthSummary";
 
-  private static final String DOCUMENT_FILE_NAME = TEST_GENERATION + "/shs/shs-min-java.xml";
-  private static final String MIN_EXCLUDED_DOCUMENT_FILE_NAME =
-      TEST_GENERATION + "/shs/shs-min-excluded-java.xml";
+  private static final String DOCUMENT_FILE_NAME = "src/test/resources/generated_xml/shared_health_summary/shs-min-java.xml";
+  private static final String MIN_EXCLUDED_DOCUMENT_FILE_NAME = "src/test/resources/generated_xml/shared_health_summary/shs-min-excluded-java.xml";
 
 
   @Test
   public void test_MIN_shsCreation() throws Exception {
-    if (!new File(SCHEMATRON_TEMPLATE_PATH
-        + "/schematron/schematron-Validator-report.xsl").exists()) {
-      SCHEMATRON_TEMPLATE_PATH = "src/" + SCHEMATRON_TEMPLATE_PATH;
-    }
     generateMin();
 
     SchematronCheckResult check = Schematron
@@ -69,8 +123,8 @@ public class SharedHealthSummaryMinTest extends Base {
 
     show(check);
 
-    Assert.assertEquals(0, check.schemaErrors.size());
-    Assert.assertEquals(0, check.schematronErrors.size());
+    assertEquals(0, check.schemaErrors.size());
+    assertEquals(0, check.schematronErrors.size());
 
 
   }
@@ -92,8 +146,8 @@ public class SharedHealthSummaryMinTest extends Base {
 
     show(check);
 
-    Assert.assertEquals(0, check.schemaErrors.size());
-    Assert.assertEquals(0, check.schematronErrors.size());
+    assertEquals(0, check.schemaErrors.size());
+    assertEquals(0, check.schematronErrors.size());
   }
 
 

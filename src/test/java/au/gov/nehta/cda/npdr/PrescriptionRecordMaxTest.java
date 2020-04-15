@@ -1,4 +1,6 @@
-package nehta.cda.npdr;
+package au.gov.nehta.cda.npdr;
+
+import static org.junit.Assert.assertEquals;
 
 import au.gov.nehta.builder.npdr.prescriptionrecord.PrescriptionCreator;
 import au.gov.nehta.builder.util.UUIDTool;
@@ -7,13 +9,29 @@ import au.gov.nehta.cda.test.TestHelper;
 import au.gov.nehta.model.cda.common.address.PostalAddress;
 import au.gov.nehta.model.cda.common.address.PostalAddressImpl;
 import au.gov.nehta.model.cda.common.address.PostalAddressUseEnum;
-import au.gov.nehta.model.cda.common.code.*;
-import au.gov.nehta.model.cda.common.custodian.*;
+import au.gov.nehta.model.cda.common.code.AMTCode;
+import au.gov.nehta.model.cda.common.code.Code;
+import au.gov.nehta.model.cda.common.code.CodeImpl;
+import au.gov.nehta.model.cda.common.code.PBSCode;
+import au.gov.nehta.model.cda.common.code.SNOMED_AU_Code;
+import au.gov.nehta.model.cda.common.custodian.AssignedCustodian;
+import au.gov.nehta.model.cda.common.custodian.AssignedCustodianImpl;
+import au.gov.nehta.model.cda.common.custodian.Custodian;
+import au.gov.nehta.model.cda.common.custodian.CustodianImpl;
+import au.gov.nehta.model.cda.common.custodian.CustodianOrganization;
+import au.gov.nehta.model.cda.common.custodian.CustodianOrganizationImpl;
 import au.gov.nehta.model.cda.common.document.BaseClinicalDocument;
 import au.gov.nehta.model.cda.common.document.ClinicalDocumentFactory;
 import au.gov.nehta.model.cda.common.document.RelatedDocument;
 import au.gov.nehta.model.cda.common.document.TransformRelatedDocument;
-import au.gov.nehta.model.cda.common.id.*;
+import au.gov.nehta.model.cda.common.id.AsEntityIdentifier;
+import au.gov.nehta.model.cda.common.id.AsEntityIdentifierImpl;
+import au.gov.nehta.model.cda.common.id.AssignedEntity;
+import au.gov.nehta.model.cda.common.id.AssignedEntityImpl;
+import au.gov.nehta.model.cda.common.id.LegalAuthenticator;
+import au.gov.nehta.model.cda.common.id.LegalAuthenticatorImpl;
+import au.gov.nehta.model.cda.common.id.MedicareCardIdentifier;
+import au.gov.nehta.model.cda.common.id.TemplateIdImpl;
 import au.gov.nehta.model.cda.common.org.Organization;
 import au.gov.nehta.model.cda.common.org.OrganizationImpl;
 import au.gov.nehta.model.cda.common.org.OrganizationName;
@@ -24,53 +42,109 @@ import au.gov.nehta.model.cda.common.telecom.Telecom;
 import au.gov.nehta.model.cda.common.telecom.TelecomImpl;
 import au.gov.nehta.model.cda.common.telecom.TelecomMedium;
 import au.gov.nehta.model.cda.common.telecom.TelecomUse;
-import au.gov.nehta.model.cda.common.time.*;
+import au.gov.nehta.model.cda.common.time.PeriodicIntervalTime;
+import au.gov.nehta.model.cda.common.time.PreciseDate;
+import au.gov.nehta.model.cda.common.time.Precision;
+import au.gov.nehta.model.cda.common.time.PrecisionDate;
+import au.gov.nehta.model.cda.common.time.RestrictedTimeInterval;
+import au.gov.nehta.model.cda.common.time.SimplifiedPeriodicIntervalTime;
+import au.gov.nehta.model.cda.common.time.TimeQuantity;
+import au.gov.nehta.model.cda.common.time.TimeUnitOfMeasure;
 import au.gov.nehta.model.cda.npdr.PCEHRPrescriptionItem;
 import au.gov.nehta.model.cda.npdr.PCEHRPrescriptionItemBuilder;
 import au.gov.nehta.model.cda.npdr.PrescriptionCdaModel;
-import au.gov.nehta.model.clinical.common.*;
-import au.gov.nehta.model.clinical.common.participation.*;
-import au.gov.nehta.model.clinical.common.types.*;
-import au.gov.nehta.model.clinical.etp.common.item.*;
+import au.gov.nehta.model.clinical.common.SubjectOfCareDemographicData;
+import au.gov.nehta.model.clinical.common.SubjectOfCareDemographicDataImpl;
+import au.gov.nehta.model.clinical.common.SubjectOfCareParticipant;
+import au.gov.nehta.model.clinical.common.SubjectOfCareParticipantImpl;
+import au.gov.nehta.model.clinical.common.SubjectOfCarePerson;
+import au.gov.nehta.model.clinical.common.SubjectOfCarePersonImpl;
+import au.gov.nehta.model.clinical.common.participation.ANZSCO_1ED_2006;
+import au.gov.nehta.model.clinical.common.participation.AddressContextImpl;
+import au.gov.nehta.model.clinical.common.participation.AddressPurpose;
+import au.gov.nehta.model.clinical.common.participation.AustralianAddress;
+import au.gov.nehta.model.clinical.common.participation.AustralianAddressImpl;
+import au.gov.nehta.model.clinical.common.participation.AustralianStateTerritory;
+import au.gov.nehta.model.clinical.common.participation.DateAccuracy;
+import au.gov.nehta.model.clinical.common.participation.DateAccuracyImpl;
+import au.gov.nehta.model.clinical.common.participation.DateOfBirthDetail;
+import au.gov.nehta.model.clinical.common.participation.DateOfBirthDetailImpl;
+import au.gov.nehta.model.clinical.common.participation.IndigenousStatus;
+import au.gov.nehta.model.clinical.common.participation.NameSuffix;
+import au.gov.nehta.model.clinical.common.participation.NameTitle;
+import au.gov.nehta.model.clinical.common.participation.Occupation;
+import au.gov.nehta.model.clinical.common.participation.OccupationImpl;
+import au.gov.nehta.model.clinical.common.participation.Organisation;
+import au.gov.nehta.model.clinical.common.participation.OrganisationImpl;
+import au.gov.nehta.model.clinical.common.participation.OrganisationNameUsage;
+import au.gov.nehta.model.clinical.common.participation.PersonName;
+import au.gov.nehta.model.clinical.common.participation.PersonNameImpl;
+import au.gov.nehta.model.clinical.common.participation.PersonNameUsage;
+import au.gov.nehta.model.clinical.common.participation.Role;
+import au.gov.nehta.model.clinical.common.participation.RoleImpl;
+import au.gov.nehta.model.clinical.common.participation.Sex;
+import au.gov.nehta.model.clinical.common.types.HPII;
+import au.gov.nehta.model.clinical.common.types.HPIO;
+import au.gov.nehta.model.clinical.common.types.IHI;
+import au.gov.nehta.model.clinical.common.types.UniqueIdentifier;
+import au.gov.nehta.model.clinical.common.types.UniqueIdentifierImpl;
+import au.gov.nehta.model.clinical.etp.common.item.Dosage;
+import au.gov.nehta.model.clinical.etp.common.item.DosageImpl;
+import au.gov.nehta.model.clinical.etp.common.item.ItemFactory;
+import au.gov.nehta.model.clinical.etp.common.item.MedicalBenefitCategoryType;
+import au.gov.nehta.model.clinical.etp.common.item.PrescriptionItemIdentifier;
+import au.gov.nehta.model.clinical.etp.common.item.QuantityUnitDescription;
+import au.gov.nehta.model.clinical.etp.common.item.QuantityUnitDescriptionImpl;
+import au.gov.nehta.model.clinical.etp.common.participation.AddressContext;
+import au.gov.nehta.model.clinical.etp.common.participation.DefaultParticipant;
+import au.gov.nehta.model.clinical.etp.common.participation.DefaultParticipantImpl;
+import au.gov.nehta.model.clinical.etp.common.participation.Entitlement;
+import au.gov.nehta.model.clinical.etp.common.participation.EntitlementImpl;
 import au.gov.nehta.model.clinical.etp.common.participation.EntitlementType;
-import au.gov.nehta.model.clinical.etp.common.participation.*;
-import au.gov.nehta.model.clinical.etp.eprescription.*;
-import au.gov.nehta.model.schematron.SchematronValidationException;
+import au.gov.nehta.model.clinical.etp.common.participation.PrescriberOrganisationParticipant;
+import au.gov.nehta.model.clinical.etp.common.participation.PrescriberOrganisationParticipantImpl;
+import au.gov.nehta.model.clinical.etp.common.participation.PrescriberOrganisationParticipation;
+import au.gov.nehta.model.clinical.etp.common.participation.PrescriberOrganisationParticipationImpl;
+import au.gov.nehta.model.clinical.etp.common.participation.PrescriberParticipation;
+import au.gov.nehta.model.clinical.etp.common.participation.PrescriberParticipationImpl;
+import au.gov.nehta.model.clinical.etp.common.participation.ProviderAddress;
+import au.gov.nehta.model.clinical.etp.common.participation.ProviderAddressImpl;
+import au.gov.nehta.model.clinical.etp.common.participation.ProviderEmploymentDetail;
+import au.gov.nehta.model.clinical.etp.common.participation.ProviderEmploymentDetailImpl;
+import au.gov.nehta.model.clinical.etp.common.participation.ProviderPerson;
+import au.gov.nehta.model.clinical.etp.common.participation.ProviderPersonImpl;
+import au.gov.nehta.model.clinical.etp.eprescription.EPrescription;
+import au.gov.nehta.model.clinical.etp.eprescription.EPrescriptionContent;
+import au.gov.nehta.model.clinical.etp.eprescription.EPrescriptionContentImpl;
+import au.gov.nehta.model.clinical.etp.eprescription.EPrescriptionContext;
+import au.gov.nehta.model.clinical.etp.eprescription.EPrescriptionContextImpl;
+import au.gov.nehta.model.clinical.etp.eprescription.EPrescriptionImpl;
+import au.gov.nehta.model.clinical.etp.eprescription.PrescriptionNoteDetailImpl;
 import au.gov.nehta.schematron.Schematron;
 import au.gov.nehta.schematron.SchematronCheckResult;
-import au.gov.nehta.test.exceptions.SchemaValidationException;
-import junit.framework.Assert;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
+import java.util.UUID;
 import org.joda.time.DateTime;
 import org.joda.time.LocalDate;
 import org.junit.Test;
 
-import javax.xml.bind.JAXBException;
-import javax.xml.parsers.ParserConfigurationException;
-import java.io.File;
-import java.util.*;
+public class PrescriptionRecordMaxTest extends Base {
 
-public class PrescriptionRecordMaxTest extends Base{
-    
     private static final String SCHEMATRON = "ccd-3B.sch";
-    private static String SCHEMATRON_TEMPLATE_PATH =      "resources/PCEHR-PrescriptionRecord";
-    
-    private static final String DOCUMENT_FILE_NAME = TEST_GENERATION+"npdr-prescription-max.xml";
-    
+    private static String SCHEMATRON_TEMPLATE_PATH = "src/test/resources/PCEHR-PrescriptionRecord";
+    private static final String DOCUMENT_FILE_NAME = "src/test/resources/generated_xml/npdr/npdr-prescription-max.xml";
 
-    
-    
     @Test
-    public void test_MAX__NPDR_PrecriptionDocumentCreation() throws ParserConfigurationException, JAXBException, SchemaValidationException, SchematronValidationException {
-        if (!new File(SCHEMATRON_TEMPLATE_PATH + "/schematron/schematron-Validator-report.xsl").exists()) {
-            SCHEMATRON_TEMPLATE_PATH = "src/" + SCHEMATRON_TEMPLATE_PATH;
-        }
+    public void test_MAX__NPDR_PrecriptionDocumentCreation() {
         generateMaxDocument();
-        SchematronCheckResult check = Schematron.check( SCHEMATRON_TEMPLATE_PATH, SCHEMATRON, DOCUMENT_FILE_NAME );
-        
-        show( check );
-        
-        Assert.assertTrue( check.schemaErrors.size() == 0 );
-        Assert.assertTrue( check.schematronErrors.size() == 0 );
+        SchematronCheckResult check = Schematron
+            .check(SCHEMATRON_TEMPLATE_PATH, SCHEMATRON, DOCUMENT_FILE_NAME);
+        show(check);
+        assertEquals(0, check.schemaErrors.size());
+        assertEquals(0, check.schematronErrors.size());
     }
     
     public void generateMaxDocument(){

@@ -1,7 +1,7 @@
 package au.gov.nehta.cda.etp;
 
 import static au.gov.nehta.model.schematron.SchematronResource.SchematronResources.DISPENSE_RECORD_3A;
-import static junit.framework.Assert.assertTrue;
+import static org.junit.Assert.assertTrue;
 
 import au.gov.nehta.builder.util.UUIDTool;
 import au.gov.nehta.cda.test.Base;

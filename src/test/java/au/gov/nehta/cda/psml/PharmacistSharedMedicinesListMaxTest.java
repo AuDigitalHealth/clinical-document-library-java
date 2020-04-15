@@ -1,4 +1,14 @@
-package nehta.cda.psml;
+package au.gov.nehta.cda.psml;
+
+import static au.gov.nehta.cda.test.TestHelper.getCustodian;
+import static au.gov.nehta.cda.test.TestHelper.getDocumentAuthor;
+import static au.gov.nehta.cda.test.TestHelper.getInformationRecipients;
+import static au.gov.nehta.cda.test.TestHelper.getLegalAuthenticator;
+import static au.gov.nehta.cda.test.TestHelper.getServiceProviderIndividual;
+import static au.gov.nehta.cda.test.TestHelper.getServiceProviderOrganization;
+import static au.gov.nehta.cda.test.TestHelper.getSubjectOfCareParticipant;
+import static au.gov.nehta.model.schematron.SchematronResource.SchematronResources.PSML_3A;
+import static org.junit.Assert.assertEquals;
 
 import au.gov.nehta.builder.psml.PharmacistSharedMedicinesListCreator;
 import au.gov.nehta.cda.test.Base;
@@ -16,44 +26,40 @@ import au.gov.nehta.model.cda.psml.PharmacistSharedMedicinesListCDAModel;
 import au.gov.nehta.model.clinical.etp.common.item.AttachedMedia;
 import au.gov.nehta.model.clinical.etp.common.participation.ParticipationServiceProvider;
 import au.gov.nehta.model.clinical.etp.common.participation.ParticipationServiceProviderImpl;
-import au.gov.nehta.model.clinical.psml.*;
+import au.gov.nehta.model.clinical.psml.PharmacistSharedMedicinesList;
+import au.gov.nehta.model.clinical.psml.PharmacistSharedMedicinesListContent;
+import au.gov.nehta.model.clinical.psml.PharmacistSharedMedicinesListContentImpl;
+import au.gov.nehta.model.clinical.psml.PharmacistSharedMedicinesListContext;
+import au.gov.nehta.model.clinical.psml.PharmacistSharedMedicinesListContextImpl;
+import au.gov.nehta.model.clinical.psml.PharmacistSharedMedicinesListImpl;
+import au.gov.nehta.model.clinical.psml.SectionImpl;
 import au.gov.nehta.model.schematron.SchematronValidationException;
 import au.gov.nehta.schematron.Schematron;
 import au.gov.nehta.schematron.SchematronCheckResult;
-import junit.framework.Assert;
+import java.util.ArrayList;
+import java.util.List;
+import javax.xml.bind.JAXBException;
+import javax.xml.parsers.ParserConfigurationException;
 import org.joda.time.DateTime;
 import org.junit.Test;
 import org.w3c.dom.Document;
 
-import javax.xml.bind.JAXBException;
-import javax.xml.parsers.ParserConfigurationException;
-import java.io.File;
-import java.util.ArrayList;
-import java.util.List;
-
-import static au.gov.nehta.cda.test.TestHelper.*;
-import static au.gov.nehta.model.schematron.SchematronResource.SchematronResources.PSML_3A;
-
 public class PharmacistSharedMedicinesListMaxTest extends Base {
 
-  private static final String DOCUMENT_FILE_NAME = TEST_GENERATION + "/psml/psml-max-java.xml";
+  private static final String DOCUMENT_FILE_NAME = "src/test/resources/generated_xml/psml/psml-max-java.xml";
   private static final String SCHEMATRON = PSML_3A.resource().getSchematron();
-  private static String SCHEMATRON_TEMPLATE_PATH = "resources/PharmacistSharedMedicines";
+  private static String SCHEMATRON_TEMPLATE_PATH = "src/test/resources/PharmacistSharedMedicines";
 
 
   @Test
   public void test_MAX_Pharmacist_Shared_Medicines_List_Creation() {
     try {
-      if (!new File(SCHEMATRON_TEMPLATE_PATH
-          + "/schematron/schematron-Validator-report.xsl").exists()) {
-        SCHEMATRON_TEMPLATE_PATH = "src/" + SCHEMATRON_TEMPLATE_PATH;
-      }
       generateMax();
       SchematronCheckResult check =
           Schematron.check(SCHEMATRON_TEMPLATE_PATH, SCHEMATRON, DOCUMENT_FILE_NAME);
       show(check);
-      Assert.assertEquals(0, check.schemaErrors.size());
-      Assert.assertEquals(0, check.schematronErrors.size());
+      assertEquals(0, check.schemaErrors.size());
+      assertEquals(0, check.schematronErrors.size());
     } catch (SchematronValidationException | ParserConfigurationException | JAXBException e) {
       e.printStackTrace();
     }

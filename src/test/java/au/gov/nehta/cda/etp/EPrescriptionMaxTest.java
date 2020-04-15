@@ -1,7 +1,7 @@
 package au.gov.nehta.cda.etp;
 
 import static au.gov.nehta.model.schematron.SchematronResource.SchematronResources.E_PRESCRIPTION_3B;
-import static junit.framework.Assert.assertTrue;
+import static org.junit.Assert.assertTrue;
 
 import au.gov.nehta.builder.etp.eprescription.EPrescriptionCreator;
 import au.gov.nehta.builder.util.UUIDTool;

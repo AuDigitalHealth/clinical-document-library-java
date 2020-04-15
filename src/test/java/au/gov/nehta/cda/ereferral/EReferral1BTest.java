@@ -6,7 +6,7 @@ import static au.gov.nehta.cda.test.TestHelper.getInformationRecipients;
 import static au.gov.nehta.cda.test.TestHelper.getServiceProviderIndividual;
 import static au.gov.nehta.cda.test.TestHelper.getSubjectOfCareParticipant;
 import static au.gov.nehta.model.schematron.SchematronResource.SchematronResources.SERVICE_REFERRAL_1B;
-import static junit.framework.Assert.assertEquals;
+import static org.junit.Assert.assertEquals;
 
 import au.gov.nehta.builder.ereferral.EReferral3ACreator;
 import au.gov.nehta.builder.util.UUIDTool;

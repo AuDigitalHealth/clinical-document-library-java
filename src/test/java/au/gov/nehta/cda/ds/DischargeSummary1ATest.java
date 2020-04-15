@@ -21,7 +21,7 @@ import au.gov.nehta.model.clinical.etp.common.participation.ParticipationService
 import au.gov.nehta.model.schematron.SchematronValidationException;
 import au.gov.nehta.schematron.Schematron;
 import au.gov.nehta.schematron.SchematronCheckResult;
-import junit.framework.Assert;
+import org.junit.Assert;
 import org.joda.time.DateTime;
 import org.junit.Test;
 import org.w3c.dom.Document;
