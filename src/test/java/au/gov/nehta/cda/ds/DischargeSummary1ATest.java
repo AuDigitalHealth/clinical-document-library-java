@@ -1,4 +1,4 @@
-package nehta.cda.ds;
+package au.gov.nehta.cda.ds;
 
 import au.gov.nehta.builder.ds.DischargeSummaryCreator;
 import au.gov.nehta.builder.util.UUIDTool;
@@ -36,17 +36,12 @@ import static au.gov.nehta.model.schematron.SchematronResource.SchematronResourc
 
 public class DischargeSummary1ATest extends Base {
   private static final String SCHEMATRON = DISCHARGE_SUMMARY_1A.resource().getSchematron();
-  private static String SCHEMATRON_TEMPLATE_PATH = "resources/DischargeSummary";
-  private static final String DOCUMENT_FILE_NAME =
-      TEST_GENERATION + "/ds/DischargeSummary_1A_format.xml";
+  private static String SCHEMATRON_TEMPLATE_PATH = "src/test/resources/DischargeSummary";
+  private static final String DOCUMENT_FILE_NAME = "src/test/resources/generated_xml/discharge_summary/DischargeSummary_1A_format.xml";
 
 
   @Test
   public void test_Discharge_Summary__Format_1A_Creation() {
-    if (!new File(SCHEMATRON_TEMPLATE_PATH
-        + "/schematron/schematron-Validator-report.xsl").exists()) {
-      SCHEMATRON_TEMPLATE_PATH = "src/" + SCHEMATRON_TEMPLATE_PATH;
-    }
     generate1A();
     SchematronCheckResult check =
         Schematron.check(SCHEMATRON_TEMPLATE_PATH, SCHEMATRON, DOCUMENT_FILE_NAME);
@@ -78,7 +73,7 @@ public class DischargeSummary1ATest extends Base {
         "Some care setting");
 
     AttachedMedia reportFile = new AttachedMedia(
-        new File("radiologyreport.pdf"));
+        new File("src/test/resources/radiologyreport.pdf"));
 
     //Content
     DischargeSummaryContent dischargeSummaryContent = new DischargeSummaryContentImpl(reportFile);

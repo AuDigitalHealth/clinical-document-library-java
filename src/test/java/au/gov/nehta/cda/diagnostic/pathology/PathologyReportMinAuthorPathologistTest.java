@@ -51,16 +51,13 @@ import java.util.UUID;
 public class PathologyReportMinAuthorPathologistTest extends Base {
 
   private static final String SCHEMATRON = "ccd-3B.sch";
-  private static String SCHEMATRON_TEMPLATE_PATH = "resources/PathologyReport";
+  private static String SCHEMATRON_TEMPLATE_PATH = "src/test/resources/PathologyReport";
 
-  private static final String DOCUMENT_FILE_NAME = TEST_GENERATION + "epathology-person-min.xml";
+  private static final String DOCUMENT_FILE_NAME = "src/test/resources/generated_xml/pathology/epathology-person-min.xml";
 
   @Test
   public void test_MIN_PathologyReportCreation()
       throws ParserConfigurationException, JAXBException, SchematronValidationException, IOException, ParseException {
-    if (!new File(SCHEMATRON_TEMPLATE_PATH + "/schematron/schematron-Validator-report.xsl").exists()) {
-      SCHEMATRON_TEMPLATE_PATH = "src/" + SCHEMATRON_TEMPLATE_PATH;
-    }
     generateMin();
     SchematronCheckResult check = Schematron.check(
         SCHEMATRON_TEMPLATE_PATH, SCHEMATRON, DOCUMENT_FILE_NAME);
@@ -245,7 +242,7 @@ public class PathologyReportMinAuthorPathologistTest extends Base {
 
     String internalDocumentNumber = "123456";
     UniqueIdentifier doucmentID = PathologyId.pathReportID(hpioNumber, internalDocumentNumber);
-    AttachedMedia testResult = new AttachedMedia(new File("test-result.pdf"));
+    AttachedMedia testResult = new AttachedMedia(new File("src/test/resources/test-result.pdf"));
     String title = "Hematology Report for Peter Patient";
 
     ReportDocument testResultDocument = new ReportDocumentImpl(title, testResult, doucmentID,

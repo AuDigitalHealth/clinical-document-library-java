@@ -964,8 +964,7 @@ public class EventSummaryTestHelper {
         //Not impossible  but difficult as it will be in one of the OBXs and needs to be located.
         //pathologyTestResult.Conclusion = "I could write a final conclusion for the whole FBC panel";
         pathologyTestResult.setConclusion("I could write a final conclusion for the whole FBC panel");
-        pathologyTestResult.setTestResultRepresentation(getAttachedMediaPDF(
-                "radiologyreport.pdf"));
+        pathologyTestResult.setTestResultRepresentation(getAttachedMediaPDF("radiologyreport.pdf"));
 
         //Optional: If coming from a HL7 V2 message this can be difficult as it will be one of the OBX segments
         //and could be identified in OBX.3.1 in different ways across different panels/reports due to the lab not follow a
