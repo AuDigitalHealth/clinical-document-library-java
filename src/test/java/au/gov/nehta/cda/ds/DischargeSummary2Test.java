@@ -1,4 +1,24 @@
-package nehta.cda.ds;
+package au.gov.nehta.cda.ds;
+
+import static au.gov.nehta.builder.DocumentCreatorUtil.HL7_TEXT_MEDIA_TYPE;
+import static au.gov.nehta.builder.DocumentCreatorUtil.addTable;
+import static au.gov.nehta.builder.DocumentCreatorUtil.addTableBodyRow;
+import static au.gov.nehta.builder.DocumentCreatorUtil.addTableHeaderRow;
+import static au.gov.nehta.builder.DocumentCreatorUtil.createComplexTD;
+import static au.gov.nehta.builder.DocumentCreatorUtil.createHtmlLink;
+import static au.gov.nehta.builder.DocumentCreatorUtil.createStrucDocListUnordered;
+import static au.gov.nehta.builder.DocumentCreatorUtil.createStrucDocParagraph;
+import static au.gov.nehta.builder.DocumentCreatorUtil.createTableWithCaption;
+import static au.gov.nehta.builder.common.NarrativeUtilCommon.EVENT_SECTION_TEXT;
+import static au.gov.nehta.builder.common.NarrativeUtilCommon.HEALTH_PROFILE_SECTION_TEXT;
+import static au.gov.nehta.builder.common.NarrativeUtilCommon.PLAN_SECTION_TEXT;
+import static au.gov.nehta.cda.test.TestHelper.getCustodian;
+import static au.gov.nehta.cda.test.TestHelper.getInformationRecipients;
+import static au.gov.nehta.cda.test.TestHelper.getLegalAuthenticator;
+import static au.gov.nehta.cda.test.TestHelper.getServiceProviderIndividual;
+import static au.gov.nehta.cda.test.TestHelper.getServiceProviderOrganization;
+import static au.gov.nehta.cda.test.TestHelper.getSubjectOfCareParticipant;
+import static au.gov.nehta.model.schematron.SchematronResource.SchematronResources.DISCHARGE_SUMMARY_2;
 
 import au.gov.nehta.builder.ds.DischargeSummaryCreator;
 import au.gov.nehta.builder.util.UUIDTool;
@@ -15,7 +35,35 @@ import au.gov.nehta.model.cda.common.time.PrecisionDate;
 import au.gov.nehta.model.cda.common.time.RestrictedTimeInterval;
 import au.gov.nehta.model.cda.ds.DischargeSummaryCDAModel;
 import au.gov.nehta.model.clinical.common.DocumentAuthor;
-import au.gov.nehta.model.clinical.ds.*;
+import au.gov.nehta.model.clinical.ds.AdverseReactions;
+import au.gov.nehta.model.clinical.ds.AdverseReactionsImpl;
+import au.gov.nehta.model.clinical.ds.Alerts;
+import au.gov.nehta.model.clinical.ds.ArrangedServices;
+import au.gov.nehta.model.clinical.ds.CeasedMedications;
+import au.gov.nehta.model.clinical.ds.CeasedMedicationsImpl;
+import au.gov.nehta.model.clinical.ds.ClinicalSynopsis;
+import au.gov.nehta.model.clinical.ds.CurrentMedicationsOnDischarge;
+import au.gov.nehta.model.clinical.ds.CurrentMedicationsOnDischargeImpl;
+import au.gov.nehta.model.clinical.ds.DischargeSummary;
+import au.gov.nehta.model.clinical.ds.DischargeSummaryContent;
+import au.gov.nehta.model.clinical.ds.DischargeSummaryContentImpl;
+import au.gov.nehta.model.clinical.ds.DischargeSummaryContext;
+import au.gov.nehta.model.clinical.ds.DischargeSummaryContextImpl;
+import au.gov.nehta.model.clinical.ds.DischargeSummaryImpl;
+import au.gov.nehta.model.clinical.ds.Encounter;
+import au.gov.nehta.model.clinical.ds.EncounterImpl;
+import au.gov.nehta.model.clinical.ds.Event;
+import au.gov.nehta.model.clinical.ds.EventImpl;
+import au.gov.nehta.model.clinical.ds.HealthProfile;
+import au.gov.nehta.model.clinical.ds.HealthProfileImpl;
+import au.gov.nehta.model.clinical.ds.Medications;
+import au.gov.nehta.model.clinical.ds.MedicationsImpl;
+import au.gov.nehta.model.clinical.ds.Plan;
+import au.gov.nehta.model.clinical.ds.PlanImpl;
+import au.gov.nehta.model.clinical.ds.ProblemDiagnosesThisVisit;
+import au.gov.nehta.model.clinical.ds.ProblemDiagnosesThisVisitImpl;
+import au.gov.nehta.model.clinical.ds.RecordOfRecommendationsAndInfoProvided;
+import au.gov.nehta.model.clinical.ds.RecordOfRecommendationsAndInfoProvidedImpl;
 import au.gov.nehta.model.clinical.es.DiagnosticInvestigations;
 import au.gov.nehta.model.clinical.es.DiagnosticInvestigationsImpl;
 import au.gov.nehta.model.clinical.etp.common.participation.ParticipationServiceProvider;
@@ -23,29 +71,27 @@ import au.gov.nehta.model.clinical.etp.common.participation.ParticipationService
 import au.gov.nehta.model.schematron.SchematronValidationException;
 import au.gov.nehta.schematron.Schematron;
 import au.gov.nehta.schematron.SchematronCheckResult;
-import au.net.electronichealth.ns.cda._2_0.*;
+import au.net.electronichealth.ns.cda._2_0.ObjectFactory;
+import au.net.electronichealth.ns.cda._2_0.StrucDocList;
+import au.net.electronichealth.ns.cda._2_0.StrucDocParagraph;
+import au.net.electronichealth.ns.cda._2_0.StrucDocTable;
+import au.net.electronichealth.ns.cda._2_0.StrucDocTbody;
+import au.net.electronichealth.ns.cda._2_0.StrucDocText;
+import au.net.electronichealth.ns.cda._2_0.StrucDocThead;
+import java.util.ArrayList;
+import java.util.UUID;
+import javax.xml.bind.JAXBElement;
+import javax.xml.bind.JAXBException;
+import javax.xml.parsers.ParserConfigurationException;
 import junit.framework.Assert;
 import org.joda.time.DateTime;
 import org.junit.Test;
 import org.w3c.dom.Document;
 
-import javax.xml.bind.JAXBElement;
-import javax.xml.bind.JAXBException;
-import javax.xml.parsers.ParserConfigurationException;
-import java.io.File;
-import java.util.ArrayList;
-import java.util.UUID;
-
-import static au.gov.nehta.builder.DocumentCreatorUtil.*;
-import static au.gov.nehta.builder.common.NarrativeUtilCommon.*;
-import static au.gov.nehta.cda.test.TestHelper.*;
-import static au.gov.nehta.model.schematron.SchematronResource.SchematronResources.DISCHARGE_SUMMARY_2;
-
 public class DischargeSummary2Test extends Base {
   private static final String SCHEMATRON = DISCHARGE_SUMMARY_2.resource().getSchematron();
-  private static String SCHEMATRON_TEMPLATE_PATH = "resources/DischargeSummary";
-  private static final String DOCUMENT_FILE_NAME = TEST_GENERATION
-      + "/ds/DischargeSummary_format_2.xml";
+  private static String SCHEMATRON_TEMPLATE_PATH = "src/test/resources/DischargeSummary";
+  private static final String DOCUMENT_FILE_NAME = "src/test/resources/generated_xml/discharge_summary/DischargeSummary_format_2.xml";
 
   private static ObjectFactory objectFactory = new ObjectFactory();
   private DateTime now = new DateTime();
@@ -53,10 +99,6 @@ public class DischargeSummary2Test extends Base {
   @Test
   public void test_Discharge_Summary__Format_2_Creation() {
     try {
-      if (!new File(SCHEMATRON_TEMPLATE_PATH
-          + "/schematron/schematron-Validator-report.xsl").exists()) {
-        SCHEMATRON_TEMPLATE_PATH = "src/" + SCHEMATRON_TEMPLATE_PATH;
-      }
       generate2();
       SchematronCheckResult check =
           Schematron.check(SCHEMATRON_TEMPLATE_PATH, SCHEMATRON, DOCUMENT_FILE_NAME);

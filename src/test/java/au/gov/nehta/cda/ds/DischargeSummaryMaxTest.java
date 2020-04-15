@@ -1,4 +1,4 @@
-package nehta.cda.ds;
+package au.gov.nehta.cda.ds;
 
 import au.gov.nehta.builder.ds.DischargeSummaryCreator;
 import au.gov.nehta.builder.util.UUIDTool;
@@ -44,7 +44,6 @@ import org.w3c.dom.Document;
 
 import javax.xml.bind.JAXBException;
 import javax.xml.parsers.ParserConfigurationException;
-import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
@@ -55,16 +54,12 @@ import static au.gov.nehta.model.schematron.SchematronResource.SchematronResourc
 public class DischargeSummaryMaxTest extends Base {
 
   private static final String SCHEMATRON = DISCHARGE_SUMMARY_3B.resource().getSchematron();
-  private static String SCHEMATRON_TEMPLATE_PATH = "resources/DischargeSummary";
-  private static final String DOCUMENT_FILE_NAME = TEST_GENERATION + "/ds/ds-max-java.xml";
+  private static String SCHEMATRON_TEMPLATE_PATH = "src/test/resources/DischargeSummary";
+  private static final String DOCUMENT_FILE_NAME = "src/test/resources/generated_xml/discharge_summary/ds-max-java.xml";
 
   @Test
   public void test_MAX_Discharge_Summary_Creation() {
     try {
-      if (!new File(SCHEMATRON_TEMPLATE_PATH
-          + "/schematron/schematron-Validator-report.xsl").exists()) {
-        SCHEMATRON_TEMPLATE_PATH = "src/" + SCHEMATRON_TEMPLATE_PATH;
-      }
       generateMax();
       SchematronCheckResult check =
           Schematron.check(SCHEMATRON_TEMPLATE_PATH, SCHEMATRON, DOCUMENT_FILE_NAME);

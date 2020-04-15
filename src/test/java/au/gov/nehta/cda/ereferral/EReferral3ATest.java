@@ -1,4 +1,14 @@
-package nehta.cda.ereferral;
+package au.gov.nehta.cda.ereferral;
+
+import static au.gov.nehta.cda.test.TestHelper.getCustodian;
+import static au.gov.nehta.cda.test.TestHelper.getDiagnosticInvestigations;
+import static au.gov.nehta.cda.test.TestHelper.getInformationRecipients;
+import static au.gov.nehta.cda.test.TestHelper.getLegalAuthenticator;
+import static au.gov.nehta.cda.test.TestHelper.getMedications;
+import static au.gov.nehta.cda.test.TestHelper.getServiceProviderIndividual;
+import static au.gov.nehta.cda.test.TestHelper.getServiceProviderOrganization;
+import static au.gov.nehta.cda.test.TestHelper.getSubjectOfCareParticipant;
+import static au.gov.nehta.model.schematron.SchematronResource.SchematronResources.SERVICE_REFERRAL_3A;
 
 import au.gov.nehta.builder.ereferral.EReferral3ACreator;
 import au.gov.nehta.builder.util.UUIDTool;
@@ -15,16 +25,28 @@ import au.gov.nehta.model.cda.common.time.Precision;
 import au.gov.nehta.model.cda.common.time.PrecisionDate;
 import au.gov.nehta.model.cda.common.time.RestrictedTimeInterval;
 import au.gov.nehta.model.cda.ereferral.EReferralCDAModel;
-import au.gov.nehta.model.clinical.common.*;
+import au.gov.nehta.model.clinical.common.DocumentAuthor;
+import au.gov.nehta.model.clinical.common.MedicalHistory;
+import au.gov.nehta.model.clinical.common.ProblemDiagnosis;
+import au.gov.nehta.model.clinical.common.ProblemDiagnosisImpl;
+import au.gov.nehta.model.clinical.common.UncategorisedMedicalHistoryItem;
+import au.gov.nehta.model.clinical.common.UncategorisedMedicalHistoryItemImpl;
 import au.gov.nehta.model.clinical.common.participation.ANZSCO_1ED_2006;
-import au.gov.nehta.model.clinical.ereferral.*;
+import au.gov.nehta.model.clinical.ereferral.EReferral;
+import au.gov.nehta.model.clinical.ereferral.EReferralContent;
+import au.gov.nehta.model.clinical.ereferral.EReferralContentImpl;
+import au.gov.nehta.model.clinical.ereferral.EReferralContext;
+import au.gov.nehta.model.clinical.ereferral.EReferralContextImpl;
+import au.gov.nehta.model.clinical.ereferral.EReferralImpl;
+import au.gov.nehta.model.clinical.ereferral.ReferralDetail;
 import au.gov.nehta.model.clinical.es.AdverseReaction;
 import au.gov.nehta.model.clinical.es.AdverseReactionImpl;
+import au.gov.nehta.model.clinical.es.DiagnosticInvestigations;
+import au.gov.nehta.model.clinical.es.Medications;
 import au.gov.nehta.model.clinical.es.Procedure;
 import au.gov.nehta.model.clinical.es.ProcedureImpl;
 import au.gov.nehta.model.clinical.es.ReactionEvent;
 import au.gov.nehta.model.clinical.es.ReactionEventImpl;
-import au.gov.nehta.model.clinical.es.*;
 import au.gov.nehta.model.clinical.etp.common.participation.ParticipationServiceProvider;
 import au.gov.nehta.model.clinical.etp.common.participation.ParticipationServiceProviderImpl;
 import au.gov.nehta.model.clinical.sr.AdverseReactions;
@@ -32,35 +54,25 @@ import au.gov.nehta.model.clinical.sr.AdverseReactionsImpl;
 import au.gov.nehta.model.schematron.SchematronValidationException;
 import au.gov.nehta.schematron.Schematron;
 import au.gov.nehta.schematron.SchematronCheckResult;
-import org.joda.time.DateTime;
-import org.junit.Test;
-import org.w3c.dom.Document;
-
-import javax.xml.bind.JAXBException;
-import javax.xml.parsers.ParserConfigurationException;
-import java.io.File;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.UUID;
-
-import static au.gov.nehta.cda.test.TestHelper.*;
-import static au.gov.nehta.model.schematron.SchematronResource.SchematronResources.SERVICE_REFERRAL_3A;
+import javax.xml.bind.JAXBException;
+import javax.xml.parsers.ParserConfigurationException;
+import org.joda.time.DateTime;
+import org.junit.Test;
+import org.w3c.dom.Document;
 
 public class EReferral3ATest extends Base {
 
   private static final String SCHEMATRON = SERVICE_REFERRAL_3A.resource().getSchematron();
-  private static String SCHEMATRON_TEMPLATE_PATH = "resources/e-Referral";
-  private static final String DOCUMENT_FILE_NAME =
-      TEST_GENERATION + "/eReferral/eReferral-3A-java.xml";
+  private static String SCHEMATRON_TEMPLATE_PATH = "src/test/resources/e-Referral";
+  private static final String DOCUMENT_FILE_NAME = "src/test/resources/generated_xml/eReferral/eReferral-3A-java.xml";
 
   @Test
   public void test_MAX_Discharge_Summary_Creation() {
     try {
-      if (!new File(SCHEMATRON_TEMPLATE_PATH
-          + "/schematron/schematron-Validator-report.xsl").exists()) {
-        SCHEMATRON_TEMPLATE_PATH = "src/" + SCHEMATRON_TEMPLATE_PATH;
-      }
       generateMax();
       SchematronCheckResult check =
           Schematron.check(SCHEMATRON_TEMPLATE_PATH, SCHEMATRON, DOCUMENT_FILE_NAME);

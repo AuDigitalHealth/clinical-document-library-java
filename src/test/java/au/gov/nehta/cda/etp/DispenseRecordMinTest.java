@@ -1,4 +1,7 @@
-package nehta.cda.etp;
+package au.gov.nehta.cda.etp;
+
+import static au.gov.nehta.model.schematron.SchematronResource.SchematronResources.DISPENSE_RECORD_3A;
+import static junit.framework.Assert.assertTrue;
 
 import au.gov.nehta.builder.util.UUIDTool;
 import au.gov.nehta.cda.test.Base;
@@ -6,10 +9,22 @@ import au.gov.nehta.model.cda.common.code.AMTCode;
 import au.gov.nehta.model.cda.common.code.Code;
 import au.gov.nehta.model.cda.common.code.NCTISDataComponent;
 import au.gov.nehta.model.cda.common.code.PatientCategory;
-import au.gov.nehta.model.cda.common.custodian.*;
+import au.gov.nehta.model.cda.common.custodian.AssignedCustodian;
+import au.gov.nehta.model.cda.common.custodian.AssignedCustodianImpl;
+import au.gov.nehta.model.cda.common.custodian.Custodian;
+import au.gov.nehta.model.cda.common.custodian.CustodianImpl;
+import au.gov.nehta.model.cda.common.custodian.CustodianOrganization;
+import au.gov.nehta.model.cda.common.custodian.CustodianOrganizationImpl;
 import au.gov.nehta.model.cda.common.document.BaseClinicalDocument;
 import au.gov.nehta.model.cda.common.document.ClinicalDocumentFactory;
-import au.gov.nehta.model.cda.common.id.*;
+import au.gov.nehta.model.cda.common.id.AsEntityIdentifier;
+import au.gov.nehta.model.cda.common.id.AsEntityIdentifierImpl;
+import au.gov.nehta.model.cda.common.id.AssignedEntity;
+import au.gov.nehta.model.cda.common.id.AssignedEntityImpl;
+import au.gov.nehta.model.cda.common.id.LegalAuthenticator;
+import au.gov.nehta.model.cda.common.id.LegalAuthenticatorImpl;
+import au.gov.nehta.model.cda.common.id.MedicareCardIdentifier;
+import au.gov.nehta.model.cda.common.id.TemplateIdImpl;
 import au.gov.nehta.model.cda.common.org.Organization;
 import au.gov.nehta.model.cda.common.org.OrganizationImpl;
 import au.gov.nehta.model.cda.common.person.Person;
@@ -21,47 +36,86 @@ import au.gov.nehta.model.cda.common.time.Precision;
 import au.gov.nehta.model.cda.common.time.PrecisionDate;
 import au.gov.nehta.model.cda.common.time.RestrictedTimeInterval;
 import au.gov.nehta.model.cda.etp.DispenseRecordCdaModel;
-import au.gov.nehta.model.clinical.common.*;
-import au.gov.nehta.model.clinical.common.participation.*;
-import au.gov.nehta.model.clinical.common.types.*;
+import au.gov.nehta.model.clinical.common.SubjectOfCareDemographicData;
+import au.gov.nehta.model.clinical.common.SubjectOfCareDemographicDataImpl;
+import au.gov.nehta.model.clinical.common.SubjectOfCareParticipant;
+import au.gov.nehta.model.clinical.common.SubjectOfCareParticipantImpl;
+import au.gov.nehta.model.clinical.common.SubjectOfCarePerson;
+import au.gov.nehta.model.clinical.common.SubjectOfCarePersonImpl;
+import au.gov.nehta.model.clinical.common.participation.AddressContextImpl;
+import au.gov.nehta.model.clinical.common.participation.AddressPurpose;
+import au.gov.nehta.model.clinical.common.participation.AustralianAddress;
+import au.gov.nehta.model.clinical.common.participation.AustralianAddressImpl;
+import au.gov.nehta.model.clinical.common.participation.AustralianStateTerritory;
+import au.gov.nehta.model.clinical.common.participation.DateAccuracy;
+import au.gov.nehta.model.clinical.common.participation.DateAccuracyImpl;
+import au.gov.nehta.model.clinical.common.participation.DateOfBirthDetail;
+import au.gov.nehta.model.clinical.common.participation.DateOfBirthDetailImpl;
+import au.gov.nehta.model.clinical.common.participation.NameSuffix;
+import au.gov.nehta.model.clinical.common.participation.NameTitle;
+import au.gov.nehta.model.clinical.common.participation.Organisation;
+import au.gov.nehta.model.clinical.common.participation.OrganisationImpl;
+import au.gov.nehta.model.clinical.common.participation.PersonName;
+import au.gov.nehta.model.clinical.common.participation.PersonNameImpl;
+import au.gov.nehta.model.clinical.common.participation.PersonNameUsage;
+import au.gov.nehta.model.clinical.common.participation.Sex;
+import au.gov.nehta.model.clinical.common.types.HPII;
+import au.gov.nehta.model.clinical.common.types.HPIO;
+import au.gov.nehta.model.clinical.common.types.RealQuantity;
+import au.gov.nehta.model.clinical.common.types.UniqueIdentifier;
+import au.gov.nehta.model.clinical.common.types.UniqueIdentifierImpl;
 import au.gov.nehta.model.clinical.etp.common.item.QuantityUnitDescriptionImpl;
+import au.gov.nehta.model.clinical.etp.common.participation.AddressContext;
+import au.gov.nehta.model.clinical.etp.common.participation.DispenserParticipant;
+import au.gov.nehta.model.clinical.etp.common.participation.DispenserParticipantImpl;
+import au.gov.nehta.model.clinical.etp.common.participation.DispenserParticipation;
+import au.gov.nehta.model.clinical.etp.common.participation.DispenserParticipationImpl;
+import au.gov.nehta.model.clinical.etp.common.participation.DispensingOrganisationParticipant;
+import au.gov.nehta.model.clinical.etp.common.participation.DispensingOrganisationParticipantImpl;
+import au.gov.nehta.model.clinical.etp.common.participation.DispensingOrganisationParticipation;
+import au.gov.nehta.model.clinical.etp.common.participation.DispensingOrganisationParticipationImpl;
+import au.gov.nehta.model.clinical.etp.common.participation.Entitlement;
+import au.gov.nehta.model.clinical.etp.common.participation.EntitlementImpl;
 import au.gov.nehta.model.clinical.etp.common.participation.EntitlementType;
-import au.gov.nehta.model.clinical.etp.common.participation.*;
-import au.gov.nehta.model.clinical.etp.dispenserecord.*;
+import au.gov.nehta.model.clinical.etp.common.participation.ProviderAddress;
+import au.gov.nehta.model.clinical.etp.common.participation.ProviderAddressImpl;
+import au.gov.nehta.model.clinical.etp.dispenserecord.ClaimTypeCategory;
+import au.gov.nehta.model.clinical.etp.dispenserecord.DispenseItem;
+import au.gov.nehta.model.clinical.etp.dispenserecord.DispenseItemBuilder;
+import au.gov.nehta.model.clinical.etp.dispenserecord.DispenseRecord;
+import au.gov.nehta.model.clinical.etp.dispenserecord.DispenseRecordContext;
+import au.gov.nehta.model.clinical.etp.dispenserecord.DispenseRecordContextImpl;
+import au.gov.nehta.model.clinical.etp.dispenserecord.DispenseRecordImpl;
+import au.gov.nehta.model.clinical.etp.dispenserecord.DispensingStatus;
 import au.gov.nehta.model.common.CDAModelImpl;
 import au.gov.nehta.model.schematron.SchematronValidationException;
 import au.gov.nehta.schematron.Schematron;
 import au.gov.nehta.schematron.SchematronCheckResult;
-import junit.framework.Assert;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Calendar;
+import java.util.GregorianCalendar;
+import java.util.List;
+import java.util.UUID;
+import javax.xml.bind.JAXBException;
+import javax.xml.parsers.ParserConfigurationException;
 import org.joda.time.DateTime;
 import org.joda.time.LocalDate;
 import org.junit.Ignore;
 import org.junit.Test;
 
-import javax.xml.bind.JAXBException;
-import javax.xml.parsers.ParserConfigurationException;
-import java.io.File;
-import java.util.*;
-
-import static au.gov.nehta.model.schematron.SchematronResource.SchematronResources.DISPENSE_RECORD_3A;
-
 public class DispenseRecordMinTest extends Base {
 
   private static final String SCHEMATRON = DISPENSE_RECORD_3A.resource().getSchematron();
-  private static String SCHEMATRON_TEMPLATE_PATH = "resources/dispenseRecord";
+  private static String SCHEMATRON_TEMPLATE_PATH = "src/test/resources/dispenseRecord";
 
 
-  private static final String DOCUMENT_FILE_NAME = TEST_GENERATION + "dispense-min.xml";
+  private static final String DOCUMENT_FILE_NAME = "src/test/resources/dispense_record/dispense-min.xml";
 
   @Test
   @Ignore
   public void test_MIN_DispenseRecord()
       throws ParserConfigurationException, JAXBException, SchematronValidationException {
-    if (!new File(SCHEMATRON_TEMPLATE_PATH + "/schematron/schematron-Validator-report.xsl")
-        .exists()) {
-      SCHEMATRON_TEMPLATE_PATH = "src/" + SCHEMATRON_TEMPLATE_PATH;
-    }
-
     generateMin();
         /*    if (!new File(SCHEMATRON_TEMPLATE_PATH
 				+ "/schematron/schematron-Validator-report.xsl").exists()) {
@@ -72,8 +126,8 @@ public class DispenseRecordMinTest extends Base {
 
     show(check);
 
-    Assert.assertTrue(check.schemaErrors.size() == 0);
-    Assert.assertTrue(check.schematronErrors.size() == 0);
+    assertTrue(check.schemaErrors.size() == 0);
+    assertTrue(check.schematronErrors.size() == 0);
   }
 
   public void generateMin()
