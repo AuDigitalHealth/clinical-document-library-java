@@ -1,4 +1,4 @@
-package nehta.cda.diagnostic.image;
+package au.gov.nehta.cda.diagnostic.image;
 
 import au.gov.nehta.builder.diagnostic.image.DiagnosticImageReportCreator;
 import au.gov.nehta.builder.util.UUIDTool;
@@ -53,17 +53,13 @@ import java.util.UUID;
 public class DiagnosticImagingReportMaxTest extends Base {
 
   private static final String SCHEMATRON = "ccd-3B.sch";
-  private static String SCHEMATRON_TEMPLATE_PATH = "resources/DiagnosticImagingReport";
+  private static String SCHEMATRON_TEMPLATE_PATH = "src/test/resources/DiagnosticImagingReport";
 
-  private static final String DOCUMENT_FILE_NAME =
-     TEST_GENERATION + "diagnosticImage-device-max.xml";
+  private static final String DOCUMENT_FILE_NAME = "src/test/resources/generated_xml/diagnostic_image/diagnosticImage-device-max.xml";
 
   @Test
   public void test_MAX_DiagnosticImageReportCreation()
       throws ParserConfigurationException, JAXBException, SchematronValidationException {
-    if (!new File(SCHEMATRON_TEMPLATE_PATH + "/schematron/schematron-Validator-report.xsl").exists()) {
-      SCHEMATRON_TEMPLATE_PATH = "src/" + SCHEMATRON_TEMPLATE_PATH;
-    }
     generateMax();
     SchematronCheckResult check = Schematron.check(
         SCHEMATRON_TEMPLATE_PATH, SCHEMATRON, DOCUMENT_FILE_NAME);
@@ -310,7 +306,7 @@ public class DiagnosticImagingReportMaxTest extends Base {
 
     UniqueIdentifier doucmentID = new UniqueIdentifierImpl("1.2.36.1.2001.1005.54.8003621231167886",
         "ABC");
-    AttachedMedia testResult = new AttachedMedia(new File("test-result.pdf"));
+    AttachedMedia testResult = new AttachedMedia(new File("src/test/resources/test-result.pdf"));
     String title = "Serum and Glucose Report for Peter Patient";
 
     //add an original text without changing the static code for all users

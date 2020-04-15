@@ -1,4 +1,4 @@
-package nehta.cda.acp;
+package au.gov.nehta.cda.acp;
 
 import au.gov.nehta.builder.acp.AdvanceCarePlanningCreator;
 import au.gov.nehta.builder.util.CDATypeUtil;
@@ -21,23 +21,18 @@ import org.w3c.dom.Document;
 
 import javax.xml.bind.JAXBException;
 import javax.xml.parsers.ParserConfigurationException;
-import java.io.File;
 
 import static au.gov.nehta.cda.test.TestHelper.*;
 
 public class AdvanceCarePlanningMaxTest extends Base {
 
   private static final String SCHEMATRON = "ccd-3A.sch";
-  private static String SCHEMATRON_TEMPLATE_PATH = "resources/AdvanceCarePlanning";
-  private static final String DOCUMENT_FILE_NAME = TEST_GENERATION + "/acp/acp-max-java.xml";
+  private static String SCHEMATRON_TEMPLATE_PATH = "src/test/resources/AdvanceCarePlanning";
+  private static final String DOCUMENT_FILE_NAME = "src/test/resources/generated_xml/advance_care_planning/acp-max-java.xml";
 
   @Test
   public void test_MAX_Advance_Care_Planning_Creation() {
     try {
-
-      if (!new File(SCHEMATRON_TEMPLATE_PATH + "/schematron/schematron-Validator-report.xsl").exists()) {
-        SCHEMATRON_TEMPLATE_PATH = "src/" + SCHEMATRON_TEMPLATE_PATH;
-      }
       generateMax();
       SchematronCheckResult check =
           Schematron.check(SCHEMATRON_TEMPLATE_PATH, SCHEMATRON, DOCUMENT_FILE_NAME);

@@ -1,4 +1,4 @@
-package nehta.cda.diagnostic.pathology;
+package au.gov.nehta.cda.diagnostic.pathology;
 
 import au.gov.nehta.builder.diagnostic.pathology.PathologyReportCreator;
 import au.gov.nehta.builder.util.UUIDTool;

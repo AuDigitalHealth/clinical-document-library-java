@@ -1,4 +1,4 @@
-package nehta.cda.diagnostic.pathology;
+package au.gov.nehta.cda.diagnostic.pathology;
 
 import au.gov.nehta.builder.diagnostic.pathology.PathologyReportCreator;
 import au.gov.nehta.builder.util.UUIDTool;
@@ -53,16 +53,13 @@ import java.util.UUID;
 public class PathologyReportMaxPersonAuthorPathologistTest extends Base {
 
   private static final String SCHEMATRON = "ccd-3B.sch";
-  private static String SCHEMATRON_TEMPLATE_PATH = "resources/PathologyReport";
+  private static String SCHEMATRON_TEMPLATE_PATH = "src/test/resources/PathologyReport";
 
-  private static final String DOCUMENT_FILE_NAME = TEST_GENERATION + "pathology-max.xml";
+  private static final String DOCUMENT_FILE_NAME = "src/test/resources/generated_xml/pathology/pathology-max.xml";
 
   @Test
   public void test_MAX_PathologyReportCreation()
       throws ParserConfigurationException, JAXBException, SchematronValidationException {
-    if (!new File(SCHEMATRON_TEMPLATE_PATH + "/schematron/schematron-Validator-report.xsl").exists()) {
-      SCHEMATRON_TEMPLATE_PATH = "src/" + SCHEMATRON_TEMPLATE_PATH;
-    }
     generateMax();
     SchematronCheckResult check = Schematron.check(
         SCHEMATRON_TEMPLATE_PATH, SCHEMATRON, DOCUMENT_FILE_NAME);
@@ -315,7 +312,7 @@ public class PathologyReportMaxPersonAuthorPathologistTest extends Base {
     PathologyReportContext pathologyContext = new PathologyReportContextImpl(subject, requester,
         author, order);
 
-    Logo logo = new Logo(new File("logo.png")); //will use sha1 by default
+    Logo logo = new Logo(new File("src/test/resources/logo.png")); //will use sha1 by default
     pathologyContext.setLogo(logo);
 
     UniqueIdentifierImpl myLabId = UniqueIdentifierImpl.random();
@@ -326,7 +323,7 @@ public class PathologyReportMaxPersonAuthorPathologistTest extends Base {
 
     UniqueIdentifier doucmentID = new UniqueIdentifierImpl("1.2.36.1.2001.1005.54.8003620833333789",
         "10523477");
-    AttachedMedia testResult = new AttachedMedia(new File("test-result.pdf"));
+    AttachedMedia testResult = new AttachedMedia(new File("src/test/resources/test-result.pdf"));
     String title = "Serum Report for Peter Patient";
     ReportDocument testResultDocument = new ReportDocumentImpl(title, testResult, doucmentID,
         SNOMED_CT_ResultStatusCode.FINAL_RESULTS, now);
