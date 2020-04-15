@@ -1,4 +1,4 @@
-package nehta.cda.es;
+package au.gov.nehta.cda.es;
 
 import au.gov.nehta.builder.es.EventSummaryCreator;
 import au.gov.nehta.builder.util.UUIDTool;
@@ -29,7 +29,6 @@ import org.w3c.dom.Document;
 
 import javax.xml.bind.JAXBException;
 import javax.xml.parsers.ParserConfigurationException;
-import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
@@ -39,17 +38,13 @@ import static au.gov.nehta.cda.test.TestHelper.*;
 public class EventSummaryGestationalDiabetesTest extends Base {
 
   private static final String SCHEMATRON = "ccd-3B.sch";
-  private static String SCHEMATRON_TEMPLATE_PATH = "resources/EventSummary";
-  private static final String DOCUMENT_FILE_NAME =
-      TEST_GENERATION + "/es-Gestational-Diabetes-java.xml";
+  private static String SCHEMATRON_TEMPLATE_PATH = "src/test/resources/EventSummary";
+  private static final String DOCUMENT_FILE_NAME = "src/test/resources/generated_xml/es-Gestational-Diabetes-java.xml";
 
 
   @Test
   public void test_MAX_Event_Summary_Creation() {
     try {
-      if (!new File(SCHEMATRON_TEMPLATE_PATH + "/schematron/schematron-Validator-report.xsl").exists()) {
-        SCHEMATRON_TEMPLATE_PATH = "src/" + SCHEMATRON_TEMPLATE_PATH;
-      }
       generateMax();
       SchematronCheckResult check =
           Schematron.check(SCHEMATRON_TEMPLATE_PATH, SCHEMATRON, DOCUMENT_FILE_NAME);

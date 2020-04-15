@@ -74,15 +74,12 @@ public class TestHelper {
 
     try {
       File file = new File(fileName);
-      if (file.isFile()) {
-        fs = new FileOutputStream(file);
-        fs.write(s.getBytes());
-      } else {
+      if (!file.isFile()) {
         file.getParentFile().mkdirs();
         file.createNewFile();
-        fs = new FileOutputStream(file);
-        fs.write(s.getBytes());
       }
+      fs = new FileOutputStream(file);
+      fs.write(s.getBytes());
 
     } catch (Exception e) {
       e.printStackTrace();
