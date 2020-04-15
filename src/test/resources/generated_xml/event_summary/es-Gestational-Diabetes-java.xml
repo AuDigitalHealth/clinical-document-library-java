@@ -1,0 +1,897 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ClinicalDocument xmlns="urn:hl7-org:v3"
+                  xmlns:ns2="http://ns.electronichealth.net.au/Ci/Cda/Extensions/3.0">
+   <typeId extension="POCD_HD000040" root="2.16.840.1.113883.1.3"/>
+   <templateId extension="1.3" root="1.2.36.1.2001.1001.101.100.1002.136"/>
+   <templateId extension="1.0" root="1.2.36.1.2001.1001.100.149"/>
+   <id root="2.25.82520557275984775743064841224663604167"/>
+   <code code="34133-9" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"
+         displayName="Summary of episode note"/>
+   <title>Event Summary</title>
+   <effectiveTime value="20200415144753+1000"/>
+   <confidentialityCode nullFlavor="NA"/>
+   <languageCode code="en-AU"/>
+   <versionNumber value="1"/>
+   <ns2:completionCode code="F" codeSystem="1.2.36.1.2001.1001.101.104.20104"
+                       codeSystemName="NCTIS Document Status Values"
+                       displayName="Final"/>
+   <recordTarget typeCode="RCT">
+      <patientRole classCode="PAT">
+         <id root="7f985473-948f-4a03-9d86-aab49e381498"/>
+         <addr use="H">
+            <streetAddressLine>The Complex</streetAddressLine>
+            <streetAddressLine>Unit 90210 / 10 Browning st</streetAddressLine>
+            <postalCode>4101</postalCode>
+            <city>West End</city>
+            <state>QLD</state>
+            <country>Australia</country>
+         </addr>
+         <telecom use="H" value="tel:0712345678"/>
+         <telecom use="H" value="mailto:preety.sharma@electronichealth.net.au"/>
+         <patient>
+            <name use="M">
+               <prefix>Mrs</prefix>
+               <family>Sharma</family>
+               <given>Preety</given>
+               <suffix>First</suffix>
+            </name>
+            <administrativeGenderCode code="F" codeSystem="2.16.840.1.113883.13.68"
+                                      codeSystemName="AS 5017-2006 Health Care Client Identifier Sex"
+                                      displayName="Female"/>
+            <birthTime value="19760828"/>
+            <ethnicGroupCode code="9" codeSystem="2.16.840.1.113883.3.879.291036"
+                             codeSystemName="METeOR Indigenous Status"
+                             displayName="Not stated/inadequately described"/>
+            <ns2:multipleBirthInd value="true"/>
+            <ns2:multipleBirthOrderNumber value="2"/>
+            <ns2:asEntityIdentifier classCode="IDENT">
+               <ns2:id assigningAuthorityName="IHI" root="1.2.36.1.2001.1003.0.8003600300001283"/>
+               <ns2:assigningGeographicArea classCode="PLC">
+                  <ns2:name>National Identifier</ns2:name>
+               </ns2:assigningGeographicArea>
+            </ns2:asEntityIdentifier>
+         </patient>
+      </patientRole>
+   </recordTarget>
+   <author typeCode="AUT">
+      <time value="20200415144753+1000"/>
+      <assignedAuthor>
+         <id root="500e9120-ab3a-448b-b15e-36bcbd7ec49e"/>
+         <code code="253111" codeSystem="2.16.840.1.113883.13.62"
+               codeSystemName="1220.0 - ANZSCO - Australian and New Zealand Standard Classification of Occupations, First Edition, 2006"
+               displayName="General Medical Practitioner"/>
+         <addr use="WP">
+            <streetAddressLine>The Public</streetAddressLine>
+            <streetAddressLine>400 George Street</streetAddressLine>
+            <postalCode>4000</postalCode>
+            <city>Brisbane</city>
+            <state>QLD</state>
+            <country>Australia</country>
+         </addr>
+         <telecom use="WP" value="tel:0712345678"/>
+         <telecom use="WP" value="fax:0712345678"/>
+         <assignedPerson>
+            <name use="L">
+               <prefix>Dr</prefix>
+               <family>Smith</family>
+               <given>Sarah</given>
+               <suffix>III</suffix>
+            </name>
+            <name use="M">
+               <family>Jones</family>
+               <given>Sarah</given>
+            </name>
+            <ns2:asEntityIdentifier classCode="IDENT">
+               <ns2:id assigningAuthorityName="HPI-I" root="1.2.36.1.2001.1003.0.8003610000001145"/>
+               <ns2:assigningGeographicArea classCode="PLC">
+                  <ns2:name>National Identifier</ns2:name>
+               </ns2:assigningGeographicArea>
+            </ns2:asEntityIdentifier>
+            <ns2:asEmployment classCode="EMP">
+               <ns2:code>
+                  <originalText>Staff Doctor</originalText>
+               </ns2:code>
+               <ns2:jobCode code="253111" codeSystem="2.16.840.1.113883.13.62"
+                            codeSystemName="1220.0 - ANZSCO - Australian and New Zealand Standard Classification of Occupations, First Edition, 2006"
+                            displayName="General Medical Practitioner"/>
+               <ns2:jobClassCode code="1" codeSystem="2.16.840.1.113883.3.879.314867"
+                                 codeSystemName="Employment type"
+                                 displayName="Permanent"/>
+               <ns2:employerOrganization>
+                  <name>Front Office</name>
+                  <asOrganizationPartOf>
+                     <wholeOrganization>
+                        <name>Sarahs Clinic</name>
+                        <telecom use="WP" value="tel:0712345678"/>
+                        <telecom use="WP" value="fax:0712345678"/>
+                        <addr use="WP">
+                           <streetAddressLine>The Public</streetAddressLine>
+                           <streetAddressLine>400 George Street</streetAddressLine>
+                           <postalCode>4000</postalCode>
+                           <city>Brisbane</city>
+                           <state>QLD</state>
+                           <country>Australia</country>
+                        </addr>
+                        <ns2:asEntityIdentifier classCode="IDENT">
+                           <ns2:id assigningAuthorityName="HPI-O" root="1.2.36.1.2001.1003.0.8003621231167886"/>
+                           <ns2:assigningGeographicArea classCode="PLC">
+                              <ns2:name>National Identifier</ns2:name>
+                           </ns2:assigningGeographicArea>
+                        </ns2:asEntityIdentifier>
+                     </wholeOrganization>
+                  </asOrganizationPartOf>
+               </ns2:employerOrganization>
+            </ns2:asEmployment>
+         </assignedPerson>
+      </assignedAuthor>
+   </author>
+   <custodian>
+      <assignedCustodian>
+         <representedCustodianOrganization>
+            <id root="e572bee3-df21-41e2-9ba7-45a6651ca586"/>
+            <name>Custodian organisation</name>
+            <telecom use="WP" value="mailto:example@custodian.com.au"/>
+            <addr use="PST">
+               <streetAddressLine>99 Clinician Street</streetAddressLine>
+               <postalCode>5555</postalCode>
+               <city>Nehtaville</city>
+               <state>QLD</state>
+               <country>Australia</country>
+               <additionalLocator>Level 2</additionalLocator>
+            </addr>
+            <ns2:asEntityIdentifier classCode="IDENT">
+               <ns2:id assigningAuthorityName="HPI-O" root="1.2.36.1.2001.1003.0.8003621231167886"/>
+               <ns2:assigningGeographicArea classCode="PLC">
+                  <ns2:name>National Identifier</ns2:name>
+               </ns2:assigningGeographicArea>
+            </ns2:asEntityIdentifier>
+         </representedCustodianOrganization>
+      </assignedCustodian>
+   </custodian>
+   <legalAuthenticator>
+      <time value="20200415144753+1000"/>
+      <signatureCode code="S"/>
+      <assignedEntity>
+         <id root="45d8ffb8-3fd6-4c76-aed4-5c5219f29cab"/>
+         <code code="253511" codeSystem="2.16.840.1.113883.13.62"
+               codeSystemName="1220.0 - ANZSCO - Australian and New Zealand Standard Classification of Occupations, First Edition, 2006"
+               displayName="Surgeon (General)"/>
+         <addr use="WP">
+            <streetAddressLine>101 Browning Street</streetAddressLine>
+            <postalCode>4101</postalCode>
+            <city>Brisbane</city>
+            <state>QLD</state>
+            <country>Australia</country>
+         </addr>
+         <telecom use="WP" value="mailto:example@sample.com"/>
+         <assignedPerson>
+            <name use="L">
+               <prefix>Mrs</prefix>
+               <family>Black</family>
+               <given>Jane</given>
+               <suffix>Junior</suffix>
+            </name>
+            <name use="M">
+               <prefix>Miss</prefix>
+               <family>Alias</family>
+               <given>other</given>
+            </name>
+            <ns2:asEntityIdentifier classCode="IDENT">
+               <ns2:id assigningAuthorityName="HPI-I" root="1.2.36.1.2001.1003.0.8003610000001145"/>
+               <ns2:assigningGeographicArea classCode="PLC">
+                  <ns2:name>National Identifier</ns2:name>
+               </ns2:assigningGeographicArea>
+            </ns2:asEntityIdentifier>
+         </assignedPerson>
+         <representedOrganization>
+            <name>Pathology Lab Name</name>
+            <ns2:asEntityIdentifier classCode="IDENT">
+               <ns2:id assigningAuthorityName="HPI-O" root="1.2.36.1.2001.1003.0.8003621231167886"/>
+               <ns2:assigningGeographicArea classCode="PLC">
+                  <ns2:name>National Identifier</ns2:name>
+               </ns2:assigningGeographicArea>
+            </ns2:asEntityIdentifier>
+         </representedOrganization>
+      </assignedEntity>
+   </legalAuthenticator>
+   <componentOf>
+      <encompassingEncounter>
+         <effectiveTime>
+            <low value="20190715"/>
+            <high value="20190715"/>
+         </effectiveTime>
+      </encompassingEncounter>
+   </componentOf>
+   <component>
+      <structuredBody>
+         <component typeCode="COMP">
+            <section classCode="DOCSECT" moodCode="EVN">
+               <id root="eaa45ddb-8615-499b-a539-aa82c3f1cfba"/>
+               <code code="101.16672" codeSystem="1.2.36.1.2001.1001.101"
+                     codeSystemName="NCTIS Data Components"
+                     displayName="Event Overview"/>
+               <title>Event Details</title>
+               <text mediaType="text/x-hl7-text+xml">
+                  <table>
+                     <caption>Clinical Summary</caption>
+                     <thead>
+                        <tr>
+                           <th>Description</th>
+                        </tr>
+                     </thead>
+                     <tbody>
+                        <tr>
+                           <td>Mrs Sharma 43 years old G2 P1, currently 24 weeks gestation.  She had hyperglycaemia in her screening test and followed up by OGTT which has confirmed Gestational Diabetes. She has been prescribed Insulin pre meal and before bed.  She needs to monitor her blood sugar before taking insulin.  She has been counselled in diet and exercise requirements to help manage her diabetes as well as referrals were made to a dietician and diabetes educator.</td>
+                        </tr>
+                     </tbody>
+                  </table>
+               </text>
+               <entry>
+                  <act classCode="ACT" moodCode="EVN">
+                     <id root="2fbcdb16-856f-4925-ab01-6255d5e989df"/>
+                     <code code="102.15513" codeSystem="1.2.36.1.2001.1001.101"
+                           codeSystemName="NCTIS Data Components"
+                           displayName="Clinical Synopsis"/>
+                     <text xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ST">Mrs Sharma 43 years old G2 P1, currently 24 weeks gestation.  She had hyperglycaemia in her screening test and followed up by OGTT which has confirmed Gestational Diabetes. She has been prescribed Insulin pre meal and before bed.  She needs to monitor her blood sugar before taking insulin.  She has been counselled in diet and exercise requirements to help manage her diabetes as well as referrals were made to a dietician and diabetes educator.</text>
+                  </act>
+               </entry>
+            </section>
+         </component>
+         <component typeCode="COMP">
+            <section>
+               <id root="ad4be93b-adaf-4781-b206-f0cf8388eb59"/>
+               <code code="101.20113" codeSystem="1.2.36.1.2001.1001.101"
+                     codeSystemName="NCTIS Data Components"
+                     displayName="Adverse Reactions"/>
+               <title>Adverse Reactions</title>
+               <text>
+                  <table>
+                     <caption>Adverse Reactions</caption>
+                     <thead>
+                        <tr>
+                           <th>Substance/Agent</th>
+                           <th>Manifestations</th>
+                           <th>Reaction Type</th>
+                        </tr>
+                     </thead>
+                     <tbody>
+                        <tr>
+                           <td>Pollen</td>
+                           <td>
+                              <list>
+                                 <caption>Allergic reaction</caption>
+                                 <item>Itching of eye</item>
+                              </list>
+                           </td>
+                           <td>Allergic reaction</td>
+                        </tr>
+                     </tbody>
+                  </table>
+               </text>
+               <entry>
+                  <act classCode="ACT" moodCode="EVN">
+                     <id root="10f99db3-07af-4d63-83f4-1d2a3da38321"/>
+                     <code code="102.15517" codeSystem="1.2.36.1.2001.1001.101"
+                           codeSystemName="NCTIS Data Components"
+                           displayName="Adverse Reaction"/>
+                     <participant typeCode="CAGNT">
+                        <participantRole>
+                           <playingEntity>
+                              <code code="256259004" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED CT"
+                                    displayName="Pollen">
+                                 <originalText>Pollen</originalText>
+                              </code>
+                           </playingEntity>
+                        </participantRole>
+                     </participant>
+                     <entryRelationship typeCode="CAUS">
+                        <observation classCode="OBS" moodCode="EVN">
+                           <id root="4b99110c-f5c4-41cb-90a2-9a79cb8f90ff"/>
+                           <code code="102.16474" codeSystem="1.2.36.1.2001.1001.101"
+                                 codeSystemName="NCTIS Data Components"
+                                 displayName="Reaction Event"/>
+                           <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" code="419076005"
+                                  codeSystem="2.16.840.1.113883.6.96"
+                                  codeSystemName="SNOMED CT"
+                                  displayName="Allergic reaction"
+                                  xsi:type="CD">
+                              <originalText>Allergic reaction</originalText>
+                           </value>
+                           <entryRelationship inversionInd="true" typeCode="MFST">
+                              <observation classCode="OBS" moodCode="EVN">
+                                 <id root="6cdd9bcc-5904-455c-a6c1-8dda66bff17d"/>
+                                 <code code="74776002" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED CT"
+                                       displayName="Itching of eye">
+                                    <originalText>Itching of eye</originalText>
+                                 </code>
+                                 <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" code="419076005"
+                                        codeSystem="2.16.840.1.113883.6.96"
+                                        codeSystemName="SNOMED CT"
+                                        displayName="Allergic reaction"
+                                        xsi:type="CV">
+                                    <originalText>Allergic reaction</originalText>
+                                 </value>
+                              </observation>
+                           </entryRelationship>
+                        </observation>
+                     </entryRelationship>
+                  </act>
+               </entry>
+            </section>
+         </component>
+         <component typeCode="COMP">
+            <section classCode="DOCSECT" moodCode="EVN">
+               <id root="e7861e1a-ee14-40df-b9e6-95656c5ec850"/>
+               <code code="101.16146" codeSystem="1.2.36.1.2001.1001.101"
+                     codeSystemName="NCTIS Data Components"
+                     displayName="Medication Orders"/>
+               <title>Medications</title>
+               <text mediaType="text/x-hl7-text+xml">
+                  <table>
+                     <caption>Medications</caption>
+                     <thead>
+                        <tr>
+                           <th>Medication</th>
+                           <th>Directions</th>
+                           <th>Clinical Indication</th>
+                           <th>Change Status</th>
+                           <th>Change Description</th>
+                           <th>Change Reason</th>
+                           <th>Change Type</th>
+                           <th>Comment</th>
+                        </tr>
+                     </thead>
+                     <tbody>
+                        <tr>
+                           <td>Novorapid 100 units/mL injection</td>
+                           <td>4-6 Units before meals</td>
+                           <td>Gestational Diabetes</td>
+                           <td>Change made</td>
+                           <td>New - prescribed</td>
+                           <td>New - prescribed</td>
+                           <td>Prescribed</td>
+                           <td>Dosage to be reviewed in 10 days</td>
+                        </tr>
+                        <tr>
+                           <td>Protaphane Novolet 100 units/mL injection, 3 mL pen device</td>
+                           <td>4-8 Units before bed</td>
+                           <td>Gestational Diabetes</td>
+                           <td>Change made</td>
+                           <td>New - prescribed</td>
+                           <td>New - prescribed</td>
+                           <td>Prescribed</td>
+                           <td>Dosage to be reviewed in 10 days</td>
+                        </tr>
+                     </tbody>
+                  </table>
+               </text>
+               <entry>
+                  <substanceAdministration classCode="SBADM" moodCode="EVN">
+                     <id root="9cf725be-d89c-44a3-8096-cb836e524796"/>
+                     <text xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ST">4-6 Units before meals</text>
+                     <consumable>
+                        <manufacturedProduct>
+                           <manufacturedMaterial>
+                              <code code="20044011000036106" codeSystem="2.16.840.1.113883.6.96"
+                                    codeSystemName="SNOMED CT"
+                                    displayName="Novorapid 100 units/mL injection, 1 x 10 mL vial">
+                                 <originalText>Novorapid 100 units/mL injection</originalText>
+                              </code>
+                           </manufacturedMaterial>
+                        </manufacturedProduct>
+                     </consumable>
+                     <entryRelationship typeCode="RSON">
+                        <act classCode="INFRM" moodCode="EVN">
+                           <id root="b7fb4642-abf9-4a3f-8774-7b1898e99943"/>
+                           <code code="103.10141" codeSystem="1.2.36.1.2001.1001.101"
+                                 codeSystemName="NCTIS Data Components"
+                                 displayName="Clinical Indication"/>
+                           <text>Gestational Diabetes</text>
+                        </act>
+                     </entryRelationship>
+                     <entryRelationship typeCode="COMP">
+                        <act classCode="INFRM" moodCode="EVN">
+                           <id root="96b6ec06-9e8c-464b-9121-f78c7f47988c"/>
+                           <code code="103.16044" codeSystem="1.2.36.1.2001.1001.101"
+                                 codeSystemName="NCTIS Data Components"
+                                 displayName="Additional Comments"/>
+                           <text xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ST">Dosage to be reviewed in 10 days</text>
+                        </act>
+                     </entryRelationship>
+                     <entryRelationship typeCode="SPRT">
+                        <observation classCode="OBS" moodCode="EVN">
+                           <id root="5f5d30b6-1e16-4e01-8ab0-1a2680aa3c30"/>
+                           <code code="103.16593" codeSystem="1.2.36.1.2001.1001.101"
+                                 codeSystemName="NCTIS Data Components"
+                                 displayName="Change Type"/>
+                           <text xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ST">New - prescribed</text>
+                           <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" code="105681000036100"
+                                  codeSystem="2.16.840.1.113883.6.96"
+                                  codeSystemName="SNOMED CT"
+                                  displayName="Prescribed"
+                                  xsi:type="CD"/>
+                           <entryRelationship typeCode="COMP">
+                              <observation classCode="OBS" moodCode="EVN">
+                                 <id root="5f7c4d41-6788-41ad-a694-22a8f477eb00"/>
+                                 <code code="103.16595" codeSystem="1.2.36.1.2001.1001.101"
+                                       codeSystemName="NCTIS Data Components"
+                                       displayName="Change Status"/>
+                                 <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" code="703465008"
+                                        codeSystem="2.16.840.1.113883.6.96"
+                                        codeSystemName="SNOMED CT"
+                                        displayName="Change made"
+                                        xsi:type="CD"/>
+                              </observation>
+                           </entryRelationship>
+                           <entryRelationship typeCode="RSON">
+                              <act classCode="INFRM" moodCode="EVN">
+                                 <id root="e9791c3c-f30f-4c61-8ac8-1788e613a9f9"/>
+                                 <code code="103.10177" codeSystem="1.2.36.1.2001.1001.101"
+                                       codeSystemName="NCTIS Data Components"
+                                       displayName="Change or Recommendation Reason"/>
+                                 <text xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ST">New - prescribed</text>
+                              </act>
+                           </entryRelationship>
+                        </observation>
+                     </entryRelationship>
+                  </substanceAdministration>
+               </entry>
+               <entry>
+                  <substanceAdministration classCode="SBADM" moodCode="EVN">
+                     <id root="2ae12ecf-67c1-4ae7-be6d-645c0a26b41f"/>
+                     <text xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ST">4-8 Units before bed</text>
+                     <consumable>
+                        <manufacturedProduct>
+                           <manufacturedMaterial>
+                              <code code="1241711000168100" codeSystem="2.16.840.1.113883.6.96"
+                                    codeSystemName="SNOMED CT"
+                                    displayName="Protaphane Novolet 100 units/mL injection, 3 mL pen device">
+                                 <originalText>Protaphane Novolet 100 units/mL injection, 3 mL pen device</originalText>
+                              </code>
+                           </manufacturedMaterial>
+                        </manufacturedProduct>
+                     </consumable>
+                     <entryRelationship typeCode="RSON">
+                        <act classCode="INFRM" moodCode="EVN">
+                           <id root="a5dabae0-525f-455e-ad49-dd632d2e1a44"/>
+                           <code code="103.10141" codeSystem="1.2.36.1.2001.1001.101"
+                                 codeSystemName="NCTIS Data Components"
+                                 displayName="Clinical Indication"/>
+                           <text>Gestational Diabetes</text>
+                        </act>
+                     </entryRelationship>
+                     <entryRelationship typeCode="COMP">
+                        <act classCode="INFRM" moodCode="EVN">
+                           <id root="42d55a8f-4cd2-4821-8348-af01f24948b0"/>
+                           <code code="103.16044" codeSystem="1.2.36.1.2001.1001.101"
+                                 codeSystemName="NCTIS Data Components"
+                                 displayName="Additional Comments"/>
+                           <text xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ST">Dosage to be reviewed in 10 days</text>
+                        </act>
+                     </entryRelationship>
+                     <entryRelationship typeCode="SPRT">
+                        <observation classCode="OBS" moodCode="EVN">
+                           <id root="3775608e-5e30-4607-85fc-ea534cb100fb"/>
+                           <code code="103.16593" codeSystem="1.2.36.1.2001.1001.101"
+                                 codeSystemName="NCTIS Data Components"
+                                 displayName="Change Type"/>
+                           <text xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ST">New - prescribed</text>
+                           <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" code="105681000036100"
+                                  codeSystem="2.16.840.1.113883.6.96"
+                                  codeSystemName="SNOMED CT"
+                                  displayName="Prescribed"
+                                  xsi:type="CD"/>
+                           <entryRelationship typeCode="COMP">
+                              <observation classCode="OBS" moodCode="EVN">
+                                 <id root="0e749f3d-f581-4167-a4cc-6a0634b1fc64"/>
+                                 <code code="103.16595" codeSystem="1.2.36.1.2001.1001.101"
+                                       codeSystemName="NCTIS Data Components"
+                                       displayName="Change Status"/>
+                                 <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" code="703465008"
+                                        codeSystem="2.16.840.1.113883.6.96"
+                                        codeSystemName="SNOMED CT"
+                                        displayName="Change made"
+                                        xsi:type="CD"/>
+                              </observation>
+                           </entryRelationship>
+                           <entryRelationship typeCode="RSON">
+                              <act classCode="INFRM" moodCode="EVN">
+                                 <id root="08fe04cd-4b57-4fa3-8d83-7750b67be22e"/>
+                                 <code code="103.10177" codeSystem="1.2.36.1.2001.1001.101"
+                                       codeSystemName="NCTIS Data Components"
+                                       displayName="Change or Recommendation Reason"/>
+                                 <text xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ST">New - prescribed</text>
+                              </act>
+                           </entryRelationship>
+                        </observation>
+                     </entryRelationship>
+                  </substanceAdministration>
+               </entry>
+            </section>
+         </component>
+         <component typeCode="COMP">
+            <section classCode="DOCSECT" moodCode="EVN">
+               <id root="60230830-eced-4af3-9b4f-3ea35237875c"/>
+               <code code="101.16117" codeSystem="1.2.36.1.2001.1001.101"
+                     codeSystemName="NCTIS Data Components"
+                     displayName="Medical History"/>
+               <title>Diagnoses/Interventions</title>
+               <text mediaType="text/x-hl7-text+xml">
+                  <table>
+                     <caption>Medical History</caption>
+                     <thead>
+                        <tr>
+                           <th>Item</th>
+                           <th>Date</th>
+                           <th>Comment</th>
+                        </tr>
+                     </thead>
+                     <tbody>
+                        <tr>
+                           <td>Gestational diabetes mellitus</td>
+                           <td>15 Jul 2019</td>
+                           <td>test</td>
+                        </tr>
+                     </tbody>
+                  </table>
+               </text>
+               <entry>
+                  <observation classCode="OBS" moodCode="EVN">
+                     <id root="20d769f7-e1ec-415e-aa41-331a5e04221a"/>
+                     <code code="282291009" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED CT"
+                           displayName="Diagnosis interpretation"/>
+                     <effectiveTime>
+                        <low value="20190715"/>
+                     </effectiveTime>
+                     <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" code="11687002"
+                            codeSystem="2.16.840.1.113883.6.96"
+                            codeSystemName="SNOMED CT-AU"
+                            displayName="Gestational diabetes mellitus"
+                            xsi:type="CD"/>
+                     <entryRelationship typeCode="COMP">
+                        <act classCode="INFRM" moodCode="EVN">
+                           <id root="87115c2c-b630-4a81-bb87-7a566f69db49"/>
+                           <code code="103.16545" codeSystem="1.2.36.1.2001.1001.101"
+                                 codeSystemName="NCTIS Data Components"
+                                 displayName="Problem/Diagnosis Comment"/>
+                           <text xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ST">test</text>
+                        </act>
+                     </entryRelationship>
+                  </observation>
+               </entry>
+            </section>
+         </component>
+         <component>
+            <section classCode="DOCSECT" moodCode="EVN">
+               <id root="de204bba-dcaf-49d0-8809-af0084f6c6e9"/>
+               <code code="101.16638" codeSystem="1.2.36.1.2001.1001.101"
+                     codeSystemName="NCTIS Data Components"
+                     displayName="Immunisations"/>
+               <title>Immunisations</title>
+               <text mediaType="text/x-hl7-text+xml">
+                  <table>
+                     <caption>Immunisations</caption>
+                     <thead>
+                        <tr>
+                           <th>Vaccine</th>
+                           <th>Date</th>
+                        </tr>
+                     </thead>
+                     <tbody>
+                        <tr>
+                           <td>Afluria Quad 2019 Needle Free injection, 10 x 0.5 mL syringes</td>
+                           <td>15 Jul 2019</td>
+                        </tr>
+                     </tbody>
+                  </table>
+               </text>
+               <entry>
+                  <substanceAdministration classCode="SBADM" moodCode="EVN">
+                     <id root="58681f57-e859-46c4-894d-e1acf8d648f7"/>
+                     <effectiveTime value="20190715000000+1000"/>
+                     <consumable>
+                        <manufacturedProduct>
+                           <manufacturedMaterial>
+                              <code code="1294151000168108" codeSystem="2.16.840.1.113883.6.96"
+                                    codeSystemName="Australian Medicines Terminology"
+                                    displayName="Afluria Quad 2019 Needle Free injection, 10 x 0.5 mL syringes"/>
+                           </manufacturedMaterial>
+                        </manufacturedProduct>
+                     </consumable>
+                  </substanceAdministration>
+               </entry>
+            </section>
+         </component>
+         <component typeCode="COMP">
+            <section classCode="DOCSECT" moodCode="EVN">
+               <id root="fcc94de4-e071-4f93-bd83-69b391be5bfd"/>
+               <code code="101.20117" codeSystem="1.2.36.1.2001.1001.101"
+                     codeSystemName="NCTIS Data Components"
+                     displayName="Diagnostic Investigations"/>
+               <title>Diagnostic Investigations</title>
+               <text>
+                  <paragraph>This section contains the following subsections: Pathology Test Result, Imaging Examination Result and Requested Service(s).</paragraph>
+               </text>
+               <component>
+                  <section>
+                     <id root="fb997032-80e7-400f-a4ca-281bef7dc4d5"/>
+                     <code code="102.16029" codeSystem="1.2.36.1.2001.1001.101"
+                           codeSystemName="NCTIS Data Components"
+                           displayName="Diagnostic Investigation"/>
+                     <title>Diagnostic Investigation</title>
+                     <text>
+                        <table>
+                           <caption>Other Test Result: Report Name</caption>
+                           <thead>
+                              <tr>
+                                 <th>Field</th>
+                                 <th>Value</th>
+                              </tr>
+                           </thead>
+                           <tbody>
+                              <tr>
+                                 <td styleCode="Bold">Report Date</td>
+                                 <td>1 Jan 2017</td>
+                              </tr>
+                              <tr>
+                                 <td styleCode="Bold">Report Name</td>
+                                 <td>Report Name</td>
+                              </tr>
+                              <tr>
+                                 <td styleCode="Bold">Report Status</td>
+                                 <td>Final</td>
+                              </tr>
+                              <tr>
+                                 <td colspan="2">
+                                    <paragraph styleCode="xPre">Blood Glucose: Fasting: 6.2 mmol/L (week 23)
+ Clinical Indication: Screening for Hyperglycemia in pregnancy (presence of risk factors)
+ Serum/ Plasma Glucose: Sample collected on SST tube from left cubital vein
+ Date collected:			24 Oct 16		7 March 18		10 July 19
+ Time collected:			10:50am			08:55am			09:10am
+ Fasting status:			Random			Fasting			Fasting
+ Serum (3.4-5.4) mmol/l			5.3			5.2			6.2
+ 
+
+Recommendation: Glucose level above the normal range, consider Oral Glucose tolerance test and / or HbA1c to confirm Gestational Diabetes.</paragraph>
+                                 </td>
+                              </tr>
+                           </tbody>
+                        </table>
+                     </text>
+                     <entry>
+                        <observation classCode="OBS" moodCode="EVN">
+                           <id root="3b3ce56a-282c-4b61-bdea-62c27a684b42"/>
+                           <code>
+                              <originalText>Report Name</originalText>
+                           </code>
+                           <effectiveTime value="20170101"/>
+                           <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ED">Blood Glucose: Fasting: 6.2 mmol/L (week 23)
+ Clinical Indication: Screening for Hyperglycemia in pregnancy (presence of risk factors)
+ Serum/ Plasma Glucose: Sample collected on SST tube from left cubital vein
+ Date collected:			24 Oct 16		7 March 18		10 July 19
+ Time collected:			10:50am			08:55am			09:10am
+ Fasting status:			Random			Fasting			Fasting
+ Serum (3.4-5.4) mmol/l			5.3			5.2			6.2
+ 
+
+Recommendation: Glucose level above the normal range, consider Oral Glucose tolerance test and / or HbA1c to confirm Gestational Diabetes.</value>
+                           <entryRelationship typeCode="COMP">
+                              <observation classCode="OBS" moodCode="EVN">
+                                 <id root="da3d89d0-2e1b-4c5b-8075-48dea5884e51"/>
+                                 <code code="308552006" codeSystem="2.16.840.1.113883.6.96"
+                                       codeSystemName="SNOMED CT-AU"
+                                       codeSystemVersion="20110531"
+                                       displayName="report status"/>
+                                 <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" code="3"
+                                        codeSystem="1.2.36.1.2001.1001.101.104.16501"
+                                        codeSystemName="NCTIS Result Status Values"
+                                        displayName="Final"
+                                        xsi:type="CD"/>
+                              </observation>
+                           </entryRelationship>
+                        </observation>
+                     </entry>
+                  </section>
+               </component>
+               <component>
+                  <section>
+                     <id root="12633d6a-bd1f-4aea-9c5e-64c2bb35f884"/>
+                     <code code="102.16029" codeSystem="1.2.36.1.2001.1001.101"
+                           codeSystemName="NCTIS Data Components"
+                           displayName="Diagnostic Investigation"/>
+                     <title>Diagnostic Investigation</title>
+                     <text>
+                        <table>
+                           <caption>Other Test Result: Report Name</caption>
+                           <thead>
+                              <tr>
+                                 <th>Field</th>
+                                 <th>Value</th>
+                              </tr>
+                           </thead>
+                           <tbody>
+                              <tr>
+                                 <td styleCode="Bold">Report Date</td>
+                                 <td>1 Jan 2017</td>
+                              </tr>
+                              <tr>
+                                 <td styleCode="Bold">Report Name</td>
+                                 <td>Report Name</td>
+                              </tr>
+                              <tr>
+                                 <td styleCode="Bold">Report Status</td>
+                                 <td>Final</td>
+                              </tr>
+                              <tr>
+                                 <td colspan="2">
+                                    <paragraph styleCode="xPre">75mg OGTT (Oral Glucose Tolerance Test): (week 24) 
+Clinical Indication: Previous Hyperglycemia presence of risk factors to confirm gestational diabetes 
+Serum/ Plasma Glucose: Sample collected at 0 hour, 1 hour post glucose administration and at 2 hours. Sample collected in Oxalate tube x3 from right cubital vein. 
+Date Collected: 15 July 2019 
+Time Collected: 		
+8:00am		Fasting: 6mmol/l (&lt;5.1 mmol/L) 
+9:00am		1hour: 11 mmol/l (&lt;10 mmol/L) 
+10:00am 	2 hour: 8.9 mmol/l (&lt;8.5 mmol/L) 
+
+Recommendation: Impaired glucose tolerance consistent with Gestational Diabetes.</paragraph>
+                                 </td>
+                              </tr>
+                           </tbody>
+                        </table>
+                     </text>
+                     <entry>
+                        <observation classCode="OBS" moodCode="EVN">
+                           <id root="9464cf3d-9c6c-4b15-9f3c-1499a6a3f812"/>
+                           <code>
+                              <originalText>Report Name</originalText>
+                           </code>
+                           <effectiveTime value="20170101"/>
+                           <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ED">75mg OGTT (Oral Glucose Tolerance Test): (week 24) 
+Clinical Indication: Previous Hyperglycemia presence of risk factors to confirm gestational diabetes 
+Serum/ Plasma Glucose: Sample collected at 0 hour, 1 hour post glucose administration and at 2 hours. Sample collected in Oxalate tube x3 from right cubital vein. 
+Date Collected: 15 July 2019 
+Time Collected: 		
+8:00am		Fasting: 6mmol/l (&lt;5.1 mmol/L) 
+9:00am		1hour: 11 mmol/l (&lt;10 mmol/L) 
+10:00am 	2 hour: 8.9 mmol/l (&lt;8.5 mmol/L) 
+
+Recommendation: Impaired glucose tolerance consistent with Gestational Diabetes.</value>
+                           <entryRelationship typeCode="COMP">
+                              <observation classCode="OBS" moodCode="EVN">
+                                 <id root="ff791d3f-9acd-45e2-b001-ae8f6e79e7d2"/>
+                                 <code code="308552006" codeSystem="2.16.840.1.113883.6.96"
+                                       codeSystemName="SNOMED CT-AU"
+                                       codeSystemVersion="20110531"
+                                       displayName="report status"/>
+                                 <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" code="3"
+                                        codeSystem="1.2.36.1.2001.1001.101.104.16501"
+                                        codeSystemName="NCTIS Result Status Values"
+                                        displayName="Final"
+                                        xsi:type="CD"/>
+                              </observation>
+                           </entryRelationship>
+                        </observation>
+                     </entry>
+                  </section>
+               </component>
+            </section>
+         </component>
+         <component>
+            <section>
+               <code code="102.16080" codeSystem="1.2.36.1.2001.1001.101"
+                     codeSystemName="NCTIS Data Components"
+                     displayName="Administrative Observations"/>
+               <title>Administrative Observations</title>
+               <text>
+                  <table>
+                     <caption>Demographic Data</caption>
+                     <thead>
+                        <tr>
+                           <th>Name</th>
+                           <th>Value</th>
+                        </tr>
+                     </thead>
+                     <tbody>
+                        <tr>
+                           <td>Date Of Birth is Calculated from Age</td>
+                           <td>Yes</td>
+                        </tr>
+                        <tr>
+                           <td>Date of Birth Accuracy Indicator</td>
+                           <td>AAA</td>
+                        </tr>
+                        <tr>
+                           <td>Birth Plurality</td>
+                           <td>5</td>
+                        </tr>
+                        <tr>
+                           <td>Age Accuracy Indicator</td>
+                           <td>Yes</td>
+                        </tr>
+                        <tr>
+                           <td>Age</td>
+                           <td>43</td>
+                        </tr>
+                     </tbody>
+                  </table>
+               </text>
+               <entry typeCode="DRIV">
+                  <observation classCode="OBS" moodCode="EVN">
+                     <id root="54b20d9f-8436-4d83-b7d7-85bb8a29fce7"/>
+                     <code xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" code="103.16233"
+                           codeSystem="1.2.36.1.2001.1001.101"
+                           codeSystemName="NCTIS Data Components"
+                           displayName="Date of Birth is Calculated From Age"
+                           xsi:type="CE"/>
+                     <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" value="true" xsi:type="BL"/>
+                  </observation>
+               </entry>
+               <entry typeCode="DRIV">
+                  <observation classCode="OBS" moodCode="EVN">
+                     <id root="3aa3bb34-b074-4004-80e3-8796091d72fd"/>
+                     <code xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" code="102.16234"
+                           codeSystem="1.2.36.1.2001.1001.101"
+                           codeSystemName="NCTIS Data Components"
+                           displayName="Date of Birth Accuracy Indicator"
+                           xsi:type="CE"/>
+                     <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" code="AAA" xsi:type="CS"/>
+                  </observation>
+               </entry>
+               <entry typeCode="DRIV">
+                  <observation classCode="OBS" moodCode="EVN">
+                     <id root="27589af9-33c3-476e-8f09-cbfd966496ae"/>
+                     <code xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" code="103.20109"
+                           codeSystem="1.2.36.1.2001.1001.101"
+                           codeSystemName="NCTIS Data Components"
+                           displayName="Age"
+                           xsi:type="CE"/>
+                     <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" unit="a" value="43"
+                            xsi:type="PQ"/>
+                  </observation>
+               </entry>
+               <entry typeCode="DRIV">
+                  <observation classCode="OBS" moodCode="EVN">
+                     <id root="6a6f915f-a04f-4276-992f-7d0d66d570ca"/>
+                     <code xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" code="103.16279"
+                           codeSystem="1.2.36.1.2001.1001.101"
+                           codeSystemName="NCTIS Data Components"
+                           displayName="Age Accuracy Indicator"
+                           xsi:type="CE"/>
+                     <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" value="true" xsi:type="BL"/>
+                  </observation>
+               </entry>
+               <entry typeCode="DRIV">
+                  <observation classCode="OBS" moodCode="EVN">
+                     <id root="0d554fe2-50e1-4218-b846-528df286bd45"/>
+                     <code xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" code="103.16249"
+                           codeSystem="1.2.36.1.2001.1001.101"
+                           codeSystemName="NCTIS Data Components"
+                           displayName="Birth Plurality"
+                           xsi:type="CE"/>
+                     <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" value="5" xsi:type="INT"/>
+                  </observation>
+               </entry>
+               <ns2:coverage2 typeCode="COVBY">
+                  <ns2:entitlement classCode="COV" moodCode="EVN">
+                     <ns2:id assigningAuthorityName="Medicare Card Number" extension="1234567881"
+                             root="1.2.36.1.5001.1.0.7.1"/>
+                     <ns2:code code="1" codeSystem="1.2.36.1.2001.1001.101.104.16047"
+                               codeSystemName="NCTIS Entitlement Type Values"
+                               displayName="Medicare Benefits">
+                        <originalText>Medicare Benefits</originalText>
+                     </ns2:code>
+                     <ns2:effectiveTime>
+                        <high value="20210415"/>
+                     </ns2:effectiveTime>
+                     <ns2:participant typeCode="BEN">
+                        <ns2:participantRole classCode="PAT">
+                           <ns2:id root="7f985473-948f-4a03-9d86-aab49e381498"/>
+                        </ns2:participantRole>
+                     </ns2:participant>
+                  </ns2:entitlement>
+               </ns2:coverage2>
+            </section>
+         </component>
+      </structuredBody>
+   </component>
+</ClinicalDocument>

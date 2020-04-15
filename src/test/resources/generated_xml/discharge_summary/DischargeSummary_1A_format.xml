@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ClinicalDocument xmlns="urn:hl7-org:v3"
+                  xmlns:ns2="http://ns.electronichealth.net.au/Ci/Cda/Extensions/3.0">
+   <typeId extension="POCD_HD000040" root="2.16.840.1.113883.1.3"/>
+   <templateId extension="3.4" root="1.2.36.1.2001.1001.101.100.1002.4"/>
+   <templateId extension="1.0" root="1.2.36.1.2001.1001.100.149"/>
+   <id root="2.25.180135607368695543853428867210310586932"/>
+   <code code="18842-5" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"
+         displayName="Discharge Summarization Note"/>
+   <title>Discharge Summary</title>
+   <effectiveTime value="20200415144750+1000"/>
+   <confidentialityCode nullFlavor="NA"/>
+   <languageCode code="en-AU"/>
+   <versionNumber value="1"/>
+   <ns2:completionCode code="F" codeSystem="1.2.36.1.2001.1001.101.104.20104"
+                       codeSystemName="NCTIS Document Status Values"
+                       displayName="Final"/>
+   <recordTarget typeCode="RCT">
+      <patientRole classCode="PAT">
+         <id root="bae45f77-2a41-4539-acdf-b95d3528862d"/>
+         <addr use="H">
+            <streetAddressLine>The Complex</streetAddressLine>
+            <streetAddressLine>Unit 90210 / 10 Browning st</streetAddressLine>
+            <postalCode>4101</postalCode>
+            <city>West End</city>
+            <state>QLD</state>
+            <country>Australia</country>
+         </addr>
+         <telecom use="H" value="tel:0712345678"/>
+         <telecom use="H" value="mailto:frank.harding@electronichealth.net.au"/>
+         <patient>
+            <name use="M">
+               <prefix>Mr</prefix>
+               <family>Harding</family>
+               <given>Frank</given>
+               <suffix>Junior</suffix>
+            </name>
+            <administrativeGenderCode code="M" codeSystem="2.16.840.1.113883.13.68"
+                                      codeSystemName="AS 5017-2006 Health Care Client Identifier Sex"
+                                      displayName="Male"/>
+            <birthTime value="19821128"/>
+            <ethnicGroupCode code="9" codeSystem="2.16.840.1.113883.3.879.291036"
+                             codeSystemName="METeOR Indigenous Status"
+                             displayName="Not stated/inadequately described"/>
+            <ns2:multipleBirthInd value="true"/>
+            <ns2:multipleBirthOrderNumber value="2"/>
+            <ns2:asEntityIdentifier classCode="IDENT">
+               <ns2:id assigningAuthorityName="IHI" root="1.2.36.1.2001.1003.0.8003600300001283"/>
+               <ns2:assigningGeographicArea classCode="PLC">
+                  <ns2:name>National Identifier</ns2:name>
+               </ns2:assigningGeographicArea>
+            </ns2:asEntityIdentifier>
+         </patient>
+      </patientRole>
+   </recordTarget>
+   <author typeCode="AUT">
+      <time value="20200415144750+1000"/>
+      <assignedAuthor>
+         <id root="46ca2b86-e777-48fb-84f2-d4d0837cd271"/>
+         <code code="253111" codeSystem="2.16.840.1.113883.13.62"
+               codeSystemName="1220.0 - ANZSCO - Australian and New Zealand Standard Classification of Occupations, First Edition, 2006"
+               displayName="General Medical Practitioner"/>
+         <addr use="WP">
+            <streetAddressLine>The Public</streetAddressLine>
+            <streetAddressLine>400 George Street</streetAddressLine>
+            <postalCode>4000</postalCode>
+            <city>Brisbane</city>
+            <state>QLD</state>
+            <country>Australia</country>
+         </addr>
+         <telecom use="WP" value="tel:0712345678"/>
+         <telecom use="WP" value="fax:0712345678"/>
+         <assignedPerson>
+            <name use="L">
+               <prefix>Dr</prefix>
+               <family>Smith</family>
+               <given>Sarah</given>
+               <suffix>III</suffix>
+            </name>
+            <name use="M">
+               <family>Jones</family>
+               <given>Sarah</given>
+            </name>
+            <ns2:asEntityIdentifier classCode="IDENT">
+               <ns2:id assigningAuthorityName="HPI-I" root="1.2.36.1.2001.1003.0.8003610000001145"/>
+               <ns2:assigningGeographicArea classCode="PLC">
+                  <ns2:name>National Identifier</ns2:name>
+               </ns2:assigningGeographicArea>
+            </ns2:asEntityIdentifier>
+            <ns2:asEmployment classCode="EMP">
+               <ns2:code>
+                  <originalText>Staff Doctor</originalText>
+               </ns2:code>
+               <ns2:jobCode code="253111" codeSystem="2.16.840.1.113883.13.62"
+                            codeSystemName="1220.0 - ANZSCO - Australian and New Zealand Standard Classification of Occupations, First Edition, 2006"
+                            displayName="General Medical Practitioner"/>
+               <ns2:jobClassCode code="1" codeSystem="2.16.840.1.113883.3.879.314867"
+                                 codeSystemName="Employment type"
+                                 displayName="Permanent"/>
+               <ns2:employerOrganization>
+                  <name>Front Office</name>
+                  <asOrganizationPartOf>
+                     <wholeOrganization>
+                        <name>Sarahs Clinic</name>
+                        <telecom use="WP" value="tel:0712345678"/>
+                        <telecom use="WP" value="fax:0712345678"/>
+                        <addr use="WP">
+                           <streetAddressLine>The Public</streetAddressLine>
+                           <streetAddressLine>400 George Street</streetAddressLine>
+                           <postalCode>4000</postalCode>
+                           <city>Brisbane</city>
+                           <state>QLD</state>
+                           <country>Australia</country>
+                        </addr>
+                        <ns2:asEntityIdentifier classCode="IDENT">
+                           <ns2:id assigningAuthorityName="HPI-O" root="1.2.36.1.2001.1003.0.8003621231167886"/>
+                           <ns2:assigningGeographicArea classCode="PLC">
+                              <ns2:name>National Identifier</ns2:name>
+                           </ns2:assigningGeographicArea>
+                        </ns2:asEntityIdentifier>
+                     </wholeOrganization>
+                  </asOrganizationPartOf>
+               </ns2:employerOrganization>
+            </ns2:asEmployment>
+         </assignedPerson>
+      </assignedAuthor>
+   </author>
+   <custodian>
+      <assignedCustodian>
+         <representedCustodianOrganization>
+            <id root="0548f0ab-a763-403a-8dbb-6863fdce6620"/>
+            <name>Custodian organisation</name>
+            <telecom use="WP" value="mailto:example@custodian.com.au"/>
+            <addr use="PST">
+               <streetAddressLine>99 Clinician Street</streetAddressLine>
+               <postalCode>5555</postalCode>
+               <city>Nehtaville</city>
+               <state>QLD</state>
+               <country>Australia</country>
+               <additionalLocator>Level 2</additionalLocator>
+            </addr>
+            <ns2:asEntityIdentifier classCode="IDENT">
+               <ns2:id assigningAuthorityName="HPI-O" root="1.2.36.1.2001.1003.0.8003621231167886"/>
+               <ns2:assigningGeographicArea classCode="PLC">
+                  <ns2:name>National Identifier</ns2:name>
+               </ns2:assigningGeographicArea>
+            </ns2:asEntityIdentifier>
+         </representedCustodianOrganization>
+      </assignedCustodian>
+   </custodian>
+   <informationRecipient typeCode="PRCP">
+      <intendedRecipient>
+         <id root="f0b02a7e-1912-4bfb-9034-da937c7a2985"/>
+         <addr use="WP">
+            <streetAddressLine>616 Bromley Street</streetAddressLine>
+            <postalCode>4169</postalCode>
+            <city>Brisbane</city>
+            <state>QLD</state>
+            <country>Australia</country>
+         </addr>
+         <telecom use="WP" value="mailto:example@sample.com"/>
+         <informationRecipient>
+            <name use="L">
+               <prefix>Mrs</prefix>
+               <family>Black</family>
+               <given>Joe</given>
+               <suffix>Junior</suffix>
+            </name>
+            <name use="M">
+               <prefix>Miss</prefix>
+               <family>Alias</family>
+               <given>other</given>
+            </name>
+            <ns2:asEntityIdentifier classCode="IDENT">
+               <ns2:id assigningAuthorityName="HPI-I" root="1.2.36.1.2001.1003.0.8003610000001145"/>
+               <ns2:assigningGeographicArea classCode="PLC">
+                  <ns2:name>National Identifier</ns2:name>
+               </ns2:assigningGeographicArea>
+            </ns2:asEntityIdentifier>
+         </informationRecipient>
+      </intendedRecipient>
+   </informationRecipient>
+   <component>
+      <structuredBody>
+         <component>
+            <section>
+               <title>radiologyreport.pdf</title>
+               <text>
+                  <renderMultiMedia referencedObject="a6b8427a-9c5a-490b-9b0b-4129c7a0e402">
+                     <caption>Discharge Summary (1A) radiologyreport.pdf</caption>
+                  </renderMultiMedia>
+               </text>
+               <entry>
+                  <observationMedia ID="a6b8427a-9c5a-490b-9b0b-4129c7a0e402" classCode="OBS" moodCode="EVN">
+                     <id root="0822b026-1365-462d-a058-a6f791549996"/>
+                     <value integrityCheck="WuGzArOJ0d+HNGnOw7xj3uKVXig=" mediaType="application/pdf">
+                        <reference value="radiologyreport.pdf"/>
+                     </value>
+                  </observationMedia>
+               </entry>
+            </section>
+         </component>
+      </structuredBody>
+   </component>
+</ClinicalDocument>

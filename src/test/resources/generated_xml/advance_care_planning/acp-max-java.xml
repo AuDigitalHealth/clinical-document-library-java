@@ -1,0 +1,436 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ClinicalDocument xmlns="urn:hl7-org:v3"
+                  xmlns:ns2="http://ns.electronichealth.net.au/Ci/Cda/Extensions/3.0">
+   <typeId extension="POCD_HD000040" root="2.16.840.1.113883.1.3"/>
+   <templateId extension="1.0" root="1.2.36.1.2001.1001.100.1002.226"/>
+   <templateId extension="1.0" root="1.2.36.1.2001.1001.100.149"/>
+   <id root="ccdf35fc-7c0f-4892-91ac-4684140d4e27"/>
+   <code code="100.16975" codeSystem="1.2.36.1.2001.1001.101"
+         codeSystemName="NCTIS Data Components"
+         displayName="Advance Care Information"/>
+   <title>Advance Care Planning Document</title>
+   <effectiveTime value="20200415144748+1000"/>
+   <confidentialityCode nullFlavor="NA"/>
+   <languageCode code="en-AU"/>
+   <versionNumber value="1"/>
+   <ns2:completionCode code="F" codeSystem="1.2.36.1.2001.1001.101.104.20104"
+                       codeSystemName="NCTIS Document Status Values"
+                       displayName="Final"/>
+   <recordTarget typeCode="RCT">
+      <patientRole classCode="PAT">
+         <id root="6eb505a1-43d5-4eef-bd49-19bd57ce8ce7"/>
+         <addr use="H">
+            <streetAddressLine>The Complex</streetAddressLine>
+            <streetAddressLine>Unit 90210 / 10 Browning st</streetAddressLine>
+            <postalCode>4101</postalCode>
+            <city>West End</city>
+            <state>QLD</state>
+            <country>Australia</country>
+         </addr>
+         <telecom use="H" value="tel:0712345678"/>
+         <telecom use="H" value="mailto:frank.harding@electronichealth.net.au"/>
+         <patient>
+            <name use="M">
+               <prefix>Mr</prefix>
+               <family>Harding</family>
+               <given>Frank</given>
+               <suffix>Junior</suffix>
+            </name>
+            <administrativeGenderCode code="M" codeSystem="2.16.840.1.113883.13.68"
+                                      codeSystemName="AS 5017-2006 Health Care Client Identifier Sex"
+                                      displayName="Male"/>
+            <birthTime value="19821128"/>
+            <ethnicGroupCode code="9" codeSystem="2.16.840.1.113883.3.879.291036"
+                             codeSystemName="METeOR Indigenous Status"
+                             displayName="Not stated/inadequately described"/>
+            <ns2:multipleBirthInd value="true"/>
+            <ns2:multipleBirthOrderNumber value="2"/>
+            <ns2:asEntityIdentifier classCode="IDENT">
+               <ns2:id assigningAuthorityName="IHI" root="1.2.36.1.2001.1003.0.8003600300001283"/>
+               <ns2:assigningGeographicArea classCode="PLC">
+                  <ns2:name>National Identifier</ns2:name>
+               </ns2:assigningGeographicArea>
+            </ns2:asEntityIdentifier>
+         </patient>
+      </patientRole>
+   </recordTarget>
+   <author typeCode="AUT">
+      <time value="20200415144748+1000"/>
+      <assignedAuthor>
+         <id root="87e8ab42-9c03-493b-94f1-b4b113105c67"/>
+         <code code="253111" codeSystem="2.16.840.1.113883.13.62"
+               codeSystemName="1220.0 - ANZSCO - Australian and New Zealand Standard Classification of Occupations, First Edition, 2006"
+               displayName="General Medical Practitioner"/>
+         <addr use="WP">
+            <streetAddressLine>The Public</streetAddressLine>
+            <streetAddressLine>400 George Street</streetAddressLine>
+            <postalCode>4000</postalCode>
+            <city>Brisbane</city>
+            <state>QLD</state>
+            <country>Australia</country>
+         </addr>
+         <telecom use="WP" value="tel:0712345678"/>
+         <telecom use="WP" value="fax:0712345678"/>
+         <assignedPerson>
+            <name use="L">
+               <prefix>Dr</prefix>
+               <family>Smith</family>
+               <given>Sarah</given>
+               <suffix>III</suffix>
+            </name>
+            <name use="M">
+               <family>Jones</family>
+               <given>Sarah</given>
+            </name>
+            <ns2:asEntityIdentifier classCode="IDENT">
+               <ns2:id assigningAuthorityName="HPI-I" root="1.2.36.1.2001.1003.0.8003610000001145"/>
+               <ns2:assigningGeographicArea classCode="PLC">
+                  <ns2:name>National Identifier</ns2:name>
+               </ns2:assigningGeographicArea>
+            </ns2:asEntityIdentifier>
+            <ns2:asEmployment classCode="EMP">
+               <ns2:code>
+                  <originalText>Staff Doctor</originalText>
+               </ns2:code>
+               <ns2:jobCode code="253111" codeSystem="2.16.840.1.113883.13.62"
+                            codeSystemName="1220.0 - ANZSCO - Australian and New Zealand Standard Classification of Occupations, First Edition, 2006"
+                            displayName="General Medical Practitioner"/>
+               <ns2:jobClassCode code="1" codeSystem="2.16.840.1.113883.3.879.314867"
+                                 codeSystemName="Employment type"
+                                 displayName="Permanent"/>
+               <ns2:employerOrganization>
+                  <name>Front Office</name>
+                  <asOrganizationPartOf>
+                     <wholeOrganization>
+                        <name>Sarahs Clinic</name>
+                        <telecom use="WP" value="tel:0712345678"/>
+                        <telecom use="WP" value="fax:0712345678"/>
+                        <addr use="WP">
+                           <streetAddressLine>The Public</streetAddressLine>
+                           <streetAddressLine>400 George Street</streetAddressLine>
+                           <postalCode>4000</postalCode>
+                           <city>Brisbane</city>
+                           <state>QLD</state>
+                           <country>Australia</country>
+                        </addr>
+                        <ns2:asEntityIdentifier classCode="IDENT">
+                           <ns2:id assigningAuthorityName="HPI-O" root="1.2.36.1.2001.1003.0.8003621231167886"/>
+                           <ns2:assigningGeographicArea classCode="PLC">
+                              <ns2:name>National Identifier</ns2:name>
+                           </ns2:assigningGeographicArea>
+                        </ns2:asEntityIdentifier>
+                     </wholeOrganization>
+                  </asOrganizationPartOf>
+               </ns2:employerOrganization>
+            </ns2:asEmployment>
+         </assignedPerson>
+      </assignedAuthor>
+   </author>
+   <custodian>
+      <assignedCustodian>
+         <representedCustodianOrganization>
+            <id root="3a781329-be65-489f-ab44-cbad35b3cc7f"/>
+            <name>Custodian organisation</name>
+            <telecom use="WP" value="mailto:example@custodian.com.au"/>
+            <addr use="PST">
+               <streetAddressLine>99 Clinician Street</streetAddressLine>
+               <postalCode>5555</postalCode>
+               <city>Nehtaville</city>
+               <state>QLD</state>
+               <country>Australia</country>
+               <additionalLocator>Level 2</additionalLocator>
+            </addr>
+            <ns2:asEntityIdentifier classCode="IDENT">
+               <ns2:id assigningAuthorityName="HPI-O" root="1.2.36.1.2001.1003.0.8003621231167886"/>
+               <ns2:assigningGeographicArea classCode="PLC">
+                  <ns2:name>National Identifier</ns2:name>
+               </ns2:assigningGeographicArea>
+            </ns2:asEntityIdentifier>
+         </representedCustodianOrganization>
+      </assignedCustodian>
+   </custodian>
+   <legalAuthenticator>
+      <time value="20200415144748+1000"/>
+      <signatureCode code="S"/>
+      <assignedEntity>
+         <id root="3123efc8-01c8-4009-90d7-fb00c820b512"/>
+         <code code="253511" codeSystem="2.16.840.1.113883.13.62"
+               codeSystemName="1220.0 - ANZSCO - Australian and New Zealand Standard Classification of Occupations, First Edition, 2006"
+               displayName="Surgeon (General)"/>
+         <addr use="WP">
+            <streetAddressLine>101 Browning Street</streetAddressLine>
+            <postalCode>4101</postalCode>
+            <city>Brisbane</city>
+            <state>QLD</state>
+            <country>Australia</country>
+         </addr>
+         <telecom use="WP" value="mailto:example@sample.com"/>
+         <assignedPerson>
+            <name use="L">
+               <prefix>Mrs</prefix>
+               <family>Black</family>
+               <given>Jane</given>
+               <suffix>Junior</suffix>
+            </name>
+            <name use="M">
+               <prefix>Miss</prefix>
+               <family>Alias</family>
+               <given>other</given>
+            </name>
+            <ns2:asEntityIdentifier classCode="IDENT">
+               <ns2:id assigningAuthorityName="HPI-I" root="1.2.36.1.2001.1003.0.8003610000001145"/>
+               <ns2:assigningGeographicArea classCode="PLC">
+                  <ns2:name>National Identifier</ns2:name>
+               </ns2:assigningGeographicArea>
+            </ns2:asEntityIdentifier>
+         </assignedPerson>
+         <representedOrganization>
+            <name>Pathology Lab Name</name>
+            <ns2:asEntityIdentifier classCode="IDENT">
+               <ns2:id assigningAuthorityName="HPI-O" root="1.2.36.1.2001.1003.0.8003621231167886"/>
+               <ns2:assigningGeographicArea classCode="PLC">
+                  <ns2:name>National Identifier</ns2:name>
+               </ns2:assigningGeographicArea>
+            </ns2:asEntityIdentifier>
+         </representedOrganization>
+      </assignedEntity>
+   </legalAuthenticator>
+   <component>
+      <structuredBody>
+         <component>
+            <section>
+               <id root="9ae61f3c-68f0-4c58-988f-77a3f3b36275"/>
+               <code code="101.16973" codeSystem="1.2.36.1.2001.1001.101"
+                     codeSystemName="NCTIS Data Components"
+                     displayName="Advance Care Information Section"/>
+               <title>Advance Care Information Section</title>
+               <text>
+                  <table>
+                     <caption>Related Documents</caption>
+                     <thead>
+                        <tr>
+                           <th>Type</th>
+                           <th>File Name</th>
+                           <th>Media Type</th>
+                        </tr>
+                     </thead>
+                     <tbody>
+                        <tr>
+                           <td>Advance Care Planning Document</td>
+                           <td>
+                              <content>
+                                 <linkHtml href="radiologyreport.pdf">Substitute Decision Maker</linkHtml>
+                              </content>
+                           </td>
+                           <td>application/pdf</td>
+                        </tr>
+                     </tbody>
+                  </table>
+                  <table>
+                     <caption>Advance Care Information &gt; Document Details &gt; Document Author</caption>
+                     <thead>
+                        <tr>
+                           <th>Field</th>
+                           <th>Value</th>
+                        </tr>
+                     </thead>
+                     <tbody>
+                        <tr>
+                           <td styleCode="Bold">Entity Identifier(s)</td>
+                           <td>Auth Name: HPI-I, Geographic Area Name: National Identifier, Geographic Area: N/A, Geographic Area Class Code: true</td>
+                        </tr>
+                        <tr>
+                           <td styleCode="Bold">Person Name(s)</td>
+                           <td>Dr Sarah SMITH III Usage(s):Registered Name (Legal Name),  Sarah JONES  Usage(s):Maiden Name (Name at birth)</td>
+                        </tr>
+                        <tr>
+                           <td styleCode="Bold">Address(es)</td>
+                           <td>The Public<br></br>400 George Street<br></br>Brisbane<br></br>4000<br></br>ADDRESS TYPE: Business<br></br>
+                           </td>
+                        </tr>
+                        <tr>
+                           <td styleCode="Bold">Electronic Communication Details</td>
+                           <td>Telephone (excluding mobile telephone):0712345678 (Business)<br></br>Facsimile machine:0712345678 (Business)<br></br>
+                           </td>
+                        </tr>
+                     </tbody>
+                  </table>
+               </text>
+               <entry>
+                  <act classCode="ACT" moodCode="EVN">
+                     <id root="b1626c3f-0b59-4b14-a092-52bc94d3f7ce"/>
+                     <code code="102.16971" codeSystem="1.2.36.1.2001.1001.101"
+                           codeSystemName="NCTIS Data Components"
+                           displayName="Related Document"/>
+                     <author>
+                        <time xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" value="20200415144748+1000"
+                              xsi:type="IVL_TS"/>
+                        <assignedAuthor>
+                           <id root="2f76da98-265b-4cf3-93ab-f792e4f17685"/>
+                           <code code="253111" codeSystem="2.16.840.1.113883.13.62"
+                                 codeSystemName="1220.0 - ANZSCO - Australian and New Zealand Standard Classification of Occupations, First Edition, 2006"
+                                 displayName="General Medical Practitioner"/>
+                           <addr use="WP">
+                              <streetAddressLine>The Public</streetAddressLine>
+                              <streetAddressLine>400 George Street</streetAddressLine>
+                              <postalCode>4000</postalCode>
+                              <city>Brisbane</city>
+                              <state>QLD</state>
+                              <country>Australia</country>
+                           </addr>
+                           <telecom use="WP" value="tel:0712345678"/>
+                           <telecom use="WP" value="fax:0712345678"/>
+                           <assignedPerson>
+                              <name use="L">
+                                 <prefix>Dr</prefix>
+                                 <family>Smith</family>
+                                 <given>Sarah</given>
+                                 <suffix>III</suffix>
+                              </name>
+                              <name use="M">
+                                 <family>Jones</family>
+                                 <given>Sarah</given>
+                              </name>
+                              <ns2:asEntityIdentifier classCode="IDENT">
+                                 <ns2:id assigningAuthorityName="HPI-I" root="1.2.36.1.2001.1003.0.8003610000001145"/>
+                                 <ns2:assigningGeographicArea classCode="PLC">
+                                    <ns2:name>National Identifier</ns2:name>
+                                 </ns2:assigningGeographicArea>
+                              </ns2:asEntityIdentifier>
+                           </assignedPerson>
+                        </assignedAuthor>
+                     </author>
+                     <reference typeCode="REFR">
+                        <seperatableInd value="true"/>
+                        <externalDocument classCode="DOC" moodCode="EVN">
+                           <code code="100.16998" codeSystem="1.2.36.1.2001.1001.101"
+                                 codeSystemName="NCTIS Data Components"
+                                 displayName="Advance Care Planning Document"/>
+                           <text integrityCheck="WuGzArOJ0d+HNGnOw7xj3uKVXig=" mediaType="application/pdf">
+                              <reference value="radiologyreport.pdf"/>
+                           </text>
+                        </externalDocument>
+                     </reference>
+                  </act>
+               </entry>
+            </section>
+         </component>
+         <component>
+            <section>
+               <code code="102.16080" codeSystem="1.2.36.1.2001.1001.101"
+                     codeSystemName="NCTIS Data Components"
+                     displayName="Administrative Observations"/>
+               <title>Administrative Observations</title>
+               <text>
+                  <table>
+                     <caption>Demographic Data</caption>
+                     <thead>
+                        <tr>
+                           <th>Name</th>
+                           <th>Value</th>
+                        </tr>
+                     </thead>
+                     <tbody>
+                        <tr>
+                           <td>Date Of Birth is Calculated from Age</td>
+                           <td>Yes</td>
+                        </tr>
+                        <tr>
+                           <td>Date of Birth Accuracy Indicator</td>
+                           <td>AAA</td>
+                        </tr>
+                        <tr>
+                           <td>Birth Plurality</td>
+                           <td>5</td>
+                        </tr>
+                        <tr>
+                           <td>Age Accuracy Indicator</td>
+                           <td>Yes</td>
+                        </tr>
+                        <tr>
+                           <td>Age</td>
+                           <td>35</td>
+                        </tr>
+                     </tbody>
+                  </table>
+               </text>
+               <entry typeCode="DRIV">
+                  <observation classCode="OBS" moodCode="EVN">
+                     <id root="dcade5a6-c3a0-480b-acbc-aecbfb4d3f03"/>
+                     <code xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" code="103.16233"
+                           codeSystem="1.2.36.1.2001.1001.101"
+                           codeSystemName="NCTIS Data Components"
+                           displayName="Date of Birth is Calculated From Age"
+                           xsi:type="CE"/>
+                     <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" value="true" xsi:type="BL"/>
+                  </observation>
+               </entry>
+               <entry typeCode="DRIV">
+                  <observation classCode="OBS" moodCode="EVN">
+                     <id root="ec7b3916-0245-4b8a-b294-a392d68c15df"/>
+                     <code xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" code="102.16234"
+                           codeSystem="1.2.36.1.2001.1001.101"
+                           codeSystemName="NCTIS Data Components"
+                           displayName="Date of Birth Accuracy Indicator"
+                           xsi:type="CE"/>
+                     <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" code="AAA" xsi:type="CS"/>
+                  </observation>
+               </entry>
+               <entry typeCode="DRIV">
+                  <observation classCode="OBS" moodCode="EVN">
+                     <id root="7639cc1e-f93c-4da9-8cd2-160d8f1438db"/>
+                     <code xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" code="103.20109"
+                           codeSystem="1.2.36.1.2001.1001.101"
+                           codeSystemName="NCTIS Data Components"
+                           displayName="Age"
+                           xsi:type="CE"/>
+                     <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" unit="a" value="35"
+                            xsi:type="PQ"/>
+                  </observation>
+               </entry>
+               <entry typeCode="DRIV">
+                  <observation classCode="OBS" moodCode="EVN">
+                     <id root="e8d4377d-8d87-499a-89bf-f59761feb437"/>
+                     <code xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" code="103.16279"
+                           codeSystem="1.2.36.1.2001.1001.101"
+                           codeSystemName="NCTIS Data Components"
+                           displayName="Age Accuracy Indicator"
+                           xsi:type="CE"/>
+                     <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" value="true" xsi:type="BL"/>
+                  </observation>
+               </entry>
+               <entry typeCode="DRIV">
+                  <observation classCode="OBS" moodCode="EVN">
+                     <id root="367ffcac-7a06-4f84-a717-efe6e649eae6"/>
+                     <code xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" code="103.16249"
+                           codeSystem="1.2.36.1.2001.1001.101"
+                           codeSystemName="NCTIS Data Components"
+                           displayName="Birth Plurality"
+                           xsi:type="CE"/>
+                     <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" value="5" xsi:type="INT"/>
+                  </observation>
+               </entry>
+               <ns2:coverage2 typeCode="COVBY">
+                  <ns2:entitlement classCode="COV" moodCode="EVN">
+                     <ns2:id assigningAuthorityName="Medicare Card Number" extension="1234567881"
+                             root="1.2.36.1.5001.1.0.7.1"/>
+                     <ns2:code code="1" codeSystem="1.2.36.1.2001.1001.101.104.16047"
+                               codeSystemName="NCTIS Entitlement Type Values"
+                               displayName="Medicare Benefits">
+                        <originalText>Medicare Benefits</originalText>
+                     </ns2:code>
+                     <ns2:effectiveTime>
+                        <high value="20210415"/>
+                     </ns2:effectiveTime>
+                     <ns2:participant typeCode="BEN">
+                        <ns2:participantRole classCode="PAT">
+                           <ns2:id root="6eb505a1-43d5-4eef-bd49-19bd57ce8ce7"/>
+                        </ns2:participantRole>
+                     </ns2:participant>
+                  </ns2:entitlement>
+               </ns2:coverage2>
+            </section>
+         </component>
+      </structuredBody>
+   </component>
+</ClinicalDocument>

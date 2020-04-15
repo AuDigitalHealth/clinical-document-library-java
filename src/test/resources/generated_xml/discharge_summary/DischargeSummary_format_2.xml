@@ -1,0 +1,1131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ClinicalDocument xmlns="urn:hl7-org:v3"
+                  xmlns:ns2="http://ns.electronichealth.net.au/Ci/Cda/Extensions/3.0">
+   <typeId extension="POCD_HD000040" root="2.16.840.1.113883.1.3"/>
+   <templateId extension="3.4" root="1.2.36.1.2001.1001.101.100.1002.4"/>
+   <templateId extension="1.0" root="1.2.36.1.2001.1001.100.149"/>
+   <id root="2.25.89159978078826571213308764456797459634"/>
+   <code code="18842-5" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"
+         displayName="Discharge Summarization Note"/>
+   <title>Discharge Summary</title>
+   <effectiveTime value="20200415144751+1000"/>
+   <confidentialityCode nullFlavor="NA"/>
+   <languageCode code="en-AU"/>
+   <versionNumber value="1"/>
+   <ns2:completionCode code="F" codeSystem="1.2.36.1.2001.1001.101.104.20104"
+                       codeSystemName="NCTIS Document Status Values"
+                       displayName="Final"/>
+   <recordTarget typeCode="RCT">
+      <patientRole classCode="PAT">
+         <id root="9168f77d-60d2-45b5-8b97-84aeeb32dab3"/>
+         <addr use="H">
+            <streetAddressLine>The Complex</streetAddressLine>
+            <streetAddressLine>Unit 90210 / 10 Browning st</streetAddressLine>
+            <postalCode>4101</postalCode>
+            <city>West End</city>
+            <state>QLD</state>
+            <country>Australia</country>
+         </addr>
+         <telecom use="H" value="tel:0712345678"/>
+         <telecom use="H" value="mailto:frank.harding@electronichealth.net.au"/>
+         <patient>
+            <name use="M">
+               <prefix>Mr</prefix>
+               <family>Harding</family>
+               <given>Frank</given>
+               <suffix>Junior</suffix>
+            </name>
+            <administrativeGenderCode code="M" codeSystem="2.16.840.1.113883.13.68"
+                                      codeSystemName="AS 5017-2006 Health Care Client Identifier Sex"
+                                      displayName="Male"/>
+            <birthTime value="19821128"/>
+            <ethnicGroupCode code="9" codeSystem="2.16.840.1.113883.3.879.291036"
+                             codeSystemName="METeOR Indigenous Status"
+                             displayName="Not stated/inadequately described"/>
+            <ns2:multipleBirthInd value="true"/>
+            <ns2:multipleBirthOrderNumber value="2"/>
+            <ns2:asEntityIdentifier classCode="IDENT">
+               <ns2:id assigningAuthorityName="IHI" root="1.2.36.1.2001.1003.0.8003600300001283"/>
+               <ns2:assigningGeographicArea classCode="PLC">
+                  <ns2:name>National Identifier</ns2:name>
+               </ns2:assigningGeographicArea>
+            </ns2:asEntityIdentifier>
+         </patient>
+      </patientRole>
+   </recordTarget>
+   <author typeCode="AUT">
+      <time value="20200415144751+1000"/>
+      <assignedAuthor>
+         <id root="5570b914-254d-4dd5-b18c-f3b5e92fd109"/>
+         <code code="253111" codeSystem="2.16.840.1.113883.13.62"
+               codeSystemName="1220.0 - ANZSCO - Australian and New Zealand Standard Classification of Occupations, First Edition, 2006"
+               displayName="General Medical Practitioner"/>
+         <addr use="WP">
+            <streetAddressLine>The Public</streetAddressLine>
+            <streetAddressLine>400 George Street</streetAddressLine>
+            <postalCode>4000</postalCode>
+            <city>Brisbane</city>
+            <state>QLD</state>
+            <country>Australia</country>
+         </addr>
+         <telecom use="WP" value="tel:0712345678"/>
+         <telecom use="WP" value="fax:0712345678"/>
+         <assignedPerson>
+            <name use="L">
+               <prefix>Dr</prefix>
+               <family>Smith</family>
+               <given>Sarah</given>
+               <suffix>III</suffix>
+            </name>
+            <name use="M">
+               <family>Jones</family>
+               <given>Sarah</given>
+            </name>
+            <ns2:asEntityIdentifier classCode="IDENT">
+               <ns2:id assigningAuthorityName="HPI-I" root="1.2.36.1.2001.1003.0.8003610000001145"/>
+               <ns2:assigningGeographicArea classCode="PLC">
+                  <ns2:name>National Identifier</ns2:name>
+               </ns2:assigningGeographicArea>
+            </ns2:asEntityIdentifier>
+            <ns2:asEmployment classCode="EMP">
+               <ns2:code>
+                  <originalText>Staff Doctor</originalText>
+               </ns2:code>
+               <ns2:jobCode code="253111" codeSystem="2.16.840.1.113883.13.62"
+                            codeSystemName="1220.0 - ANZSCO - Australian and New Zealand Standard Classification of Occupations, First Edition, 2006"
+                            displayName="General Medical Practitioner"/>
+               <ns2:jobClassCode code="1" codeSystem="2.16.840.1.113883.3.879.314867"
+                                 codeSystemName="Employment type"
+                                 displayName="Permanent"/>
+               <ns2:employerOrganization>
+                  <name>Front Office</name>
+                  <asOrganizationPartOf>
+                     <wholeOrganization>
+                        <name>Sarahs Clinic</name>
+                        <telecom use="WP" value="tel:0712345678"/>
+                        <telecom use="WP" value="fax:0712345678"/>
+                        <addr use="WP">
+                           <streetAddressLine>The Public</streetAddressLine>
+                           <streetAddressLine>400 George Street</streetAddressLine>
+                           <postalCode>4000</postalCode>
+                           <city>Brisbane</city>
+                           <state>QLD</state>
+                           <country>Australia</country>
+                        </addr>
+                        <ns2:asEntityIdentifier classCode="IDENT">
+                           <ns2:id assigningAuthorityName="HPI-O" root="1.2.36.1.2001.1003.0.8003621231167886"/>
+                           <ns2:assigningGeographicArea classCode="PLC">
+                              <ns2:name>National Identifier</ns2:name>
+                           </ns2:assigningGeographicArea>
+                        </ns2:asEntityIdentifier>
+                     </wholeOrganization>
+                  </asOrganizationPartOf>
+               </ns2:employerOrganization>
+            </ns2:asEmployment>
+         </assignedPerson>
+      </assignedAuthor>
+   </author>
+   <custodian>
+      <assignedCustodian>
+         <representedCustodianOrganization>
+            <id root="ae2dad2f-e558-498d-8126-15c97228a63b"/>
+            <name>Custodian organisation</name>
+            <telecom use="WP" value="mailto:example@custodian.com.au"/>
+            <addr use="PST">
+               <streetAddressLine>99 Clinician Street</streetAddressLine>
+               <postalCode>5555</postalCode>
+               <city>Nehtaville</city>
+               <state>QLD</state>
+               <country>Australia</country>
+               <additionalLocator>Level 2</additionalLocator>
+            </addr>
+            <ns2:asEntityIdentifier classCode="IDENT">
+               <ns2:id assigningAuthorityName="HPI-O" root="1.2.36.1.2001.1003.0.8003621231167886"/>
+               <ns2:assigningGeographicArea classCode="PLC">
+                  <ns2:name>National Identifier</ns2:name>
+               </ns2:assigningGeographicArea>
+            </ns2:asEntityIdentifier>
+         </representedCustodianOrganization>
+      </assignedCustodian>
+   </custodian>
+   <informationRecipient typeCode="PRCP">
+      <intendedRecipient>
+         <id root="94b8ce3e-dbe4-4c8d-8b10-cfd794a0333a"/>
+         <addr use="WP">
+            <streetAddressLine>616 Bromley Street</streetAddressLine>
+            <postalCode>4169</postalCode>
+            <city>Brisbane</city>
+            <state>QLD</state>
+            <country>Australia</country>
+         </addr>
+         <telecom use="WP" value="mailto:example@sample.com"/>
+         <informationRecipient>
+            <name use="L">
+               <prefix>Mrs</prefix>
+               <family>Black</family>
+               <given>Joe</given>
+               <suffix>Junior</suffix>
+            </name>
+            <name use="M">
+               <prefix>Miss</prefix>
+               <family>Alias</family>
+               <given>other</given>
+            </name>
+            <ns2:asEntityIdentifier classCode="IDENT">
+               <ns2:id assigningAuthorityName="HPI-I" root="1.2.36.1.2001.1003.0.8003610000001145"/>
+               <ns2:assigningGeographicArea classCode="PLC">
+                  <ns2:name>National Identifier</ns2:name>
+               </ns2:assigningGeographicArea>
+            </ns2:asEntityIdentifier>
+         </informationRecipient>
+      </intendedRecipient>
+   </informationRecipient>
+   <legalAuthenticator>
+      <time value="20200415144751+1000"/>
+      <signatureCode code="S"/>
+      <assignedEntity>
+         <id root="1f6424fe-7fe5-4220-bdd5-c4359fcfa724"/>
+         <code code="253511" codeSystem="2.16.840.1.113883.13.62"
+               codeSystemName="1220.0 - ANZSCO - Australian and New Zealand Standard Classification of Occupations, First Edition, 2006"
+               displayName="Surgeon (General)"/>
+         <addr use="WP">
+            <streetAddressLine>101 Browning Street</streetAddressLine>
+            <postalCode>4101</postalCode>
+            <city>Brisbane</city>
+            <state>QLD</state>
+            <country>Australia</country>
+         </addr>
+         <telecom use="WP" value="mailto:example@sample.com"/>
+         <assignedPerson>
+            <name use="L">
+               <prefix>Mrs</prefix>
+               <family>Black</family>
+               <given>Jane</given>
+               <suffix>Junior</suffix>
+            </name>
+            <name use="M">
+               <prefix>Miss</prefix>
+               <family>Alias</family>
+               <given>other</given>
+            </name>
+            <ns2:asEntityIdentifier classCode="IDENT">
+               <ns2:id assigningAuthorityName="HPI-I" root="1.2.36.1.2001.1003.0.8003610000001145"/>
+               <ns2:assigningGeographicArea classCode="PLC">
+                  <ns2:name>National Identifier</ns2:name>
+               </ns2:assigningGeographicArea>
+            </ns2:asEntityIdentifier>
+         </assignedPerson>
+         <representedOrganization>
+            <name>Pathology Lab Name</name>
+            <ns2:asEntityIdentifier classCode="IDENT">
+               <ns2:id assigningAuthorityName="HPI-O" root="1.2.36.1.2001.1003.0.8003621231167886"/>
+               <ns2:assigningGeographicArea classCode="PLC">
+                  <ns2:name>National Identifier</ns2:name>
+               </ns2:assigningGeographicArea>
+            </ns2:asEntityIdentifier>
+         </representedOrganization>
+      </assignedEntity>
+   </legalAuthenticator>
+   <participant typeCode="ORG">
+      <time>
+         <low value="20190302"/>
+         <high value="20220330"/>
+      </time>
+      <associatedEntity classCode="SDLOC">
+         <id root="eace1893-937e-445f-9cd1-f7a89cb28346"/>
+         <code>
+            <originalText>Ward B</originalText>
+         </code>
+      </associatedEntity>
+   </participant>
+   <componentOf>
+      <encompassingEncounter>
+         <effectiveTime>
+            <low value="20190302"/>
+            <high value="20220330"/>
+         </effectiveTime>
+         <dischargeDispositionCode code="8" codeSystem="2.16.840.1.113883.13.65"
+                                   codeSystemName="AIHW Mode of Separation"
+                                   displayName="Deceased"/>
+         <encounterParticipant typeCode="DIS">
+            <time>
+               <low value="20190303"/>
+               <high value="20190329"/>
+            </time>
+            <assignedEntity>
+               <id root="82f10303-c36c-4cb2-b6c6-966174c9389a"/>
+               <code code="309964003" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED CT"
+                     displayName="Radiology Department">
+                  <originalText>Radiology Department</originalText>
+               </code>
+               <addr use="WP">
+                  <streetAddressLine>1 Clinician Street</streetAddressLine>
+                  <city>Nehtaville</city>
+                  <state>QLD</state>
+                  <postalCode>5555</postalCode>
+                  <country>Australia</country>
+               </addr>
+               <telecom use="WP" value="mailto:mail@blah.com"/>
+               <assignedPerson>
+                  <name use="L">
+                     <prefix>Dr</prefix>
+                     <family>Smith</family>
+                     <given>John</given>
+                     <suffix>Snr</suffix>
+                  </name>
+                  <ns2:asEntityIdentifier classCode="IDENT">
+                     <ns2:id assigningAuthorityName="HPI-I" root="1.2.36.1.2001.1003.0.8003610000001145"/>
+                     <ns2:assigningGeographicArea classCode="PLC">
+                        <ns2:name>National Identifier</ns2:name>
+                     </ns2:assigningGeographicArea>
+                  </ns2:asEntityIdentifier>
+                  <ns2:asEmployment classCode="EMP">
+                     <ns2:code code="253314" codeSystem="2.16.840.1.113883.13.62"
+                               codeSystemName="1220.0 - ANZSCO - Australian and New Zealand Standard Classification of Occupations, First Edition, 2006"
+                               displayName="Medical Oncologist">
+                        <originalText>Medical Oncologist</originalText>
+                     </ns2:code>
+                     <ns2:jobCode code="253314" codeSystem="2.16.840.1.113883.13.62"
+                                  codeSystemName="1220.0 - ANZSCO - Australian and New Zealand Standard Classification of Occupations, First Edition, 2006"
+                                  displayName="Medical Oncologist">
+                        <originalText>Medical Oncologist</originalText>
+                     </ns2:jobCode>
+                     <ns2:jobClassCode code="1" codeSystem="2.16.840.1.113883.3.879.314867"
+                                       codeSystemName="Employment type"
+                                       displayName="Permanent"/>
+                     <ns2:employerOrganization>
+                        <name use="ORGB">Brisbane Health &amp; Wellness Clinic</name>
+                        <asOrganizationPartOf>
+                           <wholeOrganization>
+                              <name>Brisbane Health &amp; Wellness Clinic</name>
+                              <telecom use="WP" value="mailto:mail@blah.com"/>
+                              <addr use="WP">
+                                 <streetAddressLine>1 Clinician Street</streetAddressLine>
+                                 <city>Nehtaville</city>
+                                 <state>QLD</state>
+                                 <postalCode>5555</postalCode>
+                                 <country>Australia</country>
+                              </addr>
+                              <ns2:asEntityIdentifier classCode="IDENT">
+                                 <ns2:id assigningAuthorityName="HPI-O" root="1.2.36.1.2001.1003.0.8003620000045562"/>
+                                 <ns2:assigningGeographicArea classCode="PLC">
+                                    <ns2:name>National Identifier</ns2:name>
+                                 </ns2:assigningGeographicArea>
+                              </ns2:asEntityIdentifier>
+                           </wholeOrganization>
+                        </asOrganizationPartOf>
+                     </ns2:employerOrganization>
+                  </ns2:asEmployment>
+                  <ns2:asQualifications classCode="QUAL">
+                     <ns2:code>
+                        <originalText>MBBS MS</originalText>
+                     </ns2:code>
+                  </ns2:asQualifications>
+               </assignedPerson>
+            </assignedEntity>
+         </encounterParticipant>
+         <location>
+            <healthCareFacility>
+               <id root="918e040a-4025-4458-bcb0-d2036b99d8d9"/>
+               <code code="HOSP" codeSystem="2.16.840.1.113883.1.11.17660"
+                     codeSystemName="HL7 ServiceDeliveryLocationRoleType"
+                     displayName="Hospital"/>
+               <serviceProviderOrganization>
+                  <id root="924f5cd0-21fc-4b16-937c-bf476513b249"/>
+                  <name>Warner Bros Hospital</name>
+                  <asOrganizationPartOf>
+                     <id root="494481ce-aba3-4340-9c52-bcc60a9617b5"/>
+                     <wholeOrganization>
+                        <name use="ORGB">Warner Bros Hospital</name>
+                        <telecom use="WP" value="mailto:mail@blah.com"/>
+                        <addr use="WP">
+                           <streetAddressLine>1 Clinician Street</streetAddressLine>
+                           <city>Nehtaville</city>
+                           <state>QLD</state>
+                           <postalCode>5555</postalCode>
+                           <country>Australia</country>
+                        </addr>
+                        <ns2:asEntityIdentifier classCode="IDENT">
+                           <ns2:id assigningAuthorityName="HPI-O" root="1.2.36.1.2001.1003.0.8003621566695741"/>
+                           <ns2:assigningGeographicArea classCode="PLC">
+                              <ns2:name>National Identifier</ns2:name>
+                           </ns2:assigningGeographicArea>
+                        </ns2:asEntityIdentifier>
+                     </wholeOrganization>
+                  </asOrganizationPartOf>
+               </serviceProviderOrganization>
+            </healthCareFacility>
+         </location>
+      </encompassingEncounter>
+   </componentOf>
+   <component>
+      <structuredBody>
+         <component>
+            <section>
+               <code code="101.16011" codeSystem="1.2.36.1.2001.1001.101"
+                     codeSystemName="NCTIS Data Components"
+                     displayName="Health Profile"/>
+               <title>Health Profile</title>
+               <text mediaType="text/x-hl7-text+xml">
+                  <paragraph>This section contains the following subsections: Adverse Reactions and Alerts.</paragraph>
+               </text>
+               <component>
+                  <section>
+                     <code code="101.20113" codeSystem="1.2.36.1.2001.1001.101"
+                           codeSystemName="NCTIS Data Components"
+                           displayName="Adverse Reactions"/>
+                     <title>Adverse Reactions</title>
+                     <text mediaType="text/x-hl7-text+xml">
+                        <table>
+                           <caption>Adverse Reactions</caption>
+                           <thead>
+                              <tr>
+                                 <th>Substance/Agent</th>
+                                 <th>Manifestations</th>
+                                 <th>Reaction Type</th>
+                              </tr>
+                           </thead>
+                           <tbody>
+                              <tr>
+                                 <td>Penicillin -class of antibiotic-</td>
+                                 <td>
+                                    <list>
+                                       <item>Urticaria</item>
+                                       <item>Trunk structure</item>
+                                       <item>Entire lower limb</item>
+                                       <item>Nausea and vomiting</item>
+                                    </list>
+                                 </td>
+                                 <td>Urticaria</td>
+                              </tr>
+                              <tr>
+                                 <td>Metoprolol</td>
+                                 <td>
+                                    <list>
+                                       <item>Chronic obstructive airways disease NOS</item>
+                                    </list>
+                                 </td>
+                                 <td>Urticaria</td>
+                              </tr>
+                           </tbody>
+                        </table>
+                     </text>
+                  </section>
+               </component>
+               <component>
+                  <section>
+                     <code code="101.20021" codeSystem="1.2.36.1.2001.1001.101"
+                           codeSystemName="NCTIS Data Components"
+                           displayName="Alerts"/>
+                     <title>Alerts</title>
+                     <text mediaType="text/x-hl7-text+xml">
+                        <table>
+                           <caption></caption>
+                           <tbody>
+                              <tr>
+                                 <td>
+                                    <list>
+                                       <item>At risk for infection (Medical)</item>
+                                       <item>At risk for infection (Medical)</item>
+                                    </list>
+                                 </td>
+                              </tr>
+                           </tbody>
+                        </table>
+                     </text>
+                  </section>
+               </component>
+            </section>
+         </component>
+         <component>
+            <section>
+               <code code="101.16006" codeSystem="1.2.36.1.2001.1001.101"
+                     codeSystemName="NCTIS Data Components"
+                     displayName="Event"/>
+               <title>Event</title>
+               <text mediaType="text/x-hl7-text+xml">
+                  <paragraph>This section contains the following subsections: Clinical Summary, Problems/Diagnoses This Visit, Procedures and Diagnostic Investigations.</paragraph>
+               </text>
+               <component>
+                  <section>
+                     <code code="102.15513.4.1.1" codeSystem="1.2.36.1.2001.1001.101"
+                           codeSystemName="NCTIS Data Components"
+                           displayName="Clinical Synopsis"/>
+                     <title>Clinical Synopsis</title>
+                     <text mediaType="text/x-hl7-text+xml">
+                        <table>
+                           <caption>Clinical Summary</caption>
+                           <thead>
+                              <tr>
+                                 <th>Description</th>
+                              </tr>
+                           </thead>
+                           <tbody>
+                              <tr>
+                                 <td>Admitted for elective, right Total Knee Replacement (cemented prosthesis). Day 3, developed bilateral basal atelectasis. The FBC showed high WCC (20.0) and high neutrophils (16.0). Commenced on doxycycline and chest physio. Due to mild anaemia prior to surgery and subsequent operative blood loss, required a blood transfusion of three units. Subsequently made steady progress, regaining good mobility in his knee and is able to mobilise with the aid of a stick. Right knee Xray showed no fracture or dislocation, with the total knee prosthesis well positioned post surgery.</td>
+                              </tr>
+                           </tbody>
+                        </table>
+                     </text>
+                  </section>
+               </component>
+               <component>
+                  <section>
+                     <code code="101.16142" codeSystem="1.2.36.1.2001.1001.101"
+                           codeSystemName="NCTIS Data Components"
+                           displayName="Problems/Diagnoses This Visit"/>
+                     <title>Problems/Diagnoses This Visit</title>
+                     <text mediaType="text/x-hl7-text+xml">
+                        <table>
+                           <caption></caption>
+                           <thead>
+                              <tr>
+                                 <th>Type</th>
+                                 <th>Description</th>
+                              </tr>
+                           </thead>
+                           <tbody>
+                              <tr>
+                                 <td>Accidental bisacodyl overdose</td>
+                                 <td>Infection caused by Spirura</td>
+                              </tr>
+                              <tr>
+                                 <td>Principal diagnosis</td>
+                                 <td>Systemic aspergillosis</td>
+                              </tr>
+                           </tbody>
+                        </table>
+                     </text>
+                  </section>
+               </component>
+               <component>
+                  <section classCode="DOCSECT" moodCode="EVN">
+                     <id root="97100506-7253-4e6b-86a2-39fecc411af9"/>
+                     <code code="101.20117" codeSystem="1.2.36.1.2001.1001.101"
+                           codeSystemName="NCTIS Data Components"
+                           displayName="Diagnostic Investigations"/>
+                     <title>Diagnostic Investigations</title>
+                     <text>
+                        <paragraph>This section contains the following subsections: Pathology Test Result, Imaging Examination Result and Requested Service(s).</paragraph>
+                     </text>
+                     <component>
+                        <section>
+                           <id root="519f59b4-35ad-4a3b-8b31-fb84e24d19f1"/>
+                           <code code="102.16029" codeSystem="1.2.36.1.2001.1001.101"
+                                 codeSystemName="NCTIS Data Components"
+                                 displayName="Diagnostic Investigation"/>
+                           <title>Diagnostic Investigation</title>
+                           <text mediaType="text/x-hl7-text+xml">
+                              <table>
+                                 <caption>Other Test Result</caption>
+                                 <thead>
+                                    <tr>
+                                       <th>Field, Value</th>
+                                    </tr>
+                                 </thead>
+                                 <tbody>
+                                    <tr>
+                                       <td>Report Date</td>
+                                       <td>10 Jul 2019 09:05:05+1000</td>
+                                    </tr>
+                                    <tr>
+                                       <td>Report Name</td>
+                                       <td>Report with Attachment</td>
+                                    </tr>
+                                    <tr>
+                                       <td>Report Status</td>
+                                       <td>Final</td>
+                                    </tr>
+                                    <tr>
+                                       <td>Report Content</td>
+                                       <td></td>
+                                    </tr>
+                                 </tbody>
+                              </table>
+                           </text>
+                        </section>
+                     </component>
+                     <component>
+                        <section>
+                           <id root="9d2345b4-76d4-4afe-9c64-d0616bb53a49"/>
+                           <code code="102.20158" codeSystem="1.2.36.1.2001.1001.101"
+                                 codeSystemName="NCTIS Data Components"
+                                 displayName="Requested Service"/>
+                           <title>Requested Service</title>
+                           <text mediaType="text/x-hl7-text+xml">
+                              <table>
+                                 <caption>Requested Service</caption>
+                                 <thead>
+                                    <tr>
+                                       <th>Field</th>
+                                       <th>Value</th>
+                                    </tr>
+                                 </thead>
+                                 <tbody>
+                                    <tr>
+                                       <td>Requested Service Description</td>
+                                       <td>Plain chest X-ray</td>
+                                    </tr>
+                                    <tr>
+                                       <td>Service Requested DateTime</td>
+                                       <td> 16 Jul 2019 09:05:05+1000 </td>
+                                    </tr>
+                                    <tr>
+                                       <td>Service Commencement Window</td>
+                                       <td>12 Jul 2019 -&gt; 12 Jan 2020</td>
+                                    </tr>
+                                    <tr>
+                                       <td>Provider Organisation</td>
+                                       <td> DR JANE ANDERSON </td>
+                                    </tr>
+                                    <tr>
+                                       <td>Provider Person Name</td>
+                                       <td> DR JANE ANDERSON </td>
+                                    </tr>
+                                    <tr>
+                                       <td>Address / Contact</td>
+                                       <td>
+                                          <content>Business: 1 Clinician Street, Nehtaville, QLD, 5555</content>
+                                          <content>Business: 1 Clinician Street, Nehtaville, QLD, 5555</content>
+                                          <content>0345754566 (WorkPlace),</content>
+                                          <linkHtml href="mailto:Jane@Anderson.com.au">Jane@Anderson.com.au</linkHtml>
+                                       </td>
+                                    </tr>
+                                    <tr>
+                                       <td>Booking Status</td>
+                                       <td>Definition</td>
+                                    </tr>
+                                    <tr>
+                                       <td>Subject of Care Instruction Description</td>
+                                       <td> Subject Of Care Instruction Description</td>
+                                    </tr>
+                                 </tbody>
+                              </table>
+                           </text>
+                        </section>
+                     </component>
+                     <component>
+                        <section>
+                           <id root="6650f134-f10b-432f-bde8-d35a92d36725"/>
+                           <code code="102.16144" codeSystem="1.2.36.1.2001.1001.101"
+                                 codeSystemName="NCTIS Data Components"
+                                 displayName="Pathology Test Result"/>
+                           <title>Pathology Test Result</title>
+                           <text mediaType="text/x-hl7-text+xml">
+                              <table>
+                                 <caption>Pathology Test Results</caption>
+                                 <thead>
+                                    <tr>
+                                       <th>Field</th>
+                                       <th>Value</th>
+                                    </tr>
+                                 </thead>
+                                 <tbody>
+                                    <tr>
+                                       <td>Test Name</td>
+                                       <td>Chemistry studies (set)</td>
+                                    </tr>
+                                    <tr>
+                                       <td>Result Status</td>
+                                       <td> Final </td>
+                                    </tr>
+                                    <tr>
+                                       <td>Date Time</td>
+                                       <td>10 Jul 2019 09:05:05+1000</td>
+                                    </tr>
+                                    <tr>
+                                       <td>Comment</td>
+                                       <td> test </td>
+                                    </tr>
+                                 </tbody>
+                              </table>
+                              <table>
+                                 <tbody>
+                                    <tr>
+                                       <td>
+                                          <paragraph styleCode="xPre">    GLUCOSE - FASTING
+
+         BLOOD GLUCOSE                 10.8 * mmol/L         (3.9-6.0)
+
+      Values for Diagnosis of Diabetes Mellitus and other Hyperglycaemia
+
+       DIABETES MELLITUS (DM)
+         Fasting                &amp; &gt; 6.9  mmol/L
+         or 2 hrs post load     &amp; &gt; 11.0 mmol/L
+
+       IMPAIRED FASTING GLYCAEMIA (IFG)
+         Fasting                &amp; &gt; 6.0 mmol/L and &amp; &lt; 7.0 mmol/L
+
+
+
+    Date Collected  : 07/07/2005
+    Time Collected  : 12:15                 Reference
+    Episode         : 1    Units      Range
+    ==============    ==========
+
+
+    GLUCOSE - FASTING
+    BLOOD GLUCOSE   : 10.8 *     mmol/L     (3.9-6.0)</paragraph>
+                                       </td>
+                                    </tr>
+                                 </tbody>
+                              </table>
+                           </text>
+                        </section>
+                     </component>
+                     <component>
+                        <section>
+                           <id root="d3031ba1-61d7-4cea-b9af-cefcfec2eb4b"/>
+                           <code code="102.16145" codeSystem="1.2.36.1.2001.1001.101"
+                                 codeSystemName="NCTIS Data Components"
+                                 displayName="Imaging Examination Result"/>
+                           <title>Imaging Examination Result</title>
+                           <text mediaType="text/x-hl7-text+xml">
+                              <table>
+                                 <caption>Anatomical Sites</caption>
+                                 <thead>
+                                    <tr>
+                                       <th>Location</th>
+                                       <th>Side</th>
+                                    </tr>
+                                 </thead>
+                                 <tbody>
+                                    <tr>
+                                       <td>Subcutaneous tissue structure of lateral surface of index finger</td>
+                                       <td>Left</td>
+                                    </tr>
+                                 </tbody>
+                              </table>
+                              <table>
+                                 <caption>Imaging Examination Result Details</caption>
+                                 <thead>
+                                    <tr>
+                                       <th>Field</th>
+                                       <th>Value</th>
+                                    </tr>
+                                 </thead>
+                                 <tbody>
+                                    <tr>
+                                       <td>Imaging Examination Result Date Time</td>
+                                       <td>10 Jul 2019 09:05:05+1000</td>
+                                    </tr>
+                                    <tr>
+                                       <td>Result name</td>
+                                       <td>Leg Image</td>
+                                    </tr>
+                                    <tr>
+                                       <td>Modality</td>
+                                       <td> X-ray </td>
+                                    </tr>
+                                    <tr>
+                                       <td>Result Status</td>
+                                       <td> Final </td>
+                                    </tr>
+                                    <tr>
+                                       <td>Clinical Information</td>
+                                       <td> Patient pregnant. Confirm dates. Estimate from LNMP 18 weeks. </td>
+                                    </tr>
+                                    <tr>
+                                       <td>Findings</td>
+                                       <td>Normal obstetric ultrasound with foetal biometry indicating getational age of 18W0D.</td>
+                                    </tr>
+                                    <tr>
+                                       <td>Result Representation</td>
+                                       <td> Result Representation - Rich text representation of the entire result as issued by the diagnostic service </td>
+                                    </tr>
+                                 </tbody>
+                              </table>
+                              <table>
+                                 <caption>Result Groups</caption>
+                                 <thead>
+                                    <tr>
+                                       <th>Result Group</th>
+                                       <th>Name</th>
+                                       <th>Value</th>
+                                       <th>Status</th>
+                                       <th>Range</th>
+                                       <th>Comment</th>
+                                    </tr>
+                                 </thead>
+                                 <tbody>
+                                    <tr>
+                                       <td>ultrasound scan - obstetric</td>
+                                       <td>Serum Creatinine</td>
+                                       <td>
+                                          <list>
+                                             <item>Ultrasonography</item>
+                                          </list>
+                                       </td>
+                                       <td>Normal</td>
+                                       <td>
+                                          <list>
+                                             <item>High: 17ml Low: 13ml (Normal range)</item>
+                                             <item>High: 50ml Low: 100ml (High)</item>
+                                          </list>
+                                       </td>
+                                       <td>
+                                          <list>
+                                             <item>Femur measured during</item>
+                                             <item>•Legs measured during ultrasound scan</item>
+                                          </list>
+                                       </td>
+                                    </tr>
+                                 </tbody>
+                              </table>
+                              <table>
+                                 <caption>Anatomical Sites</caption>
+                                 <thead>
+                                    <tr>
+                                       <th>Location</th>
+                                       <th>Side</th>
+                                       <th>Image / File</th>
+                                    </tr>
+                                 </thead>
+                                 <tbody>
+                                    <tr>
+                                       <td>Subcutaneous tissue structure of lateral surface of index finger</td>
+                                       <td>Left</td>
+                                       <td></td>
+                                    </tr>
+                                 </tbody>
+                              </table>
+                              <table>
+                                 <caption>Examination Requests - Image Details</caption>
+                                 <thead>
+                                    <tr>
+                                       <th>Requested Examination Name</th>
+                                       <th>Image Date</th>
+                                       <th>Identifiers</th>
+                                       <th>Subject Position</th>
+                                       <th>Image / File</th>
+                                    </tr>
+                                 </thead>
+                                 <tbody>
+                                    <tr>
+                                       <td>
+                                          <list>
+                                             <item>A/U Obstetric - Dating</item>
+                                             <item>another name</item>
+                                          </list>
+                                       </td>
+                                       <td>12 Jul 2019 09:05:05+1000</td>
+                                       <td>
+                                          <list>
+                                             <item>DICOM Study ID: Accession Number Group: 0008 Element: 0050</item>
+                                             <item>Report ID: 3355552BHU-23.3</item>
+                                             <item>DICOM Series ID: Series Identifier</item>
+                                          </list>
+                                       </td>
+                                       <td>Sublime</td>
+                                       <td></td>
+                                    </tr>
+                                 </tbody>
+                              </table>
+                           </text>
+                        </section>
+                     </component>
+                  </section>
+               </component>
+            </section>
+         </component>
+         <component>
+            <section>
+               <code code="101.16022" codeSystem="1.2.36.1.2001.1001.101"
+                     codeSystemName="NCTIS Data Components"
+                     displayName="Medications"/>
+               <title>Medications</title>
+               <text>
+                  <paragraph>This section contains the following subsections: Pathology Test Result, Imaging Examination Result and Requested Service(s).</paragraph>
+               </text>
+               <component>
+                  <section>
+                     <code code="101.16146.4.1.1" codeSystem="1.2.36.1.2001.1001.101"
+                           codeSystemName="NCTIS Data Components"
+                           displayName="Current Medications on Discharge"/>
+                     <title>Current Medications on Discharge</title>
+                     <text mediaType="text/x-hl7-text+xml">
+                        <table>
+                           <caption>Current Medications on Discharge</caption>
+                           <thead>
+                              <tr>
+                                 <th>Medicine</th>
+                                 <th>Directions</th>
+                                 <th>Duration</th>
+                                 <th>Status</th>
+                                 <th>Clinical Indication</th>
+                                 <th>Change Description</th>
+                                 <th>Change Reason</th>
+                                 <th>Quantity Supplied</th>
+                                 <th>Comments</th>
+                              </tr>
+                           </thead>
+                           <tbody>
+                              <tr>
+                                 <td>paracetamol 500 mg + codeine phosphate 30 mg tablet</td>
+                                 <td>Dose:1, Frequency: 3 times daily</td>
+                                 <td>12 Jul 2019 09:05:05+1000 -&gt; 17 Jul 2019 09:05:05+1000</td>
+                                 <td>New</td>
+                                 <td>Pneumonia</td>
+                                 <td>Dose decreased from 2 tablet 4 a day </td>
+                                 <td>Due to hypotension</td>
+                                 <td>2 tablets</td>
+                                 <td>Additional Comments</td>
+                              </tr>
+                           </tbody>
+                        </table>
+                     </text>
+                  </section>
+               </component>
+               <component>
+                  <section>
+                     <code code="101.16146.4.1.2" codeSystem="1.2.36.1.2001.1001.101"
+                           codeSystemName="NCTIS Data Components"
+                           displayName="Ceased Medications"/>
+                     <title>Ceased Medications</title>
+                     <text mediaType="text/x-hl7-text+xml">
+                        <table>
+                           <caption>Ceased Medications</caption>
+                           <thead>
+                              <tr>
+                                 <th>Medication</th>
+                                 <th>Change Made</th>
+                                 <th>Change Status</th>
+                                 <th>Change Reason</th>
+                              </tr>
+                           </thead>
+                           <tbody>
+                              <tr>
+                                 <td>paracetamol 500 mg + codeine phosphate 30 mg tablet</td>
+                                 <td>Changes Made</td>
+                                 <td>Ceased</td>
+                                 <td>No longer required</td>
+                              </tr>
+                           </tbody>
+                        </table>
+                     </text>
+                  </section>
+               </component>
+            </section>
+         </component>
+         <component>
+            <section>
+               <id root="dcfaef9d-4754-4ab9-952f-0ca94ce593ff"/>
+               <code code="101.16020" codeSystem="1.2.36.1.2001.1001.101"
+                     codeSystemName="NCTIS Data Components"
+                     displayName="Plan"/>
+               <title>Plan</title>
+               <text mediaType="text/x-hl7-text+xml">
+                  <paragraph>This section contains the following subsections: Follow-up Appointments and Record Of Recommendations And Information Provided.</paragraph>
+               </text>
+               <component>
+                  <section>
+                     <id root="c2b5a092-f064-40fb-8035-5ea2ff0ff704"/>
+                     <code code="101.16021" codeSystem="1.2.36.1.2001.1001.101"
+                           codeSystemName="NCTIS Data Components"
+                           displayName="Arranged Services"/>
+                     <title>Arranged Services</title>
+                     <text>
+                        <table>
+                           <caption>Follow-up Appointments</caption>
+                           <thead>
+                              <tr>
+                                 <th>Description</th>
+                                 <th>Commencement</th>
+                                 <th>Status</th>
+                                 <th>Name</th>
+                                 <th>Details</th>
+                                 <th>Phone</th>
+                                 <th>Email</th>
+                              </tr>
+                           </thead>
+                           <tbody>
+                              <tr>
+                                 <td>Orthopaedic outpatient clinic appointment for 4 weeks post-discharge progress review</td>
+                                 <td>12 Jul 2019 09:05:05+1000 -&gt; 1 Aug 2019 09:05:05+1000</td>
+                                 <td>Appointment</td>
+                                 <td>Dr Jane ANDERSON</td>
+                                 <td>Super Healthy Hospital</td>
+                                 <td>0345754566 (WorkPlace), 0414754566 (WorkPlace)</td>
+                                 <td>
+                                    <linkHtml href="mailto:Jane@Anderson.com.au">Jane@Anderson.com.au</linkHtml>
+                                 </td>
+                              </tr>
+                              <tr>
+                                 <td>Orthopaedic outpatient clinic appointment for 4 weeks post-discharge progress review</td>
+                                 <td>12 Jul 2019 09:05:05+1000 -&gt; 10 Sep 2019 09:05:05+1000</td>
+                                 <td>Appointment</td>
+                                 <td>Bay Hill Hospital</td>
+                                 <td>Hospital</td>
+                                 <td>0345754566 (WorkPlace)</td>
+                                 <td>
+                                    <linkHtml href="mailto:BayHill@BayHill.com.au">BayHill@BayHill.com.au</linkHtml>
+                                 </td>
+                              </tr>
+                           </tbody>
+                        </table>
+                     </text>
+                  </section>
+               </component>
+               <component>
+                  <section>
+                     <code code="101.20016" codeSystem="1.2.36.1.2001.1001.101"
+                           codeSystemName="NCTIS Data Components"
+                           displayName="Record of Recommendations and Information Provided"/>
+                     <title>Record of Recommendations and Information Provided</title>
+                     <text>
+                        <table>
+                           <caption>Recommendations</caption>
+                           <thead>
+                              <tr>
+                                 <th>Recommendation</th>
+                                 <th>Person responsible</th>
+                              </tr>
+                           </thead>
+                           <tbody>
+                              <tr>
+                                 <td>Please remove the staples on Aug 24 2010. Please ensure aspirin is recommenced 3 days post discharge. Please follow-up anaemia.</td>
+                                 <td>Dr Alison HODGERS</td>
+                              </tr>
+                              <tr>
+                                 <td>Please remove from waiting list</td>
+                                 <td></td>
+                              </tr>
+                           </tbody>
+                        </table>
+                        <table>
+                           <caption>Information Provided</caption>
+                           <thead>
+                              <tr>
+                                 <th>Description</th>
+                              </tr>
+                           </thead>
+                           <tbody>
+                              <tr>
+                                 <td>Patient was given a brochure explaining the expected post-op recovery following a total knee replacement. The physiotherapist provided a list of home exercises. The good prognosis for return to activity was discussed with the patient - likely to be able to walk with a stick at six weeks.</td>
+                              </tr>
+                           </tbody>
+                        </table>
+                     </text>
+                  </section>
+               </component>
+            </section>
+         </component>
+         <component>
+            <section>
+               <code code="102.16080" codeSystem="1.2.36.1.2001.1001.101"
+                     codeSystemName="NCTIS Data Components"
+                     displayName="Administrative Observations"/>
+               <title>Administrative Observations</title>
+               <text>
+                  <table>
+                     <caption>Demographic Data</caption>
+                     <thead>
+                        <tr>
+                           <th>Name</th>
+                           <th>Value</th>
+                        </tr>
+                     </thead>
+                     <tbody>
+                        <tr>
+                           <td>Date Of Birth is Calculated from Age</td>
+                           <td>Yes</td>
+                        </tr>
+                        <tr>
+                           <td>Date of Birth Accuracy Indicator</td>
+                           <td>AAA</td>
+                        </tr>
+                        <tr>
+                           <td>Birth Plurality</td>
+                           <td>5</td>
+                        </tr>
+                        <tr>
+                           <td>Age Accuracy Indicator</td>
+                           <td>Yes</td>
+                        </tr>
+                        <tr>
+                           <td>Age</td>
+                           <td>35</td>
+                        </tr>
+                     </tbody>
+                  </table>
+               </text>
+               <entry typeCode="DRIV">
+                  <observation classCode="OBS" moodCode="EVN">
+                     <id root="1429cd9f-c7bc-43d5-81d0-a6c4506e8ea5"/>
+                     <code xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" code="103.16233"
+                           codeSystem="1.2.36.1.2001.1001.101"
+                           codeSystemName="NCTIS Data Components"
+                           displayName="Date of Birth is Calculated From Age"
+                           xsi:type="CE"/>
+                     <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" value="true" xsi:type="BL"/>
+                  </observation>
+               </entry>
+               <entry typeCode="DRIV">
+                  <observation classCode="OBS" moodCode="EVN">
+                     <id root="e547b33a-66e6-4576-82d8-c7ebd1155277"/>
+                     <code xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" code="102.16234"
+                           codeSystem="1.2.36.1.2001.1001.101"
+                           codeSystemName="NCTIS Data Components"
+                           displayName="Date of Birth Accuracy Indicator"
+                           xsi:type="CE"/>
+                     <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" code="AAA" xsi:type="CS"/>
+                  </observation>
+               </entry>
+               <entry typeCode="DRIV">
+                  <observation classCode="OBS" moodCode="EVN">
+                     <id root="5b468654-69f6-4a3e-9af1-a20b7794996f"/>
+                     <code xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" code="103.20109"
+                           codeSystem="1.2.36.1.2001.1001.101"
+                           codeSystemName="NCTIS Data Components"
+                           displayName="Age"
+                           xsi:type="CE"/>
+                     <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" unit="a" value="35"
+                            xsi:type="PQ"/>
+                  </observation>
+               </entry>
+               <entry typeCode="DRIV">
+                  <observation classCode="OBS" moodCode="EVN">
+                     <id root="12e09ceb-f49e-4528-9b45-3951b749669b"/>
+                     <code xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" code="103.16279"
+                           codeSystem="1.2.36.1.2001.1001.101"
+                           codeSystemName="NCTIS Data Components"
+                           displayName="Age Accuracy Indicator"
+                           xsi:type="CE"/>
+                     <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" value="true" xsi:type="BL"/>
+                  </observation>
+               </entry>
+               <entry typeCode="DRIV">
+                  <observation classCode="OBS" moodCode="EVN">
+                     <id root="cf620aee-160e-4613-b45a-e6fe52829075"/>
+                     <code xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" code="103.16249"
+                           codeSystem="1.2.36.1.2001.1001.101"
+                           codeSystemName="NCTIS Data Components"
+                           displayName="Birth Plurality"
+                           xsi:type="CE"/>
+                     <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" value="5" xsi:type="INT"/>
+                  </observation>
+               </entry>
+               <ns2:coverage2 typeCode="COVBY">
+                  <ns2:entitlement classCode="COV" moodCode="EVN">
+                     <ns2:id assigningAuthorityName="Medicare Card Number" extension="1234567881"
+                             root="1.2.36.1.5001.1.0.7.1"/>
+                     <ns2:code code="1" codeSystem="1.2.36.1.2001.1001.101.104.16047"
+                               codeSystemName="NCTIS Entitlement Type Values"
+                               displayName="Medicare Benefits">
+                        <originalText>Medicare Benefits</originalText>
+                     </ns2:code>
+                     <ns2:effectiveTime>
+                        <high value="20210415"/>
+                     </ns2:effectiveTime>
+                     <ns2:participant typeCode="BEN">
+                        <ns2:participantRole classCode="PAT">
+                           <ns2:id root="9168f77d-60d2-45b5-8b97-84aeeb32dab3"/>
+                        </ns2:participantRole>
+                     </ns2:participant>
+                  </ns2:entitlement>
+               </ns2:coverage2>
+            </section>
+         </component>
+      </structuredBody>
+   </component>
+</ClinicalDocument>
