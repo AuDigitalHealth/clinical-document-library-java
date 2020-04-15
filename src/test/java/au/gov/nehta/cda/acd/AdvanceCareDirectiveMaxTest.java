@@ -25,7 +25,6 @@ import org.w3c.dom.Document;
 
 import javax.xml.bind.JAXBException;
 import javax.xml.parsers.ParserConfigurationException;
-import java.io.File;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -35,15 +34,12 @@ import static au.gov.nehta.model.schematron.SchematronResource.SchematronResourc
 public class AdvanceCareDirectiveMaxTest extends Base {
 
   private static final String SCHEMATRON = ADVANCE_CARE_DIRECTIVE_3A.resource().getSchematron();
-  private static String SCHEMATRON_TEMPLATE_PATH = "resources/AdvanceCareDirective";
-  private static final String DOCUMENT_FILE_NAME = TEST_GENERATION + "/acd/acd-max-java.xml";
+  private static String SCHEMATRON_TEMPLATE_PATH = "src/test/resources/AdvanceCareDirective";
+  private static final String DOCUMENT_FILE_NAME = "src/test/resources/generated_xml/advance_care_directive/acd-max-java.xml";
 
   @Test
   public void test_MAX_Advance_Care_Directive_Creation() {
     try {
-      if (!new File(SCHEMATRON_TEMPLATE_PATH + "/schematron/schematron-Validator-report.xsl").exists()) {
-        SCHEMATRON_TEMPLATE_PATH = "src/" + SCHEMATRON_TEMPLATE_PATH;
-      }
       generateMax();
       SchematronCheckResult check =
           Schematron.check(SCHEMATRON_TEMPLATE_PATH, SCHEMATRON, DOCUMENT_FILE_NAME);

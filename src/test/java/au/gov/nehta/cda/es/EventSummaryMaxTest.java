@@ -58,7 +58,7 @@ public class EventSummaryMaxTest extends Base {
 
     private static final String SCHEMATRON = EVENT_SUMMARY_3A.resource().getSchematron();
     private static String SCHEMATRON_TEMPLATE_PATH = "src/test/resources/EventSummary";
-    private static final String DOCUMENT_FILE_NAME = "src/test/resources/generated_xml/es-max-java.xml";
+    private static final String DOCUMENT_FILE_NAME = "src/test/resources/generated_xml/event_summary/es-max-java.xml";
 
     @Test
     public void test_MAX_Event_Summary_Creation() {

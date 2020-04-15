@@ -39,7 +39,7 @@ public class EventSummaryGestationalDiabetesTest extends Base {
 
   private static final String SCHEMATRON = "ccd-3B.sch";
   private static String SCHEMATRON_TEMPLATE_PATH = "src/test/resources/EventSummary";
-  private static final String DOCUMENT_FILE_NAME = "src/test/resources/generated_xml/es-Gestational-Diabetes-java.xml";
+  private static final String DOCUMENT_FILE_NAME = "src/test/resources/generated_xml/event_summary/es-Gestational-Diabetes-java.xml";
 
 
   @Test
