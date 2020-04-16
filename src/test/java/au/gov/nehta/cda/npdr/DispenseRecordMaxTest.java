@@ -111,7 +111,7 @@ public class DispenseRecordMaxTest extends Base {
     private static final String SCHEMATRON = "ccd-3B.sch";
     private static String SCHEMATRON_TEMPLATE_PATH = "src/test/resources/PCEHR-DispenseRecord/";
 
-    private static final String DOCUMENT_FILE_NAME = "src/test/resources/npdr/npdr-dispense-max.xml";
+    private static final String DOCUMENT_FILE_NAME = "src/test/resources/generated_xml/npdr/npdr-dispense-max.xml";
 
 
     @Test

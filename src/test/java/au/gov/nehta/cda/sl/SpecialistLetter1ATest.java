@@ -41,7 +41,7 @@ import org.w3c.dom.Document;
 public class SpecialistLetter1ATest extends Base {
 
   private static final String SCHEMATRON = SPECIALIST_LETTER_1A.resource().getSchematron();
-  private static final String DOCUMENT_FILE_NAME = "src/test/resources/specialist_letter/SpecialistLetter_format_1A.xml";
+  private static final String DOCUMENT_FILE_NAME = "src/test/resources/generated_xml/specialist_letter/SpecialistLetter_format_1A.xml";
   private final DateTime now = new DateTime();
 
   @Test
