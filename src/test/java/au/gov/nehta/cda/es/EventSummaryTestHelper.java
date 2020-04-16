@@ -1,5 +1,7 @@
 package au.gov.nehta.cda.es;
 
+import static au.gov.nehta.cda.test.TestHelper.getAttachedMediaPDF;
+
 import au.gov.nehta.model.cda.common.code.CodeImpl;
 import au.gov.nehta.model.cda.common.code.Coded;
 import au.gov.nehta.model.cda.common.code.HL7ObservationInterpretationNormality;
@@ -9,18 +11,33 @@ import au.gov.nehta.model.cda.common.time.PrecisionDate;
 import au.gov.nehta.model.clinical.common.types.Quantity;
 import au.gov.nehta.model.clinical.common.types.QuantityRange;
 import au.gov.nehta.model.clinical.common.types.UniqueIdentifierImpl;
-import au.gov.nehta.model.clinical.es.*;
+import au.gov.nehta.model.clinical.es.AnatomicalSite;
+import au.gov.nehta.model.clinical.es.CollectionAndHandling;
+import au.gov.nehta.model.clinical.es.DiagnosticServiceSectionID;
+import au.gov.nehta.model.clinical.es.Dimensions;
+import au.gov.nehta.model.clinical.es.HandlingAndProcessing;
+import au.gov.nehta.model.clinical.es.Identifiers;
+import au.gov.nehta.model.clinical.es.IdentifiersImpl;
+import au.gov.nehta.model.clinical.es.PathologyTestResult;
+import au.gov.nehta.model.clinical.es.PathologyTestResultImpl;
+import au.gov.nehta.model.clinical.es.PhysicalDetails;
+import au.gov.nehta.model.clinical.es.ReferenceRange;
+import au.gov.nehta.model.clinical.es.ReferenceRangeDetails;
+import au.gov.nehta.model.clinical.es.Result;
+import au.gov.nehta.model.clinical.es.ResultGroup;
+import au.gov.nehta.model.clinical.es.ResultValue;
+import au.gov.nehta.model.clinical.es.TestRequestDetails;
+import au.gov.nehta.model.clinical.es.TestSpecimenDetail;
+import au.gov.nehta.model.clinical.es.TestSpecimenDetailImpl;
 import au.gov.nehta.model.clinical.etp.common.item.AttachedMedia;
-import org.joda.time.DateTime;
-
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
-
-import static au.gov.nehta.cda.test.TestHelper.getAttachedMediaPDF;
+import org.joda.time.DateTime;
 
 public class EventSummaryTestHelper {
 
@@ -31,7 +48,8 @@ public class EventSummaryTestHelper {
         attachmentDir = resourceDirectory.toFile().getAbsolutePath() + "/";
     }
 
-    public static PathologyTestResult createPathologyResults(Boolean mandatorySectionsOnly) {
+    public static PathologyTestResult createPathologyResults(Boolean mandatorySectionsOnly)
+        throws FileNotFoundException {
 
         //It is best to think of PathologyTestResult as one Report/Panel or OBR in a HL7 V2 ORU Message
         PathologyTestResult pathologyTestResult = new PathologyTestResultImpl();
@@ -1008,9 +1026,14 @@ public class EventSummaryTestHelper {
     }
 
     public static AttachedMedia getAttachedMedia(String fileNameStr,
-                                                 Optional<String> attachmentDirOverrideValue) {
-        File media;
-        media = new File(String.format("%s/x-ray%s.jpg", attachmentDir, fileNameStr));
-        return new AttachedMedia(media);
+        Optional<String> attachmentDirOverrideValue)
+        throws FileNotFoundException {
+        File media = new File(String.format("%sx-ray%s.jpg", attachmentDir, fileNameStr));
+        if (media.exists()) {
+            return new AttachedMedia(media);
+        } else {
+            throw new FileNotFoundException(
+                String.format("Media unavailable: %sx-ray%s.jpg", attachmentDir, fileNameStr));
+        }
     }
 }

@@ -4,11 +4,11 @@
    <typeId extension="POCD_HD000040" root="2.16.840.1.113883.1.3"/>
    <templateId extension="1.3" root="1.2.36.1.2001.1001.101.100.1002.132"/>
    <templateId extension="1.0" root="1.2.36.1.2001.1001.100.149"/>
-   <id root="2.25.36692425030837567261294209964202022056"/>
+   <id root="2.25.54957508857014008012697343361713656844"/>
    <code code="51852-2" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"
          displayName="Letter"/>
    <title>Specialist Letter</title>
-   <effectiveTime value="20200415144755+1000"/>
+   <effectiveTime value="20200416140819+1000"/>
    <confidentialityCode nullFlavor="NA"/>
    <languageCode code="en-AU"/>
    <versionNumber value="1"/>
@@ -17,7 +17,7 @@
                        displayName="Final"/>
    <recordTarget typeCode="RCT">
       <patientRole classCode="PAT">
-         <id root="52cb9144-d63c-4647-9215-bbb562f581ed"/>
+         <id root="f88c2c24-333d-494a-9259-0d0b101693ad"/>
          <addr use="H">
             <streetAddressLine>The Complex</streetAddressLine>
             <streetAddressLine>Unit 90210 / 10 Browning st</streetAddressLine>
@@ -54,9 +54,9 @@
       </patientRole>
    </recordTarget>
    <author typeCode="AUT">
-      <time value="20200415144755+1000"/>
+      <time value="20200416140819+1000"/>
       <assignedAuthor>
-         <id root="3451a71a-914a-4640-b00e-987d8b30405e"/>
+         <id root="daa0cbbf-e4f2-41c7-88ab-57c314c39c5f"/>
          <code code="253111" codeSystem="2.16.840.1.113883.13.62"
                codeSystemName="1220.0 - ANZSCO - Australian and New Zealand Standard Classification of Occupations, First Edition, 2006"
                displayName="General Medical Practitioner"/>
@@ -128,7 +128,7 @@
    <custodian>
       <assignedCustodian>
          <representedCustodianOrganization>
-            <id root="903ed0a4-31cf-42a0-87f5-57663f3af261"/>
+            <id root="e833c0e8-5a99-4c8f-b61c-940da4011d18"/>
             <name>Custodian organisation</name>
             <telecom use="WP" value="mailto:example@custodian.com.au"/>
             <addr use="PST">
@@ -150,7 +150,7 @@
    </custodian>
    <componentOf>
       <encompassingEncounter>
-         <effectiveTime value="20200414"/>
+         <effectiveTime value="20200415"/>
       </encompassingEncounter>
    </componentOf>
    <component>

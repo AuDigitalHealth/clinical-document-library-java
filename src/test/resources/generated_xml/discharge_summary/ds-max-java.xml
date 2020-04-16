@@ -4,11 +4,11 @@
    <typeId extension="POCD_HD000040" root="2.16.840.1.113883.1.3"/>
    <templateId extension="3.4" root="1.2.36.1.2001.1001.101.100.1002.4"/>
    <templateId extension="1.0" root="1.2.36.1.2001.1001.100.149"/>
-   <id root="2.25.141566893733186141702517971366092576045"/>
+   <id root="2.25.44914784435482081765139807880040199851"/>
    <code code="18842-5" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"
          displayName="Discharge Summarization Note"/>
    <title>Discharge Summary</title>
-   <effectiveTime value="20200415154729+1000"/>
+   <effectiveTime value="20200416141159+1000"/>
    <confidentialityCode nullFlavor="NA"/>
    <languageCode code="en-AU"/>
    <versionNumber value="1"/>
@@ -17,7 +17,7 @@
                        displayName="Final"/>
    <recordTarget typeCode="RCT">
       <patientRole classCode="PAT">
-         <id root="e7778389-ee0c-4e84-8b0e-f9c756575c61"/>
+         <id root="c254098a-ebea-45cd-8a1b-133acba46b65"/>
          <addr use="H">
             <streetAddressLine>The Complex</streetAddressLine>
             <streetAddressLine>Unit 90210 / 10 Browning st</streetAddressLine>
@@ -54,9 +54,9 @@
       </patientRole>
    </recordTarget>
    <author typeCode="AUT">
-      <time value="20200415154729+1000"/>
+      <time value="20200416141158+1000"/>
       <assignedAuthor>
-         <id root="615ebbe6-c436-40b9-b80e-d17c6461351e"/>
+         <id root="17c4af89-34fe-499b-a1eb-3f8e2d6d9ac6"/>
          <code code="253111" codeSystem="2.16.840.1.113883.13.62"
                codeSystemName="1220.0 - ANZSCO - Australian and New Zealand Standard Classification of Occupations, First Edition, 2006"
                displayName="General Medical Practitioner"/>
@@ -128,7 +128,7 @@
    <custodian>
       <assignedCustodian>
          <representedCustodianOrganization>
-            <id root="b08f3a26-b989-4f21-85ad-f314c93d40e0"/>
+            <id root="c19f8f7c-bf90-41e1-b0d8-7db1e2cf89fa"/>
             <name>Custodian organisation</name>
             <telecom use="WP" value="mailto:example@custodian.com.au"/>
             <addr use="PST">
@@ -150,7 +150,7 @@
    </custodian>
    <informationRecipient typeCode="PRCP">
       <intendedRecipient>
-         <id root="b7fdaaed-645b-438e-9345-775cfbcea0ff"/>
+         <id root="f5dd76e3-f955-4e6c-94e2-1bf0386a5f34"/>
          <addr use="WP">
             <streetAddressLine>616 Bromley Street</streetAddressLine>
             <postalCode>4169</postalCode>
@@ -181,10 +181,10 @@
       </intendedRecipient>
    </informationRecipient>
    <legalAuthenticator>
-      <time value="20200415154729+1000"/>
+      <time value="20200416141158+1000"/>
       <signatureCode code="S"/>
       <assignedEntity>
-         <id root="ea912ed8-43e0-411e-8783-c365de504e75"/>
+         <id root="e6a3289b-27fa-4b05-8263-16f20df67779"/>
          <code code="253511" codeSystem="2.16.840.1.113883.13.62"
                codeSystemName="1220.0 - ANZSCO - Australian and New Zealand Standard Classification of Occupations, First Edition, 2006"
                displayName="Surgeon (General)"/>
@@ -232,7 +232,7 @@
          <high value="20190328"/>
       </time>
       <associatedEntity classCode="CAREGIVER">
-         <id root="c3a6e53a-5415-4c28-a22d-78f614589708"/>
+         <id root="bb027d8d-c1d1-4f63-8d8c-5d2276b79898"/>
          <code code="309964003" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED CT"
                displayName="Radiology Department">
             <originalText>Radiology Department</originalText>
@@ -304,7 +304,7 @@
          <high value="20220330"/>
       </time>
       <associatedEntity classCode="SDLOC">
-         <id root="11669735-0235-4a87-b307-19eba4d323e8"/>
+         <id root="9ce51791-707e-4959-b176-95784e78f336"/>
          <code>
             <originalText>Ward B</originalText>
          </code>
@@ -325,7 +325,7 @@
                <high value="20190329"/>
             </time>
             <assignedEntity>
-               <id root="0858dd20-74f7-4c31-afb5-81b7ea6bf603"/>
+               <id root="c8949913-3dff-42f3-b62a-855b2c21c408"/>
                <code code="309964003" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED CT"
                      displayName="Radiology Department">
                   <originalText>Radiology Department</originalText>
@@ -398,15 +398,15 @@
          </encounterParticipant>
          <location>
             <healthCareFacility>
-               <id root="10212821-559e-411d-ab9d-866ecc4db46e"/>
+               <id root="dac79924-1132-456c-985e-e4889cf1a493"/>
                <code code="HOSP" codeSystem="2.16.840.1.113883.1.11.17660"
                      codeSystemName="HL7 ServiceDeliveryLocationRoleType"
                      displayName="Hospital"/>
                <serviceProviderOrganization>
-                  <id root="3b7a0c0b-63dd-42ba-a331-1bf3499017fb"/>
+                  <id root="7d7851bf-7399-4299-a288-dfd7b29ffb28"/>
                   <name>Warner Bros Hospital</name>
                   <asOrganizationPartOf>
-                     <id root="f4a351f0-29e2-4855-8c93-f0ea58706a87"/>
+                     <id root="23b3f13c-898d-4f9f-8bf6-be00f7b271aa"/>
                      <wholeOrganization>
                         <name use="ORGB">Warner Bros Hospital</name>
                         <telecom use="WP" value="mailto:mail@blah.com"/>
@@ -532,7 +532,7 @@
                      </text>
                      <entry>
                         <observation classCode="OBS" moodCode="EVN">
-                           <id root="7a74b89b-80ad-4cbb-be68-7cf6f62c6631"/>
+                           <id root="7a129f8d-27bb-4533-99a8-5a8045b1ee2a"/>
                            <code code="102.15517" codeSystem="1.2.36.1.2001.1001.101"
                                  codeSystemName="NCTIS Data Components"
                                  displayName="Adverse Reaction"/>
@@ -593,7 +593,7 @@
                      </text>
                      <entry>
                         <observation classCode="OBS" moodCode="EVN">
-                           <id root="b2b9b010-596e-475c-be0d-29494231f71b"/>
+                           <id root="b4c5b745-253f-41da-be74-e51528f5adc6"/>
                            <code xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" code="78648007"
                                  codeSystem="2.16.840.1.113883.6.96"
                                  codeSystemName="SNOMED-CT"
@@ -770,7 +770,7 @@ post-op analgesics and oral antibiotics.</item>
                      </text>
                      <entry typeCode="DRIV">
                         <act classCode="ACT" moodCode="EVN">
-                           <id root="c7d5f776-f85f-40c6-818c-1e28cab16d9d"/>
+                           <id root="29ef9efe-fc07-4e0b-a1bd-59b2a4470407"/>
                            <code code="103.15582" codeSystem="1.2.36.1.2001.1001.101"
                                  codeSystemName="NCTIS Data Components"
                                  displayName="Clinical Synopsis Description"/>
@@ -815,7 +815,7 @@ post-op analgesics and oral antibiotics.</text>
                      </text>
                      <entry>
                         <observation classCode="OBS" moodCode="EVN">
-                           <id root="82d804ca-4ce4-4fe2-8c7c-fc617d1aee97"/>
+                           <id root="275ecb0f-43b3-411a-92f2-aea228dedfa5"/>
                            <code code="116223007" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED-CT"
                                  displayName="Complication"/>
                            <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" code="236629009"
@@ -850,7 +850,7 @@ post-op analgesics and oral antibiotics.</text>
                      </text>
                      <entry typeCode="DRIV">
                         <procedure classCode="PROC" moodCode="EVN">
-                           <id root="be9074d1-e3b5-405e-9774-d00f4ca45f43"/>
+                           <id root="7aa8d6d8-1162-487e-84fd-a2827dcfae2c"/>
                            <code code="443682009" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED-CT"
                                  displayName="Total right knee joint replacement"/>
                         </procedure>
@@ -859,7 +859,7 @@ post-op analgesics and oral antibiotics.</text>
                </component>
                <component>
                   <section classCode="DOCSECT" moodCode="EVN">
-                     <id root="72abb86e-eaa8-486c-b9a9-e074b1c4c8fe"/>
+                     <id root="03a57012-99fe-44e6-aa01-d9498068ec96"/>
                      <code code="101.20117" codeSystem="1.2.36.1.2001.1001.101"
                            codeSystemName="NCTIS Data Components"
                            displayName="Diagnostic Investigations"/>
@@ -869,7 +869,7 @@ post-op analgesics and oral antibiotics.</text>
                      </text>
                      <component>
                         <section>
-                           <id root="6d37cf5d-51f9-4de3-b68a-cb68f12ec789"/>
+                           <id root="532f06e2-9301-40c1-a199-f96705fc3304"/>
                            <code code="102.16029" codeSystem="1.2.36.1.2001.1001.101"
                                  codeSystemName="NCTIS Data Components"
                                  displayName="Diagnostic Investigation"/>
@@ -928,7 +928,7 @@ post-op analgesics and oral antibiotics.</text>
                            </text>
                            <entry>
                               <observation classCode="OBS" moodCode="EVN">
-                                 <id root="40875220-7b5a-4bac-b158-a86b134f06ee"/>
+                                 <id root="f9196af4-0c7d-4019-b966-0ba00972eb91"/>
                                  <code>
                                     <originalText>Report Name</originalText>
                                  </code>
@@ -958,7 +958,7 @@ post-op analgesics and oral antibiotics.</text>
     BLOOD GLUCOSE   : 10.8 *     mmol/L     (3.9-6.0)</value>
                                  <entryRelationship typeCode="COMP">
                                     <observation classCode="OBS" moodCode="EVN">
-                                       <id root="751029e3-bad4-4697-bf8b-71cb92c5afb9"/>
+                                       <id root="da2083bb-e82a-450b-aed0-77a2b1792c0d"/>
                                        <code code="308552006" codeSystem="2.16.840.1.113883.6.96"
                                              codeSystemName="SNOMED CT-AU"
                                              codeSystemVersion="20110531"
@@ -976,7 +976,7 @@ post-op analgesics and oral antibiotics.</text>
                      </component>
                      <component>
                         <section>
-                           <id root="b126a61f-0ec4-4566-9ef2-42f14bb1d7e1"/>
+                           <id root="63d6c40f-0fcf-406f-b473-6dcf2514560d"/>
                            <code code="102.16029" codeSystem="1.2.36.1.2001.1001.101"
                                  codeSystemName="NCTIS Data Components"
                                  displayName="Diagnostic Investigation"/>
@@ -1005,7 +1005,7 @@ post-op analgesics and oral antibiotics.</text>
                                     </tr>
                                     <tr>
                                        <td>
-                                          <renderMultiMedia referencedObject="df399374-ff1f-4cb1-9470-a0d621212bd4">
+                                          <renderMultiMedia referencedObject="d861bcce-356c-4225-8ed5-e6ec2f0e2531">
                                              <caption>Other Test Result</caption>
                                           </renderMultiMedia>
                                        </td>
@@ -1020,7 +1020,7 @@ post-op analgesics and oral antibiotics.</text>
                            </text>
                            <entry>
                               <observation classCode="OBS" moodCode="EVN">
-                                 <id root="d2a59895-89aa-44df-94a5-c12e48e5e61a"/>
+                                 <id root="b53648a7-9a6a-4e21-8773-8080b2fa71a4"/>
                                  <code>
                                     <originalText>Report Name (with attachment)</originalText>
                                  </code>
@@ -1032,7 +1032,7 @@ post-op analgesics and oral antibiotics.</text>
                                     <reference value="radiologyreport.pdf"/>
                                  </value>
                                  <entryRelationship typeCode="COMP">
-                                    <observationMedia ID="df399374-ff1f-4cb1-9470-a0d621212bd4" classCode="OBS" moodCode="EVN">
+                                    <observationMedia ID="d861bcce-356c-4225-8ed5-e6ec2f0e2531" classCode="OBS" moodCode="EVN">
                                        <value integrityCheck="WuGzArOJ0d+HNGnOw7xj3uKVXig=" mediaType="application/pdf">
                                           <reference value="radiologyreport.pdf"/>
                                        </value>
@@ -1040,7 +1040,7 @@ post-op analgesics and oral antibiotics.</text>
                                  </entryRelationship>
                                  <entryRelationship typeCode="COMP">
                                     <observation classCode="OBS" moodCode="EVN">
-                                       <id root="f4ef6ec5-4711-43af-ab44-e21a04c71f65"/>
+                                       <id root="6b58aa82-bf1e-49b7-bf11-222c5e20ca32"/>
                                        <code code="308552006" codeSystem="2.16.840.1.113883.6.96"
                                              codeSystemName="SNOMED CT-AU"
                                              codeSystemVersion="20110531"
@@ -1058,7 +1058,7 @@ post-op analgesics and oral antibiotics.</text>
                      </component>
                      <component>
                         <section>
-                           <id root="59d574a5-f6b1-4eeb-aa32-189e53ef4a77"/>
+                           <id root="bb385538-d9b5-4dda-bb5c-2f1115149b65"/>
                            <code code="102.16144" codeSystem="1.2.36.1.2001.1001.101"
                                  codeSystemName="NCTIS Data Components"
                                  displayName="Pathology Test Result"/>
@@ -1129,10 +1129,10 @@ post-op analgesics and oral antibiotics.</text>
                                     </tr>
                                  </tbody>
                               </table>
-                              <renderMultiMedia referencedObject="c090d40d-7c4c-44fb-9b5c-d63d787b16e9">
+                              <renderMultiMedia referencedObject="fccf9731-c635-4b64-b988-d068d93cb532">
                                  <caption>Anatomical Site x-raySpecimenDetail.jpg</caption>
                               </renderMultiMedia>
-                              <renderMultiMedia referencedObject="c8ae8866-4083-40e3-b5aa-18783dc2f389">
+                              <renderMultiMedia referencedObject="a90aea9f-8617-4941-96c6-6e96720e0d71">
                                  <caption>Anatomical Site x-raySpecimenDetail.jpg</caption>
                               </renderMultiMedia>
                               <table>
@@ -1154,7 +1154,7 @@ post-op analgesics and oral antibiotics.</text>
                                     </tr>
                                  </tbody>
                               </table>
-                              <renderMultiMedia referencedObject="adb015d4-1705-4a62-a41f-2a1301dd2cee">
+                              <renderMultiMedia referencedObject="fbe43d6a-8ec4-4e74-a08a-e3138b7c933e">
                                  <caption>Physical Detail Image x-ray.jpg</caption>
                               </renderMultiMedia>
                               <table>
@@ -1366,7 +1366,7 @@ post-op analgesics and oral antibiotics.</text>
                                  <tbody>
                                     <tr>
                                        <td>
-                                          <renderMultiMedia referencedObject="a66d3284-929d-49e7-adab-0ff303a3641f">
+                                          <renderMultiMedia referencedObject="c84d9bca-8520-4513-8c37-0cd3bf8099dd">
                                              <caption>Test Result Representation</caption>
                                           </renderMultiMedia>
                                        </td>
@@ -1397,7 +1397,7 @@ post-op analgesics and oral antibiotics.</text>
                                  </value>
                                  <entryRelationship typeCode="COMP">
                                     <observation classCode="OBS" moodCode="EVN">
-                                       <id root="8659b220-50d9-4504-b960-ca685b7ab664"/>
+                                       <id root="c8e9ba4c-becd-4758-8ea3-707555b8c6a3"/>
                                        <code code="310074003" codeSystem="2.16.840.1.113883.6.96"
                                              codeSystemName="SNOMED CT-AU"
                                              codeSystemVersion="20110531"
@@ -1411,7 +1411,7 @@ post-op analgesics and oral antibiotics.</text>
                                  </entryRelationship>
                                  <entryRelationship typeCode="COMP">
                                     <observation classCode="OBS" moodCode="EVN">
-                                       <id root="bfe05af5-2646-4447-8244-177bc57f12e7"/>
+                                       <id root="4bb621d4-4217-45ac-97df-fa1d1c1f0e7f"/>
                                        <code code="308552006" codeSystem="2.16.840.1.113883.6.96"
                                              codeSystemName="SNOMED CT-AU"
                                              codeSystemVersion="20110531"
@@ -1432,7 +1432,7 @@ post-op analgesics and oral antibiotics.</text>
                                  </entryRelationship>
                                  <entryRelationship typeCode="REFR">
                                     <observation classCode="OBS" moodCode="EVN">
-                                       <id root="3da764b7-3a2d-4ee7-8061-5c461124bf06"/>
+                                       <id root="b40f57e9-c98b-468e-b211-6d9b0ec64f8c"/>
                                        <code code="386344002" codeSystem="2.16.840.1.113883.6.96"
                                              codeSystemName="SNOMED CT-AU"
                                              codeSystemVersion="20110531"
@@ -1442,7 +1442,7 @@ post-op analgesics and oral antibiotics.</text>
                                  </entryRelationship>
                                  <entryRelationship typeCode="COMP">
                                     <act classCode="INFRM" moodCode="EVN">
-                                       <id root="0a571076-d898-440f-a9ad-f0f691b22cdb"/>
+                                       <id root="68b1b4b2-2ba4-4963-8867-6dbb4ac507b0"/>
                                        <code code="103.16468" codeSystem="1.2.36.1.2001.1001.101"
                                              codeSystemName="NCTIS Data Components"
                                              displayName="Test Comment"/>
@@ -1451,13 +1451,13 @@ post-op analgesics and oral antibiotics.</text>
                                  </entryRelationship>
                                  <entryRelationship inversionInd="true" typeCode="SUBJ">
                                     <act classCode="ACT" moodCode="EVN">
-                                       <id root="53c5622e-cdc1-459d-8862-5c05d2431996"/>
+                                       <id root="dbe3aaac-cf06-4cd8-aec1-c6956705ebc7"/>
                                        <code code="102.16160" codeSystem="1.2.36.1.2001.1001.101"
                                              codeSystemName="NCTIS Data Components"
                                              displayName="Test Request Details"/>
                                        <entryRelationship typeCode="COMP">
                                           <observation classCode="OBS" moodCode="RQO">
-                                             <id root="1087957f-6170-42f2-82af-30fb4e592a4d"/>
+                                             <id root="4bdac04d-f236-4348-9dc1-d2676f677123"/>
                                              <code code="103.11017" codeSystem="1.2.36.1.2001.1001.101"
                                                    codeSystemName="NCTIS Data Components"
                                                    displayName="Test Requested Name"/>
@@ -1474,7 +1474,7 @@ post-op analgesics and oral antibiotics.</text>
                                  </entryRelationship>
                                  <entryRelationship typeCode="COMP">
                                     <observation classCode="OBS" moodCode="EVN">
-                                       <id root="63b914c7-ce29-48fa-9765-012bd6ff484e"/>
+                                       <id root="f05d1476-354b-4342-b1ef-ee19c56a52c1"/>
                                        <code code="103.16605" codeSystem="1.2.36.1.2001.1001.101"
                                              codeSystemName="NCTIS Data Components"
                                              displayName="Pathology Test Result DateTime"/>
@@ -1483,7 +1483,7 @@ post-op analgesics and oral antibiotics.</text>
                                  </entryRelationship>
                                  <entryRelationship typeCode="COMP">
                                     <organizer classCode="BATTERY" moodCode="EVN">
-                                       <id root="fa72516b-882c-4401-b569-53eeaf4d28e2"/>
+                                       <id root="b0efed54-7ed8-4a08-a93e-5753368a2c65"/>
                                        <code code="FBC" codeSystem="2.999.100"
                                              codeSystemName="ACME Laboratories Report CodeSystem"
                                              displayName="Full blood count">
@@ -1494,7 +1494,7 @@ post-op analgesics and oral antibiotics.</text>
                                        <statusCode code="completed"/>
                                        <component>
                                           <observation classCode="OBS" moodCode="EVN">
-                                             <id root="55e01783-6241-493e-8422-b4f0a3d2054c"/>
+                                             <id root="1c94e377-33b0-4859-bc77-f594e4267b1d"/>
                                              <code code="58745656" codeSystem="2.999.200"
                                                    codeSystemName="ACME Laboratories Atomic Result CodeSystem"
                                                    displayName="Haemoglobin">
@@ -1509,7 +1509,7 @@ post-op analgesics and oral antibiotics.</text>
                                                                  displayName="High"/>
                                              <entryRelationship typeCode="COMP">
                                                 <act classCode="INFRM" moodCode="EVN">
-                                                   <id root="49fcbd47-1d98-45c6-8111-bb07f413b6dd"/>
+                                                   <id root="1e0666d0-9bbd-44cc-b059-f8e57d42950f"/>
                                                    <code code="281296001" codeSystem="2.16.840.1.113883.6.96"
                                                          codeSystemName="SNOMED CT-AU"
                                                          codeSystemVersion="20110531"
@@ -1519,7 +1519,7 @@ post-op analgesics and oral antibiotics.</text>
                                              </entryRelationship>
                                              <entryRelationship typeCode="COMP">
                                                 <act classCode="INFRM" moodCode="EVN">
-                                                   <id root="108f447d-5871-47f1-9b5a-9b73d97eec1c"/>
+                                                   <id root="464f8119-4d94-426f-bc63-8c1fe888acc4"/>
                                                    <code code="281298000" codeSystem="2.16.840.1.113883.6.96"
                                                          codeSystemName="SNOMED CT-AU"
                                                          codeSystemVersion="20110531"
@@ -1529,7 +1529,7 @@ post-op analgesics and oral antibiotics.</text>
                                              </entryRelationship>
                                              <entryRelationship typeCode="COMP">
                                                 <observation classCode="OBS" moodCode="EVN">
-                                                   <id root="d15ab510-215d-4112-a0ba-08e26de4c6ad"/>
+                                                   <id root="2061d72c-502c-41e5-8205-ef0dc9d7e3f0"/>
                                                    <code code="308552006" codeSystem="2.16.840.1.113883.6.96"
                                                          codeSystemName="SNOMED CT-AU"
                                                          codeSystemVersion="20110531"
@@ -1559,7 +1559,7 @@ post-op analgesics and oral antibiotics.</text>
                                        </component>
                                        <component>
                                           <observation classCode="OBS" moodCode="EVN">
-                                             <id root="8223913f-0985-42d3-a0de-d36a140bfb37"/>
+                                             <id root="6aee5538-f93a-40f8-93f6-6ed2791d7111"/>
                                              <code code="456337895" codeSystem="2.999.200"
                                                    codeSystemName="ACME Laboratories Atomic Result CodeSystem"
                                                    displayName="Red Cell Count">
@@ -1574,7 +1574,7 @@ post-op analgesics and oral antibiotics.</text>
                                                                  displayName="Normal"/>
                                              <entryRelationship typeCode="COMP">
                                                 <act classCode="INFRM" moodCode="EVN">
-                                                   <id root="fc7e1efe-919d-47d1-927c-eef812e6ea81"/>
+                                                   <id root="8b42e6e0-102c-4902-9c15-aee24fb9c02f"/>
                                                    <code code="281296001" codeSystem="2.16.840.1.113883.6.96"
                                                          codeSystemName="SNOMED CT-AU"
                                                          codeSystemVersion="20110531"
@@ -1584,7 +1584,7 @@ post-op analgesics and oral antibiotics.</text>
                                              </entryRelationship>
                                              <entryRelationship typeCode="COMP">
                                                 <act classCode="INFRM" moodCode="EVN">
-                                                   <id root="e1a664b1-435d-40be-95cb-7b292f3212ac"/>
+                                                   <id root="e68b8bf1-36cd-4425-8bab-04e29c46a722"/>
                                                    <code code="281298000" codeSystem="2.16.840.1.113883.6.96"
                                                          codeSystemName="SNOMED CT-AU"
                                                          codeSystemVersion="20110531"
@@ -1594,7 +1594,7 @@ post-op analgesics and oral antibiotics.</text>
                                              </entryRelationship>
                                              <entryRelationship typeCode="COMP">
                                                 <observation classCode="OBS" moodCode="EVN">
-                                                   <id root="5b417a73-d102-42de-a29b-c319cbb5d9a0"/>
+                                                   <id root="cc97d3bd-0b1e-4b30-95b5-569ec79b5878"/>
                                                    <code code="308552006" codeSystem="2.16.840.1.113883.6.96"
                                                          codeSystemName="SNOMED CT-AU"
                                                          codeSystemVersion="20110531"
@@ -1624,7 +1624,7 @@ post-op analgesics and oral antibiotics.</text>
                                        </component>
                                        <component>
                                           <observation classCode="OBS" moodCode="EVN">
-                                             <id root="075df616-1229-43ea-9366-5ef2b16b53f2"/>
+                                             <id root="c477f55d-a173-445a-b2dd-965e5a0ea2c7"/>
                                              <code code="7854343223" codeSystem="2.999.200"
                                                    codeSystemName="ACME Laboratories Atomic Result CodeSystem"
                                                    displayName="Hematocrit">
@@ -1639,7 +1639,7 @@ post-op analgesics and oral antibiotics.</text>
                                                                  displayName="Normal"/>
                                              <entryRelationship typeCode="COMP">
                                                 <act classCode="INFRM" moodCode="EVN">
-                                                   <id root="39833ae9-2925-4908-98ba-7681a4265fee"/>
+                                                   <id root="c93126c9-af5f-4033-8614-f725c0ed129c"/>
                                                    <code code="281296001" codeSystem="2.16.840.1.113883.6.96"
                                                          codeSystemName="SNOMED CT-AU"
                                                          codeSystemVersion="20110531"
@@ -1649,7 +1649,7 @@ post-op analgesics and oral antibiotics.</text>
                                              </entryRelationship>
                                              <entryRelationship typeCode="COMP">
                                                 <act classCode="INFRM" moodCode="EVN">
-                                                   <id root="be3f58c2-f3fd-401e-9222-4c3da03ca2cf"/>
+                                                   <id root="4918070a-5e41-4ea7-ba51-f3ce6df6d7ed"/>
                                                    <code code="281298000" codeSystem="2.16.840.1.113883.6.96"
                                                          codeSystemName="SNOMED CT-AU"
                                                          codeSystemVersion="20110531"
@@ -1659,7 +1659,7 @@ post-op analgesics and oral antibiotics.</text>
                                              </entryRelationship>
                                              <entryRelationship typeCode="COMP">
                                                 <observation classCode="OBS" moodCode="EVN">
-                                                   <id root="fcced1b0-0610-44fe-929a-3e872686e39c"/>
+                                                   <id root="7fb64be2-1eee-45a1-a07b-0cc568241fd8"/>
                                                    <code code="308552006" codeSystem="2.16.840.1.113883.6.96"
                                                          codeSystemName="SNOMED CT-AU"
                                                          codeSystemVersion="20110531"
@@ -1689,7 +1689,7 @@ post-op analgesics and oral antibiotics.</text>
                                        </component>
                                        <component>
                                           <observation classCode="OBS" moodCode="EVN">
-                                             <id root="897f8251-f522-44e1-a0d5-69e4e7a73336"/>
+                                             <id root="b64871af-33d7-4209-910a-419844f1d5fd"/>
                                              <code code="6322353455" codeSystem="2.999.200"
                                                    codeSystemName="ACME Laboratories Atomic Result CodeSystem"
                                                    displayName="Mean Cell Volume">
@@ -1702,7 +1702,7 @@ post-op analgesics and oral antibiotics.</text>
                                                                  displayName="Normal"/>
                                              <entryRelationship typeCode="COMP">
                                                 <act classCode="INFRM" moodCode="EVN">
-                                                   <id root="7f278b0f-2c12-4b63-89ed-9acca44f24df"/>
+                                                   <id root="08d617c2-e41a-41d6-9ef0-24b80fa924f5"/>
                                                    <code code="281296001" codeSystem="2.16.840.1.113883.6.96"
                                                          codeSystemName="SNOMED CT-AU"
                                                          codeSystemVersion="20110531"
@@ -1712,7 +1712,7 @@ post-op analgesics and oral antibiotics.</text>
                                              </entryRelationship>
                                              <entryRelationship typeCode="COMP">
                                                 <act classCode="INFRM" moodCode="EVN">
-                                                   <id root="cb91153c-f817-4fd9-9297-3c2312167866"/>
+                                                   <id root="65239730-42f9-4ae1-8b48-8c590299b519"/>
                                                    <code code="281298000" codeSystem="2.16.840.1.113883.6.96"
                                                          codeSystemName="SNOMED CT-AU"
                                                          codeSystemVersion="20110531"
@@ -1722,7 +1722,7 @@ post-op analgesics and oral antibiotics.</text>
                                              </entryRelationship>
                                              <entryRelationship typeCode="COMP">
                                                 <observation classCode="OBS" moodCode="EVN">
-                                                   <id root="4ddb81f2-de2f-485c-a2b6-b4a33391984d"/>
+                                                   <id root="20dd36bf-ac2f-43f2-9b6c-7ee55d58bdfa"/>
                                                    <code code="308552006" codeSystem="2.16.840.1.113883.6.96"
                                                          codeSystemName="SNOMED CT-AU"
                                                          codeSystemVersion="20110531"
@@ -1751,7 +1751,7 @@ post-op analgesics and oral antibiotics.</text>
                                        </component>
                                        <component>
                                           <observation classCode="OBS" moodCode="EVN">
-                                             <id root="33840c37-19aa-46fc-9abc-a5d4fdb653f4"/>
+                                             <id root="bea7bd4d-51c5-43bd-b240-3bfe4a87431a"/>
                                              <code code="62109543" codeSystem="2.999.200"
                                                    codeSystemName="ACME Laboratories Atomic Result CodeSystem"
                                                    displayName="Mean Cell Hemoglobin">
@@ -1764,7 +1764,7 @@ post-op analgesics and oral antibiotics.</text>
                                                                  displayName="Normal"/>
                                              <entryRelationship typeCode="COMP">
                                                 <act classCode="INFRM" moodCode="EVN">
-                                                   <id root="2ed0ad13-ef2e-4823-8f38-f57d501864c1"/>
+                                                   <id root="39e012ad-184c-4f77-9059-aac3a7535317"/>
                                                    <code code="281296001" codeSystem="2.16.840.1.113883.6.96"
                                                          codeSystemName="SNOMED CT-AU"
                                                          codeSystemVersion="20110531"
@@ -1774,7 +1774,7 @@ post-op analgesics and oral antibiotics.</text>
                                              </entryRelationship>
                                              <entryRelationship typeCode="COMP">
                                                 <act classCode="INFRM" moodCode="EVN">
-                                                   <id root="f45dc4b4-a7b3-4d9d-a148-2cf35e35670b"/>
+                                                   <id root="a5938d06-719c-4964-b39c-cc3bdaa85099"/>
                                                    <code code="281298000" codeSystem="2.16.840.1.113883.6.96"
                                                          codeSystemName="SNOMED CT-AU"
                                                          codeSystemVersion="20110531"
@@ -1784,7 +1784,7 @@ post-op analgesics and oral antibiotics.</text>
                                              </entryRelationship>
                                              <entryRelationship typeCode="COMP">
                                                 <observation classCode="OBS" moodCode="EVN">
-                                                   <id root="eb823655-fd02-40c2-96ef-47ab0ff47e46"/>
+                                                   <id root="8af8ee52-e653-402d-92c8-f17b08ae6421"/>
                                                    <code code="308552006" codeSystem="2.16.840.1.113883.6.96"
                                                          codeSystemName="SNOMED CT-AU"
                                                          codeSystemVersion="20110531"
@@ -1813,7 +1813,7 @@ post-op analgesics and oral antibiotics.</text>
                                        </component>
                                        <component>
                                           <observation classCode="OBS" moodCode="EVN">
-                                             <id root="fc57b1a9-b8d5-4b04-b2fb-fb3156a92be7"/>
+                                             <id root="9db14d06-a227-4fb3-b4c6-59c395f4c33f"/>
                                              <code code="2333342107" codeSystem="2.999.200"
                                                    codeSystemName="ACME Laboratories Atomic Result CodeSystem"
                                                    displayName="Mean Cell Hemoglobin Concentration">
@@ -1826,7 +1826,7 @@ post-op analgesics and oral antibiotics.</text>
                                                                  displayName="Normal"/>
                                              <entryRelationship typeCode="COMP">
                                                 <act classCode="INFRM" moodCode="EVN">
-                                                   <id root="16145b9a-713b-449c-82a2-a1de600c9bae"/>
+                                                   <id root="6824b4ee-d7b5-464b-8ee2-e1b6d40e1382"/>
                                                    <code code="281296001" codeSystem="2.16.840.1.113883.6.96"
                                                          codeSystemName="SNOMED CT-AU"
                                                          codeSystemVersion="20110531"
@@ -1836,7 +1836,7 @@ post-op analgesics and oral antibiotics.</text>
                                              </entryRelationship>
                                              <entryRelationship typeCode="COMP">
                                                 <act classCode="INFRM" moodCode="EVN">
-                                                   <id root="65bd2dd6-e6de-43a3-aad4-3c353d55f532"/>
+                                                   <id root="914530a9-4f5b-4676-aaa0-274e42a53352"/>
                                                    <code code="281298000" codeSystem="2.16.840.1.113883.6.96"
                                                          codeSystemName="SNOMED CT-AU"
                                                          codeSystemVersion="20110531"
@@ -1846,7 +1846,7 @@ post-op analgesics and oral antibiotics.</text>
                                              </entryRelationship>
                                              <entryRelationship typeCode="COMP">
                                                 <observation classCode="OBS" moodCode="EVN">
-                                                   <id root="e3a61089-1351-491e-adf8-6fd72c382d1f"/>
+                                                   <id root="668f52c0-7a47-43d9-838c-b8362f933f81"/>
                                                    <code code="308552006" codeSystem="2.16.840.1.113883.6.96"
                                                          codeSystemName="SNOMED CT-AU"
                                                          codeSystemVersion="20110531"
@@ -1876,7 +1876,7 @@ post-op analgesics and oral antibiotics.</text>
                                        </component>
                                        <component>
                                           <observation classCode="OBS" moodCode="EVN">
-                                             <id root="3ddae4d3-4f5b-4494-9400-60627e93bb31"/>
+                                             <id root="3ce2127c-7d62-4874-88b2-7a3af2b7e959"/>
                                              <code code="87687987" codeSystem="2.999.200"
                                                    codeSystemName="ACME Laboratories Atomic Result CodeSystem"
                                                    displayName="Platelet">
@@ -1889,7 +1889,7 @@ post-op analgesics and oral antibiotics.</text>
                                                                  displayName="Normal"/>
                                              <entryRelationship typeCode="COMP">
                                                 <act classCode="INFRM" moodCode="EVN">
-                                                   <id root="7b1fc0df-acfb-4b68-86b7-7cdb7d349791"/>
+                                                   <id root="49375c6e-ff16-4f6f-86f6-0c55da0ab37d"/>
                                                    <code code="281296001" codeSystem="2.16.840.1.113883.6.96"
                                                          codeSystemName="SNOMED CT-AU"
                                                          codeSystemVersion="20110531"
@@ -1899,7 +1899,7 @@ post-op analgesics and oral antibiotics.</text>
                                              </entryRelationship>
                                              <entryRelationship typeCode="COMP">
                                                 <act classCode="INFRM" moodCode="EVN">
-                                                   <id root="da1c7fc5-9f80-44c5-b552-70775f181101"/>
+                                                   <id root="8eb8345c-8963-4904-8753-6b026a2dd2ae"/>
                                                    <code code="281298000" codeSystem="2.16.840.1.113883.6.96"
                                                          codeSystemName="SNOMED CT-AU"
                                                          codeSystemVersion="20110531"
@@ -1909,7 +1909,7 @@ post-op analgesics and oral antibiotics.</text>
                                              </entryRelationship>
                                              <entryRelationship typeCode="COMP">
                                                 <observation classCode="OBS" moodCode="EVN">
-                                                   <id root="455582fc-9323-4b0c-b76e-81d9a1f12a71"/>
+                                                   <id root="3b4d4d51-b7be-4c66-b373-59817b9f28c3"/>
                                                    <code code="308552006" codeSystem="2.16.840.1.113883.6.96"
                                                          codeSystemName="SNOMED CT-AU"
                                                          codeSystemVersion="20110531"
@@ -1939,7 +1939,7 @@ post-op analgesics and oral antibiotics.</text>
                                        </component>
                                        <component>
                                           <observation classCode="OBS" moodCode="EVN">
-                                             <id root="4c637ebb-27b1-4d70-a139-c0eea0189a0f"/>
+                                             <id root="2bcd6694-8cd4-4137-941f-219616e9db84"/>
                                              <code code="87736222225" codeSystem="2.999.200"
                                                    codeSystemName="ACME Laboratories Atomic Result CodeSystem"
                                                    displayName="White Cell Count">
@@ -1954,7 +1954,7 @@ post-op analgesics and oral antibiotics.</text>
                                                                  displayName="Normal"/>
                                              <entryRelationship typeCode="COMP">
                                                 <act classCode="INFRM" moodCode="EVN">
-                                                   <id root="64f9d886-fe1d-49ac-a8d8-002f81906349"/>
+                                                   <id root="7ed12373-3de4-499e-8117-8a2bb5e1db53"/>
                                                    <code code="281296001" codeSystem="2.16.840.1.113883.6.96"
                                                          codeSystemName="SNOMED CT-AU"
                                                          codeSystemVersion="20110531"
@@ -1964,7 +1964,7 @@ post-op analgesics and oral antibiotics.</text>
                                              </entryRelationship>
                                              <entryRelationship typeCode="COMP">
                                                 <act classCode="INFRM" moodCode="EVN">
-                                                   <id root="5301b7d5-8c6f-4c25-b8a2-a697cdf5b7a9"/>
+                                                   <id root="e5b230e6-030a-438e-b08e-42281bf04200"/>
                                                    <code code="281298000" codeSystem="2.16.840.1.113883.6.96"
                                                          codeSystemName="SNOMED CT-AU"
                                                          codeSystemVersion="20110531"
@@ -1974,7 +1974,7 @@ post-op analgesics and oral antibiotics.</text>
                                              </entryRelationship>
                                              <entryRelationship typeCode="COMP">
                                                 <observation classCode="OBS" moodCode="EVN">
-                                                   <id root="1846165a-4241-4b71-b2e5-bc6736842528"/>
+                                                   <id root="e69b90ad-9b99-4ca9-898a-c1319bb15b1b"/>
                                                    <code code="308552006" codeSystem="2.16.840.1.113883.6.96"
                                                          codeSystemName="SNOMED CT-AU"
                                                          codeSystemVersion="20110531"
@@ -2004,7 +2004,7 @@ post-op analgesics and oral antibiotics.</text>
                                        </component>
                                        <component>
                                           <observation classCode="OBS" moodCode="EVN">
-                                             <id root="26c5fcc0-c18e-47f2-b4fd-5fa3011b919d"/>
+                                             <id root="e0a5e9c0-9c3c-42e2-9670-64c83889c124"/>
                                              <code code="13546224" codeSystem="2.999.200"
                                                    codeSystemName="ACME Laboratories Atomic Result CodeSystem"
                                                    displayName="Neutrophils">
@@ -2017,7 +2017,7 @@ post-op analgesics and oral antibiotics.</text>
                                                                  displayName="Normal"/>
                                              <entryRelationship typeCode="COMP">
                                                 <act classCode="INFRM" moodCode="EVN">
-                                                   <id root="0bb1af31-6432-4dc8-9fc9-2d5935aeaf8e"/>
+                                                   <id root="99c205dc-4218-4641-94b5-0c71b6ef03a7"/>
                                                    <code code="281296001" codeSystem="2.16.840.1.113883.6.96"
                                                          codeSystemName="SNOMED CT-AU"
                                                          codeSystemVersion="20110531"
@@ -2027,7 +2027,7 @@ post-op analgesics and oral antibiotics.</text>
                                              </entryRelationship>
                                              <entryRelationship typeCode="COMP">
                                                 <act classCode="INFRM" moodCode="EVN">
-                                                   <id root="3693eabc-cf35-4c9e-ac71-3a457b1bcf2f"/>
+                                                   <id root="5090c713-f877-4c17-a3b4-abd2db007b5b"/>
                                                    <code code="281298000" codeSystem="2.16.840.1.113883.6.96"
                                                          codeSystemName="SNOMED CT-AU"
                                                          codeSystemVersion="20110531"
@@ -2037,7 +2037,7 @@ post-op analgesics and oral antibiotics.</text>
                                              </entryRelationship>
                                              <entryRelationship typeCode="COMP">
                                                 <observation classCode="OBS" moodCode="EVN">
-                                                   <id root="d55360ff-0fad-422c-9187-5209fa841f0b"/>
+                                                   <id root="8e0338f8-b82f-4756-850f-42da60c714ba"/>
                                                    <code code="308552006" codeSystem="2.16.840.1.113883.6.96"
                                                          codeSystemName="SNOMED CT-AU"
                                                          codeSystemVersion="20110531"
@@ -2067,7 +2067,7 @@ post-op analgesics and oral antibiotics.</text>
                                        </component>
                                        <component>
                                           <observation classCode="OBS" moodCode="EVN">
-                                             <id root="da36aac8-9d7b-4b68-a48b-dfcc84ebe3f1"/>
+                                             <id root="e2a0c779-61d5-4faa-9ce3-38b1772a28a5"/>
                                              <code code="34268543" codeSystem="2.999.200"
                                                    codeSystemName="ACME Laboratories Atomic Result CodeSystem"
                                                    displayName="Lymphocytes">
@@ -2080,7 +2080,7 @@ post-op analgesics and oral antibiotics.</text>
                                                                  displayName="Normal"/>
                                              <entryRelationship typeCode="COMP">
                                                 <act classCode="INFRM" moodCode="EVN">
-                                                   <id root="7da83ca3-b4b1-4518-be3f-67d6f1f5e878"/>
+                                                   <id root="3df0c8a2-9d89-4a2c-b177-396d712ec2af"/>
                                                    <code code="281296001" codeSystem="2.16.840.1.113883.6.96"
                                                          codeSystemName="SNOMED CT-AU"
                                                          codeSystemVersion="20110531"
@@ -2090,7 +2090,7 @@ post-op analgesics and oral antibiotics.</text>
                                              </entryRelationship>
                                              <entryRelationship typeCode="COMP">
                                                 <act classCode="INFRM" moodCode="EVN">
-                                                   <id root="c4255bc8-4e79-4d21-9824-b65de9a55792"/>
+                                                   <id root="c4985c0f-7444-4e47-a9ef-1be4a56923e7"/>
                                                    <code code="281298000" codeSystem="2.16.840.1.113883.6.96"
                                                          codeSystemName="SNOMED CT-AU"
                                                          codeSystemVersion="20110531"
@@ -2100,7 +2100,7 @@ post-op analgesics and oral antibiotics.</text>
                                              </entryRelationship>
                                              <entryRelationship typeCode="COMP">
                                                 <observation classCode="OBS" moodCode="EVN">
-                                                   <id root="8611a33f-bfe9-4a82-b5b8-79c22a8b9007"/>
+                                                   <id root="b5a6efb9-f833-42ab-9cd0-60d1df58f2a5"/>
                                                    <code code="308552006" codeSystem="2.16.840.1.113883.6.96"
                                                          codeSystemName="SNOMED CT-AU"
                                                          codeSystemVersion="20110531"
@@ -2130,7 +2130,7 @@ post-op analgesics and oral antibiotics.</text>
                                        </component>
                                        <component>
                                           <observation classCode="OBS" moodCode="EVN">
-                                             <id root="028ec97c-ae69-4037-8bb6-64831f26add7"/>
+                                             <id root="3ee978d8-eeff-4202-9e09-0b541499d85a"/>
                                              <code code="867645352" codeSystem="2.999.200"
                                                    codeSystemName="ACME Laboratories Atomic Result CodeSystem"
                                                    displayName="Monocytes">
@@ -2143,7 +2143,7 @@ post-op analgesics and oral antibiotics.</text>
                                                                  displayName="Normal"/>
                                              <entryRelationship typeCode="COMP">
                                                 <act classCode="INFRM" moodCode="EVN">
-                                                   <id root="4b4713fb-fdf8-4361-8aed-454ad5b9e158"/>
+                                                   <id root="f513988b-927e-4222-aff8-4b2b230357dc"/>
                                                    <code code="281296001" codeSystem="2.16.840.1.113883.6.96"
                                                          codeSystemName="SNOMED CT-AU"
                                                          codeSystemVersion="20110531"
@@ -2153,7 +2153,7 @@ post-op analgesics and oral antibiotics.</text>
                                              </entryRelationship>
                                              <entryRelationship typeCode="COMP">
                                                 <act classCode="INFRM" moodCode="EVN">
-                                                   <id root="735e84db-c917-4e25-8053-391a704e0789"/>
+                                                   <id root="f0abffd3-1bea-43a9-a450-e4f61de0c895"/>
                                                    <code code="281298000" codeSystem="2.16.840.1.113883.6.96"
                                                          codeSystemName="SNOMED CT-AU"
                                                          codeSystemVersion="20110531"
@@ -2163,7 +2163,7 @@ post-op analgesics and oral antibiotics.</text>
                                              </entryRelationship>
                                              <entryRelationship typeCode="COMP">
                                                 <observation classCode="OBS" moodCode="EVN">
-                                                   <id root="903b237c-b566-45aa-b5c5-6543ff348c6e"/>
+                                                   <id root="43f11465-9dce-468b-987a-0c219c8aa2e3"/>
                                                    <code code="308552006" codeSystem="2.16.840.1.113883.6.96"
                                                          codeSystemName="SNOMED CT-AU"
                                                          codeSystemVersion="20110531"
@@ -2193,7 +2193,7 @@ post-op analgesics and oral antibiotics.</text>
                                        </component>
                                        <component>
                                           <observation classCode="OBS" moodCode="EVN">
-                                             <id root="9bffdf19-a75a-4c99-91da-5cec3d0d7cb3"/>
+                                             <id root="4ce00854-241b-41eb-9a69-a1a22a33d552"/>
                                              <code code="53075433" codeSystem="2.999.1"
                                                    codeSystemName="ACME Laboratories Atomic Result CodeSystem"
                                                    displayName="Eosinophils">
@@ -2206,7 +2206,7 @@ post-op analgesics and oral antibiotics.</text>
                                                                  displayName="Normal"/>
                                              <entryRelationship typeCode="COMP">
                                                 <act classCode="INFRM" moodCode="EVN">
-                                                   <id root="b0cf0b17-f43e-4094-951b-eed9053562e7"/>
+                                                   <id root="2a6e19eb-fe79-424c-b9ae-627c72abfe4d"/>
                                                    <code code="281296001" codeSystem="2.16.840.1.113883.6.96"
                                                          codeSystemName="SNOMED CT-AU"
                                                          codeSystemVersion="20110531"
@@ -2216,7 +2216,7 @@ post-op analgesics and oral antibiotics.</text>
                                              </entryRelationship>
                                              <entryRelationship typeCode="COMP">
                                                 <act classCode="INFRM" moodCode="EVN">
-                                                   <id root="c7a6a813-7b41-4182-a15b-d06a3e96d1b0"/>
+                                                   <id root="a36e89bb-2916-4309-a16d-cef0182db397"/>
                                                    <code code="281298000" codeSystem="2.16.840.1.113883.6.96"
                                                          codeSystemName="SNOMED CT-AU"
                                                          codeSystemVersion="20110531"
@@ -2226,7 +2226,7 @@ post-op analgesics and oral antibiotics.</text>
                                              </entryRelationship>
                                              <entryRelationship typeCode="COMP">
                                                 <observation classCode="OBS" moodCode="EVN">
-                                                   <id root="6f1d040d-0f55-4edc-931d-053a1c9cc3d9"/>
+                                                   <id root="a4adcedf-81b9-4920-bf66-af4891a39528"/>
                                                    <code code="308552006" codeSystem="2.16.840.1.113883.6.96"
                                                          codeSystemName="SNOMED CT-AU"
                                                          codeSystemVersion="20110531"
@@ -2256,7 +2256,7 @@ post-op analgesics and oral antibiotics.</text>
                                        </component>
                                        <component>
                                           <observation classCode="OBS" moodCode="EVN">
-                                             <id root="ee031e19-93d1-42da-b153-f40fe7fe3ba2"/>
+                                             <id root="3dbfb411-1aa9-4dc6-9b95-3ed4041f3c85"/>
                                              <code code="917542254" codeSystem="2.999.2"
                                                    codeSystemName="ACME Laboratories Atomic Result CodeSystem"
                                                    displayName="Basophils">
@@ -2269,7 +2269,7 @@ post-op analgesics and oral antibiotics.</text>
                                                                  displayName="Normal"/>
                                              <entryRelationship typeCode="COMP">
                                                 <act classCode="INFRM" moodCode="EVN">
-                                                   <id root="3de77810-a65c-4399-9e9b-83be5970cb4c"/>
+                                                   <id root="946b5e35-0ee9-4ffb-bdaf-19ffbba58507"/>
                                                    <code code="281296001" codeSystem="2.16.840.1.113883.6.96"
                                                          codeSystemName="SNOMED CT-AU"
                                                          codeSystemVersion="20110531"
@@ -2279,7 +2279,7 @@ post-op analgesics and oral antibiotics.</text>
                                              </entryRelationship>
                                              <entryRelationship typeCode="COMP">
                                                 <act classCode="INFRM" moodCode="EVN">
-                                                   <id root="a4253703-9863-4bee-beb5-af9001245ade"/>
+                                                   <id root="0a6882c0-a9fc-42a5-ab60-088bf9f847e1"/>
                                                    <code code="281298000" codeSystem="2.16.840.1.113883.6.96"
                                                          codeSystemName="SNOMED CT-AU"
                                                          codeSystemVersion="20110531"
@@ -2289,7 +2289,7 @@ post-op analgesics and oral antibiotics.</text>
                                              </entryRelationship>
                                              <entryRelationship typeCode="COMP">
                                                 <observation classCode="OBS" moodCode="EVN">
-                                                   <id root="8aacb1ea-1360-41b2-928e-79ad6776bec3"/>
+                                                   <id root="c95a5fd0-e977-47f2-8052-1059523f01bc"/>
                                                    <code code="308552006" codeSystem="2.16.840.1.113883.6.96"
                                                          codeSystemName="SNOMED CT-AU"
                                                          codeSystemVersion="20110531"
@@ -2321,7 +2321,7 @@ post-op analgesics and oral antibiotics.</text>
                                  </entryRelationship>
                                  <entryRelationship typeCode="SUBJ">
                                     <observation classCode="OBS" moodCode="EVN">
-                                       <id root="b70d56b4-df0f-4ba3-bf8c-0c2d7113311d"/>
+                                       <id root="94e29680-650a-42a5-b0ea-0fd4da432973"/>
                                        <code code="102.16156.136.2.1" codeSystem="1.2.36.1.2001.1001.101"
                                              codeSystemName="NCTIS Data Components"
                                              displayName="Specimen"/>
@@ -2358,24 +2358,24 @@ post-op analgesics and oral antibiotics.</text>
                                           </specimenRole>
                                        </specimen>
                                        <entryRelationship typeCode="SPRT">
-                                          <observationMedia ID="c090d40d-7c4c-44fb-9b5c-d63d787b16e9" classCode="OBS" moodCode="EVN">
-                                             <id root="2f1b45d2-d9e3-4ab8-a264-13bd18d36c25"/>
+                                          <observationMedia ID="fccf9731-c635-4b64-b988-d068d93cb532" classCode="OBS" moodCode="EVN">
+                                             <id root="ac073327-ebb5-469a-b5a2-6d0dfdbc8905"/>
                                              <value integrityCheck="rnDKallcoMMOWpcYSZ6jjezO4GQ=" mediaType="image/jpeg">
                                                 <reference value="x-raySpecimenDetail.jpg"/>
                                              </value>
                                           </observationMedia>
                                        </entryRelationship>
                                        <entryRelationship typeCode="SPRT">
-                                          <observationMedia ID="c8ae8866-4083-40e3-b5aa-18783dc2f389" classCode="OBS" moodCode="EVN">
-                                             <id root="429c3498-704a-490a-bba8-a7b7e7ab7c29"/>
+                                          <observationMedia ID="a90aea9f-8617-4941-96c6-6e96720e0d71" classCode="OBS" moodCode="EVN">
+                                             <id root="91cf8c46-ca18-4d26-9748-8f6571349932"/>
                                              <value integrityCheck="rnDKallcoMMOWpcYSZ6jjezO4GQ=" mediaType="image/jpeg">
                                                 <reference value="x-raySpecimenDetail.jpg"/>
                                              </value>
                                           </observationMedia>
                                        </entryRelationship>
                                        <entryRelationship typeCode="SPRT">
-                                          <observationMedia ID="adb015d4-1705-4a62-a41f-2a1301dd2cee" classCode="OBS" moodCode="EVN">
-                                             <id root="fc9ac67a-bb12-48d1-8a58-e1acf8a95447"/>
+                                          <observationMedia ID="fbe43d6a-8ec4-4e74-a08a-e3138b7c933e" classCode="OBS" moodCode="EVN">
+                                             <id root="e63e0e42-c311-422d-a3bb-d5f168ffc361"/>
                                              <value integrityCheck="xARVz193m689kRoZe0c6ZXJ2wvs=" mediaType="image/jpeg">
                                                 <reference value="x-ray.jpg"/>
                                              </value>
@@ -2383,7 +2383,7 @@ post-op analgesics and oral antibiotics.</text>
                                        </entryRelationship>
                                        <entryRelationship typeCode="COMP">
                                           <observation classCode="OBS" moodCode="EVN">
-                                             <id root="edf43a64-6469-491c-a8a2-984365c6b805"/>
+                                             <id root="2979e803-5484-4dcb-bbb0-f2e4f2589023"/>
                                              <code code="103.16171" codeSystem="1.2.36.1.2001.1001.101"
                                                    codeSystemName="NCTIS Data Components"
                                                    displayName="Sampling Preconditions"/>
@@ -2396,7 +2396,7 @@ post-op analgesics and oral antibiotics.</text>
                                        </entryRelationship>
                                        <entryRelationship typeCode="COMP">
                                           <observation classCode="OBS" moodCode="EVN">
-                                             <id root="bdd5f39b-14eb-454e-b5ad-83ba2cde1763"/>
+                                             <id root="fe747505-6391-4300-b8f8-88eabf252108"/>
                                              <code code="103.11014" codeSystem="1.2.36.1.2001.1001.101"
                                                    codeSystemName="NCTIS Data Components"
                                                    displayName="DateTime Received"/>
@@ -2406,7 +2406,7 @@ post-op analgesics and oral antibiotics.</text>
                                        </entryRelationship>
                                        <entryRelationship typeCode="COMP">
                                           <observation classCode="OBS" moodCode="EVN">
-                                             <id root="b87f2a51-4a34-410f-a7ee-a0e704cd0598"/>
+                                             <id root="cc0a74f1-8e4f-4388-b49c-6a34676983b2"/>
                                              <code code="103.16187" codeSystem="1.2.36.1.2001.1001.101"
                                                    codeSystemName="NCTIS Data Components"
                                                    displayName="Parent Specimen Identifier"/>
@@ -2422,8 +2422,8 @@ post-op analgesics and oral antibiotics.</text>
                               </observation>
                            </entry>
                            <entry>
-                              <observationMedia ID="a66d3284-929d-49e7-adab-0ff303a3641f" classCode="OBS" moodCode="EVN">
-                                 <id root="988c753f-6c7d-4327-ad33-9a912f6ca60f"/>
+                              <observationMedia ID="c84d9bca-8520-4513-8c37-0cd3bf8099dd" classCode="OBS" moodCode="EVN">
+                                 <id root="fb2f9478-2615-43fb-82f1-46e2357f76f3"/>
                                  <value integrityCheck="WuGzArOJ0d+HNGnOw7xj3uKVXig=" mediaType="application/pdf">
                                     <reference value="radiologyreport.pdf"/>
                                  </value>
@@ -2433,7 +2433,7 @@ post-op analgesics and oral antibiotics.</text>
                      </component>
                      <component>
                         <section>
-                           <id root="6e12a496-c50a-47ca-86f1-fa723c32e83c"/>
+                           <id root="040c40b0-65ac-47ae-a0d8-ef8e28c3b867"/>
                            <code code="102.16145" codeSystem="1.2.36.1.2001.1001.101"
                                  codeSystemName="NCTIS Data Components"
                                  displayName="Imaging Examination Result"/>
@@ -2464,10 +2464,10 @@ post-op analgesics and oral antibiotics.</text>
                                     </tr>
                                  </tbody>
                               </table>
-                              <renderMultiMedia referencedObject="e31e2a94-b030-4919-aa41-1ea326ab8f06">
+                              <renderMultiMedia referencedObject="bcbc9319-de60-45af-b7df-f69b4eec96eb">
                                  <caption>Imaging Examination Result x-rayImagingExaminationResult.jpg</caption>
                               </renderMultiMedia>
-                              <renderMultiMedia referencedObject="d1756bc0-babb-4869-9588-78ce15e2418e">
+                              <renderMultiMedia referencedObject="b12a5d60-36cf-43ca-8293-fbe3768dc3b5">
                                  <caption>Imaging Examination Result x-rayImagingExaminationResult.jpg</caption>
                               </renderMultiMedia>
                               <table>
@@ -2485,11 +2485,11 @@ post-op analgesics and oral antibiotics.</text>
                                     </tr>
                                  </tbody>
                               </table>
-                              <renderMultiMedia referencedObject="ebaa0055-1e56-42c6-92fb-6073e31a8ea1">
-                                 <caption>Result Group Image x-rayimagingExaminationResultGroup.jpg</caption>
+                              <renderMultiMedia referencedObject="fc01e939-cf9d-410c-a92f-53bb593b428e">
+                                 <caption>Result Group Image x-rayImagingExaminationResultGroup.jpg</caption>
                               </renderMultiMedia>
-                              <renderMultiMedia referencedObject="d1d629cd-63bb-4ddc-be44-b06c7c6f51a5">
-                                 <caption>Result Group Image x-rayimagingExaminationResultGroup.jpg</caption>
+                              <renderMultiMedia referencedObject="a53100ad-dbdf-432a-9130-5449991fb340">
+                                 <caption>Result Group Image x-rayImagingExaminationResultGroup.jpg</caption>
                               </renderMultiMedia>
                               <table>
                                  <caption>Result Group &gt; Imaging Results</caption>
@@ -2554,13 +2554,13 @@ post-op analgesics and oral antibiotics.</text>
                                     </tr>
                                  </tbody>
                               </table>
-                              <renderMultiMedia referencedObject="df10752e-174f-46d0-9714-c6265d66cef5">
+                              <renderMultiMedia referencedObject="f31f7c03-2034-4f49-9c3b-4f588f3795f2">
                                  <caption>Image x-ray.jpg</caption>
                               </renderMultiMedia>
                            </text>
                            <entry>
                               <observation classCode="OBS" moodCode="EVN">
-                                 <id root="2a89a0cf-6f5f-4fa2-a0e3-422505f28f03"/>
+                                 <id root="d17d3525-9d05-485b-be6c-2e4cef8b70d7"/>
                                  <code>
                                     <originalText>Result Name</originalText>
                                  </code>
@@ -2586,16 +2586,16 @@ post-op analgesics and oral antibiotics.</text>
                                     </qualifier>
                                  </targetSiteCode>
                                  <entryRelationship typeCode="REFR">
-                                    <observationMedia ID="e31e2a94-b030-4919-aa41-1ea326ab8f06" classCode="OBS" moodCode="EVN">
-                                       <id root="3affef21-8696-469f-b6c6-e238ee6fb09c"/>
+                                    <observationMedia ID="bcbc9319-de60-45af-b7df-f69b4eec96eb" classCode="OBS" moodCode="EVN">
+                                       <id root="3ce36ff9-fc62-4b3f-8ad0-80f0bc69e66a"/>
                                        <value integrityCheck="1OiMgK1xVcbWQvhVPI8LOVuvg5A=" mediaType="image/jpeg">
                                           <reference value="x-rayImagingExaminationResult.jpg"/>
                                        </value>
                                     </observationMedia>
                                  </entryRelationship>
                                  <entryRelationship typeCode="REFR">
-                                    <observationMedia ID="d1756bc0-babb-4869-9588-78ce15e2418e" classCode="OBS" moodCode="EVN">
-                                       <id root="09d9e769-fe5f-431a-993d-e4e85787c3dc"/>
+                                    <observationMedia ID="b12a5d60-36cf-43ca-8293-fbe3768dc3b5" classCode="OBS" moodCode="EVN">
+                                       <id root="54fd2e4e-cb79-417e-9110-2b472067368b"/>
                                        <value integrityCheck="1OiMgK1xVcbWQvhVPI8LOVuvg5A=" mediaType="image/jpeg">
                                           <reference value="x-rayImagingExaminationResult.jpg"/>
                                        </value>
@@ -2603,7 +2603,7 @@ post-op analgesics and oral antibiotics.</text>
                                  </entryRelationship>
                                  <entryRelationship typeCode="COMP">
                                     <observation classCode="OBS" moodCode="EVN">
-                                       <id root="1c83be31-1992-40e2-80e3-f6d10fc40c6f"/>
+                                       <id root="a9b0a964-6889-4273-824e-da6ede0cfaf2"/>
                                        <code xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" code="308552006"
                                              codeSystem="2.16.840.1.113883.6.96"
                                              codeSystemName="SNOMED CT-AU"
@@ -2621,7 +2621,7 @@ post-op analgesics and oral antibiotics.</text>
                                  </entryRelationship>
                                  <entryRelationship typeCode="COMP">
                                     <act classCode="INFRM" moodCode="EVN">
-                                       <id root="aa56908d-da8e-42d4-b564-671435c6b4f8"/>
+                                       <id root="105e430c-8764-4383-845e-429c7b517f62"/>
                                        <code code="55752-0" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"
                                              displayName="Clinical information"/>
                                        <text xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ST">Fluid Retention.</text>
@@ -2629,7 +2629,7 @@ post-op analgesics and oral antibiotics.</text>
                                  </entryRelationship>
                                  <entryRelationship typeCode="REFR">
                                     <observation classCode="OBS" moodCode="EVN">
-                                       <id root="379ccde2-ba86-4d8c-9728-65eb4b34a235"/>
+                                       <id root="5d3a529b-4235-4268-a309-7ddc60accc2c"/>
                                        <code xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" code="103.16503"
                                              codeSystem="1.2.36.1.2001.1001.101"
                                              codeSystemName="NCTIS Data Components"
@@ -2640,14 +2640,14 @@ post-op analgesics and oral antibiotics.</text>
                                  </entryRelationship>
                                  <entryRelationship typeCode="COMP">
                                     <organizer classCode="BATTERY" moodCode="EVN">
-                                       <id root="3ed7ddb5-8f5f-4770-a5fe-af8560409356"/>
-                                       <code code="5435a1ab-0c5b-4d57-b98e-5dd094dd3a5a" codeSystem="2.999.333">
+                                       <id root="343bec21-7f9f-4a20-924b-078a03e9ac6e"/>
+                                       <code code="1668fba9-b8bc-4e30-b6e8-81190cf76d17" codeSystem="2.999.333">
                                           <originalText>Result Group Name</originalText>
                                        </code>
                                        <statusCode code="completed"/>
                                        <component>
                                           <observation classCode="OBS" moodCode="EVN">
-                                             <id root="74749112-9ff2-4be7-a87c-c56a9f1ca051"/>
+                                             <id root="7461abe9-8e8b-4e28-91dd-9a0796be7c42"/>
                                              <code>
                                                 <originalText>Imaging Result Name</originalText>
                                              </code>
@@ -2669,7 +2669,7 @@ post-op analgesics and oral antibiotics.</text>
                                              </targetSiteCode>
                                              <entryRelationship typeCode="COMP">
                                                 <act classCode="INFRM" moodCode="EVN">
-                                                   <id root="073ef769-9fe9-4fd3-ab76-01cfb9c797ab"/>
+                                                   <id root="ab86aeee-35e6-4322-836b-3ffcecb72075"/>
                                                    <code code="281296001" codeSystem="2.16.840.1.113883.6.96"
                                                          codeSystemName="SNOMED CT-AU"
                                                          codeSystemVersion="20110531"
@@ -2679,7 +2679,7 @@ post-op analgesics and oral antibiotics.</text>
                                              </entryRelationship>
                                              <entryRelationship typeCode="COMP">
                                                 <act classCode="INFRM" moodCode="EVN">
-                                                   <id root="108a1334-747e-4459-bf90-ae77269a8154"/>
+                                                   <id root="9ccd50d0-d5f8-43ab-8221-cbf2def3982b"/>
                                                    <code code="281296001" codeSystem="2.16.840.1.113883.6.96"
                                                          codeSystemName="SNOMED CT-AU"
                                                          codeSystemVersion="20110531"
@@ -2688,18 +2688,18 @@ post-op analgesics and oral antibiotics.</text>
                                                 </act>
                                              </entryRelationship>
                                              <entryRelationship typeCode="REFR">
-                                                <observationMedia ID="ebaa0055-1e56-42c6-92fb-6073e31a8ea1" classCode="OBS" moodCode="EVN">
-                                                   <id root="30e0d8e3-305b-4c72-b049-1ffe78465333"/>
-                                                   <value integrityCheck="2jmj7l5rSw0yVb/vlWAYkK/YBwk=" mediaType="text/plain">
-                                                      <reference value="x-rayimagingExaminationResultGroup.jpg"/>
+                                                <observationMedia ID="fc01e939-cf9d-410c-a92f-53bb593b428e" classCode="OBS" moodCode="EVN">
+                                                   <id root="b042a19c-e979-41b7-8144-e8faf4089db4"/>
+                                                   <value integrityCheck="V2GuSB9DTpOJbLtPYZcAH/ebEpI=" mediaType="image/jpeg">
+                                                      <reference value="x-rayImagingExaminationResultGroup.jpg"/>
                                                    </value>
                                                 </observationMedia>
                                              </entryRelationship>
                                              <entryRelationship typeCode="REFR">
-                                                <observationMedia ID="d1d629cd-63bb-4ddc-be44-b06c7c6f51a5" classCode="OBS" moodCode="EVN">
-                                                   <id root="9b3fbfa0-2a6c-4abc-8c21-3cf619682b94"/>
-                                                   <value integrityCheck="2jmj7l5rSw0yVb/vlWAYkK/YBwk=" mediaType="text/plain">
-                                                      <reference value="x-rayimagingExaminationResultGroup.jpg"/>
+                                                <observationMedia ID="a53100ad-dbdf-432a-9130-5449991fb340" classCode="OBS" moodCode="EVN">
+                                                   <id root="57bb16f9-2fc7-4c5f-9c80-b7c88ca9bd91"/>
+                                                   <value integrityCheck="V2GuSB9DTpOJbLtPYZcAH/ebEpI=" mediaType="image/jpeg">
+                                                      <reference value="x-rayImagingExaminationResultGroup.jpg"/>
                                                    </value>
                                                 </observationMedia>
                                              </entryRelationship>
@@ -2723,7 +2723,7 @@ post-op analgesics and oral antibiotics.</text>
                                  </entryRelationship>
                                  <entryRelationship inversionInd="true" typeCode="SUBJ">
                                     <act classCode="ACT" moodCode="EVN">
-                                       <id root="9fb902f9-33d6-4043-b555-8922b8c0b0c2"/>
+                                       <id root="a22a0787-182c-4b3c-8f5b-70cb5652852b"/>
                                        <code code="102.16511" codeSystem="1.2.36.1.2001.1001.101"
                                              codeSystemName="NCTIS Data Components"
                                              displayName="Examination Request Details"/>
@@ -2738,7 +2738,7 @@ post-op analgesics and oral antibiotics.</text>
                                        </entryRelationship>
                                        <entryRelationship typeCode="COMP">
                                           <observation classCode="OBS" moodCode="EVN">
-                                             <id root="48a9d055-8459-4a6e-9a59-1e080badff49"/>
+                                             <id root="d14ed502-785e-4f29-b935-51d9b488fee7"/>
                                              <code code="103.16514" codeSystem="1.2.36.1.2001.1001.101"
                                                    codeSystemName="NCTIS Data Components"
                                                    displayName="Report Identifier"/>
@@ -2752,7 +2752,7 @@ post-op analgesics and oral antibiotics.</text>
                                                    displayName="DICOM Study Identifier"/>
                                              <entryRelationship typeCode="COMP">
                                                 <observation classCode="OBS" moodCode="EVN">
-                                                   <id extension="Image Identifier" root="883a13f7-58f5-44e7-ac8b-cfdab52b747c"/>
+                                                   <id extension="Image Identifier" root="cbdb8c2d-4fc0-4c97-8b17-fbb6603c70da"/>
                                                    <code code="103.16515" codeSystem="1.2.36.1.2001.1001.101"
                                                          codeSystemName="NCTIS Data Components"
                                                          displayName="Image Details"/>
@@ -2777,8 +2777,8 @@ post-op analgesics and oral antibiotics.</text>
                                                       </observation>
                                                    </entryRelationship>
                                                    <entryRelationship typeCode="SPRT">
-                                                      <observationMedia ID="df10752e-174f-46d0-9714-c6265d66cef5" classCode="OBS" moodCode="EVN">
-                                                         <id root="0131f045-9539-4842-989c-b1ad85990af8"/>
+                                                      <observationMedia ID="f31f7c03-2034-4f49-9c3b-4f588f3795f2" classCode="OBS" moodCode="EVN">
+                                                         <id root="66dfcec4-8a49-4866-b624-f22a23c027b7"/>
                                                          <value integrityCheck="xARVz193m689kRoZe0c6ZXJ2wvs=" mediaType="image/jpeg">
                                                             <reference value="x-ray.jpg"/>
                                                          </value>
@@ -2792,7 +2792,7 @@ post-op analgesics and oral antibiotics.</text>
                                  </entryRelationship>
                                  <entryRelationship typeCode="COMP">
                                     <observation classCode="OBS" moodCode="EVN">
-                                       <id root="67e788fd-5e05-443f-b803-cad19744ad5c"/>
+                                       <id root="c548f2a2-8427-4a91-aba8-eba55568965b"/>
                                        <code xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" code="103.16589"
                                              codeSystem="1.2.36.1.2001.1001.101"
                                              codeSystemName="NCTIS Data Components"
@@ -2857,7 +2857,7 @@ post-op analgesics and oral antibiotics.</text>
                      </text>
                      <entry>
                         <substanceAdministration classCode="SBADM" moodCode="EVN">
-                           <id root="27d588b7-f351-46d1-9486-7db5af0e53c5"/>
+                           <id root="b9bd4eb4-9e9b-4b45-a629-8d997a7c2f41"/>
                            <text xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ST">2 tablets daily after breakfast</text>
                            <statusCode code="active"/>
                            <effectiveTime xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="IVL_TS">
@@ -2880,7 +2880,7 @@ post-op analgesics and oral antibiotics.</text>
                            </entryRelationship>
                            <entryRelationship typeCode="RSON">
                               <act classCode="INFRM" moodCode="RQO">
-                                 <id root="6e1deb7a-87cf-4a73-8057-cf7342fb51fb"/>
+                                 <id root="dbeb2056-c5c4-49d9-9656-5c9adc25a218"/>
                                  <code code="103.10141" codeSystem="1.2.36.1.2001.1001.101"
                                        codeSystemName="NCTIS Data Components"
                                        displayName="Reason for Therapeutic Good"/>
@@ -2889,7 +2889,7 @@ post-op analgesics and oral antibiotics.</text>
                            </entryRelationship>
                            <entryRelationship typeCode="COMP">
                               <act classCode="INFRM" moodCode="EVN">
-                                 <id root="07c48dae-7ed3-443b-8d5e-3fd86ef9085e"/>
+                                 <id root="1ea54713-7cf6-45f6-98b3-963b4b5a2e41"/>
                                  <code code="103.16044" codeSystem="1.2.36.1.2001.1001.101"
                                        codeSystemName="NCTIS Data Components"
                                        displayName="Additional Comments"/>
@@ -2898,7 +2898,7 @@ post-op analgesics and oral antibiotics.</text>
                            </entryRelationship>
                            <entryRelationship inversionInd="true" typeCode="SUBJ">
                               <observation classCode="OBS" moodCode="EVN">
-                                 <id root="33f20c62-2111-4d40-b63c-fb2f55f2c7ae"/>
+                                 <id root="424c5efb-0fe8-4e8c-b1ef-48f4ea019317"/>
                                  <code xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" code="105681000036100"
                                        codeSystem="2.16.840.1.113883.6.96"
                                        codeSystemName="SNOMED-CT"
@@ -2909,7 +2909,7 @@ post-op analgesics and oral antibiotics.</text>
                            </entryRelationship>
                            <entryRelationship typeCode="SPRT">
                               <observation classCode="OBS" moodCode="EVN">
-                                 <id root="7df84fc5-424b-43de-91f4-a019ab185749"/>
+                                 <id root="a9e269c0-9692-48f6-857f-22ee03b15c82"/>
                                  <code xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" code="182877009"
                                        codeSystem="2.16.840.1.113883.6.96"
                                        codeSystemName="SNOMED-CT"
@@ -2917,7 +2917,7 @@ post-op analgesics and oral antibiotics.</text>
                                        xsi:type="CE"/>
                                  <entryRelationship typeCode="RSON">
                                     <act classCode="INFRM" moodCode="EVN">
-                                       <id root="24d507c6-047f-4075-b9bc-7045e68bf0b2"/>
+                                       <id root="78c6c0ba-e65a-4f5d-9ca1-ea7fbaabd830"/>
                                        <code code="103.10177" codeSystem="1.2.36.1.2001.1001.101"
                                              codeSystemName="NCTIS Data Components"
                                              displayName="Reason for Change"/>
@@ -2969,7 +2969,7 @@ post-op analgesics and oral antibiotics.</text>
                      </text>
                      <entry>
                         <substanceAdministration classCode="SBADM" moodCode="EVN">
-                           <id root="a561d59c-b70f-4036-8131-8e59e6e872af"/>
+                           <id root="743dda86-c274-4f2c-9b7f-dbfd5b8613d2"/>
                            <statusCode code="cancelled"/>
                            <consumable>
                               <manufacturedProduct>
@@ -2982,7 +2982,7 @@ post-op analgesics and oral antibiotics.</text>
                            </consumable>
                            <entryRelationship inversionInd="true" typeCode="SUBJ">
                               <observation classCode="OBS" moodCode="EVN">
-                                 <id root="78fd34bf-c9a8-4bbd-81a0-af56b018d1e8"/>
+                                 <id root="b648e35f-5351-4935-8527-32dfec76fc2b"/>
                                  <code xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" code="105691000036103"
                                        codeSystem="2.16.840.1.113883.6.96"
                                        codeSystemName="SNOMED-CT"
@@ -2992,7 +2992,7 @@ post-op analgesics and oral antibiotics.</text>
                            </entryRelationship>
                            <entryRelationship typeCode="SPRT">
                               <observation classCode="OBS" moodCode="EVN">
-                                 <id root="788d9404-fdd1-4145-9cba-34f9fc0f801f"/>
+                                 <id root="7e4146a4-2977-4b61-a4cb-f34203650205"/>
                                  <code xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" code="274512008"
                                        codeSystem="2.16.840.1.113883.6.96"
                                        codeSystemName="SNOMED-CT"
@@ -3000,7 +3000,7 @@ post-op analgesics and oral antibiotics.</text>
                                        xsi:type="CE"/>
                                  <entryRelationship typeCode="RSON">
                                     <act classCode="INFRM" moodCode="EVN">
-                                       <id root="aa1b5490-c2aa-4cde-88fa-340393b3ee1d"/>
+                                       <id root="4face6ed-ae70-4dae-adea-e643ef116f16"/>
                                        <code code="103.10177" codeSystem="1.2.36.1.2001.1001.101"
                                              codeSystemName="NCTIS Data Components"
                                              displayName="Reason for Change"/>
@@ -3017,7 +3017,7 @@ post-op analgesics and oral antibiotics.</text>
          </component>
          <component>
             <section>
-               <id root="c0c4cf41-5065-46e7-919c-4504202050c6"/>
+               <id root="c21f6190-598f-478b-b1e3-4fae31ac04b3"/>
                <code code="101.16020" codeSystem="1.2.36.1.2001.1001.101"
                      codeSystemName="NCTIS Data Components"
                      displayName="Plan"/>
@@ -3027,7 +3027,7 @@ post-op analgesics and oral antibiotics.</text>
                </text>
                <component>
                   <section>
-                     <id root="ae60153a-5669-45d9-b5ee-7b29e7a81e38"/>
+                     <id root="c6f4053f-8ec7-4068-a450-467a3a3c9828"/>
                      <code code="101.16021" codeSystem="1.2.36.1.2001.1001.101"
                            codeSystemName="NCTIS Data Components"
                            displayName="Arranged Services"/>
@@ -3112,7 +3112,7 @@ post-op analgesics and oral antibiotics.</text>
                      </text>
                      <entry>
                         <act classCode="ACT" moodCode="INT">
-                           <id root="34acc2ae-3027-43fb-bbf1-8a8508cf31c8"/>
+                           <id root="03fc3486-8e60-4717-a4e4-d76cbd87cfaf"/>
                            <code xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="CE">
                               <originalText>Orthopaedic outpatient clinic appointment</originalText>
                            </code>
@@ -3122,7 +3122,7 @@ post-op analgesics and oral antibiotics.</text>
                            </effectiveTime>
                            <performer typeCode="PRF">
                               <assignedEntity>
-                                 <id root="d1aa31f1-9379-4786-b99d-eae58a29acdb"/>
+                                 <id root="737a4d02-ad3a-4d6b-a8d3-9fb1f4f0add1"/>
                                  <code code="252511" codeSystem="2.16.840.1.113883.13.62"
                                        codeSystemName="1220.0 - ANZSCO - Australian and New Zealand Standard Classification of Occupations, First Edition, 2006"
                                        displayName="Physiotherapist">
@@ -3274,14 +3274,14 @@ post-op analgesics and oral antibiotics.</text>
                      </text>
                      <entry>
                         <act classCode="INFRM" moodCode="PRP">
-                           <id root="754c6259-0f05-48c2-b0d5-594035ca936b"/>
+                           <id root="546b1948-d74c-4843-8e50-d0ab00ca3319"/>
                            <code code="102.20016.4.1.1" codeSystem="1.2.36.1.2001.1001.101"
                                  codeSystemName="NCTIS Data Components"
                                  displayName="Recommendations Provided"/>
                            <text xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ST">Recommendation Note</text>
                            <performer typeCode="PRF">
                               <assignedEntity>
-                                 <id root="d330634d-1002-4436-8b5f-60da89ee393e"/>
+                                 <id root="b9a65afa-5604-4f99-a165-5fadd59cda47"/>
                                  <code code="252511" codeSystem="2.16.840.1.113883.13.62"
                                        codeSystemName="1220.0 - ANZSCO - Australian and New Zealand Standard Classification of Occupations, First Edition, 2006"
                                        displayName="Physiotherapist">
@@ -3357,7 +3357,7 @@ post-op analgesics and oral antibiotics.</text>
                      </entry>
                      <entry>
                         <act classCode="INFRM" moodCode="EVN">
-                           <id root="d381a781-024d-4e86-a8b6-a8f4744a7903"/>
+                           <id root="3b436764-2af1-4f30-8542-0887547c1389"/>
                            <code code="102.20016.4.1.2" codeSystem="1.2.36.1.2001.1001.101"
                                  codeSystemName="NCTIS Data Components"
                                  displayName="Information Provided"/>
@@ -3409,7 +3409,7 @@ post-op analgesics and oral antibiotics.</text>
                </text>
                <entry typeCode="DRIV">
                   <observation classCode="OBS" moodCode="EVN">
-                     <id root="1661ae39-e6b8-4d21-9b42-a810657f1d1e"/>
+                     <id root="e3b81333-1a5d-4370-9965-38158b0c13bc"/>
                      <code xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" code="103.16233"
                            codeSystem="1.2.36.1.2001.1001.101"
                            codeSystemName="NCTIS Data Components"
@@ -3420,7 +3420,7 @@ post-op analgesics and oral antibiotics.</text>
                </entry>
                <entry typeCode="DRIV">
                   <observation classCode="OBS" moodCode="EVN">
-                     <id root="2116c200-e5b6-488c-8622-950f889cc5b6"/>
+                     <id root="197313df-4da2-4fde-99d3-3e8c30c6406c"/>
                      <code xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" code="102.16234"
                            codeSystem="1.2.36.1.2001.1001.101"
                            codeSystemName="NCTIS Data Components"
@@ -3431,7 +3431,7 @@ post-op analgesics and oral antibiotics.</text>
                </entry>
                <entry typeCode="DRIV">
                   <observation classCode="OBS" moodCode="EVN">
-                     <id root="f5cc8f4f-aa65-4a76-9875-15b343acdbbb"/>
+                     <id root="05770e6f-02c2-484f-8a9a-756494e3ca0a"/>
                      <code xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" code="103.20109"
                            codeSystem="1.2.36.1.2001.1001.101"
                            codeSystemName="NCTIS Data Components"
@@ -3443,7 +3443,7 @@ post-op analgesics and oral antibiotics.</text>
                </entry>
                <entry typeCode="DRIV">
                   <observation classCode="OBS" moodCode="EVN">
-                     <id root="7848be1b-1a33-4a6d-a5ff-b4e90ad8ace1"/>
+                     <id root="d8a5e508-f89d-45c2-8a95-f3086e7ead75"/>
                      <code xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" code="103.16279"
                            codeSystem="1.2.36.1.2001.1001.101"
                            codeSystemName="NCTIS Data Components"
@@ -3454,7 +3454,7 @@ post-op analgesics and oral antibiotics.</text>
                </entry>
                <entry typeCode="DRIV">
                   <observation classCode="OBS" moodCode="EVN">
-                     <id root="8e7a41b9-ed98-4273-bf61-1fefffaa7855"/>
+                     <id root="b0464c93-3752-4ac8-9207-584fed1f2d50"/>
                      <code xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" code="103.16249"
                            codeSystem="1.2.36.1.2001.1001.101"
                            codeSystemName="NCTIS Data Components"
@@ -3465,7 +3465,7 @@ post-op analgesics and oral antibiotics.</text>
                </entry>
                <entry typeCode="DRIV">
                   <observation classCode="OBS" moodCode="EVN">
-                     <id root="b2347f33-11a2-4268-8d02-75d880f7a9b3"/>
+                     <id root="59100d88-44b5-4583-8291-37635c342e58"/>
                      <code code="408459003" codeSystem="2.16.840.1.113883.6.96"
                            codeSystemName="SNOMED CT-AU"
                            displayName="Paediatric cardiology"/>
@@ -3486,11 +3486,11 @@ post-op analgesics and oral antibiotics.</text>
                         <originalText>Medicare Benefits</originalText>
                      </ns2:code>
                      <ns2:effectiveTime>
-                        <high value="20210415"/>
+                        <high value="20210416"/>
                      </ns2:effectiveTime>
                      <ns2:participant typeCode="BEN">
                         <ns2:participantRole classCode="PAT">
-                           <ns2:id root="e7778389-ee0c-4e84-8b0e-f9c756575c61"/>
+                           <ns2:id root="c254098a-ebea-45cd-8a1b-133acba46b65"/>
                         </ns2:participantRole>
                      </ns2:participant>
                   </ns2:entitlement>

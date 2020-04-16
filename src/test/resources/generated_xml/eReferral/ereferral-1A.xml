@@ -5,21 +5,21 @@
    <templateId extension="2.2" root="1.2.36.1.2001.1001.101.100.1002.2"/>
    <templateId extension="1.0" root="1.2.36.1.2001.1001.100.149"/>
    <templateId extension="1.0" root="1.2.36.1.2001.1001.100.149"/>
-   <id root="2.25.204365159448781543710955133144735969419"/>
+   <id root="2.25.117308986901847430097213479215392517574"/>
    <code code="57133-1" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"
          displayName="Referral note"/>
    <title>e-Referral</title>
-   <effectiveTime value="20200415144751+1000"/>
+   <effectiveTime value="20200416140816+1000"/>
    <confidentialityCode nullFlavor="NA"/>
    <languageCode code="en-AU"/>
-   <setId root="85127d66-f758-4a91-940b-f6c717dfb3f1"/>
+   <setId root="f2c4f79a-9bcd-4a4f-b4dd-0a4c0e3aef42"/>
    <versionNumber value="1"/>
    <ns2:completionCode code="F" codeSystem="1.2.36.1.2001.1001.101.104.20104"
                        codeSystemName="NCTIS Document Status Values"
                        displayName="Final"/>
    <recordTarget typeCode="RCT">
       <patientRole classCode="PAT">
-         <id root="b1b37b95-573f-40fa-aecd-e7e765bd76d3"/>
+         <id root="a22399d1-0692-4718-91c5-01cef15667b0"/>
          <addr use="H">
             <streetAddressLine>10 browning st</streetAddressLine>
             <postalCode>4101</postalCode>
@@ -61,9 +61,9 @@
       </patientRole>
    </recordTarget>
    <author typeCode="AUT">
-      <time value="20200415144751+1000"/>
+      <time value="20200416140816+1000"/>
       <assignedAuthor>
-         <id root="8136d3ba-68d1-460e-8adb-56231ced02a8"/>
+         <id root="60d66466-0a53-4a65-8f66-be84df746bd6"/>
          <code code="253111" codeSystem="2.16.840.1.113883.13.62"
                codeSystemName="1220.0 - ANZSCO - Australian and New Zealand Standard Classification of Occupations, First Edition, 2006"
                displayName="General Medical Practitioner"/>
@@ -129,8 +129,8 @@
    <custodian>
       <assignedCustodian>
          <representedCustodianOrganization>
-            <id root="abb01315-c558-48c9-b766-c63d71162b72"/>
-            <id root="85127d66-f758-4a91-940b-f6c717dfb3f1"/>
+            <id root="a6cb694c-f1c1-40f9-866d-78ebea33bd95"/>
+            <id root="f2c4f79a-9bcd-4a4f-b4dd-0a4c0e3aef42"/>
             <name>Custodian organisation</name>
             <telecom use="WP" value="mailto:example@custodian.com.au"/>
             <addr use="PST">
@@ -152,7 +152,7 @@
    </custodian>
    <participant typeCode="REFT">
       <associatedEntity classCode="PROV">
-         <id root="a56b97f8-89cd-49c6-9015-466477e59a26"/>
+         <id root="2b639b7a-e8cf-472e-9f13-a48faec6e857"/>
          <code nullFlavor="ASKU"/>
          <addr use="WP">
             <streetAddressLine>The Lodge</streetAddressLine>
@@ -176,7 +176,7 @@
             </ns2:asEntityIdentifier>
             <ns2:asEmployment classCode="EMP">
                <ns2:employerOrganization>
-                  <id root="cdea0781-6b62-43c3-b194-f60306c0236f"/>
+                  <id root="2a214ff6-6437-46ba-b6fe-c6ca7f04b155"/>
                   <asOrganizationPartOf>
                      <wholeOrganization>
                         <name>Sam's Specialist Clinic</name>
@@ -205,7 +205,7 @@
                </text>
                <entry>
                   <observationMedia ID="attachement1" classCode="OBS" moodCode="EVN">
-                     <id root="b320d348-1f1a-41a6-b61c-eab347f35804"/>
+                     <id root="47f6ff05-4e36-45d9-88c4-9fd85066a021"/>
                      <value integrityCheck="2jmj7l5rSw0yVb/vlWAYkK/YBwk=" mediaType="text/plain">
                         <reference value="ReferralDocument.pdf"/>
                      </value>

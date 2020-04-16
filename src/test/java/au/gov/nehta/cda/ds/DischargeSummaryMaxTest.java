@@ -1,5 +1,16 @@
 package au.gov.nehta.cda.ds;
 
+import static au.gov.nehta.cda.test.TestHelper.getAddress;
+import static au.gov.nehta.cda.test.TestHelper.getCustodian;
+import static au.gov.nehta.cda.test.TestHelper.getDiagnosticInvestigations;
+import static au.gov.nehta.cda.test.TestHelper.getElectronicCommunicationDetail;
+import static au.gov.nehta.cda.test.TestHelper.getEmploymentOrganization;
+import static au.gov.nehta.cda.test.TestHelper.getInformationRecipients;
+import static au.gov.nehta.cda.test.TestHelper.getLegalAuthenticator;
+import static au.gov.nehta.cda.test.TestHelper.getServiceProviderOrganization;
+import static au.gov.nehta.cda.test.TestHelper.getSubjectOfCareParticipant;
+import static au.gov.nehta.model.schematron.SchematronResource.SchematronResources.DISCHARGE_SUMMARY_3B;
+
 import au.gov.nehta.builder.ds.DischargeSummaryCreator;
 import au.gov.nehta.builder.util.UUIDTool;
 import au.gov.nehta.cda.test.Base;
@@ -22,11 +33,63 @@ import au.gov.nehta.model.cda.ds.DischargeSummaryCDAModel;
 import au.gov.nehta.model.clinical.common.DocumentAuthor;
 import au.gov.nehta.model.clinical.common.EventTypes;
 import au.gov.nehta.model.clinical.common.address.Address;
-import au.gov.nehta.model.clinical.common.participation.*;
+import au.gov.nehta.model.clinical.common.participation.OrganisationImpl;
+import au.gov.nehta.model.clinical.common.participation.OrganisationNameUsage;
+import au.gov.nehta.model.clinical.common.participation.PersonName;
+import au.gov.nehta.model.clinical.common.participation.PersonNameImpl;
+import au.gov.nehta.model.clinical.common.participation.PersonNameUsage;
 import au.gov.nehta.model.clinical.common.types.HPII;
 import au.gov.nehta.model.clinical.common.types.UniqueIdentifier;
 import au.gov.nehta.model.clinical.common.types.UniqueIdentifierImpl;
-import au.gov.nehta.model.clinical.ds.*;
+import au.gov.nehta.model.clinical.ds.AdverseReaction;
+import au.gov.nehta.model.clinical.ds.AdverseReactions;
+import au.gov.nehta.model.clinical.ds.AdverseReactionsImpl;
+import au.gov.nehta.model.clinical.ds.Alert;
+import au.gov.nehta.model.clinical.ds.Alerts;
+import au.gov.nehta.model.clinical.ds.ArrangedService;
+import au.gov.nehta.model.clinical.ds.ArrangedServiceImpl;
+import au.gov.nehta.model.clinical.ds.ArrangedServices;
+import au.gov.nehta.model.clinical.ds.CeasedMedications;
+import au.gov.nehta.model.clinical.ds.CeasedMedicationsImpl;
+import au.gov.nehta.model.clinical.ds.ChangeDetail;
+import au.gov.nehta.model.clinical.ds.ClinicalIntervention;
+import au.gov.nehta.model.clinical.ds.ClinicalInterventionsPerformedThisVisit;
+import au.gov.nehta.model.clinical.ds.ClinicalInterventionsPerformedThisVisitImpl;
+import au.gov.nehta.model.clinical.ds.ClinicalSynopsis;
+import au.gov.nehta.model.clinical.ds.CurrentMedicationsOnDischarge;
+import au.gov.nehta.model.clinical.ds.CurrentMedicationsOnDischargeImpl;
+import au.gov.nehta.model.clinical.ds.DischargeSummary;
+import au.gov.nehta.model.clinical.ds.DischargeSummaryContent;
+import au.gov.nehta.model.clinical.ds.DischargeSummaryContentImpl;
+import au.gov.nehta.model.clinical.ds.DischargeSummaryContext;
+import au.gov.nehta.model.clinical.ds.DischargeSummaryContextImpl;
+import au.gov.nehta.model.clinical.ds.DischargeSummaryImpl;
+import au.gov.nehta.model.clinical.ds.Dosage;
+import au.gov.nehta.model.clinical.ds.Encounter;
+import au.gov.nehta.model.clinical.ds.EncounterImpl;
+import au.gov.nehta.model.clinical.ds.Event;
+import au.gov.nehta.model.clinical.ds.EventImpl;
+import au.gov.nehta.model.clinical.ds.HealthCareProviders;
+import au.gov.nehta.model.clinical.ds.HealthProfile;
+import au.gov.nehta.model.clinical.ds.HealthProfileImpl;
+import au.gov.nehta.model.clinical.ds.InformationProvided;
+import au.gov.nehta.model.clinical.ds.MedicationHistory;
+import au.gov.nehta.model.clinical.ds.MedicationHistoryImpl;
+import au.gov.nehta.model.clinical.ds.Medications;
+import au.gov.nehta.model.clinical.ds.MedicationsImpl;
+import au.gov.nehta.model.clinical.ds.Plan;
+import au.gov.nehta.model.clinical.ds.PlanImpl;
+import au.gov.nehta.model.clinical.ds.ProblemDiagnosesThisVisit;
+import au.gov.nehta.model.clinical.ds.ProblemDiagnosesThisVisitImpl;
+import au.gov.nehta.model.clinical.ds.ProblemDiagnosis;
+import au.gov.nehta.model.clinical.ds.ProblemDiagnosisImpl;
+import au.gov.nehta.model.clinical.ds.Protocol;
+import au.gov.nehta.model.clinical.ds.ReactionDetail;
+import au.gov.nehta.model.clinical.ds.RecommendationsProvided;
+import au.gov.nehta.model.clinical.ds.RecordOfRecommendationsAndInfoProvided;
+import au.gov.nehta.model.clinical.ds.RecordOfRecommendationsAndInfoProvidedImpl;
+import au.gov.nehta.model.clinical.ds.TherapeuticGood;
+import au.gov.nehta.model.clinical.ds.TherapeuticGoodImpl;
 import au.gov.nehta.model.clinical.es.DiagnosticInvestigations;
 import au.gov.nehta.model.clinical.etp.common.participation.ParticipationServiceProvider;
 import au.gov.nehta.model.clinical.etp.common.participation.ParticipationServiceProviderImpl;
@@ -37,19 +100,16 @@ import au.gov.nehta.model.clinical.shs.ExclusionStatementImpl;
 import au.gov.nehta.model.schematron.SchematronValidationException;
 import au.gov.nehta.schematron.Schematron;
 import au.gov.nehta.schematron.SchematronCheckResult;
-import org.junit.Assert;
-import org.joda.time.DateTime;
-import org.junit.Test;
-import org.w3c.dom.Document;
-
-import javax.xml.bind.JAXBException;
-import javax.xml.parsers.ParserConfigurationException;
+import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
-
-import static au.gov.nehta.cda.test.TestHelper.*;
-import static au.gov.nehta.model.schematron.SchematronResource.SchematronResources.DISCHARGE_SUMMARY_3B;
+import javax.xml.bind.JAXBException;
+import javax.xml.parsers.ParserConfigurationException;
+import org.joda.time.DateTime;
+import org.junit.Assert;
+import org.junit.Test;
+import org.w3c.dom.Document;
 
 public class DischargeSummaryMaxTest extends Base {
 
@@ -66,13 +126,13 @@ public class DischargeSummaryMaxTest extends Base {
       show(check);
       Assert.assertEquals(0, check.schemaErrors.size());
       Assert.assertEquals(0, check.schematronErrors.size());
-    } catch (SchematronValidationException | ParserConfigurationException | JAXBException e) {
+    } catch (SchematronValidationException | ParserConfigurationException | JAXBException | FileNotFoundException e) {
       e.printStackTrace();
     }
   }
 
   private void generateMax()
-      throws SchematronValidationException, JAXBException, ParserConfigurationException {
+      throws SchematronValidationException, JAXBException, ParserConfigurationException, FileNotFoundException {
     DateTime now = new DateTime();
     DocumentAuthor documentAuthor = TestHelper.getDocumentAuthor(now);
 
@@ -123,7 +183,7 @@ public class DischargeSummaryMaxTest extends Base {
   }
 
 
-  private Event getEvent() {
+  private Event getEvent() throws FileNotFoundException {
     DiagnosticInvestigations diagnosticInvestigations = getDiagnosticInvestigations(true, true,
         true, true);
     diagnosticInvestigations.setRequestedServices(null);

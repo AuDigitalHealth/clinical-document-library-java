@@ -1,5 +1,8 @@
 package au.gov.nehta.cda.test;
 
+import static au.gov.nehta.cda.es.EventSummaryTestHelper.getAttachedMedia;
+import static au.gov.nehta.cda.test.Base.ATTACHMENTS_DIR;
+
 import au.gov.nehta.cda.es.EventSummaryTestHelper;
 import au.gov.nehta.model.cda.common.ElectronicCommunicationDetail;
 import au.gov.nehta.model.cda.common.ElectronicCommunicationMedium;
@@ -7,9 +10,26 @@ import au.gov.nehta.model.cda.common.ElectronicCommunicationUsage;
 import au.gov.nehta.model.cda.common.address.PostalAddress;
 import au.gov.nehta.model.cda.common.address.PostalAddressImpl;
 import au.gov.nehta.model.cda.common.address.PostalAddressUseEnum;
-import au.gov.nehta.model.cda.common.code.*;
-import au.gov.nehta.model.cda.common.custodian.*;
-import au.gov.nehta.model.cda.common.id.*;
+import au.gov.nehta.model.cda.common.code.Code;
+import au.gov.nehta.model.cda.common.code.CodeImpl;
+import au.gov.nehta.model.cda.common.code.Coded;
+import au.gov.nehta.model.cda.common.code.HL7ObservationInterpretationNormality;
+import au.gov.nehta.model.cda.common.code.SNOMED_AU_Code;
+import au.gov.nehta.model.cda.common.custodian.AssignedCustodian;
+import au.gov.nehta.model.cda.common.custodian.AssignedCustodianImpl;
+import au.gov.nehta.model.cda.common.custodian.Custodian;
+import au.gov.nehta.model.cda.common.custodian.CustodianImpl;
+import au.gov.nehta.model.cda.common.custodian.CustodianOrganization;
+import au.gov.nehta.model.cda.common.custodian.CustodianOrganizationImpl;
+import au.gov.nehta.model.cda.common.id.AsEntityIdentifier;
+import au.gov.nehta.model.cda.common.id.AsEntityIdentifierImpl;
+import au.gov.nehta.model.cda.common.id.AssignedEntity;
+import au.gov.nehta.model.cda.common.id.AssignedEntityImpl;
+import au.gov.nehta.model.cda.common.id.IntendedRecipient;
+import au.gov.nehta.model.cda.common.id.IntendedRecipientImpl;
+import au.gov.nehta.model.cda.common.id.LegalAuthenticator;
+import au.gov.nehta.model.cda.common.id.LegalAuthenticatorImpl;
+import au.gov.nehta.model.cda.common.id.MedicareCardIdentifier;
 import au.gov.nehta.model.cda.common.informationrecipient.InformationRecipient;
 import au.gov.nehta.model.cda.common.informationrecipient.InformationRecipientImpl;
 import au.gov.nehta.model.cda.common.org.Organization;
@@ -29,38 +49,108 @@ import au.gov.nehta.model.cda.common.telecom.TelecomUse;
 import au.gov.nehta.model.cda.common.time.Precision;
 import au.gov.nehta.model.cda.common.time.PrecisionDate;
 import au.gov.nehta.model.cda.common.time.RestrictedTimeInterval;
-import au.gov.nehta.model.clinical.common.*;
+import au.gov.nehta.model.clinical.common.DocumentAuthor;
+import au.gov.nehta.model.clinical.common.DocumentAuthorImpl;
+import au.gov.nehta.model.clinical.common.EventTypes;
+import au.gov.nehta.model.clinical.common.SubjectOfCareDemographicData;
+import au.gov.nehta.model.clinical.common.SubjectOfCareDemographicDataImpl;
+import au.gov.nehta.model.clinical.common.SubjectOfCareParticipant;
+import au.gov.nehta.model.clinical.common.SubjectOfCareParticipantImpl;
+import au.gov.nehta.model.clinical.common.SubjectOfCarePerson;
+import au.gov.nehta.model.clinical.common.SubjectOfCarePersonImpl;
 import au.gov.nehta.model.clinical.common.address.Address;
-import au.gov.nehta.model.clinical.common.address.*;
+import au.gov.nehta.model.clinical.common.address.AddressImpl;
+import au.gov.nehta.model.clinical.common.address.AustralianAddressLevelType;
+import au.gov.nehta.model.clinical.common.address.PostalDeliveryType;
+import au.gov.nehta.model.clinical.common.address.StreetSuffix;
+import au.gov.nehta.model.clinical.common.address.StreetType;
+import au.gov.nehta.model.clinical.common.address.UnitType;
+import au.gov.nehta.model.clinical.common.participation.ANZSCO_1ED_2006;
+import au.gov.nehta.model.clinical.common.participation.AddressContextImpl;
+import au.gov.nehta.model.clinical.common.participation.AddressPurpose;
 import au.gov.nehta.model.clinical.common.participation.AustralianAddress;
-import au.gov.nehta.model.clinical.common.participation.*;
-import au.gov.nehta.model.clinical.common.types.*;
+import au.gov.nehta.model.clinical.common.participation.AustralianAddressImpl;
+import au.gov.nehta.model.clinical.common.participation.AustralianStateTerritory;
+import au.gov.nehta.model.clinical.common.participation.DateAccuracy;
+import au.gov.nehta.model.clinical.common.participation.DateAccuracyImpl;
+import au.gov.nehta.model.clinical.common.participation.DateOfBirthDetail;
+import au.gov.nehta.model.clinical.common.participation.DateOfBirthDetailImpl;
+import au.gov.nehta.model.clinical.common.participation.IndigenousStatus;
+import au.gov.nehta.model.clinical.common.participation.NameSuffix;
+import au.gov.nehta.model.clinical.common.participation.NameTitle;
+import au.gov.nehta.model.clinical.common.participation.Organisation;
+import au.gov.nehta.model.clinical.common.participation.OrganisationImpl;
+import au.gov.nehta.model.clinical.common.participation.OrganisationNameUsage;
+import au.gov.nehta.model.clinical.common.participation.PersonName;
+import au.gov.nehta.model.clinical.common.participation.PersonNameImpl;
+import au.gov.nehta.model.clinical.common.participation.PersonNameUsage;
+import au.gov.nehta.model.clinical.common.participation.Sex;
+import au.gov.nehta.model.clinical.common.types.HPII;
+import au.gov.nehta.model.clinical.common.types.HPIO;
+import au.gov.nehta.model.clinical.common.types.IHI;
+import au.gov.nehta.model.clinical.common.types.Quantity;
+import au.gov.nehta.model.clinical.common.types.QuantityRange;
+import au.gov.nehta.model.clinical.common.types.UniqueIdentifier;
+import au.gov.nehta.model.clinical.common.types.UniqueIdentifierImpl;
 import au.gov.nehta.model.clinical.diagnostic.pathology.ExtendedEmploymentOrganisationImpl;
+import au.gov.nehta.model.clinical.es.AnatomicalSite;
+import au.gov.nehta.model.clinical.es.AnatomicalSiteImpl;
+import au.gov.nehta.model.clinical.es.DiagnosticInvestigations;
+import au.gov.nehta.model.clinical.es.DiagnosticInvestigationsImpl;
+import au.gov.nehta.model.clinical.es.ExaminationRequestDetails;
+import au.gov.nehta.model.clinical.es.ExaminationRequestDetailsImpl;
+import au.gov.nehta.model.clinical.es.ImageDetails;
+import au.gov.nehta.model.clinical.es.ImageDetailsImpl;
+import au.gov.nehta.model.clinical.es.ImagingExaminationResult;
+import au.gov.nehta.model.clinical.es.ImagingExaminationResultGroup;
+import au.gov.nehta.model.clinical.es.ImagingExaminationResultGroupImpl;
+import au.gov.nehta.model.clinical.es.ImagingExaminationResultImpl;
+import au.gov.nehta.model.clinical.es.ImagingResult;
+import au.gov.nehta.model.clinical.es.ImagingResultImpl;
 import au.gov.nehta.model.clinical.es.KnownMedication;
 import au.gov.nehta.model.clinical.es.KnownMedicationImpl;
-import au.gov.nehta.model.clinical.es.*;
+import au.gov.nehta.model.clinical.es.Medications;
+import au.gov.nehta.model.clinical.es.MedicationsImpl;
+import au.gov.nehta.model.clinical.es.OtherTestResult;
+import au.gov.nehta.model.clinical.es.OtherTestResultImpl;
+import au.gov.nehta.model.clinical.es.PathologyTestResult;
+import au.gov.nehta.model.clinical.es.ReferenceRange;
+import au.gov.nehta.model.clinical.es.ReferenceRangeDetails;
+import au.gov.nehta.model.clinical.es.RequestedService;
+import au.gov.nehta.model.clinical.es.RequestedServiceImpl;
+import au.gov.nehta.model.clinical.es.ResultValue;
+import au.gov.nehta.model.clinical.es.SpecificLocation;
 import au.gov.nehta.model.clinical.etp.common.item.AttachedMedia;
+import au.gov.nehta.model.clinical.etp.common.participation.AddressContext;
+import au.gov.nehta.model.clinical.etp.common.participation.Entitlement;
+import au.gov.nehta.model.clinical.etp.common.participation.EntitlementImpl;
 import au.gov.nehta.model.clinical.etp.common.participation.EntitlementType;
-import au.gov.nehta.model.clinical.etp.common.participation.*;
+import au.gov.nehta.model.clinical.etp.common.participation.ParticipationServiceProvider;
+import au.gov.nehta.model.clinical.etp.common.participation.ParticipationServiceProviderImpl;
+import au.gov.nehta.model.clinical.etp.common.participation.ServiceProvider;
+import au.gov.nehta.model.clinical.etp.common.participation.ServiceProviderImpl;
 import au.gov.nehta.model.clinical.shs.SharedHealthSummaryAuthor;
 import au.gov.nehta.model.clinical.shs.SharedHealthSummaryAuthorImpl;
-import org.joda.time.DateTime;
-import org.joda.time.LocalDate;
-import org.w3c.dom.Document;
-
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.StringWriter;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Optional;
+import java.util.UUID;
 import javax.xml.transform.OutputKeys;
 import javax.xml.transform.Transformer;
 import javax.xml.transform.TransformerFactory;
 import javax.xml.transform.dom.DOMSource;
 import javax.xml.transform.stream.StreamResult;
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.StringWriter;
-import java.util.*;
-
-import static au.gov.nehta.cda.es.EventSummaryTestHelper.getAttachedMedia;
-import static au.gov.nehta.cda.test.Base.ATTACHMENTS_DIR;
+import org.joda.time.DateTime;
+import org.joda.time.LocalDate;
+import org.w3c.dom.Document;
 
 public class TestHelper {
 
@@ -816,7 +906,7 @@ public class TestHelper {
   public static DiagnosticInvestigations getDiagnosticInvestigations(
       boolean showPathologyTestResults,
       boolean showImagingExaminationResults, boolean showRequestedServices,
-      boolean showOtherTestResults) {
+      boolean showOtherTestResults) throws FileNotFoundException {
     DiagnosticInvestigations diagnosticInvestigations = new DiagnosticInvestigationsImpl();
     //Pathology Test Results
     if (showPathologyTestResults) {
@@ -861,13 +951,14 @@ public class TestHelper {
     return requestedServices;
   }
 
-  public static ImagingExaminationResult getImagingExaminationResult() {
+  public static ImagingExaminationResult getImagingExaminationResult()
+      throws FileNotFoundException {
     List<AnatomicalSite> anatomicalSites = new ArrayList<>();
     anatomicalSites.add(getAnatomicalSite("ImagingExaminationResult"));
     ImagingExaminationResult imagingExaminationResult = new ImagingExaminationResultImpl();
     ImagingExaminationResultGroup imagingExaminationResultGroup = new ImagingExaminationResultGroupImpl();
     imagingExaminationResultGroup
-        .setAnatomicalSite(getAnatomicalSite("imagingExaminationResultGroup"));
+        .setAnatomicalSite(getAnatomicalSite("ImagingExaminationResultGroup"));
     imagingExaminationResultGroup.setImagingExaminationResultGroupName(new CodeImpl() {{
       setOriginalText("Result Group Name");
       setCode(UUID.randomUUID().toString());
@@ -921,7 +1012,8 @@ public class TestHelper {
     return imagingExaminationResult;
   }
 
-  public static ExaminationRequestDetails getExaminationRequestDetails() {
+  public static ExaminationRequestDetails getExaminationRequestDetails()
+      throws FileNotFoundException {
     //Image Details
     ImageDetails imageDetail = new ImageDetailsImpl();
     imageDetail.setSubjectPosition("Subject Pos");
@@ -955,7 +1047,7 @@ public class TestHelper {
     return examinationRequestDetails;
   }
 
-  public static AnatomicalSite getAnatomicalSite(String s) {
+  public static AnatomicalSite getAnatomicalSite(String s) throws FileNotFoundException {
     AnatomicalSite anatomicalSite = new AnatomicalSiteImpl();
     anatomicalSite.setAnatomicalLocationImages(new ArrayList<AttachedMedia>() {{
       add(getAttachedMedia(s, Optional.empty()));

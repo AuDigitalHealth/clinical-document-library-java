@@ -122,6 +122,7 @@ import au.gov.nehta.model.schematron.SchematronValidationException;
 import au.gov.nehta.schematron.Schematron;
 import au.gov.nehta.schematron.SchematronCheckResult;
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
@@ -148,13 +149,13 @@ public class EventSummaryMaxTest extends Base {
             show(check);
             assertEquals(0, check.schemaErrors.size());
             assertEquals(0, check.schematronErrors.size());
-        } catch (SchematronValidationException | JAXBException | ParserConfigurationException e) {
+        } catch (SchematronValidationException | JAXBException | ParserConfigurationException | FileNotFoundException e) {
             e.printStackTrace();
         }
     }
 
     private void generateMax()
-            throws SchematronValidationException, JAXBException, ParserConfigurationException {
+        throws SchematronValidationException, JAXBException, ParserConfigurationException, FileNotFoundException {
         DateTime now = new DateTime();
         DocumentAuthor documentAuthor = getDocumentAuthor(now);
 
@@ -230,7 +231,8 @@ public class EventSummaryMaxTest extends Base {
 
     private DiagnosticInvestigations getDiagnosticInvestigations(boolean showPathologyTestResults,
                                                                  boolean showImagingExaminationResults, boolean showRequestedServices,
-                                                                 boolean showOtherTestResults) {
+                                                                 boolean showOtherTestResults)
+        throws FileNotFoundException {
         DiagnosticInvestigations diagnosticInvestigations = new DiagnosticInvestigationsImpl();
         //Pathology Test Results
         if (showPathologyTestResults) {
@@ -528,7 +530,7 @@ public class EventSummaryMaxTest extends Base {
         return referenceRangeDetails;
     }
 
-    private TestSpecimenDetail getTestSpecimenDetail() {
+    private TestSpecimenDetail getTestSpecimenDetail() throws FileNotFoundException {
         TestSpecimenDetail testSpecimenDetail = new TestSpecimenDetailImpl();
         List<AnatomicalSite> anatomicalSites = new ArrayList<>();
 
@@ -565,7 +567,7 @@ public class EventSummaryMaxTest extends Base {
         return testSpecimenDetail;
     }
 
-    static AnatomicalSite getAnatomicalSite(String s) {
+    static AnatomicalSite getAnatomicalSite(String s) throws FileNotFoundException {
         AnatomicalSite anatomicalSite = new AnatomicalSiteImpl();
         anatomicalSite.setAnatomicalLocationImages(new ArrayList<AttachedMedia>() {{
             add(getAttachedMedia(s, Optional.empty()));
@@ -581,7 +583,7 @@ public class EventSummaryMaxTest extends Base {
         return anatomicalSite;
     }
 
-    private ExaminationRequestDetails getExaminationRequestDetails() {
+    private ExaminationRequestDetails getExaminationRequestDetails() throws FileNotFoundException {
         //Image Details
         ImageDetails imageDetail = new ImageDetailsImpl();
         imageDetail.setSubjectPosition("Subject Pos");
@@ -615,14 +617,14 @@ public class EventSummaryMaxTest extends Base {
         return examinationRequestDetails;
     }
 
-    private ImagingExaminationResult getImagingExaminationResult() {
+    private ImagingExaminationResult getImagingExaminationResult() throws FileNotFoundException {
 
         List<AnatomicalSite> anatomicalSites = new ArrayList<>();
         anatomicalSites.add(getAnatomicalSite("ImagingExaminationResult"));
         ImagingExaminationResult imagingExaminationResult = new ImagingExaminationResultImpl();
         ImagingExaminationResultGroup imagingExaminationResultGroup = new ImagingExaminationResultGroupImpl();
         imagingExaminationResultGroup
-                .setAnatomicalSite(getAnatomicalSite("imagingExaminationResultGroup"));
+                .setAnatomicalSite(getAnatomicalSite("ImagingExaminationResultGroup"));
         imagingExaminationResultGroup.setImagingExaminationResultGroupName(new CodeImpl() {{
             setOriginalText("Result Group Name");
             setCode(UUID.randomUUID().toString());

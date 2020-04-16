@@ -4,11 +4,11 @@
    <typeId extension="POCD_HD000040" root="2.16.840.1.113883.1.3"/>
    <templateId extension="1.1" root="1.2.36.1.2001.1001.100.1002.231"/>
    <templateId extension="1.0" root="1.2.36.1.2001.1001.100.149"/>
-   <id root="2.25.142744754907346017616254701493541630948"/>
+   <id root="2.25.293794004223334098684653411802506806302"/>
    <code code="57133-1" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"
          displayName="Referral note"/>
    <title>Referral</title>
-   <effectiveTime value="20200415144756+1000"/>
+   <effectiveTime value="20200416140820+1000"/>
    <confidentialityCode nullFlavor="NA"/>
    <languageCode code="en-AU"/>
    <versionNumber value="1"/>
@@ -17,7 +17,7 @@
                        displayName="Final"/>
    <recordTarget typeCode="RCT">
       <patientRole classCode="PAT">
-         <id root="5fb01773-57ae-4108-83b6-da2c8d1ad0a5"/>
+         <id root="3ba87070-0a37-4e80-8e29-03ca2870ca4b"/>
          <addr use="H">
             <streetAddressLine>The Complex</streetAddressLine>
             <streetAddressLine>Unit 90210 / 10 Browning st</streetAddressLine>
@@ -54,9 +54,9 @@
       </patientRole>
    </recordTarget>
    <author typeCode="AUT">
-      <time value="20200415144756+1000"/>
+      <time value="20200416140820+1000"/>
       <assignedAuthor>
-         <id root="1bd65168-926b-4c61-a056-319dc8c01953"/>
+         <id root="b8866d5d-c868-49e4-bf3c-762cee6721ab"/>
          <code code="253111" codeSystem="2.16.840.1.113883.13.62"
                codeSystemName="1220.0 - ANZSCO - Australian and New Zealand Standard Classification of Occupations, First Edition, 2006"
                displayName="General Medical Practitioner"/>
@@ -128,7 +128,7 @@
    <custodian>
       <assignedCustodian>
          <representedCustodianOrganization>
-            <id root="e8d9d433-839e-4747-9cc9-1597b91256eb"/>
+            <id root="46572a38-2420-4af4-8bfb-53afdaabb690"/>
             <name>Custodian organisation</name>
             <telecom use="WP" value="mailto:example@custodian.com.au"/>
             <addr use="PST">
@@ -150,7 +150,7 @@
    </custodian>
    <informationRecipient typeCode="TRC">
       <intendedRecipient classCode="ASSIGNED">
-         <id root="9d90a317-ac6f-4dd3-ab4a-574e5453f118"/>
+         <id root="d31c8392-5e42-4132-af93-294684fffa84"/>
          <ns2:code code="HOSP" codeSystem="2.16.840.1.113883.1.11.17660"
                    codeSystemName="HL7 ServiceDeliveryLocationRoleType"
                    displayName="Hospital"/>
@@ -178,7 +178,7 @@
    </informationRecipient>
    <informationRecipient typeCode="PRCP">
       <intendedRecipient classCode="ASSIGNED">
-         <id root="049ec12a-3706-4370-bc54-92501387c312"/>
+         <id root="e1484cb0-25da-4c61-8e96-6e4149a707fa"/>
          <addr use="WP">
             <streetAddressLine>616 Bromley Street</streetAddressLine>
             <postalCode>4169</postalCode>
@@ -209,10 +209,10 @@
       </intendedRecipient>
    </informationRecipient>
    <legalAuthenticator>
-      <time value="20200415144756+1000"/>
+      <time value="20200416140820+1000"/>
       <signatureCode code="S"/>
       <assignedEntity>
-         <id root="18e0d3c9-c8db-4d83-8e82-c825570f8041"/>
+         <id root="6c6feca2-eff3-4e04-9856-38ea840f5006"/>
          <code code="253511" codeSystem="2.16.840.1.113883.13.62"
                codeSystemName="1220.0 - ANZSCO - Australian and New Zealand Standard Classification of Occupations, First Edition, 2006"
                displayName="Surgeon (General)"/>
@@ -256,7 +256,7 @@
    </legalAuthenticator>
    <participant typeCode="IRCP">
       <associatedEntity classCode="CON">
-         <id root="50e48a19-e51c-4a95-a356-22e34eb60e3e"/>
+         <id root="97a8d680-b5e1-4b45-8e05-c069e5d2fb3e"/>
          <code code="309964003" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED CT"
                displayName="Radiology Department">
             <originalText>Radiology Department</originalText>
@@ -326,7 +326,7 @@
    </participant>
    <participant typeCode="IRCP">
       <associatedEntity classCode="CON">
-         <id root="dc190872-9add-4a08-9b64-e269ef7d90f1"/>
+         <id root="9b973a2b-8cae-4e4e-9b89-b922efd1f996"/>
          <code code="309964003" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED CT"
                displayName="Radiology Department">
             <originalText>Radiology Department</originalText>
@@ -397,7 +397,7 @@
    <participant typeCode="PART">
       <functionCode code="PCP"/>
       <associatedEntity classCode="PROV">
-         <id root="6e35d1f9-4fb4-4ee5-8228-a569c48af8b9"/>
+         <id root="eb224b71-1e2c-43a5-a4d3-1076546423e7"/>
          <code code="309964003" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED CT"
                displayName="Radiology Department">
             <originalText>Radiology Department</originalText>
@@ -475,7 +475,7 @@
       <structuredBody>
          <component>
             <section>
-               <id root="0c0ae133-45a5-46a5-84a9-3d0798da3155"/>
+               <id root="225b001d-063d-4000-84a2-272dc49bcd34"/>
                <code code="101.17032" codeSystem="1.2.36.1.2001.1001.101"
                      codeSystemName="NCTIS Data Components"
                      displayName="Service Referral Detail"/>
@@ -555,13 +555,13 @@ Business: 1 Clinician Street, Nehtaville, QLD, 5555
                </text>
                <entry>
                   <act classCode="ACT" moodCode="EVN">
-                     <id root="0ca6ffaf-fdde-4437-b51c-12877d579434"/>
+                     <id root="9fd111f6-28af-4747-873a-115d64945a3e"/>
                      <code code="102.16971" codeSystem="1.2.36.1.2001.1001.101"
                            codeSystemName="NCTIS Data Components"
                            displayName="Related Document"/>
                      <entryRelationship typeCode="COMP">
                         <act classCode="ACT" moodCode="EVN">
-                           <id root="86b06c9f-c80e-42f9-b50f-be18cc6b9899"/>
+                           <id root="9b804930-a93b-4324-ae38-624ef7dd5360"/>
                            <code code="103.16966" codeSystem="1.2.36.1.2001.1001.101"
                                  codeSystemName="NCTIS Data Components"
                                  displayName="Document Title"/>
@@ -571,7 +571,7 @@ Business: 1 Clinician Street, Nehtaville, QLD, 5555
                      <reference typeCode="REFR">
                         <seperatableInd value="true"/>
                         <externalDocument classCode="DOC" moodCode="EVN">
-                           <id extension="123A45" root="ec044a3c-bcc9-400b-a782-081a4883e36e"/>
+                           <id extension="123A45" root="ae6f748e-5e69-404b-981b-76b11bd18719"/>
                            <code code="100.16998" codeSystem="1.2.36.1.2001.1001.101"
                                  codeSystemName="NCTIS Data Components"
                                  displayName="Advance Care Planning Document"/>
@@ -625,7 +625,7 @@ Business: 1 Clinician Street, Nehtaville, QLD, 5555
                </text>
                <entry typeCode="DRIV">
                   <observation classCode="OBS" moodCode="EVN">
-                     <id root="9e1bd1aa-a65a-4513-982d-38c51fe23f6e"/>
+                     <id root="39225245-cbfd-48bb-b918-f0e837e381bc"/>
                      <code xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" code="103.16233"
                            codeSystem="1.2.36.1.2001.1001.101"
                            codeSystemName="NCTIS Data Components"
@@ -636,7 +636,7 @@ Business: 1 Clinician Street, Nehtaville, QLD, 5555
                </entry>
                <entry typeCode="DRIV">
                   <observation classCode="OBS" moodCode="EVN">
-                     <id root="580f538c-2178-4a59-a6ea-6001459c16de"/>
+                     <id root="30dc3429-795e-4776-b115-db165e3fc875"/>
                      <code xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" code="102.16234"
                            codeSystem="1.2.36.1.2001.1001.101"
                            codeSystemName="NCTIS Data Components"
@@ -647,7 +647,7 @@ Business: 1 Clinician Street, Nehtaville, QLD, 5555
                </entry>
                <entry typeCode="DRIV">
                   <observation classCode="OBS" moodCode="EVN">
-                     <id root="b60ea64a-2e76-469c-a6ee-a1acac37a595"/>
+                     <id root="91e2ff94-6008-47f4-8a42-d98dc43488d2"/>
                      <code xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" code="103.20109"
                            codeSystem="1.2.36.1.2001.1001.101"
                            codeSystemName="NCTIS Data Components"
@@ -659,7 +659,7 @@ Business: 1 Clinician Street, Nehtaville, QLD, 5555
                </entry>
                <entry typeCode="DRIV">
                   <observation classCode="OBS" moodCode="EVN">
-                     <id root="bd12501e-d033-4f2f-bd82-fcf12a0fc3a9"/>
+                     <id root="91f9fbf5-a468-4a34-9fed-4a53412961f7"/>
                      <code xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" code="103.16279"
                            codeSystem="1.2.36.1.2001.1001.101"
                            codeSystemName="NCTIS Data Components"
@@ -670,7 +670,7 @@ Business: 1 Clinician Street, Nehtaville, QLD, 5555
                </entry>
                <entry typeCode="DRIV">
                   <observation classCode="OBS" moodCode="EVN">
-                     <id root="c2cf57cb-6aac-4b02-8acc-201f17b16442"/>
+                     <id root="ca56f7ad-a995-45ef-befb-9109207bf83d"/>
                      <code xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" code="103.16249"
                            codeSystem="1.2.36.1.2001.1001.101"
                            codeSystemName="NCTIS Data Components"
@@ -689,11 +689,11 @@ Business: 1 Clinician Street, Nehtaville, QLD, 5555
                         <originalText>Medicare Benefits</originalText>
                      </ns2:code>
                      <ns2:effectiveTime>
-                        <high value="20210415"/>
+                        <high value="20210416"/>
                      </ns2:effectiveTime>
                      <ns2:participant typeCode="BEN">
                         <ns2:participantRole classCode="PAT">
-                           <ns2:id root="5fb01773-57ae-4108-83b6-da2c8d1ad0a5"/>
+                           <ns2:id root="3ba87070-0a37-4e80-8e29-03ca2870ca4b"/>
                         </ns2:participantRole>
                      </ns2:participant>
                   </ns2:entitlement>
@@ -750,7 +750,7 @@ Business: 1 Clinician Street, Nehtaville, QLD, 5555
          </component>
          <component typeCode="COMP">
             <section>
-               <id root="98abf1fc-ab9d-4bbe-9ac1-2deb8fca452e"/>
+               <id root="edad904e-0847-49f4-a21b-d91cdc667335"/>
                <code code="101.20113" codeSystem="1.2.36.1.2001.1001.101"
                      codeSystemName="NCTIS Data Components"
                      displayName="Adverse Reactions"/>
@@ -793,7 +793,7 @@ Business: 1 Clinician Street, Nehtaville, QLD, 5555
          </component>
          <component>
             <section>
-               <id root="b658eff6-f934-4be3-b252-cf87fd207e09"/>
+               <id root="13fde6d5-9dda-4e6c-a3da-725d97782f90"/>
                <code code="101.16146" codeSystem="1.2.36.1.2001.1001.101"
                      codeSystemName="NCTIS Data Components"
                      displayName="Medication Orders"/>
@@ -847,7 +847,7 @@ Business: 1 Clinician Street, Nehtaville, QLD, 5555
          </component>
          <component typeCode="COMP">
             <section classCode="DOCSECT" moodCode="EVN">
-               <id root="213c6ffb-a294-48f7-af12-05d853290038"/>
+               <id root="fd056662-3e34-4067-a9f9-ab9e91386fcd"/>
                <code code="101.20117" codeSystem="1.2.36.1.2001.1001.101"
                      codeSystemName="NCTIS Data Components"
                      displayName="Diagnostic Investigations"/>
@@ -857,7 +857,7 @@ Business: 1 Clinician Street, Nehtaville, QLD, 5555
                </text>
                <component>
                   <section>
-                     <id root="b7a44605-9073-4ead-89ac-101fb45ec8ef"/>
+                     <id root="69a5484c-90d7-4e32-844e-d81964292ad2"/>
                      <code code="102.16029" codeSystem="1.2.36.1.2001.1001.101"
                            codeSystemName="NCTIS Data Components"
                            displayName="Diagnostic Investigation"/>
@@ -894,7 +894,7 @@ Business: 1 Clinician Street, Nehtaville, QLD, 5555
                </component>
                <component>
                   <section>
-                     <id root="1caa9047-83ab-4566-b25b-34d5603b1e2d"/>
+                     <id root="7f7b0bdd-9562-4f99-8ccd-78e4a1d4a41f"/>
                      <code code="102.16144" codeSystem="1.2.36.1.2001.1001.101"
                            codeSystemName="NCTIS Data Components"
                            displayName="Pathology Test Result"/>
@@ -963,7 +963,7 @@ Business: 1 Clinician Street, Nehtaville, QLD, 5555
                </component>
                <component>
                   <section>
-                     <id root="a18ee5f0-6c99-4338-97f6-bad61d0db3fc"/>
+                     <id root="6bc5f02c-bbe7-4d6f-83dc-5be805e9d67d"/>
                      <code code="102.16145" codeSystem="1.2.36.1.2001.1001.101"
                            codeSystemName="NCTIS Data Components"
                            displayName="Imaging Examination Result"/>

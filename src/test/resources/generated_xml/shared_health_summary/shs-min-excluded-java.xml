@@ -4,11 +4,11 @@
    <typeId extension="POCD_HD000040" root="2.16.840.1.113883.1.3"/>
    <templateId extension="1.4" root="1.2.36.1.2001.1001.101.100.1002.120"/>
    <templateId extension="1.0" root="1.2.36.1.2001.1001.100.149"/>
-   <id root="bb79ece0-2aa5-4f05-b1ea-e9665e1dfb2d"/>
+   <id root="01f0199f-a4e3-49fc-b0aa-52ea88643278"/>
    <code code="60591-5" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"
          displayName="Patient summary"/>
    <title>Shared Health Summary</title>
-   <effectiveTime value="20200415144754+1000"/>
+   <effectiveTime value="20200416140819+1000"/>
    <confidentialityCode nullFlavor="NA"/>
    <languageCode code="en-AU"/>
    <versionNumber value="1"/>
@@ -17,7 +17,7 @@
                        displayName="Final"/>
    <recordTarget typeCode="RCT">
       <patientRole classCode="PAT">
-         <id root="bce56e4d-882f-4009-8c0f-4e335d39eabf"/>
+         <id root="9ad88e98-a1a2-43c3-8d2c-b6b756a3aac3"/>
          <addr use="H">
             <streetAddressLine>The Complex</streetAddressLine>
             <postalCode>4101</postalCode>
@@ -53,9 +53,9 @@
       </patientRole>
    </recordTarget>
    <author>
-      <time value="20200415144754+1000"/>
+      <time value="20200416140819+1000"/>
       <assignedAuthor>
-         <id root="4a1df981-8fdb-4464-a665-8e8129e2dfe1"/>
+         <id root="180b9391-6038-4783-9ace-7051c30fcd6e"/>
          <code code="272311" codeSystem="2.16.840.1.113883.13.62"
                codeSystemName="1220.0 - ANZSCO - Australian and New Zealand Standard Classification of Occupations, First Edition, 2006"
                displayName="Clinical Psychologist"/>
@@ -94,7 +94,7 @@
    <custodian>
       <assignedCustodian>
          <representedCustodianOrganization>
-            <id root="a815a494-dd55-4133-a7ea-f91893d50166"/>
+            <id root="12b05079-44dc-4d09-bf1e-9b4a9a8428a7"/>
             <name>Clinical Documents R Us</name>
             <ns2:asEntityIdentifier classCode="IDENT">
                <ns2:id assigningAuthorityName="HPI-O" root="1.2.36.1.2001.1003.0.8003621231167886"/>
@@ -106,17 +106,17 @@
       </assignedCustodian>
    </custodian>
    <legalAuthenticator>
-      <time value="20200415144754+1000"/>
+      <time value="20200416140819+1000"/>
       <signatureCode code="S"/>
       <assignedEntity>
-         <id root="a00d1bb7-1eda-43ec-a5c7-508a2309b661"/>
+         <id root="489b823c-6922-46dd-ab3f-b81d79758872"/>
       </assignedEntity>
    </legalAuthenticator>
    <component>
       <structuredBody>
          <component>
             <section>
-               <id root="d2f38afd-a2a4-49c2-b123-40ddb629ca97"/>
+               <id root="7f793dc8-03fc-435e-a59d-428a0f23d225"/>
                <code code="101.20113" codeSystem="1.2.36.1.2001.1001.101"
                      codeSystemName="NCTIS Data Components"
                      displayName="Adverse Reactions"/>
@@ -126,7 +126,7 @@
                </text>
                <entry>
                   <observation classCode="OBS" moodCode="EVN">
-                     <id root="d2f38afd-a2a4-49c2-b123-40ddb629ca97"/>
+                     <id root="7f793dc8-03fc-435e-a59d-428a0f23d225"/>
                      <code code="103.16302.120.1.1" codeSystem="1.2.36.1.2001.1001.101"
                            codeSystemName="NCTIS Data Components"
                            displayName="Global Statement"/>
@@ -150,7 +150,7 @@
                </text>
                <entry>
                   <observation classCode="OBS" moodCode="EVN">
-                     <id root="e9960709-ae2b-4d06-a79a-3b71c2ea666a"/>
+                     <id root="e0dae249-82af-4f92-9fde-219a9e7d2cfe"/>
                      <code code="103.16302.120.1.2" codeSystem="1.2.36.1.2001.1001.101"
                            codeSystemName="NCTIS Data Components"
                            displayName="Global Statement"/>
@@ -175,7 +175,7 @@
                </text>
                <entry>
                   <observation classCode="OBS" moodCode="EVN">
-                     <id root="91f6aa79-8bbe-4ad8-99e1-934d3674e9f0"/>
+                     <id root="1ef66ae5-1060-4530-ae14-c3b1f070bda2"/>
                      <code code="103.16302.120.1.3" codeSystem="1.2.36.1.2001.1001.101"
                            codeSystemName="NCTIS Data Components"
                            displayName="Global Statement"/>
@@ -188,7 +188,7 @@
                </entry>
                <entry>
                   <observation classCode="OBS" moodCode="EVN">
-                     <id root="37bd64a9-e004-4b1a-8d02-d04296b595f7"/>
+                     <id root="48c62499-6e7c-4fe3-9207-ee09977f3866"/>
                      <code code="103.16302.120.1.4" codeSystem="1.2.36.1.2001.1001.101"
                            codeSystemName="NCTIS Data Components"
                            displayName="Global Statement"/>
@@ -212,7 +212,7 @@
                </text>
                <entry>
                   <observation classCode="OBS" moodCode="EVN">
-                     <id root="10765ada-56ad-48de-8a97-78911e4fe69f"/>
+                     <id root="4e1fea91-f8b6-4f46-87e9-664f3097cead"/>
                      <code code="103.16302.120.1.5" codeSystem="1.2.36.1.2001.1001.101"
                            codeSystemName="NCTIS Data Components"
                            displayName="Global Statement"/>
@@ -254,7 +254,7 @@
                </text>
                <entry typeCode="DRIV">
                   <observation classCode="OBS" moodCode="EVN">
-                     <id root="25093a62-7e1d-4670-a5e5-c3675481fd2d"/>
+                     <id root="3584f2ce-378f-4c62-8742-171fc64e1635"/>
                      <code xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" code="103.20109"
                            codeSystem="1.2.36.1.2001.1001.101"
                            codeSystemName="NCTIS Data Components"
@@ -266,7 +266,7 @@
                </entry>
                <entry typeCode="DRIV">
                   <observation classCode="OBS" moodCode="EVN">
-                     <id root="32a20646-9137-4739-a139-f03102450053"/>
+                     <id root="b331653d-2c61-4a4b-babb-f7314aa10d80"/>
                      <code xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" code="103.16279"
                            codeSystem="1.2.36.1.2001.1001.101"
                            codeSystemName="NCTIS Data Components"

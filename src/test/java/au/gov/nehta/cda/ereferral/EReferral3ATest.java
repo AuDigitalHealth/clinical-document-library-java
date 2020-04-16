@@ -54,6 +54,7 @@ import au.gov.nehta.model.clinical.sr.AdverseReactionsImpl;
 import au.gov.nehta.model.schematron.SchematronValidationException;
 import au.gov.nehta.schematron.Schematron;
 import au.gov.nehta.schematron.SchematronCheckResult;
+import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
@@ -79,13 +80,13 @@ public class EReferral3ATest extends Base {
       show(check);
       //Assert.assertEquals(0, check.schemaErrors.size());
       //Assert.assertEquals(0, check.schematronErrors.size());
-    } catch (SchematronValidationException | ParserConfigurationException | JAXBException e) {
+    } catch (SchematronValidationException | ParserConfigurationException | JAXBException | FileNotFoundException e) {
       e.printStackTrace();
     }
   }
 
   private void generateMax()
-      throws SchematronValidationException, JAXBException, ParserConfigurationException {
+      throws SchematronValidationException, JAXBException, ParserConfigurationException, FileNotFoundException {
     DateTime now = new DateTime();
     PreciseDate dateTimeAttested = new PrecisionDate(Precision.DAY, now.minusHours(6));
     DocumentAuthor documentAuthor = TestHelper.getDocumentAuthor(now);
@@ -106,7 +107,7 @@ public class EReferral3ATest extends Base {
     System.out.println(cdaString);
   }
 
-  private EReferralContent getContent() {
+  private EReferralContent getContent() throws FileNotFoundException {
     EReferralContent content = new EReferralContentImpl();
     TestHelper.executingClass = EReferral.class;
     DiagnosticInvestigations diagnosticInvestigations = getDiagnosticInvestigations(true,

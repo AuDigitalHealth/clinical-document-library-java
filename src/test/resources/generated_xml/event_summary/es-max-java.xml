@@ -4,11 +4,11 @@
    <typeId extension="POCD_HD000040" root="2.16.840.1.113883.1.3"/>
    <templateId extension="1.3" root="1.2.36.1.2001.1001.101.100.1002.136"/>
    <templateId extension="1.0" root="1.2.36.1.2001.1001.100.149"/>
-   <id root="2.25.106389124000439132636437403352215287300"/>
+   <id root="2.25.53373616920996201783857502980620843840"/>
    <code code="34133-9" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"
          displayName="Summary of episode note"/>
    <title>Event Summary</title>
-   <effectiveTime value="20200415161122+1000"/>
+   <effectiveTime value="20200416141231+1000"/>
    <confidentialityCode nullFlavor="NA"/>
    <languageCode code="en-AU"/>
    <versionNumber value="1"/>
@@ -17,7 +17,7 @@
                        displayName="Final"/>
    <recordTarget typeCode="RCT">
       <patientRole classCode="PAT">
-         <id root="0628a9ec-8d5e-4b04-80a1-6040f7c61b41"/>
+         <id root="b7ec61cf-e9bf-4a69-96c1-7af51ca27cd1"/>
          <addr use="H">
             <streetAddressLine>The Complex</streetAddressLine>
             <streetAddressLine>Unit 90210 / 10 Browning st</streetAddressLine>
@@ -54,9 +54,9 @@
       </patientRole>
    </recordTarget>
    <author typeCode="AUT">
-      <time value="20200415161122+1000"/>
+      <time value="20200416141231+1000"/>
       <assignedAuthor>
-         <id root="e4c243b6-e7c8-466d-bdf6-d1d9dd20e11e"/>
+         <id root="848e2894-e9b5-453f-afcb-e154b94673fe"/>
          <code code="253111" codeSystem="2.16.840.1.113883.13.62"
                codeSystemName="1220.0 - ANZSCO - Australian and New Zealand Standard Classification of Occupations, First Edition, 2006"
                displayName="General Medical Practitioner"/>
@@ -128,7 +128,7 @@
    <custodian>
       <assignedCustodian>
          <representedCustodianOrganization>
-            <id root="155d3cef-e03b-41c5-b295-8d490d19de11"/>
+            <id root="f4ab5464-be04-4a81-98e6-58d8aadf21f7"/>
             <name>Custodian organisation</name>
             <telecom use="WP" value="mailto:example@custodian.com.au"/>
             <addr use="PST">
@@ -149,10 +149,10 @@
       </assignedCustodian>
    </custodian>
    <legalAuthenticator>
-      <time value="20200415161122+1000"/>
+      <time value="20200416141231+1000"/>
       <signatureCode code="S"/>
       <assignedEntity>
-         <id root="0e1e052d-3a40-4169-b49d-74fb1cc3ae3a"/>
+         <id root="6f0a93ec-01af-485f-adce-78c674ead420"/>
          <code code="253511" codeSystem="2.16.840.1.113883.13.62"
                codeSystemName="1220.0 - ANZSCO - Australian and New Zealand Standard Classification of Occupations, First Edition, 2006"
                displayName="Surgeon (General)"/>
@@ -206,7 +206,7 @@
       <structuredBody>
          <component typeCode="COMP">
             <section classCode="DOCSECT" moodCode="EVN">
-               <id root="fe902b64-b30f-4d38-894e-a35f46f16d81"/>
+               <id root="345d5a5f-54d6-41cf-afcb-ec1d41830099"/>
                <code code="101.16672" codeSystem="1.2.36.1.2001.1001.101"
                      codeSystemName="NCTIS Data Components"
                      displayName="Event Overview"/>
@@ -228,7 +228,7 @@
                </text>
                <entry>
                   <act classCode="ACT" moodCode="EVN">
-                     <id root="9f2840e8-e225-48b8-9a32-3ef692453b55"/>
+                     <id root="86974f94-c53d-4f78-9318-f59950c0d9bc"/>
                      <code code="102.15513" codeSystem="1.2.36.1.2001.1001.101"
                            codeSystemName="NCTIS Data Components"
                            displayName="Clinical Synopsis"/>
@@ -239,7 +239,7 @@
          </component>
          <component typeCode="COMP">
             <section>
-               <id root="66af00c2-74d5-48f8-ada3-ff6c9fadd562"/>
+               <id root="a8a2841e-3c23-4f7f-a9d7-fb91600950cc"/>
                <code code="101.20113" codeSystem="1.2.36.1.2001.1001.101"
                      codeSystemName="NCTIS Data Components"
                      displayName="Adverse Reactions"/>
@@ -270,7 +270,7 @@
                </text>
                <entry>
                   <act classCode="ACT" moodCode="EVN">
-                     <id root="8b853d9b-5a84-4db1-948c-7cbd731c1ca5"/>
+                     <id root="20b8a624-a18f-4bee-979c-e1aa6acc53ca"/>
                      <code code="102.15517" codeSystem="1.2.36.1.2001.1001.101"
                            codeSystemName="NCTIS Data Components"
                            displayName="Adverse Reaction"/>
@@ -286,7 +286,7 @@
                      </participant>
                      <entryRelationship typeCode="CAUS">
                         <observation classCode="OBS" moodCode="EVN">
-                           <id root="0aee1e6e-846d-4034-9fff-6b4e05fd5b7f"/>
+                           <id root="daf02d0e-65a6-489b-8100-812495f62475"/>
                            <code code="102.16474" codeSystem="1.2.36.1.2001.1001.101"
                                  codeSystemName="NCTIS Data Components"
                                  displayName="Reaction Event"/>
@@ -299,7 +299,7 @@
                            </value>
                            <entryRelationship inversionInd="true" typeCode="MFST">
                               <observation classCode="OBS" moodCode="EVN">
-                                 <id root="a24c183d-78eb-43c8-9064-e5b2a8614070"/>
+                                 <id root="c5c1eb15-9e22-46f4-ad4b-2047291ebf37"/>
                                  <code code="39579001" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED CT"
                                        displayName="Anaphylaxis">
                                     <originalText>Anaphylaxis</originalText>
@@ -321,7 +321,7 @@
          </component>
          <component typeCode="COMP">
             <section classCode="DOCSECT" moodCode="EVN">
-               <id root="f6f7b3b2-ca50-4e4b-a20e-de54c46d20d0"/>
+               <id root="a670e8c0-2c96-4e32-a067-0206957f734a"/>
                <code code="101.16146" codeSystem="1.2.36.1.2001.1001.101"
                      codeSystemName="NCTIS Data Components"
                      displayName="Medication Orders"/>
@@ -357,7 +357,7 @@
                </text>
                <entry>
                   <substanceAdministration classCode="SBADM" moodCode="EVN">
-                     <id root="24d8cd58-9d7a-4ab8-b283-172b3c07e436"/>
+                     <id root="bca206f1-1d23-43d7-adc1-699f2b433f1b"/>
                      <text xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ST">Directions Text</text>
                      <consumable>
                         <manufacturedProduct>
@@ -372,7 +372,7 @@
                      </consumable>
                      <entryRelationship typeCode="RSON">
                         <act classCode="INFRM" moodCode="EVN">
-                           <id root="5149618c-e4d6-481a-a074-ce4be1c90729"/>
+                           <id root="5354d208-b33a-4ba6-895e-465a6ab87a0e"/>
                            <code code="103.10141" codeSystem="1.2.36.1.2001.1001.101"
                                  codeSystemName="NCTIS Data Components"
                                  displayName="Clinical Indication"/>
@@ -381,7 +381,7 @@
                      </entryRelationship>
                      <entryRelationship typeCode="COMP">
                         <act classCode="INFRM" moodCode="EVN">
-                           <id root="1edb5796-e02c-4ce4-9d19-b6fcf55b86ae"/>
+                           <id root="afe1c27e-7766-4270-a091-d2e6e932e6f7"/>
                            <code code="103.16044" codeSystem="1.2.36.1.2001.1001.101"
                                  codeSystemName="NCTIS Data Components"
                                  displayName="Additional Comments"/>
@@ -390,7 +390,7 @@
                      </entryRelationship>
                      <entryRelationship typeCode="SPRT">
                         <observation classCode="OBS" moodCode="EVN">
-                           <id root="9201bcc5-6873-4abb-b275-8b11c2a2c139"/>
+                           <id root="26872189-da89-4624-8171-e217ed763830"/>
                            <code code="103.16593" codeSystem="1.2.36.1.2001.1001.101"
                                  codeSystemName="NCTIS Data Components"
                                  displayName="Change Type"/>
@@ -402,7 +402,7 @@
                                   xsi:type="CD"/>
                            <entryRelationship typeCode="COMP">
                               <observation classCode="OBS" moodCode="EVN">
-                                 <id root="2e996c6b-e84e-486a-bb49-df6eef4b9ae3"/>
+                                 <id root="9f1892c0-a232-4d58-a3fd-e12ad748442f"/>
                                  <code code="103.16595" codeSystem="1.2.36.1.2001.1001.101"
                                        codeSystemName="NCTIS Data Components"
                                        displayName="Change Status"/>
@@ -415,7 +415,7 @@
                            </entryRelationship>
                            <entryRelationship typeCode="RSON">
                               <act classCode="INFRM" moodCode="EVN">
-                                 <id root="9a2bcf2e-990f-4a96-a561-4f4dee6817fa"/>
+                                 <id root="92da7433-4c17-4c95-82e4-91059c6f478a"/>
                                  <code code="103.10177" codeSystem="1.2.36.1.2001.1001.101"
                                        codeSystemName="NCTIS Data Components"
                                        displayName="Change or Recommendation Reason"/>
@@ -430,7 +430,7 @@
          </component>
          <component typeCode="COMP">
             <section classCode="DOCSECT" moodCode="EVN">
-               <id root="ec931b95-5268-4d39-a185-7185de52f1c1"/>
+               <id root="6f586d2b-3c8f-4b77-92a8-4423fd843f90"/>
                <code code="101.16117" codeSystem="1.2.36.1.2001.1001.101"
                      codeSystemName="NCTIS Data Components"
                      displayName="Medical History"/>
@@ -466,7 +466,7 @@
                </text>
                <entry>
                   <observation classCode="OBS" moodCode="EVN">
-                     <id root="7879c12a-a9a4-4ab1-a724-b108a60a94c5"/>
+                     <id root="826f4fb4-49da-454d-8872-c1f566ff9023"/>
                      <code code="282291009" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED CT"
                            displayName="Diagnosis interpretation"/>
                      <effectiveTime>
@@ -480,7 +480,7 @@
                             xsi:type="CD"/>
                      <entryRelationship typeCode="COMP">
                         <act classCode="INFRM" moodCode="EVN">
-                           <id root="e0a7868c-e837-4553-854f-fd29395e432a"/>
+                           <id root="7af3b7f4-2730-4b72-9ca6-27eab0b27916"/>
                            <code code="103.16545" codeSystem="1.2.36.1.2001.1001.101"
                                  codeSystemName="NCTIS Data Components"
                                  displayName="Problem/Diagnosis Comment"/>
@@ -491,7 +491,7 @@
                </entry>
                <entry>
                   <procedure classCode="PROC" moodCode="EVN">
-                     <id root="6905ed73-7f96-486a-8abc-292ee30bf25d"/>
+                     <id root="a94dfb43-f6cb-40b3-abf0-b9b9adcba191"/>
                      <code code="80146002" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED CT"
                            displayName="Appendicectomy">
                         <originalText>Appendicectomy</originalText>
@@ -502,7 +502,7 @@
                      </effectiveTime>
                      <entryRelationship typeCode="COMP">
                         <act classCode="INFRM" moodCode="EVN">
-                           <id root="5e47a71c-07db-4bd9-886c-f75410cc640a"/>
+                           <id root="8aa65c2e-3841-4557-a7eb-277f1bb1d336"/>
                            <code code="103.15595" codeSystem="1.2.36.1.2001.1001.101"
                                  codeSystemName="NCTIS Data Components"
                                  displayName="Procedure Comment"/>
@@ -513,7 +513,7 @@
                </entry>
                <entry>
                   <act classCode="ACT" moodCode="EVN">
-                     <id root="49dc4ab9-7aff-49fe-a09b-41a61b8c36e0"/>
+                     <id root="df67f7f2-19dd-4cf1-8767-16d7736ea34d"/>
                      <code code="102.16627" codeSystem="1.2.36.1.2001.1001.101"
                            codeSystemName="NCTIS Data Components"
                            displayName="Uncategorised Medical History Item"/>
@@ -524,7 +524,7 @@
                      </effectiveTime>
                      <entryRelationship typeCode="COMP">
                         <act classCode="INFRM" moodCode="EVN">
-                           <id root="63f9e1d7-3217-4ef7-951b-9c766c03b8dc"/>
+                           <id root="98fbf729-b96f-4572-9d04-1efe0c33a042"/>
                            <code code="103.16630" codeSystem="1.2.36.1.2001.1001.101"
                                  codeSystemName="NCTIS Data Components"
                                  displayName="Medical History Item Comment"/>
@@ -537,7 +537,7 @@
          </component>
          <component>
             <section classCode="DOCSECT" moodCode="EVN">
-               <id root="6d8936c9-2338-4643-bc18-b0a2a6c2ec31"/>
+               <id root="0f51d900-b659-436e-8837-93b30ff9ab40"/>
                <code code="101.16638" codeSystem="1.2.36.1.2001.1001.101"
                      codeSystemName="NCTIS Data Components"
                      displayName="Immunisations"/>
@@ -554,15 +554,15 @@
                      <tbody>
                         <tr>
                            <td>Fluvax 2014 injection, 0.5 mL syringe</td>
-                           <td>15 Apr 2020</td>
+                           <td>16 Apr 2020</td>
                         </tr>
                      </tbody>
                   </table>
                </text>
                <entry>
                   <substanceAdministration classCode="SBADM" moodCode="EVN">
-                     <id root="20d2a649-b4e5-4bd3-9d2c-40fabacb51b7"/>
-                     <effectiveTime value="20200415161122+1000"/>
+                     <id root="f0922665-446a-4630-a3d8-517efcc490ca"/>
+                     <effectiveTime value="20200416141231+1000"/>
                      <consumable>
                         <manufacturedProduct>
                            <manufacturedMaterial>
@@ -578,7 +578,7 @@
          </component>
          <component typeCode="COMP">
             <section classCode="DOCSECT" moodCode="EVN">
-               <id root="4e8c946c-5dd9-4a7d-90ed-858f05661900"/>
+               <id root="dfbb8cd4-4bb7-4f9a-9c63-c2708b064db6"/>
                <code code="101.20117" codeSystem="1.2.36.1.2001.1001.101"
                      codeSystemName="NCTIS Data Components"
                      displayName="Diagnostic Investigations"/>
@@ -588,7 +588,7 @@
                </text>
                <component>
                   <section>
-                     <id root="35e2ce78-a6ec-4fa1-8848-ce47efc583b3"/>
+                     <id root="a4e5205f-53c0-4604-9540-9eaa3f4796dc"/>
                      <code code="102.16029" codeSystem="1.2.36.1.2001.1001.101"
                            codeSystemName="NCTIS Data Components"
                            displayName="Diagnostic Investigation"/>
@@ -647,7 +647,7 @@
                      </text>
                      <entry>
                         <observation classCode="OBS" moodCode="EVN">
-                           <id root="ae088601-21a7-4017-a064-9aea4dbcd474"/>
+                           <id root="62bc13fe-872e-4a38-80e3-2c6b5008892b"/>
                            <code>
                               <originalText>Report Name</originalText>
                            </code>
@@ -677,7 +677,7 @@
     BLOOD GLUCOSE   : 10.8 *     mmol/L     (3.9-6.0)</value>
                            <entryRelationship typeCode="COMP">
                               <observation classCode="OBS" moodCode="EVN">
-                                 <id root="9ff4c460-3c78-432f-810d-c9a281236b92"/>
+                                 <id root="163c9132-5225-4fe7-8da0-c1dff7a9bc87"/>
                                  <code code="308552006" codeSystem="2.16.840.1.113883.6.96"
                                        codeSystemName="SNOMED CT-AU"
                                        codeSystemVersion="20110531"
@@ -695,7 +695,7 @@
                </component>
                <component>
                   <section>
-                     <id root="3e61158e-a4f2-4a6d-8ee8-82976a02fa4e"/>
+                     <id root="5c51f031-5d79-44e6-99c8-9b43a7d64c93"/>
                      <code code="102.16029" codeSystem="1.2.36.1.2001.1001.101"
                            codeSystemName="NCTIS Data Components"
                            displayName="Diagnostic Investigation"/>
@@ -724,7 +724,7 @@
                               </tr>
                               <tr>
                                  <td>
-                                    <renderMultiMedia referencedObject="bd95a4e8-31dc-4545-aebf-9ad22fa27c12">
+                                    <renderMultiMedia referencedObject="f08e392a-ad5e-4c57-8e0b-7a5cef1cb4cd">
                                        <caption>Other Test Result</caption>
                                     </renderMultiMedia>
                                  </td>
@@ -739,7 +739,7 @@
                      </text>
                      <entry>
                         <observation classCode="OBS" moodCode="EVN">
-                           <id root="7f11e7be-332d-4755-ae76-e58f4edc9ec5"/>
+                           <id root="29ce12ce-c9a7-4a9e-a23b-4e50395b9dac"/>
                            <code>
                               <originalText>Report Name (with attachment)</originalText>
                            </code>
@@ -751,7 +751,7 @@
                               <reference value="radiologyreport.pdf"/>
                            </value>
                            <entryRelationship typeCode="COMP">
-                              <observationMedia ID="bd95a4e8-31dc-4545-aebf-9ad22fa27c12" classCode="OBS" moodCode="EVN">
+                              <observationMedia ID="f08e392a-ad5e-4c57-8e0b-7a5cef1cb4cd" classCode="OBS" moodCode="EVN">
                                  <value integrityCheck="WuGzArOJ0d+HNGnOw7xj3uKVXig=" mediaType="application/pdf">
                                     <reference value="radiologyreport.pdf"/>
                                  </value>
@@ -759,7 +759,7 @@
                            </entryRelationship>
                            <entryRelationship typeCode="COMP">
                               <observation classCode="OBS" moodCode="EVN">
-                                 <id root="d66725ca-ceaa-4c0c-95b7-0cd6b337d30b"/>
+                                 <id root="830e01da-6ac8-42d1-af17-c2be064994eb"/>
                                  <code code="308552006" codeSystem="2.16.840.1.113883.6.96"
                                        codeSystemName="SNOMED CT-AU"
                                        codeSystemVersion="20110531"
@@ -777,7 +777,7 @@
                </component>
                <component>
                   <section>
-                     <id root="950a48c0-99ff-4cdf-98ec-f799119fc4d7"/>
+                     <id root="3a2baf45-780a-48da-86c3-6912f8d15da4"/>
                      <code code="102.20158" codeSystem="1.2.36.1.2001.1001.101"
                            codeSystemName="NCTIS Data Components"
                            displayName="Requested Service"/>
@@ -833,7 +833,7 @@
                      </text>
                      <entry>
                         <act classCode="ACT" moodCode="EVN">
-                           <id root="a0de70b8-d1e3-42e9-91af-e8d7bbcb727b"/>
+                           <id root="49e0bd42-b275-438c-bd1c-c88b779ce24c"/>
                            <code xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" code="399208008"
                                  codeSystem="2.16.840.1.113883.6.96"
                                  codeSystemName="SNOMED CT"
@@ -842,7 +842,7 @@
                            <effectiveTime value="20130122"/>
                            <performer typeCode="PRF">
                               <assignedEntity>
-                                 <id root="a3878956-2c6e-4f6a-91f2-a78dd650c186"/>
+                                 <id root="a88f572a-c014-487c-a773-6141a21eb4fa"/>
                                  <code code="309964003" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED CT"
                                        displayName="Radiology Department">
                                     <originalText>Radiology Department</originalText>
@@ -947,7 +947,7 @@
                            </ns2:effectiveTime>
                            <ns2:participant typeCode="HLD">
                               <ns2:participantRole classCode="ASSIGNED">
-                                 <ns2:id root="a3878956-2c6e-4f6a-91f2-a78dd650c186"/>
+                                 <ns2:id root="a88f572a-c014-487c-a773-6141a21eb4fa"/>
                               </ns2:participantRole>
                            </ns2:participant>
                         </ns2:entitlement>
@@ -956,7 +956,7 @@
                </component>
                <component>
                   <section>
-                     <id root="c7a7f864-c231-4232-b0ad-cfad83d1bf92"/>
+                     <id root="b442caa7-74f7-445f-9030-83654cb25b9b"/>
                      <code code="102.20158" codeSystem="1.2.36.1.2001.1001.101"
                            codeSystemName="NCTIS Data Components"
                            displayName="Requested Service"/>
@@ -1008,7 +1008,7 @@
                      </text>
                      <entry>
                         <act classCode="ACT" moodCode="INT">
-                           <id root="ff98999f-2058-4f8e-aba7-0069549f4cf1"/>
+                           <id root="5cdf5ca2-5ea0-4e4b-9b3d-78a944979344"/>
                            <code xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" code="399208008"
                                  codeSystem="2.16.840.1.113883.6.96"
                                  codeSystemName="SNOMED CT"
@@ -1024,7 +1024,7 @@
                                  <high value="20130822"/>
                               </time>
                               <assignedEntity>
-                                 <id root="77863a81-3ef4-4f58-8d5b-79b7bde6725d"/>
+                                 <id root="0fe79e4f-3125-43e6-975e-00836b3eacf2"/>
                                  <code code="309964003" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED CT"
                                        displayName="Radiology Department">
                                     <originalText>Radiology Department</originalText>
@@ -1078,7 +1078,7 @@
                </component>
                <component>
                   <section>
-                     <id root="5ce8b4f3-6df9-47e8-ba5f-74e5d16ba3ad"/>
+                     <id root="b6f224bf-ec03-4050-b254-7598f5ebac32"/>
                      <code code="102.16144" codeSystem="1.2.36.1.2001.1001.101"
                            codeSystemName="NCTIS Data Components"
                            displayName="Pathology Test Result"/>
@@ -1149,10 +1149,10 @@
                               </tr>
                            </tbody>
                         </table>
-                        <renderMultiMedia referencedObject="f330bccc-9da2-4897-95bd-df14d0e1d577">
+                        <renderMultiMedia referencedObject="d8a9902e-e38b-46d7-9005-065117ebd218">
                            <caption>Anatomical Site x-raySpecimenDetail.jpg</caption>
                         </renderMultiMedia>
-                        <renderMultiMedia referencedObject="bbc641c7-11cf-4382-a970-e3f7e057bb36">
+                        <renderMultiMedia referencedObject="fc44b32e-cc8d-4d97-bcaf-efeb1bee76f2">
                            <caption>Anatomical Site x-raySpecimenDetail.jpg</caption>
                         </renderMultiMedia>
                         <table>
@@ -1174,7 +1174,7 @@
                               </tr>
                            </tbody>
                         </table>
-                        <renderMultiMedia referencedObject="dbbf733c-c0d7-4a8e-a823-2bb378927e52">
+                        <renderMultiMedia referencedObject="eac05e48-266a-43aa-a4e8-5717b6366c6e">
                            <caption>Physical Detail Image x-ray.jpg</caption>
                         </renderMultiMedia>
                         <table>
@@ -1386,7 +1386,7 @@
                            <tbody>
                               <tr>
                                  <td>
-                                    <renderMultiMedia referencedObject="ca6e0da3-f41e-4afd-9d67-54621fe0f390">
+                                    <renderMultiMedia referencedObject="b375a38b-8188-4e25-b9b1-f6733d8c52a3">
                                        <caption>Test Result Representation</caption>
                                     </renderMultiMedia>
                                  </td>
@@ -1417,7 +1417,7 @@
                            </value>
                            <entryRelationship typeCode="COMP">
                               <observation classCode="OBS" moodCode="EVN">
-                                 <id root="a66898d8-543d-42f8-9300-47666999e0fc"/>
+                                 <id root="bd1164d3-1720-4b05-b5b1-6c8bdb0d635d"/>
                                  <code code="310074003" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED CT"
                                        displayName="pathology service"/>
                                  <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" code="HM"
@@ -1429,7 +1429,7 @@
                            </entryRelationship>
                            <entryRelationship typeCode="COMP">
                               <observation classCode="OBS" moodCode="EVN">
-                                 <id root="d5c3fa5e-a083-4270-af8f-a593d2ea4f6e"/>
+                                 <id root="51b1919c-2120-43e3-ba5d-75d66ef6afd6"/>
                                  <code code="308552006" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED CT"
                                        displayName="report status"/>
                                  <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" code="3"
@@ -1448,7 +1448,7 @@
                            </entryRelationship>
                            <entryRelationship typeCode="REFR">
                               <observation classCode="OBS" moodCode="EVN">
-                                 <id root="9172d126-9632-4982-8b58-b91e3490de49"/>
+                                 <id root="df90ee0b-bf22-4ef2-9c45-23456942ce58"/>
                                  <code code="386344002" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED CT"
                                        displayName="laboratory findings data interpretation"/>
                                  <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ST">I could write a final conclusion for the whole FBC panel</value>
@@ -1456,7 +1456,7 @@
                            </entryRelationship>
                            <entryRelationship typeCode="COMP">
                               <act classCode="INFRM" moodCode="EVN">
-                                 <id root="7f474e33-c367-4163-aaea-a28764cce643"/>
+                                 <id root="879febc2-d2d4-4bec-8536-b1b86c03d1e9"/>
                                  <code code="103.16468" codeSystem="1.2.36.1.2001.1001.101"
                                        codeSystemName="NCTIS Data Components"
                                        displayName="Test Comment"/>
@@ -1465,13 +1465,13 @@
                            </entryRelationship>
                            <entryRelationship inversionInd="true" typeCode="SUBJ">
                               <act classCode="ACT" moodCode="EVN">
-                                 <id root="58168442-ed39-4ad2-9ffc-85b6be157a80"/>
+                                 <id root="d85e32dd-eed4-4f75-8239-8bc7b3eba583"/>
                                  <code code="102.16160" codeSystem="1.2.36.1.2001.1001.101"
                                        codeSystemName="NCTIS Data Components"
                                        displayName="Test Request Details"/>
                                  <entryRelationship typeCode="COMP">
                                     <observation classCode="OBS" moodCode="RQO">
-                                       <id root="e5e41a46-56ce-44b6-bcba-a7fe159e5b08"/>
+                                       <id root="62d37d52-55d8-4593-84e2-fad3ad8e8496"/>
                                        <code code="103.16404" codeSystem="1.2.36.1.2001.1001.101"
                                              codeSystemName="NCTIS Data Components"
                                              displayName="Test Requested Name"/>
@@ -1488,7 +1488,7 @@
                            </entryRelationship>
                            <entryRelationship typeCode="COMP">
                               <observation classCode="OBS" moodCode="EVN">
-                                 <id root="6781b189-57fa-4bf5-9d20-1310e3e5bc80"/>
+                                 <id root="974e9c9f-470a-478e-bcbd-f05e32e3a298"/>
                                  <code code="103.16605" codeSystem="1.2.36.1.2001.1001.101"
                                        codeSystemName="NCTIS Data Components"
                                        displayName="Pathology Test Result DateTime"/>
@@ -1497,7 +1497,7 @@
                            </entryRelationship>
                            <entryRelationship typeCode="COMP">
                               <organizer classCode="BATTERY" moodCode="EVN">
-                                 <id root="2e3b8d3f-0bdf-4a6a-8785-99e442e47201"/>
+                                 <id root="5093d6c8-d0bc-4402-a0dd-755706459c83"/>
                                  <code code="FBC" codeSystem="2.999.100"
                                        codeSystemName="ACME Laboratories Report CodeSystem"
                                        displayName="Full blood count">
@@ -1508,7 +1508,7 @@
                                  <statusCode code="completed"/>
                                  <component>
                                     <observation classCode="OBS" moodCode="EVN">
-                                       <id root="a54ffd96-99f9-4a85-a7e8-fdc3ec205575"/>
+                                       <id root="8604cfb0-8d04-40af-ba12-6ad1a7578a2e"/>
                                        <code code="58745656" codeSystem="2.999.200"
                                              codeSystemName="ACME Laboratories Atomic Result CodeSystem"
                                              displayName="Haemoglobin">
@@ -1523,7 +1523,7 @@
                                                            displayName="High"/>
                                        <entryRelationship typeCode="COMP">
                                           <act classCode="INFRM" moodCode="EVN">
-                                             <id root="526817d4-2366-4871-befd-54b114c40ca2"/>
+                                             <id root="a5b2a9e0-f7dc-41de-aea8-e9592d08b39e"/>
                                              <code code="281296001" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED CT"
                                                    displayName="result comments"/>
                                              <text xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ST">This is a comment that could be provided about the HB result</text>
@@ -1531,7 +1531,7 @@
                                        </entryRelationship>
                                        <entryRelationship typeCode="COMP">
                                           <act classCode="INFRM" moodCode="EVN">
-                                             <id root="9c35f1a4-21d8-4d76-9b2f-c6c554efa180"/>
+                                             <id root="d6f0b145-9a3d-4a3c-87c4-909461837d24"/>
                                              <code code="281298000" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED CT"
                                                    displayName="reference range comments"/>
                                              <text xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ST">Hb normal ranges were modified on the 20/02/018</text>
@@ -1539,7 +1539,7 @@
                                        </entryRelationship>
                                        <entryRelationship typeCode="COMP">
                                           <observation classCode="OBS" moodCode="EVN">
-                                             <id root="e40cb6a1-fc9f-4774-ab25-bd97e3b20b4b"/>
+                                             <id root="3530cfec-1d1a-4310-a38b-2095bfc89eba"/>
                                              <code code="308552006" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED CT"
                                                    displayName="report status"/>
                                              <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" code="3"
@@ -1567,7 +1567,7 @@
                                  </component>
                                  <component>
                                     <observation classCode="OBS" moodCode="EVN">
-                                       <id root="00420e19-3590-4ba3-be5a-4e0d2efb308a"/>
+                                       <id root="47386d79-e339-439d-a1fe-b68fe594803d"/>
                                        <code code="456337895" codeSystem="2.999.200"
                                              codeSystemName="ACME Laboratories Atomic Result CodeSystem"
                                              displayName="Red Cell Count">
@@ -1582,7 +1582,7 @@
                                                            displayName="Normal"/>
                                        <entryRelationship typeCode="COMP">
                                           <act classCode="INFRM" moodCode="EVN">
-                                             <id root="bf4a22e7-27d1-4135-95ba-d9e316d4a310"/>
+                                             <id root="17ae5c48-c723-43ec-8599-9610345ddad6"/>
                                              <code code="281296001" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED CT"
                                                    displayName="result comments"/>
                                              <text xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ST">NA</text>
@@ -1590,7 +1590,7 @@
                                        </entryRelationship>
                                        <entryRelationship typeCode="COMP">
                                           <act classCode="INFRM" moodCode="EVN">
-                                             <id root="9195bc18-eed5-4cbe-8d3e-734c56ad3a4a"/>
+                                             <id root="42dd1cb5-1508-44de-be0b-eb4a275ea2cf"/>
                                              <code code="281298000" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED CT"
                                                    displayName="reference range comments"/>
                                              <text xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ST">NA</text>
@@ -1598,7 +1598,7 @@
                                        </entryRelationship>
                                        <entryRelationship typeCode="COMP">
                                           <observation classCode="OBS" moodCode="EVN">
-                                             <id root="66f361d4-2d2c-41da-9ecd-625d10716e77"/>
+                                             <id root="54726656-4599-4ef9-bfa3-4afc4bffb39e"/>
                                              <code code="308552006" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED CT"
                                                    displayName="report status"/>
                                              <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" code="3"
@@ -1626,7 +1626,7 @@
                                  </component>
                                  <component>
                                     <observation classCode="OBS" moodCode="EVN">
-                                       <id root="bda771d2-aecc-42aa-a51d-9832141864be"/>
+                                       <id root="9fa077ec-2efc-46a7-bc06-8d980f27d6ed"/>
                                        <code code="7854343223" codeSystem="2.999.200"
                                              codeSystemName="ACME Laboratories Atomic Result CodeSystem"
                                              displayName="Hematocrit">
@@ -1641,7 +1641,7 @@
                                                            displayName="Normal"/>
                                        <entryRelationship typeCode="COMP">
                                           <act classCode="INFRM" moodCode="EVN">
-                                             <id root="fd76194d-5d10-4c42-b9ce-2633058d886f"/>
+                                             <id root="a38e8826-a22a-4eb1-b330-ae7afda856dc"/>
                                              <code code="281296001" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED CT"
                                                    displayName="result comments"/>
                                              <text xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ST">NA</text>
@@ -1649,7 +1649,7 @@
                                        </entryRelationship>
                                        <entryRelationship typeCode="COMP">
                                           <act classCode="INFRM" moodCode="EVN">
-                                             <id root="b658a407-9252-45b3-a969-d5d12f92a72d"/>
+                                             <id root="b6d60efd-7da8-41c1-a89f-a55a5f472756"/>
                                              <code code="281298000" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED CT"
                                                    displayName="reference range comments"/>
                                              <text xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ST">NA</text>
@@ -1657,7 +1657,7 @@
                                        </entryRelationship>
                                        <entryRelationship typeCode="COMP">
                                           <observation classCode="OBS" moodCode="EVN">
-                                             <id root="51f30bda-4ce7-4f37-acd6-82901190d33d"/>
+                                             <id root="48d0090b-5454-41dc-b5fc-bb06effd48e4"/>
                                              <code code="308552006" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED CT"
                                                    displayName="report status"/>
                                              <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" code="3"
@@ -1685,7 +1685,7 @@
                                  </component>
                                  <component>
                                     <observation classCode="OBS" moodCode="EVN">
-                                       <id root="f8ac225e-4492-4b12-8237-4e99099b8cec"/>
+                                       <id root="b16974fe-764e-4b1a-a01a-91311c9b5506"/>
                                        <code code="6322353455" codeSystem="2.999.200"
                                              codeSystemName="ACME Laboratories Atomic Result CodeSystem"
                                              displayName="Mean Cell Volume">
@@ -1698,7 +1698,7 @@
                                                            displayName="Normal"/>
                                        <entryRelationship typeCode="COMP">
                                           <act classCode="INFRM" moodCode="EVN">
-                                             <id root="044887ae-18a6-4540-b763-111b02bc9531"/>
+                                             <id root="c964187e-b386-4201-8f16-3e4e717bd317"/>
                                              <code code="281296001" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED CT"
                                                    displayName="result comments"/>
                                              <text xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ST">NA</text>
@@ -1706,7 +1706,7 @@
                                        </entryRelationship>
                                        <entryRelationship typeCode="COMP">
                                           <act classCode="INFRM" moodCode="EVN">
-                                             <id root="f1b09c4e-2bb6-4430-8c78-dd2e5342ad4d"/>
+                                             <id root="f9fe9a16-4903-4ed1-8da9-ad46f09a1c38"/>
                                              <code code="281298000" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED CT"
                                                    displayName="reference range comments"/>
                                              <text xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ST">NA</text>
@@ -1714,7 +1714,7 @@
                                        </entryRelationship>
                                        <entryRelationship typeCode="COMP">
                                           <observation classCode="OBS" moodCode="EVN">
-                                             <id root="a5036ae5-caed-41f8-9c0f-7299e47a4454"/>
+                                             <id root="f1f6ab80-4546-4ed8-b2f3-6c35db1e7b8b"/>
                                              <code code="308552006" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED CT"
                                                    displayName="report status"/>
                                              <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" code="3"
@@ -1741,7 +1741,7 @@
                                  </component>
                                  <component>
                                     <observation classCode="OBS" moodCode="EVN">
-                                       <id root="e7f9fde6-f8ca-4650-9b7f-f75ea3145c15"/>
+                                       <id root="642838da-c1e4-4a87-8466-7efa1091e1e8"/>
                                        <code code="62109543" codeSystem="2.999.200"
                                              codeSystemName="ACME Laboratories Atomic Result CodeSystem"
                                              displayName="Mean Cell Hemoglobin">
@@ -1754,7 +1754,7 @@
                                                            displayName="Normal"/>
                                        <entryRelationship typeCode="COMP">
                                           <act classCode="INFRM" moodCode="EVN">
-                                             <id root="52a67819-098d-42b9-af78-3087645a3921"/>
+                                             <id root="eaea1a23-5e44-442c-ac8b-5cfbbc842dda"/>
                                              <code code="281296001" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED CT"
                                                    displayName="result comments"/>
                                              <text xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ST">NA</text>
@@ -1762,7 +1762,7 @@
                                        </entryRelationship>
                                        <entryRelationship typeCode="COMP">
                                           <act classCode="INFRM" moodCode="EVN">
-                                             <id root="8e5d57f4-54e4-448b-87b5-314e322d9778"/>
+                                             <id root="76c692f3-7a4b-4551-aab1-caf45d668af6"/>
                                              <code code="281298000" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED CT"
                                                    displayName="reference range comments"/>
                                              <text xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ST">NA</text>
@@ -1770,7 +1770,7 @@
                                        </entryRelationship>
                                        <entryRelationship typeCode="COMP">
                                           <observation classCode="OBS" moodCode="EVN">
-                                             <id root="8a8317b5-b808-4e4d-8b45-30a3a42e485e"/>
+                                             <id root="5f319373-f5cd-4529-a3b8-2a082660a60c"/>
                                              <code code="308552006" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED CT"
                                                    displayName="report status"/>
                                              <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" code="3"
@@ -1797,7 +1797,7 @@
                                  </component>
                                  <component>
                                     <observation classCode="OBS" moodCode="EVN">
-                                       <id root="faa0bfa1-07e8-4914-b1af-0226bd05cb09"/>
+                                       <id root="e8d7259f-2b55-4285-887c-d9dce9ccf3ee"/>
                                        <code code="2333342107" codeSystem="2.999.200"
                                              codeSystemName="ACME Laboratories Atomic Result CodeSystem"
                                              displayName="Mean Cell Hemoglobin Concentration">
@@ -1810,7 +1810,7 @@
                                                            displayName="Normal"/>
                                        <entryRelationship typeCode="COMP">
                                           <act classCode="INFRM" moodCode="EVN">
-                                             <id root="9076ad90-667f-4f5e-9e5c-4bfa5ee805a3"/>
+                                             <id root="c8f4d118-c2b8-405b-910a-0e981940728d"/>
                                              <code code="281296001" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED CT"
                                                    displayName="result comments"/>
                                              <text xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ST">NA</text>
@@ -1818,7 +1818,7 @@
                                        </entryRelationship>
                                        <entryRelationship typeCode="COMP">
                                           <act classCode="INFRM" moodCode="EVN">
-                                             <id root="4df8f709-5004-444d-8df5-bf067c84b5ae"/>
+                                             <id root="6897bc51-9d4c-4b2b-94af-611017f6cd98"/>
                                              <code code="281298000" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED CT"
                                                    displayName="reference range comments"/>
                                              <text xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ST">NA</text>
@@ -1826,7 +1826,7 @@
                                        </entryRelationship>
                                        <entryRelationship typeCode="COMP">
                                           <observation classCode="OBS" moodCode="EVN">
-                                             <id root="5ea2d4f4-990a-4e59-afde-adaf3568b477"/>
+                                             <id root="7612049b-cdb9-4ca0-aa22-5e0c64aee031"/>
                                              <code code="308552006" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED CT"
                                                    displayName="report status"/>
                                              <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" code="3"
@@ -1854,7 +1854,7 @@
                                  </component>
                                  <component>
                                     <observation classCode="OBS" moodCode="EVN">
-                                       <id root="6dece964-cf03-42df-aec6-4b2d4141f12d"/>
+                                       <id root="89051470-7fbe-46c9-84fe-19987a2f8ac1"/>
                                        <code code="87687987" codeSystem="2.999.200"
                                              codeSystemName="ACME Laboratories Atomic Result CodeSystem"
                                              displayName="Platelet">
@@ -1867,7 +1867,7 @@
                                                            displayName="Normal"/>
                                        <entryRelationship typeCode="COMP">
                                           <act classCode="INFRM" moodCode="EVN">
-                                             <id root="a6a4879d-f6c0-41fd-b423-ebdcff1d07fd"/>
+                                             <id root="b7136781-836c-4c06-8a87-6cc95067c4ec"/>
                                              <code code="281296001" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED CT"
                                                    displayName="result comments"/>
                                              <text xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ST">NA</text>
@@ -1875,7 +1875,7 @@
                                        </entryRelationship>
                                        <entryRelationship typeCode="COMP">
                                           <act classCode="INFRM" moodCode="EVN">
-                                             <id root="dc904fb9-c23e-46d8-aba4-ececd4dd525b"/>
+                                             <id root="188e8f64-0907-45cf-bbd7-a812df343fd0"/>
                                              <code code="281298000" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED CT"
                                                    displayName="reference range comments"/>
                                              <text xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ST">NA</text>
@@ -1883,7 +1883,7 @@
                                        </entryRelationship>
                                        <entryRelationship typeCode="COMP">
                                           <observation classCode="OBS" moodCode="EVN">
-                                             <id root="dc6e9556-f4ee-42c5-972e-39922dfa58f5"/>
+                                             <id root="c7b8f42d-cf92-42d3-8482-af0ddcb22037"/>
                                              <code code="308552006" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED CT"
                                                    displayName="report status"/>
                                              <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" code="3"
@@ -1911,7 +1911,7 @@
                                  </component>
                                  <component>
                                     <observation classCode="OBS" moodCode="EVN">
-                                       <id root="5363a58e-c14c-4a9f-a7d7-e8a2304cbaed"/>
+                                       <id root="6d829cc1-1da5-45bf-a65b-f18e2c64ec5d"/>
                                        <code code="87736222225" codeSystem="2.999.200"
                                              codeSystemName="ACME Laboratories Atomic Result CodeSystem"
                                              displayName="White Cell Count">
@@ -1926,7 +1926,7 @@
                                                            displayName="Normal"/>
                                        <entryRelationship typeCode="COMP">
                                           <act classCode="INFRM" moodCode="EVN">
-                                             <id root="c24f57ce-4e1f-4de6-8d99-fb623d85481f"/>
+                                             <id root="a739314d-4d21-4bb6-85ea-a3a51aab8976"/>
                                              <code code="281296001" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED CT"
                                                    displayName="result comments"/>
                                              <text xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ST">NA</text>
@@ -1934,7 +1934,7 @@
                                        </entryRelationship>
                                        <entryRelationship typeCode="COMP">
                                           <act classCode="INFRM" moodCode="EVN">
-                                             <id root="059c1260-c498-46d6-911b-8fe3aa7683c6"/>
+                                             <id root="94cb47ad-327e-4911-9c7d-6b0c60cb408e"/>
                                              <code code="281298000" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED CT"
                                                    displayName="reference range comments"/>
                                              <text xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ST">NA</text>
@@ -1942,7 +1942,7 @@
                                        </entryRelationship>
                                        <entryRelationship typeCode="COMP">
                                           <observation classCode="OBS" moodCode="EVN">
-                                             <id root="43aba809-3845-4e53-a175-adcf7a3c7a68"/>
+                                             <id root="9f0945fc-c7ec-4436-9da3-a4428182f3b6"/>
                                              <code code="308552006" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED CT"
                                                    displayName="report status"/>
                                              <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" code="3"
@@ -1970,7 +1970,7 @@
                                  </component>
                                  <component>
                                     <observation classCode="OBS" moodCode="EVN">
-                                       <id root="c4d5e9b1-ef24-48d1-aabb-96251316b792"/>
+                                       <id root="383019d4-2258-4ec7-afd6-260c4116e149"/>
                                        <code code="13546224" codeSystem="2.999.200"
                                              codeSystemName="ACME Laboratories Atomic Result CodeSystem"
                                              displayName="Neutrophils">
@@ -1983,7 +1983,7 @@
                                                            displayName="Normal"/>
                                        <entryRelationship typeCode="COMP">
                                           <act classCode="INFRM" moodCode="EVN">
-                                             <id root="8772bc79-e13e-4d2b-98d6-b4f1ed36224e"/>
+                                             <id root="dc1ae926-de29-4f0c-9f19-d6214bc924fc"/>
                                              <code code="281296001" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED CT"
                                                    displayName="result comments"/>
                                              <text xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ST">NA</text>
@@ -1991,7 +1991,7 @@
                                        </entryRelationship>
                                        <entryRelationship typeCode="COMP">
                                           <act classCode="INFRM" moodCode="EVN">
-                                             <id root="c39a6c6d-3143-4f6c-a822-e252b782caf6"/>
+                                             <id root="80a1da90-8e13-405c-973b-df25fd2b6e6a"/>
                                              <code code="281298000" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED CT"
                                                    displayName="reference range comments"/>
                                              <text xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ST">NA</text>
@@ -1999,7 +1999,7 @@
                                        </entryRelationship>
                                        <entryRelationship typeCode="COMP">
                                           <observation classCode="OBS" moodCode="EVN">
-                                             <id root="9ae53c0a-b732-4cea-be39-e9ea300226ee"/>
+                                             <id root="b1125ecb-36c6-445b-bd11-4fbd9fed225c"/>
                                              <code code="308552006" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED CT"
                                                    displayName="report status"/>
                                              <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" code="3"
@@ -2027,7 +2027,7 @@
                                  </component>
                                  <component>
                                     <observation classCode="OBS" moodCode="EVN">
-                                       <id root="ccc2e8c8-e5d3-4bd4-b19c-218ec9752d38"/>
+                                       <id root="ab7ec011-e422-423e-8634-c4658f09f55e"/>
                                        <code code="34268543" codeSystem="2.999.200"
                                              codeSystemName="ACME Laboratories Atomic Result CodeSystem"
                                              displayName="Lymphocytes">
@@ -2040,7 +2040,7 @@
                                                            displayName="Normal"/>
                                        <entryRelationship typeCode="COMP">
                                           <act classCode="INFRM" moodCode="EVN">
-                                             <id root="25f024fd-66e0-40c7-9c4b-ac004ffd6775"/>
+                                             <id root="b91c22ee-f58c-4a10-a1c8-0b8d9fd6a17b"/>
                                              <code code="281296001" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED CT"
                                                    displayName="result comments"/>
                                              <text xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ST">NA</text>
@@ -2048,7 +2048,7 @@
                                        </entryRelationship>
                                        <entryRelationship typeCode="COMP">
                                           <act classCode="INFRM" moodCode="EVN">
-                                             <id root="1632ad52-36a8-4e17-97b7-e53e2ba25d02"/>
+                                             <id root="d71bcfe7-8fe7-43bb-be77-f01243d529fb"/>
                                              <code code="281298000" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED CT"
                                                    displayName="reference range comments"/>
                                              <text xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ST">NA</text>
@@ -2056,7 +2056,7 @@
                                        </entryRelationship>
                                        <entryRelationship typeCode="COMP">
                                           <observation classCode="OBS" moodCode="EVN">
-                                             <id root="bce21527-16e0-4da8-a995-645494f90887"/>
+                                             <id root="eb7ddb52-4401-4e1c-bfa4-3e838818ee84"/>
                                              <code code="308552006" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED CT"
                                                    displayName="report status"/>
                                              <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" code="3"
@@ -2084,7 +2084,7 @@
                                  </component>
                                  <component>
                                     <observation classCode="OBS" moodCode="EVN">
-                                       <id root="7861e9f9-38ef-42fe-ba84-f3da17365765"/>
+                                       <id root="f4b680fa-c314-4ba1-aff3-7a4754ed3456"/>
                                        <code code="867645352" codeSystem="2.999.200"
                                              codeSystemName="ACME Laboratories Atomic Result CodeSystem"
                                              displayName="Monocytes">
@@ -2097,7 +2097,7 @@
                                                            displayName="Normal"/>
                                        <entryRelationship typeCode="COMP">
                                           <act classCode="INFRM" moodCode="EVN">
-                                             <id root="efe7f378-2121-4dca-ba8e-e549e93d8e45"/>
+                                             <id root="1a8a8cb1-2a40-4359-97ba-f4ad0f933720"/>
                                              <code code="281296001" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED CT"
                                                    displayName="result comments"/>
                                              <text xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ST">NA</text>
@@ -2105,7 +2105,7 @@
                                        </entryRelationship>
                                        <entryRelationship typeCode="COMP">
                                           <act classCode="INFRM" moodCode="EVN">
-                                             <id root="467c0d3d-dd99-45b8-83cf-8513e373953c"/>
+                                             <id root="ef5c0168-b075-4f74-bca2-522ece06c51f"/>
                                              <code code="281298000" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED CT"
                                                    displayName="reference range comments"/>
                                              <text xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ST">NA</text>
@@ -2113,7 +2113,7 @@
                                        </entryRelationship>
                                        <entryRelationship typeCode="COMP">
                                           <observation classCode="OBS" moodCode="EVN">
-                                             <id root="e3909c10-991e-4d00-bed6-c10d1b51c183"/>
+                                             <id root="4cc0d3c6-948d-40eb-9ff3-f321042373a0"/>
                                              <code code="308552006" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED CT"
                                                    displayName="report status"/>
                                              <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" code="3"
@@ -2141,7 +2141,7 @@
                                  </component>
                                  <component>
                                     <observation classCode="OBS" moodCode="EVN">
-                                       <id root="597cdaca-00d4-43e5-8fed-d04b83be6970"/>
+                                       <id root="2163762a-cf62-4c45-ab45-1fa6e829a6d8"/>
                                        <code code="53075433" codeSystem="2.999.1"
                                              codeSystemName="ACME Laboratories Atomic Result CodeSystem"
                                              displayName="Eosinophils">
@@ -2154,7 +2154,7 @@
                                                            displayName="Normal"/>
                                        <entryRelationship typeCode="COMP">
                                           <act classCode="INFRM" moodCode="EVN">
-                                             <id root="69738e6d-a975-4b69-a195-ff94c7265d8b"/>
+                                             <id root="8a16bb04-f9bb-4d53-b55c-615293656c33"/>
                                              <code code="281296001" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED CT"
                                                    displayName="result comments"/>
                                              <text xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ST">NA</text>
@@ -2162,7 +2162,7 @@
                                        </entryRelationship>
                                        <entryRelationship typeCode="COMP">
                                           <act classCode="INFRM" moodCode="EVN">
-                                             <id root="fb50a4cd-8751-4440-b4a3-01e755cb4909"/>
+                                             <id root="e466ce35-49f2-4f10-8558-969b2a8e948e"/>
                                              <code code="281298000" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED CT"
                                                    displayName="reference range comments"/>
                                              <text xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ST">NA</text>
@@ -2170,7 +2170,7 @@
                                        </entryRelationship>
                                        <entryRelationship typeCode="COMP">
                                           <observation classCode="OBS" moodCode="EVN">
-                                             <id root="93f916a8-ddef-4703-9838-aa45a8a4edc5"/>
+                                             <id root="5de27396-00bf-44e9-864b-62e36fcbb5a1"/>
                                              <code code="308552006" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED CT"
                                                    displayName="report status"/>
                                              <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" code="3"
@@ -2198,7 +2198,7 @@
                                  </component>
                                  <component>
                                     <observation classCode="OBS" moodCode="EVN">
-                                       <id root="da1ae0b7-e956-42fc-98cf-743be55b2f9a"/>
+                                       <id root="c14fa4c2-d92c-4889-a759-71e5670b5892"/>
                                        <code code="917542254" codeSystem="2.999.2"
                                              codeSystemName="ACME Laboratories Atomic Result CodeSystem"
                                              displayName="Basophils">
@@ -2211,7 +2211,7 @@
                                                            displayName="Normal"/>
                                        <entryRelationship typeCode="COMP">
                                           <act classCode="INFRM" moodCode="EVN">
-                                             <id root="8125a3b4-2590-4afd-a967-1423afdb5043"/>
+                                             <id root="6c62ae63-eeec-47b2-81e9-e51139984e67"/>
                                              <code code="281296001" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED CT"
                                                    displayName="result comments"/>
                                              <text xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ST">NA</text>
@@ -2219,7 +2219,7 @@
                                        </entryRelationship>
                                        <entryRelationship typeCode="COMP">
                                           <act classCode="INFRM" moodCode="EVN">
-                                             <id root="a4de3fc9-680a-45ed-893f-e4f6dadf5a77"/>
+                                             <id root="df3934a4-b2f1-455a-93fe-7179cc0b873c"/>
                                              <code code="281298000" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED CT"
                                                    displayName="reference range comments"/>
                                              <text xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ST">NA</text>
@@ -2227,7 +2227,7 @@
                                        </entryRelationship>
                                        <entryRelationship typeCode="COMP">
                                           <observation classCode="OBS" moodCode="EVN">
-                                             <id root="f726fd12-4043-4f4d-b60e-5319dbcaf7dc"/>
+                                             <id root="be2256e6-1d51-4298-a764-6667d871a038"/>
                                              <code code="308552006" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED CT"
                                                    displayName="report status"/>
                                              <value xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" code="3"
@@ -2257,7 +2257,7 @@
                            </entryRelationship>
                            <entryRelationship typeCode="SUBJ">
                               <observation classCode="OBS" moodCode="EVN">
-                                 <id root="0ebaf9d0-a988-4bd3-855d-548fbb90c44a"/>
+                                 <id root="7cb1bf92-a08f-43ca-bcc3-d2a9c56c95ad"/>
                                  <code code="102.16156.136.2.1" codeSystem="1.2.36.1.2001.1001.101"
                                        codeSystemName="NCTIS Data Components"
                                        displayName="Specimen"/>
@@ -2293,24 +2293,24 @@
                                     </specimenRole>
                                  </specimen>
                                  <entryRelationship typeCode="SPRT">
-                                    <observationMedia ID="f330bccc-9da2-4897-95bd-df14d0e1d577" classCode="OBS" moodCode="EVN">
-                                       <id root="c06aa26b-fe36-4f34-bd32-16743bd6ffb1"/>
+                                    <observationMedia ID="d8a9902e-e38b-46d7-9005-065117ebd218" classCode="OBS" moodCode="EVN">
+                                       <id root="a73fa83f-4273-40c6-8487-8c715a2426f7"/>
                                        <value integrityCheck="rnDKallcoMMOWpcYSZ6jjezO4GQ=" mediaType="image/jpeg">
                                           <reference value="x-raySpecimenDetail.jpg"/>
                                        </value>
                                     </observationMedia>
                                  </entryRelationship>
                                  <entryRelationship typeCode="SPRT">
-                                    <observationMedia ID="bbc641c7-11cf-4382-a970-e3f7e057bb36" classCode="OBS" moodCode="EVN">
-                                       <id root="af6166f4-5bfd-485f-9724-db8695dbab15"/>
+                                    <observationMedia ID="fc44b32e-cc8d-4d97-bcaf-efeb1bee76f2" classCode="OBS" moodCode="EVN">
+                                       <id root="2dd17b53-6e87-412e-a357-b8cd4b97252d"/>
                                        <value integrityCheck="rnDKallcoMMOWpcYSZ6jjezO4GQ=" mediaType="image/jpeg">
                                           <reference value="x-raySpecimenDetail.jpg"/>
                                        </value>
                                     </observationMedia>
                                  </entryRelationship>
                                  <entryRelationship typeCode="SPRT">
-                                    <observationMedia ID="dbbf733c-c0d7-4a8e-a823-2bb378927e52" classCode="OBS" moodCode="EVN">
-                                       <id root="87c448bf-d860-4549-bd79-59c7b775aa69"/>
+                                    <observationMedia ID="eac05e48-266a-43aa-a4e8-5717b6366c6e" classCode="OBS" moodCode="EVN">
+                                       <id root="8772086a-5d8c-4b48-aea9-4c4396b9c64e"/>
                                        <value integrityCheck="xARVz193m689kRoZe0c6ZXJ2wvs=" mediaType="image/jpeg">
                                           <reference value="x-ray.jpg"/>
                                        </value>
@@ -2318,7 +2318,7 @@
                                  </entryRelationship>
                                  <entryRelationship typeCode="COMP">
                                     <observation classCode="OBS" moodCode="EVN">
-                                       <id root="491749b9-6a12-45fa-a230-65ab49292f3e"/>
+                                       <id root="98bde798-3e1b-4d9f-a5f4-43bef026df78"/>
                                        <code code="103.16171" codeSystem="1.2.36.1.2001.1001.101"
                                              codeSystemName="NCTIS Data Components"
                                              displayName="Sampling Preconditions"/>
@@ -2331,7 +2331,7 @@
                                  </entryRelationship>
                                  <entryRelationship typeCode="COMP">
                                     <observation classCode="OBS" moodCode="EVN">
-                                       <id root="c0f4afd8-7602-4b9f-ac2c-7945342457a2"/>
+                                       <id root="3926b881-0c8b-4c2d-9dcd-db78bd0b0604"/>
                                        <code code="103.11014" codeSystem="1.2.36.1.2001.1001.101"
                                              codeSystemName="NCTIS Data Components"
                                              displayName="DateTime Received"/>
@@ -2341,7 +2341,7 @@
                                  </entryRelationship>
                                  <entryRelationship typeCode="COMP">
                                     <observation classCode="OBS" moodCode="EVN">
-                                       <id root="5e0552a4-25e0-4ecb-9f73-8e578f218430"/>
+                                       <id root="4e218ba6-bcad-4971-90b3-2ded13f032f9"/>
                                        <code code="103.16187" codeSystem="1.2.36.1.2001.1001.101"
                                              codeSystemName="NCTIS Data Components"
                                              displayName="Parent Specimen Identifier"/>
@@ -2357,8 +2357,8 @@
                         </observation>
                      </entry>
                      <entry>
-                        <observationMedia ID="ca6e0da3-f41e-4afd-9d67-54621fe0f390" classCode="OBS" moodCode="EVN">
-                           <id root="a9e09807-42f9-496a-aa44-a790fd513259"/>
+                        <observationMedia ID="b375a38b-8188-4e25-b9b1-f6733d8c52a3" classCode="OBS" moodCode="EVN">
+                           <id root="3ec61523-69fe-4441-bf39-4491628ac4de"/>
                            <value integrityCheck="WuGzArOJ0d+HNGnOw7xj3uKVXig=" mediaType="application/pdf">
                               <reference value="radiologyreport.pdf"/>
                            </value>
@@ -2368,7 +2368,7 @@
                </component>
                <component>
                   <section>
-                     <id root="3d0986dd-d9b9-44c5-9362-d4ffdaf02478"/>
+                     <id root="8bb3d679-48b1-4340-9963-1e2302bf3787"/>
                      <code code="102.16145" codeSystem="1.2.36.1.2001.1001.101"
                            codeSystemName="NCTIS Data Components"
                            displayName="Imaging Examination Result"/>
@@ -2399,10 +2399,10 @@
                               </tr>
                            </tbody>
                         </table>
-                        <renderMultiMedia referencedObject="e8abf945-2582-4511-998c-ca86c30db271">
+                        <renderMultiMedia referencedObject="d4232f0d-f5ef-4ac9-9390-1a5914ec615d">
                            <caption>Imaging Examination Result x-rayImagingExaminationResult.jpg</caption>
                         </renderMultiMedia>
-                        <renderMultiMedia referencedObject="c9e37b18-310a-4f09-8942-fd81348ca0aa">
+                        <renderMultiMedia referencedObject="b3b87c16-3513-42e1-b249-61cd5e319f07">
                            <caption>Imaging Examination Result x-rayImagingExaminationResult.jpg</caption>
                         </renderMultiMedia>
                         <table>
@@ -2420,11 +2420,11 @@
                               </tr>
                            </tbody>
                         </table>
-                        <renderMultiMedia referencedObject="f29e29bd-72e6-4b10-a640-8af2b37cf97e">
-                           <caption>Result Group Image x-rayimagingExaminationResultGroup.jpg</caption>
+                        <renderMultiMedia referencedObject="b1281485-5b9d-4124-8bc0-1b0c287d323c">
+                           <caption>Result Group Image x-rayImagingExaminationResultGroup.jpg</caption>
                         </renderMultiMedia>
-                        <renderMultiMedia referencedObject="bc97016d-798f-4d22-9c76-d0e9264ef007">
-                           <caption>Result Group Image x-rayimagingExaminationResultGroup.jpg</caption>
+                        <renderMultiMedia referencedObject="b67faa96-a5f0-404e-a285-e64ea7037770">
+                           <caption>Result Group Image x-rayImagingExaminationResultGroup.jpg</caption>
                         </renderMultiMedia>
                         <table>
                            <caption>Result Group &gt; Imaging Results</caption>
@@ -2489,13 +2489,13 @@
                               </tr>
                            </tbody>
                         </table>
-                        <renderMultiMedia referencedObject="e717849a-3356-4e9e-9241-1ee11b7d4731">
+                        <renderMultiMedia referencedObject="e8677ee7-6391-4f95-9703-cadc31dac1aa">
                            <caption>Image x-ray.jpg</caption>
                         </renderMultiMedia>
                      </text>
                      <entry>
                         <observation classCode="OBS" moodCode="EVN">
-                           <id root="003b5001-31b8-4415-898e-64515d86160f"/>
+                           <id root="3fde0508-300a-4d58-9382-3360f1a858ac"/>
                            <code>
                               <originalText>Result Name</originalText>
                            </code>
@@ -2519,16 +2519,16 @@
                               </qualifier>
                            </targetSiteCode>
                            <entryRelationship typeCode="REFR">
-                              <observationMedia ID="e8abf945-2582-4511-998c-ca86c30db271" classCode="OBS" moodCode="EVN">
-                                 <id root="d948d9d2-d7ea-460b-b86c-73dc39a24376"/>
+                              <observationMedia ID="d4232f0d-f5ef-4ac9-9390-1a5914ec615d" classCode="OBS" moodCode="EVN">
+                                 <id root="d4b3d7de-362d-4a8b-bc4b-23bc42e22d7b"/>
                                  <value integrityCheck="1OiMgK1xVcbWQvhVPI8LOVuvg5A=" mediaType="image/jpeg">
                                     <reference value="x-rayImagingExaminationResult.jpg"/>
                                  </value>
                               </observationMedia>
                            </entryRelationship>
                            <entryRelationship typeCode="REFR">
-                              <observationMedia ID="c9e37b18-310a-4f09-8942-fd81348ca0aa" classCode="OBS" moodCode="EVN">
-                                 <id root="4f1d7ad0-9e00-4207-b848-5efbff56d5bc"/>
+                              <observationMedia ID="b3b87c16-3513-42e1-b249-61cd5e319f07" classCode="OBS" moodCode="EVN">
+                                 <id root="cecb44fe-21cb-4f19-98a6-6655ba9391b3"/>
                                  <value integrityCheck="1OiMgK1xVcbWQvhVPI8LOVuvg5A=" mediaType="image/jpeg">
                                     <reference value="x-rayImagingExaminationResult.jpg"/>
                                  </value>
@@ -2536,7 +2536,7 @@
                            </entryRelationship>
                            <entryRelationship typeCode="COMP">
                               <observation classCode="OBS" moodCode="EVN">
-                                 <id root="8902246c-ed80-4b64-b28e-03e59f83c606"/>
+                                 <id root="ad1cc0fb-d49c-4e3f-bece-19250bfe8bda"/>
                                  <code xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" code="308552006"
                                        codeSystem="2.16.840.1.113883.6.96"
                                        codeSystemName="SNOMED CT"
@@ -2553,7 +2553,7 @@
                            </entryRelationship>
                            <entryRelationship typeCode="COMP">
                               <act classCode="INFRM" moodCode="EVN">
-                                 <id root="5061fe0c-0372-4291-9d8e-593ca5c672bc"/>
+                                 <id root="c3d09600-fe8e-497c-aee9-8392f387d344"/>
                                  <code code="55752-0" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"
                                        displayName="Clinical information"/>
                                  <text xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ST">Fluid Retention.</text>
@@ -2561,7 +2561,7 @@
                            </entryRelationship>
                            <entryRelationship typeCode="REFR">
                               <observation classCode="OBS" moodCode="EVN">
-                                 <id root="8f14b6a1-f1d6-4077-b497-4fa8e54aa2ba"/>
+                                 <id root="7f871d06-2c88-445a-b2ae-1c8487d90f13"/>
                                  <code xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" code="103.16503"
                                        codeSystem="1.2.36.1.2001.1001.101"
                                        codeSystemName="NCTIS Data Components"
@@ -2572,14 +2572,14 @@
                            </entryRelationship>
                            <entryRelationship typeCode="COMP">
                               <organizer classCode="BATTERY" moodCode="EVN">
-                                 <id root="7f0e5a5c-193c-49f8-ab3b-749d300ebd92"/>
-                                 <code code="beed8315-0a9e-4faa-9672-f6b1bc2ebf0d" codeSystem="2.999.333">
+                                 <id root="8b3b083b-cb1b-4cf3-acc9-5d3a04893636"/>
+                                 <code code="3916a381-fded-4736-8c03-5ebaa736fc40" codeSystem="2.999.333">
                                     <originalText>Result Group Name</originalText>
                                  </code>
                                  <statusCode code="completed"/>
                                  <component>
                                     <observation classCode="OBS" moodCode="EVN">
-                                       <id root="b4135745-c623-48c2-8f4b-780667e93b8e"/>
+                                       <id root="0573915d-224a-427c-b846-8f2cebe592b4"/>
                                        <code>
                                           <originalText>Imaging Result Name</originalText>
                                        </code>
@@ -2600,7 +2600,7 @@
                                        </targetSiteCode>
                                        <entryRelationship typeCode="COMP">
                                           <act classCode="INFRM" moodCode="EVN">
-                                             <id root="6f0cecae-8418-4e05-9fcf-7ecfdcab4ff5"/>
+                                             <id root="bc9edaac-3d95-4ecd-b76b-a4001ad4eb49"/>
                                              <code code="281296001" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED CT"
                                                    displayName="result comments"/>
                                              <text xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ST">Please</text>
@@ -2608,25 +2608,25 @@
                                        </entryRelationship>
                                        <entryRelationship typeCode="COMP">
                                           <act classCode="INFRM" moodCode="EVN">
-                                             <id root="9ee09d4f-f34f-4c26-ab14-8daac187767e"/>
+                                             <id root="543aa4c5-8202-4f61-a65d-f60d0826db21"/>
                                              <code code="281296001" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED CT"
                                                    displayName="result comments"/>
                                              <text xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ST">Add Comments</text>
                                           </act>
                                        </entryRelationship>
                                        <entryRelationship typeCode="REFR">
-                                          <observationMedia ID="f29e29bd-72e6-4b10-a640-8af2b37cf97e" classCode="OBS" moodCode="EVN">
-                                             <id root="b2d0200a-0a11-482c-bf01-11482fbf4985"/>
-                                             <value integrityCheck="2jmj7l5rSw0yVb/vlWAYkK/YBwk=" mediaType="text/plain">
-                                                <reference value="x-rayimagingExaminationResultGroup.jpg"/>
+                                          <observationMedia ID="b1281485-5b9d-4124-8bc0-1b0c287d323c" classCode="OBS" moodCode="EVN">
+                                             <id root="b805bfa2-3b8a-442f-80b1-97e65148efeb"/>
+                                             <value integrityCheck="V2GuSB9DTpOJbLtPYZcAH/ebEpI=" mediaType="image/jpeg">
+                                                <reference value="x-rayImagingExaminationResultGroup.jpg"/>
                                              </value>
                                           </observationMedia>
                                        </entryRelationship>
                                        <entryRelationship typeCode="REFR">
-                                          <observationMedia ID="bc97016d-798f-4d22-9c76-d0e9264ef007" classCode="OBS" moodCode="EVN">
-                                             <id root="478a0238-c629-431d-9001-a278c0aef07b"/>
-                                             <value integrityCheck="2jmj7l5rSw0yVb/vlWAYkK/YBwk=" mediaType="text/plain">
-                                                <reference value="x-rayimagingExaminationResultGroup.jpg"/>
+                                          <observationMedia ID="b67faa96-a5f0-404e-a285-e64ea7037770" classCode="OBS" moodCode="EVN">
+                                             <id root="7a25f4e8-f75f-42f5-a817-95587ff04b22"/>
+                                             <value integrityCheck="V2GuSB9DTpOJbLtPYZcAH/ebEpI=" mediaType="image/jpeg">
+                                                <reference value="x-rayImagingExaminationResultGroup.jpg"/>
                                              </value>
                                           </observationMedia>
                                        </entryRelationship>
@@ -2649,7 +2649,7 @@
                            </entryRelationship>
                            <entryRelationship inversionInd="true" typeCode="SUBJ">
                               <act classCode="ACT" moodCode="EVN">
-                                 <id root="eb951e9a-ba60-44a7-a4f7-199fc496d800"/>
+                                 <id root="b3c42eb5-3c2b-4739-a5b2-763944fb9fb6"/>
                                  <code code="102.16511" codeSystem="1.2.36.1.2001.1001.101"
                                        codeSystemName="NCTIS Data Components"
                                        displayName="Examination Request Details"/>
@@ -2664,7 +2664,7 @@
                                  </entryRelationship>
                                  <entryRelationship typeCode="COMP">
                                     <observation classCode="OBS" moodCode="EVN">
-                                       <id root="104663ff-b0c1-47c6-9dd0-95ceb251c3aa"/>
+                                       <id root="aa073792-9875-4552-a93e-ffbb49b3bf57"/>
                                        <code code="103.16514" codeSystem="1.2.36.1.2001.1001.101"
                                              codeSystemName="NCTIS Data Components"
                                              displayName="Report Identifier"/>
@@ -2678,7 +2678,7 @@
                                              displayName="DICOM Study Identifier"/>
                                        <entryRelationship typeCode="COMP">
                                           <observation classCode="OBS" moodCode="EVN">
-                                             <id extension="Image Identifier" root="03df9a11-8eaf-4a72-99d2-6224a24dfb2a"/>
+                                             <id extension="Image Identifier" root="9ce7ff77-3153-4908-a0b8-61fd036a1e1c"/>
                                              <code code="102.16515" codeSystem="1.2.36.1.2001.1001.101"
                                                    codeSystemName="NCTIS Data Components"
                                                    displayName="Image Details"/>
@@ -2703,8 +2703,8 @@
                                                 </observation>
                                              </entryRelationship>
                                              <entryRelationship typeCode="SPRT">
-                                                <observationMedia ID="e717849a-3356-4e9e-9241-1ee11b7d4731" classCode="OBS" moodCode="EVN">
-                                                   <id root="0526751c-7200-4cec-a360-af44182da7a6"/>
+                                                <observationMedia ID="e8677ee7-6391-4f95-9703-cadc31dac1aa" classCode="OBS" moodCode="EVN">
+                                                   <id root="ede6bf16-2011-41bf-bf6e-2eeb8013cd8d"/>
                                                    <value integrityCheck="xARVz193m689kRoZe0c6ZXJ2wvs=" mediaType="image/jpeg">
                                                       <reference value="x-ray.jpg"/>
                                                    </value>
@@ -2718,7 +2718,7 @@
                            </entryRelationship>
                            <entryRelationship typeCode="COMP">
                               <observation classCode="OBS" moodCode="EVN">
-                                 <id root="df77bd8f-3fdd-48ca-b088-5b0bff95bb5f"/>
+                                 <id root="f5c9c8b6-9ac5-4837-81f3-c75fed4c6cd2"/>
                                  <code xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" code="103.16589"
                                        codeSystem="1.2.36.1.2001.1001.101"
                                        codeSystemName="NCTIS Data Components"
@@ -2774,7 +2774,7 @@
                </text>
                <entry typeCode="DRIV">
                   <observation classCode="OBS" moodCode="EVN">
-                     <id root="e54d72c6-aab0-45bb-a1d4-b4b0d28340e8"/>
+                     <id root="a9af66bb-ec19-4659-90a3-887c2e7498c7"/>
                      <code xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" code="103.16233"
                            codeSystem="1.2.36.1.2001.1001.101"
                            codeSystemName="NCTIS Data Components"
@@ -2785,7 +2785,7 @@
                </entry>
                <entry typeCode="DRIV">
                   <observation classCode="OBS" moodCode="EVN">
-                     <id root="7205ef0c-1259-4716-8f35-0229301cb26f"/>
+                     <id root="56c5d501-2cf9-4532-83f5-66d9befada92"/>
                      <code xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" code="102.16234"
                            codeSystem="1.2.36.1.2001.1001.101"
                            codeSystemName="NCTIS Data Components"
@@ -2796,7 +2796,7 @@
                </entry>
                <entry typeCode="DRIV">
                   <observation classCode="OBS" moodCode="EVN">
-                     <id root="d0e4d5ea-d49f-4d86-adcf-9edb0ccc0a23"/>
+                     <id root="6a6698b0-e597-41f7-909f-7e27022c8153"/>
                      <code xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" code="103.20109"
                            codeSystem="1.2.36.1.2001.1001.101"
                            codeSystemName="NCTIS Data Components"
@@ -2808,7 +2808,7 @@
                </entry>
                <entry typeCode="DRIV">
                   <observation classCode="OBS" moodCode="EVN">
-                     <id root="ec0268e2-01f3-4895-b68f-6abcf4bfe533"/>
+                     <id root="297611eb-885a-4e59-b606-a60f9e017329"/>
                      <code xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" code="103.16279"
                            codeSystem="1.2.36.1.2001.1001.101"
                            codeSystemName="NCTIS Data Components"
@@ -2819,7 +2819,7 @@
                </entry>
                <entry typeCode="DRIV">
                   <observation classCode="OBS" moodCode="EVN">
-                     <id root="3e19b85f-ffbe-4edb-afbf-f8b850356fd2"/>
+                     <id root="f24c68fc-9b34-41a5-ac21-1f072bbb2976"/>
                      <code xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" code="103.16249"
                            codeSystem="1.2.36.1.2001.1001.101"
                            codeSystemName="NCTIS Data Components"
@@ -2838,11 +2838,11 @@
                         <originalText>Medicare Benefits</originalText>
                      </ns2:code>
                      <ns2:effectiveTime>
-                        <high value="20210415"/>
+                        <high value="20210416"/>
                      </ns2:effectiveTime>
                      <ns2:participant typeCode="BEN">
                         <ns2:participantRole classCode="PAT">
-                           <ns2:id root="0628a9ec-8d5e-4b04-80a1-6040f7c61b41"/>
+                           <ns2:id root="b7ec61cf-e9bf-4a69-96c1-7af51ca27cd1"/>
                         </ns2:participantRole>
                      </ns2:participant>
                   </ns2:entitlement>

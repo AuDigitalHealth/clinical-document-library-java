@@ -69,6 +69,7 @@ import au.gov.nehta.model.clinical.sr.ServiceReferralImpl;
 import au.gov.nehta.model.schematron.SchematronValidationException;
 import au.gov.nehta.schematron.Schematron;
 import au.gov.nehta.schematron.SchematronCheckResult;
+import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
@@ -94,13 +95,13 @@ public class ServiceReferralMaxTest extends Base {
       show(check);
       assertEquals(0, check.schemaErrors.size());
       assertEquals(0, check.schematronErrors.size());
-    } catch (SchematronValidationException | ParserConfigurationException | JAXBException e) {
+    } catch (SchematronValidationException | ParserConfigurationException | JAXBException | FileNotFoundException e) {
       e.printStackTrace();
     }
   }
 
   private void generateMax()
-      throws SchematronValidationException, JAXBException, ParserConfigurationException {
+      throws SchematronValidationException, JAXBException, ParserConfigurationException, FileNotFoundException {
     DateTime now = new DateTime();
     PreciseDate dateTimeAttested = new PrecisionDate(Precision.DAY, now.minusHours(6));
     DocumentAuthor documentAuthor = TestHelper.getDocumentAuthor(now);
@@ -122,7 +123,7 @@ public class ServiceReferralMaxTest extends Base {
     System.out.println(cdaString);
   }
 
-  private ServiceReferralContent getContent() {
+  private ServiceReferralContent getContent() throws FileNotFoundException {
     AttachedMedia reportFile = TestHelper.getAttachedMediaPDF("radiologyreport.pdf");
     ServiceReferralContent content = new ServiceReferralContentImpl(reportFile);
     content.setCurrentServices(getCurrentServices());

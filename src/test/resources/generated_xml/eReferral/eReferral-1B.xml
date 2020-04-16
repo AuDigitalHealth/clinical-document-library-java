@@ -4,11 +4,11 @@
    <typeId extension="POCD_HD000040" root="2.16.840.1.113883.1.3"/>
    <templateId extension="2.2" root="1.2.36.1.2001.1001.101.100.1002.2"/>
    <templateId extension="1.0" root="1.2.36.1.2001.1001.100.149"/>
-   <id root="2.25.145969979015084594321433521449787475074"/>
+   <id root="2.25.314248610734279527028467506661238547211"/>
    <code code="57133-1" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"
          displayName="Referral note"/>
    <title>e-Referral</title>
-   <effectiveTime value="20200415144751+1000"/>
+   <effectiveTime value="20200416140816+1000"/>
    <confidentialityCode nullFlavor="NA"/>
    <languageCode code="en-AU"/>
    <versionNumber value="1"/>
@@ -17,7 +17,7 @@
                        displayName="Final"/>
    <recordTarget typeCode="RCT">
       <patientRole classCode="PAT">
-         <id root="07742388-e7cb-4197-be05-252b089934cb"/>
+         <id root="a95c177f-4d22-4274-83db-34eb10454540"/>
          <addr use="H">
             <streetAddressLine>The Complex</streetAddressLine>
             <streetAddressLine>Unit 90210 / 10 Browning st</streetAddressLine>
@@ -54,9 +54,9 @@
       </patientRole>
    </recordTarget>
    <author typeCode="AUT">
-      <time value="20200415144751+1000"/>
+      <time value="20200416140816+1000"/>
       <assignedAuthor>
-         <id root="7b1d47ff-e6ea-42d0-97eb-5eb784066888"/>
+         <id root="bc1f3885-6c85-403a-a755-61ff9805bdcc"/>
          <code code="253111" codeSystem="2.16.840.1.113883.13.62"
                codeSystemName="1220.0 - ANZSCO - Australian and New Zealand Standard Classification of Occupations, First Edition, 2006"
                displayName="General Medical Practitioner"/>
@@ -128,7 +128,7 @@
    <custodian>
       <assignedCustodian>
          <representedCustodianOrganization>
-            <id root="f66e2661-a956-4672-aca0-532a9294e36c"/>
+            <id root="d2618280-892a-476c-ad60-f9f6a0962267"/>
             <name>Custodian organisation</name>
             <telecom use="WP" value="mailto:example@custodian.com.au"/>
             <addr use="PST">
@@ -150,7 +150,7 @@
    </custodian>
    <participant typeCode="REFT">
       <associatedEntity classCode="PROV">
-         <id root="60f1db24-6df2-45dc-915c-1c235b4650d0"/>
+         <id root="eb1dc35b-0ea1-4e71-8372-3356c701ec65"/>
          <code code="253399" codeSystem="2.16.840.1.113883.13.62"
                codeSystemName="1220.0 - ANZSCO - Australian and New Zealand Standard Classification of Occupations, First Edition, 2006"
                displayName="Specialist Physicians nec"/>

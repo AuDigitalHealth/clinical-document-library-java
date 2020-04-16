@@ -4,11 +4,11 @@
    <typeId extension="POCD_HD000040" root="2.16.840.1.113883.1.3"/>
    <templateId extension="1.3" root="1.2.36.1.2001.1001.101.100.1002.132"/>
    <templateId extension="1.0" root="1.2.36.1.2001.1001.100.149"/>
-   <id root="2.25.293557197093868788436970143282113706089"/>
+   <id root="2.25.313277210538150694353765072284860409205"/>
    <code code="51852-2" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC"
          displayName="Letter"/>
    <title>Specialist Letter</title>
-   <effectiveTime value="20200415144755+1000"/>
+   <effectiveTime value="20200416140819+1000"/>
    <confidentialityCode nullFlavor="NA"/>
    <languageCode code="en-AU"/>
    <versionNumber value="1"/>
@@ -17,7 +17,7 @@
                        displayName="Final"/>
    <recordTarget typeCode="RCT">
       <patientRole classCode="PAT">
-         <id root="c6b4a8e8-ef0c-4127-9828-40e0cedbab80"/>
+         <id root="4d9f8f86-a080-4b33-afbc-65fe559834aa"/>
          <addr use="H">
             <streetAddressLine>The Complex</streetAddressLine>
             <streetAddressLine>Unit 90210 / 10 Browning st</streetAddressLine>
@@ -54,9 +54,9 @@
       </patientRole>
    </recordTarget>
    <author typeCode="AUT">
-      <time value="20200415144755+1000"/>
+      <time value="20200416140819+1000"/>
       <assignedAuthor>
-         <id root="22a6bca3-390c-4e69-a68a-5d59237e1337"/>
+         <id root="414b457c-8c6f-4951-95bc-cd416cb00d07"/>
          <code code="253111" codeSystem="2.16.840.1.113883.13.62"
                codeSystemName="1220.0 - ANZSCO - Australian and New Zealand Standard Classification of Occupations, First Edition, 2006"
                displayName="General Medical Practitioner"/>
@@ -128,7 +128,7 @@
    <custodian>
       <assignedCustodian>
          <representedCustodianOrganization>
-            <id root="baa532da-d0a4-47b1-8e2c-62f6ce4e7637"/>
+            <id root="28c438c1-73a5-4d72-a91f-a461ee61a76f"/>
             <name>Custodian organisation</name>
             <telecom use="WP" value="mailto:example@custodian.com.au"/>
             <addr use="PST">
@@ -150,7 +150,7 @@
    </custodian>
    <informationRecipient typeCode="TRC">
       <intendedRecipient>
-         <id root="df2384ed-5a89-4e7b-9dc9-f78163c5c23a"/>
+         <id root="b7b15d6b-e2ba-4de7-833c-ab429dad22d7"/>
          <addr use="WP">
             <streetAddressLine>616 Bromley Street</streetAddressLine>
             <postalCode>4169</postalCode>
@@ -181,10 +181,10 @@
       </intendedRecipient>
    </informationRecipient>
    <legalAuthenticator>
-      <time value="20200415144755+1000"/>
+      <time value="20200416140819+1000"/>
       <signatureCode code="S"/>
       <assignedEntity>
-         <id root="2e275436-0996-4971-a809-a4630fc489a6"/>
+         <id root="031f7095-42c7-4599-9f4b-ae8fa16a417b"/>
          <code code="253511" codeSystem="2.16.840.1.113883.13.62"
                codeSystemName="1220.0 - ANZSCO - Australian and New Zealand Standard Classification of Occupations, First Edition, 2006"
                displayName="Surgeon (General)"/>
@@ -228,7 +228,7 @@
    </legalAuthenticator>
    <componentOf>
       <encompassingEncounter>
-         <effectiveTime value="20200414"/>
+         <effectiveTime value="20200415"/>
       </encompassingEncounter>
    </componentOf>
    <component>
@@ -292,7 +292,7 @@
          </component>
          <component typeCode="COMP">
             <section>
-               <id root="a2bf9d0a-5746-4217-903e-1fe09d1c725c"/>
+               <id root="2504b58c-b1ec-4a32-95ad-02b49e292402"/>
                <code code="101.20113" codeSystem="1.2.36.1.2001.1001.101"
                      codeSystemName="NCTIS Data Components"
                      displayName="Adverse Reactions"/>
@@ -335,7 +335,7 @@
          </component>
          <component typeCode="COMP">
             <section classCode="DOCSECT" moodCode="EVN">
-               <id root="d65baf10-ef10-45f6-a948-3ec87711c82b"/>
+               <id root="73c1c735-a19c-4b66-9aba-2951c7d5416b"/>
                <code code="101.16146" codeSystem="1.2.36.1.2001.1001.101"
                      codeSystemName="NCTIS Data Components"
                      displayName="Medications"/>
@@ -371,7 +371,7 @@
          </component>
          <component typeCode="COMP">
             <section classCode="DOCSECT" moodCode="EVN">
-               <id root="ec31745b-4c2e-426a-9ac1-7387f2320471"/>
+               <id root="447686bc-7715-4473-b686-feb484a1f48b"/>
                <code code="101.20117" codeSystem="1.2.36.1.2001.1001.101"
                      codeSystemName="NCTIS Data Components"
                      displayName="Diagnostic Investigations"/>
@@ -381,7 +381,7 @@
                </text>
                <component>
                   <section>
-                     <id root="72c524b3-79d3-458d-bdb7-0e290769769a"/>
+                     <id root="1c55916b-1b06-4982-9879-721ad070da87"/>
                      <code code="102.16029" codeSystem="1.2.36.1.2001.1001.101"
                            codeSystemName="NCTIS Data Components"
                            displayName="Diagnostic Investigation"/>
@@ -418,7 +418,7 @@
                </component>
                <component>
                   <section>
-                     <id root="0ccf16d5-21f8-4b87-bbee-924a52b6768c"/>
+                     <id root="de911c9e-c05a-46d4-a11f-703ef4ee4e99"/>
                      <code code="102.20158" codeSystem="1.2.36.1.2001.1001.101"
                            codeSystemName="NCTIS Data Components"
                            displayName="Requested Service"/>
@@ -477,7 +477,7 @@
                </component>
                <component>
                   <section>
-                     <id root="ffd32d91-d582-4cd3-8bf1-ad836155feb3"/>
+                     <id root="f313ed9b-dd4f-4394-a291-b21b9f99b60c"/>
                      <code code="102.16144" codeSystem="1.2.36.1.2001.1001.101"
                            codeSystemName="NCTIS Data Components"
                            displayName="Pathology Test Result"/>
@@ -546,7 +546,7 @@
                </component>
                <component>
                   <section>
-                     <id root="ed88677c-27e5-41af-b61c-8d664e1fb546"/>
+                     <id root="facded37-8427-4559-9ced-4e30ec9ec181"/>
                      <code code="102.16145" codeSystem="1.2.36.1.2001.1001.101"
                            codeSystemName="NCTIS Data Components"
                            displayName="Imaging Examination Result"/>
@@ -738,7 +738,7 @@
                </text>
                <entry typeCode="DRIV">
                   <observation classCode="OBS" moodCode="EVN">
-                     <id root="7e52ec7d-e1dc-4259-9906-537790ad9326"/>
+                     <id root="7475c3d1-b7cb-4d97-b271-5abb23235b35"/>
                      <code xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" code="103.16233"
                            codeSystem="1.2.36.1.2001.1001.101"
                            codeSystemName="NCTIS Data Components"
@@ -749,7 +749,7 @@
                </entry>
                <entry typeCode="DRIV">
                   <observation classCode="OBS" moodCode="EVN">
-                     <id root="aeb46b2b-e153-48e6-a6e1-f30feaffb410"/>
+                     <id root="959a664b-0671-4b87-acfd-99990742ec49"/>
                      <code xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" code="102.16234"
                            codeSystem="1.2.36.1.2001.1001.101"
                            codeSystemName="NCTIS Data Components"
@@ -760,7 +760,7 @@
                </entry>
                <entry typeCode="DRIV">
                   <observation classCode="OBS" moodCode="EVN">
-                     <id root="056eda9e-3b7d-458a-856d-fff68a6f3219"/>
+                     <id root="571f28c5-2487-4ee8-a48f-b18285ad380b"/>
                      <code xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" code="103.20109"
                            codeSystem="1.2.36.1.2001.1001.101"
                            codeSystemName="NCTIS Data Components"
@@ -772,7 +772,7 @@
                </entry>
                <entry typeCode="DRIV">
                   <observation classCode="OBS" moodCode="EVN">
-                     <id root="c348e53b-a3c9-4d94-9bf1-3775fde85d0b"/>
+                     <id root="5293b5a3-63b2-467d-977b-13f056eed3b9"/>
                      <code xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" code="103.16279"
                            codeSystem="1.2.36.1.2001.1001.101"
                            codeSystemName="NCTIS Data Components"
@@ -783,7 +783,7 @@
                </entry>
                <entry typeCode="DRIV">
                   <observation classCode="OBS" moodCode="EVN">
-                     <id root="5ced0f05-0ec9-43b4-990d-0725ab754760"/>
+                     <id root="366b65da-954d-4101-8e9c-80e2cb383370"/>
                      <code xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" code="103.16249"
                            codeSystem="1.2.36.1.2001.1001.101"
                            codeSystemName="NCTIS Data Components"
@@ -802,11 +802,11 @@
                         <originalText>Medicare Benefits</originalText>
                      </ns2:code>
                      <ns2:effectiveTime>
-                        <high value="20210415"/>
+                        <high value="20210416"/>
                      </ns2:effectiveTime>
                      <ns2:participant typeCode="BEN">
                         <ns2:participantRole classCode="PAT">
-                           <ns2:id root="c6b4a8e8-ef0c-4127-9828-40e0cedbab80"/>
+                           <ns2:id root="4d9f8f86-a080-4b33-afbc-65fe559834aa"/>
                         </ns2:participantRole>
                      </ns2:participant>
                   </ns2:entitlement>
