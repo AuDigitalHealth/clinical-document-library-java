@@ -1,17 +1,4 @@
 
-    <!-- ================================================================ -->
-    <!-- PLEASE DON'T EDIT THIS FILE. ITS CODE IS GENERATED FROM TEMPLATE -->
-    <!-- AND IS UNIFORM ACROSS ALL PACKAGES.                              -->
-    <!-- ================================================================ -->
-
-    <!-- PCEHR Prescription Record Clinical Document: DataType Global Checks -->
-
-    <!-- Context: ClinicalDocument -->
-
-    <!-- Status: Last Reviewed:
-         Status: Last Updated : 8/11/2012 -->
-
-
     <pattern name="p-PCEHR_Prescription_Record_DataType_Global_Checks-errors"
         id="p-PCEHR_Prescription_Record_DataType_Global_Checks-errors"
         see="#p-PCEHR_Prescription_Record_DataType_Global_Checks-errors">
@@ -203,18 +190,7 @@
                 PCEHR_Prescription_Record_CDA_Implementation_Guide_v1.0.</report>
 
             <!-- The CD data type "nullFlavor" attribute can have one of the following values:: NI, UNK, ASKU, NAV, NASK, NA. -->
-            <report test="@nullFlavor and
-                normalize-space(@nullFlavor) != '' and
-                not(document('CDAValidate_Vocabs.xml')/systems/system[@codeSystemName = 'Coded_DataType_NullFlavor']/code[(@code = current()/@nullFlavor)])"
-                >Error: PCEHR Prescription Record -
-                Global Clinical Document check for "cda:value/@nullFlavor" attribute -
-                The 'code' tag 'nullFlavor' attribute shall be as per FAQ Representing
-                Coding in CDA Documents CDA CD DataType nullFlavors.
-                Check all 'cda:value' tags with 'xsi:type=CD' attribute to find
-                the 'nullFlavor' attributes of incorrect value.
-                Refer to section 2.1.1 of the FAQ Representing Coding in CDA Documents,
-                and section 0.0 of the
-                PCEHR_Prescription_Record_CDA_Implementation_Guide_v1.0.</report>
+            
 
             <report test="count(cda:originalText) > 1"
                 >Error: PCEHR Prescription Record -
@@ -2299,4 +2275,3 @@
 
 
     </pattern>
-

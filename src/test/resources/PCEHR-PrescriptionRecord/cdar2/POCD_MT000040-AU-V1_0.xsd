@@ -390,6 +390,9 @@ StaticMifToXsd.xsl version 2.0</xs:documentation>
 			<xs:element name="code" type="CE" minOccurs="0"/>
 			<xs:element name="manufacturerModelName" type="SC" minOccurs="0"/>
 			<xs:element name="softwareName" type="SC" minOccurs="0"/>
+			<!-- Extension: start asEntityIdentifier -->
+			<xs:element ref="ext:asEntityIdentifier" minOccurs="0" maxOccurs="unbounded" />
+			<!-- Extension: end asEntityIdentifier -->
 		</xs:sequence>
 		<xs:attribute name="nullFlavor" type="NullFlavor" use="optional"/>
 		<xs:attribute name="classCode" type="EntityClassDevice" use="optional" default="DEV"/>
@@ -481,13 +484,21 @@ StaticMifToXsd.xsl version 2.0</xs:documentation>
 			<!-- Extension: end addr -->
 			
 			<!-- Extension: start asOrganizationPartOf -->
-			<xs:element name="asOrganizationPartOf" type="ext:OrganizationPartOf" minOccurs="0"/>
+			<xs:element ref="ext:asOrganizationPartOf" minOccurs="0" maxOccurs="unbounded"/>
 			<!-- Extension: end asOrganizationPartOf -->
 			
 			<!-- Extension: start asEntityIdentifier -->
 			<xs:element ref="ext:asEntityIdentifier" minOccurs="0" maxOccurs="unbounded" />
 			<!-- Extension: end asEntityIdentifier -->
+
+			<!-- Extension: start asQualifiedEntity -->
+			<xs:element ref="ext:asQualifiedEntity" minOccurs="0" maxOccurs="1"/>
+			<!-- Extension: end asQualifiedEntity -->
 			
+			<!-- Extensions: start PersonalRelationShip -->
+			<xs:element ref="ext:personalRelationship" minOccurs="0" maxOccurs="unbounded"></xs:element>
+			<!-- Extensions: end PersonalRelationShip -->			
+
 		</xs:sequence>
 		<xs:attribute name="nullFlavor" type="NullFlavor" use="optional"/>
 		<xs:attribute name="classCode" type="EntityClassRoot" use="optional" default="ENT"/>
@@ -1168,10 +1179,22 @@ StaticMifToXsd.xsl version 2.0</xs:documentation>
 			<xs:element ref="ext:asEntityIdentifier" minOccurs="0" maxOccurs="unbounded" />
 			<!-- Extension: end asEntityIdentifier -->
 			
+			<!-- Extension: start asEmployment -->
+			<xs:element ref="ext:asEmployment" minOccurs="0" maxOccurs="1"/>
+			<!-- Extension: end asEmployment -->
+			
+			<!-- Extension: start asQualifiedEntity -->
+			<xs:element ref="ext:asQualifiedEntity" minOccurs="0" maxOccurs="1"/>
+			<!-- Extension: end asQualifiedEntity -->
+			
 			<!-- Extension: asSpecimenInContainer -->
 			<xs:element ref="ext:asSpecimenInContainer" minOccurs="0" maxOccurs="1" />
 			<!-- End Extension: asSpecimenInContainer -->
 			
+			<!-- Extensions: start PersonalRelationShip -->
+			<xs:element ref="ext:personalRelationship" minOccurs="0" maxOccurs="unbounded"></xs:element>
+			<!-- Extensions: end PersonalRelationShip -->
+
 		</xs:sequence>
 		<xs:attribute name="nullFlavor" type="NullFlavor" use="optional"/>
 		<xs:attribute name="classCode" type="EntityClassRoot" use="optional" default="ENT"/>
@@ -1433,9 +1456,42 @@ StaticMifToXsd.xsl version 2.0</xs:documentation>
 			<xs:element name="realmCode" type="CS" minOccurs="0" maxOccurs="unbounded"/>
 			<xs:element name="typeId" type="POCD_MT000040.InfrastructureRoot.typeId" minOccurs="0"/>
 			<xs:element name="templateId" type="II" minOccurs="0" maxOccurs="unbounded"/>
+			<!-- Extension: start id -->
+			<xs:element ref="ext:id" minOccurs="0" maxOccurs="unbounded" />
+			<!-- Extension: end id -->
 			<xs:element name="name" type="PN" minOccurs="0" maxOccurs="unbounded"/>
 			<xs:element name="administrativeGenderCode" type="CE" minOccurs="0"/>
 			<xs:element name="birthTime" type="TS" minOccurs="0"/>
+			
+			<!-- Extension: start ethnicGroupCode -->
+			<xs:element ref="ext:ethnicGroupCode" minOccurs="0" maxOccurs="1" />
+			<!-- Extension: end ethnicGroupCode -->
+
+			<!-- Extension: start multipleBirthInd -->
+			<xs:element ref="ext:multipleBirthInd" minOccurs="0" maxOccurs="1" />
+			<!-- Extension: end multipleBirthInd -->
+			
+			<!-- Extension: start multipleBirthOrderNumber -->
+			<xs:element ref="ext:multipleBirthOrderNumber" minOccurs="0" maxOccurs="1" />
+			<!-- Extension: end multipleBirthOrderNumber -->
+			
+			<!-- Extension: start deceasedTime -->
+			<xs:element ref="ext:deceasedInd" minOccurs="0" />
+			<xs:element ref="ext:deceasedTime" minOccurs="0" />
+			<!-- extension: end -->
+			
+			<!-- Extension: start asEntityIdentifier -->
+			<xs:element ref="ext:asEntityIdentifier" minOccurs="0" maxOccurs="unbounded" />
+			<!-- Extension: end asEntityIdentifier -->
+
+			<!-- Extension: start asEmployment -->
+			<xs:element ref="ext:asEmployment" minOccurs="0" maxOccurs="1"/>
+			<!-- Extension: end asEmployment -->
+
+			<!-- Extension: start asQualifications -->
+			<xs:element ref="ext:asQualifications" minOccurs="0" maxOccurs="1"/>
+			<!-- Extension: end asQualifications -->
+
 		</xs:sequence>
 		<xs:attribute name="nullFlavor" type="NullFlavor" use="optional"/>
 		<xs:attribute name="classCode" type="EntityClass" use="optional" fixed="PSN"/>

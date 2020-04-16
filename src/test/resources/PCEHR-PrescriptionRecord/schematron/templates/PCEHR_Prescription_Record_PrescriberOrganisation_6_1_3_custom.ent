@@ -8,7 +8,7 @@
             <!-- Address - country -  0..* -->
 
             <assert test = "not(cda:country) or
-                document('\TEMPLATE\VALDN\CDAValidate_Vocabs.xml', .)/systems/system[@codeSystemName = 'ISO3166-1']/code[translate(@displayName, 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ') = translate(normalize-space(current()/cda:country), 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ')]/@code = 'AU'"
+                translate(cda:country, 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ') = 'AUSTRALIA'"
                 >Error: PCEHR Prescription Record - 6.1.3 Prescriber Organisation - "Prescriber Organisation > Participant
                 > Address" - The 'country' tag shall contain the value 'Australia'. Refer to section 6.1.3 of the
                 PCEHR_Prescription_Record_CDA_Implementation_Guide_v1.0.</assert>
@@ -41,4 +41,3 @@
         </rule>
 
     </pattern>
-

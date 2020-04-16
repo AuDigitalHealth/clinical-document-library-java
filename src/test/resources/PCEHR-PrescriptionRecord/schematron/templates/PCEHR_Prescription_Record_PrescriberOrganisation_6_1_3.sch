@@ -1,19 +1,4 @@
 <?xml version = "1.0" encoding = "UTF-8"?>
-<!--
-_________________________________________________________________________________________________________________________________________________________________________________________
-                  Generated File - Do Not Edit File Directly                                                                                                                             
-                  __________________________________________
-
-                  Generated          : 28/01/2015 3:31:11 PM
-
-                  Product            : PCEHR Prescription Record
-                  Release            : CDA_Implementation_Guide_v1.0
-                  IG Guide Reference : 6.1.3
-                  IG Guide Title     : Prescriber Organisation
-                  Generator Version  : 2.27
-                                                                                                                                                                                         
-_________________________________________________________________________________________________________________________________________________________________________________________
--->
 
 <schema xmlns="http://www.ascc.net/xml/schematron">
     <ns prefix = "cda" uri = "urn:hl7-org:v3"/>
@@ -259,19 +244,6 @@ ________________________________________________________________________________
                 >Error: PCEHR Prescription Record - 6.1.3 Prescriber Organisation -
                 "Prescriber Organisation / Participant / Person or Organisation or Device / Organisation / Organisation Name" -
                 The 'name' tag 'use' attribute shall contain a value.
-                Refer to section 6.1.3 of the
-                PCEHR_Prescription_Record_CDA_Implementation_Guide_v1.0.</report>
-
-            <report test="
-                @use and normalize-space(@use) != '' and
-                not(document('\TEMPLATE\VALDN\CDAValidate_Vocabs.xml', .)/systems/system[@codeSystemName = 'Health_Care_Provider_Organisation_Name_Usage']/code[
-                    (@code = current()/@use) or
-                    (@alternativeCode = current()/@use) or
-                    (@hl7Code = current()/@use)
-                ])"
-                >Error: PCEHR Prescription Record - 6.1.3 Prescriber Organisation -
-                "Prescriber Organisation / Participant / Person or Organisation or Device / Organisation / Organisation Name" -
-                The 'name' tag 'use' attribute shall be as per AS 4846-2006: Health Care Provider Organisation Name Usage.
                 Refer to section 6.1.3 of the
                 PCEHR_Prescription_Record_CDA_Implementation_Guide_v1.0.</report>
 

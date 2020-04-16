@@ -129,19 +129,7 @@
                 Refer to section 8.1 of the
                 PCEHR_Prescription_Record_CDA_Implementation_Guide_v1.0.</report>
 
-            <!-- The CD data type "nullFlavor" attribute can have one of the following values:: NI, UNK, ASKU, NAV, NASK, NA. -->
-            <report test="@nullFlavor and
-                normalize-space(@nullFlavor) != '' and
-                not(document('\TEMPLATE\VALDN\CDAValidate_Vocabs.xml', .)/systems/system[@codeSystemName = 'Coded_DataType_NullFlavor']/code[(@code = current()/@nullFlavor)])"
-                >Error: PCEHR Prescription Record -
-                Global Clinical Document check for "cda:code/@nullFlavor" attribute -
-                The 'code' tag 'nullFlavor' attribute shall be as per FAQ Representing
-                Coding in CDA Documents CDA CD DataType nullFlavors.
-                Check all 'cda:code' tags to find
-                the 'nullFlavor' attributes of incorrect value.
-                Refer to section 2.1.1 of the FAQ Representing Coding in CDA Documents,
-                and section 8.1 of the
-                PCEHR_Prescription_Record_CDA_Implementation_Guide_v1.0.</report>
+            <!-- The CD data type "nullFlavor" attribute can have one of the following values:: NI, UNK, ASKU, NAV, NASK, NA. -->            
 
             <report test="count(cda:originalText) > 1"
                 >Error: PCEHR Prescription Record -
@@ -3189,74 +3177,11 @@
             <!-- @use is optional, it also can exist and be blank -->
 
             <!-- @use exist, and @use not blank, and @use not contains space(single use code), and @use is not in vocab -->
-            <report
-                test="@use and
-                normalize-space(@use) != '' and
-                not(contains(@use, ' ')) and
-                not(document('\TEMPLATE\VALDN\CDAValidate_Vocabs.xml', .)/systems/system[@codeSystemName = 'Health_Care_Client_Name_Usage']/code[
-                    (@code = (current()/@use)) or
-                    (@alternativeCode = (current()/@use)) or
-                    (@hl7Code  = (current()/@use))
-                ])"
-                >Error: PCEHR Prescription Record -
-                Global Clinical Document check for "name" tag - The 'name' tag
-                'use' attribute shall be coded as per AS 5017-2006: Health Care
-                Client Name Usage. Check all 'cda:name' tags to find the incorrect 'use'
-                attribute. Refer to section 8.5 Person Name of the
-                PCEHR_Prescription_Record_CDA_Implementation_Guide_v1.0.</report>
-
+           
             <!-- @use exist, and @use not blank, and @use contains one space(two use codes), and at least first or second use code is not in vocab -->
-            <report test="
-                @use and
-                normalize-space(@use) != '' and
-                contains(@use, ' ') and
-                not(contains(substring-after(@use, ' '), ' ')) and (
-                    not(document('\TEMPLATE\VALDN\CDAValidate_Vocabs.xml', .)/systems/system[@codeSystemName = 'Health_Care_Client_Name_Usage']/code[
-                        (@code = substring-before(current()/@use,' ')) or
-                        (@alternativeCode = substring-before(current()/@use,' ')) or
-                        (@hl7Code = substring-before(current()/@use,' '))
-                    ]) or
-                    not(document('\TEMPLATE\VALDN\CDAValidate_Vocabs.xml', .)/systems/system[@codeSystemName = 'Health_Care_Client_Name_Usage']/code[
-                        (@code = substring-after(current()/@use,' ')) or
-                        (@alternativeCode = substring-after(current()/@use,' ')) or
-                        (@hl7Code = substring-after(current()/@use,' '))
-                    ])
-                )"
-                >Error: PCEHR Prescription Record -
-                Global Clinical Document check for "name" tag - The 'name' tag
-                'use' attribute shall be coded as per AS 5017-2006: Health Care
-                Client Name Usage. Check all 'cda:name' tags to find the incorrect 'use'
-                attribute. Refer to section 8.5 Person Name of the
-                PCEHR_Prescription_Record_CDA_Implementation_Guide_v1.0.</report>
-
+           
             <!-- @use exist, and @use not blank, and @use contains two space(three use codes), and at least one of the three use code is not in vocab -->
-            <report test="
-                @use and
-                normalize-space(@use) != '' and
-                contains(@use, ' ') and
-                not(contains(substring-after(substring-after(@use, ' '), ' '), ' ')) and (
-                    not(document('\TEMPLATE\VALDN\CDAValidate_Vocabs.xml', .)/systems/system[@codeSystemName = 'Health_Care_Client_Name_Usage']/code[
-                        (@code = substring-before(current()/@use,' ')) or
-                        (@alternativeCode = substring-before(current()/@use,' ')) or
-                        (@hl7Code = substring-before(current()/@use,' '))
-                    ]) or
-                    not(document('\TEMPLATE\VALDN\CDAValidate_Vocabs.xml', .)/systems/system[@codeSystemName = 'Health_Care_Client_Name_Usage']/code[
-                        (@code = substring-before(substring-after(current()/@use,' '),' ')) or
-                        (@alternativeCode = substring-before(substring-after(current()/@use,' '),' ')) or
-                        (@hl7Code = substring-before(substring-after(current()/@use,' '),' '))
-                    ]) or
-                    not(document('\TEMPLATE\VALDN\CDAValidate_Vocabs.xml', .)/systems/system[@codeSystemName = 'Health_Care_Client_Name_Usage']/code[
-                        (@code = substring-after(substring-after(current()/@use,' '),' ')) or
-                        (@alternativeCode = substring-after(substring-after(current()/@use,' '),' ')) or
-                        (@hl7Code = substring-after(substring-after(current()/@use,' '),' '))
-                    ])
-                )"
-                >Error: PCEHR Prescription Record -
-                Global Clinical Document check for "name" tag - The 'name' tag
-                'use' attribute shall be coded as per AS 5017-2006: Health Care
-                Client Name Usage. Check all 'cda:name' tags to find the incorrect 'use'
-                attribute. Refer to section 8.5 Person Name of the
-                PCEHR_Prescription_Record_CDA_Implementation_Guide_v1.0.</report>
+           
 
         </rule>
 
@@ -3333,21 +3258,7 @@
                 The 'unitType' tag shall appear only once. Check all 'cda:addr' tags
                 to find the duplicate 'unitType' tag. Refer to section 8.6 of the
                 PCEHR_Prescription_Record_CDA_Implementation_Guide_v1.0.</report>
-
-            <report test="
-                (not(cda:country) or document('\TEMPLATE\VALDN\CDAValidate_Vocabs.xml', .)/systems/system[@codeSystemName = 'ISO3166-1']
-                /code[translate(@displayName, 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ') =
-                translate(current()/cda:country, 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ')]/@code = 'AU') and
-                cda:unitType and
-                not(document('\TEMPLATE\VALDN\CDAValidate_Vocabs.xml', .)/systems/system[@codeSystemName = 'Australian_Unit_Type']/code[@code = current()/cda:unitType])"
-                >Error: PCEHR Prescription Record - Global Clinical Document check for 'addr' tag -
-                "Address / Australian or International Address / Australian Address /
-                Structured Australian Address Line / Australian Unit Type" -
-                The 'unitType' tag shall contain values coded as per 'AS 4846-2006' -
-                Healthcare Provider Identification: Australian Unit Type.
-                Refer to section 8.6 of the
-                PCEHR_Prescription_Record_CDA_Implementation_Guide_v1.0.</report>
-
+            
             <!-- unitID -  0..1 -->
 
             <report test="count(cda:unitID) > 1"
@@ -3454,24 +3365,7 @@
                 PCEHR_Prescription_Record_CDA_Implementation_Guide_v1.0.</report>
 
             <!-- comment out as per MANTIS 1753 until there is a complete set of street name type reference in our vocab file -->
-            <!--
-            <report test="
-                (not(cda:country) or document('\TEMPLATE\VALDN\CDAValidate_Vocabs.xml', .)/systems/system[@codeSystemName = 'ISO3166-1']
-                /code[translate(@displayName, 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ') =
-                translate(current()/cda:country, 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ')]/@code = 'AU') and
-                cda:streetNameType and
-                not(document('\TEMPLATE\VALDN\CDAValidate_Vocabs.xml', .)/systems/system[@codeSystemName = 'Australian_Street_type_Code']/code[@code = current()/cda:streetNameType]) and
-                not(document('\TEMPLATE\VALDN\CDAValidate_Vocabs.xml', .)/systems/system[@codeSystemName = 'Australian_Street_type_Code']
-                /code[translate(@displayName, 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ') =
-                translate(current()/cda:streetNameType, 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ')])"
-                >Error: PCEHR Prescription Record - Global Clinical Document check for 'addr' tag -
-                "Address / Australian or International Address / Australian Address /
-                Structured Australian Address Line / Australian Street Type" -
-                The 'streetNameType' tag shall contain values coded as per 'AS 4846-2006' -
-                Healthcare Client Identification: Australian Street Type Code.
-                Refer to section 8.6 of the
-                PCEHR_Prescription_Record_CDA_Implementation_Guide_v1.0.</report>
-            -->
+         
             <!-- comment out until there is a complete set of street name type reference in our vocab file -->
 
             <!-- direction -  0..1 -->
@@ -3484,19 +3378,7 @@
                 find the duplicate 'direction' tag. Refer to section 8.6 of the
                 PCEHR_Prescription_Record_CDA_Implementation_Guide_v1.0.</report>
 
-            <report test="
-                (not(cda:country) or document('\TEMPLATE\VALDN\CDAValidate_Vocabs.xml', .)/systems/system[@codeSystemName = 'ISO3166-1']
-                /code[translate(@displayName, 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ') =
-                translate(current()/cda:country, 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ')]/@code = 'AU') and
-                cda:direction and
-                not(document('\TEMPLATE\VALDN\CDAValidate_Vocabs.xml', .)/systems/system[@codeSystemName = 'Australian_Street_Suffix_Code']/code[@code = current()/cda:direction])"
-                >Error: PCEHR Prescription Record - Global Clinical Document check for 'addr' tag -
-                "Address / Australian or International Address / Australian Address /
-                Structured Australian Address Line / Australian Street Suffix" -
-                The 'direction' tag shall contain values coded as per 'AS 4846-2006' -
-                Healthcare Client Identification: Australian Street Suffix.
-                Refer to section 8.6 of the
-                PCEHR_Prescription_Record_CDA_Implementation_Guide_v1.0.</report>
+           
 
             <!-- deliveryAddressLine -  0..1 -->
 
@@ -3525,47 +3407,10 @@
                 PCEHR_Prescription_Record_CDA_Implementation_Guide_v1.0.</report>
 
             <!-- One of the deliveryAddressLine must be Australian Postal Delivery Type Code (not both) if present -->
-            <report test="
-                (not(cda:country) or document('\TEMPLATE\VALDN\CDAValidate_Vocabs.xml', .)/systems/system[@codeSystemName = 'ISO3166-1']
-                /code[translate(@displayName, 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ') =
-                translate(current()/cda:country, 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ')]/@code = 'AU') and
-                cda:deliveryAddressLine and
-                normalize-space(cda:deliveryAddressLine) != '' and
-                count(document('\TEMPLATE\VALDN\CDAValidate_Vocabs.xml', .)/systems/system[@codeSystemName = 'Australian_Postal_Delivery_Type_Code']/code[@code = current()/cda:deliveryAddressLine]) != 1
-                "
-                >Error: PCEHR Prescription Record - Global Clinical Document check for 'addr' tag -
-                "Address / Australian or International Address / Australian Address /
-                Structured Australian Address Line / Australian Postal Delivery Type" and/or
-                "Address / Australian or International Address / Australian Address /
-                Structured Australian Address Line / Australian Postal Delivery Number" -
-                The 'deliveryAddressLine' tag shall contain values coded as per 'AS 5017-2006' -
-                Healthcare Client Identification: Australian Postal Delivery Type Code.
-                Refer to section 8.6 of the
-                PCEHR_Prescription_Record_CDA_Implementation_Guide_v1.0.</report>
+           
 
             <!-- Must have Australian Postal Delivery Number if Australian Postal Delivery Type Code is NOT any of 'Care PO', 'CMA', 'CMB' and 'CPA' -->
-            <report test="
-                (not(cda:country) or document('\TEMPLATE\VALDN\CDAValidate_Vocabs.xml', .)/systems/system[@codeSystemName = 'ISO3166-1']
-                /code[translate(@displayName, 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ') =
-                translate(current()/cda:country, 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ')]/@code = 'AU') and
-                cda:deliveryAddressLine and
-                normalize-space(cda:deliveryAddressLine) != '' and
-                count(cda:deliveryAddressLine) = 1 and
-                count(document('\TEMPLATE\VALDN\CDAValidate_Vocabs.xml', .)/systems/system[@codeSystemName = 'Australian_Postal_Delivery_Type_Code']/code[@code = current()/cda:deliveryAddressLine]) = 1 and
-                not(document('\TEMPLATE\VALDN\CDAValidate_Vocabs.xml', .)/systems/system[@codeSystemName = 'Australian_Postal_Delivery_Number']/code[@code = current()/cda:deliveryAddressLine])
-                "
-                >Error: PCEHR Prescription Record - Global Clinical Document check for 'addr' tag -
-                "Address / Australian or International Address / Australian Address /
-                Structured Australian Address Line / Australian Postal Delivery Type" and/or
-                "Address / Australian or International Address / Australian Address /
-                Structured Australian Address Line / Australian Postal Delivery Number" -
-                The 'deliveryAddressLine(Australian_Postal_Delivery_Number)' tag is missing for
-                the given 'deliveryAddressLine(Australian_Postal_Delivery_Type_Code)'.
-                The 'deliveryAddressLine' tag(s) shall contain values coded as per 'AS 5017-2006' -
-                Healthcare Client Identification: Australian Postal Delivery Type Code.
-                Check all 'cda:addr' tags to find the non-conforming 'devliveryAddressLine' tag.
-                Refer to section 8.6 of the
-                PCEHR_Prescription_Record_CDA_Implementation_Guide_v1.0.</report>
+           
 
             <!-- city -  0..1 -->
 
@@ -3596,11 +3441,9 @@
                 PCEHR_Prescription_Record_CDA_Implementation_Guide_v1.0.</report>
 
             <report test="
-                (not(cda:country) or document('\TEMPLATE\VALDN\CDAValidate_Vocabs.xml', .)/systems/system[@codeSystemName = 'ISO3166-1']
-                /code[translate(@displayName, 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ') =
-                translate(current()/cda:country, 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ')]/@code = 'AU') and
+                (not(cda:country) or translate(cda:country, 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ') = 'AUSTRALIA') and
                 cda:state and
-                not(document('\TEMPLATE\VALDN\CDAValidate_Vocabs.xml', .)/systems/system[@codeSystemName = 'Australian_State_Territory_Identifier_-_Postal']/code[@code = current()/cda:state])"
+                not(document('TEMPLATE/VALDN/CDAValidate_Vocabs.xml', .)/systems/system[@codeSystemName = 'Australian_State_Territory_Identifier_-_Postal']/code[@code = current()/cda:state])"
                 >Error: PCEHR Prescription Record - Global Clinical Document check for 'addr' tag -
                 "Address / Australian or International Address / Australian Address /
                 Australian State/Territory" - The 'state' tag shall be as per 'AS 5017-2006' -
@@ -3608,11 +3451,8 @@
                 PCEHR_Prescription_Record_CDA_Implementation_Guide_v1.0.</report>
 
             <report test="
-                (not(cda:country) or document('\TEMPLATE\VALDN\CDAValidate_Vocabs.xml', .)/systems/system[@codeSystemName = 'ISO3166-1']
-                /code[translate(@displayName, 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ') =
-                translate(current()/cda:country, 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ')]/@code = 'AU') and
-                cda:state and
-                normalize-space(cda:state) = ''"
+                (not(cda:country) or translate(cda:country, 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ') = 'AUSTRALIA') and
+                cda:state and normalize-space(cda:state) = ''"
                 >Error: PCEHR Prescription Record - Global Clinical Document check for 'addr' tag -
                 "Address / Australian or International Address / International Address /
                 International State/Province" -
@@ -3654,17 +3494,6 @@
                 empty 'country' tag. Refer to section 8.6 Address of the
                 PCEHR_Prescription_Record_CDA_Implementation_Guide_v1.0.</report>
 
-            <report
-                test="cda:country and not(document('\TEMPLATE\VALDN\CDAValidate_Vocabs.xml', .)/systems/system[@codeSystemName = 'ISO3166-1']
-                /code[translate(@displayName, 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ') =
-                translate(current()/cda:country, 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ')])"
-                >Error: PCEHR Prescription Record - Global Clinical Document check for 'addr' tag -
-                "Address / Australian or International Address / International Address / Country" -
-                The 'country' tag shall contain values coded as per Australia Bureau of Statistics,
-                Standard Australian Classification of Countries (SACC) Cat. No. 1269.
-                Refer to section 8.6 Address of the
-                PCEHR_Prescription_Record_CDA_Implementation_Guide_v1.0.</report>
-
 
             <!-- @use xor @nullFlavor='NA' - 1..1 -->
             <!-- Mandatory in the sense that either of @use or @nullFlavor='NA' shall appear, but not both -->
@@ -3702,13 +3531,6 @@
                 Refer to section 8.6 of the
                 PCEHR_Prescription_Record_CDA_Implementation_Guide_v1.0.</report>
 
-            <report test="@nullFlavor and normalize-space(@nullFlavor) != '' and @nullFlavor != 'NA'"
-                >Error: PCEHR Prescription Record - Global Clinical Document check for 'addr' tag -
-                "Address / Address Purpose" and "Address / No Fixed Address Indicator" -
-                The 'addr' tag 'nullFlavor' attribute shall contain the value 'NA'.
-                Refer to section 8.6 of the
-                PCEHR_Prescription_Record_CDA_Implementation_Guide_v1.0.</report>
-
             <!-- @use -->
             <!-- 0004359: @use can be optional and can be empty -->
 <!--
@@ -3728,35 +3550,14 @@
 
             <!-- @use exist, and @use contains a 'double space'.  i.e '  '. -->
 
-             <report test="
-                @use and
-                normalize-space(@use) != '' and
-                contains(@use, '  ')"
-                >Error: PCEHR Prescription Record - Global Clinical Document check for 'addr' tag -
-                "Address / Address Purpose" -
-                The 'addr' tag 'use' attribute shall be coded as per 'AS 5017-2006' -
-                Health Care Client Identifier Address Purpose. Single space delimited. Refer to section 8.6 and 10.6 of the
-                PCEHR_Prescription_Record_CDA_Implementation_Guide_v1.0.</report>
-
+           
 
             <!-- @use exist, and @use not contains space(single use code), and @use is not in vocab -->
 
             <!-- 0 space    not(contains(@use, ' '))
                  1   current()/@use -->
 
-            <report test="
-                @use and
-                normalize-space(@use) != '' and
-                not(contains(@use, ' ')) and
-                not(document('\TEMPLATE\VALDN\CDAValidate_Vocabs.xml', .)/systems/system[@codeSystemName = 'Health_Care_Client_Identifier_Address_Purpose']/code[
-                (@code            = current()/@use) or
-                (@alternativeCode = current()/@use) or
-                (@hl7Code         = current()/@use)])"
-                >Error: PCEHR Prescription Record - Global Clinical Document check for 'addr' tag -
-                "Address / Address Purpose" -
-                The 'addr' tag 'use' attribute shall be coded as per 'AS 5017-2006' -
-                Health Care Client Identifier Address Purpose. Refer to section 8.6 and 10.6 of the
-                PCEHR_Prescription_Record_CDA_Implementation_Guide_v1.0.</report>
+           
 
 
             <!-- @use exist, and @use contains one space(two use codes), and at least first or second use code is not in vocab -->
@@ -3766,25 +3567,7 @@
                  1   substring-before(current()/@use,' ')
                  2   substring-after(current()/@use, ' ') -->
 
-            <report test="
-                @use and
-                normalize-space(@use) != '' and
-                contains(@use, ' ') and
-                not(contains(substring-after(@use, ' '), ' ')) and (
-                not(document('\TEMPLATE\VALDN\CDAValidate_Vocabs.xml', .)/systems/system[@codeSystemName = 'Health_Care_Client_Identifier_Address_Purpose']/code[
-                (@code            = substring-before(current()/@use,' ')) or
-                (@alternativeCode = substring-before(current()/@use,' ')) or
-                (@hl7Code         = substring-before(current()/@use,' '))])     or
-                not(document('\TEMPLATE\VALDN\CDAValidate_Vocabs.xml', .)/systems/system[@codeSystemName = 'Health_Care_Client_Identifier_Address_Purpose']/code[
-                (@code            = substring-after(current()/@use,' ')) or
-                (@alternativeCode = substring-after(current()/@use,' ')) or
-                (@hl7Code         = substring-after(current()/@use,' '))])
-                )"
-                >Error: PCEHR Prescription Record - Global Clinical Document check for 'addr' tag -
-                "Address / Address Purpose" -
-                The 'addr' tag 'use' attribute shall be coded as per 'AS 5017-2006' -
-                Health Care Client Identifier Address Purpose. Refer to section 8.6 and 10.6 of the
-                PCEHR_Prescription_Record_CDA_Implementation_Guide_v1.0.</report>
+           
 
 
             <!-- @use exist, and @use contains two spaces(three use codes), and at least first or second or third use code is not in vocab -->
@@ -3795,29 +3578,7 @@
                  2   substring-before(substring-after(current()/@use, ' '), ' ')
                  3   substring-after (substring-after(current()/@use, ' '), ' ') -->
 
-            <report test="
-                @use and
-                normalize-space(@use) != '' and
-                contains(substring-after(@use, ' '), ' ') and
-                not(contains(substring-after(substring-after(@use, ' '), ' '), ' ')) and (
-                not(document('\TEMPLATE\VALDN\CDAValidate_Vocabs.xml', .)/systems/system[@codeSystemName = 'Health_Care_Client_Identifier_Address_Purpose']/code[
-                (@code            = substring-before(current()/@use,' ')) or
-                (@alternativeCode = substring-before(current()/@use,' ')) or
-                (@hl7Code         = substring-before(current()/@use,' '))])     or
-                not(document('\TEMPLATE\VALDN\CDAValidate_Vocabs.xml', .)/systems/system[@codeSystemName = 'Health_Care_Client_Identifier_Address_Purpose']/code[
-                (@code            = substring-before(substring-after(current()/@use, ' '), ' ')) or
-                (@alternativeCode = substring-before(substring-after(current()/@use, ' '), ' ')) or
-                (@hl7Code         = substring-before(substring-after(current()/@use, ' '), ' '))])      or
-                not(document('\TEMPLATE\VALDN\CDAValidate_Vocabs.xml', .)/systems/system[@codeSystemName = 'Health_Care_Client_Identifier_Address_Purpose']/code[
-                (@code            = substring-after(substring-after(current()/@use, ' '), ' ')) or
-                (@alternativeCode = substring-after(substring-after(current()/@use, ' '), ' ')) or
-                (@hl7Code         = substring-after(substring-after(current()/@use, ' '), ' '))])
-                )"
-                >Error: PCEHR Prescription Record - Global Clinical Document check for 'addr' tag -
-                "Address / Address Purpose" -
-                The 'addr' tag 'use' attribute shall be coded as per 'AS 5017-2006' -
-                Health Care Client Identifier Address Purpose. Refer to section 8.6 and 10.6 of the
-                PCEHR_Prescription_Record_CDA_Implementation_Guide_v1.0.</report>
+          
 
 
             <!-- @use exist, and @use contains three spaces(four use codes), and at least first or second or third or fourth use code is not in vocab -->
@@ -3829,33 +3590,7 @@
                  3   substring-before(substring-after(substring-after(current()/@use, ' '), ' '), ' ')
                  4   substring-after (substring-after(substring-after(current()/@use, ' '), ' '), ' ') -->
 
-            <report test="
-                @use and
-                normalize-space(@use) != '' and
-                contains(substring-after(substring-after(@use, ' '), ' '), ' ') and
-                not(contains(substring-after(substring-after(substring-after(@use, ' '), ' '), ' '), ' ')) and (
-                not(document('\TEMPLATE\VALDN\CDAValidate_Vocabs.xml', .)/systems/system[@codeSystemName = 'Health_Care_Client_Identifier_Address_Purpose']/code[
-                (@code            = substring-before(current()/@use,' ')) or
-                (@alternativeCode = substring-before(current()/@use,' ')) or
-                (@hl7Code         = substring-before(current()/@use,' '))])     or
-                not(document('\TEMPLATE\VALDN\CDAValidate_Vocabs.xml', .)/systems/system[@codeSystemName = 'Health_Care_Client_Identifier_Address_Purpose']/code[
-                (@code            = substring-before(substring-after(current()/@use, ' '), ' ')) or
-                (@alternativeCode = substring-before(substring-after(current()/@use, ' '), ' ')) or
-                (@hl7Code         = substring-before(substring-after(current()/@use, ' '), ' '))])      or
-                not(document('\TEMPLATE\VALDN\CDAValidate_Vocabs.xml', .)/systems/system[@codeSystemName = 'Health_Care_Client_Identifier_Address_Purpose']/code[
-                (@code            = substring-before(substring-after(substring-after(current()/@use, ' '), ' '), ' ')) or
-                (@alternativeCode = substring-before(substring-after(substring-after(current()/@use, ' '), ' '), ' ')) or
-                (@hl7Code         = substring-before(substring-after(substring-after(current()/@use, ' '), ' '), ' '))])       or
-                not(document('\TEMPLATE\VALDN\CDAValidate_Vocabs.xml', .)/systems/system[@codeSystemName = 'Health_Care_Client_Identifier_Address_Purpose']/code[
-                (@code            = substring-after(substring-after(substring-after(current()/@use, ' '), ' '), ' ')) or
-                (@alternativeCode = substring-after(substring-after(substring-after(current()/@use, ' '), ' '), ' ')) or
-                (@hl7Code         = substring-after(substring-after(substring-after(current()/@use, ' '), ' '), ' '))])
-                )"
-                >Error: PCEHR Prescription Record - Global Clinical Document check for 'addr' tag -
-                "Address / Address Purpose" -
-                The 'addr' tag 'use' attribute shall be coded as per 'AS 5017-2006' -
-                Health Care Client Identifier Address Purpose. Refer to section 8.6 and 10.6 of the
-                PCEHR_Prescription_Record_CDA_Implementation_Guide_v1.0.</report>
+         
 
 
             <!-- @use exist, and @use contains 4+ spaces(five+ use codes), and at least first or second or third or fourth use code is not in vocab -->
@@ -3869,32 +3604,7 @@
                  3   substring-before(substring-after(substring-after(current()/@use, ' '), ' '), ' ')
                  4   substring-after (substring-after(substring-after(current()/@use, ' '), ' '), ' ') -->
 
-            <report test="
-                @use and
-                normalize-space(@use) != '' and
-                contains(substring-after(substring-after(substring-after(@use, ' '), ' '), ' '), ' ') and (
-                not(document('\TEMPLATE\VALDN\CDAValidate_Vocabs.xml', .)/systems/system[@codeSystemName = 'Health_Care_Client_Identifier_Address_Purpose']/code[
-                (@code            = substring-before(current()/@use,' ')) or
-                (@alternativeCode = substring-before(current()/@use,' ')) or
-                (@hl7Code         = substring-before(current()/@use,' '))])     or
-                not(document('\TEMPLATE\VALDN\CDAValidate_Vocabs.xml', .)/systems/system[@codeSystemName = 'Health_Care_Client_Identifier_Address_Purpose']/code[
-                (@code            = substring-before(substring-after(current()/@use, ' '), ' ')) or
-                (@alternativeCode = substring-before(substring-after(current()/@use, ' '), ' ')) or
-                (@hl7Code         = substring-before(substring-after(current()/@use, ' '), ' '))])      or
-                not(document('\TEMPLATE\VALDN\CDAValidate_Vocabs.xml', .)/systems/system[@codeSystemName = 'Health_Care_Client_Identifier_Address_Purpose']/code[
-                (@code            = substring-before(substring-after(substring-after(current()/@use, ' '), ' '), ' ')) or
-                (@alternativeCode = substring-before(substring-after(substring-after(current()/@use, ' '), ' '), ' ')) or
-                (@hl7Code         = substring-before(substring-after(substring-after(current()/@use, ' '), ' '), ' '))])       or
-                not(document('\TEMPLATE\VALDN\CDAValidate_Vocabs.xml', .)/systems/system[@codeSystemName = 'Health_Care_Client_Identifier_Address_Purpose']/code[
-                (@code            = substring-before(substring-after(substring-after(substring-after(current()/@use, ' '), ' '), ' '), ' ')) or
-                (@alternativeCode = substring-before(substring-after(substring-after(substring-after(current()/@use, ' '), ' '), ' '), ' ')) or
-                (@hl7Code         = substring-before(substring-after(substring-after(substring-after(current()/@use, ' '), ' '), ' '), ' '))])
-                )"
-                >Error: PCEHR Prescription Record - Global Clinical Document check for 'addr' tag -
-                "Address / Address Purpose" -
-                The 'addr' tag 'use' attribute shall be coded as per 'AS 5017-2006' -
-                Health Care Client Identifier Address Purpose. Refer to section 8.6 and 10.6 of the
-                PCEHR_Prescription_Record_CDA_Implementation_Guide_v1.0.</report>
+           
 
         </rule>
 
@@ -3932,30 +3642,6 @@
                 Refer to 8.7 Electronic Communication Detail of the
                 PCEHR_Prescription_Record_CDA_Implementation_Guide_v1.0.</assert>
 
-            <assert test="not(@value) or contains(@value,':')"
-                >Error: PCEHR Prescription Record -
-                Global Clinical Document check for 'cda:telecom' -
-                "Electronic Communication Medium or Electronic Communication Address" -
-                The 'telecom' tag 'value' attribute shall contain a ":".
-                Check all 'cda:telecom' tags 'value' attributes to find the incorrect value.
-                Refer to 8.7 Electronic Communication Detail of the
-                PCEHR_Prescription_Record_CDA_Implementation_Guide_v1.0.</assert>
-
-            <assert test="
-                not(@value) or
-                document('\TEMPLATE\VALDN\CDAValidate_Vocabs.xml', .)/systems/system[@codeSystemName = 'Health_Care_Client_Electronic_Communication_Medium']/code[
-                    (@code            = substring-before(current()/@value,':')) or
-                    (@alternativeCode = substring-before(current()/@value,':')) or
-                    (@hl7Code         = substring-before(current()/@value,':'))
-                ]
-                ">Error: PCEHR Prescription Record -
-                Global Clinical Document check for 'cda:telecom' -
-                "Electronic Communication Medium or Electronic Communication Address" -
-                The 'telecom' tag 'value' attribute shall be as per AS 5017-2006:
-                Health Care Client Electronic Communication Medium.
-                Check all 'cda:telecom' tags 'value' attributes to find the incorrect value.
-                Refer to section 8.7 of the
-                PCEHR_Prescription_Record_CDA_Implementation_Guide_v1.0.</assert>
 
             <!--
             <report test="
@@ -3970,162 +3656,34 @@
 
 
             <!-- @use exist, and @use contains a 'double space'.  i.e '  '. -->
-            <report test="
-                @use and normalize-space(@use) != '' and
-                contains(@use, '  ')
-                ">Error: PCEHR Prescription Record -
-                Global Clinical Document check for 'cda:telecom' -
-                "Electronic Communication Usage Code" - The 'telecom' tag 'use' attribute shall
-                be as per HL7 v3: TelecommunicationAddressUse. Single space delimited. Check all 'cda:telecom' tags 'use'
-                attributes to find the incorrect value. Refer to section 8.7 of the
-                PCEHR_Prescription_Record_CDA_Implementation_Guide_v1.0.</report>
+            
 
 
             <!-- @use exist, and @use not contains space(single use code), and @use is not in vocab -->
-            <report test="
-                @use and normalize-space(@use) != '' and
-                not(contains(@use, ' ')) and
-                not(document('\TEMPLATE\VALDN\CDAValidate_Vocabs.xml', .)/systems/system[@codeSystemName = 'TelecommunicationAddressUse']/code[(@code = current()/@use)])
-                ">Error: PCEHR Prescription Record -
-                Global Clinical Document check for 'cda:telecom' -
-                "Electronic Communication Usage Code" - The 'telecom' tag 'use' attribute shall
-                be as per HL7 v3: TelecommunicationAddressUse. Check all 'cda:telecom' tags 'use'
-                attributes to find the incorrect value. Refer to section 8.7 of the
-                PCEHR_Prescription_Record_CDA_Implementation_Guide_v1.0.</report>
+            
 
             <!-- @use exist, and @use contains one space(two use codes), and at least first or second use code is not in vocab -->
-            <report test="
-                @use and normalize-space(@use) != '' and
-                contains(@use, ' ') and
-                not(contains(substring-after(@use, ' '), ' ')) and (
-                not(document('\TEMPLATE\VALDN\CDAValidate_Vocabs.xml', .)/systems/system[@codeSystemName = 'TelecommunicationAddressUse']/code[(@code = substring-before(current()/@use,' '))]) or
-                not(document('\TEMPLATE\VALDN\CDAValidate_Vocabs.xml', .)/systems/system[@codeSystemName = 'TelecommunicationAddressUse']/code[(@code = substring-after(current()/@use,' '))])
-                )">Error: PCEHR Prescription Record -
-                Global Clinical Document check for 'cda:telecom' -
-                "Electronic Communication Usage Code" - The 'telecom' tag 'use' attribute shall
-                be as per HL7 v3: TelecommunicationAddressUse. Check all 'cda:telecom' tags 'use'
-                attributes to find the incorrect value. Refer to section 8.7 of the
-                PCEHR_Prescription_Record_CDA_Implementation_Guide_v1.0.</report>
+            
 
 
             <!-- @use exist, and @use contains two+ spaces (three+ use codes), and at least first or second use code is not in vocab -->
             <!-- Validate first two use codes. -->
             <!-- Ignore three+ use code(s). -->
-            <report test="
-                @use and normalize-space(@use) != '' and
-                contains(@use, ' ') and
-                contains(substring-after(@use, ' '), ' ') and (
-                not(document('\TEMPLATE\VALDN\CDAValidate_Vocabs.xml', .)/systems/system[@codeSystemName = 'TelecommunicationAddressUse']/code[(@code = substring-before(current()/@use,' '))]) or
-                not(document('\TEMPLATE\VALDN\CDAValidate_Vocabs.xml', .)/systems/system[@codeSystemName = 'TelecommunicationAddressUse']/code[(@code = substring-before(substring-after(current()/@use,' '), ' '))])
-                )">Error: PCEHR Prescription Record -
-                Global Clinical Document check for 'cda:telecom' -
-                "Electronic Communication Usage Code" - The 'telecom' tag 'use' attribute shall
-                be as per HL7 v3: TelecommunicationAddressUse. Check all 'cda:telecom' tags 'use'
-                attributes to find the incorrect value. Refer to section 8.7 of the
-                PCEHR_Prescription_Record_CDA_Implementation_Guide_v1.0.</report>
+           
 
 
-            <!-- @value is Mobile but @use is not specified -->
-            <report test="
-                @value and
-                (document('\TEMPLATE\VALDN\CDAValidate_Vocabs.xml', .)/systems/system[@codeSystemName = 'Health_Care_Client_Electronic_Communication_Medium']/code[
-                    (@code            = substring-before(current()/@value,':')) or
-                    (@alternativeCode = substring-before(current()/@value,':'))
-                ]/@alternativeCode = 'M')
-                and not (@use)
-                ">Error: PCEHR Prescription Record -
-                Global Clinical Document check for 'cda:telecom' -
-                "Electronic Communication Usage Code" -
-                The 'telecom' tag shall have 'value' and 'use' attributes with 'use' attribute
-                as 'MC' when 'value' attribute is 'Mobile'. Refer to section 8.7 of the
-                PCEHR_Prescription_Record_CDA_Implementation_Guide_v1.0.</report>
+            <!-- @value is Mobile but @use is not specified -->           
 
-            <!-- @value is Pager but @use is not specified -->
-            <report test="
-                @value and
-                (document('\TEMPLATE\VALDN\CDAValidate_Vocabs.xml', .)/systems/system[@codeSystemName = 'Health_Care_Client_Electronic_Communication_Medium']/code[
-                    (@code            = substring-before(current()/@value,':')) or
-                    (@alternativeCode = substring-before(current()/@value,':'))
-                ]/@alternativeCode = 'P')
-                and not(@use)
-                ">Error: PCEHR Prescription Record -
-                Global Clinical Document check for 'cda:telecom' -
-                "Electronic Communication Usage Code" -
-                The 'telecom' tag shall have 'value' and 'use' attributes with 'use' attribute
-                as 'PG' when 'value' attribute is 'Pager'. Refer to section 8.7 of the
-                PCEHR_Prescription_Record_CDA_Implementation_Guide_v1.0.</report>
+            <!-- @value is Pager but @use is not specified -->         
 
-            <!-- @value is Mobile, @use exist and not contains space(single use code), and @use is not 'MC'-->
-            <report test="
-                @value and
-                @use and normalize-space(@use) != '' and
-                not(contains(@use, ' ')) and
-                (document('\TEMPLATE\VALDN\CDAValidate_Vocabs.xml', .)/systems/system[@codeSystemName = 'Health_Care_Client_Electronic_Communication_Medium']/code[
-                    (@code            = substring-before(current()/@value,':')) or
-                    (@alternativeCode = substring-before(current()/@value,':'))
-                ]/@alternativeCode = 'M') and
-                (current()/@use != 'MC')
-                ">Error: PCEHR Prescription Record -
-                Global Clinical Document check for 'cda:telecom' -
-                "Electronic Communication Usage Code" -
-                The 'telecom' tag shall have 'value' and 'use' attributes with 'use' attribute
-                as 'MC' when 'value' attribute is 'Mobile'. Refer to section 8.7 of the
-                PCEHR_Prescription_Record_CDA_Implementation_Guide_v1.0.</report>
+            <!-- @value is Mobile, @use exist and not contains space(single use code), and @use is not 'MC'-->       
 
             <!-- @value is Pager, @use exist and not contains space(single use code), and @use is not 'PG'-->
-            <report test="
-                @value and
-                @use and normalize-space(@use) != '' and
-                not(contains(@use, ' ')) and
-                (document('\TEMPLATE\VALDN\CDAValidate_Vocabs.xml', .)/systems/system[@codeSystemName = 'Health_Care_Client_Electronic_Communication_Medium']/code[
-                    (@code            = substring-before(current()/@value,':')) or
-                    (@alternativeCode = substring-before(current()/@value,':'))
-                ]/@alternativeCode = 'P') and
-                (current()/@use != 'PG')
-                ">Error: PCEHR Prescription Record -
-                Global Clinical Document check for 'cda:telecom' -
-                "Electronic Communication Usage Code" -
-                The 'telecom' tag shall have 'value' and 'use' attributes with 'use' attribute
-                as 'PG' when 'value' attribute is 'Pager'. Refer to section 8.7 of the
-                PCEHR_Prescription_Record_CDA_Implementation_Guide_v1.0.</report>
-
-            <!-- @value is Mobile, @use exist and contains one space(two use codes), and both use codes of @use are not 'MC'-->
-            <report test="
-                @value and
-                @use and normalize-space(@use) != '' and
-                contains(@use, ' ') and
-                not(contains(substring-after(@use, ' '), ' ')) and
-                (document('\TEMPLATE\VALDN\CDAValidate_Vocabs.xml', .)/systems/system[@codeSystemName = 'Health_Care_Client_Electronic_Communication_Medium']/code[
-                    (@code            = substring-before(current()/@value,':')) or
-                    (@alternativeCode = substring-before(current()/@value,':'))
-                ]/@alternativeCode = 'M') and
-                (substring-before(current()/@use, ' ') != 'MC') and
-                (substring-after (current()/@use, ' ') != 'MC')
-                ">Error: PCEHR Prescription Record -
-                Global Clinical Document check for 'cda:telecom' -
-                "Electronic Communication Usage Code" -
-                The 'telecom' tag shall have 'value' and 'use' attributes with 'use' attribute
-                as 'MC' when 'value' attribute is 'Mobile'. Refer to section 8.7 of the
-                PCEHR_Prescription_Record_CDA_Implementation_Guide_v1.0.</report>
+          
+            <!-- @value is Mobile, @use exist and contains one space(two use codes), and both use codes of @use are not 'MC'-->          
 
             <!-- @value is Pager, @use exist and contains one space(two use codes), and both use codes of @use are not 'PG'-->
-            <report test="
-                @value and
-                @use and normalize-space(@use) != '' and
-                contains(@use, ' ') and
-                not(contains(substring-after(@use, ' '), ' ')) and
-                (document('\TEMPLATE\VALDN\CDAValidate_Vocabs.xml', .)/systems/system[@codeSystemName = 'Health_Care_Client_Electronic_Communication_Medium']/code[
-                    (@code            = substring-before(current()/@value,':')) or
-                    (@alternativeCode = substring-before(current()/@value,':'))
-                ]/@alternativeCode = 'P') and
-                (substring-before(current()/@use, ' ') != 'PG') and
-                (substring-after (current()/@use, ' ') != 'PG')
-                ">Error: PCEHR Prescription Record -
-                Global Clinical Document check for 'cda:telecom' -
-                "Electronic Communication Usage Code" -
-                The 'telecom' tag shall have 'value' and 'use' attributes with 'use' attribute
-                as 'PG' when 'value' attribute is 'Pager'. Refer to section 8.7 of the
-                PCEHR_Prescription_Record_CDA_Implementation_Guide_v1.0.</report>
+          
 
         </rule>
 
