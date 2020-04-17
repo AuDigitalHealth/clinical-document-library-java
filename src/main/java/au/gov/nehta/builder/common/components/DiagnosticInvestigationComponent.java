@@ -820,7 +820,7 @@ public class DiagnosticInvestigationComponent {
     POCDMT000040Observation ierObservation = objectFactory.createPOCDMT000040Observation();
     ierObservation.setClassCode(ActClassObservation.OBS);
     ierObservation.setMoodCode(XActMoodDocumentObservation.EVN);
-    ierObservation.getId().add(CDATypeUtil.getII(UUID.randomUUID().toString()));
+    /*ierObservation.getId().add(CDATypeUtil.getII(UUID.randomUUID().toString()));*/
     ierObservation
         .setCode(codeMap.get(ClinicalDocumentCodes.IMAGING_EXMINATION_RESULT_STATUS));
     ierObservation.getValue().add(Converter.convertToCDCode(imagingExaminationResult
