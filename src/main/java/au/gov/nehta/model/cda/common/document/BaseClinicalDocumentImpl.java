@@ -8,17 +8,17 @@ import java.util.List;
 
 public class BaseClinicalDocumentImpl implements BaseClinicalDocument {
 
-	private final TypeId typeId = TypeIdImpl.getInstance( "POCD_HD000040", "2.16.840.1.113883.1.3" );
-	private final List<TemplateId> templateIds = new LinkedList();
+	private final TypeId typeId = TypeIdImpl.getInstance("POCD_HD000040", "2.16.840.1.113883.1.3");
+	private final List<TemplateId> templateIds = new LinkedList<>();
 	private String languageCode;
 	private String setId;
 	private int versionNumber;
 	private String title;
-    private String clinicalDocumentId;
+	private String clinicalDocumentId;
 
-	protected BaseClinicalDocumentImpl( TemplateId templateId, String title ) {
-		this.templateIds.add( templateId );
-		this.title =title;
+	protected BaseClinicalDocumentImpl(TemplateId templateId, String title) {
+		this.templateIds.add(templateId);
+		this.title = title;
 		
 		//initialise sensible defaults
 		this.languageCode = "en-AU";

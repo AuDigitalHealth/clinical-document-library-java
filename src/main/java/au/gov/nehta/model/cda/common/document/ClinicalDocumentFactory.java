@@ -99,7 +99,7 @@ public class ClinicalDocumentFactory {
 
   private static void addTemplateIds(ClinicalDocument clinicalDoc) {
     clinicalDoc.getTemplateIds().addAll(new LinkedList<TemplateId>() {{
-      add(TemplateIdImpl.getInstance("1.0", "1.2.36.1.2001.1001.100.149"));
+      offerFirst(TemplateIdImpl.getInstance("1.0", "1.2.36.1.2001.1001.100.149"));
       //add(TemplateIdImpl.getInstance("1.0", "1.2.36.1.2001.1001.100.1002.237"));
     }});
   }
@@ -144,16 +144,18 @@ public class ClinicalDocumentFactory {
   }
 
   public static ClinicalDocument getAdvanceCareDirective() {
-    ClinicalDocumentImpl clinicalDoc =
+    ClinicalDocument clinicalDoc =
         new ClinicalDocumentImpl(ADVANCE_CARE_DIRECTIVE, "Advance Care Directive");
     addTemplateIds(clinicalDoc);
     return clinicalDoc;
   }
 
   public static ClinicalDocument getGoalsOfCare() {
-    ClinicalDocumentImpl clinicalDoc =
-        new ClinicalDocumentImpl(GOALS_OF_CARE, "Goals of Care");
-    clinicalDoc.getTemplateIds().addAll(getAdvanceCarePlanning().getTemplateIds());
+    ClinicalDocument clinicalDoc =
+        new ClinicalDocumentImpl(ADVANCE_CARE_PLANNING, "Goals of Care");
+    clinicalDoc.getTemplateIds()
+        .add(TemplateIdImpl.getInstance("1.0", "1.2.36.1.2001.1001.100.149"));
+    clinicalDoc.getTemplateIds().add(GOALS_OF_CARE);
     return clinicalDoc;
   }
 }
