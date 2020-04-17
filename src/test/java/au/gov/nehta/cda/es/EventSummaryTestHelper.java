@@ -11,7 +11,6 @@ import au.gov.nehta.model.cda.common.time.PrecisionDate;
 import au.gov.nehta.model.clinical.common.types.Quantity;
 import au.gov.nehta.model.clinical.common.types.QuantityRange;
 import au.gov.nehta.model.clinical.common.types.UniqueIdentifierImpl;
-import au.gov.nehta.model.clinical.es.AnatomicalSite;
 import au.gov.nehta.model.clinical.es.CollectionAndHandling;
 import au.gov.nehta.model.clinical.es.DiagnosticServiceSectionID;
 import au.gov.nehta.model.clinical.es.Dimensions;
@@ -928,10 +927,10 @@ public class EventSummaryTestHelper {
         specimenDetail.setHandlingAndProcessing(handlingAndProcessing);
 
         //Anatomical Site
-        List<AnatomicalSite> anatomicalSites = new ArrayList<>();
+        /*List<AnatomicalSite> anatomicalSites = new ArrayList<>();
         anatomicalSites.add(EventSummaryMaxTest.getAnatomicalSite("SpecimenDetail"));
         //anatomicalSites.add(EventSummaryMaxTest.getAnatomicalSite());
-        specimenDetail.setAnatomicalSites(anatomicalSites);
+        specimenDetail.setAnatomicalSites(anatomicalSites);*/
 
         //Collections and handling
         CollectionAndHandling collectionsAndHandling = new CollectionAndHandling();

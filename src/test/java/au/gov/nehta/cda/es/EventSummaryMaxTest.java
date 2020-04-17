@@ -570,7 +570,7 @@ public class EventSummaryMaxTest extends Base {
     static AnatomicalSite getAnatomicalSite(String s) throws FileNotFoundException {
         AnatomicalSite anatomicalSite = new AnatomicalSiteImpl();
         anatomicalSite.setAnatomicalLocationImages(new ArrayList<AttachedMedia>() {{
-            add(getAttachedMedia(s, Optional.empty()));
+            //add(getAttachedMedia(s, Optional.empty()));
             add(getAttachedMedia(s, Optional.empty()));
         }});
         anatomicalSite.setSpecificLocation(
