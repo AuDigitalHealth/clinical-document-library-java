@@ -1,26 +1,5 @@
 package referral;
 
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.StringWriter;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.UUID;
-
-import javax.xml.bind.JAXBException;
-import javax.xml.parsers.ParserConfigurationException;
-import javax.xml.transform.OutputKeys;
-import javax.xml.transform.Transformer;
-import javax.xml.transform.TransformerFactory;
-import javax.xml.transform.dom.DOMSource;
-import javax.xml.transform.stream.StreamResult;
-
-import org.joda.time.DateTime;
-import org.joda.time.LocalDate;
-import org.w3c.dom.Document;
-
 import au.gov.nehta.builder.ereferral.EReferralCreator;
 import au.gov.nehta.builder.ereferral.ReferralAuthor;
 import au.gov.nehta.builder.ereferral.ReferralAuthorImpl;
@@ -59,7 +38,6 @@ import au.gov.nehta.model.clinical.common.SubjectOfCareParticipantImpl;
 import au.gov.nehta.model.clinical.common.SubjectOfCarePerson;
 import au.gov.nehta.model.clinical.common.SubjectOfCarePersonImpl;
 import au.gov.nehta.model.clinical.common.participation.ANZSCO_1ED_2006;
-import au.gov.nehta.model.clinical.common.participation.ANZSCO_1ED_REV1;
 import au.gov.nehta.model.clinical.common.participation.AddressContextImpl;
 import au.gov.nehta.model.clinical.common.participation.AddressPurpose;
 import au.gov.nehta.model.clinical.common.participation.AustralianAddress;
@@ -95,6 +73,24 @@ import au.gov.nehta.model.clinical.etp.common.participation.ProviderPerson;
 import au.gov.nehta.model.clinical.etp.common.participation.ProviderPersonImpl;
 import au.gov.nehta.model.schematron.SchematronResource.SchematronResources;
 import au.gov.nehta.model.schematron.SchematronValidationException;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.StringWriter;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import java.util.UUID;
+import javax.xml.bind.JAXBException;
+import javax.xml.parsers.ParserConfigurationException;
+import javax.xml.transform.OutputKeys;
+import javax.xml.transform.Transformer;
+import javax.xml.transform.TransformerFactory;
+import javax.xml.transform.dom.DOMSource;
+import javax.xml.transform.stream.StreamResult;
+import org.joda.time.DateTime;
+import org.joda.time.LocalDate;
+import org.w3c.dom.Document;
 
 /**
  * This Sample code show use of the CDA Library to create an e-Referral document
@@ -284,7 +280,7 @@ public class SampleDocumentCreation_eReferral_1A {
 		// ***** Attached Referral *****
 		// *****************************
 		
-		AttachedMedia attachment = new AttachedMedia(new File("ReferralDocument.pdf"));
+		AttachedMedia attachment = new AttachedMedia(new File("src/test/resources/ReferralDocument.pdf"));
 		ReferralDocument refDocument = new ReferralDocumentImpl(attachment );
 		
 		// *****************************

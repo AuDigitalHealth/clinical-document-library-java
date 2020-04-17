@@ -304,7 +304,7 @@ public class EReferral1ATest extends Base {
     // ***** Attached Referral *****
     // *****************************
 
-    AttachedMedia attachment = new AttachedMedia(new File("ReferralDocument.pdf"));
+    AttachedMedia attachment = new AttachedMedia(new File("src/test/resources/ReferralDocument.pdf"));
     ReferralDocument refDocument = new ReferralDocumentImpl(attachment);
 
     // *****************************

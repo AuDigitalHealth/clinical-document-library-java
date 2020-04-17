@@ -683,7 +683,7 @@ public class DischargeSummary2Test extends Base {
     StrucDocList sdListRange = createStrucDocListUnordered("",
         "High: 17ml Low: 13ml (Normal range)", "High: 50ml Low: 100ml (High)");
     StrucDocList sdListComment = createStrucDocListUnordered("", "Femur measured during",
-        "•Legs measured during ultrasound scan");
+        "Legs measured during ultrasound scan");
 
     StrucDocTbody rgTBody = objectFactory.createStrucDocTbody();
     rgTBody.getTr().add(

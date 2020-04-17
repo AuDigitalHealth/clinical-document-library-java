@@ -242,9 +242,9 @@ public class ServiceReferral2Test extends Base {
     StrucDocTbody strucDocTbody = objectFactory.createStrucDocTbody();
 
     StrucDocList sdList = createStrucDocListUnordered("",
-        "Ataxia", "•Trunk nerve lesion");
+        "Ataxia", "Trunk nerve lesion");
     StrucDocList sdList2 = createStrucDocListUnordered("",
-        "•Ataxia", "Trunk nerve lesion");
+        "Ataxia", "Trunk nerve lesion");
 
     //tbody
     strucDocTbody.getTr().add(addTableBodyRow(
@@ -491,7 +491,7 @@ public class ServiceReferral2Test extends Base {
     StrucDocList sdListRange = createStrucDocListUnordered("",
         "High: 17ml Low: 13ml (Normal range)", "High: 50ml Low: 100ml (High)");
     StrucDocList sdListComment = createStrucDocListUnordered("", "Femur measured during",
-        "•Legs measured during ultrasound scan");
+        "Legs measured during ultrasound scan");
 
     StrucDocTbody rgTBody = objectFactory.createStrucDocTbody();
     rgTBody.getTr().add(
