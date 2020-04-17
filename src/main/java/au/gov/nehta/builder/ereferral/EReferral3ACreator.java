@@ -162,14 +162,14 @@ import org.w3c.dom.Document;
 
 public class EReferral3ACreator extends ClinicalDocumentCreator {
 
-  private EReferralCDAModel cdaModel;
-  private EReferral clinicalModel;
+  private final EReferralCDAModel cdaModel;
+  private final EReferral clinicalModel;
   private POCDMT000040ClinicalDocument clinicalDocument;
-  private ExclusionStatementComponent exclusionStatementComponent
+  private final ExclusionStatementComponent exclusionStatementComponent
       = new ExclusionStatementComponent();
-  private static ObjectFactory objectFactory = new ObjectFactory();
-  private static au.net.electronichealth.ns.ci.cda.extensions._3.ObjectFactory objectFactoryExt = new au.net.electronichealth.ns.ci.cda.extensions._3.ObjectFactory();
-  private static Map<String, CD> eReferralCodeMap;
+  private static final ObjectFactory objectFactory = new ObjectFactory();
+  private static final au.net.electronichealth.ns.ci.cda.extensions._3.ObjectFactory objectFactoryExt = new au.net.electronichealth.ns.ci.cda.extensions._3.ObjectFactory();
+  private static final Map<String, CD> eReferralCodeMap;
 
   static {
     eReferralCodeMap = new HashMap<String, CD>() {{
