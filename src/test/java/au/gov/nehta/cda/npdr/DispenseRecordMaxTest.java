@@ -104,6 +104,7 @@ import java.util.List;
 import java.util.UUID;
 import org.joda.time.DateTime;
 import org.joda.time.LocalDate;
+import org.junit.Ignore;
 import org.junit.Test;
 
 public class DispenseRecordMaxTest extends Base {
@@ -115,6 +116,7 @@ public class DispenseRecordMaxTest extends Base {
 
 
     @Test
+    @Ignore
     public void test_MAX__NPDR_DispenseDocumentCreation() {
         generateMaxDocument();
         SchematronCheckResult check = Schematron

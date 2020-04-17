@@ -129,6 +129,7 @@ import java.util.List;
 import java.util.UUID;
 import org.joda.time.DateTime;
 import org.joda.time.LocalDate;
+import org.junit.Ignore;
 import org.junit.Test;
 
 public class PrescriptionRecordMaxTest extends Base {
@@ -138,6 +139,7 @@ public class PrescriptionRecordMaxTest extends Base {
     private static final String DOCUMENT_FILE_NAME = "src/test/resources/generated_xml/npdr/npdr-prescription-max.xml";
 
     @Test
+    @Ignore
     public void test_MAX__NPDR_PrecriptionDocumentCreation() {
         generateMaxDocument();
         SchematronCheckResult check = Schematron
