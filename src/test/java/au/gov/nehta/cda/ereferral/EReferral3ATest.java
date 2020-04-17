@@ -9,6 +9,7 @@ import static au.gov.nehta.cda.test.TestHelper.getServiceProviderIndividual;
 import static au.gov.nehta.cda.test.TestHelper.getServiceProviderOrganization;
 import static au.gov.nehta.cda.test.TestHelper.getSubjectOfCareParticipant;
 import static au.gov.nehta.model.schematron.SchematronResource.SchematronResources.SERVICE_REFERRAL_3A;
+import static org.junit.Assert.assertEquals;
 
 import au.gov.nehta.builder.ereferral.EReferral3ACreator;
 import au.gov.nehta.builder.util.UUIDTool;
@@ -78,8 +79,8 @@ public class EReferral3ATest extends Base {
       SchematronCheckResult check =
           Schematron.check(SCHEMATRON_TEMPLATE_PATH, SCHEMATRON, DOCUMENT_FILE_NAME);
       show(check);
-      //Assert.assertEquals(0, check.schemaErrors.size());
-      //Assert.assertEquals(0, check.schematronErrors.size());
+      assertEquals(0, check.schemaErrors.size());
+      assertEquals(0, check.schematronErrors.size());
     } catch (SchematronValidationException | ParserConfigurationException | JAXBException | FileNotFoundException e) {
       e.printStackTrace();
     }
