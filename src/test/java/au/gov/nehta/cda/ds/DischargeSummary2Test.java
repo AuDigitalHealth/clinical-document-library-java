@@ -90,16 +90,16 @@ import org.w3c.dom.Document;
 
 public class DischargeSummary2Test extends Base {
   private static final String SCHEMATRON = DISCHARGE_SUMMARY_2.resource().getSchematron();
-  private static String SCHEMATRON_TEMPLATE_PATH = "src/test/resources/DischargeSummary";
   private static final String DOCUMENT_FILE_NAME = "src/test/resources/generated_xml/discharge_summary/DischargeSummary_format_2.xml";
 
-  private static ObjectFactory objectFactory = new ObjectFactory();
-  private DateTime now = new DateTime();
+  private static final ObjectFactory objectFactory = new ObjectFactory();
+  private final DateTime now = new DateTime();
 
   @Test
   public void test_Discharge_Summary__Format_2_Creation() {
     try {
       generate2();
+      String SCHEMATRON_TEMPLATE_PATH = "src/test/resources/DischargeSummary";
       SchematronCheckResult check =
           Schematron.check(SCHEMATRON_TEMPLATE_PATH, SCHEMATRON, DOCUMENT_FILE_NAME);
       show(check);

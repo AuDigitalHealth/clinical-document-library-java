@@ -318,7 +318,7 @@ public class GoalsOfCareCreator extends ClinicalDocumentCreator {
     addCaption(infoTable, "Information for reader");
     StrucDocTbody infoBody = objectFactory.createStrucDocTbody();
     add(infoBody, getItalicTextTd("Healthcare providers may have professional state and "
-        + "territory-specific legal obligations when reading Goals of Care documents stored on an individual’s My Health Record."));
+        + "territory-specific legal obligations when reading Goals of Care documents stored on an individual's My Health Record."));
     infoTable.getTbody().add(infoBody);
     addTable(narrative, infoTable);
 
