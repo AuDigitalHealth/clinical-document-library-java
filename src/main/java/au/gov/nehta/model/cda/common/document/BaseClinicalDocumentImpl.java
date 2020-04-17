@@ -1,16 +1,15 @@
 package au.gov.nehta.model.cda.common.document;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import au.gov.nehta.model.cda.common.id.TemplateId;
 import au.gov.nehta.model.cda.common.id.TypeId;
 import au.gov.nehta.model.cda.common.id.TypeIdImpl;
+import java.util.LinkedList;
+import java.util.List;
 
 public class BaseClinicalDocumentImpl implements BaseClinicalDocument {
 
 	private final TypeId typeId = TypeIdImpl.getInstance( "POCD_HD000040", "2.16.840.1.113883.1.3" );
-	private final List<TemplateId> templateIds = new ArrayList<TemplateId>( 3 );
+	private final List<TemplateId> templateIds = new LinkedList();
 	private String languageCode;
 	private String setId;
 	private int versionNumber;
