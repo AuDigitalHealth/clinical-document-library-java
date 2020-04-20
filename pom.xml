@@ -71,8 +71,20 @@
     <properties>
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <encoding>UTF-8</encoding>
+        <project.build.sourceEncoding>${encoding}</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>${encoding}</project.reporting.outputEncoding>
+        <project.resources.sourceEncoding>${encoding}</project.resources.sourceEncoding>
+        <archetype.encoding>${encoding}</archetype.encoding>
     </properties>
+
+    <scm>
+        <connection>scm:git:git@github.com:nisarg1184/clinical-document-library-java.git</connection>
+        <developerConnection>scm:git:git@github.com:nisarg1184/clinical-document-library-java.git</developerConnection>
+        <url>https://github.com/AuDigitalHealth/clinical-document-library-java</url>
+        <!--<tag>@{project.version}</tag>-->
+    </scm>
+
     <build>
         <plugins>
             <plugin>
@@ -129,10 +141,7 @@
             <distribution>repo</distribution>
         </license>
     </licenses>
-    <scm>
-        <url>https://github.com/AuDigitalHealth/clinical-document-library-java.git</url>
-        <connection>scm:git:https://github.com/AuDigitalHealth/clinical-document-library-java.git</connection>
-    </scm>
+
     <repositories>
         <repository>
             <id>Edinburgh PH</id>
