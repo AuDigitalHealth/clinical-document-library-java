@@ -1,2 +1,6 @@
 /target/
 /.idea/
+/clinical-document-library.iml
+/clinical-document-library.ipr
+/clinical-document-library.iws
+/src/test/resources/generated_xml/goals_of_care/
