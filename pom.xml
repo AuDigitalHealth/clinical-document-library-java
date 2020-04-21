@@ -3,9 +3,28 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0
                       http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
-    <groupId>com.infy</groupId>
+    <groupId>au.gov.nehta</groupId>
     <artifactId>clinical-document-library</artifactId>
     <version>2.0.0-SNAPSHOT</version>
+
+    <scm>
+        <connection>scm:git:https://github.com/AuDigitalHealth/clinical-document-library-java.git</connection>
+        <developerConnection>scm:git:https://github.com/AuDigitalHealth/clinical-document-library-java.git</developerConnection>
+        <url>https://github.com/AuDigitalHealth/clinical-document-library-java</url>
+        <tag>v{project.version}</tag>
+    </scm>
+
+    <distributionManagement>
+        <snapshotRepository>
+            <id>nexus-releases</id>
+            <url>https://oss.sonatype.org/content/repositories/snapshots</url>
+        </snapshotRepository>
+        <repository>
+            <id>nexus-releases</id>
+            <!--<url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>-->
+            <url>https://oss.sonatype.org/content/groups/staging</url>
+        </repository>
+    </distributionManagement>
 
     <dependencies>
         <dependency>
@@ -65,7 +84,6 @@
             <version>9.1.0.5</version>
             <scope>test</scope>
         </dependency>
-
     </dependencies>
 
     <properties>
@@ -78,15 +96,69 @@
         <archetype.encoding>${encoding}</archetype.encoding>
     </properties>
 
-    <scm>
-        <connection>scm:git:git@github.com:nisarg1184/clinical-document-library-java.git</connection>
-        <developerConnection>scm:git:git@github.com:nisarg1184/clinical-document-library-java.git</developerConnection>
-        <url>https://github.com/AuDigitalHealth/clinical-document-library-java</url>
-        <!--<tag>@{project.version}</tag>-->
-    </scm>
-
     <build>
         <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-gpg-plugin</artifactId>
+                <version>1.6</version>
+                <executions>
+                    <execution>
+                        <configuration>
+                            <skip>true</skip>
+                        </configuration>
+                        <id>sign-artifacts</id>
+                        <phase>verify</phase>
+                        <goals>
+                            <goal>sign</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-javadoc-plugin</artifactId>
+                <version>3.2.0</version>
+                <executions>
+                    <execution>
+                        <id>attach-javadocs</id>
+                        <goals>
+                            <goal>jar</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-source-plugin</artifactId>
+                <version>3.2.1</version>
+                <executions>
+                    <execution>
+                        <id>attach-sources</id>
+                        <goals>
+                            <goal>jar</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-deploy-plugin</artifactId>
+                <configuration>
+                    <skip>true</skip>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.sonatype.plugins</groupId>
+                <artifactId>nexus-staging-maven-plugin</artifactId>
+                <version>1.6.8</version>
+                <extensions>true</extensions>
+                <configuration>
+                    <serverId>nexus-releases</serverId>
+                    <nexusUrl>https://oss.sonatype.org/</nexusUrl>
+                    <autoReleaseAfterClose>false</autoReleaseAfterClose>
+                </configuration>
+            </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-report-plugin</artifactId>
@@ -113,6 +185,7 @@
                     <branchName>mavenization</branchName>
                     <localCheckout>true</localCheckout>
                     <dryRun>false</dryRun>
+                    <goals>deploy</goals>
                 </configuration>
             </plugin>
             <plugin>
