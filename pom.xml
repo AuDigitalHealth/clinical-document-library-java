@@ -171,6 +171,9 @@
                 <configuration>
                     <encoding>UTF-8</encoding>
                     <enableAssertions>true</enableAssertions>
+                    <forkCount>3</forkCount>
+                    <reuseForks>true</reuseForks>
+                    <argLine>-Xmx1024m -XX:MaxPermSize=256m</argLine>
                 </configuration>
             </plugin>
             <plugin>
