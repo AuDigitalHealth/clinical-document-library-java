@@ -105,7 +105,7 @@ public class EReferral3ATest extends Base {
     Document clinicalDocument = serviceReferralCreator.create();
     String cdaString = TestHelper.documentToXML(clinicalDocument);
     TestHelper.printToFile(cdaString, DOCUMENT_FILE_NAME);
-    System.out.println(cdaString);
+    
   }
 
   private EReferralContent getContent() throws FileNotFoundException {

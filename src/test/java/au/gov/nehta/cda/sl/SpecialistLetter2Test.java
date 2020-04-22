@@ -134,7 +134,7 @@ public class SpecialistLetter2Test extends Base {
     Document clinicalDocument = specialistLetterCreator.create();
     String cdaString = TestHelper.documentToXML(clinicalDocument);
     TestHelper.printToFile(cdaString, DOCUMENT_FILE_NAME);
-    System.out.println(cdaString);
+    
   }
 
   private ResponseDetails getResponseDetails() {

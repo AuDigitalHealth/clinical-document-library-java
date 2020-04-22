@@ -507,7 +507,7 @@ public class SharedHealthSummaryMaxTest extends Base {
 
     String cdaString = TestHelper.documentToXML(clinicalDocument);
     TestHelper.printToFile(cdaString, MAX_EXCLUDED_DOCUMENT_FILE_NAME);
-    System.out.println(cdaString);
+    
   }
 
   private void generateMax() throws Exception {
@@ -724,7 +724,7 @@ public class SharedHealthSummaryMaxTest extends Base {
 
     String cdaString = TestHelper.documentToXML(clinicalDocument);
     TestHelper.printToFile(cdaString, DOCUMENT_FILE_NAME);
-    System.out.println(cdaString);
+    
   }
 
 }

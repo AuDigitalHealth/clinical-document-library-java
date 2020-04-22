@@ -536,7 +536,7 @@ public class SamplePathologyCreation_3A {
     Document clinicalDocument = pathCreator.create();
 
     String cdaString = documentToXML(clinicalDocument);
-    System.out.println(cdaString);
+    
   }
 
   /**

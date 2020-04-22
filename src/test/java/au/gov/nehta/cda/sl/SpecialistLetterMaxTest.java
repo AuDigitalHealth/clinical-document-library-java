@@ -202,7 +202,7 @@ public class SpecialistLetterMaxTest extends Base {
     Document clinicalDocument = specialistLetterCreator.create();
     String cdaString = TestHelper.documentToXML(clinicalDocument);
     TestHelper.printToFile(cdaString, DOCUMENT_FILE_NAME);
-    System.out.println(cdaString);
+    
 
   }
 

@@ -504,6 +504,6 @@ public class DispenseRecordMaxTest extends Base {
     //disabled
     String cdaString = "";//TestHelper.documentToXML( dispenseRecordCreatorCreator.create() );
     TestHelper.printToFile(cdaString, DOCUMENT_FILE_NAME);
-    System.out.println(cdaString);
+    
   }
 }

@@ -83,7 +83,7 @@ public class ServiceReferral1BTest extends Base {
       Document clinicalDocument = serviceReferralCreator.create1BFormatCDADocument();
       String cdaString = TestHelper.documentToXML(clinicalDocument);
       TestHelper.printToFile(cdaString, DOCUMENT_FILE_NAME);
-      System.out.println(cdaString);
+      
     } catch (SchematronValidationException | ParserConfigurationException | JAXBException e) {
       e.printStackTrace();
     }

@@ -99,7 +99,7 @@ public class EventSummaryGestationalDiabetesTest extends Base {
     Document clinicalDocument = eventSummaryCreator.create();
     String cdaString = TestHelper.documentToXML(clinicalDocument);
     TestHelper.printToFile(cdaString, DOCUMENT_FILE_NAME);
-    System.out.println(cdaString);
+    
 
   }
 

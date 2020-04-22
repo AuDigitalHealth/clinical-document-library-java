@@ -477,6 +477,6 @@ public class SampleShareHealthSummaryCreation_3A {
 
 
 //        String cdaString = TestHelper.documentToXML(clinicalDocument);
-//        System.out.println(cdaString);
+//        
     }
 }

@@ -82,7 +82,7 @@ public class EReferral1BTest extends Base {
     Document clinicalDocument = eReferralCreator.create1BFormatCDADocument();
     String cdaString = TestHelper.documentToXML(clinicalDocument);
     TestHelper.printToFile(cdaString, DOCUMENT_FILE_NAME);
-    System.out.println(cdaString);
+    
   }
 
   private ReferralDetail getReferralDetail() {

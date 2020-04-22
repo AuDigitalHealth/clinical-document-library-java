@@ -74,7 +74,7 @@ public class ServiceReferral1ATest extends Base {
       Document clinicalDocument = ServiceReferralCreator.create1AFormatCDADocument();
       String cdaString = TestHelper.documentToXML(clinicalDocument);
       TestHelper.printToFile(cdaString, DOCUMENT_FILE_NAME);
-      System.out.println(cdaString);
+      
     } catch (SchematronValidationException | ParserConfigurationException | JAXBException e) {
       e.printStackTrace();
     }

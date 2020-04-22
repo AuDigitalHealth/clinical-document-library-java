@@ -562,7 +562,7 @@ public class SampleDiagnosticImageCreation_3A {
     Document clinicalDocument = diCreator.create();
 
     String cdaString = documentToXML(clinicalDocument);
-    System.out.println(cdaString);
+    
   }
 
   /**
