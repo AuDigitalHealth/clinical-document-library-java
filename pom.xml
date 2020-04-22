@@ -2,14 +2,14 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>au.gov.nehta</groupId>
     <artifactId>clinical-document-library</artifactId>
-    <version>2.0.0</version>
+    <version>2.0.0-SNAPSHOT</version>
 
     <scm>
-        <connection>scm:git:git@github.com:AuDigitalHealth/clinical-document-library-java.git</connection>
-        <developerConnection>scm:git:git@github.com:AuDigitalHealth/clinical-document-library-java.git</developerConnection>
-        <url>git@github.com:AuDigitalHealth/clinical-document-library-java.git</url>
-      <tag>clinical-document-library-2.0.0</tag>
-  </scm>
+        <connection>scm:git:https://github.com/AuDigitalHealth/clinical-document-library-java.git</connection>
+        <developerConnection>scm:git:https://github.com/AuDigitalHealth/clinical-document-library-java.git</developerConnection>
+        <url>https://github.com/AuDigitalHealth/clinical-document-library-java.git</url>
+      <tag>HEAD</tag>
+	</scm>
 
     <distributionManagement>
         <snapshotRepository>
