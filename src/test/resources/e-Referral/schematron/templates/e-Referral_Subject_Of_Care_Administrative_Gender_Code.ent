@@ -1,0 +1,98 @@
+    <!-- E-referral Clinical Document: Subject of Care Administrative Gender Code -->
+
+    <!-- eRef Clinical Document -->
+
+    <!-- Status: Last Reviewed: 13/12/2011
+         Status: Last Updated: 11/07/2012 --> 
+    
+    <pattern name="p-e-Referral_Subject_Of_Care_Administrative_Gender_Code-errors"
+        id="p-e-Referral_Subject_Of_Care_Administrative_Gender_Code-errors"
+        see="#p-e-Referral_Subject_Of_Care_Administrative_Gender_Code-errors">
+
+        <rule context="/cda:ClinicalDocument/cda:recordTarget/cda:patientRole/cda:patient">
+
+            <!-- administrativeGenderCode - 1..1 -->
+
+            <assert test="cda:administrativeGenderCode">Error: e-Referral - 6.1.2 Subject Of Care -
+                "recordTarget / patientRole / patient" - The 'administrativeGenderCode' tag is
+                missing. Refer to section 6.1.2 and 10.2 'AS 5017-2006' of the
+                e-Referral_CDA_Implementation_Guide_v2.2.</assert>
+
+            <report test="count(cda:administrativeGenderCode) > 1">Error: e-Referral - 6.1.2 Subject
+                Of Care - "recordTarget / patientRole / patient" - The 'administrativeGenderCode'
+                tag shall appear only once. Refer to section 6.1.2 and 10.2 'AS 5017-2006' of the
+                e-Referral_CDA_Implementation_Guide_v2.2.</report>
+
+            <!-- For 'administrativeGenderCode' tag see below rule context:  
+                <rule context = "/cda:ClinicalDocument/cda:recordTarget/cda:patientRole/cda:patient/cda:administrativeGenderCode"> -->
+
+        </rule>
+
+
+        <!-- administrativeGenderCode - 1..1 -->
+
+        <rule
+            context="/cda:ClinicalDocument/cda:recordTarget/cda:patientRole/cda:patient/cda:administrativeGenderCode">
+
+            <assert test="@code">Error: e-Referral - 6.1.2 Subject Of Care - "recordTarget /
+                patientRole / patient / administrativeGenderCode" - The 'administrativeGenderCode'
+                tag 'code' attribute is missing. Refer to section 6.1.2 and 10.2 of the
+                e-Referral_CDA_Implementation_Guide_v2.2.</assert>
+
+            <assert test="@codeSystem">Error: e-Referral - 6.1.2 Subject Of Care - "recordTarget /
+                patientRole / patient / administrativeGenderCode" - The 'administrativeGenderCode'
+                tag 'codeSystem' attribute is missing. Refer to section 6.1.2 and 10.2 of the
+                e-Referral_CDA_Implementation_Guide_v2.2.</assert>
+
+            <assert
+                test="document('CDAValidate_Vocabs.xml')/systems/system[@codeSystemName = 'AS_5017-2006_Health_Care_Client_Identifier_Sex']/code[(@code = current()/@code)]"
+                >Error: e-Referral - 6.1.2 Subject Of Care - "recordTarget / patientRole / patient /
+                administrativeGenderCode" - The 'administrativeGenderCode' tag 'code' attribute
+                shall be as per AS 5017-2006 Health Care Client Identifier Sex. Refer to section
+                10.2 of the e-Referral_CDA_Implementation_Guide_v2.2.</assert>
+
+            <assert
+                test="document('CDAValidate_Vocabs.xml')/systems/system[@codeSystemName = 'AS_5017-2006_Health_Care_Client_Identifier_Sex']/code[(@codeSystem = current()/@codeSystem)]"
+                >Error: e-Referral - 6.1.2 Subject Of Care - "recordTarget / patientRole / patient /
+                administrativeGenderCode" - The 'administrativeGenderCode' tag 'codeSystem'
+                attribute shall be as per AS 5017-2006 Health Care Client Identifier Sex. Refer to
+                section 6.1.2 and 10.2 of the
+                e-Referral_CDA_Implementation_Guide_v2.2.</assert>
+
+            <report
+                test="@codeSystemName and not(document('CDAValidate_Vocabs.xml')/systems/system[@codeSystemName = 'AS_5017-2006_Health_Care_Client_Identifier_Sex']/code[(@codeSystemName = current()/@codeSystemName)])"
+                >Error: e-Referral - 6.1.2 Subject Of Care - "recordTarget / patientRole / patient /
+                administrativeGenderCode" - The 'administrativeGenderCode' tag 'codeSystemName'
+                attribute shall be as per AS 5017-2006 Health Care Client Identifier Sex. Refer to
+                section 6.1.2 and 10.2 of the
+                e-Referral_CDA_Implementation_Guide_v2.2.</report>
+
+            <report
+                test="@displayName and not(document('CDAValidate_Vocabs.xml')/systems/system[@codeSystemName = 'AS_5017-2006_Health_Care_Client_Identifier_Sex']/code[(translate(@displayName,  'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ') = translate(current()/@displayName, 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'))])"
+                >Error: e-Referral - 6.1.2 Subject Of Care - "recordTarget / patientRole / patient /
+                administrativeGenderCode" - The 'administrativeGenderCode' tag 'displayName'
+                attribute shall be as per AS 5017-2006 Health Care Client Identifier Sex. Refer to
+                section 6.1.2 and 10.2 of the
+                e-Referral_CDA_Implementation_Guide_v2.2.</report>
+
+            <report test="@displayName and @code != substring(@displayName,1,1)">Error: e-Referral -
+                6.1.2 Subject Of Care - "recordTarget / patientRole / patient /
+                administrativeGenderCode" - The 'administrativeGenderCode' tag: 'code' and
+                'displayName' attributes shall match as per 'AS 5017-2006' Health Care Client Identifier Sex.
+                Refer to section 6.1.2 and 10.2 of the
+                e-Referral_CDA_Implementation_Guide_v2.2.</report>
+            
+             
+            <!-- 10/07 - Updated as per MANTIS task 3794 - Enforcing No Nullflavor attributes -->
+            <!-- administrativeGenderCode - 1..1 -->
+
+            <assert test="not(@nullFlavor)">Error: e-Referral - 6.1.2 Subject Of Care -
+                "ClinicalDocument/cda:recordTarget/cda:patientRole/cda:patient/cda:administrativeGenderCode" - The 'administrativeGenderCode' 
+                tag 'nullFlavor' attribute shall not be present. Refer to requirements in the NullFlavor Usage Clarification FAQ and section 6.1.2 and 10.2 of the
+                e-Referral_CDA_Implementation_Guide_v2.2.</assert>
+  
+        <!-- End of Update -->
+
+        </rule>
+
+    </pattern>

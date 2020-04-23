@@ -1,0 +1,183 @@
+
+
+
+    <!-- e-Discharge Summary Clinical Document:  6.1.2 Subject of Care -->
+
+    <!-- Context: ClinicalDocument/component/structuredBody/component[admin_obs]/section - Entitlement -->
+
+    <!-- Status: Last Reviewed: N/A
+         Status: Last Updated : 11/07/2012 -->
+
+    <pattern name="p-e-Discharge_Summary_3A_Subject_Of_Care_Entitlement-errors"
+        id="p-e-Discharge_Summary_3A_Subject_Of_Care_Entitlement-errors"
+        see="#p-e-Discharge_Summary_3A_Subject_Of_Care_Entitlement-errors">
+
+
+        <!-- ENTITLEMENT - 0..* -->
+
+        <rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code = '102.16080']/ext:coverage2[@typeCode='COVBY']">
+
+            <!-- ext:coverage2/@typeCode -->
+<!-- In context.           
+            <assert test="@typeCode = 'COVBY'">Error: e-Discharge Summary - 6.1.2 Subject Of Care -
+                "Subject of Care / Participant / Entitlement" - The 'coverage2' tag 'typeCode'
+                attribute shall contain the value 'COVBY'. Refer to section 6.1.2 of the
+                e-Discharge_Summary_CDA_Implementation_Guide_v3.4.</assert>
+-->
+            <!-- ext:entitlement -->
+            <assert test="ext:entitlement">Error: e-Discharge Summary - 6.1.2 Subject Of Care -
+                "Subject of Care / Participant / Entitlement" - The 'entitlement' tag is missing.
+                Refer to section 6.1.2 of the
+                e-Discharge_Summary_CDA_Implementation_Guide_v3.4.</assert>
+
+            <report test="count(ext:entitlement) > 1">Error: e-Discharge Summary - 6.1.2 Subject Of
+                Care - "Subject of Care / Participant / Entitlement" - The 'entitlement' tag shall
+                appear only once. Refer to section 6.1.2 of the
+                e-Discharge_Summary_CDA_Implementation_Guide_v3.4.</report>
+
+        </rule>
+
+
+        <rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code = '102.16080']/ext:coverage2[@typeCode='COVBY']/ext:entitlement">
+
+            <!-- ext:entitlement/@classCode -->
+            <assert test="@classCode = 'COV'">Error: e-Discharge Summary - 6.1.2 Subject Of Care -
+                "Subject of Care / Participant / Entitlement" - The 'entitlement' tag 'classCode'
+                attribute shall contain the value 'COV'. Refer to section 6.1.2 of the
+                e-Discharge_Summary_CDA_Implementation_Guide_v3.4.</assert>
+
+            <!-- ext:entitlement/@moodCode -->
+            <assert test="@moodCode = 'EVN'">Error: e-Discharge Summary - 6.1.2 Subject Of Care -
+                "Subject of Care / Participant / Entitlement" - The 'entitlement' tag 'moodCode'
+                attribute shall contain the value 'EVN'. Refer to section 6.1.2 of the
+                e-Discharge_Summary_CDA_Implementation_Guide_v3.4.</assert>
+
+            <!--NG 5/4/12 The Schema says ext:participant is 0..* so the assert and count tests have been removed-->
+
+            <!-- ext:id -->
+            <assert test="ext:id">Error: e-Discharge Summary - 6.1.2 Subject Of Care - "Subject of
+                Care / Participant / Entitlement / Entitlement Number" - The 'id' tag is missing.
+                Refer to section 6.1.2 of the
+                e-Discharge_Summary_CDA_Implementation_Guide_v3.4.</assert>
+
+            <report test="count(ext:id) > 1">Error: e-Discharge Summary - 6.1.2 Subject Of Care -
+                "Subject of Care / Participant / Entitlement / Entitlement Number" - The 'id' tag
+                shall appear only once. Refer to section 6.1.2 of the
+                e-Discharge_Summary_CDA_Implementation_Guide_v3.4.</report>
+
+            <!-- The attributes of id are being tested by the "Specialist_Letter_Global_Checks.ent" file and so are not covered here. -->
+            <!-- No test/validation written to check that 'ext:id' - SHALL hold the same value as ClinicalDocument/recordTarget/patientRole/id. -->
+
+            <!-- ext:code -->
+            <assert test="ext:code">Error: e-Discharge Summary - 6.1.2 Subject Of Care - "Subject of
+                Care / Participant / Entitlement / Entitlement Type" - The 'code' tag is missing.
+                Refer to section 6.1.2 of the
+                e-Discharge_Summary_CDA_Implementation_Guide_v3.4.</assert>
+
+            <report test="count(ext:code) > 1">Error: e-Discharge Summary - 6.1.2 Subject Of Care -
+                "Subject of Care / Participant / Entitlement / Entitlement Type" - The 'code' tag
+                shall appear only once. Refer to section 6.1.2 of the
+                e-Discharge_Summary_CDA_Implementation_Guide_v3.4.</report>
+
+            <!-- ext:effectiveTime -->
+            <report test="count(ext:effectiveTime) > 1">Error: e-Discharge Summary - 6.1.2 Subject
+                Of Care - "Subject of Care / Participant / Entitlement / Entitlement Validity
+                Duration" - The 'effectiveTime' tag shall appear only once. Refer to section 6.1.2
+                of the e-Discharge_Summary_CDA_Implementation_Guide_v3.4.</report>
+            
+              <!-- ext:participant -->
+            <assert test="ext:participant">Error: e-Discharge Summary - 6.1.2 Subject Of Care
+                - "Participant / Entitlement" - The 'participant' tag is missing. Refer to
+                section 6.1.2 of the
+                e-Discharge_Summary_CDA_Implementation_Guide_v3.4.</assert>
+            
+            <report test="count(ext:participant) > 1">Error: e-Discharge Summary - 6.1.2 Subject
+                Of Care - "Participant / Entitlement / Entitlement Validity Duration" - The
+                'participant' tag shall appear only once. Refer to section 6.1.2 of the
+                e-Discharge_Summary_CDA_Implementation_Guide_v3.4.</report>
+
+
+        </rule>
+
+
+        <rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code = '102.16080']/ext:coverage2[@typeCode='COVBY']/ext:entitlement/ext:participant">
+
+            <!-- ext:participant/@typeCode -->
+            <assert test="@typeCode = 'BEN'">Error: e-Discharge Summary - 6.1.2 Subject Of Care -
+                "Subject of Care / Participant / Entitlement" - The 'participant' tag 'typeCode'
+                attribute shall contain a value 'BEN'. Refer to section 6.1.2 of the
+                e-Discharge_Summary_CDA_Implementation_Guide_v3.4.</assert>
+
+            <!-- ext:participantRole -->
+            <assert test="ext:participantRole">Error: e-Discharge Summary - 6.1.2 Subject Of Care -
+                "Subject of Care / Participant / Entitlement" - The 'participantRole' tag is
+                missing. Refer to section 6.1.2 of the
+                e-Discharge_Summary_CDA_Implementation_Guide_v3.4.</assert>
+
+            <report test="count(ext:participantRole) > 1">Error: e-Discharge Summary - 6.1.2 Subject
+                Of Care - "Subject of Care / Participant / Entitlement" - The 'participantRole' tag
+                shall appear only once. Refer to section 6.1.2 of the
+                e-Discharge_Summary_CDA_Implementation_Guide_v3.4.</report>
+
+        </rule>
+
+
+        <rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code = '102.16080']/ext:coverage2/ext:entitlement/ext:participant/ext:participantRole">
+
+            <!-- ext:participantRole/@classCode -->
+            <assert test="@classCode = 'PAT'">Error: e-Discharge Summary - 6.1.2 Subject Of Care -
+                "Subject of Care / Participant / Entitlement" - The 'participantRole' tag
+                'classCode' attribute shall contain a value 'PAT'. Refer to section 6.1.2 of the
+                e-Discharge_Summary_CDA_Implementation_Guide_v3.4.</assert>
+
+            <!-- ext:id -->
+            <assert test="ext:id">Error: e-Discharge Summary - 6.1.2 Subject Of Care - "Subject of
+                Care / Participant / Entitlement" - The 'id' tag is missing. Refer to section 6.1.2
+                of the e-Discharge_Summary_CDA_Implementation_Guide_v3.4.</assert>
+
+            <report test="count(ext:id) > 1">Error: e-Discharge Summary - 6.1.2 Subject Of Care -
+                "Subject of Care / Participant / Entitlement" - The 'id' tag shall appear only once.
+                Refer to section 6.1.2 of the
+                e-Discharge_Summary_CDA_Implementation_Guide_v3.4.</report>
+
+            <!-- The attributes of id are being tested by the "Specialist_Letter_Global_Checks.ent" file and so are not covered here. -->
+
+        </rule>
+        
+        
+        <rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code = '102.16080']/ext:coverage2[@typeCode='COVBY']/ext:entitlement/ext:id">
+
+             <assert test="not(@nullFlavor)">Error: e-Discharge Summary - 6.1.2 Subject Of Care - "Subject of Care / Participant /
+                / Entitlement / Entitlement Number"  - The 'id' tag 'nullFlavor' attribute shall not be
+                present. Refer to requirements in the NullFlavor Usage Clarification FAQ and section 6.1.2 of the
+                e-Discharge_Summary_CDA_Implementation_Guide_v3.4. </assert>
+        
+
+        </rule>
+
+        <rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code = '102.16080']/ext:coverage2/ext:entitlement/ext:code">
+
+            <!-- ENTITLEMENT TYPE - 1..1 -->
+
+            <assert
+                test="document('TEMPLATE/VALDN/CDAValidate_Vocabs.xml', .)/systems/system[@codeSystemName = 'NCTIS_Entitlement_Type_Values']/code[(@code = current()/@code) and (@codeSystem = current()/@codeSystem) and (@codeSystemName = current()/@codeSystemName) and (translate(@displayName,  'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ') = translate(current()/@displayName, 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'))]"
+                >Error: e-Discharge Summary - 6.1.2 Subject Of Care - "Subject of Care / Participant
+                / Entitlement / Entitlement Type" - The 'code' tag 'code', 'codeSystem',
+                'codeSystemName' and 'displayName' attribute shall be as per NCTIS: Admin Codes -
+                Entitlement Type. Refer to section 6.1.2 and 10.14 of the
+                e-Discharge_Summary_CDA_Implementation_Guide_v3.4.</assert>
+            
+             <assert test="not(@nullFlavor)">Error: e-Discharge Summary - 6.1.2 Subject Of Care - "Subject of Care / Participant
+                / Entitlement / Entitlement Type"  - The 'code' tag 'nullFlavor' attribute shall not be
+                present. Refer to requirements in the NullFlavor Usage Clarification FAQ and section 6.1.2 of the
+                e-Discharge_Summary_CDA_Implementation_Guide_v3.4. </assert>
+        
+
+            <!-- other test/validations for the ext:code is done by 'Discharge_Summary_Global_Checks' file -->
+
+        </rule>
+
+
+    </pattern>
+
+

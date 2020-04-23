@@ -1,0 +1,183 @@
+<pattern name="p-Pharmacist_Shared_Medicines_List_Employment_Checks-errors"
+  id="p-Pharmacist_Shared_Medicines_List_Employment_Checks-errors"
+  see="#p-Pharmacist_Shared_Medicines_List_Employment_Checks-errors">
+
+
+  <rule context="ext:asEmployment">
+
+    <assert test="@classCode"
+    >Error: Pharmacist Shared Medicines List - 8.8 Employment -
+      The 'asEmployment' tag 'classCode' attribute is missing. Check all
+      'ext:asEmployment' tags to find the missing attribute. Refer to section 8.8 Employment of the
+      Core_Level_One_Clinical Document_CDA_Implementation_Guide_v1.1.
+    </assert>
+
+    <assert test="not(@classCode) or normalize-space(@classCode) != ''"
+    >Error: Pharmacist Shared Medicines List - 8.8 Employment -
+      The 'asEmployment' tag 'classCode' attribute shall contain a value. Check all
+      'ext:asEmployment' tags to find the missing attribute. Refer to section 8.8 Employment of the
+      Core_Level_One_Clinical Document_CDA_Implementation_Guide_v1.1.
+    </assert>
+
+    <assert test="@classCode='EMP'"
+    >Error: Pharmacist Shared Medicines List - 8.8 Employment -
+      The 'asEmployment' tag 'classCode' attribute shall contain the value 'EMP'.
+      Check all 'ext:asEmployment' tags to find the incorrect attribute.
+      Refer to section 8.8 Employment of the
+      Core_Level_One_Clinical Document_CDA_Implementation_Guide_v1.1.
+    </assert>
+
+    <assert test="ext:employerOrganization"
+    >Error: Pharmacist Shared Medicines List - 8.8 Employment -
+      The 'ext:employerOrganization' tag is missing. Check all
+      'ext:asEmployment' tags to find the missing tag.
+      Refer to section 8.8 Employment of the
+      Core_Level_One_Clinical Document_CDA_Implementation_Guide_v1.1.
+    </assert>
+
+    <report test="count(ext:employerOrganization) > 1"
+    >Error: Pharmacist Shared Medicines List - 8.8 Employment -
+      The 'ext:employerOrganization' tag shall appear only once. Check all
+      'ext:asEmployment' tags to find the duplicate tag. Refer to section 8.8 Employment of the
+      Core_Level_One_Clinical Document_CDA_Implementation_Guide_v1.1.
+    </report>
+
+    <report test="count(ext:code) > 1"
+    >Error: Pharmacist Shared Medicines List - 8.8 Employment -
+      The 'ext:code' tag shall appear only once. Check all 'ext:asEmployment' tags
+      to find the duplicate tag. Refer to section 8.8 Employment of the
+      Core_Level_One_Clinical Document_CDA_Implementation_Guide_v1.1.
+    </report>
+
+    <report test="count(ext:jobCode) > 1"
+    >Error: Pharmacist Shared Medicines List - 8.8 Employment -
+      The 'ext:jobCode' tag shall appear only once. Check all 'ext:asEmployment' tags
+      to find the duplicate tag. Refer to section 8.8 Employment of the
+      Core_Level_One_Clinical Document_CDA_Implementation_Guide_v1.1.
+    </report>
+
+    <report test="count(ext:jobClassCode) > 1"
+    >Error: Pharmacist Shared Medicines List - 8.8 Employment -
+      The 'ext:jobClassCode' tag shall appear only once. Check all 'ext:asEmployment'
+      tags to find the duplicate tag. Refer to section 8.8 Employment of the
+      Core_Level_One_Clinical Document_CDA_Implementation_Guide_v1.1.
+    </report>
+
+  </rule>
+
+
+  <!--ext:asEmployment/ext:jobCode rules are migrated to the following generic template files -
+
+      ANZSCO_Checks_2006.sch
+      ANZSCO_Checks_Revision1.sch-->
+
+
+  <rule context="ext:asEmployment/ext:employerOrganization">
+
+    <assert test="cda:asOrganizationPartOf"
+    >Error: Pharmacist Shared Medicines List - 8.8 Employment -
+      The 'asOrganizationPartOf' tag is missing. Check all
+      'ext:asEmployment/ext:employerOrganization' tags to find the missing tag.
+      Refer to section 8.8 Employment of the
+      Core_Level_One_Clinical Document_CDA_Implementation_Guide_v1.1.
+    </assert>
+
+    <report test="count(cda:asOrganizationPartOf) > 1"
+    >Error: Pharmacist Shared Medicines List - 8.8 Employment -
+      The 'asOrganizationPartOf' tag shall appear only once. Check all
+      'ext:asEmployment/ext:employerOrganization' tags to find the duplicate tag.
+      Refer to section 8.8 Employment of the
+      Core_Level_One_Clinical Document_CDA_Implementation_Guide_v1.1.
+    </report>
+
+    <report test="count(cda:name) > 1"
+    >Error: Pharmacist Shared Medicines List - 8.8 Employment -
+      The 'name' tag shall appear only once. Check all
+      'ext:asEmployment/ext:employerOrganization' tags to find the duplicate tag.
+      Refer to section 8.8 Employment of the
+      Core_Level_One_Clinical Document_CDA_Implementation_Guide_v1.1.
+    </report>
+
+  </rule>
+
+
+  <rule context="ext:asEmployment/ext:employerOrganization/cda:name">
+
+    <assert test="normalize-space(.) != ''"
+    >Error: Pharmacist Shared Medicines List - 8.8 Employment -
+      The 'name' tag shall contain a value. Check all
+      'ext:asEmployment/ext:employerOrganization/cda:name' tags to find the missing
+      value. Refer to section 8.8 Employment of the
+      Core_Level_One_Clinical Document_CDA_Implementation_Guide_v1.1.
+    </assert>
+
+  </rule>
+
+
+  <rule context="ext:asEmployment/ext:employerOrganization/cda:asOrganizationPartOf">
+
+    <assert test="cda:wholeOrganization"
+    >Error: Pharmacist Shared Medicines List - 8.8 Employment -
+      The 'wholeOrganization' tag is missing. Check all
+      'ext:asEmployment/ext:employerOrganization/cda:asOrganizationPartOf' tags to
+      find the missing tag. Refer to section 8.8 Employment of the
+      Core_Level_One_Clinical Document_CDA_Implementation_Guide_v1.1.
+    </assert>
+
+    <report test="count(cda:wholeOrganization) > 1"
+    >Error: Pharmacist Shared Medicines List - 8.8 Employment -
+      The 'wholeOrganization' tag shall appear only once. Check all
+      'ext:asEmployment/ext:employerOrganization/cda:asOrganizationPartOf' tags to
+      find the duplicate tag. Refer to section 8.8 Employment of the
+      Core_Level_One_Clinical Document_CDA_Implementation_Guide_v1.1.
+    </report>
+
+  </rule>
+
+
+  <rule
+    context="ext:asEmployment/ext:employerOrganization/cda:asOrganizationPartOf/cda:wholeOrganization">
+
+    <report test="count(cda:name) > 1"
+    >Error: Pharmacist Shared Medicines List - 8.8 Employment -
+      The 'name' tag shall appear only once. Check all
+      'ext:asEmployment/ext:employerOrganization/cda:asOrganizationPartOf/cda:wholeOrganization'
+      tags to find the duplicate tag. Refer to section 8.8 Employment of the
+      Core_Level_One_Clinical Document_CDA_Implementation_Guide_v1.1.
+    </report>
+
+  </rule>
+
+
+  <rule
+    context="ext:asEmployment/ext:employerOrganization/cda:asOrganizationPartOf/cda:wholeOrganization/cda:name">
+
+    <assert test="not(@nullFlavor)"
+    >Error: Pharmacist Shared Medicines List - 8.8 Employment -
+      The 'name' tag 'nullFlavor' attribute shall not be present.
+      Refer to requirements in NullFlavor Usage Clarification FAQ and section 8.8 of the
+      Core_Level_One_Clinical Document_CDA_Implementation_Guide_v1.1.
+    </assert>
+
+    <assert test="normalize-space(.) != ''"
+    >Error: Pharmacist Shared Medicines List - 8.8 Employment -
+      The 'name' tag shall contain a value. Check all
+      'ext:asEmployment/ext:employerOrganization/cda:asOrganizationPartOf/cda:wholeOrganization/cda:name'
+      tags to find the missing value. Refer to section 8.8 Employment of the
+      Core_Level_One_Clinical Document_CDA_Implementation_Guide_v1.1.
+    </assert>
+
+    <report test="@use and normalize-space(@use) = ''"
+    >Error: Pharmacist Shared Medicines List - 8.8 Employment -
+      The 'name' tag 'use' attribute shall contain a value. Check all
+      'ext:asEmployment/ext:employerOrganization/cda:asOrganizationPartOf/cda:wholeOrganization/cda:name'
+      tags to find the incorrect tag. Refer to section AS 4846-2006:
+      Health Care Provider Organisation Name Usage of the
+      Core_Level_One_Clinical Document_CDA_Implementation_Guide_v1.1.
+    </report>
+
+  </rule>
+
+
+</pattern>
+

@@ -1,0 +1,110 @@
+
+
+    <!-- e-Referral:  7.1.1.2.1 USUAL GP - PARTICIPATION TYPE -->
+
+    <!-- Context: Participant -->
+
+
+    <!-- Status: Last Reviewed: Not reviewed.
+        Status: Last Updated : 13/12/2011
+ -->
+
+    <pattern name="p-e-Referral_Usual_GP_Participation_Type-errors"
+        id="p-e-Referral_Usual_GP_Participation_Type-errors"
+        see="#p-e-Referral_Usual_GP_Participation_Type-errors">
+
+        <!-- USUAL GP 1..* -->
+
+        <rule
+            context="/cda:ClinicalDocument/cda:participant[translate(@typeCode, 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ') = 'PART']">
+
+            <!-- associatedEntity - 1..1 -->
+
+            <assert test="cda:associatedEntity">Error: E-Referral - 7.1.1.2.1 Usual GP - The
+                'associatedEntity' tag is missing. Refer to section 7.1.1.2.1 of the
+                e-Referral_CDA_Implementation_Guide_v2.2.</assert>
+
+            <report test="count(cda:associatedEntity) > 1">Error: e-Referral - 7.1.1.2.1 Usual GP -
+                The 'associatedEntity' tag shall appear only once. Refer to section 7.1.1.2.1 of the
+                e-Referral_CDA_Implementation_Guide_v2.2.</report>
+
+            <!-- For 'associatedEntity' tag see below rule context:  
+                <rule context = "*[cda:participant[translate(@typeCode, 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ') = 'PART']]/cda:participant[translate(@typeCode, 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ') = 'PART']/cda:associatedEntity"> -->
+
+            <!-- functionCode - 1..1 -->
+
+            <assert test="cda:functionCode[@code='PCP']">Error: E-Referral - 7.1.1.2.1 Usual GP - "Participation
+                Type" - The 'functionCode' tag is missing. Refer to section 7.1.1.1 of the
+                e-Referral_CDA_Implementation_Guide_v2.2.</assert>
+
+            <report test="count(cda:functionCode[@code='PCP']) > 1">Error: e-Referral - 7.1.1.2.1 Usual GP -
+                "Participation Type" - The 'functionCode' tag shall appear only once. Refer to
+                section 7.1.1.1 of the e-Referral_CDA_Implementation_Guide_v2.2.</report>
+
+            <!-- For 'associatedEntity' tag see below rule context:  
+                <rule context = "*[cda:participant[translate(@typeCode, 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ') = 'PART']]/cda:participant[translate(@typeCode, 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ') = 'PART']/cda:functionCode"> -->
+
+        </rule>
+
+
+        <!-- associatedEntity - 1..1 -->
+
+        <rule
+            context="/cda:ClinicalDocument/cda:participant[translate(@typeCode, 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ') = 'PART']/cda:associatedEntity">
+
+            <!-- @classCode - 1..1 -->
+
+            <assert test="@classCode">Error: e-Referral - 7.1.1.2.1 Usual GP - The
+                'associatedEntity' tag 'classCode' attribute is missing. Refer to section 7.1.1.2.1
+                of the e-Referral_CDA_Implementation_Guide_v2.2.</assert>
+
+            <assert test="@classCode = 'PROV'">Error: e-Referral - 7.1.1.2.1 Usual GP - The
+                'associatedEntity' tag 'classCode' attribute shall contain the value 'PROV'. Refer to section 7.1.1.2.1
+                of the e-Referral_CDA_Implementation_Guide_v2.2.</assert>
+           
+            <!-- For 'code' tag see below rule context:  
+                <rule context = "/cda:ClinicalDocument/cda:participant[translate(@typeCode, 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ') = 'PART']/cda:associatedEntity"> in file e-Referral_Usual_GP_Role.sch,
+            -->
+
+            <!-- For 'id' tag see below rule context:  
+                <rule context = "/cda:ClinicalDocument/cda:participant[translate(@typeCode, 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ') = 'PART']/cda:associatedEntity"> in file e-Referral_Usual_GP_id.sch,
+            -->
+
+            <!-- For 'associatedPerson' tag see below rule context:  
+                <rule context = "/cda:ClinicalDocument/cda:participant[translate(@typeCode, 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ') = 'PART']/cda:associatedEntity"> in file e-Referral_Usual_GP_Participant.sch,
+            -->
+
+            <!-- For 'addr' tag see below rule context:  
+                <rule context = "/cda:ClinicalDocument/cda:participant[translate(@typeCode, 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ') = 'PART']/cda:associatedEntity"> in file e-Referral_Usual_GP_Address.sch,
+            -->
+
+            <!-- For 'telecom' tag see below rule context:  
+                <rule context = "/cda:ClinicalDocument/cda:participant[translate(@typeCode, 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ') = 'PART']/cda:associatedEntity"> in file e-Referral_Usual_GP_Electronic_Communication_Details.sch,
+            -->
+
+            <!-- For 'scopingOrganization' tag see below rule context:  
+                <rule context = "/cda:ClinicalDocument/cda:participant[translate(@typeCode, 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ') = 'PART']/cda:associatedEntity"> in file e-Referral_Usual_GP_Employer_Organisation.sch,
+            -->
+
+        </rule>
+
+
+        <!-- functionCode - 1..1 -->
+
+        <rule
+            context="/cda:ClinicalDocument/cda:participant[translate(@typeCode, 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ') = 'PART']/cda:functionCode">
+
+            <!-- @code - 1..1 -->
+
+            <assert test="@code">Error: E-Referral - 7.1.1.2.1 Usual GP - "Participation Type" - The
+                'functionCode' tag 'code' attribute is missing. Refer to section 7.1.1.2.1 of the
+                e-Referral_CDA_Implementation_Guide_v2.2.</assert>
+
+            <assert test="@code = 'PCP'">Error: E-Referral - 7.1.1.2.1 Usual GP - "Participation
+                Type" - The 'functionCode' tag 'code' attribute shall contain the value 'PCP'. Refer to section
+                7.1.1.2.1 of the e-Referral_CDA_Implementation_Guide_v2.2.</assert>
+
+        </rule>
+
+    </pattern>
+

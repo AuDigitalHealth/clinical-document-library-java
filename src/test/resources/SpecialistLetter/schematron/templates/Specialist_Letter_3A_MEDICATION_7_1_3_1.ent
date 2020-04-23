@@ -1,0 +1,1377 @@
+<!--
+_________________________________________________________________________________________________________________________________________________________________________________________
+                  Generated File - Do Not Edit File Directly                                                                                                                             
+                  __________________________________________
+
+                  Generated          : 26/08/2014 2:05:24 PM
+
+                  Product            : Specialist Letter
+                  Release            : CDA_Implementation_Guide_v1.0
+                  IG Guide Reference : 7.1.3.1
+                  IG Guide Title     : MEDICATION
+                  Generator Version  : 2.27
+                                                                                                                                                                                         
+_________________________________________________________________________________________________________________________________________________________________________________________
+-->
+    <pattern name="p-Specialist_Letter_3A_MEDICATION_7_1_3_1-errors"
+        id="p-Specialist_Letter_3A_MEDICATION_7_1_3_1-errors"
+        see="#p-Specialist_Letter_3A_MEDICATION_7_1_3_1-errors">
+
+
+        <rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code = '101.16146']/cda:entry[cda:substanceAdministration/@classCode = 'SBADM']">
+
+            <report test="count(cda:substanceAdministration) > 1"
+                >Error: Specialist Letter - 7.1.3.1 MEDICATION -
+                "Medication" -
+                The 'substanceAdministration' tag shall appear only once.
+                Refer to section 7.1.3.1 of the
+                Specialist_Letter_CDA_Implementation_Guide_v1.3.</report>
+
+        </rule>
+
+
+        <rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code = '101.16146']/cda:entry/cda:substanceAdministration[@classCode = 'SBADM']">
+
+            <assert test="@moodCode"
+                >Error: Specialist Letter - 7.1.3.1 MEDICATION -
+                "Medication" -
+                The 'substanceAdministration' tag 'moodCode' attribute is missing.
+                Refer to section 7.1.3.1 of the
+                Specialist_Letter_CDA_Implementation_Guide_v1.3.</assert>
+
+            <assert test="not(@moodCode) or normalize-space(@moodCode) != ''"
+                >Error: Specialist Letter - 7.1.3.1 MEDICATION -
+                "Medication" -
+                The 'substanceAdministration' tag 'moodCode' attribute shall contain a value.
+                Refer to section 7.1.3.1 of the
+                Specialist_Letter_CDA_Implementation_Guide_v1.3.</assert>
+
+            <assert test="
+                not(@moodCode) or normalize-space(@moodCode) = '' or @moodCode = 'EVN'"
+                >Error: Specialist Letter - 7.1.3.1 MEDICATION -
+                "Medication" -
+                The 'substanceAdministration' tag 'moodCode' attribute shall contain the value 'EVN'.
+                Refer to section 7.1.3.1 of the
+                Specialist_Letter_CDA_Implementation_Guide_v1.3.</assert>
+
+            <assert test="cda:id"
+                >Error: Specialist Letter - 7.1.3.1 MEDICATION -
+                "Medication" -
+                The 'id' tag is missing.
+                Refer to section 7.1.3.1 of the
+                Specialist_Letter_CDA_Implementation_Guide_v1.3.</assert>
+
+            <report test="count(cda:id) > 1"
+                >Error: Specialist Letter - 7.1.3.1 MEDICATION -
+                "Medication" -
+                The 'id' tag shall appear only once.
+                Refer to section 7.1.3.1 of the
+                Specialist_Letter_CDA_Implementation_Guide_v1.3.</report>
+
+            <assert test="cda:consumable"
+                >Error: Specialist Letter - 7.1.3.1 MEDICATION -
+                "Medication / Medicine" -
+                The 'consumable' tag is missing.
+                Refer to section 7.1.3.1 of the
+                Specialist_Letter_CDA_Implementation_Guide_v1.3.</assert>
+
+            <report test="count(cda:consumable) > 1"
+                >Error: Specialist Letter - 7.1.3.1 MEDICATION -
+                "Medication / Medicine" -
+                The 'consumable' tag shall appear only once.
+                Refer to section 7.1.3.1 of the
+                Specialist_Letter_CDA_Implementation_Guide_v1.3.</report>
+
+            <report test="count(cda:text) > 1"
+                >Error: Specialist Letter - 7.1.3.1 MEDICATION -
+                "Medication / Directions" -
+                The 'text' tag shall appear only once.
+                Refer to section 7.1.3.1 of the
+                Specialist_Letter_CDA_Implementation_Guide_v1.3.</report>
+
+            <report test="cda:text and normalize-space(cda:text) = ''"
+                >Error: Specialist Letter - 7.1.3.1 MEDICATION -
+                "Medication / Directions" -
+                The 'text' tag shall contain a value.
+                Refer to section 7.1.3.1 of the
+                Specialist_Letter_CDA_Implementation_Guide_v1.3.</report>
+
+            <report test="count(cda:entryRelationship[cda:act/cda:code/@code = '103.10141']) > 1"
+                >Error: Specialist Letter - 7.1.3.1 MEDICATION -
+                "Medication / Clinical Indication" -
+                The 'entryRelationship' tag shall appear only once for ' Clinical Indication'.
+                Refer to section 7.1.3.1 of the
+                Specialist_Letter_CDA_Implementation_Guide_v1.3.</report>
+
+            <report test="count(cda:entryRelationship[cda:act/cda:code/@code = '103.16044']) > 1"
+                >Error: Specialist Letter - 7.1.3.1 MEDICATION -
+                "Medication / Comment" -
+                The 'entryRelationship' tag shall appear only once for ' Comment'.
+                Refer to section 7.1.3.1 of the
+                Specialist_Letter_CDA_Implementation_Guide_v1.3.</report>
+
+            <assert test="cda:entryRelationship[cda:observation/cda:code/@code = '103.16593']"
+                >Error: Specialist Letter - 7.1.3.1 MEDICATION -
+                "Medication / Change Type" -
+                The 'entryRelationship' tag is missing for ' Change Type'.
+                Refer to section 7.1.3.1 of the
+                Specialist_Letter_CDA_Implementation_Guide_v1.3.</assert>
+
+            <report test="count(cda:entryRelationship[cda:observation/cda:code/@code = '103.16593']) > 1"
+                >Error: Specialist Letter - 7.1.3.1 MEDICATION -
+                "Medication / Change Type" -
+                The 'entryRelationship' tag shall appear only once for ' Change Type'.
+                Refer to section 7.1.3.1 of the
+                Specialist_Letter_CDA_Implementation_Guide_v1.3.</report>
+
+        </rule>
+
+
+        <rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code = '101.16146']/cda:entry/cda:substanceAdministration[@classCode = 'SBADM']/cda:id">
+
+            <report test="
+                contains(@root, '-') and not(
+                string-length(@root) = 36 and
+                substring(@root,  9, 1) = '-' and substring(@root, 14, 1) = '-' and
+                substring(@root, 19, 1) = '-' and substring(@root, 24, 1) = '-' and
+                translate(substring(@root,  1,  8), '0123456789ABCDEFabcdef', '0000000000000000000000') = '00000000' and
+                translate(substring(@root, 10,  4), '0123456789ABCDEFabcdef', '0000000000000000000000') = '0000' and
+                translate(substring(@root, 15,  4), '0123456789ABCDEFabcdef', '0000000000000000000000') = '0000' and
+                translate(substring(@root, 20,  4), '0123456789ABCDEFabcdef', '0000000000000000000000') = '0000' and
+                translate(substring(@root, 25, 12), '0123456789ABCDEFabcdef', '0000000000000000000000') = '000000000000')"
+                >Error: Specialist Letter - 7.1.3.1 MEDICATION -
+                "Medication" -
+                The 'id' tag 'root' attribute shall be a valid UUID.
+                Refer to section 7.1.3.1 of the
+                Specialist_Letter_CDA_Implementation_Guide_v1.3.</report>
+
+        </rule>
+
+
+        <rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code = '101.16146']/cda:entry/cda:substanceAdministration[@classCode = 'SBADM']/cda:consumable">
+
+            <assert test="not(@nullFlavor)"
+                >Error: Specialist Letter - 7.1.3.1 MEDICATION -
+                "Medication / Medicine" -
+                The 'consumable' tag 'nullFlavor' attribute shall not be present.
+                Refer to section 7.1.3.1 of the
+                Specialist_Letter_CDA_Implementation_Guide_v1.3.</assert>
+
+            <assert test="cda:manufacturedProduct"
+                >Error: Specialist Letter - 7.1.3.1 MEDICATION -
+                "Medication / Medicine" -
+                The 'manufacturedProduct' tag is missing.
+                Refer to section 7.1.3.1 of the
+                Specialist_Letter_CDA_Implementation_Guide_v1.3.</assert>
+
+            <report test="count(cda:manufacturedProduct) > 1"
+                >Error: Specialist Letter - 7.1.3.1 MEDICATION -
+                "Medication / Medicine" -
+                The 'manufacturedProduct' tag shall appear only once.
+                Refer to section 7.1.3.1 of the
+                Specialist_Letter_CDA_Implementation_Guide_v1.3.</report>
+
+        </rule>
+
+
+        <rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code = '101.16146']/cda:entry/cda:substanceAdministration[@classCode = 'SBADM']/cda:consumable/cda:manufacturedProduct">
+
+            <assert test="not(@nullFlavor)"
+                >Error: Specialist Letter - 7.1.3.1 MEDICATION -
+                "Medication / Medicine" -
+                The 'manufacturedProduct' tag 'nullFlavor' attribute shall not be present.
+                Refer to section 7.1.3.1 of the
+                Specialist_Letter_CDA_Implementation_Guide_v1.3.</assert>
+
+            <assert test="cda:manufacturedMaterial"
+                >Error: Specialist Letter - 7.1.3.1 MEDICATION -
+                "Medication / Medicine" -
+                The 'manufacturedMaterial' tag is missing.
+                Refer to section 7.1.3.1 of the
+                Specialist_Letter_CDA_Implementation_Guide_v1.3.</assert>
+
+            <report test="count(cda:manufacturedMaterial) > 1"
+                >Error: Specialist Letter - 7.1.3.1 MEDICATION -
+                "Medication / Medicine" -
+                The 'manufacturedMaterial' tag shall appear only once.
+                Refer to section 7.1.3.1 of the
+                Specialist_Letter_CDA_Implementation_Guide_v1.3.</report>
+
+        </rule>
+
+
+        <rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code = '101.16146']/cda:entry/cda:substanceAdministration[@classCode = 'SBADM']/cda:consumable/cda:manufacturedProduct/cda:manufacturedMaterial">
+
+            <assert test="not(@nullFlavor)"
+                >Error: Specialist Letter - 7.1.3.1 MEDICATION -
+                "Medication / Medicine" -
+                The 'manufacturedMaterial' tag 'nullFlavor' attribute shall not be present.
+                Refer to section 7.1.3.1 of the
+                Specialist_Letter_CDA_Implementation_Guide_v1.3.</assert>
+
+            <assert test="cda:code"
+                >Error: Specialist Letter - 7.1.3.1 MEDICATION -
+                "Medication / Medicine" -
+                The 'code' tag is missing.
+                Refer to section 7.1.3.1 of the
+                Specialist_Letter_CDA_Implementation_Guide_v1.3.</assert>
+
+            <report test="count(cda:code) > 1"
+                >Error: Specialist Letter - 7.1.3.1 MEDICATION -
+                "Medication / Medicine" -
+                The 'code' tag shall appear only once.
+                Refer to section 7.1.3.1 of the
+                Specialist_Letter_CDA_Implementation_Guide_v1.3.</report>
+
+        </rule>
+
+
+        <rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code = '101.16146']/cda:entry/cda:substanceAdministration[@classCode = 'SBADM']/cda:consumable/cda:manufacturedProduct/cda:manufacturedMaterial/cda:code">
+
+            <assert test="not(@nullFlavor)"
+                >Error: Specialist Letter - 7.1.3.1 MEDICATION -
+                "Medication / Medicine" -
+                The 'code' tag 'nullFlavor' attribute shall not be present.
+                Refer to section 7.1.3.1 of the
+                Specialist_Letter_CDA_Implementation_Guide_v1.3.</assert>
+
+        </rule>
+
+
+        <rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code = '101.16146']/cda:entry/cda:substanceAdministration[@classCode = 'SBADM']/cda:text">
+
+            <report test="@xsi:type and normalize-space(@xsi:type) = ''"
+                >Error: Specialist Letter - 7.1.3.1 MEDICATION -
+                "Medication / Directions" -
+                The 'text' tag 'xsi:type' attribute shall contain a value.
+                Refer to section 7.1.3.1 of the
+                Specialist_Letter_CDA_Implementation_Guide_v1.3.</report>
+
+            <report test="
+                @xsi:type and normalize-space(@xsi:type) != '' and 
+                normalize-space(@xsi:type) != 'ST' and
+                not(substring-before(normalize-space(@xsi:type), ':') != '' and
+                    substring-after(normalize-space(@xsi:type), ':') = 'ST')"
+                >Error: Specialist Letter - 7.1.3.1 MEDICATION -
+                "Medication / Directions" -
+                The 'text' tag 'xsi:type' attribute shall contain the value 'ST'.
+                Refer to section 7.1.3.1 of the
+                Specialist_Letter_CDA_Implementation_Guide_v1.3.</report>
+
+        </rule>
+
+
+        <rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code = '101.16146']/cda:entry/cda:substanceAdministration[@classCode = 'SBADM']/cda:entryRelationship[cda:act/cda:code/@code = '103.10141']">
+
+            <assert test="@typeCode"
+                >Error: Specialist Letter - 7.1.3.1 MEDICATION -
+                "Medication / Clinical Indication" -
+                The 'entryRelationship' tag 'typeCode' attribute is missing.
+                Refer to section 7.1.3.1 of the
+                Specialist_Letter_CDA_Implementation_Guide_v1.3.</assert>
+
+            <assert test="not(@typeCode) or normalize-space(@typeCode) != ''"
+                >Error: Specialist Letter - 7.1.3.1 MEDICATION -
+                "Medication / Clinical Indication" -
+                The 'entryRelationship' tag 'typeCode' attribute shall contain a value.
+                Refer to section 7.1.3.1 of the
+                Specialist_Letter_CDA_Implementation_Guide_v1.3.</assert>
+
+            <assert test="
+                not(@typeCode) or normalize-space(@typeCode) = '' or @typeCode = 'RSON'"
+                >Error: Specialist Letter - 7.1.3.1 MEDICATION -
+                "Medication / Clinical Indication" -
+                The 'entryRelationship' tag 'typeCode' attribute shall contain the value 'RSON'.
+                Refer to section 7.1.3.1 of the
+                Specialist_Letter_CDA_Implementation_Guide_v1.3.</assert>
+
+            <report test="count(cda:act) > 1"
+                >Error: Specialist Letter - 7.1.3.1 MEDICATION -
+                "Medication / Clinical Indication" -
+                The 'act' tag shall appear only once.
+                Refer to section 7.1.3.1 of the
+                Specialist_Letter_CDA_Implementation_Guide_v1.3.</report>
+
+        </rule>
+
+
+        <rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code = '101.16146']/cda:entry/cda:substanceAdministration[@classCode = 'SBADM']/cda:entryRelationship/cda:act[cda:code/@code = '103.10141']">
+
+            <assert test="@classCode"
+                >Error: Specialist Letter - 7.1.3.1 MEDICATION -
+                "Medication / Clinical Indication" -
+                The 'act' tag 'classCode' attribute is missing.
+                Refer to section 7.1.3.1 of the
+                Specialist_Letter_CDA_Implementation_Guide_v1.3.</assert>
+
+            <assert test="not(@classCode) or normalize-space(@classCode) != ''"
+                >Error: Specialist Letter - 7.1.3.1 MEDICATION -
+                "Medication / Clinical Indication" -
+                The 'act' tag 'classCode' attribute shall contain a value.
+                Refer to section 7.1.3.1 of the
+                Specialist_Letter_CDA_Implementation_Guide_v1.3.</assert>
+
+            <assert test="
+                not(@classCode) or normalize-space(@classCode) = '' or @classCode = 'INFRM'"
+                >Error: Specialist Letter - 7.1.3.1 MEDICATION -
+                "Medication / Clinical Indication" -
+                The 'act' tag 'classCode' attribute shall contain the value 'INFRM'.
+                Refer to section 7.1.3.1 of the
+                Specialist_Letter_CDA_Implementation_Guide_v1.3.</assert>
+
+            <assert test="@moodCode"
+                >Error: Specialist Letter - 7.1.3.1 MEDICATION -
+                "Medication / Clinical Indication" -
+                The 'act' tag 'moodCode' attribute is missing.
+                Refer to section 7.1.3.1 of the
+                Specialist_Letter_CDA_Implementation_Guide_v1.3.</assert>
+
+            <assert test="not(@moodCode) or normalize-space(@moodCode) != ''"
+                >Error: Specialist Letter - 7.1.3.1 MEDICATION -
+                "Medication / Clinical Indication" -
+                The 'act' tag 'moodCode' attribute shall contain a value.
+                Refer to section 7.1.3.1 of the
+                Specialist_Letter_CDA_Implementation_Guide_v1.3.</assert>
+
+            <assert test="
+                not(@moodCode) or normalize-space(@moodCode) = '' or @moodCode = 'EVN'"
+                >Error: Specialist Letter - 7.1.3.1 MEDICATION -
+                "Medication / Clinical Indication" -
+                The 'act' tag 'moodCode' attribute shall contain the value 'EVN'.
+                Refer to section 7.1.3.1 of the
+                Specialist_Letter_CDA_Implementation_Guide_v1.3.</assert>
+
+            <report test="count(cda:code) > 1"
+                >Error: Specialist Letter - 7.1.3.1 MEDICATION -
+                "Medication / Clinical Indication" -
+                The 'code' tag shall appear only once.
+                Refer to section 7.1.3.1 of the
+                Specialist_Letter_CDA_Implementation_Guide_v1.3.</report>
+
+            <assert test="cda:text"
+                >Error: Specialist Letter - 7.1.3.1 MEDICATION -
+                "Medication / Clinical Indication" -
+                The 'text' tag is missing.
+                Refer to section 7.1.3.1 of the
+                Specialist_Letter_CDA_Implementation_Guide_v1.3.</assert>
+
+            <report test="count(cda:text) > 1"
+                >Error: Specialist Letter - 7.1.3.1 MEDICATION -
+                "Medication / Clinical Indication" -
+                The 'text' tag shall appear only once.
+                Refer to section 7.1.3.1 of the
+                Specialist_Letter_CDA_Implementation_Guide_v1.3.</report>
+
+            <assert test="not(cda:text) or normalize-space(cda:text) != ''"
+                >Error: Specialist Letter - 7.1.3.1 MEDICATION -
+                "Medication / Clinical Indication" -
+                The 'text' tag shall contain a value.
+                Refer to section 7.1.3.1 of the
+                Specialist_Letter_CDA_Implementation_Guide_v1.3.</assert>
+
+        </rule>
+
+
+        <rule context="cda:code[@code = '103.10141']">
+
+            <assert test="
+                count(/cda:ClinicalDocument//cda:code[@code = '103.10141']) =
+                count(/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code='101.16146']/cda:entry/cda:substanceAdministration[@classCode='SBADM']/cda:entryRelationship/cda:act/cda:code[@code='103.10141'])"
+                >Error: Specialist Letter - 7.1.3.1 MEDICATION -
+                "Medication / Clinical Indication" -
+                The '/ClinicalDocument/component/structuredBody/component/section[code/@code = '101.16146']/entry/substanceAdministration[@classCode = 'SBADM']/entryRelationship/act/code[@code = '103.10141']' path -
+                1 or more tags are missing.
+                Refer to section 7.1.3.1 of the
+                Specialist_Letter_CDA_Implementation_Guide_v1.3.</assert>
+
+            <assert test="@codeSystem"
+                >Error: Specialist Letter - 7.1.3.1 MEDICATION -
+                "Medication / Clinical Indication" -
+                The 'code' tag 'codeSystem' attribute is missing.
+                Refer to section 7.1.3.1 of the
+                Specialist_Letter_CDA_Implementation_Guide_v1.3.</assert>
+
+            <assert test="
+                not(@codeSystem) or normalize-space(@codeSystem) = '' or @codeSystem = '1.2.36.1.2001.1001.101'"
+                >Error: Specialist Letter - 7.1.3.1 MEDICATION -
+                "Medication / Clinical Indication" -
+                The 'code' tag 'codeSystem' attribute shall contain the value '1.2.36.1.2001.1001.101'.
+                Refer to section 7.1.3.1 of the
+                Specialist_Letter_CDA_Implementation_Guide_v1.3.</assert>
+
+            <assert test="@codeSystemName"
+                >Error: Specialist Letter - 7.1.3.1 MEDICATION -
+                "Medication / Clinical Indication" -
+                The 'code' tag 'codeSystemName' attribute is missing.
+                Refer to section 7.1.3.1 of the
+                Specialist_Letter_CDA_Implementation_Guide_v1.3.</assert>
+
+            <assert test="
+                not(@codeSystemName) or normalize-space(@codeSystemName) = '' or translate(@codeSystemName, 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ') = &quot;NCTIS DATA COMPONENTS&quot;"
+                >Error: Specialist Letter - 7.1.3.1 MEDICATION -
+                "Medication / Clinical Indication" -
+                The 'code' tag 'codeSystemName' attribute shall contain the value 'NCTIS Data Components'.
+                Refer to section 7.1.3.1 of the
+                Specialist_Letter_CDA_Implementation_Guide_v1.3.</assert>
+
+            <assert test="@displayName"
+                >Error: Specialist Letter - 7.1.3.1 MEDICATION -
+                "Medication / Clinical Indication" -
+                The 'code' tag 'displayName' attribute is missing.
+                Refer to section 7.1.3.1 of the
+                Specialist_Letter_CDA_Implementation_Guide_v1.3.</assert>
+
+            <assert test="
+                not(@displayName) or normalize-space(@displayName) = '' or @displayName = 'Clinical Indication'"
+                >Error: Specialist Letter - 7.1.3.1 MEDICATION -
+                "Medication / Clinical Indication" -
+                The 'code' tag 'displayName' attribute shall contain the value 'Clinical Indication'.
+                Refer to section 7.1.3.1 of the
+                Specialist_Letter_CDA_Implementation_Guide_v1.3.</assert>
+
+            <assert test="not(cda:translation)"
+                >Error: Specialist Letter - 7.1.3.1 MEDICATION -
+                "Medication / Clinical Indication" -
+                The 'translation' tag shall not be present within 'code'.
+                Refer to section 7.1.3.1 of the
+                Specialist_Letter_CDA_Implementation_Guide_v1.3.</assert>
+
+        </rule>
+
+
+        <rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code = '101.16146']/cda:entry/cda:substanceAdministration[@classCode = 'SBADM']/cda:entryRelationship/cda:act[cda:code/@code = '103.10141']/cda:text">
+
+            <report test="@xsi:type and normalize-space(@xsi:type) = ''"
+                >Error: Specialist Letter - 7.1.3.1 MEDICATION -
+                "Medication / Clinical Indication" -
+                The 'text' tag 'xsi:type' attribute shall contain a value.
+                Refer to section 7.1.3.1 of the
+                Specialist_Letter_CDA_Implementation_Guide_v1.3.</report>
+
+            <report test="
+                @xsi:type and normalize-space(@xsi:type) != '' and 
+                normalize-space(@xsi:type) != 'ST' and
+                not(substring-before(normalize-space(@xsi:type), ':') != '' and
+                    substring-after(normalize-space(@xsi:type), ':') = 'ST')"
+                >Error: Specialist Letter - 7.1.3.1 MEDICATION -
+                "Medication / Clinical Indication" -
+                The 'text' tag 'xsi:type' attribute shall contain the value 'ST'.
+                Refer to section 7.1.3.1 of the
+                Specialist_Letter_CDA_Implementation_Guide_v1.3.</report>
+
+        </rule>
+
+
+        <rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code = '101.16146']/cda:entry/cda:substanceAdministration[@classCode = 'SBADM']/cda:entryRelationship[cda:act/cda:code/@code = '103.16044']">
+
+            <assert test="@typeCode"
+                >Error: Specialist Letter - 7.1.3.1 MEDICATION -
+                "Medication / Comment" -
+                The 'entryRelationship' tag 'typeCode' attribute is missing.
+                Refer to section 7.1.3.1 of the
+                Specialist_Letter_CDA_Implementation_Guide_v1.3.</assert>
+
+            <assert test="not(@typeCode) or normalize-space(@typeCode) != ''"
+                >Error: Specialist Letter - 7.1.3.1 MEDICATION -
+                "Medication / Comment" -
+                The 'entryRelationship' tag 'typeCode' attribute shall contain a value.
+                Refer to section 7.1.3.1 of the
+                Specialist_Letter_CDA_Implementation_Guide_v1.3.</assert>
+
+            <assert test="
+                not(@typeCode) or normalize-space(@typeCode) = '' or @typeCode = 'COMP'"
+                >Error: Specialist Letter - 7.1.3.1 MEDICATION -
+                "Medication / Comment" -
+                The 'entryRelationship' tag 'typeCode' attribute shall contain the value 'COMP'.
+                Refer to section 7.1.3.1 of the
+                Specialist_Letter_CDA_Implementation_Guide_v1.3.</assert>
+
+            <report test="count(cda:act) > 1"
+                >Error: Specialist Letter - 7.1.3.1 MEDICATION -
+                "Medication / Comment" -
+                The 'act' tag shall appear only once.
+                Refer to section 7.1.3.1 of the
+                Specialist_Letter_CDA_Implementation_Guide_v1.3.</report>
+
+        </rule>
+
+
+        <rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code = '101.16146']/cda:entry/cda:substanceAdministration[@classCode = 'SBADM']/cda:entryRelationship/cda:act[cda:code/@code = '103.16044']">
+
+            <assert test="@classCode"
+                >Error: Specialist Letter - 7.1.3.1 MEDICATION -
+                "Medication / Comment" -
+                The 'act' tag 'classCode' attribute is missing.
+                Refer to section 7.1.3.1 of the
+                Specialist_Letter_CDA_Implementation_Guide_v1.3.</assert>
+
+            <assert test="not(@classCode) or normalize-space(@classCode) != ''"
+                >Error: Specialist Letter - 7.1.3.1 MEDICATION -
+                "Medication / Comment" -
+                The 'act' tag 'classCode' attribute shall contain a value.
+                Refer to section 7.1.3.1 of the
+                Specialist_Letter_CDA_Implementation_Guide_v1.3.</assert>
+
+            <assert test="
+                not(@classCode) or normalize-space(@classCode) = '' or @classCode = 'INFRM'"
+                >Error: Specialist Letter - 7.1.3.1 MEDICATION -
+                "Medication / Comment" -
+                The 'act' tag 'classCode' attribute shall contain the value 'INFRM'.
+                Refer to section 7.1.3.1 of the
+                Specialist_Letter_CDA_Implementation_Guide_v1.3.</assert>
+
+            <assert test="@moodCode"
+                >Error: Specialist Letter - 7.1.3.1 MEDICATION -
+                "Medication / Comment" -
+                The 'act' tag 'moodCode' attribute is missing.
+                Refer to section 7.1.3.1 of the
+                Specialist_Letter_CDA_Implementation_Guide_v1.3.</assert>
+
+            <assert test="not(@moodCode) or normalize-space(@moodCode) != ''"
+                >Error: Specialist Letter - 7.1.3.1 MEDICATION -
+                "Medication / Comment" -
+                The 'act' tag 'moodCode' attribute shall contain a value.
+                Refer to section 7.1.3.1 of the
+                Specialist_Letter_CDA_Implementation_Guide_v1.3.</assert>
+
+            <assert test="
+                not(@moodCode) or normalize-space(@moodCode) = '' or @moodCode = 'EVN'"
+                >Error: Specialist Letter - 7.1.3.1 MEDICATION -
+                "Medication / Comment" -
+                The 'act' tag 'moodCode' attribute shall contain the value 'EVN'.
+                Refer to section 7.1.3.1 of the
+                Specialist_Letter_CDA_Implementation_Guide_v1.3.</assert>
+
+            <report test="count(cda:code) > 1"
+                >Error: Specialist Letter - 7.1.3.1 MEDICATION -
+                "Medication / Comment" -
+                The 'code' tag shall appear only once.
+                Refer to section 7.1.3.1 of the
+                Specialist_Letter_CDA_Implementation_Guide_v1.3.</report>
+
+            <assert test="cda:text"
+                >Error: Specialist Letter - 7.1.3.1 MEDICATION -
+                "Medication / Comment" -
+                The 'text' tag is missing.
+                Refer to section 7.1.3.1 of the
+                Specialist_Letter_CDA_Implementation_Guide_v1.3.</assert>
+
+            <report test="count(cda:text) > 1"
+                >Error: Specialist Letter - 7.1.3.1 MEDICATION -
+                "Medication / Comment" -
+                The 'text' tag shall appear only once.
+                Refer to section 7.1.3.1 of the
+                Specialist_Letter_CDA_Implementation_Guide_v1.3.</report>
+
+            <assert test="not(cda:text) or normalize-space(cda:text) != ''"
+                >Error: Specialist Letter - 7.1.3.1 MEDICATION -
+                "Medication / Comment" -
+                The 'text' tag shall contain a value.
+                Refer to section 7.1.3.1 of the
+                Specialist_Letter_CDA_Implementation_Guide_v1.3.</assert>
+
+        </rule>
+
+
+        <rule context="cda:code[@code = '103.16044']">
+
+            <assert test="
+                count(/cda:ClinicalDocument//cda:code[@code = '103.16044']) =
+                count(/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code='101.16146']/cda:entry/cda:substanceAdministration[@classCode='SBADM']/cda:entryRelationship/cda:act/cda:code[@code='103.16044'])"
+                >Error: Specialist Letter - 7.1.3.1 MEDICATION -
+                "Medication / Comment" -
+                The '/ClinicalDocument/component/structuredBody/component/section[code/@code = '101.16146']/entry/substanceAdministration[@classCode = 'SBADM']/entryRelationship/act/code[@code = '103.16044']' path -
+                1 or more tags are missing.
+                Refer to section 7.1.3.1 of the
+                Specialist_Letter_CDA_Implementation_Guide_v1.3.</assert>
+
+            <assert test="@codeSystem"
+                >Error: Specialist Letter - 7.1.3.1 MEDICATION -
+                "Medication / Comment" -
+                The 'code' tag 'codeSystem' attribute is missing.
+                Refer to section 7.1.3.1 of the
+                Specialist_Letter_CDA_Implementation_Guide_v1.3.</assert>
+
+            <assert test="
+                not(@codeSystem) or normalize-space(@codeSystem) = '' or @codeSystem = '1.2.36.1.2001.1001.101'"
+                >Error: Specialist Letter - 7.1.3.1 MEDICATION -
+                "Medication / Comment" -
+                The 'code' tag 'codeSystem' attribute shall contain the value '1.2.36.1.2001.1001.101'.
+                Refer to section 7.1.3.1 of the
+                Specialist_Letter_CDA_Implementation_Guide_v1.3.</assert>
+
+            <assert test="@codeSystemName"
+                >Error: Specialist Letter - 7.1.3.1 MEDICATION -
+                "Medication / Comment" -
+                The 'code' tag 'codeSystemName' attribute is missing.
+                Refer to section 7.1.3.1 of the
+                Specialist_Letter_CDA_Implementation_Guide_v1.3.</assert>
+
+            <assert test="
+                not(@codeSystemName) or normalize-space(@codeSystemName) = '' or translate(@codeSystemName, 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ') = &quot;NCTIS DATA COMPONENTS&quot;"
+                >Error: Specialist Letter - 7.1.3.1 MEDICATION -
+                "Medication / Comment" -
+                The 'code' tag 'codeSystemName' attribute shall contain the value 'NCTIS Data Components'.
+                Refer to section 7.1.3.1 of the
+                Specialist_Letter_CDA_Implementation_Guide_v1.3.</assert>
+
+            <assert test="@displayName"
+                >Error: Specialist Letter - 7.1.3.1 MEDICATION -
+                "Medication / Comment" -
+                The 'code' tag 'displayName' attribute is missing.
+                Refer to section 7.1.3.1 of the
+                Specialist_Letter_CDA_Implementation_Guide_v1.3.</assert>
+
+            <assert test="
+                not(@displayName) or normalize-space(@displayName) = '' or translate(@displayName, 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ') = &quot;ADDITIONAL COMMENTS&quot;"
+                >Error: Specialist Letter - 7.1.3.1 MEDICATION -
+                "Medication / Comment" -
+                The 'code' tag 'displayName' attribute shall contain the value 'Additional Comments'.
+                Refer to section 7.1.3.1 of the
+                Specialist_Letter_CDA_Implementation_Guide_v1.3.</assert>
+
+            <assert test="not(cda:translation)"
+                >Error: Specialist Letter - 7.1.3.1 MEDICATION -
+                "Medication / Comment" -
+                The 'translation' tag shall not be present within 'code'.
+                Refer to section 7.1.3.1 of the
+                Specialist_Letter_CDA_Implementation_Guide_v1.3.</assert>
+
+        </rule>
+
+
+        <rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code = '101.16146']/cda:entry/cda:substanceAdministration[@classCode = 'SBADM']/cda:entryRelationship/cda:act[cda:code/@code = '103.16044']/cda:text">
+
+            <report test="@xsi:type and normalize-space(@xsi:type) = ''"
+                >Error: Specialist Letter - 7.1.3.1 MEDICATION -
+                "Medication / Comment" -
+                The 'text' tag 'xsi:type' attribute shall contain a value.
+                Refer to section 7.1.3.1 of the
+                Specialist_Letter_CDA_Implementation_Guide_v1.3.</report>
+
+            <report test="
+                @xsi:type and normalize-space(@xsi:type) != '' and 
+                normalize-space(@xsi:type) != 'ST' and
+                not(substring-before(normalize-space(@xsi:type), ':') != '' and
+                    substring-after(normalize-space(@xsi:type), ':') = 'ST')"
+                >Error: Specialist Letter - 7.1.3.1 MEDICATION -
+                "Medication / Comment" -
+                The 'text' tag 'xsi:type' attribute shall contain the value 'ST'.
+                Refer to section 7.1.3.1 of the
+                Specialist_Letter_CDA_Implementation_Guide_v1.3.</report>
+
+        </rule>
+
+
+        <rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code = '101.16146']/cda:entry/cda:substanceAdministration[@classCode = 'SBADM']/cda:entryRelationship[cda:observation/cda:code/@code = '103.16593']">
+
+            <assert test="@typeCode"
+                >Error: Specialist Letter - 7.1.3.1 MEDICATION -
+                "Medication / Change Type" -
+                The 'entryRelationship' tag 'typeCode' attribute is missing.
+                Refer to section 7.1.3.1 of the
+                Specialist_Letter_CDA_Implementation_Guide_v1.3.</assert>
+
+            <assert test="not(@typeCode) or normalize-space(@typeCode) != ''"
+                >Error: Specialist Letter - 7.1.3.1 MEDICATION -
+                "Medication / Change Type" -
+                The 'entryRelationship' tag 'typeCode' attribute shall contain a value.
+                Refer to section 7.1.3.1 of the
+                Specialist_Letter_CDA_Implementation_Guide_v1.3.</assert>
+
+            <assert test="
+                not(@typeCode) or normalize-space(@typeCode) = '' or @typeCode = 'SPRT'"
+                >Error: Specialist Letter - 7.1.3.1 MEDICATION -
+                "Medication / Change Type" -
+                The 'entryRelationship' tag 'typeCode' attribute shall contain the value 'SPRT'.
+                Refer to section 7.1.3.1 of the
+                Specialist_Letter_CDA_Implementation_Guide_v1.3.</assert>
+
+            <report test="count(cda:observation) > 1"
+                >Error: Specialist Letter - 7.1.3.1 MEDICATION -
+                "Medication / Change Type" -
+                The 'observation' tag shall appear only once.
+                Refer to section 7.1.3.1 of the
+                Specialist_Letter_CDA_Implementation_Guide_v1.3.</report>
+
+        </rule>
+
+
+        <rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code = '101.16146']/cda:entry/cda:substanceAdministration[@classCode = 'SBADM']/cda:entryRelationship/cda:observation[cda:code/@code = '103.16593']">
+
+            <assert test="@classCode"
+                >Error: Specialist Letter - 7.1.3.1 MEDICATION -
+                "Medication / Change Type" -
+                The 'observation' tag 'classCode' attribute is missing.
+                Refer to section 7.1.3.1 of the
+                Specialist_Letter_CDA_Implementation_Guide_v1.3.</assert>
+
+            <assert test="not(@classCode) or normalize-space(@classCode) != ''"
+                >Error: Specialist Letter - 7.1.3.1 MEDICATION -
+                "Medication / Change Type" -
+                The 'observation' tag 'classCode' attribute shall contain a value.
+                Refer to section 7.1.3.1 of the
+                Specialist_Letter_CDA_Implementation_Guide_v1.3.</assert>
+
+            <assert test="
+                not(@classCode) or normalize-space(@classCode) = '' or @classCode = 'OBS'"
+                >Error: Specialist Letter - 7.1.3.1 MEDICATION -
+                "Medication / Change Type" -
+                The 'observation' tag 'classCode' attribute shall contain the value 'OBS'.
+                Refer to section 7.1.3.1 of the
+                Specialist_Letter_CDA_Implementation_Guide_v1.3.</assert>
+
+            <assert test="@moodCode"
+                >Error: Specialist Letter - 7.1.3.1 MEDICATION -
+                "Medication / Change Type" -
+                The 'observation' tag 'moodCode' attribute is missing.
+                Refer to section 7.1.3.1 of the
+                Specialist_Letter_CDA_Implementation_Guide_v1.3.</assert>
+
+            <assert test="not(@moodCode) or normalize-space(@moodCode) != ''"
+                >Error: Specialist Letter - 7.1.3.1 MEDICATION -
+                "Medication / Change Type" -
+                The 'observation' tag 'moodCode' attribute shall contain a value.
+                Refer to section 7.1.3.1 of the
+                Specialist_Letter_CDA_Implementation_Guide_v1.3.</assert>
+
+            <assert test="
+                not(@moodCode) or normalize-space(@moodCode) = '' or @moodCode = 'EVN'"
+                >Error: Specialist Letter - 7.1.3.1 MEDICATION -
+                "Medication / Change Type" -
+                The 'observation' tag 'moodCode' attribute shall contain the value 'EVN'.
+                Refer to section 7.1.3.1 of the
+                Specialist_Letter_CDA_Implementation_Guide_v1.3.</assert>
+
+            <report test="count(cda:code) > 1"
+                >Error: Specialist Letter - 7.1.3.1 MEDICATION -
+                "Medication / Change Type" -
+                The 'code' tag shall appear only once.
+                Refer to section 7.1.3.1 of the
+                Specialist_Letter_CDA_Implementation_Guide_v1.3.</report>
+
+            <assert test="cda:value"
+                >Error: Specialist Letter - 7.1.3.1 MEDICATION -
+                "Medication / Change Type" -
+                The 'value' tag is missing.
+                Refer to section 7.1.3.1 of the
+                Specialist_Letter_CDA_Implementation_Guide_v1.3.</assert>
+
+            <report test="count(cda:value) > 1"
+                >Error: Specialist Letter - 7.1.3.1 MEDICATION -
+                "Medication / Change Type" -
+                The 'value' tag shall appear only once.
+                Refer to section 7.1.3.1 of the
+                Specialist_Letter_CDA_Implementation_Guide_v1.3.</report>
+
+            <assert test="cda:entryRelationship[cda:observation/cda:code/@code = '103.16595']"
+                >Error: Specialist Letter - 7.1.3.1 MEDICATION -
+                "Medication / Change or Recommendation" -
+                The 'entryRelationship' tag is missing for ' Change or Recommendation'.
+                Refer to section 7.1.3.1 of the
+                Specialist_Letter_CDA_Implementation_Guide_v1.3.</assert>
+
+            <report test="count(cda:entryRelationship[cda:observation/cda:code/@code = '103.16595']) > 1"
+                >Error: Specialist Letter - 7.1.3.1 MEDICATION -
+                "Medication / Change or Recommendation" -
+                The 'entryRelationship' tag shall appear only once for ' Change or Recommendation'.
+                Refer to section 7.1.3.1 of the
+                Specialist_Letter_CDA_Implementation_Guide_v1.3.</report>
+
+            <report test="count(cda:text) > 1"
+                >Error: Specialist Letter - 7.1.3.1 MEDICATION -
+                "Medication / Change Description" -
+                The 'text' tag shall appear only once.
+                Refer to section 7.1.3.1 of the
+                Specialist_Letter_CDA_Implementation_Guide_v1.3.</report>
+
+            <report test="cda:text and normalize-space(cda:text) = ''"
+                >Error: Specialist Letter - 7.1.3.1 MEDICATION -
+                "Medication / Change Description" -
+                The 'text' tag shall contain a value.
+                Refer to section 7.1.3.1 of the
+                Specialist_Letter_CDA_Implementation_Guide_v1.3.</report>
+
+            <report test="count(cda:entryRelationship[cda:act/cda:code/@code = '103.10177']) > 1"
+                >Error: Specialist Letter - 7.1.3.1 MEDICATION -
+                "Medication / Change Reason" -
+                The 'entryRelationship' tag shall appear only once for ' Change Reason'.
+                Refer to section 7.1.3.1 of the
+                Specialist_Letter_CDA_Implementation_Guide_v1.3.</report>
+
+        </rule>
+
+
+        <rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code = '101.16146']/cda:entry/cda:substanceAdministration[@classCode = 'SBADM']/cda:entryRelationship/cda:observation/cda:code[@code = '103.16593']">
+
+            <assert test="@codeSystem"
+                >Error: Specialist Letter - 7.1.3.1 MEDICATION -
+                "Medication / Change Type" -
+                The 'code' tag 'codeSystem' attribute is missing.
+                Refer to section 7.1.3.1 of the
+                Specialist_Letter_CDA_Implementation_Guide_v1.3.</assert>
+
+            <assert test="
+                not(@codeSystem) or normalize-space(@codeSystem) = '' or @codeSystem = '1.2.36.1.2001.1001.101'"
+                >Error: Specialist Letter - 7.1.3.1 MEDICATION -
+                "Medication / Change Type" -
+                The 'code' tag 'codeSystem' attribute shall contain the value '1.2.36.1.2001.1001.101'.
+                Refer to section 7.1.3.1 of the
+                Specialist_Letter_CDA_Implementation_Guide_v1.3.</assert>
+
+            <assert test="@codeSystemName"
+                >Error: Specialist Letter - 7.1.3.1 MEDICATION -
+                "Medication / Change Type" -
+                The 'code' tag 'codeSystemName' attribute is missing.
+                Refer to section 7.1.3.1 of the
+                Specialist_Letter_CDA_Implementation_Guide_v1.3.</assert>
+
+            <assert test="
+                not(@codeSystemName) or normalize-space(@codeSystemName) = '' or translate(@codeSystemName, 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ') = &quot;NCTIS DATA COMPONENTS&quot;"
+                >Error: Specialist Letter - 7.1.3.1 MEDICATION -
+                "Medication / Change Type" -
+                The 'code' tag 'codeSystemName' attribute shall contain the value 'NCTIS Data Components'.
+                Refer to section 7.1.3.1 of the
+                Specialist_Letter_CDA_Implementation_Guide_v1.3.</assert>
+
+            <assert test="@displayName"
+                >Error: Specialist Letter - 7.1.3.1 MEDICATION -
+                "Medication / Change Type" -
+                The 'code' tag 'displayName' attribute is missing.
+                Refer to section 7.1.3.1 of the
+                Specialist_Letter_CDA_Implementation_Guide_v1.3.</assert>
+
+            <assert test="
+                not(@displayName) or normalize-space(@displayName) = '' or translate(@displayName, 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ') = &quot;CHANGE TYPE&quot;"
+                >Error: Specialist Letter - 7.1.3.1 MEDICATION -
+                "Medication / Change Type" -
+                The 'code' tag 'displayName' attribute shall contain the value 'Change Type'.
+                Refer to section 7.1.3.1 of the
+                Specialist_Letter_CDA_Implementation_Guide_v1.3.</assert>
+
+            <assert test="not(cda:translation)"
+                >Error: Specialist Letter - 7.1.3.1 MEDICATION -
+                "Medication / Change Type" -
+                The 'translation' tag shall not be present within 'code'.
+                Refer to section 7.1.3.1 of the
+                Specialist_Letter_CDA_Implementation_Guide_v1.3.</assert>
+
+        </rule>
+
+
+        <rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code = '101.16146']/cda:entry/cda:substanceAdministration[@classCode = 'SBADM']/cda:entryRelationship/cda:observation[cda:code/@code = '103.16593']/cda:value">
+
+            <report test="@xsi:type and normalize-space(@xsi:type) = ''"
+                >Error: Specialist Letter - 7.1.3.1 MEDICATION -
+                "Medication / Change Type" -
+                The 'value' tag 'xsi:type' attribute shall contain a value.
+                Refer to section 7.1.3.1 of the
+                Specialist_Letter_CDA_Implementation_Guide_v1.3.</report>
+
+            <assert test="not(@code) or normalize-space(@code) != ''"
+                >Error: Specialist Letter - 7.1.3.1 MEDICATION -
+                "Medication / Change Type" -
+                The 'value' tag 'code' attribute shall contain a value.
+                Refer to section 7.1.3.1 of the
+                Specialist_Letter_CDA_Implementation_Guide_v1.3.</assert>
+
+            <assert test = "not(@code) or normalize-space(@code) = '' or 
+                document('CDAValidate_Vocabs.xml')/systems/system[@codeSystemName = 'NCTIS: Change Type Values']/code[(@code = current()/@code)]"
+                >Error: Specialist Letter - 7.1.3.1 MEDICATION -
+                "Medication / Change Type" -
+                The 'value' tag 'code' attribute shall be as per NCTIS: Change Type Values.
+                Refer to section 7.1.3.1 of the
+                Specialist_Letter_CDA_Implementation_Guide_v1.3.</assert>
+
+            <assert test="not(@codeSystem) or normalize-space(@codeSystem) != ''"
+                >Error: Specialist Letter - 7.1.3.1 MEDICATION -
+                "Medication / Change Type" -
+                The 'value' tag 'codeSystem' attribute shall contain a value.
+                Refer to section 7.1.3.1 of the
+                Specialist_Letter_CDA_Implementation_Guide_v1.3.</assert>
+
+            <assert test="
+                not(@codeSystem) or normalize-space(@codeSystem) = '' or @codeSystem = '1.2.36.1.2001.1001.101.104.16592'"
+                >Error: Specialist Letter - 7.1.3.1 MEDICATION -
+                "Medication / Change Type" -
+                The 'value' tag 'codeSystem' attribute shall contain the value '1.2.36.1.2001.1001.101.104.16592'.
+                Refer to section 7.1.3.1 of the
+                Specialist_Letter_CDA_Implementation_Guide_v1.3.</assert>
+
+            <report test="@codeSystemName and normalize-space(@codeSystemName) = ''"
+                >Error: Specialist Letter - 7.1.3.1 MEDICATION -
+                "Medication / Change Type" -
+                The 'value' tag 'codeSystemName' attribute shall contain a value.
+                Refer to section 7.1.3.1 of the
+                Specialist_Letter_CDA_Implementation_Guide_v1.3.</report>
+
+            <report test="
+                @codeSystemName and normalize-space(@codeSystemName) != '' and @codeSystemName != 'NCTIS Change Type Values'"
+                >Error: Specialist Letter - 7.1.3.1 MEDICATION -
+                "Medication / Change Type" -
+                The 'value' tag 'codeSystemName' attribute shall contain the value 'NCTIS Change Type Values'.
+                Refer to section 7.1.3.1 of the
+                Specialist_Letter_CDA_Implementation_Guide_v1.3.</report>
+
+            <report test="@displayName and normalize-space(@displayName) = ''"
+                >Error: Specialist Letter - 7.1.3.1 MEDICATION -
+                "Medication / Change Type" -
+                The 'value' tag 'displayName' attribute shall contain a value.
+                Refer to section 7.1.3.1 of the
+                Specialist_Letter_CDA_Implementation_Guide_v1.3.</report>
+
+            <report test="@code and normalize-space(@code) != '' and
+                @displayName and normalize-space(@displayName) != '' and
+                not(document('CDAValidate_Vocabs.xml')/systems/system [@codeSystemName = 'NCTIS: Change Type Values']/code[
+                    (@code = current()/@code) and (
+                    translate(@displayName,  'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ') =
+                    translate(current()/@displayName, 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'))])"
+                >Error: Specialist Letter - 7.1.3.1 MEDICATION -
+                "Medication / Change Type" -
+                The 'value' tag 'code' and 'displayName' attributes shall match as per NCTIS: Change Type Values.
+                Refer to section 7.1.3.1 of the
+                Specialist_Letter_CDA_Implementation_Guide_v1.3.</report>
+
+        </rule>
+
+
+        <rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code = '101.16146']/cda:entry/cda:substanceAdministration[@classCode = 'SBADM']/cda:entryRelationship/cda:observation[cda:code/@code = '103.16593']/cda:entryRelationship[cda:observation/cda:code/@code = '103.16595']">
+
+            <assert test="@typeCode"
+                >Error: Specialist Letter - 7.1.3.1 MEDICATION -
+                "Medication / Change or Recommendation" -
+                The 'entryRelationship' tag 'typeCode' attribute is missing.
+                Refer to section 7.1.3.1 of the
+                Specialist_Letter_CDA_Implementation_Guide_v1.3.</assert>
+
+            <assert test="not(@typeCode) or normalize-space(@typeCode) != ''"
+                >Error: Specialist Letter - 7.1.3.1 MEDICATION -
+                "Medication / Change or Recommendation" -
+                The 'entryRelationship' tag 'typeCode' attribute shall contain a value.
+                Refer to section 7.1.3.1 of the
+                Specialist_Letter_CDA_Implementation_Guide_v1.3.</assert>
+
+            <assert test="
+                not(@typeCode) or normalize-space(@typeCode) = '' or @typeCode = 'COMP'"
+                >Error: Specialist Letter - 7.1.3.1 MEDICATION -
+                "Medication / Change or Recommendation" -
+                The 'entryRelationship' tag 'typeCode' attribute shall contain the value 'COMP'.
+                Refer to section 7.1.3.1 of the
+                Specialist_Letter_CDA_Implementation_Guide_v1.3.</assert>
+
+            <report test="count(cda:observation) > 1"
+                >Error: Specialist Letter - 7.1.3.1 MEDICATION -
+                "Medication / Change or Recommendation" -
+                The 'observation' tag shall appear only once.
+                Refer to section 7.1.3.1 of the
+                Specialist_Letter_CDA_Implementation_Guide_v1.3.</report>
+
+        </rule>
+
+
+        <rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code = '101.16146']/cda:entry/cda:substanceAdministration[@classCode = 'SBADM']/cda:entryRelationship/cda:observation[cda:code/@code = '103.16593']/cda:entryRelationship/cda:observation[cda:code/@code = '103.16595']">
+
+            <assert test="@classCode"
+                >Error: Specialist Letter - 7.1.3.1 MEDICATION -
+                "Medication / Change or Recommendation" -
+                The 'observation' tag 'classCode' attribute is missing.
+                Refer to section 7.1.3.1 of the
+                Specialist_Letter_CDA_Implementation_Guide_v1.3.</assert>
+
+            <assert test="not(@classCode) or normalize-space(@classCode) != ''"
+                >Error: Specialist Letter - 7.1.3.1 MEDICATION -
+                "Medication / Change or Recommendation" -
+                The 'observation' tag 'classCode' attribute shall contain a value.
+                Refer to section 7.1.3.1 of the
+                Specialist_Letter_CDA_Implementation_Guide_v1.3.</assert>
+
+            <assert test="
+                not(@classCode) or normalize-space(@classCode) = '' or @classCode = 'OBS'"
+                >Error: Specialist Letter - 7.1.3.1 MEDICATION -
+                "Medication / Change or Recommendation" -
+                The 'observation' tag 'classCode' attribute shall contain the value 'OBS'.
+                Refer to section 7.1.3.1 of the
+                Specialist_Letter_CDA_Implementation_Guide_v1.3.</assert>
+
+            <assert test="@moodCode"
+                >Error: Specialist Letter - 7.1.3.1 MEDICATION -
+                "Medication / Change or Recommendation" -
+                The 'observation' tag 'moodCode' attribute is missing.
+                Refer to section 7.1.3.1 of the
+                Specialist_Letter_CDA_Implementation_Guide_v1.3.</assert>
+
+            <assert test="not(@moodCode) or normalize-space(@moodCode) != ''"
+                >Error: Specialist Letter - 7.1.3.1 MEDICATION -
+                "Medication / Change or Recommendation" -
+                The 'observation' tag 'moodCode' attribute shall contain a value.
+                Refer to section 7.1.3.1 of the
+                Specialist_Letter_CDA_Implementation_Guide_v1.3.</assert>
+
+            <assert test="
+                not(@moodCode) or normalize-space(@moodCode) = '' or @moodCode = 'EVN'"
+                >Error: Specialist Letter - 7.1.3.1 MEDICATION -
+                "Medication / Change or Recommendation" -
+                The 'observation' tag 'moodCode' attribute shall contain the value 'EVN'.
+                Refer to section 7.1.3.1 of the
+                Specialist_Letter_CDA_Implementation_Guide_v1.3.</assert>
+
+            <report test="count(cda:code) > 1"
+                >Error: Specialist Letter - 7.1.3.1 MEDICATION -
+                "Medication / Change or Recommendation" -
+                The 'code' tag shall appear only once.
+                Refer to section 7.1.3.1 of the
+                Specialist_Letter_CDA_Implementation_Guide_v1.3.</report>
+
+            <assert test="cda:value"
+                >Error: Specialist Letter - 7.1.3.1 MEDICATION -
+                "Medication / Change or Recommendation" -
+                The 'value' tag is missing.
+                Refer to section 7.1.3.1 of the
+                Specialist_Letter_CDA_Implementation_Guide_v1.3.</assert>
+
+            <report test="count(cda:value) > 1"
+                >Error: Specialist Letter - 7.1.3.1 MEDICATION -
+                "Medication / Change or Recommendation" -
+                The 'value' tag shall appear only once.
+                Refer to section 7.1.3.1 of the
+                Specialist_Letter_CDA_Implementation_Guide_v1.3.</report>
+
+        </rule>
+
+
+        <rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code = '101.16146']/cda:entry/cda:substanceAdministration[@classCode = 'SBADM']/cda:entryRelationship/cda:observation[cda:code/@code = '103.16593']/cda:entryRelationship/cda:observation/cda:code[@code = '103.16595']">
+
+            <assert test="@codeSystem"
+                >Error: Specialist Letter - 7.1.3.1 MEDICATION -
+                "Medication / Change or Recommendation" -
+                The 'code' tag 'codeSystem' attribute is missing.
+                Refer to section 7.1.3.1 of the
+                Specialist_Letter_CDA_Implementation_Guide_v1.3.</assert>
+
+            <assert test="
+                not(@codeSystem) or normalize-space(@codeSystem) = '' or @codeSystem = '1.2.36.1.2001.1001.101'"
+                >Error: Specialist Letter - 7.1.3.1 MEDICATION -
+                "Medication / Change or Recommendation" -
+                The 'code' tag 'codeSystem' attribute shall contain the value '1.2.36.1.2001.1001.101'.
+                Refer to section 7.1.3.1 of the
+                Specialist_Letter_CDA_Implementation_Guide_v1.3.</assert>
+
+            <assert test="@codeSystemName"
+                >Error: Specialist Letter - 7.1.3.1 MEDICATION -
+                "Medication / Change or Recommendation" -
+                The 'code' tag 'codeSystemName' attribute is missing.
+                Refer to section 7.1.3.1 of the
+                Specialist_Letter_CDA_Implementation_Guide_v1.3.</assert>
+
+            <assert test="
+                not(@codeSystemName) or normalize-space(@codeSystemName) = '' or translate(@codeSystemName, 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ') = &quot;NCTIS DATA COMPONENTS&quot;"
+                >Error: Specialist Letter - 7.1.3.1 MEDICATION -
+                "Medication / Change or Recommendation" -
+                The 'code' tag 'codeSystemName' attribute shall contain the value 'NCTIS Data Components'.
+                Refer to section 7.1.3.1 of the
+                Specialist_Letter_CDA_Implementation_Guide_v1.3.</assert>
+
+            <assert test="@displayName"
+                >Error: Specialist Letter - 7.1.3.1 MEDICATION -
+                "Medication / Change or Recommendation" -
+                The 'code' tag 'displayName' attribute is missing.
+                Refer to section 7.1.3.1 of the
+                Specialist_Letter_CDA_Implementation_Guide_v1.3.</assert>
+
+            <assert test="
+                not(@displayName) or normalize-space(@displayName) = '' or translate(@displayName, 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ') = &quot;RECOMMENDATION OR CHANGE&quot;"
+                >Error: Specialist Letter - 7.1.3.1 MEDICATION -
+                "Medication / Change or Recommendation" -
+                The 'code' tag 'displayName' attribute shall contain the value 'Recommendation or Change'.
+                Refer to section 7.1.3.1 of the
+                Specialist_Letter_CDA_Implementation_Guide_v1.3.</assert>
+
+            <assert test="not(cda:translation)"
+                >Error: Specialist Letter - 7.1.3.1 MEDICATION -
+                "Medication / Change or Recommendation" -
+                The 'translation' tag shall not be present within 'code'.
+                Refer to section 7.1.3.1 of the
+                Specialist_Letter_CDA_Implementation_Guide_v1.3.</assert>
+
+        </rule>
+
+
+        <rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code = '101.16146']/cda:entry/cda:substanceAdministration[@classCode = 'SBADM']/cda:entryRelationship/cda:observation[cda:code/@code = '103.16593']/cda:entryRelationship/cda:observation[cda:code/@code = '103.16595']/cda:value">
+
+            <report test="@xsi:type and normalize-space(@xsi:type) = ''"
+                >Error: Specialist Letter - 7.1.3.1 MEDICATION -
+                "Medication / Change or Recommendation" -
+                The 'value' tag 'xsi:type' attribute shall contain a value.
+                Refer to section 7.1.3.1 of the
+                Specialist_Letter_CDA_Implementation_Guide_v1.3.</report>
+
+            <assert test="not(@code) or normalize-space(@code) != ''"
+                >Error: Specialist Letter - 7.1.3.1 MEDICATION -
+                "Medication / Change or Recommendation" -
+                The 'value' tag 'code' attribute shall contain a value.
+                Refer to section 7.1.3.1 of the
+                Specialist_Letter_CDA_Implementation_Guide_v1.3.</assert>
+
+            <assert test = "not(@code) or normalize-space(@code) = '' or 
+                document('CDAValidate_Vocabs.xml')/systems/system[@codeSystemName = 'NCTIS: Admin Codes - Recommendation or Change Values']/code[(@code = current()/@code)]"
+                >Error: Specialist Letter - 7.1.3.1 MEDICATION -
+                "Medication / Change or Recommendation" -
+                The 'value' tag 'code' attribute shall be as per NCTIS: Admin Codes - Recommendation or Change Values.
+                Refer to section 7.1.3.1 of the
+                Specialist_Letter_CDA_Implementation_Guide_v1.3.</assert>
+
+            <assert test="not(@codeSystem) or normalize-space(@codeSystem) != ''"
+                >Error: Specialist Letter - 7.1.3.1 MEDICATION -
+                "Medication / Change or Recommendation" -
+                The 'value' tag 'codeSystem' attribute shall contain a value.
+                Refer to section 7.1.3.1 of the
+                Specialist_Letter_CDA_Implementation_Guide_v1.3.</assert>
+
+            <assert test="
+                not(@codeSystem) or normalize-space(@codeSystem) = '' or @codeSystem = '1.2.36.1.2001.1001.101.104.16594'"
+                >Error: Specialist Letter - 7.1.3.1 MEDICATION -
+                "Medication / Change or Recommendation" -
+                The 'value' tag 'codeSystem' attribute shall contain the value '1.2.36.1.2001.1001.101.104.16594'.
+                Refer to section 7.1.3.1 of the
+                Specialist_Letter_CDA_Implementation_Guide_v1.3.</assert>
+
+            <report test="@codeSystemName and normalize-space(@codeSystemName) = ''"
+                >Error: Specialist Letter - 7.1.3.1 MEDICATION -
+                "Medication / Change or Recommendation" -
+                The 'value' tag 'codeSystemName' attribute shall contain a value.
+                Refer to section 7.1.3.1 of the
+                Specialist_Letter_CDA_Implementation_Guide_v1.3.</report>
+
+            <report test="
+                @codeSystemName and normalize-space(@codeSystemName) != '' and @codeSystemName != 'NCTIS Recommendation or Change Values'"
+                >Error: Specialist Letter - 7.1.3.1 MEDICATION -
+                "Medication / Change or Recommendation" -
+                The 'value' tag 'codeSystemName' attribute shall contain the value 'NCTIS Recommendation or Change Values'.
+                Refer to section 7.1.3.1 of the
+                Specialist_Letter_CDA_Implementation_Guide_v1.3.</report>
+
+            <report test="@displayName and normalize-space(@displayName) = ''"
+                >Error: Specialist Letter - 7.1.3.1 MEDICATION -
+                "Medication / Change or Recommendation" -
+                The 'value' tag 'displayName' attribute shall contain a value.
+                Refer to section 7.1.3.1 of the
+                Specialist_Letter_CDA_Implementation_Guide_v1.3.</report>
+
+            <report test="@code and normalize-space(@code) != '' and
+                @displayName and normalize-space(@displayName) != '' and
+                not(document('CDAValidate_Vocabs.xml')/systems/system [@codeSystemName = 'NCTIS: Admin Codes - Recommendation or Change Values']/code[
+                    (@code = current()/@code) and (
+                    translate(@displayName,  'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ') =
+                    translate(current()/@displayName, 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'))])"
+                >Error: Specialist Letter - 7.1.3.1 MEDICATION -
+                "Medication / Change or Recommendation" -
+                The 'value' tag 'code' and 'displayName' attributes shall match as per NCTIS: Admin Codes - Recommendation or Change Values.
+                Refer to section 7.1.3.1 of the
+                Specialist_Letter_CDA_Implementation_Guide_v1.3.</report>
+
+        </rule>
+
+
+        <rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code = '101.16146']/cda:entry/cda:substanceAdministration[@classCode = 'SBADM']/cda:entryRelationship/cda:observation[cda:code/@code = '103.16593']/cda:text">
+
+            <report test="@xsi:type and normalize-space(@xsi:type) = ''"
+                >Error: Specialist Letter - 7.1.3.1 MEDICATION -
+                "Medication / Change Description" -
+                The 'text' tag 'xsi:type' attribute shall contain a value.
+                Refer to section 7.1.3.1 of the
+                Specialist_Letter_CDA_Implementation_Guide_v1.3.</report>
+
+            <report test="
+                @xsi:type and normalize-space(@xsi:type) != '' and 
+                normalize-space(@xsi:type) != 'ST' and
+                not(substring-before(normalize-space(@xsi:type), ':') != '' and
+                    substring-after(normalize-space(@xsi:type), ':') = 'ST')"
+                >Error: Specialist Letter - 7.1.3.1 MEDICATION -
+                "Medication / Change Description" -
+                The 'text' tag 'xsi:type' attribute shall contain the value 'ST'.
+                Refer to section 7.1.3.1 of the
+                Specialist_Letter_CDA_Implementation_Guide_v1.3.</report>
+
+        </rule>
+
+
+        <rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code = '101.16146']/cda:entry/cda:substanceAdministration[@classCode = 'SBADM']/cda:entryRelationship/cda:observation[cda:code/@code = '103.16593']/cda:entryRelationship[cda:act/cda:code/@code = '103.10177']">
+
+            <assert test="@typeCode"
+                >Error: Specialist Letter - 7.1.3.1 MEDICATION -
+                "Medication / Change Reason" -
+                The 'entryRelationship' tag 'typeCode' attribute is missing.
+                Refer to section 7.1.3.1 of the
+                Specialist_Letter_CDA_Implementation_Guide_v1.3.</assert>
+
+            <assert test="not(@typeCode) or normalize-space(@typeCode) != ''"
+                >Error: Specialist Letter - 7.1.3.1 MEDICATION -
+                "Medication / Change Reason" -
+                The 'entryRelationship' tag 'typeCode' attribute shall contain a value.
+                Refer to section 7.1.3.1 of the
+                Specialist_Letter_CDA_Implementation_Guide_v1.3.</assert>
+
+            <assert test="
+                not(@typeCode) or normalize-space(@typeCode) = '' or @typeCode = 'RSON'"
+                >Error: Specialist Letter - 7.1.3.1 MEDICATION -
+                "Medication / Change Reason" -
+                The 'entryRelationship' tag 'typeCode' attribute shall contain the value 'RSON'.
+                Refer to section 7.1.3.1 of the
+                Specialist_Letter_CDA_Implementation_Guide_v1.3.</assert>
+
+            <report test="count(cda:act) > 1"
+                >Error: Specialist Letter - 7.1.3.1 MEDICATION -
+                "Medication / Change Reason" -
+                The 'act' tag shall appear only once.
+                Refer to section 7.1.3.1 of the
+                Specialist_Letter_CDA_Implementation_Guide_v1.3.</report>
+
+        </rule>
+
+
+        <rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code = '101.16146']/cda:entry/cda:substanceAdministration[@classCode = 'SBADM']/cda:entryRelationship/cda:observation[cda:code/@code = '103.16593']/cda:entryRelationship/cda:act[cda:code/@code = '103.10177']">
+
+            <assert test="@classCode"
+                >Error: Specialist Letter - 7.1.3.1 MEDICATION -
+                "Medication / Change Reason" -
+                The 'act' tag 'classCode' attribute is missing.
+                Refer to section 7.1.3.1 of the
+                Specialist_Letter_CDA_Implementation_Guide_v1.3.</assert>
+
+            <assert test="not(@classCode) or normalize-space(@classCode) != ''"
+                >Error: Specialist Letter - 7.1.3.1 MEDICATION -
+                "Medication / Change Reason" -
+                The 'act' tag 'classCode' attribute shall contain a value.
+                Refer to section 7.1.3.1 of the
+                Specialist_Letter_CDA_Implementation_Guide_v1.3.</assert>
+
+            <assert test="
+                not(@classCode) or normalize-space(@classCode) = '' or @classCode = 'INFRM'"
+                >Error: Specialist Letter - 7.1.3.1 MEDICATION -
+                "Medication / Change Reason" -
+                The 'act' tag 'classCode' attribute shall contain the value 'INFRM'.
+                Refer to section 7.1.3.1 of the
+                Specialist_Letter_CDA_Implementation_Guide_v1.3.</assert>
+
+            <assert test="@moodCode"
+                >Error: Specialist Letter - 7.1.3.1 MEDICATION -
+                "Medication / Change Reason" -
+                The 'act' tag 'moodCode' attribute is missing.
+                Refer to section 7.1.3.1 of the
+                Specialist_Letter_CDA_Implementation_Guide_v1.3.</assert>
+
+            <assert test="not(@moodCode) or normalize-space(@moodCode) != ''"
+                >Error: Specialist Letter - 7.1.3.1 MEDICATION -
+                "Medication / Change Reason" -
+                The 'act' tag 'moodCode' attribute shall contain a value.
+                Refer to section 7.1.3.1 of the
+                Specialist_Letter_CDA_Implementation_Guide_v1.3.</assert>
+
+            <assert test="
+                not(@moodCode) or normalize-space(@moodCode) = '' or @moodCode = 'EVN'"
+                >Error: Specialist Letter - 7.1.3.1 MEDICATION -
+                "Medication / Change Reason" -
+                The 'act' tag 'moodCode' attribute shall contain the value 'EVN'.
+                Refer to section 7.1.3.1 of the
+                Specialist_Letter_CDA_Implementation_Guide_v1.3.</assert>
+
+            <report test="count(cda:code) > 1"
+                >Error: Specialist Letter - 7.1.3.1 MEDICATION -
+                "Medication / Change Reason" -
+                The 'code' tag shall appear only once.
+                Refer to section 7.1.3.1 of the
+                Specialist_Letter_CDA_Implementation_Guide_v1.3.</report>
+
+            <assert test="cda:text"
+                >Error: Specialist Letter - 7.1.3.1 MEDICATION -
+                "Medication / Change Reason" -
+                The 'text' tag is missing.
+                Refer to section 7.1.3.1 of the
+                Specialist_Letter_CDA_Implementation_Guide_v1.3.</assert>
+
+            <report test="count(cda:text) > 1"
+                >Error: Specialist Letter - 7.1.3.1 MEDICATION -
+                "Medication / Change Reason" -
+                The 'text' tag shall appear only once.
+                Refer to section 7.1.3.1 of the
+                Specialist_Letter_CDA_Implementation_Guide_v1.3.</report>
+
+            <assert test="not(cda:text) or normalize-space(cda:text) != ''"
+                >Error: Specialist Letter - 7.1.3.1 MEDICATION -
+                "Medication / Change Reason" -
+                The 'text' tag shall contain a value.
+                Refer to section 7.1.3.1 of the
+                Specialist_Letter_CDA_Implementation_Guide_v1.3.</assert>
+
+        </rule>
+
+
+        <rule context="cda:code[@code = '103.10177']">
+
+            <assert test="
+                count(/cda:ClinicalDocument//cda:code[@code = '103.10177']) =
+                count(/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code='101.16146']/cda:entry/cda:substanceAdministration[@classCode='SBADM']/cda:entryRelationship/cda:observation[cda:code/@code='103.16593']/cda:entryRelationship/cda:act/cda:code[@code='103.10177'])"
+                >Error: Specialist Letter - 7.1.3.1 MEDICATION -
+                "Medication / Change Reason" -
+                The '/ClinicalDocument/component/structuredBody/component/section[code/@code = '101.16146']/entry/substanceAdministration[@classCode = 'SBADM']/entryRelationship/observation[code/@code = '103.16593']/entryRelationship/act/code[@code = '103.10177']' path -
+                1 or more tags are missing.
+                Refer to section 7.1.3.1 of the
+                Specialist_Letter_CDA_Implementation_Guide_v1.3.</assert>
+
+            <assert test="@codeSystem"
+                >Error: Specialist Letter - 7.1.3.1 MEDICATION -
+                "Medication / Change Reason" -
+                The 'code' tag 'codeSystem' attribute is missing.
+                Refer to section 7.1.3.1 of the
+                Specialist_Letter_CDA_Implementation_Guide_v1.3.</assert>
+
+            <assert test="
+                not(@codeSystem) or normalize-space(@codeSystem) = '' or @codeSystem = '1.2.36.1.2001.1001.101'"
+                >Error: Specialist Letter - 7.1.3.1 MEDICATION -
+                "Medication / Change Reason" -
+                The 'code' tag 'codeSystem' attribute shall contain the value '1.2.36.1.2001.1001.101'.
+                Refer to section 7.1.3.1 of the
+                Specialist_Letter_CDA_Implementation_Guide_v1.3.</assert>
+
+            <assert test="@codeSystemName"
+                >Error: Specialist Letter - 7.1.3.1 MEDICATION -
+                "Medication / Change Reason" -
+                The 'code' tag 'codeSystemName' attribute is missing.
+                Refer to section 7.1.3.1 of the
+                Specialist_Letter_CDA_Implementation_Guide_v1.3.</assert>
+
+            <assert test="
+                not(@codeSystemName) or normalize-space(@codeSystemName) = '' or translate(@codeSystemName, 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ') = &quot;NCTIS DATA COMPONENTS&quot;"
+                >Error: Specialist Letter - 7.1.3.1 MEDICATION -
+                "Medication / Change Reason" -
+                The 'code' tag 'codeSystemName' attribute shall contain the value 'NCTIS Data Components'.
+                Refer to section 7.1.3.1 of the
+                Specialist_Letter_CDA_Implementation_Guide_v1.3.</assert>
+
+            <assert test="@displayName"
+                >Error: Specialist Letter - 7.1.3.1 MEDICATION -
+                "Medication / Change Reason" -
+                The 'code' tag 'displayName' attribute is missing.
+                Refer to section 7.1.3.1 of the
+                Specialist_Letter_CDA_Implementation_Guide_v1.3.</assert>
+
+            <assert test="
+                not(@displayName) or normalize-space(@displayName) = '' or translate(@displayName, 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ') = &quot;CHANGE REASON&quot;"
+                >Error: Specialist Letter - 7.1.3.1 MEDICATION -
+                "Medication / Change Reason" -
+                The 'code' tag 'displayName' attribute shall contain the value 'Change Reason'.
+                Refer to section 7.1.3.1 of the
+                Specialist_Letter_CDA_Implementation_Guide_v1.3.</assert>
+
+            <assert test="not(cda:translation)"
+                >Error: Specialist Letter - 7.1.3.1 MEDICATION -
+                "Medication / Change Reason" -
+                The 'translation' tag shall not be present within 'code'.
+                Refer to section 7.1.3.1 of the
+                Specialist_Letter_CDA_Implementation_Guide_v1.3.</assert>
+
+        </rule>
+
+
+    </pattern>
+

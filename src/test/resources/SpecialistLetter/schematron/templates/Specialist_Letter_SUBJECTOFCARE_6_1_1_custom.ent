@@ -1,0 +1,211 @@
+    <pattern name="p-Specialist_Letter_SUBJECTOFCARE_6_1_1_custom-errors"
+        id="p-Specialist_Letter_SUBJECTOFCARE_6_1_1_custom-errors"
+        see="#p-Specialist_Letter_SUBJECTOFCARE_6_1_1_custom-errors">
+
+
+        <rule
+            context="/cda:ClinicalDocument/cda:recordTarget/cda:patientRole/cda:patient/cda:birthplace/cda:place/cda:addr">
+
+
+            <!-- Country of Birth - 0..1 -->
+
+            <report
+                test="cda:country and not(document('CDAValidate_Vocabs.xml')/systems/system[@codeSystemName = 'ISO3166-1']/code[(@code = current()/cda:country) or (translate(@displayName,  'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ') = translate(current()/cda:country, 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'))])"
+                >Error: Specialist Letter - 6.1.1 Subject of Care - "Subject of Care / Participant / Person
+                or Organisation or Device / Person / Demographic Data / Country of Birth" - The
+                'country' tag shall contain a value as per the Australia Bureau of Statistics,
+                Standard Australian Classification of Countries SACC) Cat. No. 1269. Refer to
+                section 6.1.1 of the Specialist_Letter_CDA_Implementation_Guide_v1.3.</report>
+
+
+            <!-- State/Territory of Birth - 0..1 -->
+
+            <report
+                test="
+                (not(cda:country) or document('CDAValidate_Vocabs.xml')/systems/system[@codeSystemName = 'ISO3166-1']/code[translate(@displayName,  'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ') = translate(current()/cda:country, 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ')]/@code = 'AU') and
+                cda:state and
+                not(document('CDAValidate_Vocabs.xml')/systems/system[@codeSystemName = 'Australian_State_Territory_Identifier_-_Postal']/code[(@code = current()/cda:state)])"
+                >Error: Specialist Letter - 6.1.1 Subject of Care - "Subject of Care / Participant / Person
+                or Organisation or Device / Person / Demographic Data / State/Territory of Birth" -
+                The 'state' tag shall be coded as per AS 5017-2006 Australian State/Territory
+                Identifier - Postal. Refer to section 6.1.1 of the
+                Specialist_Letter_CDA_Implementation_Guide_v1.3.</report>
+
+        </rule>
+
+
+
+        <rule context="/cda:ClinicalDocument/cda:recordTarget/cda:patientRole/cda:patient">
+
+
+            <!-- Birth Order - 0..1 -->
+
+            <report
+                test="(ext:multipleBirthInd[@value='true'] and not(ext:multipleBirthOrderNumber))"
+                >Error: Specialist Letter - 6.1.1 Subject Of Care - "Subject of Care / Participant / Person
+                or Organisation or Device / Person / Demographic Data / Birth Order" - The
+                'multipleBirthOrderNumber' tag is missing for the existence of 'BirthOrder'. Refer
+                to section 6.1.1 of the Specialist_Letter_CDA_Implementation_Guide_v1.3.</report>
+
+            <report test="(ext:multipleBirthInd[@value='false'] and (ext:multipleBirthOrderNumber))"
+                >Error: Specialist Letter - 6.1.1 Subject Of Care - "Subject of Care / Participant / Person
+                or Organisation or Device / Person / Demographic Data / Birth Order" - The
+                'multipleBirthOrderNumber' tag shall not be present for the missing of 'BirthOrder'.
+                Refer to section 6.1.1 of the Specialist_Letter_CDA_Implementation_Guide_v1.3.</report>
+
+
+            <!-- Date of Death - 0..1 -->
+
+            <report test="(ext:deceasedInd[@value='true'] and not(ext:deceasedTime))">Error:
+                Specialist Letter - 6.1.1 Subject Of Care - "Subject of Care / Participant / Person or
+                Organisation or Device / Person / Demographic Data / Date of Death Detail / Date of
+                Death" - The 'deceasedTime' tag is missing for the existence of 'deceasedInd=true'.
+                Refer to section 6.1.1 of the Specialist_Letter_CDA_Implementation_Guide_v1.3.</report>
+
+            <report test="(ext:deceasedInd[@value='false'] and (ext:deceasedTime))">Error:
+                Specialist Letter - 6.1.1 Subject Of Care - "Subject of Care / Participant / Person or
+                Organisation or Device / Person / Demographic Data / Date of Death Detail / Date of
+                Death" - The 'deceasedTime' tag shall not be present for the missing of
+                'deceasedInd=false'. Refer to section 6.1.1 of the
+                Specialist_Letter_CDA_Implementation_Guide_v1.3.</report>
+
+        </rule>
+
+
+
+        <rule context="/cda:ClinicalDocument/cda:recordTarget/cda:patientRole/cda:patient/cda:name">
+            
+            <!--RPSA-1218-->
+            
+            <assert test="cda:family">Error: Specialist Letter - 6.1.1 SUBJECT OF CARE - Subject of Care /
+                Participant / Participant/Person or Organisation or Device / Person / Person Name -
+                The 'family' tag is missing. Refer to section section 6.1.1 and section 8.5 Person
+                Name of the Specialist_Letter_CDA_Implementation_Guide_v1.3.</assert>
+
+        </rule>
+
+
+
+        <rule
+            context="/cda:ClinicalDocument/cda:recordTarget/cda:patientRole/cda:patient/ext:multipleBirthInd">
+
+
+            <assert test="@value or @nullFlavor">Error: Specialist Letter - 6.1.1 SUBJECT OF CARE -
+                "Subject of Care / Participant / Person or Organisation or Device / Person /
+                Demographic Data / Birth Order" - The 'multipleBirthInd' tag shall have at least the
+                'nullFlavor' or 'value' attribute. Refer to section 6.1.1 of the
+                Specialist_Letter_CDA_Implementation_Guide_v1.3.</assert>
+
+            <report test="@value and @nullFlavor='NA'">Error: Specialist Letter - 6.1.1 SUBJECT OF CARE -
+                "Subject of Care / Participant / Person or Organisation or Device / Person /
+                Demographic Data / Birth Order" - The 'multipleBirthInd' tag shall not have both the
+                'nullFlavor=NA' and 'value' attribute. Refer to section 6.1.1 of the
+                Specialist_Letter_CDA_Implementation_Guide_v1.3.</report>
+
+
+
+            <!-- Removed the following text "normalize-space(@value) != '' and" from the following test because QA was giving error -->
+            <report
+                test="@value and
+                @value != 'true' and
+                @value != 'false'"
+                >Error: Specialist Letter - 6.1.1 SUBJECT OF CARE - "Subject of Care / Participant / Person
+                or Organisation or Device / Person / Demographic Data / Birth Order" - The
+                'multipleBirthInd' tag 'value' attribute shall contain the value 'true' or 'false'.
+                Refer to section 6.1.1 of the Specialist_Letter_CDA_Implementation_Guide_v1.3.</report>
+
+        </rule>
+
+
+
+        <rule
+            context="/cda:ClinicalDocument/cda:recordTarget/cda:patientRole/cda:patient/ext:multipleBirthOrderNumber">
+
+
+            <assert test="@value or @nullFlavor">Error: Specialist Letter - 6.1.1 SUBJECT OF CARE -
+                "Subject of Care / Participant / Person or Organisation or Device / Person /
+                Demographic Data / Birth Order" - The 'multipleBirthOrderNumber' tag shall have at
+                least the 'nullFlavor' or 'value' attribute. Refer to section 6.1.1 of the
+                Specialist_Letter_CDA_Implementation_Guide_v1.3.</assert>
+
+            <report test="@value and @nullFlavor='NA'">Error: Specialist Letter - 6.1.1 SUBJECT OF CARE -
+                "Subject of Care / Participant / Person or Organisation or Device / Person /
+                Demographic Data / Birth Order" - The 'multipleBirthOrderNumber' tag shall not have
+                both the 'nullFlavor=NA' and 'value' attribute. Refer to section 6.1.1 of the
+                Specialist_Letter_CDA_Implementation_Guide_v1.3.</report>
+
+            <report test="@value and not(number(@value))">Error: Specialist Letter - 6.1.1 SUBJECT OF CARE
+                - "Subject of Care / Participant / Person or Organisation or Device / Person /
+                Demographic Data / Birth Order" - The 'multipleBirthOrderNumber' tag 'value'
+                attribute shall be an integer value. Refer to section 6.1.1 of the
+                Specialist_Letter_CDA_Implementation_Guide_v1.3.</report>
+
+            <report test="@value and number(@value) and not(floor(@value) = number(@value))">Error:
+                Specialist Letter - 6.1.1 SUBJECT OF CARE - "Subject of Care / Participant / Person or
+                Organisation or Device / Person / Demographic Data / Birth Order" - The
+                'multipleBirthOrderNumber' tag 'value' attribute shall be an integer value. Refer to
+                section 6.1.1 of the Specialist_Letter_CDA_Implementation_Guide_v1.3.</report>
+
+            <report test="@value and (@value) &lt; 1">Error: Specialist Letter - 6.1.1 SUBJECT OF CARE
+                - "Subject of Care / Participant / Person or Organisation or Device / Person /
+                Demographic Data / Birth Order" - The 'multipleBirthOrderNumber' tag 'value'
+                attribute shall be an integer greater than equal to 1. Refer to section 6.1.1 of the
+                Specialist_Letter_CDA_Implementation_Guide_v1.3.</report>
+
+        </rule>
+
+
+
+        <rule
+            context="/cda:ClinicalDocument/cda:recordTarget/cda:patientRole/cda:patient/ext:deceasedInd">
+
+
+            <assert test="@value or @nullFlavor">Error: Specialist Letter - 6.1.1 SUBJECT OF CARE -
+                "Subject of Care / Participant / Person or Organisation or Device / Person /
+                Demographic Data / Date of Death Detail / Date of Death" - The 'deceasedInd' tag
+                shall have at least the 'nullFlavor' or 'value' attribute. Refer to section 6.1.1 of
+                the Specialist_Letter_CDA_Implementation_Guide_v1.3.</assert>
+
+            <report test="@value and @nullFlavor='NA'">Error: Specialist Letter - 6.1.1 SUBJECT OF CARE -
+                "Subject of Care / Participant / Person or Organisation or Device / Person /
+                Demographic Data / Date of Death Detail / Date of Death" - The 'deceasedInd' tag
+                shall not have both the 'nullFlavor=NA' and 'value' attribute. Refer to section
+                6.1.1 of the Specialist_Letter_CDA_Implementation_Guide_v1.3.</report>
+
+
+
+            <!-- Removed the following text "normalize-space(@value) != '' and" from the following test because QA was giving error -->
+            <report
+                test="@value and
+                @value != 'true' and
+                @value != 'false'"
+                >Error: Specialist Letter - 6.1.1 SUBJECT OF CARE - "Subject of Care / Participant / Person
+                or Organisation or Device / Person / Demographic Data / Date of Death Detail / Date
+                of Death" - The 'deceasedInd' tag 'value' attribute shall contain the value 'true'
+                or 'false'. Refer to section 6.1.1 of the
+                Specialist_Letter_CDA_Implementation_Guide_v1.3.</report>
+
+        </rule>
+
+
+
+        <rule
+            context="/cda:ClinicalDocument/cda:recordTarget/cda:patientRole/cda:patient/ext:deceasedTime">
+
+
+            <assert test="@value or @nullFlavor">Error: Specialist Letter - 6.1.1 SUBJECT OF CARE -
+                "Subject of Care / Participant / Person or Organisation or Device / Person /
+                Demographic Data / Birth Order" - The 'deceasedTime' tag shall have at least the
+                'nullFlavor' or 'value' attribute. Refer to section 6.1.1 of the
+                Specialist_Letter_CDA_Implementation_Guide_v1.3.</assert>
+
+            <report test="@value and @nullFlavor='NA'">Error: Specialist Letter - 6.1.1 SUBJECT OF CARE -
+                "Subject of Care / Participant / Person or Organisation or Device / Person /
+                Demographic Data / Birth Order" - The 'deceasedTime' tag shall not have both the
+                'nullFlavor=NA' and 'value' attribute. Refer to section 6.1.1 of the
+                Specialist_Letter_CDA_Implementation_Guide_v1.3.</report>
+
+        </rule>
+
+    </pattern>
+

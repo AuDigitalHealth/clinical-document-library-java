@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+The purpose of this file is to provide supporting information
+for validating that document instances conform to the Level 1 and
+Level 2 CDA Implementation Guides for Care Record Summaries.
+
+The top level element of this file is systems, and it is made up
+of one or more system elements. Each system element describes
+a vocabulary or coding domain, and provides the name and root OID
+for that domain.  Within the system element are code elements that
+provide the code value and display name for a given coded value.
+-->
+<systems>
+
+    <system codeSystemName="AS_5017-2006_Health_Care_Client_Identifier_Sex" root="">
+        <code code="M" displayName="Male"                              codeSystemName="AS 5017-2006 Health Care Client Identifier Sex" codeSystem="2.16.840.1.113883.13.68"/>
+        <code code="F" displayName="Female"                            codeSystemName="AS 5017-2006 Health Care Client Identifier Sex" codeSystem="2.16.840.1.113883.13.68"/>
+        <code code="I" displayName="Intersex or Indeterminate"         codeSystemName="AS 5017-2006 Health Care Client Identifier Sex" codeSystem="2.16.840.1.113883.13.68"/>
+        <code code="N" displayName="Not Stated/Inadequately Described" codeSystemName="AS 5017-2006 Health Care Client Identifier Sex" codeSystem="2.16.840.1.113883.13.68"/>
+    </system>
+
+    <system codeSystemName="AS_5017-2006_Health_Care_Client_Identifier_Geographic_Area" root="">
+        <code code="L" displayName="Local Client (Unit Record) Identifier" codeSystemName="AS 5017-2006 Health Care Client Identifier Geographic Area" codeSystem="2.16.840.1.113883.13.63"/>
+        <code code="A" displayName="Area/Region/District Identifier"       codeSystemName="AS 5017-2006 Health Care Client Identifier Geographic Area" codeSystem="2.16.840.1.113883.13.63"/>
+        <code code="S" displayName="State or Territory Identifier"         codeSystemName="AS 5017-2006 Health Care Client Identifier Geographic Area" codeSystem="2.16.840.1.113883.13.63"/>
+        <code code="N" displayName="National Identifier"                   codeSystemName="AS 5017-2006 Health Care Client Identifier Geographic Area" codeSystem="2.16.840.1.113883.13.63"/>
+    </system>
+
+    <system codeSystemName="Australian_State_Territory_Identifier_-_Postal" root="">
+        <code code="NSW"/>
+        <code code="VIC"/>
+        <code code="QLD"/>
+        <code code="SA"/>
+        <code code="WA"/>
+        <code code="TAS"/>
+        <code code="NT"/>
+        <code code="ACT"/>
+        <code code="U"/>
+    </system>
+
+    <system codeSystemName="Health_Care_Client_Identifier_Date_Accuracy_Indicator" root="">
+        <code code="AAA"/>
+        <code code="AAE"/>
+        <code code="AEA"/>
+        <code code="AAU"/>
+        <code code="AUA"/>
+        <code code="AEE"/>
+        <code code="AUU"/>
+        <code code="AEU"/>
+        <code code="AUE"/>
+        <code code="EEE"/>
+        <code code="EEA"/>
+        <code code="EAE"/>
+        <code code="EEU"/>
+        <code code="EUE"/>
+        <code code="EAA"/>
+        <code code="EUU"/>
+        <code code="EAU"/>
+        <code code="EUA"/>
+        <code code="UUU"/>
+        <code code="UUA"/>
+        <code code="UAU"/>
+        <code code="UUE"/>
+        <code code="UEU"/>
+        <code code="UAA"/>
+        <code code="UEE"/>
+        <code code="UAE"/>
+        <code code="UEA"/>
+    </system>
+
+    <system codeSystemName="NCTIS_Entitlement_Type_Values" root="">
+        <code code="1"  displayName="Medicare Benefits"                      codeSystemName="NCTIS Entitlement Type Values" codeSystem="1.2.36.1.2001.1001.101.104.16047"/>
+        <code code="2"  displayName="Pensioner Concession"                   codeSystemName="NCTIS Entitlement Type Values" codeSystem="1.2.36.1.2001.1001.101.104.16047"/>
+        <code code="3"  displayName="Commonwealth Seniors Health Concession" codeSystemName="NCTIS Entitlement Type Values" codeSystem="1.2.36.1.2001.1001.101.104.16047"/>
+        <code code="4"  displayName="Health Care Concession"                 codeSystemName="NCTIS Entitlement Type Values" codeSystem="1.2.36.1.2001.1001.101.104.16047"/>
+        <code code="5"  displayName="Repatriation Health Gold Benefits"      codeSystemName="NCTIS Entitlement Type Values" codeSystem="1.2.36.1.2001.1001.101.104.16047"/>
+        <code code="6"  displayName="Repatriation Health White Benefits"     codeSystemName="NCTIS Entitlement Type Values" codeSystem="1.2.36.1.2001.1001.101.104.16047"/>
+        <code code="7"  displayName="Repatriation Health Orange Benefits"    codeSystemName="NCTIS Entitlement Type Values" codeSystem="1.2.36.1.2001.1001.101.104.16047"/>
+        <code code="8"  displayName="Safety Net Concession"                  codeSystemName="NCTIS Entitlement Type Values" codeSystem="1.2.36.1.2001.1001.101.104.16047"/>
+        <code code="9"  displayName="Safety Net Entitlement"                 codeSystemName="NCTIS Entitlement Type Values" codeSystem="1.2.36.1.2001.1001.101.104.16047"/>
+        <code code="10" displayName="Medicare Prescriber Number"             codeSystemName="NCTIS Entitlement Type Values" codeSystem="1.2.36.1.2001.1001.101.104.16047"/>
+        <code code="11" displayName="Medicare Pharmacy Approval Number"      codeSystemName="NCTIS Entitlement Type Values" codeSystem="1.2.36.1.2001.1001.101.104.16047"/>
+    </system>
+
+    <system codeSystemName="METeOR_Indigenous_Status" root="">
+        <code code="1" displayName="Aboriginal but not Torres Strait Islander origin"     codeSystemName="METeOR Indigenous Status" codeSystem="2.16.840.1.113883.3.879.291036"/>
+        <code code="2" displayName="Torres Strait Islander but not Aboriginal origin"     codeSystemName="METeOR Indigenous Status" codeSystem="2.16.840.1.113883.3.879.291036"/>
+        <code code="3" displayName="Both Aboriginal and Torres Strait Islander origin"    codeSystemName="METeOR Indigenous Status" codeSystem="2.16.840.1.113883.3.879.291036"/>
+        <code code="4" displayName="Neither Aboriginal nor Torres Strait Islander origin" codeSystemName="METeOR Indigenous Status" codeSystem="2.16.840.1.113883.3.879.291036"/>
+        <code code="9" displayName="Not stated/inadequately described"                    codeSystemName="METeOR Indigenous Status" codeSystem="2.16.840.1.113883.3.879.291036"/>
+    </system>
+
+    <system codeSystemName="Australian_Street_type_Code" root="">
+        <code code="Ally" displayName="Alley"/>
+        <code code="Arc"  displayName="Arcade"/>
+        <code code="Ave"  displayName="Avenue"/>
+        <code code="Bvd"  displayName="Boulevard"/>
+        <code code="Bypa" displayName="Bypass"/>
+        <code code="Cct"  displayName="Circuit"/>
+        <code code="Cl"   displayName="Close"/>
+        <code code="Crn"  displayName="Corner"/>
+        <code code="Ct"   displayName="Court"/>
+        <code code="Cres" displayName="Crescent"/>
+        <code code="Cds"  displayName="Cul-de-sac"/>
+        <code code="Dr"   displayName="Drive"/>
+        <code code="Esp"  displayName="Esplanade"/>
+        <code code="Grn"  displayName="Green"/>
+        <code code="Gr"   displayName="Grove"/>
+        <code code="Hwy"  displayName="Highway"/>
+        <code code="Jnc"  displayName="Junction"/>
+        <code code="Lane" displayName="Lane"/>
+        <code code="Link" displayName="Link"/>
+        <code code="Mews" displayName="Mews"/>
+        <code code="Pde"  displayName="Parade"/>
+        <code code="Pl"   displayName="Place"/>
+        <code code="Rdge" displayName="Ridge"/>
+        <code code="Rd"   displayName="Road"/>
+        <code code="Sq"   displayName="Square"/>
+        <code code="St"   displayName="Street"/>
+        <code code="Tce"  displayName="Terrace"/>
+    </system>
+
+    <system codeSystemName="CDA_MIME_Type" root="">
+        <code code="gif"              displayName="image/gif"/>
+        <code code="jpg"              displayName="image/jpeg"/>
+        <code code="jpeg"             displayName="image/jpeg"/>
+        <code code="pdf"              displayName="application/pdf"/>
+        <code code="png"              displayName="image/png"/>
+        <code code="tif"              displayName="image/tiff"/>
+        <code code="tiff"             displayName="image/tiff"/>
+    </system>
+
+    <system codeSystemName="Medicare_Provider_Number_Practice_Location" root="">
+        <code code="0"     displayName="0"/>
+        <code code="1"     displayName="1"/>
+        <code code="2"     displayName="2"/>
+        <code code="3"     displayName="3"/>
+        <code code="4"     displayName="4"/>
+        <code code="5"     displayName="5"/>
+        <code code="6"     displayName="6"/>
+        <code code="7"     displayName="7"/>
+        <code code="8"     displayName="8"/>
+        <code code="9"     displayName="9"/>
+
+        <code code="10"    displayName="A"/>
+        <code code="11"    displayName="B"/>
+        <code code="12"    displayName="C"/>
+        <code code="13"    displayName="D"/>
+        <code code="14"    displayName="E"/>
+        <code code="15"    displayName="F"/>
+        <code code="16"    displayName="G"/>
+        <code code="17"    displayName="H"/>
+
+        <code code="18"    displayName="J"/>
+        <code code="19"    displayName="K"/>
+        <code code="20"    displayName="L"/>
+        <code code="21"    displayName="M"/>
+        <code code="22"    displayName="N"/>
+
+        <code code="23"    displayName="P"/>
+        <code code="24"    displayName="Q"/>
+        <code code="25"    displayName="R"/>
+
+        <code code="26"    displayName="T"/>
+        <code code="27"    displayName="U"/>
+        <code code="28"    displayName="V"/>
+        <code code="29"    displayName="W"/>
+        <code code="30"    displayName="X"/>
+        <code code="31"    displayName="Y"/>
+    </system>
+
+    <system codeSystemName="Medicare_Provider_Number_Check_Digit" root="">
+        <code code="0"     displayName="Y"/>
+        <code code="1"     displayName="X"/>
+        <code code="2"     displayName="W"/>
+        <code code="3"     displayName="T"/>
+        <code code="4"     displayName="L"/>
+        <code code="5"     displayName="K"/>
+        <code code="6"     displayName="J"/>
+        <code code="7"     displayName="H"/>
+        <code code="8"     displayName="F"/>
+        <code code="9"     displayName="B"/>
+        <code code="10"    displayName="A"/>
+    </system>
+
+</systems>

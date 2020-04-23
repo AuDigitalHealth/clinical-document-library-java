@@ -1,0 +1,60 @@
+<!--
+_________________________________________________________________________________________________________________________________________________________________________________________
+                  Generated File - Do Not Edit File Directly                                                                                                                             
+                  __________________________________________
+
+                  Generated          : 2019-09-30 12:19:30 PM
+
+                  Product            : Goals of Care
+                  Release            : CDA_Implementation_Guide_v1.0
+                  Generator Version  : 
+                                                                                                                                                                                         
+_________________________________________________________________________________________________________________________________________________________________________________________
+-->
+    <pattern name="p-Goals_of_Care_1B_CDA_Narrative-errors"
+        id="p-Goals_of_Care_1B_CDA_Narrative-errors"
+        see="#p-Goals_of_Care_Information_1B_CDA_Narrative-errors">
+
+       
+        <rule context = "cda:component/cda:section">
+            
+            <!-- Start Refer :: for the schematron below - CDOCIBX-836, CDA-6396, RPSA-2591 -->
+            <report test = "cda:text and not(cda:title)">Error: Goals of Care - 
+                The 'title' tag is mandatory if 'text' tag is present. 
+                Refer to "025054 - Requirements for title element" of the
+                Clinical_Documents_Common_Conformance_Profile_v1.6 and the Advance_Care_Information_CDA_Implementation_Guide_v1.0.</report>            
+            <!-- End Refer -->
+
+            <report test = "cda:title and normalize-space(cda:title) = ''">Error: Goals of Care - 
+                The 'title' tag shall contain a value. 
+                Refer to "025054 - Requirements for title element" of the
+                Clinical_Documents_Common_Conformance_Profile_v1.6 and the Advance_Care_Information_CDA_Implementation_Guide_v1.0.</report>     
+            
+            <report test = "cda:text and (
+                (cda:text/child::* and not(
+                (name(cda:text/child::*) = 'content')          or (substring-after(name(cda:text/child::*), ':') = 'content')
+                or (name(cda:text/child::*) = 'footnote')         or (substring-after(name(cda:text/child::*), ':') = 'footnote')
+                or (name(cda:text/child::*) = 'footnoteRef')      or (substring-after(name(cda:text/child::*), ':') = 'footnoteRef')
+                or (name(cda:text/child::*) = 'linkHtml')         or (substring-after(name(cda:text/child::*), ':') = 'linkHtml')
+                or (name(cda:text/child::*) = 'list')             or (substring-after(name(cda:text/child::*), ':') = 'list')
+                or (name(cda:text/child::*) = 'paragraph')        or (substring-after(name(cda:text/child::*), ':') = 'paragraph')
+                or (name(cda:text/child::*) = 'renderMultiMedia') or (substring-after(name(cda:text/child::*), ':') = 'renderMultiMedia')
+                or (name(cda:text/child::*) = 'sub')              or (substring-after(name(cda:text/child::*), ':') = 'sub')
+                or (name(cda:text/child::*) = 'sup')              or (substring-after(name(cda:text/child::*), ':') = 'sup')
+                or (name(cda:text/child::*) = 'table')            or (substring-after(name(cda:text/child::*), ':') = 'table')
+                )
+                ) or (not(cda:text/child::*) and normalize-space(cda:text) = ''))"
+                >Error: Goals of Care - 
+                The 'text' tag shall contain a value for narrative content. 
+                Refer to the "Appendix CDA Narratives" of the Advance_Care_Information_CDA_Implementation_Guide_v1.0.</report>
+            
+            <report test = "count(cda:text) > 1">Error: Goals of Care - 
+                The 'text' tag shall appear only once. 
+                Refer to the "Appendix CDA Narratives" of the Advance_Care_Information_CDA_Implementation_Guide_v1.0.</report>
+            
+        </rule>
+ 
+ 
+
+    </pattern>
+

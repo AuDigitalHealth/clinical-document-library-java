@@ -1,0 +1,222 @@
+<!--
+_________________________________________________________________________________________________________________________________________________________________________________________
+                  Generated File - Do Not Edit File Directly                                                                                                                             
+                  __________________________________________
+
+                  Generated          : 30/05/2017 1:48:10 PM
+
+                  Product            : Service Referral
+                  Release            : CDA_Implementation_Guide_v1.0
+                  IG Guide Reference : 7.1.1.1.1.1
+                  IG Guide Title     : SERVICE PROVIDER as a PERSON
+                  Generator Version  : 2.28
+                                                                                                                                                                                         
+_________________________________________________________________________________________________________________________________________________________________________________________
+-->
+    <pattern name="p-Service_Referral_3A_SERVICEPROVIDERasaPERSON_7_1_1_1_1_1-errors"
+        id="p-Service_Referral_3A_SERVICEPROVIDERasaPERSON_7_1_1_1_1_1-errors"
+        see="#p-Service_Referral_3A_SERVICEPROVIDERasaPERSON_7_1_1_1_1_1-errors">
+
+
+        <rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code = '101.17032']/cda:entry/cda:act">
+
+            <report test="count(cda:performer[cda:assignedEntity/cda:assignedPerson/ext:asEmployment]) > 1"
+                >Error: Service Referral - 7.1.1.1.1.1 SERVICE PROVIDER as a PERSON -
+                "SERVICE PROVIDER" -
+                The 'performer' tag shall appear only once for 'SERVICE PROVIDER'.
+                Refer to section 7.1.1.1.1.1 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</report>
+
+        </rule>
+
+
+        <rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code = '101.17032']/cda:entry/cda:act/cda:performer[cda:assignedEntity/cda:assignedPerson/ext:asEmployment]">
+
+            <assert test="@typeCode"
+                >Error: Service Referral - 7.1.1.1.1.1 SERVICE PROVIDER as a PERSON -
+                "SERVICE PROVIDER" -
+                The 'performer' tag 'typeCode' attribute is missing.
+                Refer to section 7.1.1.1.1.1 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</assert>
+
+            <assert test="not(@typeCode) or normalize-space(@typeCode) != ''"
+                >Error: Service Referral - 7.1.1.1.1.1 SERVICE PROVIDER as a PERSON -
+                "SERVICE PROVIDER" -
+                The 'performer' tag 'typeCode' attribute shall contain a value.
+                Refer to section 7.1.1.1.1.1 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</assert>
+
+            <assert test="
+                not(@typeCode) or normalize-space(@typeCode) = '' or @typeCode = 'PRF'"
+                >Error: Service Referral - 7.1.1.1.1.1 SERVICE PROVIDER as a PERSON -
+                "SERVICE PROVIDER" -
+                The 'performer' tag 'typeCode' attribute shall contain the value 'PRF'.
+                Refer to section 7.1.1.1.1.1 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</assert>
+
+            <assert test="not(cda:time)"
+                >Error: Service Referral - 7.1.1.1.1.1 SERVICE PROVIDER as a PERSON -
+                "SERVICE PROVIDER / Participation Period" -
+                The 'time' tag shall not be present.
+                Refer to section 7.1.1.1.1.1 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</assert>
+
+        </rule>
+
+
+        <rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code = '101.17032']/cda:entry/cda:act/cda:performer/cda:assignedEntity[cda:assignedPerson/ext:asEmployment]">
+
+            <assert test="cda:code"
+                >Error: Service Referral - 7.1.1.1.1.1 SERVICE PROVIDER as a PERSON -
+                "SERVICE PROVIDER / Role" -
+                The 'code' tag is missing.
+                Refer to section 7.1.1.1.1.1 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</assert>
+
+            <report test="count(cda:code) > 1"
+                >Error: Service Referral - 7.1.1.1.1.1 SERVICE PROVIDER as a PERSON -
+                "SERVICE PROVIDER / Role" -
+                The 'code' tag shall appear only once.
+                Refer to section 7.1.1.1.1.1 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</report>
+
+            <assert test="cda:id"
+                >Error: Service Referral - 7.1.1.1.1.1 SERVICE PROVIDER as a PERSON -
+                "SERVICE PROVIDER / id" -
+                The 'id' tag is missing.
+                Refer to section 7.1.1.1.1.1 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</assert>
+
+            <report test="count(cda:id) > 1"
+                >Error: Service Referral - 7.1.1.1.1.1 SERVICE PROVIDER as a PERSON -
+                "SERVICE PROVIDER / id" -
+                The 'id' tag shall appear only once.
+                Refer to section 7.1.1.1.1.1 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</report>
+
+            <report test="count(cda:assignedPerson) > 1"
+                >Error: Service Referral - 7.1.1.1.1.1 SERVICE PROVIDER as a PERSON -
+                "SERVICE PROVIDER / Participant" -
+                The 'assignedPerson' tag shall appear only once.
+                Refer to section 7.1.1.1.1.1 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</report>
+
+        </rule>
+
+
+        <rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code = '101.17032']/cda:entry/cda:act/cda:performer/cda:assignedEntity/cda:assignedPerson[ext:asEmployment]">
+
+            <assert test="ext:asEntityIdentifier"
+                >Error: Service Referral - 7.1.1.1.1.1 SERVICE PROVIDER as a PERSON -
+                "SERVICE PROVIDER / Participant / Entity Identifier" -
+                The 'asEntityIdentifier' tag is missing.
+                Refer to section 7.1.1.1.1.1 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</assert>
+
+            <assert test="cda:name"
+                >Error: Service Referral - 7.1.1.1.1.1 SERVICE PROVIDER as a PERSON -
+                "SERVICE PROVIDER / Participant / Person or Organisation or Device / Person / Person Name" -
+                The 'name' tag is missing.
+                Refer to section 7.1.1.1.1.1 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</assert>
+
+            <assert test="not(ext:personalRelationship)"
+                >Error: Service Referral - 7.1.1.1.1.1 SERVICE PROVIDER as a PERSON -
+                "SERVICE PROVIDER / Participant / Person or Organisation or Device / Person / Relationship to Subject of Care" -
+                The 'personalRelationship' tag shall not be present.
+                Refer to section 7.1.1.1.1.1 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</assert>
+
+            <assert test="not(ext:administrativeGenderCode)"
+                >Error: Service Referral - 7.1.1.1.1.1 SERVICE PROVIDER as a PERSON -
+                "SERVICE PROVIDER / Participant / Person or Organisation or Device / Person / Demographic Data" -
+                The 'administrativeGenderCode' tag shall not be present.
+                Refer to section 7.1.1.1.1.1 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</assert>
+
+            <assert test="not(ext:birthTime)"
+                >Error: Service Referral - 7.1.1.1.1.1 SERVICE PROVIDER as a PERSON -
+                "SERVICE PROVIDER / Participant / Person or Organisation or Device / Person / Demographic Data" -
+                The 'birthTime' tag shall not be present.
+                Refer to section 7.1.1.1.1.1 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</assert>
+
+            <report test="count(ext:asEmployment) > 1"
+                >Error: Service Referral - 7.1.1.1.1.1 SERVICE PROVIDER as a PERSON -
+                "SERVICE PROVIDER / Participant / Person or Organisation or Device / Person / Employment Detail" -
+                The 'asEmployment' tag shall appear only once.
+                Refer to section 7.1.1.1.1.1 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</report>
+
+            <report test="count(ext:asQualifications) > 1"
+                >Error: Service Referral - 7.1.1.1.1.1 SERVICE PROVIDER as a PERSON -
+                "SERVICE PROVIDER / Participant / Qualifications" -
+                The 'asQualifications' tag shall appear only once.
+                Refer to section 7.1.1.1.1.1 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</report>
+
+        </rule>
+
+
+        <rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code = '101.17032']/cda:entry/cda:act/cda:performer/cda:assignedEntity/cda:assignedPerson[ext:asEmployment]/ext:asQualifications">
+
+            <assert test="@classCode"
+                >Error: Service Referral - 7.1.1.1.1.1 SERVICE PROVIDER as a PERSON -
+                "SERVICE PROVIDER / Participant / Qualifications" -
+                The 'asQualifications' tag 'classCode' attribute is missing.
+                Refer to section 7.1.1.1.1.1 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</assert>
+
+            <assert test="not(@classCode) or normalize-space(@classCode) != ''"
+                >Error: Service Referral - 7.1.1.1.1.1 SERVICE PROVIDER as a PERSON -
+                "SERVICE PROVIDER / Participant / Qualifications" -
+                The 'asQualifications' tag 'classCode' attribute shall contain a value.
+                Refer to section 7.1.1.1.1.1 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</assert>
+
+            <assert test="
+                not(@classCode) or normalize-space(@classCode) = '' or @classCode = 'QUAL'"
+                >Error: Service Referral - 7.1.1.1.1.1 SERVICE PROVIDER as a PERSON -
+                "SERVICE PROVIDER / Participant / Qualifications" -
+                The 'asQualifications' tag 'classCode' attribute shall contain the value 'QUAL'.
+                Refer to section 7.1.1.1.1.1 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</assert>
+
+            <assert test="ext:code"
+                >Error: Service Referral - 7.1.1.1.1.1 SERVICE PROVIDER as a PERSON -
+                "SERVICE PROVIDER / Participant / Qualifications" -
+                The 'code' tag is missing.
+                Refer to section 7.1.1.1.1.1 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</assert>
+
+            <report test="count(ext:code) > 1"
+                >Error: Service Referral - 7.1.1.1.1.1 SERVICE PROVIDER as a PERSON -
+                "SERVICE PROVIDER / Participant / Qualifications" -
+                The 'code' tag shall appear only once.
+                Refer to section 7.1.1.1.1.1 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</report>
+
+        </rule>
+
+
+        <rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code = '101.17032']/cda:entry/cda:act/cda:performer/cda:assignedEntity/cda:assignedPerson[ext:asEmployment]/ext:asQualifications/ext:code">
+
+            <assert test="cda:originalText"
+                >Error: Service Referral - 7.1.1.1.1.1 SERVICE PROVIDER as a PERSON -
+                "SERVICE PROVIDER / Participant / Qualifications" -
+                The 'originalText' tag is missing.
+                Refer to section 7.1.1.1.1.1 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</assert>
+
+            <report test="count(cda:originalText) > 1"
+                >Error: Service Referral - 7.1.1.1.1.1 SERVICE PROVIDER as a PERSON -
+                "SERVICE PROVIDER / Participant / Qualifications" -
+                The 'originalText' tag shall appear only once.
+                Refer to section 7.1.1.1.1.1 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</report>
+
+        </rule>
+
+
+    </pattern>
+

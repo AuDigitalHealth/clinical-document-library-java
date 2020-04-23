@@ -1,0 +1,72 @@
+<!--
+_________________________________________________________________________________________________________________________________________________________________________________________
+                  Generated File - Do Not Edit File Directly                                                                                                                             
+                  __________________________________________
+
+                  Generated          : 30/09/2019 1:34:57 PM
+
+                  Product            : Goals of Care
+                  Release            : CDA_Implementation_Guide_v1.0
+                  Generator Version  : 
+                                                                                                                                                                                         
+_________________________________________________________________________________________________________________________________________________________________________________________
+-->
+    <pattern name="p-Goals_of_Care_Local_Identifier_Healthcare_Provider_Individual_LA-errors"
+        id="p-Goals_of_Care_Local_Identifier_Healthcare_Provider_Individual_LA-errors"
+        see="#p-Goals_of_Care_Local_Identifier_Healthcare_Provider_Individual_LA-errors">
+
+
+        <!-- NOTE :: Please make sure that the Section Number 5.1.1 is replaced by corresponding section numbers -->
+
+        <!-- Refer to section 3.4.10 of the Common Conformance Profile -->
+
+        <rule context="/cda:ClinicalDocument/cda:legalAuthenticator/cda:assignedEntity/cda:assignedPerson">
+
+            <report
+                test="count(ext:asEntityIdentifier/ext:id[starts-with(@root, '1.2.36.1.2001.1003.0.800361')]) > 1"
+                >Error: Goals of Care - 5.1.1 Legal Authenticator - The
+                'asEntityIdentifier' tag with a HPI-I shall not exist more than once. Refer to
+                "023876 - Local identifier details for a person in an Entity Identifier element of
+                the Clinical_Documents_Common_Conformance_Profile_v1.6" and "section 5.1.1 Legal
+                Authenticator" of the Advance_Care_Information_CDA_Implementation_Guide_v1.0.</report>
+
+        </rule>
+
+
+        <rule context="/cda:ClinicalDocument/cda:legalAuthenticator/cda:assignedEntity/cda:assignedPerson/ext:asEntityIdentifier">
+
+            <report
+                test="(ext:id[starts-with(@root, '1.2.36.1.2001.1003.0.800360') or starts-with(@root, '1.2.36.1.2001.1005.29.') or (@root = '1.2.36.1.2001.1005.29')])"
+                >Error: Goals of Care - 5.1.1 Legal Authenticator - The
+                'asEntityIdentifier' tag shall not have an IHI or the local identifier of the
+                consumer. Refer to "023876 - Local identifier details for a person in an Entity
+                Identifier element of Clinical_Documents_Common_Conformance_Profile_v1.6" and
+                "section 5.1.1 Legal Authenticator" of the
+                Advance_Care_Information_CDA_Implementation_Guide_v1.0.</report>
+
+        </rule>
+
+
+        <rule context="/cda:ClinicalDocument/cda:legalAuthenticator/cda:assignedEntity/cda:assignedPerson/ext:asEntityIdentifier/ext:id">
+
+            <report
+                test="(starts-with(@root, '1.2.36.1.2001.1003.0.')) and not(starts-with(@root, '1.2.36.1.2001.1003.0.800361'))"
+                >Error: Goals of Care - 5.1.1 Legal Authenticator - The 'asEntityIdentifier' tag shall
+                not have a National Identifier other than an HPI-I. Refer to "023876 - Local
+                identifier details for a person in an Entity Identifier element of the
+                Clinical_Documents_Common_Conformance_Profile_v1.6" and "section 5.1.1 Legal
+                Authenticator" of the Advance_Care_Information_CDA_Implementation_Guide_v1.0.</report>
+
+            <report
+                test="(starts-with(@root, '1.2.36.1.2001.1003.0')) and not(starts-with(@root, '1.2.36.1.2001.1003.0.800361'))"
+                >Error: Goals of Care - 5.1.1 Legal Authenticator - The 'asEntityIdentifier' tag shall
+                not have a National Identifier other than an HPI-I. Refer to "023876 - Local
+                identifier details for a person in an Entity Identifier element of the
+                Clinical_Documents_Common_Conformance_Profile_v1.6" and "section 5.1.1 Legal
+                Authenticator" of the Advance_Care_Information_CDA_Implementation_Guide_v1.0.</report>
+
+        </rule>
+
+
+    </pattern>
+

@@ -1,0 +1,64 @@
+
+    <!-- Status: Last Reviewed: 25/11/2011
+         Status: Last Updated : 04/05/2012 -->
+
+
+    <!-- This schematron covers the below mandatory 3A paths/sections.
+
+Referral Detail > Referral DateTime (7.1.1)     1..1
+/ClinicalDocument/component/structuredBody/component[ref_det]/section/entry[ref_time]/observation/code/@code="103.16620"
+
+Medical History (7.1.2)     1..1
+/ClinicalDocument/component/structuredBody/component[med_hist]/section/code/@code="101.16117"
+
+
+
+ -->
+
+
+    <pattern name="p-e-Referral_3A_Common_Sections_Mandatory_Paths-errors"
+        id="p-e-Referral_3A_Common_Sections_Mandatory_Paths-errors"
+        see="#p-e-Referral_3A_Common_Sections_Mandatory_Paths-errors">
+
+        <rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody">
+
+<!--
+Referral Detail > Referral DateTime (7.1.1)     1..1
+/ClinicalDocument/component/structuredBody/component[ref_det]/section/entry[ref_time]/observation/code/@code="103.16620"
+-->
+            <assert test="cda:component/cda:section[cda:code/@code='102.16347']/cda:entry/cda:observation/cda:code[@code = '103.16620']">
+                Error: e-Referral - 7.1.1 Referral Detail > Referral DateTime - 
+                The '/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code='102.16347']/cda:entry/cda:observation/cda:code[@code = '103.16620']' tag 
+                is missing. Refer to section 7.1.1 of the
+                e-Referral_CDA_Implementation_Guide_v2.2.</assert>
+
+            <report test="count(cda:component/cda:section[cda:code/@code='102.16347']/cda:entry/cda:observation/cda:code[@code = '103.16620']) > 1"
+                >Error: e-Referral - 7.1.1 Referral Detail > Referral DateTime - The 
+                '/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code='102.16347']/cda:entry/cda:observation/cda:code[@code = '103.16620']' tag
+                shall appear only once.  Refer to section 7.1.1 of the
+                e-Referral_CDA_Implementation_Guide_v2.2.</report>
+<!--            
+Medical History (7.1.2)     1..1
+/ClinicalDocument/component/structuredBody/component[med_hist]/section/code/@code="101.16117"
+-->
+
+            <assert test="cda:component/cda:section[cda:code/@code='101.16117']">
+                Error: e-Referral - 7.1.2 Medical History - 
+                The '/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code='101.16117']' tag 
+                is missing. Refer to section 7.1.2 of the
+                e-Referral_CDA_Implementation_Guide_v2.2.</assert>
+
+            <report test="count(cda:component/cda:section[cda:code/@code='101.16117']) > 1"
+                >Error: e-Referral - 7.1.2 Medical History - The 
+                '/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code='101.16117']' tag
+                shall appear only once.  Refer to section 7.1.2 of the
+                e-Referral_CDA_Implementation_Guide_v2.2.</report>
+
+
+
+        </rule>
+   
+
+
+    </pattern>
+

@@ -1,0 +1,29 @@
+    <pattern name="p-Service_Referral_3A_SERVICEPROVIDER_7_1_1_1_1_custom-errors"
+        id="p-Service_Referral_3A_SERVICEPROVIDER_7_1_1_1_1_custom-errors"
+        see="#p-Service_Referral_3A_SERVICEPROVIDER_7_1_1_1_1_custom-errors">
+
+
+        <rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code='101.17032']/cda:entry/cda:act[not(cda:code/@code) or (cda:code/@code!='102.16971')]">
+
+
+            <report test="cda:performer[cda:assignedEntity/cda:assignedPerson] and cda:performer[cda:assignedEntity/cda:representedOrganization]"
+                >Error: Service Referral - 7.1.1.1.1 SERVICE PROVIDER - Each instance of SERVICE
+                PROVIDER shall have either SERVICE PROVIDER as a PERSON (or) SERVICE PROVIDER as an
+                ORGANISATION but not both. Refer to section 7.1.1.1.1 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1. </report>
+
+        </rule>
+        
+        <rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code='101.17032']/cda:entry/cda:act[not(cda:code/@code) or (cda:code/@code!='102.16971')]/cda:performer/cda:assignedEntity">
+            
+            <assert test="cda:assignedPerson or cda:representedOrganization"
+                >Error: Service Referral - 7.1.1.1.1 SERVICE PROVIDER  Each instance of
+                SERVICE PROVIDER shall have either 'assignedPerson' or
+                'representedOrganization'. Refer to section 7.1.1.1.1 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</assert>
+            
+        </rule>
+        
+
+    </pattern>
+

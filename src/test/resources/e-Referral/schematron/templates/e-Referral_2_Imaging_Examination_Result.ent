@@ -1,0 +1,63 @@
+
+    <!--  E-Referral Clinical Document:  7.1.5.2 IMAGING EXAMINATION RESULT  -->
+
+    <!--  Context: ClinicalDocument/component/structuredBody/component[DIAG_INV]/section-->
+
+
+    <!-- Status: Last Reviewed: 
+        Status: Last Updated : 29/06/2012-->
+
+    <!-- 29/06/2012 Mantis task:3739 - Updated both the rule context  -->
+
+    <pattern name="p-e-Referral_2_Imaging_Examination_Result-errors"
+        id="p-e-Referral_2_Imaging_Examination_Result-errors"
+        see="#p-e-Referral_2_Imaging_Examination_Result-errors">
+
+        <rule context="cda:code[@code = '102.16145']">
+
+            <assert test="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code='101.20117']/cda:component/cda:section/cda:code[@code = '102.16145']"
+                > Error: e-Referral - 7.1.5.2 Imaging Examination Result - 
+				The '/ClinicalDocument/component/structuredBody/component/section/component/section/code/@code = "102.16145"' path - 
+				1 or more tags are missing. Refer to section 7.1.5.2 of the
+                e-Referral_CDA_Implementation_Guide_v2.2.</assert>
+
+            <!-- IMAGING EXAMINATION RESULT - 0..* - ERRORS -->
+
+            <assert test="@codeSystem = '1.2.36.1.2001.1001.101'">Error: e-Referral - 7.1.5.2
+                Imaging Examination Result - The 'code' tag 'codeSystem' attribute shall be
+                '1.2.36.1.2001.1001.101'. Refer to section 7.1.5.2 of the
+                e-Referral_CDA_Implementation_Guide_v2.2.</assert>
+
+            <assert
+                test="translate(@codeSystemName, 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ') = 'NCTIS DATA COMPONENTS'"
+                > Error: e-Referral - 7.1.5.2 Imaging Examination Result - The 'code' tag
+                'codeSystemName' attribute shall contain the value 'NCTIS Data Components'. Refer to section
+                7.1.5.2 of the e-Referral_CDA_Implementation_Guide_v2.2.</assert>
+
+            <assert
+                test="translate(@displayName, 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ') = 'IMAGING EXAMINATION RESULT'"
+                > Error: e-Referral - 7.1.5.2 Imaging Examination Result - The 'code' tag
+                'displayName' attribute shall contain the value 'Imaging Examination Result'. Refer to section
+                7.1.5.2 of the e-Referral_CDA_Implementation_Guide_v2.2.</assert>
+            
+            
+            <!-- "component[img_exam]/section/title = "Imaging Examination Result" is being tested by "1B Narrative" ent files -->
+            <!-- "component[img_exam]/section/text is being tested by "1B Narrative" ent files -->
+
+            <!-- IMAGING EXAMINATION RESULT - 1..1 - ERRORS -->
+        </rule>
+
+        <!-- Updated RV 10/04/2012 Mantis Id - 3038 -->
+        <rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code='101.20117']/cda:component/cda:section[cda:code/@code = '102.16145']">
+          
+            <assert test="cda:title">Error: e-Referral - 7.1.5.2 Imaging Examination Result - The 'title' tag
+                is missing. Refer to section 7.1.5.2 of the e-Referral_CDA_Implementation_Guide_v2.2.</assert>
+            
+            <assert test="translate(cda:title, 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ') = 'IMAGING EXAMINATION RESULT'">
+                Error: e-Referral - 7.1.5.2 Imaging Examination Result - The 'title' tag
+                shall contain the value 'Imaging Examination Result'. Refer to section
+                7.1.5.2 of the e-Referral_CDA_Implementation_Guide_v2.2.</assert>
+            
+        </rule>
+        <!-- Update Ended - Mantis Id 3038 -->
+    </pattern>

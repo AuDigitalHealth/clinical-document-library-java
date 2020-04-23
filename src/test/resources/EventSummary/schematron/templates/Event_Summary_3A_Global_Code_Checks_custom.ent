@@ -1,0 +1,644 @@
+    <pattern name="p-Event_Summary_3A_Global_Code_Checks_custom-errors"
+        id="p-Event_Summary_3A_Global_Code_Checks_custom-errors"
+        see="#p-Event_Summary_3A_Global_Code_Checks_custom-errors">
+        
+        
+        <rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code='102.16080']/cda:entry/cda:observation/cda:code[@displayName='Date of Birth is Calculated From Age']">
+            
+            
+            <assert test="@code='103.16233'">Error: Event Summary - 6.1.2 SUBJECT OF CARE
+                - The 'code' tag 'code' attribute shall be '103.16233'. Refer to section 6.1.2
+                 of the Event_Summary_CDA_Implementation_Guide_v1.3.</assert>
+            
+        </rule>
+        
+        
+        <rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code='102.16080']/cda:entry/cda:observation/cda:code[@displayName='Date of Birth Accuracy Indicator']">
+            
+            
+            <assert test="@code='102.16234'">Error: Event Summary - 6.1.2 SUBJECT OF CARE
+                - The 'code' tag 'code' attribute shall be '102.16234'. Refer to section 6.1.2
+                of the Event_Summary_CDA_Implementation_Guide_v1.3.</assert>
+            
+        </rule>
+        
+        
+        <rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code='102.16080']/cda:entry/cda:observation/cda:code[@displayName='Age']">
+            
+            
+            <assert test="@code='103.20109'">Error: Event Summary - 6.1.2 SUBJECT OF CARE
+                - The 'code' tag 'code' attribute shall be '103.20109'. Refer to section 6.1.2
+                 of the Event_Summary_CDA_Implementation_Guide_v1.3.</assert>
+            
+        </rule>
+        
+        
+        <rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code='102.16080']/cda:entry/cda:observation/cda:code[@displayName='Age Accuracy Indicator']">
+            
+            
+            <assert test="@code='103.16279'">Error: Event Summary - 6.1.2 SUBJECT OF CARE
+                - The 'code' tag 'code' attribute shall be '103.16279'. Refer to section "6.1.2
+                 of the Event_Summary_CDA_Implementation_Guide_v1.3.</assert>
+            
+        </rule>
+        
+        
+        <rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code='102.16080']/cda:entry/cda:observation/cda:code[@displayName='Birth Plurality']">
+            
+            
+            <assert test="@code='103.16249'">Error: Event Summary - 6.1.2 SUBJECT OF CARE
+                - The 'code' tag 'code' attribute shall be '103.16249'. Refer to section "6.1.2
+                 of the Event_Summary_CDA_Implementation_Guide_v1.3.</assert>
+            
+        </rule>
+        
+        
+        <rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code='102.16080']/cda:entry/cda:observation/cda:code[@displayName='Date of Death Accuracy Indicator']">
+            
+            
+            <assert test="@code='102.16252'">Error: Event Summary - 6.1.2 SUBJECT OF CARE
+                - The 'code' tag 'code' attribute shall be '102.16252'. Refer to section 6.1.2
+                 of the Event_Summary_CDA_Implementation_Guide_v1.3.</assert>
+            
+            
+        </rule>
+        
+        
+        <rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code='102.16080']/cda:entry/cda:observation/cda:code[@displayName='Source of Death Notification']">
+            
+            
+            <assert test="@code='103.10243'">Error: Event Summary - 6.1.2 SUBJECT OF CARE
+                - The 'code' tag 'code' attribute shall be '103.10243'. Refer to section 6.1.2
+                 of the Event_Summary_CDA_Implementation_Guide_v1.3.</assert>
+            
+            
+        </rule>
+        
+        
+        <rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code='102.16080']/cda:entry/cda:observation/cda:code[(translate(@displayName, 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ')=&quot;MOTHER'S ORIGINAL FAMILY NAME&quot;)]">
+            
+            
+            <assert test="@code='103.10245'">Error: Event Summary - 6.1.2 SUBJECT OF CARE
+                - The 'code' tag 'code' attribute shall be '103.10245'. Refer to section 6.1.2
+                 of the Event_Summary_CDA_Implementation_Guide_v1.3.</assert>
+            
+            
+        </rule>
+       
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+              
+        <rule  context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code='101.20113']/cda:entry/cda:act[cda:code/@code='102.15517']/cda:entryRelationship/cda:observation/cda:code[@displayName='Reaction Event']">
+            
+            <assert test="@code='102.16474'">Error: Event Summary - 7.1.2.1 ADVERSE REACTION -
+                The 'code' tag 'code' attribute shall contain the value '102.16474'. Refer to
+                section 7.1.2.1 of the
+                Event_Summary_CDA_Implementation_Guide_v1.3.</assert>
+            
+            
+            
+        </rule>
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        <rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code='101.16146']/cda:entry/cda:substanceAdministration[@classCode='SBADM']/cda:entryRelationship/cda:act/cda:code[@displayName='Additional Comments']">
+            
+            <assert test="@code='103.16044'">Error: Event Summary - 7.1.3.1 Known Medication (MEDICATION INSTRUCTION)
+                - The 'code' tag 'code' attribute shall be '103.16044'. Refer to section 7.1.3.1
+                 of the Event_Summary_CDA_Implementation_Guide_v1.3.</assert>
+            
+            
+        </rule>
+    
+        
+        <rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code='101.16146']/cda:entry/cda:substanceAdministration[@classCode='SBADM']/cda:entryRelationship/cda:observation[cda:code/@code='103.16593']/cda:entryRelationship/cda:act/cda:code[@displayName='Change or Recommendation Reason']">
+            
+            <assert test="@code='103.10177'">Error: Event Summary - 7.1.3.1 Known Medication (MEDICATION INSTRUCTION)
+                - The 'code' tag 'code' attribute shall contain the value '103.10177'. Refer to
+                section 7.1.3.1 of the
+                Event_Summary_CDA_Implementation_Guide_v1.3.</assert>
+            
+            
+        </rule>
+        
+        
+        <rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code='101.16146']/cda:entry/cda:substanceAdministration[@classCode='SBADM']/cda:entryRelationship/cda:act/cda:code[@displayName='Clinical Indication']">
+            
+            <assert test="@code='103.10141'">Error: Event Summary - 7.1.3.1 Known Medication (MEDICATION INSTRUCTION)
+                - The 'code' tag 'code' attribute shall be '103.10141'. Refer to section 7.1.3.1
+                of the Event_Summary_CDA_Implementation_Guide_v1.3.</assert>
+            
+            
+        </rule>
+        
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+        <rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code='101.16117']/cda:entry/cda:observation/cda:code[@displayName='Diagnosis interpretation']">
+            
+            
+            
+            <assert test="@code='282291009'">Error: Event Summary - 7.1.4.1 PROBLEM/DIAGNOSIS -
+                The 'code' tag 'code' attribute shall be '282291009'. Refer to section 7.1.4.1
+                of the Event_Summary_CDA_Implementation_Guide_v1.3.</assert>
+            
+            
+        </rule>
+        
+        
+        <rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code='101.16117']/cda:entry/cda:observation[@classCode='OBS']/cda:entryRelationship/cda:act/cda:code[@displayName='Problem/Diagnosis Comment']">
+            
+            
+            <assert test="@code='103.16545'">Error: Event Summary - 7.1.4.1 PROBLEM/DIAGNOSIS -
+                The 'code' tag 'code' attribute shall contain the value '103.16545'. Refer to
+                section 7.1.4.1  of the
+                Event_Summary_CDA_Implementation_Guide_v1.3.</assert>
+            
+            
+            
+        </rule>
+        
+        
+        <rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code='101.16117']/cda:entry/cda:procedure[@classCode='PROC']/cda:entryRelationship/cda:act/cda:code[@displayName='Procedure Comment']">
+            
+            
+            <assert test="@code='103.15595'">Error: Event Summary - 7.1.4.2 PROCEDURE -
+                The 'code' tag 'code' attribute shall contain the value '103.15595'. Refer to
+                section 7.1.4.2 of the
+                Event_Summary_CDA_Implementation_Guide_v1.3.</assert>
+            
+            
+            
+        </rule>
+        
+        
+        <rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code='101.16117']/cda:entry/cda:act/cda:code[@displayName='Uncategorised Medical History Item']">
+
+            <assert test="@code='102.16627'">Error: Event Summary - 7.1.4.3 UNCATEGORISED MEDICAL HISTORY ITEM -
+                The 'code' tag 'code' attribute shall be '102.16627'.
+                Refer to section 7.1.4.3  of the
+                Event_Summary_CDA_Implementation_Guide_v1.3.</assert>
+
+     
+        </rule>
+ 
+        
+        <rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code='101.16117']/cda:entry/cda:act[cda:code/@code='102.16627']/cda:entryRelationship/cda:act/cda:code[@displayName='Medical History Item Comment']">
+
+    
+            <assert test="@code='103.16630'">Error: Event Summary - 7.1.4.3 UNCATEGORISED MEDICAL HISTORY ITEM -
+                The 'code' tag 'code' attribute shall contain the value '103.16630'. Refer to
+                section 7.1.4.3 of the
+                Event_Summary_CDA_Implementation_Guide_v1.3.</assert>
+
+      
+
+        </rule>
+     
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        <rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code='101.20117']/cda:component/cda:section[cda:code/@code='102.16144']/cda:entry/cda:observation[@classCode='OBS']/cda:entryRelationship/cda:observation/cda:code[@displayName='pathology service']">
+            
+            <assert test="@code='310074003'">Error: Event Summary - 7.1.6.1 PATHOLOGY TEST RESULT
+                - The 'code' tag 'code' attribute shall be '310074003'. Refer to section 7.1.6.1
+                 of the Event_Summary_CDA_Implementation_Guide_v1.3.</assert>
+            
+            
+        </rule>
+        
+        
+        <rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code='101.20117']/cda:component/cda:section[cda:code/@code='102.16144']/cda:entry/cda:observation[@classCode='OBS']/cda:entryRelationship/cda:act/cda:code[@displayName='Clinical information']">
+            
+            <assert test="@code='55752-0'">Error: Event Summary - 7.1.6.1 PATHOLOGY TEST RESULT -
+                The 'code' tag 'code' attribute shall be '55752-0'. Refer to section 7.1.6.1 of the
+                Event_Summary_CDA_Implementation_Guide_v1.3.</assert>
+            
+            
+        </rule>
+     
+     
+        <rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code='101.20117']/cda:component/cda:section[cda:code/@code='102.16144']/cda:entry/cda:observation[@classCode='OBS']/cda:entryRelationship/cda:observation/cda:code[@displayName='pathology diagnosis']">
+            
+            <assert test="@code='88101002'">Error: Event Summary - 7.1.6.1 PATHOLOGY TEST RESULT
+                - The 'code' tag 'code' attribute shall be '88101002'. Refer to section 7.1.6.1
+                of the Event_Summary_CDA_Implementation_Guide_v1.3.</assert>
+            
+            
+        </rule>  
+        
+        
+        <rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code='101.20117']/cda:component/cda:section[cda:code/@code='102.16144']/cda:entry/cda:observation[@classCode='OBS']/cda:entryRelationship/cda:observation/cda:code[@displayName='laboratory findings data interpretation']">
+            
+            <assert test="@code='386344002'">Error: Event Summary - 7.1.6.1 PATHOLOGY TEST RESULT
+                - The 'code' tag 'code' attribute shall be '386344002'. Refer to section 7.1.6.1
+                of the Event_Summary_CDA_Implementation_Guide_v1.3.</assert>
+            
+            
+        </rule>
+        
+        
+        <rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code='101.20117']/cda:component/cda:section[cda:code/@code='102.16144']/cda:entry/cda:observation[@classCode='OBS']/cda:entryRelationship/cda:act/cda:code[@displayName='Test Comment']">
+            
+            <assert test="@code='103.16468'">Error: Event Summary - 7.1.6.1 PATHOLOGY TEST RESULT
+                - The 'code' tag 'code' attribute shall be '103.16468'. Refer to section 7.1.6.1
+                 of the
+                Event_Summary_CDA_Implementation_Guide_v1.3.</assert>
+            
+            
+        </rule>
+        
+        
+        <rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code='101.20117']/cda:component/cda:section[cda:code/@code='102.16144']/cda:entry/cda:observation[@classCode='OBS']/cda:entryRelationship/cda:act/cda:code[@displayName='Test Request Details']">
+            
+            <assert test="@code='102.16160'">Error: Event Summary - 7.1.6.1 PATHOLOGY TEST RESULT
+                - The 'code' tag 'code' attribute shall be '102.16160'. Refer to section 7.1.6.1
+                 of the
+                Event_Summary_CDA_Implementation_Guide_v1.3.</assert>
+            
+            
+            
+        </rule>
+        
+        
+        <rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code='101.20117']/cda:component/cda:section[cda:code/@code='102.16144']/cda:entry/cda:observation[@classCode='OBS']/cda:entryRelationship/cda:act[cda:code/@code='102.16160']/cda:entryRelationship/cda:observation/cda:code[@displayName='Test Requested Name']">
+            
+                     
+            <assert test="@code='103.16404'">Error: Event Summary - 7.1.6.1 PATHOLOGY TEST RESULT
+                - The 'code' tag 'code' attribute shall be '103.16404'. Refer to section 7.1.6.1
+                of the
+                Event_Summary_CDA_Implementation_Guide_v1.3.</assert>
+            
+            
+        </rule>
+        
+             
+        <rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code='101.20117']/cda:component/cda:section[cda:code/@code='102.16144']/cda:entry/cda:observation[@classCode='OBS']/cda:entryRelationship/cda:observation/cda:targetSiteCode/cda:qualifier/cda:name[@displayName='Laterality']">
+            
+            <assert test="@code='272741003'">Error: Event Summary - 7.1.6.1.1 Test Specimen Detail (SPECIMEN) -
+                'name' tag 'code' attribute shall contain the value '272741003'. Refer to section
+                7.1.6.1.1  of the
+                Event_Summary_CDA_Implementation_Guide_v1.3.</assert>
+            
+        </rule>
+        
+        
+        <rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code='101.20117']/cda:component/cda:section[cda:code/@code='102.16144']/cda:entry/cda:observation[@classCode='OBS']/cda:entryRelationship/cda:organizer[@classCode='BATTERY']/cda:component/cda:observation/cda:targetSiteCode/cda:qualifier/cda:name[@displayName='Laterality']">
+            
+            <assert test="@code='272741003'">Error: Event Summary - 7.1.6.1.2.2 Result Group Specimen Detail (SPECIMEN) -
+                'name' tag 'code' attribute shall contain the value '272741003'. Refer to section
+                7.1.6.1.2.2 of the
+                Event_Summary_CDA_Implementation_Guide_v1.3.</assert>            
+            
+        </rule>
+                
+        
+        <rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code='101.20117']/cda:component/cda:section[cda:code/@code='102.16144']/cda:entry/cda:observation[@classCode='OBS']/cda:entryRelationship/cda:observation[@classCode='OBS']/cda:entryRelationship/cda:observation/cda:code[@displayName='Sampling Preconditions']">
+            
+            <assert test="@code='103.16171'">Error: Event Summary - 7.1.6.1.1 Test Specimen Detail (SPECIMEN)
+                - The 'code' tag 'code' attribute shall be '103.16171'. Refer to section 7.1.6.1.1
+                of the Event_Summary_CDA_Implementation_Guide_v1.3.</assert>
+            
+            
+        </rule>
+        
+        
+        <rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code='101.20117']/cda:component/cda:section[cda:code/@code='102.16144']/cda:entry/cda:observation[@classCode='OBS']/cda:entryRelationship/cda:observation[@classCode='OBS']/cda:entryRelationship/cda:observation/cda:code[@displayName='Collection Setting']">
+            
+            <assert test="@code='103.16529'">Error: Event Summary - 7.1.6.1.1 Test Specimen Detail (SPECIMEN)
+                - The 'code' tag 'code' attribute shall be '103.16529'. Refer to section 7.1.6.1.1
+                of the Event_Summary_CDA_Implementation_Guide_v1.3.</assert>            
+            
+        </rule>
+        
+        
+        <rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code='101.20117']/cda:component/cda:section[cda:code/@code='102.16144']/cda:entry/cda:observation[@classCode='OBS']/cda:entryRelationship/cda:observation[@classCode='OBS']/cda:entryRelationship/cda:observation/cda:code[@displayName='DateTime Received']">
+            
+            <assert test="@code='103.11014'">Error: Event Summary - 7.1.6.1.1 Test Specimen Detail (SPECIMEN)
+                - The 'code' tag 'code' attribute shall be '103.11014'. Refer to section 7.1.6.1.1
+                 of the Event_Summary_CDA_Implementation_Guide_v1.3.</assert>            
+            
+        </rule>
+        
+        
+        <rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code='101.20117']/cda:component/cda:section[cda:code/@code='102.16144']/cda:entry/cda:observation[@classCode='OBS']/cda:entryRelationship/cda:observation[@classCode='OBS']/cda:entryRelationship/cda:observation/cda:code[@displayName='Parent Specimen Identifier']">
+            
+            <assert test="@code='103.16187'">Error: Event Summary - 7.1.6.1.1 Test Specimen Detail (SPECIMEN)
+                - The 'code' tag 'code' attribute shall be '103.16187'. Refer to section 7.1.6.1.1
+                of the Event_Summary_CDA_Implementation_Guide_v1.3.</assert>
+            
+            
+        </rule>
+           
+        
+        <rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code='101.20117']/cda:component/cda:section[cda:code/@code='102.16144']/cda:entry/cda:observation[@classCode='OBS']/cda:entryRelationship/cda:organizer[@classCode='BATTERY']/cda:component/cda:observation[@classCode='OBS']/cda:entryRelationship/cda:act/cda:code[@displayName='result comments']">
+            
+            <assert test="@code='281296001'">Error: Event Summary - 7.1.6.1.2 Result Group (PATHOLOGY TEST RESULT GROUP)
+                - The 'code' tag 'code' attribute shall be '281296001'. Refer to section 7.1.6.1.2
+                of the
+                Event_Summary_CDA_Implementation_Guide_v1.3.</assert>            
+            
+        </rule>
+        
+       
+        <rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code='101.20117']/cda:component/cda:section[cda:code/@code='102.16144']/cda:entry/cda:observation[@classCode='OBS']/cda:entryRelationship/cda:organizer[@classCode='BATTERY']/cda:component/cda:observation[@classCode='OBS']/cda:entryRelationship/cda:act/cda:code[@displayName='reference range comments']">
+            
+            <assert test="@code='281298000'">Error: Event Summary - 7.1.6.1.2 Result Group (PATHOLOGY TEST RESULT GROUP)
+                - The 'code' tag 'code' attribute shall be '281298000'. Refer to section 7.1.6.1.2
+                of the
+                Event_Summary_CDA_Implementation_Guide_v1.3.</assert>
+            
+            
+            
+        </rule>  
+        
+        
+        <rule  context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code='101.20117']/cda:component/cda:section[cda:code/@code='102.16144']/cda:entry/cda:observation[@classCode='OBS']/cda:entryRelationship/cda:organizer[@classCode='BATTERY']/cda:component/cda:observation/cda:code[@displayName='Specimen']">
+            
+            <assert test="@code='102.16156.136.2.2'">Error: Event Summary - 7.1.6.1.2.2 Result Group Specimen Detail (SPECIMEN)
+                - 'code' tag 'code' attribute shall contain the value '102.16156.136.2.2'.
+                Refer to section 7.1.6.1.2.2 of the
+                Event_Summary_CDA_Implementation_Guide_v1.3.</assert>
+            
+            
+            
+        </rule>
+        
+        
+        <rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code='101.20117']/cda:component/cda:section[cda:code/@code='102.16144']/cda:entry/cda:observation[@classCode='OBS']/cda:entryRelationship/cda:organizer[@classCode='BATTERY']/cda:component/cda:observation[@classCode='OBS']/cda:entryRelationship/cda:observation/cda:code[@displayName='Sampling Preconditions']">
+            
+            <assert test="@code='103.16171'">Error: Event Summary - 7.1.6.1.2.2 Result Group Specimen Detail (SPECIMEN)
+                - The 'code' tag 'code' attribute shall be '103.16171'. Refer to section 7.1.6.1.2.2
+                of the
+                Event_Summary_CDA_Implementation_Guide_v1.3.</assert>
+            
+        </rule>
+        
+        
+        <rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code='101.20117']/cda:component/cda:section[cda:code/@code='102.16144']/cda:entry/cda:observation[@classCode='OBS']/cda:entryRelationship/cda:organizer[@classCode='BATTERY']/cda:component/cda:observation[@classCode='OBS']/cda:entryRelationship/cda:observation/cda:code[@displayName='Collection Setting']">
+            
+            <assert test="@code='103.16529'">Error: Event Summary - 7.1.6.1.2.2 Result Group Specimen Detail (SPECIMEN)
+                - The 'code' tag 'code' attribute shall be '103.16529'. Refer to section 7.1.6.1.2.2  of the
+                Event_Summary_CDA_Implementation_Guide_v1.3.</assert>
+            
+            
+        </rule>
+        
+        
+        <rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code='101.20117']/cda:component/cda:section[cda:code/@code='102.16144']/cda:entry/cda:observation[@classCode='OBS']/cda:entryRelationship/cda:organizer[@classCode='BATTERY']/cda:component/cda:observation[@classCode='OBS']/cda:entryRelationship/cda:observation/cda:code[@displayName='DateTime Received']">
+            
+            <assert test="@code='103.11014'">Error: Event Summary - 7.1.6.1.2.2 Result Group Specimen Detail (SPECIMEN)
+                - The 'code' tag 'code' attribute shall be '103.11014'. Refer to section 7.1.6.1.2.2  of the
+                Event_Summary_CDA_Implementation_Guide_v1.3.</assert>
+            
+            
+        </rule>
+        
+                
+        <rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code='101.20117']/cda:component/cda:section[cda:code/@code='102.16144']/cda:entry/cda:observation[@classCode='OBS']/cda:entryRelationship/cda:organizer[@classCode='BATTERY']/cda:component/cda:observation[@classCode='OBS']/cda:entryRelationship/cda:observation/cda:code[@displayName='Parent Specimen Identifier']">
+            
+            <assert test="@code='103.16187'">Error: Event Summary - 7.1.6.1.2.2 Result Group Specimen Detail (SPECIMEN)
+                - The 'code' tag 'code' attribute shall be '103.16187'. Refer to section 7.1.6.1.2
+                 of the
+                Event_Summary_CDA_Implementation_Guide_v1.3.</assert>            
+            
+        </rule>
+         
+         
+        <!-- <rule  context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code='101.20117']/cda:component/cda:section[cda:code/@code='102.16144']/cda:entry/cda:observation[@classCode='OBS']/cda:entryRelationship/cda:observation[@classCode='OBS']/cda:targetSiteCode/cda:qualifier/cda:name[@displayName='WITH LATERALITY']">
+            
+            <assert test="@code='78615007'">Error: Event Summary - Global Code Checks
+                - 'name' tag 'code' attribute shall contain the value '78615007'. Refer to section
+                "'7.1.6.1.1 Test Specimen Detail'" of the
+                Event_Summary_CDA_Implementation_Guide_v1.3.</assert>
+                
+        </rule>-->
+        
+        
+        <!--<rule  context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code='101.20117']/cda:component/cda:section[cda:code/@code='102.16144']/cda:entry/cda:observation[@classCode='OBS']/cda:entryRelationship/cda:organizer[@classCode='BATTERY']/cda:component/cda:observation[@classCode='OBS']/cda:targetSiteCode/cda:qualifier/cda:name[@displayName='WITH LATERALITY']">
+            
+            <assert test="@code='78615007'">Error: Event Summary - Global Code Checks -
+                The 'name' tag 'code' attribute shall contain the value '78615007'. Refer to section
+                '7.1.6.1.2.1 Result Group Specimen Detail' of the
+                Event_Summary_CDA_Implementation_Guide_v1.3.</assert> 
+                
+        </rule>-->
+        
+         
+         
+         
+         
+         
+         
+         
+         
+         
+             
+        <rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code='101.20117']/cda:component/cda:section[cda:code/@code='102.16145']/cda:entry/cda:observation[@classCode='OBS']/cda:entryRelationship/cda:act/cda:code[@displayName='Clinical information']">
+
+            <assert test="@code='55752-0'">Error: Event Summary - 7.1.6.2 IMAGING EXAMINATION RESULT -
+                The 'code' tag 'code' attribute shall be '55752-0'. Refer to section 7.1.6.2. of the
+                Event_Summary_CDA_Implementation_Guide_v1.3.</assert>
+
+
+        </rule>
+
+       
+        <rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code='101.20117']/cda:component/cda:section[cda:code/@code='102.16145']/cda:entry/cda:observation[@classCode='OBS']/cda:targetSiteCode/cda:qualifier/cda:name[@displayName='Laterality']">
+                     
+            <assert test="@code='272741003'">Error: Event Summary - 7.1.6.2 IMAGING EXAMINATION RESULT -
+                'name' tag 'code' attribute shall contain the value '272741003'. Refer to section
+                7.1.6.2  of the
+                Event_Summary_CDA_Implementation_Guide_v1.3.</assert>
+            
+        </rule>
+              
+
+        <rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code='101.20117']/cda:component/cda:section[cda:code/@code='102.16145']/cda:entry/cda:observation[@classCode='OBS']/cda:entryRelationship/cda:act/cda:code[@displayName='Examination Request Details']">
+
+            <assert test="@code='102.16511'">Error: Event Summary - 7.1.6.2 IMAGING EXAMINATION RESULT
+                 - The 'code' tag 'code' attribute shall be '102.16511'. Refer to section
+                7.1.6.2.2 of the
+                Event_Summary_CDA_Implementation_Guide_v1.3.</assert>
+
+        </rule>
+   
+        
+        <rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code='101.20117']/cda:component/cda:section[cda:code/@code='102.16029']/cda:entry/cda:observation[@classCode='OBS']/cda:entryRelationship/cda:observation/cda:code[@displayName='report status']">
+            
+            <assert test="@code='308552006'">Error: Event Summary - Global Code Checks
+                - The 'code' tag 'code' attribute shall be '308552006'. Refer to FAQ_Diagnostic_Investigations_with_correct_OIDS_rev001 of the Event_Summary_CDA_Implementation_Guide_v1.3.</assert>
+                     
+        </rule>
+        
+   
+        <rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code='101.20117']/cda:component/cda:section[cda:code/@code='102.16145']/cda:entry/cda:observation[@classCode='OBS']/cda:entryRelationship/cda:observation/cda:code[@displayName='Findings']">
+            
+            <assert test="@code='103.16503'">Error: Event Summary - 7.1.6.2 IMAGING EXAMINATION RESULT
+                - The 'code' tag 'code' attribute shall be '103.16503'. Refer to section 7.1.6.2 of the Event_Summary_CDA_Implementation_Guide_v1.3.</assert>
+
+     
+        </rule>
+
+
+        <rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code='101.20117']/cda:component/cda:section[cda:code/@code='102.16145']/cda:entry/cda:observation[@classCode='OBS']/cda:entryRelationship/cda:act[cda:code/@code='102.16511']/cda:entryRelationship/cda:observation/cda:code[@displayName='Examination Requested Name']">
+
+            <assert test="@code='103.16512'">Error: Event Summary - 7.1.6.2.2 EXAMINATION REQUEST DETAILS
+                - The 'code' tag 'code' attribute shall be '103.16512'. Refer to section 7.1.6.2.2
+                 of the
+                Event_Summary_CDA_Implementation_Guide_v1.3.</assert>
+
+          
+        </rule>
+
+
+        <rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code='101.20117']/cda:component/cda:section[cda:code/@code='102.16145']/cda:entry/cda:observation[@classCode='OBS']/cda:entryRelationship/cda:act[cda:code/@code='102.16511']/cda:entryRelationship/cda:act/cda:code[@displayName='DICOM Study Identifier']">
+            
+            <assert test="@code='103.16513'">Error: Event Summary - 7.1.6.2.2 EXAMINATION REQUEST DETAILS -
+                The 'code' tag 'code' attribute shall be '103.16513'. Refer to section 7.1.6.2.2
+                 of the
+                Event_Summary_CDA_Implementation_Guide_v1.3.</assert>
+            
+            
+            
+        </rule>
+
+
+        <rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code='101.20117']/cda:component/cda:section[cda:code/@code='102.16145']/cda:entry/cda:observation[@classCode='OBS']/cda:entryRelationship/cda:act[cda:code/@code='102.16511']/cda:entryRelationship/cda:observation/cda:code[@displayName='Report Identifier']">
+
+            <assert test="@code='103.16514'">Error: Event Summary - 7.1.6.2.2 EXAMINATION REQUEST DETAILS
+                - The 'code' tag 'code' attribute shall be '103.16514'. Refer to section 7.1.6.2.2
+                 of the
+                Event_Summary_CDA_Implementation_Guide_v1.3.</assert>
+
+        
+        </rule>
+
+       
+        <rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code='101.20117']/cda:component/cda:section[cda:code/@code='102.16145']/cda:entry/cda:observation[@classCode='OBS']/cda:entryRelationship/cda:act[cda:code/@code='102.16511']/cda:entryRelationship/cda:act[cda:code/@code='103.16513']/cda:entryRelationship/cda:observation/cda:code[@displayName='Image Details']">
+            
+         
+            <assert test="@code='102.16515'">Error: Event Summary - 7.1.6.2.2 EXAMINATION REQUEST DETAILS
+                - The 'code' tag 'code' attribute shall contain the value '102.16515'. Refer to
+                section 7.1.6.2.2  of the
+                Event_Summary_CDA_Implementation_Guide_v1.3.</assert>
+
+         
+        </rule>
+        
+        
+        <rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code='101.20117']/cda:component/cda:section[cda:code/@code='102.16145']/cda:entry/cda:observation[@classCode='OBS']/cda:entryRelationship/cda:act[cda:code/@code='102.16511']/cda:entryRelationship/cda:act[cda:code/@code='103.16513']/cda:entryRelationship/cda:observation[@classCode='OBS']/cda:entryRelationship/cda:act/cda:code[@displayName='DICOM Series Identifier']">
+            
+            <assert test="@code='103.16517'">Error: Event Summary - 7.1.6.2.2 EXAMINATION REQUEST DETAILS -
+                The 'code' tag 'code' attribute shall contain the value '103.16517'. Refer to
+                section '7.1.6.2.2 Examination Request Details' of the
+                Event_Summary_CDA_Implementation_Guide_v1.3.</assert>
+            
+            
+        </rule>
+        
+        
+        <rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code='101.20117']/cda:component/cda:section[cda:code/@code='102.16145']/cda:entry/cda:observation[@classCode='OBS']/cda:entryRelationship/cda:act[cda:code/@code='102.16511']/cda:entryRelationship/cda:act[cda:code/@code='103.16513']/cda:entryRelationship/cda:observation[cda:code/@code='102.16515']/cda:entryRelationship/cda:observation/cda:code[@displayName='Subject Position']">
+            
+            <assert test="@code='103.16519'">Error: Event Summary - 7.1.6.2.2 EXAMINATION REQUEST DETAILS -
+                The 'code' tag 'code' attribute shall contain the value '103.16519'. Refer to
+                section 7.1.6.2.2  of the
+                Event_Summary_CDA_Implementation_Guide_v1.3.</assert>
+            
+            
+        </rule>
+        
+
+        <rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code='101.20117']/cda:component/cda:section[cda:code/@code='102.16145']/cda:entry/cda:observation[@classCode='OBS']/cda:entryRelationship/cda:organizer[@classCode='BATTERY']/cda:component/cda:observation[@classCode='OBS']/cda:entryRelationship/cda:act/cda:code[@displayName='result comments']">
+            
+            <assert test="@code='281296001'">Error: Event Summary - 7.1.6.2.1 Result Group (IMAGING EXAMINATION RESULT GROUP)
+                - The 'code' tag 'code' attribute shall be '281296001'. Refer to section 7.1.6.2.1 of the
+                Event_Summary_CDA_Implementation_Guide_v1.3.</assert>
+
+          
+
+        </rule>
+       
+        
+        <rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code='101.20117']/cda:component/cda:section[cda:code/@code='102.16145']/cda:entry/cda:observation[@classCode='OBS']/cda:entryRelationship/cda:organizer[@classCode='BATTERY']/cda:component/cda:observation[@classCode='OBS']/cda:targetSiteCode/cda:qualifier/cda:name[@displayName='Laterality']">
+            
+            <assert test="@code='272741003'">Error: Event Summary - 7.1.6.2.1 Result Group (IMAGING EXAMINATION RESULT GROUP) -
+                'name' tag 'code' attribute shall contain the value '272741003'. Refer to section
+                7.1.6.2.1 of the
+                Event_Summary_CDA_Implementation_Guide_v1.3.</assert>
+            
+        </rule>
+ 
+       
+        <!-- <rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code='101.20117']/cda:component/cda:section[cda:code/@code='102.16145']/cda:entry/cda:observation[@classCode='OBS']/cda:entryRelationship/cda:organizer[@classCode='BATTERY']/cda:component/cda:observation[@classCode='OBS']/cda:targetSiteCode/cda:qualifier/cda:name[@displayName='WITH LATERALITY']">
+            
+            <assert test="@code='78615007'">Error: Event Summary - Global Code Checks -
+                The 'name' tag 'code' attribute shall contain the value '78615007'. Refer to section
+                '7.1.6.1.2.1 Result Group Specimen Detail' of the
+                Event_Summary_CDA_Implementation_Guide_v1.3.</assert>
+            
+                   
+        </rule>-->
+       
+       
+       
+       
+       
+       
+       
+       
+       
+       
+       
+       
+                        
+        <rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code='101.20117']/cda:component/cda:section[cda:code/@code='102.20158']/cda:entry/cda:act[@classCode='ACT']/cda:entryRelationship/cda:act/cda:code[@displayName='Subject of Care Instruction Description']">
+            
+            <assert test="@code='103.10146'">Error: Event Summary - 7.1.6.3 REQUESTED SERVICE
+                - The 'code' tag 'code' attribute shall be '103.10146'. Refer to section 7.1.6.3
+                 of the Event_Summary_CDA_Implementation_Guide_v1.3.</assert>
+            
+        </rule>
+        
+            
+
+    </pattern>
+    

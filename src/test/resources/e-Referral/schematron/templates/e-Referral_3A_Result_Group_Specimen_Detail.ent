@@ -1,0 +1,499 @@
+
+    <!-- e- Referral Clinical Document:  7.1.5.1.2.1 Result Group Specimen Detail -->
+
+    <!-- Context: Context: ClinicalDocument/component/structuredBody/component[diag_inv]/section/component[path_test]/section/entry[path_test_res]/observation/entryRelationship[res_gp]/organizer -->
+
+    <!-- Status: Last Reviewed: 21/11/2011.
+         Status: Last Updated : 12/07/2012 -->
+
+
+    <pattern name="p-e-Referral_3A_Result_Group_Specimen_Detail-errors"
+        id="p-e-Referral_3A_Result_Group_Specimen_Detail-errors"
+        see="#p-e-Referral_3A_Result_Group_Specimen_Detail-errors">
+
+        <!-- RESULT GROUP SPECIMEN DETAIL - 0..1 -->
+
+        <rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code='101.20117']/cda:component/cda:section[cda:code/@code='102.16144']/cda:entry/cda:observation[@classCode='OBS']/cda:entryRelationship[cda:organizer/@classCode='BATTERY']/cda:organizer[cda:component/cda:observation/cda:code/@code='102.16156.2.2.2']">
+
+            <!-- component - 0..1 -->
+
+            <report
+                test="count(cda:component[cda:observation/cda:code/@code='102.16156.2.2.2']) > 1"
+                >Error: e-Referral - 7.1.5.1.2.1 Result Group Specimen Detail - "Result Group
+                Specimen Detail" - The 'component' tag shall appear only once. Refer to section
+                7.1.5.1.2.1 Result Group Specimen Detail of the
+                e-Referral_CDA_Implementation_Guide_v2.2.</report>
+
+            <!-- For 'component' tag see below rule context:  
+                <rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code='101.20117']/cda:component/cda:section[cda:code/@code='102.16144']/cda:entry/cda:observation[@classCode='OBS']/cda:entryRelationship/cda:organizer[@classCode='BATTERY']/cda:component[cda:observation/cda:code/@code='102.16156.2.2.2']"> -->
+
+        </rule>
+
+        <!-- component - 0..1 -->
+        <rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code='101.20117']/cda:component/cda:section[cda:code/@code='102.16144']/cda:entry/cda:observation[@classCode='OBS']/cda:entryRelationship/cda:organizer[@classCode='BATTERY']/cda:component[cda:observation/cda:code/@code='102.16156.2.2.2']">
+
+            <!-- observation - 1..1 -->
+
+            <report test="count(cda:observation[cda:code/@code='102.16156.2.2.2']) > 1">Error:
+                e-Referral - 7.1.5.1.2.1 Result Group Specimen Detail - "Result Group Specimen
+                Detail" - The 'observation' tag shall appear only once. Refer to section 7.1.5.1.2.1
+                Result Group Specimen Detail of the
+                e-Referral_CDA_Implementation_Guide_v2.2.</report>
+
+            <!-- For 'observation' tag see below rule context:  
+                <rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code='101.20117']/cda:component/cda:section[cda:code/@code='102.16144']/cda:entry/cda:observation[@classCode='OBS']/cda:entryRelationship/cda:organizer[@classCode='BATTERY']/cda:component/cda:observation[cda:code/@code='102.16156.2.2.2']"> -->
+
+        </rule>
+
+        <!-- observation - 1..1 -->
+        <rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code='101.20117']/cda:component/cda:section[cda:code/@code='102.16144']/cda:entry/cda:observation[@classCode='OBS']/cda:entryRelationship/cda:organizer[@classCode='BATTERY']/cda:component/cda:observation[cda:code/@code='102.16156.2.2.2']">
+
+            <!-- @classCode - 1..1 -->
+
+            <assert test="@classCode='OBS'">Error: e-Referral - 7.1.5.1.2.1 Result Group Specimen
+                Detail - "Result Group Specimen Detail" - 'observation' tag 'classCode' attribute
+                shall contain the value 'OBS'. Refer to section 7.1.5.1.2.1 Result Group Specimen Detail of
+                the e-Referral_CDA_Implementation_Guide_v2.2.</assert>
+
+            <!-- @moodCode - 1..1 -->
+
+            <assert test="@moodCode='EVN'">Error: e-Referral - 7.1.5.1.2.1 Result Group Specimen
+                Detail - "Result Group Specimen Detail" - 'observation' tag 'moodCode' attribute
+                shall contain the value 'EVN'. Refer to section 7.1.5.1.2.1 Result Group Specimen Detail of the
+                e-Referral_CDA_Implementation_Guide_v2.2.</assert>
+
+            <!-- code -->
+
+            <report test="count(cda:code[@code='102.16156.2.2.2']) > 1">Error: e-Referral -
+                7.1.5.1.2.1 Result Group Specimen Detail - "Result Group Specimen Detail" - The
+                'code' tag shall appear only once. Refer to section 7.1.5.1.2.1 Result Group
+                Specimen Detail of the e-Referral_CDA_Implementation_Guide_v2.2.</report>
+
+            <!-- For 'code' tag see below rule context:  <rule context="cda:code[@code='102.16156.2.2.2']"> -->
+
+
+            <!-- methodCode (COLLECTION PROCEDURE) - 0..1 -->
+
+            <report test="count(cda:methodCode) > 1">Error: e-Referral - 7.1.5.1.2.1 Result Group
+                Specimen Detail - "Result Group Specimen Detail / Collection Procedure" - The
+                'methodCode' tag shall appear only once. Refer to section 7.1.5.1.2.1 Result Group
+                Specimen Detail of the e-Referral_CDA_Implementation_Guide_v2.2.</report>
+
+
+            <!-- targetSiteCode (ANATOMICAL SITE(ANATOMICAL LOCATION)[0..*] > SPECIFIC LOCATION[0..1] > ANATOMICAL LOCATION NAME[0..1] -->
+
+<!-- Updated SY 28/02/2012 ID:2068 -->
+            <!-- Since the ANATOMICAL LOCATION, parent of ANATOMICAL LOCATION NAME(targetSiteCode), does not map to any CDA data element,
+                 the actual cardinality of targetSiteCode will be affected by the cardinality of ANATOMICAL LOCATION. In this case
+                 the true cardinality of targetSiteCode in CDA context will be 0..*
+
+            <report test="count(cda:targetSiteCode) > 1">Error: e-Referral - 7.1.5.1.2.1 Result
+                Group Specimen Detail - "Result Group Specimen Detail / Anatomical Site / Specific
+                Location / Anatomical Location Name" - The 'targetSiteCode' tag shall appear only
+                once. Refer to section 7.1.5.1.2.1 Result Group Specimen Detail of the
+                e-Referral_CDA_Implementation_Guide_v2.2.</report>
+             -->
+<!-- End of SY's Update ID:2068 -->
+
+            <!-- 'targetSiteCode' tag 'qualifier' attribute for "component/observation" are being checked as a part of Global Checks -->
+
+
+            <!-- specimen/specimenRole -->
+
+            <!-- For 'specimen/specimenRole' tag see below rule context:  
+                <rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code='101.20117']/cda:component/cda:section[cda:code/@code='102.16144']/cda:entry/cda:observation[@classCode='OBS']/cda:entryRelationship/cda:organizer[@classCode='BATTERY']/cda:component/cda:observation[cda:code/@code='102.16156.2.2.2']/cda:specimen/cda:specimenRole"> -->
+
+            <!--entryRelationship/@typeCode='SPRT' could be 0..*, because the Anatomical Location Image entryRelationship/@typeCode='SPRT' is 0...*. 
+            Based on that reason, Below report is commented out.-->
+            <!-- entryRelationship/@typeCode='SPRT' - 0..1 -->
+
+            <!--<report test="count(cda:entryRelationship[@typeCode='SPRT']) > 1">Error: e-Referral -
+                7.1.5.1.2.1 Result Group Specimen Detail - "Result Group Specimen Detail /
+                Anatomical Site / Specific Location / Anatomical Location Name" - The
+                'entryRelationship' tag shall appear only once which is associated with 'typeCode=SPRT'. Refer to
+                section 7.1.5.1.2.1 Result Group Specimen Detail of the
+                e-Referral_CDA_Implementation_Guide_v2.2.</report>-->
+
+            <!-- For 'entryRelationship/@typeCode=SPRT' tag see below rule context:  
+                <rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code='101.20117']/cda:component/cda:section[cda:code/@code='102.16144']/cda:entry/cda:observation[@classCode='OBS']/cda:entryRelationship/cda:organizer[@classCode='BATTERY']/cda:component/cda:observation[cda:code/@code='102.16156.2.2.2']/cda:entryRelationship[translate(@typeCode, 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ')='SPRT']"> -->
+
+
+            <!-- "Result Group Specimen Detail / Collection and handling / Sampling Preconditions" is being checked in 
+                "e-Referral_3A_Common_Sections_Specimen_Detail" .sch & .ent files -->
+
+
+            <report test="count(cda:entryRelationship[cda:observation/cda:code/@code='103.16171']) > 1">Error: e-Referral -
+                7.1.5.1.2.1 Result Group Specimen Detail - "Result Group Specimen Detail /
+                Collection and handling / Sampling Preconditions" - The
+                'entryRelationship' tag shall appear only once which is associated with 'typeCode=COMP' and observation/code/@code='103.16171'. Refer to
+                section 7.1.5.1.2.1 Result Group Specimen Detail of the
+                e-Referral_CDA_Implementation_Guide_v2.2.</report>
+
+            <report test="count(cda:entryRelationship[cda:observation/cda:code/@code='103.16529']) > 1">Error: e-Referral -
+                7.1.5.1.2.1 Result Group Specimen Detail - "Result Group Specimen Detail /
+                Handling and Processing / Collection Setting" - The
+                'entryRelationship' tag shall appear only once which is associated with 'typeCode=COMP' and observation/code/@code='103.16529'. Refer to
+                section 7.1.5.1.2.1 Result Group Specimen Detail of the
+                e-Referral_CDA_Implementation_Guide_v2.2.</report>
+
+            <report test="count(cda:entryRelationship[cda:observation/cda:code/@code='103.11014']) > 1">Error: e-Referral -
+                7.1.5.1.2.1 Result Group Specimen Detail - "Result Group Specimen Detail /
+                Handling and Processing / DateTime Received" - The
+                'entryRelationship' tag shall appear only once which is associated with 'typeCode=COMP' and observation/code/@code='103.11014'. Refer to
+                section 7.1.5.1.2.1 Result Group Specimen Detail of the
+                e-Referral_CDA_Implementation_Guide_v2.2.</report>
+
+            <report test="count(cda:entryRelationship[cda:observation/cda:code/@code='103.16187']) > 1">Error: e-Referral -
+                7.1.5.1.2.1 Result Group Specimen Detail - "Result Group Specimen Detail /
+                Identifiers / Parent Specimen Identifier" - The
+                'entryRelationship' tag shall appear only once which is associated with 'typeCode=COMP' and observation/code/@code='103.16187'. Refer to
+                section 7.1.5.1.2.1 Result Group Specimen Detail of the
+                e-Referral_CDA_Implementation_Guide_v2.2.</report>
+
+
+            <!--RS 12/07/2012  - Mantis task : 3800 Uncommented as per New I.G.: NEHTA_859_2012_e-Referral_CDA_Implementation_Guide_v2.2_20120307.pdf -->
+            <!-- effectiveTime (COLLECTION DATE TIME) - 1..1 -->
+
+            <assert test="cda:effectiveTime">Error: e-Referral - 7.1.5.1.2.1 Result Group
+                Specimen Detail - "Result Group Specimen Detail / Collection and handling / Handling
+                and Processing" - The 'effectiveTime' tag is missing. Refer to section
+                7.1.5.1.2.1 Result Group Specimen Detail of the
+                e-Referral_CDA_Implementation_Guide_v2.2.</assert>
+            
+            <report test="count(cda:effectiveTime) > 1">Error: e-Referral - 7.1.5.1.2.1 Result Group
+                Specimen Detail - "Result Group Specimen Detail / Collection and handling / Handling
+                and Processing" - The 'effectiveTime' tag shall appear only once. Refer to section
+                7.1.5.1.2.1 Result Group Specimen Detail of the
+                e-Referral_CDA_Implementation_Guide_v2.2.</report>
+
+            <!-- "Result Group Specimen Detail / Handling and Processing / Collection Setting" is being checked in 
+                "e-Referral_3A_Common_Sections_Specimen_Detail" .sch & .ent files -->
+
+            <!-- "Result Group Specimen Detail / Handling and Processing / DateTime Received" is being checked in 
+                "e-Referral_3A_Common_Sections_Specimen_Detail" .sch & .ent files -->
+
+        </rule>
+
+        <!-- code -->
+        <rule context="cda:code[@code='102.16156.2.2.2']">
+
+            <!-- checking parent path -->
+
+            <assert
+                test="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code='101.20117']/cda:component/cda:section[cda:code/@code='102.16144']/cda:entry/cda:observation[@classCode='OBS']/cda:entryRelationship/cda:organizer[@classCode='BATTERY']/cda:component/cda:observation[cda:code/@code='102.16156.2.2.2']"
+                >Error: e-Referral - 7.1.5.1.2.1 Result Group Specimen Detail - "Result Group
+                Specimen Detail" - The
+                '/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code='101.20117']/cda:component/cda:section[cda:code/@code='102.16144']/cda:entry/cda:observation[@classCode='OBS']/cda:entryRelationship/cda:organizer[@classCode='BATTERY']/cda:component/cda:observation[cda:code/@code='102.16156.2.2.2']'
+                path - 1 or more tags are missing. Refer to section 7.1.5.1.2.1 Result Group
+                Specimen Detail of the e-Referral_CDA_Implementation_Guide_v2.2.</assert>
+
+            <!-- codeSystem -->
+
+            <assert test="@codeSystem='1.2.36.1.2001.1001.101'">Error: e-Referral - 7.1.5.1.2.1
+                Result Group Specimen Detail - "Result Group Specimen Detail" - The 'code' tag
+                'codeSystem' attribute shall contain the value '1.2.36.1.2001.1001.101'. Refer to
+                section 7.1.5.1.2.1 Result Group Specimen Detail of the
+                e-Referral_CDA_Implementation_Guide_v2.2.</assert>
+
+            <!-- codeSystemName -->
+
+            <assert
+                test="translate(@codeSystemName, 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ') = 'NCTIS DATA COMPONENTS'"
+                >Error: e-Referral - 7.1.5.1.2.1 Result Group Specimen Detail - "Result Group
+                Specimen Detail" - The 'code' tag 'codeSystemName' attribute shall contain the value 'NCTIS Data
+                Componenets'. Refer to section 7.1.5.1.2.1 Result Group Specimen Detail of the
+                e-Referral_CDA_Implementation_Guide_v2.2.</assert>
+
+            <!-- displayName -->
+
+            <assert
+                test="translate(@displayName, 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ') = 'RESULT GROUP SPECIMEN DETAIL'"
+                > Error: e-Referral - 7.1.5.1.2.1 Result Group Specimen Detail - "Result Group
+                Specimen Detail" - The 'code' tag 'displayName' attribute shall contain the value 'Result Group
+                Specimen Detail'. Refer to section 7.1.5.1.2.1 Result Group Specimen Detail of the
+                e-Referral_CDA_Implementation_Guide_v2.2.</assert>
+
+        </rule>
+
+
+        <!-- specimen/specimenRole -->
+        <rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code='101.20117']/cda:component/cda:section[cda:code/@code='102.16144']/cda:entry/cda:observation[@classCode='OBS']/cda:entryRelationship/cda:organizer[@classCode='BATTERY']/cda:component/cda:observation[cda:code/@code='102.16156.2.2.2']/cda:specimen">
+
+            <report test="count(cda:specimenRole) > 1">Error: e-Referral - 7.1.5.1.2.1 Result Group Specimen
+                Detail - "Result Group Specimen Detail / Identifiers" - The
+                'specimenRole' tag shall appear only once. Refer to section 7.1.5.1.2.1 Result Group Specimen
+                Detail of the e-Referral_CDA_Implementation_Guide_v2.2.</report>
+
+        </rule>
+
+        <rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code='101.20117']/cda:component/cda:section[cda:code/@code='102.16144']/cda:entry/cda:observation[@classCode='OBS']/cda:entryRelationship/cda:organizer[@classCode='BATTERY']/cda:component/cda:observation[cda:code/@code='102.16156.2.2.2']/cda:specimen/cda:specimenRole">
+
+            <!-- specimenPlayingEntity (Physical Details) - 0..* -->
+
+            <!-- For 'specimenPlayingEntity' tag see below rule context:  
+                 <rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code='101.20117']/cda:component/cda:section[cda:code/@code='102.16144']/cda:entry/cda:observation[@classCode='OBS']/cda:entryRelationship/cda:organizer[@classCode='BATTERY']/cda:component/cda:observation[cda:code/@code='102.16156.2.2.2']/cda:specimen/cda:specimenRole/cda:specimenPlayingEntity"> -->
+
+
+            <!-- id (SPECIMEN IDENTIFIER) - 0..1 -->
+
+            <report test="count(cda:id) > 1">Error: e-Referral - 7.1.5.1.2.1 Result Group Specimen
+                Detail - "Result Group Specimen Detail / Identifiers / Specimen Identifier" - The
+                'id' tag shall appear only once. Refer to section 7.1.5.1.2.1 Result Group Specimen
+                Detail of the e-Referral_CDA_Implementation_Guide_v2.2.</report>
+
+
+            <!-- The 'id' tag is being tested by "e-Referral_Global_Checks" ent file. -->
+
+        </rule>
+
+
+        <!-- cda:id is checked in global checks -->
+        <!--
+        <rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code='101.20117']/cda:component/cda:section[cda:code/@code='102.16144']/cda:entry/cda:observation[@classCode='OBS']/cda:entryRelationship/cda:organizer[@classCode='BATTERY']/cda:component/cda:observation[cda:code/@code='102.16156.2.2.2']/cda:specimen/cda:specimenRole/cda:id">
+        -->
+
+
+        <!-- specimenPlayingEntity -->
+        <rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code='101.20117']/cda:component/cda:section[cda:code/@code='102.16144']/cda:entry/cda:observation[@classCode='OBS']/cda:entryRelationship/cda:organizer[@classCode='BATTERY']/cda:component/cda:observation[cda:code/@code='102.16156.2.2.2']/cda:specimen/cda:specimenRole/cda:specimenPlayingEntity">
+
+            <!-- code (SPECIMEN TISSUE TYPE) - 0..1 -->
+
+            <report test="count(cda:code) > 1">Error: e-Referral - 7.1.5.1.2.1 Result Group Specimen
+                Detail - "Result Group Specimen Detail / Specimen Tissue Type" - The 'code' tag shall appear only once for
+                'Specimen Tissue Type' . Refer to section 7.1.5.1.2.1 Result
+                Group Specimen Detail of the
+                e-Referral_CDA_Implementation_Guide_v2.2.</report>
+
+            <!-- 'code' tag and its attrubutes for "component/observation/specimen/specimenRole/specimenPlayingEntity/code" are being checked as a part of Global Checks -->
+
+
+            <!-- quantity (either WEIGHT or VOLUME) - 0..1 -->
+
+            <report test="count(cda:quantity) > 1">Error: e-Referral - 7.1.5.1.2.1 Result Group
+                Specimen Detail - "Result Group Specimen Detail / Physical Details / Weight or
+                Volume" - The 'quantity' tag shall appear only once. Refer to section 7.1.5.1.2.1
+                Result Group Specimen Detail of the
+                e-Referral_CDA_Implementation_Guide_v2.2.</report>
+
+            <!-- For 'quantity' tag see below rule context:  
+                <rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code='101.20117']/cda:component/cda:section[cda:code/@code='102.16144']/cda:entry/cda:observation[@classCode='OBS']/cda:entryRelationship/cda:organizer[@classCode='BATTERY']/cda:component/cda:observation[cda:code/@code='102.16156.2.2.2']/cda:specimen/cda:specimenRole/cda:specimenPlayingEntity/cda:quantity"> -->
+
+
+            <!-- desc (DESCRIPTION) - 0..1 -->
+
+            <report test="count(cda:desc) > 1">Error: e-Referral - 7.1.5.1.2.1 Result Group Specimen
+                Detail - "Result Group Specimen Detail / Physical Details / Description" - The
+                'desc' tag shall appear only once. Refer to section 7.1.5.1.2.1 Result Group Specimen
+                Detail of the e-Referral_CDA_Implementation_Guide_v2.2.</report>
+
+            <!-- For 'desc' tag see below rule context:  
+                <rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code='101.20117']/cda:component/cda:section[cda:code/@code='102.16144']/cda:entry/cda:observation[@classCode='OBS']/cda:entryRelationship/cda:organizer[@classCode='BATTERY']/cda:component/cda:observation[cda:code/@code='102.16156.2.2.2']/cda:specimen/cda:specimenRole/cda:specimenPlayingEntity/cda:desc"> -->
+
+
+            <!-- asSpecimenInContainer (CONTAINER IDENTIFIER) - 0..1 -->
+
+            <report test="count(ext:asSpecimenInContainer) > 1">Error: e-Referral - 7.1.5.1.2.1
+                Result Group Specimen Detail - "Result Group Specimen Detail / Identifiers /
+                Container Identifier" - The 'asSpecimenInContainer' tag shall appear only once. Refer
+                to section 7.1.5.1.2.1 Result Group Specimen Detail of the
+                e-Referral_CDA_Implementation_Guide_v2.2.</report>
+
+            <!-- For 'asSpecimenInContainer' tag see below rule context:  
+                <rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code='101.20117']/cda:component/cda:section[cda:code/@code='102.16144']/cda:entry/cda:observation[@classCode='OBS']/cda:entryRelationship/cda:organizer[@classCode='BATTERY']/cda:component/cda:observation[cda:code/@code='102.16156.2.2.2']/cda:specimen/cda:specimenRole/cda:specimenPlayingEntity/ext:asSpecimenInContainer"> -->
+
+        </rule>
+
+        <!-- quantity - 0..1 -->
+        <rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code='101.20117']/cda:component/cda:section[cda:code/@code='102.16144']/cda:entry/cda:observation[@classCode='OBS']/cda:entryRelationship/cda:organizer[@classCode='BATTERY']/cda:component/cda:observation[cda:code/@code='102.16156.2.2.2']/cda:specimen/cda:specimenRole/cda:specimenPlayingEntity/cda:quantity">
+
+            <!-- @unit -->
+
+            <assert test="@unit">Error: e-Referral - 7.1.5.1.2.1 Result Group Specimen Detail -
+                "Result Group Specimen Detail / Physical Details / Weight or Volume" - The
+                'quantity' tag 'unit' attribute is missing. Refer to section 7.1.5.1.2.1 Result
+                Group Specimen Detail of the
+                e-Referral_CDA_Implementation_Guide_v2.2.</assert>
+
+            <assert test="normalize-space(@unit) != ''">Error: e-Referral - 7.1.5.1.2.1 Result Group
+                Specimen Detail - "Result Group Specimen Detail / Physical Details / Weight or
+                Volume" - The 'quantity' tag 'unit' attribute shall contain a value. Refer to
+                section 7.1.5.1.2.1 Result Group Specimen Detail of the
+                e-Referral_CDA_Implementation_Guide_v2.2.</assert>
+
+            <!-- @value -->
+
+            <assert test="@value">Error: e-Referral - 7.1.5.1.2.1 Result Group Specimen Detail -
+                "Result Group Specimen Detail / Physical Details / Weight" - The 'quantity' tag
+                'value' attribute is missing. Refer to section 7.1.5.1.2.1 Result Group Specimen
+                Detail of the e-Referral_CDA_Implementation_Guide_v2.2.</assert>
+
+            <assert test="normalize-space(@value) != ''">Error: e-Referral - 7.1.5.1.2.1 Result
+                Group Specimen Detail - "Result Group Specimen Detail / Physical Details / Weight" -
+                The 'quantity' tag 'value' attribute shall contain a value. Refer to section
+                7.1.5.1.2.1 Result Group Specimen Detail of the
+                e-Referral_CDA_Implementation_Guide_v2.2.</assert>
+
+        </rule>
+
+        <!-- desc - 0..1 -->
+        <rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code='101.20117']/cda:component/cda:section[cda:code/@code='102.16144']/cda:entry/cda:observation[@classCode='OBS']/cda:entryRelationship/cda:organizer[@classCode='BATTERY']/cda:component/cda:observation[cda:code/@code='102.16156.2.2.2']/cda:specimen/cda:specimenRole/cda:specimenPlayingEntity/cda:desc">
+
+            <assert test="normalize-space(.) != ''">Error: e-Referral - 7.1.5.1.2.1 Result Group
+                Specimen Detail - "Result Group Specimen Detail / Physical Details / Description" -
+                The 'desc' tag shall contain a value. Refer to section 7.1.5.1.2.1 Result Group Specimen
+                Detail of the e-Referral_CDA_Implementation_Guide_v2.2.</assert>
+
+
+            <!-- @xsi:type -->
+
+            <assert test="@xsi:type">Error: e-Referral - 7.1.5.1.2.1 Result Group Specimen Detail -
+                "Result Group Specimen Detail / Physical Details / Description" - The 'desc' tag
+                'xsi:type' attribute is missing. Refer to section 7.1.5.1.2.1 Result Group Specimen
+                Detail of the e-Referral_CDA_Implementation_Guide_v2.2.</assert>
+
+            <assert test="@xsi:type = 'ST'">Error: e-Referral - 7.1.5.1.2.1 Result Group Specimen
+                Detail - "Result Group Specimen Detail / Physical Details / Description" - The
+                'desc' tag 'xsi:type' attribute shall contain the value 'ST'. Refer to section 7.1.5.1.2.1 Result
+                Group Specimen Detail of the
+                e-Referral_CDA_Implementation_Guide_v2.2.</assert>
+
+        </rule>
+
+        <!-- asSpecimenInContainer - 0..1 -->
+
+        <rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code='101.20117']/cda:component/cda:section[cda:code/@code='102.16144']/cda:entry/cda:observation[@classCode='OBS']/cda:entryRelationship/cda:organizer[@classCode='BATTERY']/cda:component/cda:observation[cda:code/@code='102.16156.2.2.2']/cda:specimen/cda:specimenRole/cda:specimenPlayingEntity/ext:asSpecimenInContainer">
+
+            <!-- @classCode - 1..1 -->
+
+            <assert test="@classCode = 'CONT'">Error: e-Referral - 7.1.5.1.2.1 Result Group Specimen
+                Detail - "Result Group Specimen Detail / Identifiers / Container Identifier" - The
+                'asSpecimenInContainer' tag 'classCode' attribute shall contain the value 'CONT'.Refer to section
+                7.1.5.1.2.1 Result Group Specimen Detail of the
+                e-Referral_CDA_Implementation_Guide_v2.2.</assert>
+
+
+            <!-- container - 1..1 -->
+
+            <assert test="ext:container">Error: e-Referral - 7.1.5.1.2.1 Result Group Specimen
+                Detail - "Result Group Specimen Detail / Identifiers / Container Identifier" - The
+                'container' tag is missing. Refer to section 7.1.5.1.2.1 Result Group Specimen
+                Detail of the e-Referral_CDA_Implementation_Guide_v2.2.</assert>
+
+            <report test="count(ext:container) > 1">Error: e-Referral - 7.1.5.1.2.1 Result Group
+                Specimen Detail - "Result Group Specimen Detail / Identifiers / Container
+                Identifier" - The 'container' tag shall appear only once. Refer to section
+                7.1.5.1.2.1 Result Group Specimen Detail of the
+                e-Referral_CDA_Implementation_Guide_v2.2.</report>
+
+            <!-- For 'container' tag see below rule context:  
+                <rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code='101.20117']/cda:component/cda:section[cda:code/@code='102.16144']/cda:entry/cda:observation[@classCode='OBS']/cda:entryRelationship/cda:organizer[@classCode='BATTERY']/cda:component/cda:observation[cda:code/@code='102.16156.2.2.2']/cda:specimen/cda:specimenRole/cda:specimenPlayingEntity/ext:asSpecimenInContainer/ext:container"> -->
+
+        </rule>
+
+        <!-- container - 1..1 -->
+        <rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code='101.20117']/cda:component/cda:section[cda:code/@code='102.16144']/cda:entry/cda:observation[@classCode='OBS']/cda:entryRelationship/cda:organizer[@classCode='BATTERY']/cda:component/cda:observation[cda:code/@code='102.16156.2.2.2']/cda:specimen/cda:specimenRole/cda:specimenPlayingEntity/ext:asSpecimenInContainer/ext:container">
+
+            <!-- id - 1..1 -->
+
+            <assert test="ext:id">Error: e-Referral - 7.1.5.1.2.1 Result Group Specimen Detail -
+                "Result Group Specimen Detail / Identifiers / Container Identifier" - The 'id' tag
+                is missing. Refer to section 7.1.5.1.2.1 Result Group Specimen Detail of the
+                e-Referral_CDA_Implementation_Guide_v2.2.</assert>
+
+            <report test="count(ext:id) > 1">Error: e-Referral - 7.1.5.1.2.1 Result Group Specimen
+                Detail - "Result Group Specimen Detail / Identifiers / Container Identifier" - The
+                'id' tag shall appear only once. Refer to section 7.1.5.1.2.1 Result Group Specimen
+                Detail of the e-Referral_CDA_Implementation_Guide_v2.2.</report>
+
+            <!-- The 'id' tag is being tested by "e-Referral_Global_Checks" ent file. -->
+
+        </rule>
+
+
+        <!--entryRelationship/@typeCode='COMP' with cod="103.16171" has been tested by e-Referral_3A_Common_Sections.sch-->
+
+        <!-- entryRelationship/@typeCode='SPRT' - 0..1 -->
+        <rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code='101.20117']/cda:component/cda:section[cda:code/@code='102.16144']/cda:entry/cda:observation[@classCode='OBS']/cda:entryRelationship/cda:organizer[@classCode='BATTERY']/cda:component/cda:observation[cda:code/@code='102.16156.2.2.2']/cda:entryRelationship[translate(@typeCode, 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ')='SPRT']">
+
+            <!-- observationMedia - 1..1 -->
+
+            <assert test="cda:observationMedia">Error: e-Referral - 7.1.5.1.2.1 Result Group
+                Specimen Detail - "Result Group Specimen Detail / Physical Details/ Image" - The
+                'observationMedia' tag is missing. Refer to section 7.1.5.1.2.1 Result Group
+                Specimen Detail of the e-Referral_CDA_Implementation_Guide_v2.2.</assert>
+
+            <report test="count(cda:observationMedia)>1"> Error: e-Referral - 7.1.5.1.2.1 Result
+                Group Specimen Detail - "Result Group Specimen Detail / Physical Details/ Image" -
+                The 'observationMedia' tag shall appear only once. Refer to section 7.1.5.1.2.1
+                Result Group Specimen Detail of the
+                e-Referral_CDA_Implementation_Guide_v2.2.</report>
+
+            <!-- For 'observationMedia' tag see below rule context:  
+                <rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code='101.20117']/cda:component/cda:section[cda:code/@code='102.16144']/cda:entry/cda:observation[@classCode='OBS']/cda:entryRelationship/cda:organizer[@classCode='BATTERY']/cda:component/cda:observation[cda:code/@code='102.16156.2.2.2']/cda:entryRelationship[translate(@typeCode, 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ')='SPRT']/cda:observationMedia"> -->
+
+        </rule>
+
+        <!-- observationMedia - 1..1 -->
+        <rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code='101.20117']/cda:component/cda:section[cda:code/@code='102.16144']/cda:entry/cda:observation[@classCode='OBS']/cda:entryRelationship/cda:organizer[@classCode='BATTERY']/cda:component/cda:observation[cda:code/@code='102.16156.2.2.2']/cda:entryRelationship[translate(@typeCode, 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ')='SPRT']/cda:observationMedia">
+
+            <!-- @classCode - 1..1 -->
+
+            <assert test="@classCode = 'OBS'"> Error: e-Referral - 7.1.5.1.2.1 Result Group Specimen
+                Detail - "Result Group Specimen Detail / Physical Details / Image" - The
+                'observationMedia' tag 'classCode' attribute shall contain the value 'OBS'. Refer to section
+                7.1.5.1.2.1 Result Group Specimen Detail of the
+                e-Referral_CDA_Implementation_Guide_v2.2.</assert>
+
+            <!-- @moodCode - 1..1 -->
+
+            <assert test="@moodCode = 'EVN'"> Error: e-Referral - 7.1.5.1.2.1 Result Group Specimen
+                Detail - "Result Group Specimen Detail / Physical Details / Image" - The
+                'observationMedia' tag 'moodCode' attribute shall contain the value 'EVN'. Refer to section
+                7.1.5.1.2.1 Result Group Specimen Detail of the
+                e-Referral_CDA_Implementation_Guide_v2.2.</assert>
+
+
+            <!-- id - 1..1 -->
+
+            <assert test="cda:id">Error: e-Referral - 7.1.5.1.2.1 Result Group Specimen Detail -
+                "Result Group Specimen Detail / Physical Details / Image" - The 'id' tag is missing.
+                Refer to section 7.1.5.1.2.1 Result Group Specimen Detail of the
+                e-Referral_CDA_Implementation_Guide_v2.2.</assert>
+
+            <report test="count(cda:id) > 1">Error: e-Referral - 7.1.5.1.2.1 Result Group Specimen
+                Detail - "Result Group Specimen Detail / Physical Details / Image" - The 'id' tag
+                shall appear only once. Refer to section 7.1.5.1.2.1 Result Group Specimen Detail of
+                the e-Referral_CDA_Implementation_Guide_v2.2.</report>
+
+            <!-- The 'id' tag is being tested by "e-Referral_Global_Checks" ent file. -->
+
+
+            <!-- value - 1..1 -->
+
+            <assert test="cda:value">Error: e-Referral - 7.1.5.1.2.1 Result Group Specimen Detail -
+                "Result Group Specimen Detail / Physical Details / Image" - The 'value' tag is
+                missing. Refer to section 7.1.5.1.2.1 Result Group Specimen Detail of the
+                e-Referral_CDA_Implementation_Guide_v2.2.</assert>
+
+            <report test="count(cda:value) > 1">Error: e-Referral - 7.1.5.1.2.1 Result Group
+                Specimen Detail - "Result Group Specimen Detail / Physical Details / Image" - The
+                'value' tag shall appear only once. Refer to section 7.1.5.1.2.1 Result Group
+                Specimen Detail of the e-Referral_CDA_Implementation_Guide_v2.2.</report>
+
+            <!-- For 'value' tag see below rule context:  
+                <rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code='101.20117']/cda:component/cda:section[cda:code/@code='102.16144']/cda:entry/cda:observation[@classCode='OBS']/cda:entryRelationship/cda:organizer[@classCode='BATTERY']/cda:component/cda:observation[cda:code/@code='102.16156.2.2.2']/cda:entryRelationship[translate(@typeCode, 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ')='SPRT']/cda:observationMedia/cda:value"> -->
+
+        </rule>
+
+        <!-- value - 1..1 -->
+        <rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code='101.20117']/cda:component/cda:section[cda:code/@code='102.16144']/cda:entry/cda:observation[@classCode='OBS']/cda:entryRelationship/cda:organizer[@classCode='BATTERY']/cda:component/cda:observation[cda:code/@code='102.16156.2.2.2']/cda:entryRelationship[translate(@typeCode, 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ')='SPRT']/cda:observationMedia/cda:value">
+
+            <assert test="cda:reference or normalize-space(.) != ''">Error: e-Referral - 7.1.5.1.2.1
+                Result Group Specimen Detail - "Result Group Specimen Detail / Physical Details/
+                Image" - The 'value' tag shall contain a value. Refer to section 7.1.5.1.2.1 Result
+                Group Specimen Detail of the
+                e-Referral_CDA_Implementation_Guide_v2.2.</assert>
+
+        </rule>
+
+    </pattern>

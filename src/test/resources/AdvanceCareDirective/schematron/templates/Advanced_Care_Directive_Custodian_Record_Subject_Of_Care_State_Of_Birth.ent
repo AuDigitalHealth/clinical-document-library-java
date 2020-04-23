@@ -1,0 +1,77 @@
+ 
+    
+    <!-- Advanced Care Directive Custodian Record Clinical Document:  6.1.2 Subject of Care -->
+    
+    <!-- Context: ClinicalDocument/Subject of Care -->
+    
+    
+    <!-- Status: Last Reviewed: 
+        Status: Last Updated : 29/06/2012 -->
+    
+    
+    <pattern name = "p-Advanced_Care_Directive_Custodian_Record_Subject_Of_Care_State_Of_Birth-errors"
+        id = "p-Advanced_Care_Directive_Custodian_Record_Subject_Of_Care_State_Of_Birth-errors"
+        see = "#p-Advanced_Care_Directive_Custodian_Record_Subject_Of_Care_State_Of_Birth-errors">
+        
+        <!-- birthplace 0..1 -->
+
+        <!-- Updated as per Mantis task 3265 : Added two new asserts for place and addr-->
+        <rule context="/cda:ClinicalDocument/cda:recordTarget/cda:patientRole/cda:patient/cda:birthplace">
+            
+            <assert test="cda:place">Error: Advanced Care Directive Custodian Record - 6.1.2 Subject of Care -
+                "Subject of Care / Participant / Person or Organisation or Device / Person /
+				Demographic Data / State/Territory of Birth" - The 'place' tag is
+                missing. Refer to section 6.1.2 of the
+                Advanced_Care_Directive_Custodian_Record_CDA_Implementation_Guide_v1.0.</assert>
+            
+        </rule>
+        
+        <rule context="/cda:ClinicalDocument/cda:recordTarget/cda:patientRole/cda:patient/cda:birthplace/cda:place">
+            
+            <assert test="cda:addr">Error: Advanced Care Directive Custodian Record - 6.1.2 Subject of Care -
+                "Subject of Care / Participant / Person or Organisation or Device / Person /
+				Demographic Data / State/Territory of Birth" - The 'addr' tag is
+                missing. Refer to section 6.1.2 of the
+                Advanced_Care_Directive_Custodian_Record_CDA_Implementation_Guide_v1.0.</assert>
+            
+        </rule>
+
+
+        <!-- 29/06/2012 - Mantis task:3732 - Updated the Rule context to remove [@use] --> 
+        <rule
+            context = "/cda:ClinicalDocument/cda:recordTarget/cda:patientRole/cda:patient/cda:birthplace/cda:place/cda:addr">
+            
+            <!-- State/Territory of Birth - 0..1 -->
+            
+            <report test = "count(cda:state) > 1">Error: Advanced Care Directive Custodian Record - 6.1.2 Subject
+                of Care - "Subject of Care / Participant / Person or Organisation or Device / Person
+                / Demographic Data / State/Territory of Birth" - The 'state' tag shall appear only
+                once. Refer to section 10.10 of the
+                Advanced_Care_Directive_Custodian_Record_CDA_Implementation_Guide_v1.0.</report>
+            
+            <report
+                test = "
+                (not(cda:country) or document('CDAValidate_Vocabs.xml')/systems/system[@codeSystemName = 'ISO3166-1']/code[translate(@displayName,  'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ') = translate(current()/cda:country, 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ')]/@code = 'AU') and
+                cda:state and
+                not(document('CDAValidate_Vocabs.xml')/systems/system[@codeSystemName = 'Australian_State_Territory_Identifier_-_Postal']/code[(@code = current()/cda:state)])"
+                >Error: Advanced Care Directive Custodian Record - 6.1.2 Subject of Care - "Subject of Care / Participant /
+                Person or Organisation or Device / Person / Demographic Data / State/Territory of
+                Birth" - The 'state' tag shall be coded as per AS 5017-2006 Australian
+                State/Territory Identifier - Postal. Refer to section 10.10 of the
+                Advanced_Care_Directive_Custodian_Record_CDA_Implementation_Guide_v1.0.</report>
+            
+            <!-- updated as per mantis id 3553 -->
+            <report test="
+                (cda:country and not(document('CDAValidate_Vocabs.xml')/systems/system[@codeSystemName = 'ISO3166-1']/code[translate(@displayName,  'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ') = translate(current()/cda:country, 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ')]/@code = 'AU')) and
+                cda:state and
+                normalize-space(cda:state) = ''"
+                >Error: Advanced Care Directive Custodian Record - 6.1.2 Subject of Care -
+                "Subject of Care / Participant / Person or Organisation or Device / Person /
+                Demographic Data / State/Territory of Birth" - The 'state' tag shall contain a
+                value. Refer to section 10.10 of the
+                Advanced_Care_Directive_Custodian_Record_CDA_Implementation_Guide_v1.0.</report>
+            
+            <!-- update ended mantis id 3553 -->
+        </rule>
+        
+    </pattern>

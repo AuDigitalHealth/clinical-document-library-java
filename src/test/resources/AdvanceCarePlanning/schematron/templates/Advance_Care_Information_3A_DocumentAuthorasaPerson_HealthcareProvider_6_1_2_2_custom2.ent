@@ -1,0 +1,33 @@
+    <pattern
+        name="p-Advance_Care_Information_3A_DocumentAuthorasaPerson_HealthcareProvider_6_1_2_2_custom2-errors"
+        id="p-Advance_Care_Information_3A_DocumentAuthorasaPerson_HealthcareProvider_6_1_2_2_custom2-errors"
+        see="#p-Advance_Care_Information_3A_DocumentAuthorasaPerson_HealthcareProvider_6_1_2_2_custom2-errors">
+
+
+        <rule
+            context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code = '102.16080']/ext:coverage2/ext:entitlement/ext:participant[ext:participantRole/@classCode='ASSIGNED']">
+
+            <assert test="@typeCode">Error: Advance Care Information - 6.1.2.2 Document Author as a
+                Document Author as a Person (Healthcare Provider) - "DOCUMENT AUTHOR / Participant /
+                Entitlement" - The 'participant' tag 'typeCode' attribute is missing. Refer to
+                section 6.1.2.2 of the
+                Advance_Care_Information_CDA_Implementation_Guide_v1.0.</assert>
+
+            <assert test="not(@typeCode) or normalize-space(@typeCode) != ''">Error: Advance Care
+                Information - 6.1.2.2 Document Author as a Document Author as a Person (Healthcare
+                Provider) - "DOCUMENT AUTHOR / Participant / Entitlement" - The 'participant' tag
+                'typeCode' attribute shall contain a value. Refer to section 6.1.2.2 of the
+                Advance_Care_Information_CDA_Implementation_Guide_v1.0.</assert>
+
+            <assert
+                test="
+            not(@typeCode) or normalize-space(@typeCode) = '' or @typeCode = 'HLD'"
+                >Error: Advance Care Information - 6.1.2.2 Document Author as a Document Author as a
+                Person (Healthcare Provider) - "DOCUMENT AUTHOR / Participant / Entitlement" - The
+                'participant' tag 'typeCode' attribute shall contain the value 'HLD'. Refer to
+                section 6.1.2.2 of the
+                Advance_Care_Information_CDA_Implementation_Guide_v1.0.</assert>
+        </rule>
+
+    </pattern>
+

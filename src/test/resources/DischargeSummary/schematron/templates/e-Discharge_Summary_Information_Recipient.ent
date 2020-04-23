@@ -1,0 +1,100 @@
+
+    <!-- e-Discharge Summary Clinical Document:  5.1.2 InformationRecipient -->
+
+    <!-- Context: ClinicalDocument/informationRecipient -->
+
+
+    <!-- Status: Last Reviewed: 14/2/2012
+         Status: Last updated : 12/04/2012 -->
+
+
+    <pattern name="p-e-Discharge_Summary_Information_Recipient-errors"
+        id="p-e-Discharge_Summary_Information_Recipient-errors"
+        see="#p-e-Discharge_Summary_Information_Recipient-errors">
+
+        <!-- informationRecipient - 0.* -->
+
+        <rule context="/cda:ClinicalDocument/cda:informationRecipient">
+
+            <!-- TYPECODE -->
+            <!-- informationRecipient/@typeCode - 1.1 -->
+
+            <!--Updated NG 29/2/12 2477 -->
+
+            <!--<assert test = "@typeCode">Error: e-Discharge Summary - 5.1.2 Information Recipient - The
+                'informationRecipient' tag 'typeCode' attribute is missing. Refer to section 5.1.2
+                of the e-Discharge_Summary_CDA_Implementation_Guide_v3.4.</assert>-->
+
+            <report test="@typeCode and not((@typeCode = 'PRCP') or (@typeCode = 'TRC'))">Error:
+                e-Discharge Summary - 5.1.2 Information Recipient - The 'informationRecipient' tag
+                'typeCode' attribute shall be 'PRCP' or 'TRC'. Refer to section 5.1.2 of the
+                e-Discharge_Summary_CDA_Implementation_Guide_v3.4.</report>
+
+
+            <!-- INTENDED RECIPIENT -->
+            <!-- informationRecipient/intendedRecipient - 1.1 -->
+
+            <assert test="cda:intendedRecipient">Error: e-Discharge Summary - 5.1.2 Information
+                Recipient - "informationRecipient/intendedRecipient" - The 'intendedRecipient' tag
+                is missing. Refer to section 5.1.2 of the
+                e-Discharge_Summary_CDA_Implementation_Guide_v3.4.</assert>
+
+            <report test="count(cda:intendedRecipient) > 1">Error: e-Discharge Summary - 5.1.2
+                Information Recipient - "informationRecipient/intendedRecipient" - The
+                'intendedRecipient' tag shall appear only once. Refer to section 5.1.2 of the
+                e-Discharge_Summary_CDA_Implementation_Guide_v3.4.</report>
+
+        </rule>
+
+
+        <rule context="/cda:ClinicalDocument/cda:informationRecipient/cda:intendedRecipient">
+
+            <!-- INFORMATION RECIPIENT -->
+            <!-- informationRecipient/intendedRecipient/informationRecipient - 0.1 -->
+
+            <report test="count(cda:informationRecipient) > 1">Error: e-Discharge Summary - 5.1.2
+                Information Recipient -
+                "informationRecipient/intendedRecipient/informationRecipient" - The
+                'informationRecipient' tag shall appear only once. Refer to section 5.1.2 of the
+                e-Discharge_Summary_CDA_Implementation_Guide_v3.4.</report>
+
+
+            <!-- Address - 0..* -->
+            <!-- The tags and attributes of "cda:addr" are being tested by e-Discharge_Summary_Global_Checks.sch. -->
+
+
+            <!-- informationRecipient/intendedRecipient/<Electronic Communications Detail> - 0.* -->
+            <!-- The tags and attributes of "cda:telecom" are being tested by e-Discharge_Summary_Global_Checks.sch. -->
+
+
+            <!-- RECEIVED ORGANIZATION -->
+            <!-- informationRecipient/intendedRecipient/receivedOrganization - 0.1 -->
+
+            <report test="count(cda:receivedOrganization) > 1">Error: e-Discharge Summary - 5.1.2
+                Information Recipient -
+                "informationRecipient/intendedRecipient/receivedOrganization" - The
+                'receivedOrganization' tag shall appear only once. Refer to section 5.1.2
+                Information Recipient of the
+                e-Discharge_Summary_CDA_Implementation_Guide_v3.4.</report>
+
+        </rule>
+
+
+        <!-- informationRecipient ENTITY IDENTIFIER -->
+        <!-- informationRecipient/intendedRecipient/informationRecipient/<Entity Identifier> - 0.* -->
+        <!-- The tags and attributes of 'ext:asEntityIdentifier' are being tested in 'e-Discharge_Summary_Global_Checks.sch'. -->
+
+
+        <!-- PERSON NAME -->
+        <!-- informationRecipient/intendedRecipient/informationRecipient/<Person Name - 0.* -->
+        <!--<rule context="/cda:ClinicalDocument/cda:informationRecipient/cda:intendedRecipient/cda:informationRecipient/cda:name">-->
+        <!-- The attributes of cda:name are being tested inside "e-Discharge_Summary_Global_Checks.ent" -->
+
+
+        <!-- receivedOrganization ENTITY IDENTIFIER -->
+        <!-- informationRecipient/intendedRecipient/receivedOrganization/<Entity Identifier> - 0.* -->
+        <!-- The tags and attributes of 'ext:asEntityIdentifier' are being tested in 'e-Discharge_Summary_Global_Checks.sch'. -->
+
+
+    </pattern>
+

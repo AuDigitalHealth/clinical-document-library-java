@@ -1,0 +1,257 @@
+<!--
+_________________________________________________________________________________________________________________________________________________________________________________________
+                  Generated File - Do Not Edit File Directly                                                                                                                             
+                  __________________________________________
+
+                  Generated          : 8/05/2018 2:31:56 PM
+
+                  Product            : Service Referral
+                  Release            : CDA_Implementation_Guide_v1.0
+                  IG Guide Reference : 7.1.6.1.2.1
+                  IG Guide Title     : Individual Pathology Test Result Value Reference Ranges (REFERENCE RANGE DETAILS)
+                  Generator Version  : 2.28
+                                                                                                                                                                                         
+_________________________________________________________________________________________________________________________________________________________________________________________
+-->
+    <pattern name="p-Service_Referral_3A_IndividualPathologyTestResultValueReferenceRanges_REFERENCERANGEDETAILS_7_1_6_1_2_1-errors"
+        id="p-Service_Referral_3A_IndividualPathologyTestResultValueReferenceRanges_REFERENCERANGEDETAILS_7_1_6_1_2_1-errors"
+        see="#p-Service_Referral_3A_IndividualPathologyTestResultValueReferenceRanges_REFERENCERANGEDETAILS_7_1_6_1_2_1-errors">
+
+
+        <rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code = '101.20117']/cda:component/cda:section[cda:code/@code = '102.16144']/cda:entry/cda:observation[@classCode = 'OBS']/cda:entryRelationship/cda:organizer[@classCode = 'BATTERY']/cda:component/cda:observation">
+
+            <report test="count(cda:interpretationCode) > 1"
+                >Error: Service Referral - 7.1.6.1.2.1 Individual Pathology Test Result Value Reference Ranges (REFERENCE RANGE DETAILS) -
+                "Individual Pathology Test Result Value Reference Ranges (REFERENCE RANGE DETAILS) / Normal Status" -
+                The 'interpretationCode' tag shall appear only once.
+                Refer to section 7.1.6.1.2.1 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</report>
+
+        </rule>
+
+
+        <rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code = '101.20117']/cda:component/cda:section[cda:code/@code = '102.16144']/cda:entry/cda:observation[@classCode = 'OBS']/cda:entryRelationship/cda:organizer[@classCode = 'BATTERY']/cda:component/cda:observation/cda:interpretationCode">
+
+            <assert test="@code"
+                >Error: Service Referral - 7.1.6.1.2.1 Individual Pathology Test Result Value Reference Ranges (REFERENCE RANGE DETAILS) -
+                "Individual Pathology Test Result Value Reference Ranges (REFERENCE RANGE DETAILS) / Normal Status" -
+                The 'interpretationCode' tag 'code' attribute is missing.
+                Refer to section 7.1.6.1.2.1 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</assert>
+
+            <assert test="not(@code) or normalize-space(@code) != ''"
+                >Error: Service Referral - 7.1.6.1.2.1 Individual Pathology Test Result Value Reference Ranges (REFERENCE RANGE DETAILS) -
+                "Individual Pathology Test Result Value Reference Ranges (REFERENCE RANGE DETAILS) / Normal Status" -
+                The 'interpretationCode' tag 'code' attribute shall contain a value.
+                Refer to section 7.1.6.1.2.1 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</assert>
+
+            <assert test = "not(@code) or normalize-space(@code) = '' or 
+                document('TEMPLATE/VALDN/CDAValidate_Vocabs.xml', .)/systems/system[@codeSystemName = 'HL7_ObservationInterpretationNormality']/code[(@code = current()/@code)]"
+                >Error: Service Referral - 7.1.6.1.2.1 Individual Pathology Test Result Value Reference Ranges (REFERENCE RANGE DETAILS) -
+                "Individual Pathology Test Result Value Reference Ranges (REFERENCE RANGE DETAILS) / Normal Status" -
+                The 'interpretationCode' tag 'code' attribute shall be as per HL7 V3: ObservationInterpretationNormality.
+                Refer to section 7.1.6.1.2.1 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</assert>
+
+            <assert test="@codeSystem"
+                >Error: Service Referral - 7.1.6.1.2.1 Individual Pathology Test Result Value Reference Ranges (REFERENCE RANGE DETAILS) -
+                "Individual Pathology Test Result Value Reference Ranges (REFERENCE RANGE DETAILS) / Normal Status" -
+                The 'interpretationCode' tag 'codeSystem' attribute is missing.
+                Refer to section 7.1.6.1.2.1 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</assert>
+
+            <assert test="not(@codeSystem) or normalize-space(@codeSystem) != ''"
+                >Error: Service Referral - 7.1.6.1.2.1 Individual Pathology Test Result Value Reference Ranges (REFERENCE RANGE DETAILS) -
+                "Individual Pathology Test Result Value Reference Ranges (REFERENCE RANGE DETAILS) / Normal Status" -
+                The 'interpretationCode' tag 'codeSystem' attribute shall contain a value.
+                Refer to section 7.1.6.1.2.1 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</assert>
+
+            <assert test="
+                not(@codeSystem) or normalize-space(@codeSystem) = '' or @codeSystem = '2.16.840.1.113883.5.83'"
+                >Error: Service Referral - 7.1.6.1.2.1 Individual Pathology Test Result Value Reference Ranges (REFERENCE RANGE DETAILS) -
+                "Individual Pathology Test Result Value Reference Ranges (REFERENCE RANGE DETAILS) / Normal Status" -
+                The 'interpretationCode' tag 'codeSystem' attribute shall contain the value '2.16.840.1.113883.5.83'.
+                Refer to section 7.1.6.1.2.1 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</assert>
+
+            <report test="@displayName and normalize-space(@displayName) = ''"
+                >Error: Service Referral - 7.1.6.1.2.1 Individual Pathology Test Result Value Reference Ranges (REFERENCE RANGE DETAILS) -
+                "Individual Pathology Test Result Value Reference Ranges (REFERENCE RANGE DETAILS) / Normal Status" -
+                The 'interpretationCode' tag 'displayName' attribute shall contain a value.
+                Refer to section 7.1.6.1.2.1 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</report>
+
+            <report test="@code and normalize-space(@code) != '' and
+                @displayName and normalize-space(@displayName) != '' and
+                not(document('TEMPLATE/VALDN/CDAValidate_Vocabs.xml', .)/systems/system [@codeSystemName = 'HL7_ObservationInterpretationNormality']/code[
+                    (@code = current()/@code) and (
+                    translate(@displayName,  'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ') =
+                    translate(current()/@displayName, 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'))])"
+                >Error: Service Referral - 7.1.6.1.2.1 Individual Pathology Test Result Value Reference Ranges (REFERENCE RANGE DETAILS) -
+                "Individual Pathology Test Result Value Reference Ranges (REFERENCE RANGE DETAILS) / Normal Status" -
+                The 'interpretationCode' tag 'code' and 'displayName' attributes shall match as per HL7 V3: ObservationInterpretationNormality.
+                Refer to section 7.1.6.1.2.1 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</report>
+
+        </rule>
+
+
+        <rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code = '101.20117']/cda:component/cda:section[cda:code/@code = '102.16144']/cda:entry/cda:observation[@classCode = 'OBS']/cda:entryRelationship/cda:organizer[@classCode = 'BATTERY']/cda:component/cda:observation/cda:referenceRange">
+
+            <assert test="@typeCode"
+                >Error: Service Referral - 7.1.6.1.2.1 Individual Pathology Test Result Value Reference Ranges (REFERENCE RANGE DETAILS) -
+                "Individual Pathology Test Result Value Reference Ranges (REFERENCE RANGE DETAILS) / REFERENCE RANGE" -
+                The 'referenceRange' tag 'typeCode' attribute is missing.
+                Refer to section 7.1.6.1.2.1 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</assert>
+
+            <assert test="not(@typeCode) or normalize-space(@typeCode) != ''"
+                >Error: Service Referral - 7.1.6.1.2.1 Individual Pathology Test Result Value Reference Ranges (REFERENCE RANGE DETAILS) -
+                "Individual Pathology Test Result Value Reference Ranges (REFERENCE RANGE DETAILS) / REFERENCE RANGE" -
+                The 'referenceRange' tag 'typeCode' attribute shall contain a value.
+                Refer to section 7.1.6.1.2.1 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</assert>
+
+            <assert test="
+                not(@typeCode) or normalize-space(@typeCode) = '' or @typeCode = 'REFV'"
+                >Error: Service Referral - 7.1.6.1.2.1 Individual Pathology Test Result Value Reference Ranges (REFERENCE RANGE DETAILS) -
+                "Individual Pathology Test Result Value Reference Ranges (REFERENCE RANGE DETAILS) / REFERENCE RANGE" -
+                The 'referenceRange' tag 'typeCode' attribute shall contain the value 'REFV'.
+                Refer to section 7.1.6.1.2.1 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</assert>
+
+            <assert test="cda:observationRange"
+                >Error: Service Referral - 7.1.6.1.2.1 Individual Pathology Test Result Value Reference Ranges (REFERENCE RANGE DETAILS) -
+                "Individual Pathology Test Result Value Reference Ranges (REFERENCE RANGE DETAILS) / REFERENCE RANGE" -
+                The 'observationRange' tag is missing.
+                Refer to section 7.1.6.1.2.1 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</assert>
+
+            <report test="count(cda:observationRange) > 1"
+                >Error: Service Referral - 7.1.6.1.2.1 Individual Pathology Test Result Value Reference Ranges (REFERENCE RANGE DETAILS) -
+                "Individual Pathology Test Result Value Reference Ranges (REFERENCE RANGE DETAILS) / REFERENCE RANGE" -
+                The 'observationRange' tag shall appear only once.
+                Refer to section 7.1.6.1.2.1 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</report>
+
+        </rule>
+
+
+        <rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code = '101.20117']/cda:component/cda:section[cda:code/@code = '102.16144']/cda:entry/cda:observation[@classCode = 'OBS']/cda:entryRelationship/cda:organizer[@classCode = 'BATTERY']/cda:component/cda:observation/cda:referenceRange/cda:observationRange">
+
+            <assert test="not(@classCode) or normalize-space(@classCode) != ''"
+                >Error: Service Referral - 7.1.6.1.2.1 Individual Pathology Test Result Value Reference Ranges (REFERENCE RANGE DETAILS) -
+                "Individual Pathology Test Result Value Reference Ranges (REFERENCE RANGE DETAILS) / REFERENCE RANGE" -
+                The 'observationRange' tag 'classCode' attribute shall contain a value.
+                Refer to section 7.1.6.1.2.1 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</assert>
+
+            <assert test="
+                not(@classCode) or normalize-space(@classCode) = '' or @classCode = 'OBS'"
+                >Error: Service Referral - 7.1.6.1.2.1 Individual Pathology Test Result Value Reference Ranges (REFERENCE RANGE DETAILS) -
+                "Individual Pathology Test Result Value Reference Ranges (REFERENCE RANGE DETAILS) / REFERENCE RANGE" -
+                The 'observationRange' tag 'classCode' attribute shall contain the value 'OBS'.
+                Refer to section 7.1.6.1.2.1 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</assert>
+
+            <assert test="@moodCode"
+                >Error: Service Referral - 7.1.6.1.2.1 Individual Pathology Test Result Value Reference Ranges (REFERENCE RANGE DETAILS) -
+                "Individual Pathology Test Result Value Reference Ranges (REFERENCE RANGE DETAILS) / REFERENCE RANGE" -
+                The 'observationRange' tag 'moodCode' attribute is missing.
+                Refer to section 7.1.6.1.2.1 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</assert>
+
+            <assert test="not(@moodCode) or normalize-space(@moodCode) != ''"
+                >Error: Service Referral - 7.1.6.1.2.1 Individual Pathology Test Result Value Reference Ranges (REFERENCE RANGE DETAILS) -
+                "Individual Pathology Test Result Value Reference Ranges (REFERENCE RANGE DETAILS) / REFERENCE RANGE" -
+                The 'observationRange' tag 'moodCode' attribute shall contain a value.
+                Refer to section 7.1.6.1.2.1 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</assert>
+
+            <assert test="
+                not(@moodCode) or normalize-space(@moodCode) = '' or @moodCode = 'EVN.CRT'"
+                >Error: Service Referral - 7.1.6.1.2.1 Individual Pathology Test Result Value Reference Ranges (REFERENCE RANGE DETAILS) -
+                "Individual Pathology Test Result Value Reference Ranges (REFERENCE RANGE DETAILS) / REFERENCE RANGE" -
+                The 'observationRange' tag 'moodCode' attribute shall contain the value 'EVN.CRT'.
+                Refer to section 7.1.6.1.2.1 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</assert>
+
+            <assert test="cda:code"
+                >Error: Service Referral - 7.1.6.1.2.1 Individual Pathology Test Result Value Reference Ranges (REFERENCE RANGE DETAILS) -
+                "Individual Pathology Test Result Value Reference Ranges (REFERENCE RANGE DETAILS) / REFERENCE RANGE / Reference Range Meaning" -
+                The 'code' tag is missing.
+                Refer to section 7.1.6.1.2.1 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</assert>
+
+            <report test="count(cda:code) > 1"
+                >Error: Service Referral - 7.1.6.1.2.1 Individual Pathology Test Result Value Reference Ranges (REFERENCE RANGE DETAILS) -
+                "Individual Pathology Test Result Value Reference Ranges (REFERENCE RANGE DETAILS) / REFERENCE RANGE / Reference Range Meaning" -
+                The 'code' tag shall appear only once.
+                Refer to section 7.1.6.1.2.1 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</report>
+
+            <assert test="cda:value"
+                >Error: Service Referral - 7.1.6.1.2.1 Individual Pathology Test Result Value Reference Ranges (REFERENCE RANGE DETAILS) -
+                "Individual Pathology Test Result Value Reference Ranges (REFERENCE RANGE DETAILS) / REFERENCE RANGE / Reference Range" -
+                The 'value' tag is missing.
+                Refer to section 7.1.6.1.2.1 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</assert>
+
+            <report test="count(cda:value) > 1"
+                >Error: Service Referral - 7.1.6.1.2.1 Individual Pathology Test Result Value Reference Ranges (REFERENCE RANGE DETAILS) -
+                "Individual Pathology Test Result Value Reference Ranges (REFERENCE RANGE DETAILS) / REFERENCE RANGE / Reference Range" -
+                The 'value' tag shall appear only once.
+                Refer to section 7.1.6.1.2.1 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</report>
+
+        </rule>
+
+
+        <rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code = '101.20117']/cda:component/cda:section[cda:code/@code = '102.16144']/cda:entry/cda:observation[@classCode = 'OBS']/cda:entryRelationship/cda:organizer[@classCode = 'BATTERY']/cda:component/cda:observation/cda:referenceRange/cda:observationRange/cda:code">
+
+            <report test="@nullFlavor and normalize-space(@nullFlavor) != '' and
+                (document('TEMPLATE/VALDN/CDAValidate_Vocabs.xml', .)/systems/system [@codeSystemName = 'Coded_DataType_NullFlavor_Absent_Values']/code[
+                    (@code = current()/@nullFlavor) ])"
+                >Error: Service Referral - 7.1.6.1.2.1 Individual Pathology Test Result Value Reference Ranges (REFERENCE RANGE DETAILS) -
+                "Individual Pathology Test Result Value Reference Ranges (REFERENCE RANGE DETAILS) / REFERENCE RANGE / Reference Range Meaning" -
+                The 'code' tag 'nullFlavor' attribute shall not be "NI", "UNK", "ASKU", "NAV", "NASK", "MSK", or "NA".
+                Refer to section 7.1.6.1.2.1 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</report>
+
+            <report test="@nullFlavor and normalize-space(@nullFlavor) = ''"
+                >Error: Service Referral - 7.1.6.1.2.1 Individual Pathology Test Result Value Reference Ranges (REFERENCE RANGE DETAILS) -
+                "Individual Pathology Test Result Value Reference Ranges (REFERENCE RANGE DETAILS) / REFERENCE RANGE / Reference Range Meaning" -
+                The 'code' tag 'nullFlavor' attribute shall contain a value.
+                Refer to section 7.1.6.1.2.1 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</report>
+
+        </rule>
+
+
+        <rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code = '101.20117']/cda:component/cda:section[cda:code/@code = '102.16144']/cda:entry/cda:observation[@classCode = 'OBS']/cda:entryRelationship/cda:organizer[@classCode = 'BATTERY']/cda:component/cda:observation/cda:referenceRange/cda:observationRange/cda:value">
+
+            <report test="@xsi:type and normalize-space(@xsi:type) = ''"
+                >Error: Service Referral - 7.1.6.1.2.1 Individual Pathology Test Result Value Reference Ranges (REFERENCE RANGE DETAILS) -
+                "Individual Pathology Test Result Value Reference Ranges (REFERENCE RANGE DETAILS) / REFERENCE RANGE / Reference Range" -
+                The 'value' tag 'xsi:type' attribute shall contain a value.
+                Refer to section 7.1.6.1.2.1 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</report>
+
+            <report test="
+                @xsi:type and normalize-space(@xsi:type) != '' and 
+                normalize-space(@xsi:type) != 'IVL_PQ' and
+                not(substring-before(normalize-space(@xsi:type), ':') != '' and
+                    substring-after(normalize-space(@xsi:type), ':') = 'IVL_PQ')"
+                >Error: Service Referral - 7.1.6.1.2.1 Individual Pathology Test Result Value Reference Ranges (REFERENCE RANGE DETAILS) -
+                "Individual Pathology Test Result Value Reference Ranges (REFERENCE RANGE DETAILS) / REFERENCE RANGE / Reference Range" -
+                The 'value' tag 'xsi:type' attribute shall contain the value 'IVL_PQ'.
+                Refer to section 7.1.6.1.2.1 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</report>
+
+        </rule>
+
+
+    </pattern>
+

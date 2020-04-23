@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<negative_test_generator>
+	<working_set>
+
+		<src_path>C:\CCA</src_path>
+
+		<branch name="CDAValidate">
+
+			<products revision = "12. WIP">
+
+				<product>
+					<name>Diagnostic Imaging Report</name>
+					<output_path>C:\CCA\CDAValidate\12. WIP\Test Documents - Negative_Testing\curr\Diagnostic Imaging Report</output_path>
+				</product>
+
+			</products>
+		</branch>
+	</working_set>
+
+	<generator>
+		<workspace>C:\CCA\Development\Schematron_CI\Negative_Test_Generator_Workspace</workspace>
+		<report_path>C:\CCA\Development\Development_Tests\Diagnostic Imaging Report\Results\Negative_Test_Report-Current_Release-Diagnostic_Imaging_Report_%Y%M%D%h%m%s.csv</report_path>
+		<report_title>CCA Negative Test Report</report_title>
+		<log>generator.log</log>
+	</generator>
+
+</negative_test_generator>
+

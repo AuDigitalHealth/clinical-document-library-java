@@ -1,0 +1,22 @@
+      <pattern name="p-Specialist_Letter_HPI-I_Enforced-errors"
+        id="p-Specialist_Letter_HPI-I_Enforced-errors"
+        see="#p-Specialist_Letter_HPI-I_Enforced-errors">          
+          
+        <rule context="/cda:ClinicalDocument/cda:author/cda:assignedAuthor/cda:assignedPerson |
+            /cda:ClinicalDocument/cda:participant[translate(@typeCode, 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ') = 'PART']/cda:associatedEntity/cda:associatedPerson |
+            /cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code = '101.20117']/cda:component/cda:section[cda:code/@code = '102.20158']/cda:entry/cda:act[@classCode='ACT']/cda:performer[@typeCode='PRF']/cda:assignedEntity/cda:assignedPerson
+            ">
+             
+            <assert
+                test="ext:asEntityIdentifier/ext:id[starts-with(@root, '1.2.36.1.2001.1003.0.800361')]"
+                >Error: Specialist Letter - 6.1.2 Document Author and 6.1.4.1 Usual GP (Person) and
+                7.1.5.3.1.1 Service Provider (Person) - The 'asEntityIdentifier' tag with a HPI-I is
+                missing. Refer to 3.4.10 Local identifier for a person of
+                COMMON-ConformProfileClinDoc-v1.5 and 6.1.2 Document Author or 6.1.4.1 Usual GP
+                (Person) or 7.1.5.3.1.1 Service Provider (Person) of the
+                Specialist_Letter_CDA_Implementation_Guide_v1.3.</assert>
+            
+        </rule>
+
+    </pattern>
+

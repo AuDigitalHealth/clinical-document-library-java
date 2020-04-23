@@ -1,0 +1,76 @@
+   
+    <pattern name="p-e-Referral_Entity_Identifier_Checks-errors"
+        id="p-e-Referral_Entity_Identifier_Checks-errors"
+        see="#p-e-Referral_Entity_Identifier_Checks-errors">
+        
+        
+        <rule context="ext:asEntityIdentifier/ext:id">
+            
+            
+            <report
+                test="(starts-with(@root, '1.2.36.1.2001.1003.0.800360')) and (@assigningAuthorityName) and (@assigningAuthorityName!='IHI')"
+                >Error: e-Referral - Global Clinical Document check for
+                "ext:asEntityIdentifier/ext:id" tag - The 'ext:id' tag 'assigningAuthorityName'
+                attribute shall contain a value 'IHI' if its 'root' attribute starts with
+                '1.2.36.1.2001.1003.0.800360'. Check all 'ext:asEntityIdentifier/ext:id' tag to find
+                the missing or incorrect attribute value. Refer to section 8.4 Entity Identifier of
+                the e-Referral_CDA_Implementation_Guide_v2.3.</report>
+            
+            <report
+                test="(starts-with(@root, '1.2.36.1.2001.1003.0.800361')) and (@assigningAuthorityName) and (@assigningAuthorityName!='HPI-I')"
+                >Error: e-Referral - Global Clinical Document check for
+                "ext:asEntityIdentifier/ext:id" tag - The 'ext:id' tag 'assigningAuthorityName'
+                attribute shall contain a value 'HPI-I' if its 'root' attribute starts with
+                '1.2.36.1.2001.1003.0.800361'. Check all 'ext:asEntityIdentifier/ext:id' tag to find
+                the missing or incorrect attribute value. Refer to section 8.4 Entity Identifier of
+                the e-Referral_CDA_Implementation_Guide_v2.3.</report>
+            
+            <report
+                test="(starts-with(@root, '1.2.36.1.2001.1003.0.800362')) and (@assigningAuthorityName) and (@assigningAuthorityName!='HPI-O')"
+                >Error: e-Referral - Global Clinical Document check for
+                "ext:asEntityIdentifier/ext:id" tag - The 'ext:id' tag 'assigningAuthorityName'
+                attribute shall contain a value 'HPI-O' if its 'root' attribute starts with
+                '1.2.36.1.2001.1003.0.800362'. Check all 'ext:asEntityIdentifier/ext:id' tag to find
+                the missing or incorrect attribute value. Refer to section 8.4 Entity Identifier of
+                the e-Referral_CDA_Implementation_Guide_v2.3.</report>
+            
+            <report
+                test="(starts-with(@root, '1.2.36.1.2001.1003.0.800363')) and (@assigningAuthorityName) and (@assigningAuthorityName!='CSP')"
+                >Error: e-Referral - Global Clinical Document check for
+                "ext:asEntityIdentifier/ext:id" tag - The 'ext:id' tag 'assigningAuthorityName'
+                attribute shall contain a value 'CSP' if its 'root' attribute starts with
+                '1.2.36.1.2001.1003.0.800363'. Check all 'ext:asEntityIdentifier/ext:id' tag to find
+                the missing or incorrect attribute value. Refer to section 8.4 Entity Identifier of
+                the e-Referral_CDA_Implementation_Guide_v2.3.</report>
+            
+            <report
+                test="(starts-with(@root, '1.2.36.1.2001.1007.1.800364')) and (@assigningAuthorityName) and (@assigningAuthorityName!='PAI-O')"
+                >Error: e-Referral - Global Clinical Document check for
+                "ext:asEntityIdentifier/ext:id" tag - The 'ext:id' tag 'assigningAuthorityName'
+                attribute shall contain a value 'PAI-O' if its 'root' attribute starts with
+                '1.2.36.1.2001.1007.1.800364'. Check all 'ext:asEntityIdentifier/ext:id' tag to find
+                the missing or incorrect attribute value. Refer to section 8.4 Entity Identifier of
+                the e-Referral_CDA_Implementation_Guide_v2.3.</report>
+            
+            <report
+                test="(starts-with(@root, '1.2.36.1.2001.1007.10.800364')) and (@assigningAuthorityName) and (@assigningAuthorityName!='PAI-R')"
+                >Error: e-Referral - Global Clinical Document check for
+                "ext:asEntityIdentifier/ext:id" tag - The 'ext:id' tag 'assigningAuthorityName'
+                attribute shall contain a value 'PAI-R' if its 'root' attribute starts with
+                '1.2.36.1.2001.1007.10.800364'. Check all 'ext:asEntityIdentifier/ext:id' tag to
+                find the missing or incorrect attribute value. Refer to section 8.4 Entity
+                Identifier of the e-Referral_CDA_Implementation_Guide_v2.3.</report>
+            
+            <report
+                test="(starts-with(@root, '1.2.36.1.2001.1007.20.800364')) and (@assigningAuthorityName) and (@assigningAuthorityName!='PAI-D')"
+                >Error: e-Referral - Global Clinical Document check for
+                "ext:asEntityIdentifier/ext:id" tag - The 'ext:id' tag 'assigningAuthorityName'
+                attribute shall contain a value 'PAI-D' if its 'root' attribute starts with
+                '1.2.36.1.2001.1007.20.800364'. Check all 'ext:asEntityIdentifier/ext:id' tag to find
+                the missing or incorrect attribute value. Refer to section 8.4 Entity Identifier of
+                the e-Referral_CDA_Implementation_Guide_v2.3.</report>
+            
+        </rule>
+        
+    </pattern>
+    

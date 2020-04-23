@@ -1,0 +1,16 @@
+    <pattern name="p-Specialist_Letter_USUALGP-ORGANISATION_6_1_4_2_custom-errors"
+        id="p-Specialist_Letter_USUALGP-ORGANISATION_6_1_4_2_custom-errors"
+        see="#p-Specialist_Letter_USUALGP-ORGANISATION_6_1_4_2_custom-errors">
+ 
+        <rule context="/cda:ClinicalDocument/cda:participant[@typeCode = 'PART']/cda:associatedEntity[cda:scopingOrganization]/cda:addr">
+            
+            <assert test="document('CDAValidate_Vocabs.xml')/systems/system[@codeSystemName = 'ISO3166-1']/code[translate(@displayName, 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ') = translate(current()/cda:country, 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ')]/@code = 'AU'"
+                >Error: Specialist Letter - 6.1.4.2 USUAL GP ORGANISATION - "Usual GP / Participant / Address /
+                Australia or International Address / International Address / Country" - The
+                'country' tag shall contain the value 'Australia'. Refer to section 6.1.4.2 of the
+                Specialist_Letter_CDA_Implementation_Guide_v1.3.</assert>    
+            
+        </rule>
+
+    </pattern>
+

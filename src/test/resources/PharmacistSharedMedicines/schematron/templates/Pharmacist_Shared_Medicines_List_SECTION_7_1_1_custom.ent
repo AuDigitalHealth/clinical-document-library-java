@@ -1,0 +1,300 @@
+<pattern name="p-Pharmacist_Shared_Medicines_List_SECTION_7_1_1_custom-errors"
+  id="p-Pharmacist_Shared_Medicines_List_SECTION_7_1_1_custom-errors"
+  see="#p-Pharmacist_Shared_Medicines_List_SECTION_7_1_1_custom-errors">
+
+
+  <rule
+    context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:templateId/@root='1.2.36.1.2001.1001.101.101.16886']">
+
+    <assert test="cda:entry">Error: Pharmacist Shared Medicines List - 7.1.1 SECTION -
+      "SECTION / ENCAPSULATED DATA" - The 'entry' tag with 'templateId' child tag with
+      'root' attribute having value "1.2.36.1.2001.1001.101.102.16883" is missing. Refer
+      to "028067 Inclusion of ENCAPSULATED DATA" of the
+      Pharmacist_Shared_Medicines_List_Conformance_Profile and section 7.1.1 of the
+      Core_Level_One_Clinical_Document_CDA_Implementation_Guide_v1.1.
+    </assert>
+
+    <assert
+      test="cda:entry[cda:templateId/@root = '1.2.36.1.2001.1001.101.102.16883']/cda:observationMedia/cda:value/cda:reference[substring(@value, ((string-length(@value)) - 3), 4) = '.pdf']"
+    >Error: Pharmacist Shared Medicines List - 7.1.1 SECTION - "SECTION / ENCAPSULATED
+      DATA / Encapsulated Data Item" - The 'reference' tag 'value' attribute shall end
+      with a value '.pdf'. The document SHALL contain one and only one PSML document that
+      reflects the original PSML document. The PSML document SHALL be a PDF packaged
+      attachment. Refer to "028068 Inclusion of PDF attachment, 028069 Referencing PSML
+      PDF attachment and 027998 PDF attachment MIME type" of the
+      Pharmacist_Shared_Medicines_List_Conformance_Profile and section 7.1.1 of the
+      Core_Level_One_Clinical_Document_CDA_Implementation_Guide_v1.1.
+    </assert>
+
+    <report
+      test="count(cda:entry[cda:templateId/@root = '1.2.36.1.2001.1001.101.102.16883']/cda:observationMedia/cda:value/cda:reference[substring(@value, ((string-length(@value)) - 3), 4) = '.pdf']) > 1"
+    >Error: Pharmacist Shared Medicines List - 7.1.1 SECTION - "SECTION / ENCAPSULATED
+      DATA / Encapsulated Data Item" - The 'reference' tag 'value' attribute ending with a
+      value '.pdf' shall not exist more than once. The document SHALL contain one and only
+      one PSML document that reflects the original PSML document. The PSML document SHALL
+      be a PDF packaged attachment. Refer to "028068 Inclusion of PDF attachment, 028069
+      Referencing PSML PDF attachment and 027998 PDF attachment MIME type" of the
+      Pharmacist_Shared_Medicines_List_Conformance_Profile and section 7.1.1 of the
+      Core_Level_One_Clinical_Document_CDA_Implementation_Guide_v1.1.
+    </report>
+
+  </rule>
+
+
+  <rule
+    context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:templateId/@root='1.2.36.1.2001.1001.101.101.16886']/cda:entry">
+
+    <assert test="cda:templateId/@root = '1.2.36.1.2001.1001.101.102.16883'">Error:
+      Pharmacist Shared Medicines List - 7.1.1 SECTION - "SECTION / ENCAPSULATED DATA" -
+      The 'templateId' tag with 'root' attribute having value
+      "1.2.36.1.2001.1001.101.102.16883" is missing. Refer to "028067 Inclusion of
+      ENCAPSULATED DATA" of the Pharmacist_Shared_Medicines_List_Conformance_Profile and
+      section 7.1.1 of the
+      Core_Level_One_Clinical_Document_CDA_Implementation_Guide_v1.1.
+    </assert>
+
+    <assert test="cda:observationMedia">Error: Pharmacist Shared Medicines List - 7.1.1
+      SECTION - "SECTION / ENCAPSULATED DATA / Encapsulated Data Item" - The
+      'observationMedia' tag is missing. Refer to "028067 Inclusion of ENCAPSULATED DATA"
+      of the Pharmacist_Shared_Medicines_List_Conformance_Profile and section 7.1.1 of
+      the Core_Level_One_Clinical_Document_CDA_Implementation_Guide_v1.1.
+    </assert>
+
+    <report test="count(cda:observationMedia) > 1">Error: Pharmacist Shared Medicines List
+      - 7.1.1 SECTION - "SECTION / ENCAPSULATED DATA / Encapsulated Data Item" - The
+      'observationMedia' tag shall appear only once. Refer to "028067 Inclusion of
+      ENCAPSULATED DATA" of the Pharmacist_Shared_Medicines_List_Conformance_Profile and
+      section 7.1.1 of the
+      Core_Level_One_Clinical_Document_CDA_Implementation_Guide_v1.1.
+    </report>
+
+  </rule>
+
+
+  <rule
+    context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:templateId/@root='1.2.36.1.2001.1001.101.101.16886']/cda:entry[cda:templateId/@root = '1.2.36.1.2001.1001.101.102.16883']/cda:observationMedia">
+
+    <assert test="../../cda:text//cda:renderMultiMedia">Error: Pharmacist Shared Medicines
+      List - 7.1.1 SECTION - "SECTION / ENCAPSULATED DATA / Encapsulated Data Item" - The
+      'paragraph' or 'renderMultiMedia' or both tags are missing. The document SHALL contain one and
+      only one PSML
+      document that reflects the original PSML document. The PSML document SHALL be a PDF
+      packaged attachment. Refer to "028068 Inclusion of PDF attachment, 028069
+      Referencing PSML PDF attachment and 027998 PDF attachment MIME type" of the
+      Pharmacist_Shared_Medicines_List_Conformance_Profile and section 7.1.1 of the
+      Core_Level_One_Clinical_Document_CDA_Implementation_Guide_v1.1.
+    </assert>
+
+    <assert test="@classCode">Error: Pharmacist Shared Medicines List - 7.1.1 SECTION -
+      "SECTION / ENCAPSULATED DATA / Encapsulated Data Item" - The 'observationMedia' tag
+      'classCode' attribute is missing. The document SHALL contain one and only one PSML
+      document that reflects the original PSML document. The PSML document SHALL be a PDF
+      packaged attachment. Refer to "028068 Inclusion of PDF attachment, 028069
+      Referencing PSML PDF attachment and 027998 PDF attachment MIME type" of the
+      Pharmacist_Shared_Medicines_List_Conformance_Profile and section 7.1.1 of the
+      Core_Level_One_Clinical_Document_CDA_Implementation_Guide_v1.1.
+    </assert>
+
+    <assert test="not(@classCode) or normalize-space(@classCode) != ''">Error: Pharmacist
+      Shared Medicines List - 7.1.1 SECTION - "SECTION / ENCAPSULATED DATA / Encapsulated
+      Data Item" - The 'observationMedia' tag 'classCode' attribute shall contain a value.
+      The document SHALL contain one and only one PSML document that reflects the original
+      PSML document. The PSML document SHALL be a PDF packaged attachment. Refer to
+      "028068 Inclusion of PDF attachment, 028069 Referencing PSML PDF attachment and
+      027998 PDF attachment MIME type" of the
+      Pharmacist_Shared_Medicines_List_Conformance_Profile and section 7.1.1 of the
+      Core_Level_One_Clinical_Document_CDA_Implementation_Guide_v1.1.
+    </assert>
+
+    <assert test="not(@classCode) or normalize-space(@classCode) = '' or @classCode = 'OBS'"
+    >Error: Pharmacist Shared Medicines List - 7.1.1 SECTION - "SECTION / ENCAPSULATED
+      DATA / Encapsulated Data Item" - The 'observationMedia' tag 'classCode' attribute
+      shall contain the value 'OBS'. The document SHALL contain one and only one PSML
+      document that reflects the original PSML document. The PSML document SHALL be a PDF
+      packaged attachment. Refer to "028068 Inclusion of PDF attachment, 028069
+      Referencing PSML PDF attachment and 027998 PDF attachment MIME type" of the
+      Pharmacist_Shared_Medicines_List_Conformance_Profile and section 7.1.1 of the
+      Core_Level_One_Clinical_Document_CDA_Implementation_Guide_v1.1.
+    </assert>
+
+    <assert test="@moodCode">Error: Pharmacist Shared Medicines List - 7.1.1 SECTION -
+      "SECTION / ENCAPSULATED DATA / Encapsulated Data Item" - The 'observationMedia' tag
+      'moodCode' attribute is missing. The document SHALL contain one and only one PSML
+      document that reflects the original PSML document. The PSML document SHALL be a PDF
+      packaged attachment. Refer to "028068 Inclusion of PDF attachment, 028069
+      Referencing PSML PDF attachment and 027998 PDF attachment MIME type" of the
+      Pharmacist_Shared_Medicines_List_Conformance_Profile and section 7.1.1 of the
+      Core_Level_One_Clinical_Document_CDA_Implementation_Guide_v1.1.
+    </assert>
+
+    <assert test="not(@moodCode) or normalize-space(@moodCode) != ''">Error: Pharmacist
+      Shared Medicines List - 7.1.1 SECTION - "SECTION / ENCAPSULATED DATA / Encapsulated
+      Data Item" - The 'observationMedia' tag 'moodCode' attribute shall contain a value.
+      The document SHALL contain one and only one PSML document that reflects the original
+      PSML document. The PSML document SHALL be a PDF packaged attachment. Refer to
+      "028068 Inclusion of PDF attachment, 028069 Referencing PSML PDF attachment and
+      027998 PDF attachment MIME type" of the
+      Pharmacist_Shared_Medicines_List_Conformance_Profile and section 7.1.1 of the
+      Core_Level_One_Clinical_Document_CDA_Implementation_Guide_v1.1.
+    </assert>
+
+    <assert test="not(@moodCode) or normalize-space(@moodCode) = '' or @moodCode = 'EVN'"
+    >Error: Pharmacist Shared Medicines List - 7.1.1 SECTION - "SECTION / ENCAPSULATED
+      DATA / Encapsulated Data Item" - The 'observationMedia' tag 'moodCode' attribute
+      shall contain the value 'EVN'. The document SHALL contain one and only one PSML
+      document that reflects the original PSML document. The PSML document SHALL be a PDF
+      packaged attachment. Refer to "028068 Inclusion of PDF attachment, 028069
+      Referencing PSML PDF attachment and 027998 PDF attachment MIME type" of the
+      Pharmacist_Shared_Medicines_List_Conformance_Profile and section 7.1.1 of the
+      Core_Level_One_Clinical_Document_CDA_Implementation_Guide_v1.1.
+    </assert>
+
+    <report test="@ID and normalize-space(@ID) = ''">Error: Pharmacist Shared Medicines
+      List - 7.1.1 SECTION - "SECTION / ENCAPSULATED DATA / Encapsulated Data Item" - The
+      'observationMedia' tag 'ID' attribute shall contain a value. The document SHALL
+      contain one and only one PSML document that reflects the original PSML document. The
+      PSML document SHALL be a PDF packaged attachment. Refer to "028068 Inclusion of PDF
+      attachment, 028069 Referencing PSML PDF attachment and 027998 PDF attachment MIME
+      type" of the Pharmacist_Shared_Medicines_List_Conformance_Profile and section 7.1.1
+      of the Core_Level_One_Clinical_Document_CDA_Implementation_Guide_v1.1.
+    </report>
+
+    <report test="count(cda:id) > 1">Error: Pharmacist Shared Medicines List - 7.1.1
+      SECTION - "SECTION / ENCAPSULATED DATA / Encapsulated Data Item" - The 'id' tag
+      shall appear only once. The document SHALL contain one and only one PSML document
+      that reflects the original PSML document. The PSML document SHALL be a PDF packaged
+      attachment. Refer to "028068 Inclusion of PDF attachment, 028069 Referencing PSML
+      PDF attachment and 027998 PDF attachment MIME type" of the
+      Pharmacist_Shared_Medicines_List_Conformance_Profile and section 7.1.1 of the
+      Core_Level_One_Clinical_Document_CDA_Implementation_Guide_v1.1.
+    </report>
+
+    <assert test="cda:value">Error: Pharmacist Shared Medicines List - 7.1.1 SECTION -
+      "SECTION / ENCAPSULATED DATA / Encapsulated Data Item" - The 'value' tag is missing.
+      The document SHALL contain one and only one PSML document that reflects the original
+      PSML document. The PSML document SHALL be a PDF packaged attachment. Refer to
+      "028068 Inclusion of PDF attachment, 028069 Referencing PSML PDF attachment and
+      027998 PDF attachment MIME type" of the
+      Pharmacist_Shared_Medicines_List_Conformance_Profile and section 7.1.1 of the
+      Core_Level_One_Clinical_Document_CDA_Implementation_Guide_v1.1.
+    </assert>
+
+    <report test="count(cda:value) > 1">Error: Pharmacist Shared Medicines List - 7.1.1
+      SECTION - "SECTION / ENCAPSULATED DATA / Encapsulated Data Item" - The 'value' tag
+      shall appear only once. The document SHALL contain one and only one PSML document
+      that reflects the original PSML document. The PSML document SHALL be a PDF packaged
+      attachment. Refer to "028068 Inclusion of PDF attachment, 028069 Referencing PSML
+      PDF attachment and 027998 PDF attachment MIME type" of the
+      Pharmacist_Shared_Medicines_List_Conformance_Profile and section 7.1.1 of the
+      Core_Level_One_Clinical_Document_CDA_Implementation_Guide_v1.1.
+    </report>
+
+  </rule>
+
+
+  <rule
+    context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:templateId/@root='1.2.36.1.2001.1001.101.101.16886']/cda:entry[cda:templateId/@root = '1.2.36.1.2001.1001.101.102.16883']/cda:observationMedia/cda:value">
+
+    <assert test="@mediaType">Error: Pharmacist Shared Medicines List - 7.1.1 SECTION -
+      "SECTION / ENCAPSULATED DATA / Encapsulated Data Item" - The 'value' tag 'mediaType'
+      attribute is missing. The document SHALL contain one and only one PSML document that
+      reflects the original PSML document. The PSML document SHALL be a PDF packaged
+      attachment. Refer to "028068 Inclusion of PDF attachment, 028069 Referencing PSML
+      PDF attachment and 027998 PDF attachment MIME type" of the
+      Pharmacist_Shared_Medicines_List_Conformance_Profile and section 7.1.1 of the
+      Core_Level_One_Clinical_Document_CDA_Implementation_Guide_v1.1.
+    </assert>
+
+    <assert test="not(@mediaType) or normalize-space(@mediaType) != ''">Error: Pharmacist
+      Shared Medicines List - 7.1.1 SECTION - "SECTION / ENCAPSULATED DATA / Encapsulated
+      Data Item" - The 'value' tag 'mediaType' attribute shall contain a value. The
+      document SHALL contain one and only one PSML document that reflects the original
+      PSML document. The PSML document SHALL be a PDF packaged attachment. Refer to
+      "028068 Inclusion of PDF attachment, 028069 Referencing PSML PDF attachment and
+      027998 PDF attachment MIME type" of the
+      Pharmacist_Shared_Medicines_List_Conformance_Profile and section 7.1.1 of the
+      Core_Level_One_Clinical_Document_CDA_Implementation_Guide_v1.1.
+    </assert>
+
+    <assert test="@integrityCheck">Error: Pharmacist Shared Medicines List - 7.1.1 SECTION
+      - "SECTION / ENCAPSULATED DATA / Encapsulated Data Item" - The 'value' tag
+      'integrityCheck' attribute is missing. The document SHALL contain one and only one
+      PSML document that reflects the original PSML document. The PSML document SHALL be a
+      PDF packaged attachment. Refer to "028068 Inclusion of PDF attachment, 028069
+      Referencing PSML PDF attachment and 027998 PDF attachment MIME type" of the
+      Pharmacist_Shared_Medicines_List_Conformance_Profile and section 7.1.1 of the
+      Core_Level_One_Clinical_Document_CDA_Implementation_Guide_v1.1.
+    </assert>
+
+    <assert test="not(@integrityCheck) or normalize-space(@integrityCheck) != ''">Error:
+      Pharmacist Shared Medicines List - 7.1.1 SECTION - "SECTION / ENCAPSULATED DATA /
+      Encapsulated Data Item" - The 'value' tag 'integrityCheck' attribute shall contain a
+      value. The document SHALL contain one and only one PSML document that reflects the
+      original PSML document. The PSML document SHALL be a PDF packaged attachment. Refer
+      to "028068 Inclusion of PDF attachment, 028069 Referencing PSML PDF attachment and
+      027998 PDF attachment MIME type" of the
+      Pharmacist_Shared_Medicines_List_Conformance_Profile and section 7.1.1 of the
+      Core_Level_One_Clinical_Document_CDA_Implementation_Guide_v1.1.
+    </assert>
+
+    <assert test="cda:reference">Error: Pharmacist Shared Medicines List - 7.1.1 SECTION -
+      "SECTION / ENCAPSULATED DATA / Encapsulated Data Item" - The 'reference' tag is
+      missing. The document SHALL contain one and only one PSML document that reflects the
+      original PSML document. The PSML document SHALL be a PDF packaged attachment. Refer
+      to "028068 Inclusion of PDF attachment, 028069 Referencing PSML PDF attachment and
+      027998 PDF attachment MIME type" of the
+      Pharmacist_Shared_Medicines_List_Conformance_Profile and section 7.1.1 of the
+      Core_Level_One_Clinical_Document_CDA_Implementation_Guide_v1.1.
+    </assert>
+
+    <report test="count(cda:reference) > 1">Error: Pharmacist Shared Medicines List - 7.1.1
+      SECTION - "SECTION / ENCAPSULATED DATA / Encapsulated Data Item" - The 'reference'
+      tag shall appear only once. The document SHALL contain one and only one PSML
+      document that reflects the original PSML document. The PSML document SHALL be a PDF
+      packaged attachment. Refer to "028068 Inclusion of PDF attachment, 028069
+      Referencing PSML PDF attachment and 027998 PDF attachment MIME type" of the
+      Pharmacist_Shared_Medicines_List_Conformance_Profile and section 7.1.1 of the
+      Core_Level_One_Clinical_Document_CDA_Implementation_Guide_v1.1.
+    </report>
+
+  </rule>
+
+
+  <rule
+    context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:templateId/@root='1.2.36.1.2001.1001.101.101.16886']/cda:entry[cda:templateId/@root = '1.2.36.1.2001.1001.101.102.16883']/cda:observationMedia/cda:value/cda:reference">
+
+    <assert test="@value">Error: Pharmacist Shared Medicines List - 7.1.1 SECTION -
+      "SECTION / ENCAPSULATED DATA / Encapsulated Data Item" - The 'reference' tag 'value'
+      attribute is missing. The document SHALL contain one and only one PSML document that
+      reflects the original PSML document. The PSML document SHALL be a PDF packaged
+      attachment. Refer to "028068 Inclusion of PDF attachment, 028069 Referencing PSML
+      PDF attachment and 027998 PDF attachment MIME type" of the
+      Pharmacist_Shared_Medicines_List_Conformance_Profile and section 7.1.1 of the
+      Core_Level_One_Clinical_Document_CDA_Implementation_Guide_v1.1.
+    </assert>
+
+    <assert test="not(@value) or normalize-space(@value) != ''">Error: Pharmacist Shared
+      Medicines List - 7.1.1 SECTION - "SECTION / ENCAPSULATED DATA / Encapsulated Data
+      Item" - The 'reference' tag 'value' attribute shall contain a value. The document
+      SHALL contain one and only one PSML document that reflects the original PSML
+      document. The PSML document SHALL be a PDF packaged attachment. Refer to "028068
+      Inclusion of PDF attachment, 028069 Referencing PSML PDF attachment and 027998 PDF
+      attachment MIME type" of the Pharmacist_Shared_Medicines_List_Conformance_Profile
+      and section 7.1.1 of the
+      Core_Level_One_Clinical_Document_CDA_Implementation_Guide_v1.1.
+    </assert>
+
+    <assert test="not(@nullFlavor)">Error: Pharmacist Shared Medicines List - 7.1.1 SECTION
+      - "SECTION / ENCAPSULATED DATA / Encapsulated Data Item" - The 'reference' tag
+      'nullFlavor' attribute shall not be present. The document SHALL contain one and only
+      one PSML document that reflects the original PSML document. The PSML document SHALL
+      be a PDF packaged attachment. Refer to "028068 Inclusion of PDF attachment, 028069
+      Referencing PSML PDF attachment and 027998 PDF attachment MIME type" of the
+      Pharmacist_Shared_Medicines_List_Conformance_Profile and section 7.1.1 of the
+      Core_Level_One_Clinical_Document_CDA_Implementation_Guide_v1.1.
+    </assert>
+
+  </rule>
+
+</pattern>
+

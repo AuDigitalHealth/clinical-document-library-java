@@ -1,0 +1,1282 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+
+<ClinicalDocument xmlns    ="urn:hl7-org:v3"
+                  xmlns:ext="http://ns.electronichealth.net.au/Ci/Cda/Extensions/3.0"
+                  xmlns:xs ="http://www.w3.org/2001/XMLSchema"
+                  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    
+    <typeId     extension="POCD_HD000040"
+                root     ="2.16.840.1.113883.1.3"/>
+    <templateId root     ="1.2.36.1.2001.1001.101.100.1002.2"
+                extension="2.2"/>
+    <templateId root     ="1.2.36.1.2001.1001.100.149"
+                extension="1.0"/>
+    <id         root     ="8BC3406A-B93F-11DE-8A2B-6A1C56D89593"/>
+    <code       code          ="57133-1"
+                codeSystem    ="2.16.840.1.113883.6.1"
+                codeSystemName="LOINC"
+                displayName   ="Referral note" />
+    <effectiveTime       value     ="201111010800+1000"/>
+    <confidentialityCode nullFlavor="NA"/>
+    <languageCode        code      ="en-AU"/>
+    <setId               root      ="6C6BA56C-BC92-11DE-A170-D85556D89593"/>
+    <versionNumber       value="1"/>
+    <ext:completionCode  code          ="F"
+                         codeSystem    ="1.2.36.1.2001.1001.101.104.20104"
+                         codeSystemName="NCTIS Document Status Values"
+                         displayName   ="Final"/>
+
+
+
+    <!-- BEGIN Record Target, Subject of Care -->
+    <recordTarget typeCode="RCT">
+
+        <patientRole classCode="PAT">
+
+            <id root="aeb11c2c-952c-4856-841e-9b64137dd288"/>
+
+            <addr use="H">
+                <streetAddressLine>1 Clinician Street</streetAddressLine>
+                <state>QLD</state>
+                <postalCode>5555</postalCode>
+                <country>Australia</country>
+                <unitType>Apt</unitType>
+                <unitID>3A</unitID>
+                <additionalLocator>Complex Building</additionalLocator>
+                <houseNumber>A9221</houseNumber>
+                <streetName>health</streetName>
+                <streetNameType>Crn</streetNameType>
+                <direction>W</direction>
+                <deliveryAddressLine>Care PO</deliveryAddressLine>
+                <city>Brisbane</city>
+            </addr>
+
+            <telecom value="tel:0712341234" use="WP"/>
+
+            <patient>
+
+                <name use="L">
+                    <family>Doctor</family>
+                    <given>Good</given>
+                    <prefix>Dr</prefix>
+                    <suffix>Jr</suffix>
+                </name>
+
+                <administrativeGenderCode code="F" codeSystem="2.16.840.1.113883.13.68"
+                    codeSystemName="AS 5017-2006 Health Care Client Identifier Sex"
+                    displayName="Female"/>
+
+                <birthTime value="19560824"/>
+
+                <!-- Indigenous Status -->
+                <ethnicGroupCode code="4" codeSystem="2.16.840.1.113883.3.879.291036"
+                    codeSystemName="METeOR Indigenous Status"
+                    displayName="Neither Aboriginal nor Torres Strait Islander origin"/>
+
+                <ext:multipleBirthInd value="true"/>
+                <ext:multipleBirthOrderNumber value="2"/>
+
+                <ext:deceasedInd value="true"/>
+                <ext:deceasedTime value="20101201"/>
+
+                <birthplace>
+                    <place>
+                        <addr>
+                            <country>Australia</country>
+                            <state>QLD</state>
+                        </addr>
+                    </place>
+                </birthplace>
+
+                <!-- Entity Identifier -->
+                <ext:asEntityIdentifier classCode="IDENT">
+                    <ext:id assigningAuthorityName="IHI"
+                        root="1.2.36.1.2001.1003.0.8003601234567894"/>
+                    <ext:code code="24576" codeSystem="2.162"
+                        codeSystemName="Classification of Names" displayName="a relevant name">
+                        <originalText>patient</originalText>
+                    </ext:code>
+                    <ext:assigningGeographicArea classCode="PLC">
+                        <ext:name>National Identifier</ext:name>
+                    </ext:assigningGeographicArea>
+                </ext:asEntityIdentifier>
+
+            </patient>
+
+        </patientRole>
+
+    </recordTarget>
+    <!-- END Record Target, Subject of Care -->
+
+
+    <!-- BEGIN Document Author -->
+    <author>
+        <!-- Must hold same value as DateTime attested (ClinicalDocument.legalAuthenticator.time) -->
+        <time value="201001061149+1000"/>
+        <assignedAuthor>
+            <!-- ID is used for system purposes such as matching -->
+            <id root="7FCB0EC4-0CD0-11E0-9DFC-8F50DFD72085"/>
+            <!-- Role -->
+            <code code="253317" codeSystem="2.16.840.1.113883.13.62"
+                codeSystemName="1220.0 - ANZSCO - Australian and New Zealand Standard Classification of Occupations, First Edition, 2006"
+                displayName="Intensive Care Specialist"/>
+            <!-- Address -->
+            <addr use="WP">
+                <streetAddressLine>1 Clinician Street</streetAddressLine>
+                <state>QLD</state>
+                <postalCode>5555</postalCode>
+                <country>Australia</country>
+                <unitType>Apt</unitType>
+                <unitID>3A</unitID>
+                <additionalLocator>Complex Building</additionalLocator>
+                <houseNumber>A9221</houseNumber>
+                <streetName>health</streetName>
+                <streetNameType>Crn</streetNameType>
+                <direction>W</direction>
+                <deliveryAddressLine>Care PO</deliveryAddressLine>
+                <city>Brisbane</city>
+            </addr>
+
+            <!-- Electronic Communication Detail -->
+            <telecom use="WP" value="tel:0712341234"/>
+            <!-- Participant -->
+            <assignedPerson>
+                <!-- Person Name -->
+                <name>
+                    <prefix>Dr.</prefix>
+                    <given>Good</given>
+                    <family>Doctor</family>
+                </name>
+                <!-- Entity Identifier -->
+                <ext:asEntityIdentifier classCode="IDENT">
+                    <ext:id assigningAuthorityName="HPI-I"
+                        root="1.2.36.1.2001.1003.0.8003611234567893"/>
+                    <ext:assigningGeographicArea classCode="PLC">
+                        <ext:name>National Identifier</ext:name>
+                    </ext:assigningGeographicArea>
+                </ext:asEntityIdentifier>
+
+                <!-- BEGIN: Employment Details -->
+                <ext:asEmployment classCode="EMP">
+
+                    <!-- Position In Organisation -->
+                    <ext:code code="code.value" codeSystem="2.16.840.1.1126583.13.33"
+                        codeSystemName="codesystemname.value" displayName="code display name"/>
+
+                    <!-- Occupation (Refers to Vocabs.xml File) -->
+                    <ext:jobCode code="253314" codeSystem="2.16.840.1.113883.13.62"
+                        codeSystemName="1220.0 - ANZSCO - Australian and New Zealand Standard Classification of Occupations, First Edition, 2006"
+                        displayName="Medical Oncologist"/>
+
+                    <!-- Employment Type -->
+                    <ext:jobClassCode code="FT" codeSystem="2.16.840.1.113883.5.1059"
+                        codeSystemName="HL7:EmployeeJobClass" displayName="full-time"/>
+
+                    <!-- Employer Organisation -->
+                    <ext:employerOrganization>
+
+                        <!-- Department/Unit -->
+                        <name>GP Clinic</name>
+
+                        <asOrganizationPartOf>
+                            <wholeOrganization>
+
+                                <!-- Organisation Name -->
+                                <name use="ORGB">Acme Hospital Group</name>
+
+                                <!-- Entity Identifier -->
+                                <ext:asEntityIdentifier classCode="IDENT">
+
+                                    <ext:id root="1.2.36.1.2001.1003.0.8003621234576547"
+                                            assigningAuthorityName="HPI-O"/>
+
+                                    <ext:code code="code.value"
+                                        codeSystem="2.16.840.1.1126583.13.33"
+                                        codeSystemName="codesystemname.value"
+                                        displayName="code display name"/>
+
+                                    <ext:assigningGeographicArea classCode="PLC">
+                                        <ext:name>National Identifier</ext:name>
+                                    </ext:assigningGeographicArea>
+
+                                </ext:asEntityIdentifier>
+
+                            </wholeOrganization>
+                        </asOrganizationPartOf>
+
+                    </ext:employerOrganization>
+                </ext:asEmployment>
+                <!-- END: Employment Details -->
+
+            </assignedPerson>
+        </assignedAuthor>
+    </author>
+    <!-- END Document Author -->
+
+
+    <!-- BEGIN Custodian -->
+    <custodian>
+        <assignedCustodian>
+            <representedCustodianOrganization>
+
+                <id root="c01a65d6-f033-44a6-944d-e48f29bc641c"/>
+
+                <name>Burrill Lake Medical Centre</name>
+
+                <telecom value="tel:0712341234" use="WP"/>
+
+                <addr use="H">
+                    <streetAddressLine>1 Clinician Street</streetAddressLine>
+                    <state>QLD</state>
+                    <postalCode>5555</postalCode>
+                    <country>Australia</country>
+                    <unitType>Apt</unitType>
+                    <unitID>3A</unitID>
+                    <additionalLocator>Complex Building</additionalLocator>
+                    <houseNumber>A9221</houseNumber>
+                    <streetName>health</streetName>
+                    <streetNameType>Crn</streetNameType>
+                    <direction>W</direction>
+                    <deliveryAddressLine>Care PO</deliveryAddressLine>
+                    <city>Brisbane</city>
+                </addr>
+
+                <ext:asEntityIdentifier classCode="IDENT">
+                    <ext:id root="1.2.36.1.2001.1003.0.8003621234576547"
+                            assigningAuthorityName="HPI-O"/>
+                    <ext:assigningGeographicArea classCode="PLC">
+                        <ext:name>National Identifier</ext:name>
+                    </ext:assigningGeographicArea>
+                </ext:asEntityIdentifier>
+
+            </representedCustodianOrganization>
+        </assignedCustodian>
+    </custodian>
+    <!-- END Custodian -->
+
+
+    <!-- BEGIN Primary informationRecipient -->
+    <informationRecipient typeCode="PRCP">
+
+        <intendedRecipient>
+
+            <id root="c3db7a1d-5906-4425-84a1-fc48486ea39a"/>
+
+            <addr use="H">
+                <streetAddressLine>1 Clinician Street</streetAddressLine>
+                <country>Australia</country>
+                <unitType>Apt</unitType>
+                <unitID>3A</unitID>
+                <additionalLocator>Complex Building</additionalLocator>
+                <houseNumber>A9221</houseNumber>
+                <streetName>health</streetName>
+                <streetNameType>Crn</streetNameType>
+                <direction>W</direction>
+                <deliveryAddressLine>Care PO</deliveryAddressLine>
+                <city>Brisbane</city>
+                <state>QLD</state>
+                <postalCode>5555</postalCode>
+            </addr>
+
+            <telecom value="tel:0712341234" use="WP"/>
+
+            <informationRecipient>
+
+                <name use="L">
+                    <family>Doctor</family>
+                    <given>Good</given>
+                    <prefix>Dr</prefix>
+                    <suffix>Jr</suffix>
+                </name>
+
+                <ext:asEntityIdentifier classCode="IDENT">
+                    <ext:id root="1.2.36.1.2001.1003.0.8003611234567893"
+                            assigningAuthorityName="HPI-I"/>
+                    <ext:assigningGeographicArea classCode="PLC">
+                        <ext:name>National Identifier</ext:name>
+                    </ext:assigningGeographicArea>
+                </ext:asEntityIdentifier>
+
+            </informationRecipient>
+
+
+
+            <receivedOrganization>
+
+                <name>Foot Rehab Department </name>
+
+                <ext:asEntityIdentifier classCode="IDENT">
+                    <ext:id root="1.2.36.1.2001.1003.0.8003621234576547"
+                        assigningAuthorityName="HPI-O"/>
+                    <ext:assigningGeographicArea classCode="PLC">
+                        <ext:name>National Identifier</ext:name>
+                    </ext:assigningGeographicArea>
+                </ext:asEntityIdentifier>
+
+            </receivedOrganization>
+
+        </intendedRecipient>
+
+    </informationRecipient>
+    <!-- END Primary informationRecipient -->
+
+
+    <!-- BEGIN Secondary informationRecipient -->
+    <informationRecipient typeCode="TRC">
+        <intendedRecipient>
+
+            <id root="c3db7a1d-5906-4425-84a1-fc48486ea39a"/>
+
+            <addr use="H">
+                <streetAddressLine>1 Clinician Street</streetAddressLine>
+                <state>QLD</state>
+                <postalCode>5555</postalCode>
+                <country>Australia</country>
+                <unitType>Apt</unitType>
+                <unitID>3A</unitID>
+                <additionalLocator>Complex Building</additionalLocator>
+                <houseNumber>A9221</houseNumber>
+                <streetName>health</streetName>
+                <streetNameType>Crn</streetNameType>
+                <direction>W</direction>
+                <deliveryAddressLine>Care PO</deliveryAddressLine>
+                <city>Brisbane</city>
+            </addr>
+
+            <telecom value="tel:0712341234" use="WP"/>
+
+            <informationRecipient>
+
+                <name use="L">
+                    <family>Doctor</family>
+                    <given>Good</given>
+                    <prefix>Dr</prefix>
+                    <suffix>Jr</suffix>
+                </name>
+
+                <ext:asEntityIdentifier classCode="IDENT">
+                    <ext:id root="1.2.36.1.2001.1003.0.8003611234567893"
+                            assigningAuthorityName="HPI-I"/>
+                    <ext:assigningGeographicArea classCode="PLC">
+                        <ext:name>National Identifier</ext:name>
+                    </ext:assigningGeographicArea>
+                </ext:asEntityIdentifier>
+
+            </informationRecipient>
+
+            <receivedOrganization>
+
+                <name>Foot Rehab Department </name>
+
+                <ext:asEntityIdentifier classCode="IDENT">
+                    <ext:id root="1.2.36.1.2001.1003.0.8003621234576547"
+                        assigningAuthorityName="HPI-O"/>
+                    <ext:assigningGeographicArea classCode="PLC">
+                        <ext:name>National Identifier</ext:name>
+                    </ext:assigningGeographicArea>
+                </ext:asEntityIdentifier>
+
+            </receivedOrganization>
+
+        </intendedRecipient>
+    </informationRecipient>
+    <!-- END Secondary informationRecipient -->
+
+
+    <!-- Begin legalAuthenticator -->
+    <legalAuthenticator>
+
+        <time value="201001061149+1000"/>
+
+        <signatureCode code="S"/>
+
+        <assignedEntity>
+
+            <id root="123F9366-78EC-11DF-861B-EE24DFD72085"/>
+
+            <code code="253111" codeSystem="2.16.840.1.113883.13.62"
+                codeSystemName="1220.0 - ANZSCO - Australian and New Zealand Standard Classification
+                of Occupations, First Edition, 2006"
+                displayName="General Medical Practitioner"/>
+
+            <!-- Address -->
+            <addr use="H">
+                <streetAddressLine>1 Clinician Street</streetAddressLine>
+                <state>QLD</state>
+                <postalCode>5555</postalCode>
+                <country>Australia</country>
+                <unitType>Apt</unitType>
+                <unitID>3A</unitID>
+                <additionalLocator>Complex Building</additionalLocator>
+                <houseNumber>A9221</houseNumber>
+                <streetName>health</streetName>
+                <streetNameType>Crn</streetNameType>
+                <direction>W</direction>
+                <deliveryAddressLine>Care PO</deliveryAddressLine>
+                <city>Brisbane</city>
+            </addr>
+
+            <!-- Electronic Communication Detail -->
+            <telecom use="WP" value="tel:0712341234"/>
+
+            <assignedPerson>
+
+                <!-- Person Name -->
+                <name use="L">
+                    <prefix>Dr.</prefix>
+                    <given>Prescribing</given>
+                    <family>Doctor</family>
+                    <suffix>Jr</suffix>
+                </name>
+
+                <!-- Entity Identifier -->
+                <ext:asEntityIdentifier classCode="IDENT">
+                    <ext:id assigningAuthorityName="HPI-I"
+                        root="1.2.36.1.2001.1003.0.8003611234567893"/>
+                    <ext:assigningGeographicArea classCode="PLC">
+                        <ext:name>National Identifier</ext:name>
+                    </ext:assigningGeographicArea>
+                </ext:asEntityIdentifier>
+
+            </assignedPerson>
+
+            <representedOrganization>
+
+                <!-- Organisation Name -->
+                <name>Primary Healthcare Clinic Name</name>
+
+                <!-- Entity Identifier -->
+                <ext:asEntityIdentifier classCode="IDENT">
+                    <ext:id assigningAuthorityName="HPI-O" root="1.2.36.1.2001.1003.0.8003621234576547"/>
+                    <ext:assigningGeographicArea classCode="PLC">
+                        <ext:name>National Identifier</ext:name>
+                    </ext:assigningGeographicArea>
+                </ext:asEntityIdentifier>
+
+            </representedOrganization>
+
+        </assignedEntity>
+
+    </legalAuthenticator>
+    <!-- END legalAuthenticator -->
+
+
+    <!-- Begin Referee (Person) -->
+    <participant typeCode="REFT">
+
+        <associatedEntity classCode="PROV">
+
+            <id root="a3d51d41-1f0c-48ef-a1b7-acba785fb661"/>
+
+            <code code="272311" codeSystem="2.16.840.1.113883.13.62"
+                codeSystemName="1220.0 - ANZSCO - Australian and New Zealand Standard Classification of Occupations, First Edition, 2006"
+                displayName="Clinical Psychologist"/>
+
+
+            <addr use="H">
+                <streetAddressLine>1 Clinician Street</streetAddressLine>
+                <state>QLD</state>
+                <postalCode>5555</postalCode>
+                <country>Australia</country>
+                <unitType>Apt</unitType>
+                <unitID>3A</unitID>
+                <additionalLocator>FL</additionalLocator>
+                <houseNumber>A9221</houseNumber>
+                <streetName>health</streetName>
+                <streetNameType>Crn</streetNameType>
+                <direction>W</direction>
+                <deliveryAddressLine>Care PO</deliveryAddressLine>
+                <city>Brisbane</city>
+            </addr>
+
+            <telecom value="tel:0712341234" use="WP"/>
+
+            <associatedPerson>
+
+                <name use="L">
+                    <family>Doctor</family>
+                    <given>Good</given>
+                    <prefix>Dr</prefix>
+                    <suffix>Jr</suffix>
+                </name>
+
+                <!--<ext:administrativeGenderCode code="M" codeSystem="2.16.840.1.113883.13.68"
+                    codeSystemName="AS 5017-2006 Health Care Client Identifier Sex"
+                    displayName="Male"/>-->
+
+                <ext:asEntityIdentifier classCode="IDENT">
+                    <ext:id root="1.2.36.1.2001.1003.0.8003611234567893"
+                            assigningAuthorityName="HPI-I"/>
+                    <ext:assigningGeographicArea classCode="PLC">
+                        <ext:name>National Identifier</ext:name>
+                    </ext:assigningGeographicArea>
+                </ext:asEntityIdentifier>
+
+                <!-- BEGIN: Employment Details -->
+                <ext:asEmployment classCode="EMP">
+
+                    <!-- Position In Organisation -->
+                    <ext:code code="code.value" codeSystem="2.16.840.1.1126583.13.33"
+                        codeSystemName="codesystemname.value" displayName="code display name"/>
+
+                    <!-- Occupation (Refers to Vocabs.xml File) -->
+                    <ext:jobCode code="253314" codeSystem="2.16.840.1.113883.13.62"
+                        codeSystemName="1220.0 - ANZSCO - Australian and New Zealand Standard Classification of Occupations, First Edition, 2006"
+                        displayName="Medical Oncologist"/>
+
+                    <!-- Employment Type -->
+                    <ext:jobClassCode code="FT" codeSystem="2.16.840.1.113883.5.1059"
+                        codeSystemName="HL7:EmployeeJobClass" displayName="full-time"/>
+
+                    <!-- Employer Organisation -->
+                    <ext:employerOrganization>
+
+                        <!-- Department/Unit -->
+                        <name>GP Clinic</name>
+
+                        <asOrganizationPartOf>
+                            <wholeOrganization>
+
+                                <!-- Organisation Name -->
+                                <name use="ORGB">Acme Hospital Group</name>
+
+                                <!-- Entity Identifier -->
+                                <ext:asEntityIdentifier classCode="IDENT">
+
+                                    <ext:id root="1.2.36.1.2001.1003.0.8003621234576547"
+                                            assigningAuthorityName="HPI-O"/>
+
+                                    <ext:code code="code.value"
+                                        codeSystem="2.16.840.1.1126583.13.33"
+                                        codeSystemName="codesystemname.value"
+                                        displayName="code display name"/>
+
+                                    <ext:assigningGeographicArea classCode="PLC">
+                                        <ext:name>National Identifier</ext:name>
+                                    </ext:assigningGeographicArea>
+
+                                </ext:asEntityIdentifier>
+
+                            </wholeOrganization>
+                        </asOrganizationPartOf>
+
+                    </ext:employerOrganization>
+                </ext:asEmployment>
+                <!-- END: Employment Details -->
+
+            </associatedPerson>
+
+            <!--            <scopingOrganization>
+                
+                <name>Burrill Lake Medical Centre</name>
+                
+                <asOrganizationPartOf>
+                <wholeOrganization>
+                
+                <name use="L">Burrill Lake Medical Centre</name>
+                
+                <ext:asEntityIdentifier classCode="IDENT">
+                <ext:id root="1.2.36.1.2001.1003.0.8003621234576547"
+                extension="8003615833330009" assigningAuthorityName="HPI-O"/>
+                <ext:assigningGeographicArea classCode="PLC">
+                <ext:name>National Identifier</ext:name>
+                </ext:assigningGeographicArea>
+                </ext:asEntityIdentifier>
+                
+                </wholeOrganization>
+                </asOrganizationPartOf>
+                
+                </scopingOrganization>-->
+
+        </associatedEntity>
+
+    </participant>
+    <!-- END Referee (Person) -->
+
+
+    <!-- Begin Referee (organisation) -->
+    <participant typeCode="REFT">
+        <associatedEntity classCode="PROV">
+            <!-- ID is used for system purposes such as matching -->
+            <id root="96ABEE3E-0CE8-11E0-B59B-6D69DFD72085"/>
+            <!-- Role -->
+            <code code="408443003" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED-CT"
+                codeSystemVersion="20090731" displayName="General medical practice"/>
+            <!-- Address -->
+            <addr use="WP">
+                <streetAddressLine>55 GP Street</streetAddressLine>
+                <city>Nehtaville</city>
+                <state>QLD</state>
+                <postalCode>5555</postalCode>
+                <additionalLocator>32568931</additionalLocator>
+                <country>Australia</country>
+            </addr>
+            <!-- Electronic Communication Detail -->
+            <telecom use="WP" value="tel:0788888888"/>
+
+            <scopingOrganization>
+                <!-- Organisation Name -->
+                <name>GP Practice</name>
+                <asOrganizationPartOf>
+                    <wholeOrganization>
+                        <name use="ORGB"> Logan hospital</name>
+                        <!-- Entity Identifier -->
+                        <ext:asEntityIdentifier classCode="IDENT">
+                            <ext:id assigningAuthorityName="HPI-O"
+                                root="1.2.36.1.2001.1003.0.8003621234576547"/>
+                            <ext:assigningGeographicArea classCode="PLC">
+                                <ext:name>National Identifier</ext:name>
+                            </ext:assigningGeographicArea>
+                        </ext:asEntityIdentifier>
+                    </wholeOrganization>
+                </asOrganizationPartOf>
+            </scopingOrganization>
+        </associatedEntity>
+    </participant>
+    <!-- End Referee (organisation) -->
+
+
+    <!-- BEGIN Usual GP -->
+    <participant typeCode="PART">
+        <functionCode code="PCP"/>
+        <associatedEntity classCode="PROV">
+            <!-- ID is used for system purposes such as matching -->
+            <id root="3DF1E97C-42CD-11E0-A71E-FDD2DFD72085"/>
+
+
+            <!-- Role -->
+            <code code="253111" codeSystem="2.16.840.1.113883.13.62"
+                codeSystemName="1220.0 - ANZSCO - Australian and New Zealand Standard Classification of Occupations, First Edition, 2006"
+                displayName="General Medical Practitioner"/>
+            <!-- Address -->
+            <addr use="WP">
+                <streetAddressLine>1 Clinician Street</streetAddressLine>
+                <state>QLD</state>
+                <postalCode>5555</postalCode>
+                <country>Australia</country>
+                <unitType>Apt</unitType>
+                <unitID>3A</unitID>
+                <additionalLocator>FL</additionalLocator>
+                <houseNumber>A9221</houseNumber>
+                <streetName>health</streetName>
+                <streetNameType>Crn</streetNameType>
+                <direction>W</direction>
+                <deliveryAddressLine>Care PO</deliveryAddressLine>
+                <city>Brisbane</city>
+            </addr>
+            <!-- Electronic Communication Detail -->
+            <telecom use="WP" value="tel:0777777777"/>
+            <!-- Person Name -->
+            <associatedPerson>
+                <name use="L">
+                    <family>Doctor</family>
+                    <given>Good</given>
+                    <prefix>Dr</prefix>
+                    <suffix>Jr</suffix>
+                </name>
+
+
+                <!-- Entity Identifier -->
+                <ext:asEntityIdentifier classCode="IDENT">
+                    <ext:id assigningAuthorityName="HPI-I"
+                        root="1.2.36.1.2001.1003.0.8003611234567893"/>
+                    <ext:assigningGeographicArea classCode="PLC">
+                        <ext:name>National Identifier</ext:name>
+                    </ext:assigningGeographicArea>
+                </ext:asEntityIdentifier>
+
+
+                <!-- BEGIN: Employment Details -->
+                <ext:asEmployment classCode="EMP">
+
+                    <!-- Position In Organisation -->
+                    <ext:code code="code.value" codeSystem="2.16.840.1.1126583.13.33"
+                        codeSystemName="codesystemname.value" displayName="code display name"/>
+
+                    <!-- Occupation (Refers to Vocabs.xml File) -->
+                    <ext:jobCode code="253314" codeSystem="2.16.840.1.113883.13.62"
+                        codeSystemName="1220.0 - ANZSCO - Australian and New Zealand Standard Classification of Occupations, First Edition, 2006"
+                        displayName="Medical Oncologist"/>
+
+                    <!-- Employment Type -->
+                    <ext:jobClassCode code="FT" codeSystem="2.16.840.1.113883.5.1059"
+                        codeSystemName="HL7:EmployeeJobClass" displayName="full-time"/>
+
+                    <!-- Employer Organisation -->
+                    <ext:employerOrganization>
+
+                        <!-- Department/Unit -->
+                        <name>GP Clinic</name>
+
+                        <asOrganizationPartOf>
+                            <wholeOrganization>
+
+                                <!-- Organisation Name -->
+                                <name use="ORGB">Acme Hospital Group</name>
+
+                                <!-- Entity Identifier -->
+                                <ext:asEntityIdentifier classCode="IDENT">
+
+                                    <ext:id root="1.2.36.1.2001.1003.0.8003621234576547"
+                                            assigningAuthorityName="HPI-O"/>
+
+                                    <ext:code code="code.value"
+                                        codeSystem="2.16.840.1.1126583.13.33"
+                                        codeSystemName="codesystemname.value"
+                                        displayName="code display name"/>
+
+                                    <ext:assigningGeographicArea classCode="PLC">
+                                        <ext:name>National Identifier</ext:name>
+                                    </ext:assigningGeographicArea>
+
+                                </ext:asEntityIdentifier>
+
+                            </wholeOrganization>
+                        </asOrganizationPartOf>
+
+                    </ext:employerOrganization>
+                </ext:asEmployment>
+                <!-- END: Employment Details -->
+
+            </associatedPerson>
+        </associatedEntity>
+    </participant>
+    <!-- END Usual GP -->
+
+
+    <!-- Begin Usual GP (organisation) -->
+    <participant typeCode="PART">
+        <functionCode code="PCP"/>
+        <associatedEntity classCode="PROV">
+
+            <!-- ID is used for system purposes such as matching -->
+            <id root="96ABEE3E-0CE8-11E0-B59B-6D69DFD72085"/>
+
+            <!-- Role -->
+            <code code="253111" codeSystem="2.16.840.1.113883.13.62"
+                codeSystemName="1220.0 - ANZSCO - Australian and New Zealand Standard Classification of Occupations, First Edition, 2006"
+                codeSystemVersion="20090731" displayName="General Medical Practitioner"/>
+
+            <!-- Address -->
+            <addr use="WP">
+                <streetAddressLine>55 GP Street</streetAddressLine>
+                <city>Nehtaville</city>
+                <state>QLD</state>
+                <postalCode>5555</postalCode>
+                <additionalLocator>32568931</additionalLocator>
+                <country>Australia</country>
+            </addr>
+
+            <!-- Electronic Communication Detail -->
+            <telecom use="WP" value="tel:0788888888"/>
+            <scopingOrganization>
+                <name>GP Practice</name>
+
+                <asOrganizationPartOf>
+                    <wholeOrganization>
+                        <name use="ORGB">Acme Hospital Group</name>
+                        <!-- Organisation Name -->
+
+                        <!-- Entity Identifier -->
+                        <ext:asEntityIdentifier classCode="IDENT">
+                            <ext:id assigningAuthorityName="HPI-O"
+                                root="1.2.36.1.2001.1003.0.8003621234576547"/>
+                            <ext:assigningGeographicArea classCode="PLC">
+                                <ext:name>National Identifier</ext:name>
+                            </ext:assigningGeographicArea>
+                        </ext:asEntityIdentifier>
+                    </wholeOrganization>
+                </asOrganizationPartOf>
+
+            </scopingOrganization>
+        </associatedEntity>
+    </participant>
+    <!-- End Usual GP (organisation) -->
+
+    <!-- BEGIN Patients Nominated Contact - Person -->
+    <participant typeCode="IRCP">
+        <associatedEntity classCode="CON">
+
+            <!-- ID is used for system purposes such as matching -->
+            <id root="8AAC64FA-42CC-11E0-8FC0-32D2DFD72085"/>
+
+            <!-- Role -->
+            <code code="133932002" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED-CT"
+                codeSystemVersion="20090731" displayName="Caregiver (Person)"/>
+
+            <!-- Address -->
+            <addr use="WP">
+                <streetAddressLine>66 Caregiver Street</streetAddressLine>
+                <city>Nehtaville</city>
+                <state>QLD</state>
+                <postalCode>5555</postalCode>
+                <additionalLocator>32568931</additionalLocator>
+                <country>Australia</country>
+            </addr>
+
+            <!-- Electronic Communication Detail -->
+            <telecom use="WP" value="tel:0733333333"/>
+
+            <!-- Person Name -->
+            <associatedPerson>
+                <name>
+                    <prefix>Mr.</prefix>
+                    <family>Caregiver</family>
+                </name>
+
+                <!-- Entity Identifier -->
+                <ext:asEntityIdentifier classCode="IDENT">
+                    <ext:id assigningAuthorityName="HPI-I"
+                        root="1.2.36.1.2001.1003.0.8003611234567893"/>
+                    <ext:assigningGeographicArea classCode="PLC">
+                        <ext:name>National Identifier</ext:name>
+                    </ext:assigningGeographicArea>
+                </ext:asEntityIdentifier>
+            </associatedPerson>
+        </associatedEntity>
+    </participant>
+    <!-- END Patients Nominated Contact - Person -->
+
+
+    <!-- Patients Nominated Contact - Organisation -->
+    <participant typeCode="IRCP">
+        <associatedEntity classCode="CON">
+
+            <!-- ID is used for system purposes such as matching -->
+            <id root="3C788150-42E1-11E0-B7D8-16E6DFD72085"/>
+
+            <!-- Role -->
+            <code code="42665001"
+                codeSystem="2.16.840.1.113883.6.96"
+                codeSystemName="SNOMED-CT"
+                codeSystemVersion="20090731"
+                displayName="Nursing Home"/>
+
+            <!-- Address -->
+            <addr use="WP">
+                <streetAddressLine>66 Caregiver Street</streetAddressLine>
+                <city>Nehtaville</city>
+                <state>QLD</state>
+                <postalCode>5555</postalCode>
+                <additionalLocator>32568931</additionalLocator>
+                <country>Australia</country>
+            </addr>
+
+            <!-- Electronic Communication Detail -->
+            <telecom use="WP" value="tel:0733333333"/>
+
+            <!-- Organisation -->
+            <scopingOrganization>
+
+                <!-- Department/Unit -->
+                <name>Nursing Home</name>
+
+                <asOrganizationPartOf>
+                    <wholeOrganization>
+
+                        <!-- Organisation Name -->
+                        <name use="ORGB">Nursing Home Group</name>
+
+                        <!-- Entity Identifier -->
+                        <ext:asEntityIdentifier classCode="IDENT">
+                            <ext:id assigningAuthorityName="HPI-O"
+                                root="1.2.36.1.2001.1003.0.8003621234576547"/>
+                            <ext:assigningGeographicArea classCode="PLC">
+                                <ext:name>National Identifier</ext:name>
+                            </ext:assigningGeographicArea>
+                        </ext:asEntityIdentifier>
+                    </wholeOrganization>
+                </asOrganizationPartOf>
+            </scopingOrganization>
+        </associatedEntity>
+    </participant>
+    <!-- END Patients Nominated Contact - Organisation -->
+
+    <!-- BEGIN - CDA Body -->
+   <component>
+        <structuredBody>
+            
+            <!-- Begin - Administrative Observations [admin_obs] -->
+            <component>
+                <section>
+                    
+                    <id root="231F71DA-706A-11E0-A3DC-78B94824019B"/>
+                    
+                    <code code="102.16080" codeSystem="1.2.36.1.2001.1001.101"
+                        codeSystemName="NCTIS Data Components"
+                        displayName="Administrative Observations"/>
+                    
+                    <title>Administrative Observations</title>
+                    
+                    <text>
+                        <table>
+                            <tbody>
+                                <tr>
+                                    <th>Date of Birth is Calculated From Age</th>
+                                    <td>True</td>
+                                </tr>
+                                <tr>
+                                    <th>Date of Birth Accuracy Indicator</th>
+                                    <td>AAA</td>
+                                </tr>
+                                <tr>
+                                    <th>Age</th>
+                                    <td>54</td>
+                                </tr>
+                                <tr>
+                                    <th>Age Accuracy Indicator</th>
+                                    <td>True</td>
+                                </tr>
+                                <tr>
+                                    <th>Birth Plurality</th>
+                                    <td>3</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </text>
+                    
+                    <!-- Begin - Subject of Care - Body Section -->
+                    
+                    <!-- Begin Date of Birth is Calculated From Age [calc_age] - 103.16233 - MOVED TO 3A -->
+                    <!-- End   Date of Birth is Calculated From Age [calc_age] - 103.16233 - MOVED TO 3A -->
+                    
+                    <!-- Begin Date of Birth Accuracy Indicator [dob_acc] - 102.16234 - MOVED TO 3A -->
+                    <!-- End   Date of Birth Accuracy Indicator [dob_acc] - 102.16234 - MOVED TO 3A -->
+                    
+                    <!-- Begin Age [age] - 103.20109 - MOVED TO 3A -->
+                    <!-- End   Age [age] - 103.20109 - MOVED TO 3A -->
+                    
+                    <!-- Begin Age Accuracy Indicator [age_acc] - 103.16279 - MOVED TO 3A -->
+                    <!-- End   Age Accuracy Indicator [age_acc] - 103.16279 - MOVED TO 3A -->
+                    
+                    <!-- Begin Birth Plurality [birth_plr] - 103.16249 - MOVED TO 3A -->
+                    <!-- End   Birth Plurality [birth_plr] - 103.16249 - MOVED TO 3A -->
+                    
+                    <!-- Begin Date of Death Accuracy Indicator [dod_acc] - 102.16252 - MOVED TO 3A -->
+                    <!-- End   Date of Death Accuracy Indicator [dod_acc] - 102.16252 - MOVED TO 3A -->
+                    
+                    <!-- Begin Entitlement -  - MOVED TO 3A -->
+                    <!-- End   Entitlement -  - MOVED TO 3A -->
+                    
+                    <!-- End - Subject of Care - Body Section -->
+                    
+                </section>
+            </component>
+            <!-- End - Adminstrative Observations [admin_obs]-->            
+            
+            <!-- Begin - Referral Detail [ref_det] -->
+            <component>
+                <section>
+                    
+                    <code code="102.16347" codeSystem="1.2.36.1.2001.1001.101"
+                        codeSystemName="NCTIS Data Components" displayName="Referral Detail"/>
+                    
+                    <title>Referral Detail</title>
+                    
+                    <text>Narrative text for Referral Detail goes here</text>
+                    
+                    <!-- Begin - Referral DateTime [ref_time] - 103.16620 - MOVED TO 3A -->
+                    <!-- End - Referral DateTime [ref_time] - 103.16620 - MOVED TO 3A -->
+                    
+                    <!-- Begin - Referral Reason [ref_rea] - 42349-1 - MOVED TO 3A -->
+                    <!-- End - Referral Reason [ref_rea] - 42349-1 - MOVED TO 3A -->
+                    
+                    <!-- Begin - Referral validity Duration [ref_val] - 103.16622 - MOVED TO 3A -->
+                    <!-- End - Referral validity Duration [ref_val] - 103.16622 - MOVED TO 3A -->
+                    
+                </section>
+            </component>
+            <!-- End - Referral Detail [ref_det] -->
+            
+            
+            <!-- Begin - Medical History [med_hist] -->
+            <!-- 101.16117            - MOVED TO 3A -->
+            <!-- 282291009            - MOVED TO 3A -->
+            <!-- 103.15510            - MOVED TO 3A -->
+            <!-- 103.16545            - MOVED TO 3A -->
+            <!-- 103.15595            - MOVED TO 3A -->
+            <!-- 102.16627            - MOVED TO 3A -->
+            <!-- 103.16630            - MOVED TO 3A -->
+            <!-- End - Medical History [med_hist] -->            
+            
+            
+            
+            <!-- Begin - Medical History [med_hist] -->
+            <component>
+                <section>
+                    
+                    <code code="101.16117" codeSystem="1.2.36.1.2001.1001.101"
+                        codeSystemName="NCTIS Data Components" displayName="Medical History"/>
+                    
+                    <title>Medical History</title>
+                    
+                    <text>O/E - itchy rash, Interferential to lower limb</text>
+                                       
+                </section>
+            </component>
+            <!-- End - Medical History [med_hist] --> 
+            
+            
+            
+            <!-- Begin - Medications [meds] -->
+            <component>
+                <section>
+                    
+                    <code code="101.16146" codeSystem="1.2.36.1.2001.1001.101"
+                        codeSystemName="NCTIS Data Components" displayName="Medications"/>
+                    
+                    <title>Medications</title>
+                    
+                    <text>Medications narrative goes here.</text>
+                    
+                    <!-- substanceAdministration     - MOVED TO 3A -->
+                    <!-- 103.16302.2.2.1             - MOVED TO 3A -->
+      
+                </section>
+            </component>
+            <!-- End - Medications [meds] -->
+            
+            <!-- Begin - Adverse Reactions [adv_reacts] -->
+            <component>
+                <section>
+                    
+                    <code code="101.20113" codeSystem="1.2.36.1.2001.1001.101"
+                        codeSystemName="NCTIS Data Components"
+                        displayName="Adverse Reactions"/>
+                    
+                    <title>Adverse Reactions</title>
+                    
+                    <text>Adverse Reactions narrative goes here.</text>
+                    
+                    <!-- substanceAdministration                 - MOVED TO 3A -->
+                    <!-- 102.15517                               - MOVED TO 3A -->
+                    <!-- 102.16474                               - MOVED TO 3A -->
+                    <!-- entryRelationship/@typeCode="MFST"      - MOVED TO 3A -->
+                    <!-- 103.16302.2.2.2                         - MOVED TO 3A -->
+                    
+                </section>
+            </component>
+            <!-- End - Adverse Reactions [adv_reacts] -->  
+            
+            <!-- Begin - Diagnostic Investigations [diag_inv] -->
+            <component>
+                <section>
+
+                    <code code="101.20117" codeSystem="1.2.36.1.2001.1001.101"
+                        codeSystemName="NCTIS Data Components"
+                        displayName="Diagnostic Investigations"/>
+
+                    <title>Diagnostic Investigations</title>
+
+                    <!--Newly added Other(pathology and radiology) Test Result section-->
+                    
+                    <component>
+                        <section>
+                            <id root="7ca3ab95-47c9-43b8-8823-ddb3299d07fc" />
+                            <code code="102.16029" codeSystem="1.2.36.1.2001.1001.101" codeSystemName="NCTIS Data Components" displayName="Diagnostic Investigation" />
+                            <title>Diagnostic Investigation</title>
+                            <text mediaType="text/x-hl7-text+xml">
+                                <table>
+                                    <tbody>
+                                        <tr>
+                                            <td>Report Date</td>
+                                            <td>17 Nov 2012 09:16+1000</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Report Name</td>
+                                            <td>Report Name 1</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Report Status</td>
+                                            <td>Interim</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </text>
+                            
+                        </section>
+                    </component>
+
+                    <!-- Begin - Pathology Test Result [path_test] -->
+                    <component>
+                        <section>
+
+                            <code code="102.16144" codeSystem="1.2.36.1.2001.1001.101"
+                                codeSystemName="NCTIS Data Components"
+                                displayName="Pathology Test Result"/>
+
+                            <title>Pathology Test Result</title>
+
+                            <text>
+                                <table>
+
+                                    <thead>
+                                        <tr>
+                                            <th>Test</th>
+                                            <th>Value</th>
+                                            <th>Units</th>
+                                            <th>Reference Range</th>
+                                            <th>Interpretation</th>
+                                        </tr>
+                                    </thead>
+
+                                    <tbody>
+                                        <tr>
+                                            <td>Serum Creatinine</td>
+                                            <td>0.06</td>
+                                            <td>mmol/L</td>
+                                            <td>0.04-0.11</td>
+                                            <td>N</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Serum Uric Acid</td>
+                                            <td>0.41</td>
+                                            <td>mmol/L</td>
+                                            <td>0.14-0.35</td>
+                                            <td>HH</td>
+                                        </tr>
+                                    </tbody>
+
+                                </table>
+                            </text>
+        
+                            <!-- 310074003                                   - MOVED TO 3A -->
+                            <!-- 308552006                                   - MOVED TO 3A -->
+                            <!-- 55752-0                                     - MOVED TO 3A -->
+                            <!-- 88101002                                    - MOVED TO 3A -->
+                            <!-- 386344002                                   - MOVED TO 3A -->
+                            <!-- 103.16468                                   - MOVED TO 3A -->
+                            <!-- 102.16160                                   - MOVED TO 3A -->
+                            <!-- 103.11017                                   - MOVED TO 3A -->
+                            <!-- 103.16605                                   - MOVED TO 3A -->
+                            <!-- 102.16156.2.2.1                             - MOVED TO 3A -->
+                            <!-- 78615007                                    - MOVED TO 3A -->
+                            <!-- 102.16156.2.2.1                             - MOVED TO 3A -->
+                            <!-- entryRelationship[ana_im]/@typeCode="SPRT"  - MOVED TO 3A -->
+                            <!-- 103.16529                                   - MOVED TO 3A -->
+                            <!-- 103.16171                                   - MOVED TO 3A -->
+                            <!-- 103.11014                                   - MOVED TO 3A -->
+                            <!-- 103.16187                                   - MOVED TO 3A -->
+                            <!-- 281296001                                   - MOVED TO 3A -->
+                            <!-- 281298000                                   - MOVED TO 3A -->
+                            <!-- 308552006                                   - MOVED TO 3A -->
+                            <!-- 102.16156.2.2.2                             - MOVED TO 3A -->
+                            <!-- 78615007                                    - MOVED TO 3A -->
+                            <!-- entryRelationship[ana_im]/@typeCode="SPRT"  - MOVED TO 3A -->
+                            <!-- 103.16171                                   - MOVED TO 3A -->
+                            <!-- 103.16529                                   - MOVED TO 3A -->
+                            <!-- 103.11014                                   - MOVED TO 3A -->
+                            <!-- 103.16187                                   - MOVED TO 3A -->
+
+                        </section>
+                    </component>
+                    <!-- End Pathology Test Result [path_test] -->
+
+                    <!-- Begin - Imaging Examination Result [img_exam] -->
+                    <component>
+                        <section>
+
+                            <code code="102.16145" codeSystem="1.2.36.1.2001.1001.101"
+                                codeSystemName="NCTIS Data Components"
+                                displayName="Imaging Examination Result"/>
+
+                            <title>Imaging Examination Result</title>
+
+                            <text>
+                                <table>
+
+                                    <thead>
+                                        <tr>
+                                            <th>Imaging Examination</th>
+                                            <th>Result</th>
+                                            <th>Result Status</th>
+                                        </tr>
+                                    </thead>
+
+                                    <tbody>
+                                        <tr>
+                                            <td>Chest X-ray</td>
+                                            <td>
+                                                <paragraph>The lungs and pleura appear
+                                                  clear.</paragraph>
+                                                <paragraph>Cardiac and mediastinal contours are
+                                                  within normal limits.</paragraph>
+                                            </td>
+                                            <td>Normal</td>
+                                        </tr>
+                                    </tbody>
+
+                                </table>
+                            </text>
+
+                            <!-- 78615007                                    - MOVED TO 3A -->
+                            <!-- 308552006                                   - MOVED TO 3A -->
+                            <!-- 55752-0                                     - MOVED TO 3A -->
+                            <!-- 103.16503                                   - MOVED TO 3A -->
+                            <!-- 103.16589                                   - MOVED TO 3A -->
+                            <!-- 281296001                                   - MOVED TO 3A -->
+                            <!-- 78615007                                    - MOVED TO 3A -->
+                            <!-- 102.16511                                   - MOVED TO 3A -->
+                            <!-- 103.16512                                   - MOVED TO 3A -->
+                            <!-- 103.16513                                   - MOVED TO 3A -->
+                            <!-- 103.16514                                   - MOVED TO 3A -->
+                            <!-- 103.16515                                   - MOVED TO 3A -->
+                            <!-- 103.16517                                   - MOVED TO 3A -->
+                            <!-- 103.16519                                   - MOVED TO 3A -->
+
+                        </section>
+                    </component>
+                    <!-- End - Imaging Examination Result [img_exam] -->
+                    
+                    <!-- Begin Requested Service [arranged/req_serv] -->
+                    <component>
+                        <section>
+                            
+                            <code code="102.20158" codeSystem="1.2.36.1.2001.1001.101"
+                                codeSystemName="NCTIS Data Components"
+                                displayName="Requested Service"/>
+                            
+                            <title>Requested Service</title>
+                            
+                            <text>
+                                <table>
+                                    
+                                    <thead>
+                                        <tr>
+                                            <th>Service</th>
+                                            <th>Time</th>
+                                            <th>Instructions</th>
+                                            <th>Booking Status</th>
+                                        </tr>
+                                    </thead>
+                                    
+                                    <tbody>
+                                        <tr>
+                                            <td>Xray Chest</td>
+                                            <td>30 December 2010 10am</td>
+                                            <td>No special instructions required.</td>
+                                            <td>Appointment</td>
+                                        </tr>
+                                    </tbody>
+                                    
+                                </table>
+                            </text>
+                            
+                            <!-- 103.10146                                   - MOVED TO 3A -->
+                            <!-- 103.16635                                   - MOVED TO 3A -->
+                            <!-- Service Provider - Person                   - MOVED TO 3A -->
+                            <!-- Service Provider - Organisation             - MOVED TO 3A -->
+
+                        </section>
+                    </component>
+                    <!-- End Requested Service [arranged/req_serv] -->
+                    
+                </section>
+            </component>
+            <!-- End - Diagnostic Investigations [diag_inv] -->
+            
+        </structuredBody>
+    </component>
+    <!-- END - CDA Body -->    
+    
+</ClinicalDocument>

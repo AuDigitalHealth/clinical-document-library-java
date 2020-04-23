@@ -1,0 +1,84 @@
+
+    <!-- e-Discharge Summary Clinical Document:  6.1.2 Subject of Care -->
+
+    <!-- Context: ClinicalDocument/Subject of Care -->
+
+    <!-- Status: Last Reviewed: Not reviewed.
+        Status: Last Updated : 14/02/2012 -->
+
+
+    <pattern name="p-e-Discharge_Summary_Subject_Of_Care_Birth_Order-errors"
+        id="p-e-Discharge_Summary_Subject_Of_Care_Birth_Order-errors"
+        see="#p-e-Discharge_Summary_Subject_Of_Care_Birth_Order-errors">
+
+        <rule context="/cda:ClinicalDocument/cda:recordTarget/cda:patientRole/cda:patient">
+
+            <!--Verified NG 21/02/2012 ID:2021 -->
+
+            <!-- Birth Order - 0..1 -->
+
+            <report test="(ext:multipleBirthInd[@value='true'] and not(ext:multipleBirthOrderNumber))"
+                >Error: e-Discharge Summary - 6.1.2 Subject Of  Care - "Subject of Care / Participant / Person or Organisation or Device / Person / Demographic Data / Birth Order" -
+                The 'multipleBirthOrderNumber' tag is missing for the existence of 'BirthOrder'.
+                Refer to section 6.1.2 of the
+                e-Discharge_Summary_CDA_Implementation_Guide_v3.4.</report>
+
+            <report test="(ext:multipleBirthInd[@value='false'] and (ext:multipleBirthOrderNumber))"
+                >Error: e-Discharge Summary - 6.1.2 Subject Of Care - "Subject of Care / Participant / Person or Organisation or Device / Person / Demographic Data / Birth Order" -
+                The 'multipleBirthOrderNumber' tag shall not be present for the missing of 'BirthOrder'.
+                Refer to section 6.1.2 of the
+                e-Discharge_Summary_CDA_Implementation_Guide_v3.4.</report>
+
+            <report test="count(ext:multipleBirthInd) > 1">Error: e-Discharge Summary - 6.1.2
+                Subject Of Care - "Participant / Person or Organisation or Device / Person /
+                Demographic Data / Birth Order" - The 'multipleBirthInd' tag shall appear only once.
+                Refer to section 6.1.2 of the
+                e-Discharge_Summary_CDA_Implementation_Guide_v3.4.</report>
+
+            <report test="count(ext:multipleBirthOrderNumber) > 1">Error: e-Discharge Summary -
+                6.1.2 Subject Of Care - "Participant / Person or Organisation or Device / Person /
+                Demographic Data / Birth Order" - The 'multipleBirthOrderNumber' tag shall appear
+                only once. Refer to section 6.1.2 of the
+                e-Discharge_Summary_CDA_Implementation_Guide_v3.4.</report>
+
+            <assert test="not(ext:multipleBirthInd) or ext:multipleBirthInd[@value]">Error:
+                e-Discharge Summary - 6.1.2 Subject Of Care - "Participant / Person or Organisation
+                or Device / Person / Demographic Data / Birth Order" - The 'multipleBirthInd' tag
+                'value' attribute is missing. Refer to section 6.1.2 of the
+                e-Discharge_Summary_CDA_Implementation_Guide_v3.4.</assert>
+
+            <assert
+                test="not(ext:multipleBirthOrderNumber) or ext:multipleBirthOrderNumber[@value]"
+                >Error: e-Discharge Summary - 6.1.2 Subject Of Care - "Participant / Person or
+                Organisation or Device / Person / Demographic Data / Birth Order" - The
+                'multipleBirthOrderNumber' tag 'value' attribute is missing. Refer to section 6.1.2
+                of the e-Discharge_Summary_CDA_Implementation_Guide_v3.4.</assert>
+
+            <report
+                test="ext:multipleBirthInd[@value] and ext:multipleBirthInd[not(@value = 'true' or @value = 'false')]"
+                >Error: e-Discharge Summary - 6.1.2 Subject Of Care - "Participant / Person or
+                Organisation or Device / Person / Demographic Data / Birth Order" - The
+                'multipleBirthInd' tag 'value' attribute shall contain the value 'true' or 'false'. Refer to
+                section 6.1.2 of the
+                e-Discharge_Summary_CDA_Implementation_Guide_v3.4.</report>
+
+            <report
+                test="ext:multipleBirthOrderNumber[@value] and not(number(ext:multipleBirthOrderNumber/@value))"
+                >Error: e-Discharge Summary - 6.1.2 Subject Of Care - "Participant / Person or
+                Organisation or Device / Person / Demographic Data / Birth Order" - The
+                'multipleBirthOrderNumber' tag 'value' attribute shall contain an integer value.
+                Refer to section 6.1.2 of the
+                e-Discharge_Summary_CDA_Implementation_Guide_v3.4.</report>
+
+            <report
+                test="ext:multipleBirthOrderNumber[@value] and number(ext:multipleBirthOrderNumber/@value) and not(floor(ext:multipleBirthOrderNumber/@value) = number(ext:multipleBirthOrderNumber/@value))"
+                >Error: e-Discharge Summary - 6.1.2 Subject Of Care - "Participant / Person or
+                Organisation or Device / Person / Demographic Data / Birth Order" - The
+                'multipleBirthOrderNumber' tag 'value' attribute shall contain an integer value.
+                Refer to section 6.1.2 of the
+                e-Discharge_Summary_CDA_Implementation_Guide_v3.4.</report>
+
+        </rule>
+
+    </pattern>
+

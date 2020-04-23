@@ -1,0 +1,1212 @@
+<!--
+_________________________________________________________________________________________________________________________________________________________________________________________
+                  Generated File - Do Not Edit File Directly                                                                                                                             
+                  __________________________________________
+
+                  Generated          : 30/05/2017 1:48:23 PM
+
+                  Product            : Service Referral
+                  Release            : CDA_Implementation_Guide_v1.0
+                  IG Guide Reference : 7.1.6.1.2.2
+                  IG Guide Title     : Result Group Specimen Detail (SPECIMEN)
+                  Generator Version  : 2.28
+                                                                                                                                                                                         
+_________________________________________________________________________________________________________________________________________________________________________________________
+-->
+    <pattern name="p-Service_Referral_3A_ResultGroupSpecimenDetail_SPECIMEN_7_1_6_1_2_2-errors"
+        id="p-Service_Referral_3A_ResultGroupSpecimenDetail_SPECIMEN_7_1_6_1_2_2-errors"
+        see="#p-Service_Referral_3A_ResultGroupSpecimenDetail_SPECIMEN_7_1_6_1_2_2-errors">
+
+
+        <rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code = '101.20117']/cda:component/cda:section[cda:code/@code = '102.16144']/cda:entry/cda:observation[@classCode = 'OBS']/cda:entryRelationship/cda:organizer[@classCode = 'BATTERY']">
+
+            <report test="count(cda:component[cda:observation/cda:code/@code = '102.16156.231.1.2']) > 1"
+                >Error: Service Referral - 7.1.6.1.2.2 Result Group Specimen Detail (SPECIMEN) -
+                "Result Group Specimen Detail (SPECIMEN)" -
+                The 'component' tag shall appear only once for 'Result Group Specimen Detail (SPECIMEN)'.
+                Refer to section 7.1.6.1.2.2 having SCS Data Component 'Result Group Specimen Detail (SPECIMEN)' with the code/@code value '102.16156.231.1.2' and section 7.1.6.1.2.2 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</report>
+
+        </rule>
+
+
+        <rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code = '101.20117']/cda:component/cda:section[cda:code/@code = '102.16144']/cda:entry/cda:observation[@classCode = 'OBS']/cda:entryRelationship/cda:organizer[@classCode = 'BATTERY']/cda:component[cda:observation/cda:code/@code = '102.16156.231.1.2']">
+
+            <report test="count(cda:observation) > 1"
+                >Error: Service Referral - 7.1.6.1.2.2 Result Group Specimen Detail (SPECIMEN) -
+                "Result Group Specimen Detail (SPECIMEN)" -
+                The 'observation' tag shall appear only once.
+                Refer to section 7.1.6.1.2.2 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</report>
+
+        </rule>
+
+
+        <rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code = '101.20117']/cda:component/cda:section[cda:code/@code = '102.16144']/cda:entry/cda:observation[@classCode = 'OBS']/cda:entryRelationship/cda:organizer[@classCode = 'BATTERY']/cda:component/cda:observation[cda:code/@code = '102.16156.231.1.2']">
+
+            <assert test="@classCode"
+                >Error: Service Referral - 7.1.6.1.2.2 Result Group Specimen Detail (SPECIMEN) -
+                "Result Group Specimen Detail (SPECIMEN)" -
+                The 'observation' tag 'classCode' attribute is missing.
+                Refer to section 7.1.6.1.2.2 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</assert>
+
+            <assert test="not(@classCode) or normalize-space(@classCode) != ''"
+                >Error: Service Referral - 7.1.6.1.2.2 Result Group Specimen Detail (SPECIMEN) -
+                "Result Group Specimen Detail (SPECIMEN)" -
+                The 'observation' tag 'classCode' attribute shall contain a value.
+                Refer to section 7.1.6.1.2.2 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</assert>
+
+            <assert test="
+                not(@classCode) or normalize-space(@classCode) = '' or @classCode = 'OBS'"
+                >Error: Service Referral - 7.1.6.1.2.2 Result Group Specimen Detail (SPECIMEN) -
+                "Result Group Specimen Detail (SPECIMEN)" -
+                The 'observation' tag 'classCode' attribute shall contain the value 'OBS'.
+                Refer to section 7.1.6.1.2.2 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</assert>
+
+            <assert test="@moodCode"
+                >Error: Service Referral - 7.1.6.1.2.2 Result Group Specimen Detail (SPECIMEN) -
+                "Result Group Specimen Detail (SPECIMEN)" -
+                The 'observation' tag 'moodCode' attribute is missing.
+                Refer to section 7.1.6.1.2.2 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</assert>
+
+            <assert test="not(@moodCode) or normalize-space(@moodCode) != ''"
+                >Error: Service Referral - 7.1.6.1.2.2 Result Group Specimen Detail (SPECIMEN) -
+                "Result Group Specimen Detail (SPECIMEN)" -
+                The 'observation' tag 'moodCode' attribute shall contain a value.
+                Refer to section 7.1.6.1.2.2 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</assert>
+
+            <assert test="
+                not(@moodCode) or normalize-space(@moodCode) = '' or @moodCode = 'EVN'"
+                >Error: Service Referral - 7.1.6.1.2.2 Result Group Specimen Detail (SPECIMEN) -
+                "Result Group Specimen Detail (SPECIMEN)" -
+                The 'observation' tag 'moodCode' attribute shall contain the value 'EVN'.
+                Refer to section 7.1.6.1.2.2 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</assert>
+
+            <report test="count(cda:code) > 1"
+                >Error: Service Referral - 7.1.6.1.2.2 Result Group Specimen Detail (SPECIMEN) -
+                "Result Group Specimen Detail (SPECIMEN)" -
+                The 'code' tag shall appear only once.
+                Refer to section 7.1.6.1.2.2 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</report>
+
+            <report test="count(cda:methodCode) > 1"
+                >Error: Service Referral - 7.1.6.1.2.2 Result Group Specimen Detail (SPECIMEN) -
+                "Result Group Specimen Detail (SPECIMEN) / Collection Procedure" -
+                The 'methodCode' tag shall appear only once.
+                Refer to section 7.1.6.1.2.2 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</report>
+
+            <report test="count(cda:entryRelationship[cda:observation/cda:code/@code = '103.16171']) > 1"
+                >Error: Service Referral - 7.1.6.1.2.2 Result Group Specimen Detail (SPECIMEN) -
+                "Result Group Specimen Detail (SPECIMEN) / COLLECTION AND HANDLING / Sampling Preconditions" -
+                The 'entryRelationship' tag shall appear only once for ' Sampling Preconditions'.
+                Refer to section 7.1.6.1.2.2 having SCS Data Component 'Result Group Specimen Detail (SPECIMEN) / COLLECTION AND HANDLING / Sampling Preconditions' with the code/@code value '103.16171' and section 7.1.6.1.2.2 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</report>
+
+            <assert test="cda:effectiveTime"
+                >Error: Service Referral - 7.1.6.1.2.2 Result Group Specimen Detail (SPECIMEN) -
+                "Result Group Specimen Detail (SPECIMEN) / HANDLING AND PROCESSING / Date and Time of Collection (Collection DateTime)" -
+                The 'effectiveTime' tag is missing.
+                Refer to section 7.1.6.1.2.2 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</assert>
+
+            <report test="count(cda:effectiveTime) > 1"
+                >Error: Service Referral - 7.1.6.1.2.2 Result Group Specimen Detail (SPECIMEN) -
+                "Result Group Specimen Detail (SPECIMEN) / HANDLING AND PROCESSING / Date and Time of Collection (Collection DateTime)" -
+                The 'effectiveTime' tag shall appear only once.
+                Refer to section 7.1.6.1.2.2 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</report>
+
+            <report test="count(cda:entryRelationship[cda:observation/cda:code/@code = '103.16529']) > 1"
+                >Error: Service Referral - 7.1.6.1.2.2 Result Group Specimen Detail (SPECIMEN) -
+                "Result Group Specimen Detail (SPECIMEN) / HANDLING AND PROCESSING / Collection Setting" -
+                The 'entryRelationship' tag shall appear only once for ' Collection Setting'.
+                Refer to section 7.1.6.1.2.2 having SCS Data Component 'Result Group Specimen Detail (SPECIMEN) / COLLECTION AND HANDLING / Collection Setting' with the code/@code value '103.16529' and section 7.1.6.1.2.2 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</report>
+
+            <report test="count(cda:entryRelationship[cda:observation/cda:code/@code = '103.11014']) > 1"
+                >Error: Service Referral - 7.1.6.1.2.2 Result Group Specimen Detail (SPECIMEN) -
+                "Result Group Specimen Detail (SPECIMEN) / HANDLING AND PROCESSING / Date and Time of Receipt (DateTime Received)" -
+                The 'entryRelationship' tag shall appear only once for ' Date and Time of Receipt (DateTime Received)'.
+                Refer to section 7.1.6.1.2.2 having SCS Data Component 'Result Group Specimen Detail (SPECIMEN) / COLLECTION AND HANDLING / Date and Time of Receipt (DateTime Received)' with the code/@code value '103.11014' and section 7.1.6.1.2.2 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</report>
+
+            <report test="count(cda:entryRelationship[cda:observation/cda:code/@code = '103.16187']) > 1"
+                >Error: Service Referral - 7.1.6.1.2.2 Result Group Specimen Detail (SPECIMEN) -
+                "Result Group Specimen Detail (SPECIMEN) / IDENTIFIERS / Parent Specimen Identifier" -
+                The 'entryRelationship' tag shall appear only once for ' Parent Specimen Identifier'.
+                Refer to section 7.1.6.1.2.2 having SCS Data Component 'Result Group Specimen Detail (SPECIMEN) / IDENTIFIERS / Specimen Identifier' with the code/@code value '103.16187' and section 7.1.6.1.2.2 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</report>
+
+        </rule>
+
+
+        <rule context="cda:code[@code = '102.16156.231.1.2']">
+
+            <assert test="
+                count(/cda:ClinicalDocument//cda:code[@code = '102.16156.231.1.2']) =
+                count(/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code = '101.20117']/cda:component/cda:section[cda:code/@code = '102.16144']/cda:entry/cda:observation[@classCode='OBS']/cda:entryRelationship/cda:organizer[@classCode='BATTERY']/cda:component/cda:observation/cda:code[@code='102.16156.231.1.2'])"
+                >Error: Service Referral - 7.1.6.1.2.2 Result Group Specimen Detail (SPECIMEN) -
+                "Result Group Specimen Detail (SPECIMEN)" -
+                The '/ClinicalDocument/component/structuredBody/component/section[code/@code = '101.20117']/component/section[code/@code = '102.16144']/entry/observation[@classCode = 'OBS']/entryRelationship/organizer[@classCode = 'BATTERY']/component/observation/code[@code = '102.16156.231.1.2']' path -
+                1 or more tags are missing.
+                Refer to section 7.1.6.1.2.2 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</assert>
+
+            <assert test="@codeSystem"
+                >Error: Service Referral - 7.1.6.1.2.2 Result Group Specimen Detail (SPECIMEN) -
+                "Result Group Specimen Detail (SPECIMEN)" -
+                The 'code' tag 'codeSystem' attribute is missing.
+                Refer to section 7.1.6.1.2.2 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</assert>
+
+            <assert test="
+                not(@codeSystem) or normalize-space(@codeSystem) = '' or @codeSystem = '1.2.36.1.2001.1001.101'"
+                >Error: Service Referral - 7.1.6.1.2.2 Result Group Specimen Detail (SPECIMEN) -
+                "Result Group Specimen Detail (SPECIMEN)" -
+                The 'code' tag 'codeSystem' attribute shall contain the value '1.2.36.1.2001.1001.101'.
+                Refer to section 7.1.6.1.2.2 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</assert>
+
+            <assert test="
+                not(@displayName) or normalize-space(@displayName) = '' or translate(@displayName, 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ') = &quot;SPECIMEN&quot;"
+                >Error: Service Referral - 7.1.6.1.2.2 Result Group Specimen Detail (SPECIMEN) -
+                "Result Group Specimen Detail (SPECIMEN)" -
+                The 'code' tag 'displayName' attribute shall contain the value 'Specimen'.
+                Refer to section 7.1.6.1.2.2 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</assert>
+
+            <assert test="not(@displayName) or normalize-space(@displayName) != ''"
+                >Error: Service Referral - 7.1.6.1.2.2 Result Group Specimen Detail (SPECIMEN) -
+                "Result Group Specimen Detail (SPECIMEN)" -
+                The 'code' tag 'displayName' attribute shall contain a value.
+                Refer to section 7.1.6.1.2.2 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</assert>
+
+            <assert test="@displayName"
+                >Error: Service Referral - 7.1.6.1.2.2 Result Group Specimen Detail (SPECIMEN) -
+                "Result Group Specimen Detail (SPECIMEN)" -
+                The 'code' tag 'displayName' attribute is missing.
+                Refer to section 7.1.6.1.2.2 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</assert>
+
+            <assert test="not(cda:translation)"
+                >Error: Service Referral - 7.1.6.1.2.2 Result Group Specimen Detail (SPECIMEN) -
+                "Result Group Specimen Detail (SPECIMEN)" -
+                The 'translation' tag shall not be present.
+                Refer to section 7.1.6.1.2.2 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</assert>
+
+        </rule>
+
+
+        <rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code = '101.20117']/cda:component/cda:section[cda:code/@code = '102.16144']/cda:entry/cda:observation[@classCode = 'OBS']/cda:entryRelationship/cda:organizer[@classCode = 'BATTERY']/cda:component/cda:observation[cda:code/@code = '102.16156.231.1.2']/cda:specimen">
+
+            <report test="count(cda:specimenRole) > 1"
+                >Error: Service Referral - 7.1.6.1.2.2 Result Group Specimen Detail (SPECIMEN) -
+                "Result Group Specimen Detail (SPECIMEN) / Physical Details (PHYSICAL PROPERTIES OF AN OBJECT)" -
+                The 'specimenRole' tag shall appear only once.
+                Refer to section 7.1.6.1.2.2 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</report>
+
+        </rule>
+
+
+        <rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code = '101.20117']/cda:component/cda:section[cda:code/@code = '102.16144']/cda:entry/cda:observation[@classCode = 'OBS']/cda:entryRelationship/cda:organizer[@classCode = 'BATTERY']/cda:component/cda:observation[cda:code/@code = '102.16156.231.1.2']/cda:specimen/cda:specimenRole">
+
+            <report test="count(cda:specimenPlayingEntity) > 1"
+                >Error: Service Referral - 7.1.6.1.2.2 Result Group Specimen Detail (SPECIMEN) -
+                "Result Group Specimen Detail (SPECIMEN) / Physical Details (PHYSICAL PROPERTIES OF AN OBJECT)" -
+                The 'specimenPlayingEntity' tag shall appear only once.
+                Refer to section 7.1.6.1.2.2 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</report>
+
+            <report test="count(cda:id) > 1"
+                >Error: Service Referral - 7.1.6.1.2.2 Result Group Specimen Detail (SPECIMEN) -
+                "Result Group Specimen Detail (SPECIMEN) / IDENTIFIERS / Specimen Identifier" -
+                The 'id' tag shall appear only once.
+                Refer to section 7.1.6.1.2.2 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</report>
+
+        </rule>
+
+
+        <rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code = '101.20117']/cda:component/cda:section[cda:code/@code = '102.16144']/cda:entry/cda:observation[@classCode = 'OBS']/cda:entryRelationship/cda:organizer[@classCode = 'BATTERY']/cda:component/cda:observation[cda:code/@code = '102.16156.231.1.2']/cda:specimen/cda:specimenRole/cda:specimenPlayingEntity">
+
+            <report test="count(cda:code) > 1"
+                >Error: Service Referral - 7.1.6.1.2.2 Result Group Specimen Detail (SPECIMEN) -
+                "Result Group Specimen Detail (SPECIMEN) / Specimen Tissue Type" -
+                The 'code' tag shall appear only once.
+                Refer to section 7.1.6.1.2.2 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</report>
+
+            <report test="count(cda:quantity) > 1"
+                >Error: Service Referral - 7.1.6.1.2.2 Result Group Specimen Detail (SPECIMEN) -
+                "Result Group Specimen Detail (SPECIMEN) / Physical Details (PHYSICAL PROPERTIES OF AN OBJECT) / Weight OR Result Group Specimen Detail (SPECIMEN) / Physical Details (PHYSICAL PROPERTIES OF AN OBJECT) / DIMENSIONS / Volume" -
+                The 'quantity' tag shall appear only once.
+                Refer to section 7.1.6.1.2.2 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</report>
+
+            <assert test="cda:quantity"
+                >Error: Service Referral - 7.1.6.1.2.2 Result Group Specimen Detail (SPECIMEN) -
+                "Result Group Specimen Detail (SPECIMEN) / Physical Details (PHYSICAL PROPERTIES OF AN OBJECT) / Weight OR Result Group Specimen Detail (SPECIMEN) / Physical Details (PHYSICAL PROPERTIES OF AN OBJECT) / DIMENSIONS / Volume" -
+                The 'quantity' tag is missing.
+                Refer to section 7.1.6.1.2.2 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</assert>
+
+            <report test="count(cda:desc) > 1"
+                >Error: Service Referral - 7.1.6.1.2.2 Result Group Specimen Detail (SPECIMEN) -
+                "Result Group Specimen Detail (SPECIMEN) / Physical Details (PHYSICAL PROPERTIES OF AN OBJECT) / Description (Object Description)" -
+                The 'desc' tag shall appear only once.
+                Refer to section 7.1.6.1.2.2 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</report>
+
+            <report test="count(ext:asSpecimenInContainer) > 1"
+                >Error: Service Referral - 7.1.6.1.2.2 Result Group Specimen Detail (SPECIMEN) -
+                "Result Group Specimen Detail (SPECIMEN) / IDENTIFIERS / Container Identifier" -
+                The 'asSpecimenInContainer' tag shall appear only once.
+                Refer to section 7.1.6.1.2.2 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</report>
+
+        </rule>
+
+
+        <rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code = '101.20117']/cda:component/cda:section[cda:code/@code = '102.16144']/cda:entry/cda:observation[@classCode = 'OBS']/cda:entryRelationship/cda:organizer[@classCode = 'BATTERY']/cda:component/cda:observation[cda:code/@code = '102.16156.231.1.2']/cda:entryRelationship[cda:observationMedia]">
+
+            <assert test="@typeCode"
+                >Error: Service Referral - 7.1.6.1.2.2 Result Group Specimen Detail (SPECIMEN) -
+                "Result Group Specimen Detail (SPECIMEN) / Anatomical Site (ANATOMICAL LOCATION) / Anatomical Location Image and_or Result Group Specimen Detail (SPECIMEN) / Physical Details (PHYSICAL PROPERTIES OF AN OBJECT) / Image" -
+                The 'entryRelationship' tag 'typeCode' attribute is missing.
+                Refer to section 7.1.6.1.2.2 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</assert>
+
+            <assert test="not(@typeCode) or normalize-space(@typeCode) != ''"
+                >Error: Service Referral - 7.1.6.1.2.2 Result Group Specimen Detail (SPECIMEN) -
+                "Result Group Specimen Detail (SPECIMEN) / Anatomical Site (ANATOMICAL LOCATION) / Anatomical Location Image and_or Result Group Specimen Detail (SPECIMEN) / Physical Details (PHYSICAL PROPERTIES OF AN OBJECT) / Image" -
+                The 'entryRelationship' tag 'typeCode' attribute shall contain a value.
+                Refer to section 7.1.6.1.2.2 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</assert>
+
+            <assert test="
+                not(@typeCode) or normalize-space(@typeCode) = '' or @typeCode = 'SPRT'"
+                >Error: Service Referral - 7.1.6.1.2.2 Result Group Specimen Detail (SPECIMEN) -
+                "Result Group Specimen Detail (SPECIMEN) / Anatomical Site (ANATOMICAL LOCATION) / Anatomical Location Image and_or Result Group Specimen Detail (SPECIMEN) / Physical Details (PHYSICAL PROPERTIES OF AN OBJECT) / Image" -
+                The 'entryRelationship' tag 'typeCode' attribute shall contain the value 'SPRT'.
+                Refer to section 7.1.6.1.2.2 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</assert>
+
+            <report test="count(cda:observationMedia) > 1"
+                >Error: Service Referral - 7.1.6.1.2.2 Result Group Specimen Detail (SPECIMEN) -
+                "Result Group Specimen Detail (SPECIMEN) / Anatomical Site (ANATOMICAL LOCATION) / Anatomical Location Image and_or Result Group Specimen Detail (SPECIMEN) / Physical Details (PHYSICAL PROPERTIES OF AN OBJECT) / Image" -
+                The 'observationMedia' tag shall appear only once.
+                Refer to section 7.1.6.1.2.2 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</report>
+
+        </rule>
+
+
+        <rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code = '101.20117']/cda:component/cda:section[cda:code/@code = '102.16144']/cda:entry/cda:observation[@classCode = 'OBS']/cda:entryRelationship/cda:organizer[@classCode = 'BATTERY']/cda:component/cda:observation[cda:code/@code = '102.16156.231.1.2']/cda:entryRelationship[cda:observationMedia]/cda:observationMedia">
+
+            <assert test="@classCode"
+                >Error: Service Referral - 7.1.6.1.2.2 Result Group Specimen Detail (SPECIMEN) -
+                "Result Group Specimen Detail (SPECIMEN) / Anatomical Site (ANATOMICAL LOCATION) / Anatomical Location Image and_or Result Group Specimen Detail (SPECIMEN) / Physical Details (PHYSICAL PROPERTIES OF AN OBJECT) / Image" -
+                The 'observationMedia' tag 'classCode' attribute is missing.
+                Refer to section 7.1.6.1.2.2 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</assert>
+
+            <assert test="not(@classCode) or normalize-space(@classCode) != ''"
+                >Error: Service Referral - 7.1.6.1.2.2 Result Group Specimen Detail (SPECIMEN) -
+                "Result Group Specimen Detail (SPECIMEN) / Anatomical Site (ANATOMICAL LOCATION) / Anatomical Location Image and_or Result Group Specimen Detail (SPECIMEN) / Physical Details (PHYSICAL PROPERTIES OF AN OBJECT) / Image" -
+                The 'observationMedia' tag 'classCode' attribute shall contain a value.
+                Refer to section 7.1.6.1.2.2 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</assert>
+
+            <assert test="
+                not(@classCode) or normalize-space(@classCode) = '' or @classCode = 'OBS'"
+                >Error: Service Referral - 7.1.6.1.2.2 Result Group Specimen Detail (SPECIMEN) -
+                "Result Group Specimen Detail (SPECIMEN) / Anatomical Site (ANATOMICAL LOCATION) / Anatomical Location Image and_or Result Group Specimen Detail (SPECIMEN) / Physical Details (PHYSICAL PROPERTIES OF AN OBJECT) / Image" -
+                The 'observationMedia' tag 'classCode' attribute shall contain the value 'OBS'.
+                Refer to section 7.1.6.1.2.2 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</assert>
+
+            <assert test="@moodCode"
+                >Error: Service Referral - 7.1.6.1.2.2 Result Group Specimen Detail (SPECIMEN) -
+                "Result Group Specimen Detail (SPECIMEN) / Anatomical Site (ANATOMICAL LOCATION) / Anatomical Location Image and_or Result Group Specimen Detail (SPECIMEN) / Physical Details (PHYSICAL PROPERTIES OF AN OBJECT) / Image" -
+                The 'observationMedia' tag 'moodCode' attribute is missing.
+                Refer to section 7.1.6.1.2.2 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</assert>
+
+            <assert test="not(@moodCode) or normalize-space(@moodCode) != ''"
+                >Error: Service Referral - 7.1.6.1.2.2 Result Group Specimen Detail (SPECIMEN) -
+                "Result Group Specimen Detail (SPECIMEN) / Anatomical Site (ANATOMICAL LOCATION) / Anatomical Location Image and_or Result Group Specimen Detail (SPECIMEN) / Physical Details (PHYSICAL PROPERTIES OF AN OBJECT) / Image" -
+                The 'observationMedia' tag 'moodCode' attribute shall contain a value.
+                Refer to section 7.1.6.1.2.2 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</assert>
+
+            <assert test="
+                not(@moodCode) or normalize-space(@moodCode) = '' or @moodCode = 'EVN'"
+                >Error: Service Referral - 7.1.6.1.2.2 Result Group Specimen Detail (SPECIMEN) -
+                "Result Group Specimen Detail (SPECIMEN) / Anatomical Site (ANATOMICAL LOCATION) / Anatomical Location Image and_or Result Group Specimen Detail (SPECIMEN) / Physical Details (PHYSICAL PROPERTIES OF AN OBJECT) / Image" -
+                The 'observationMedia' tag 'moodCode' attribute shall contain the value 'EVN'.
+                Refer to section 7.1.6.1.2.2 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</assert>
+
+            <report test="count(cda:id) > 1"
+                >Error: Service Referral - 7.1.6.1.2.2 Result Group Specimen Detail (SPECIMEN) -
+                "Result Group Specimen Detail (SPECIMEN) / Anatomical Site (ANATOMICAL LOCATION) / Anatomical Location Image and_or Result Group Specimen Detail (SPECIMEN) / Physical Details (PHYSICAL PROPERTIES OF AN OBJECT) / Image" -
+                The 'id' tag shall appear only once.
+                Refer to section 7.1.6.1.2.2 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</report>
+
+            <assert test="cda:value"
+                >Error: Service Referral - 7.1.6.1.2.2 Result Group Specimen Detail (SPECIMEN) -
+                "Result Group Specimen Detail (SPECIMEN) / Anatomical Site (ANATOMICAL LOCATION) / Anatomical Location Image and_or Result Group Specimen Detail (SPECIMEN) / Physical Details (PHYSICAL PROPERTIES OF AN OBJECT) / Image" -
+                The 'value' tag is missing.
+                Refer to section 7.1.6.1.2.2 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</assert>
+
+            <report test="count(cda:value) > 1"
+                >Error: Service Referral - 7.1.6.1.2.2 Result Group Specimen Detail (SPECIMEN) -
+                "Result Group Specimen Detail (SPECIMEN) / Anatomical Site (ANATOMICAL LOCATION) / Anatomical Location Image and_or Result Group Specimen Detail (SPECIMEN) / Physical Details (PHYSICAL PROPERTIES OF AN OBJECT) / Image" -
+                The 'value' tag shall appear only once.
+                Refer to section 7.1.6.1.2.2 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</report>
+
+        </rule>
+
+
+        <rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code = '101.20117']/cda:component/cda:section[cda:code/@code = '102.16144']/cda:entry/cda:observation[@classCode = 'OBS']/cda:entryRelationship/cda:organizer[@classCode = 'BATTERY']/cda:component/cda:observation[cda:code/@code = '102.16156.231.1.2']/cda:specimen/cda:specimenRole/cda:specimenPlayingEntity/cda:quantity">
+
+            <report test="@xsi:type and normalize-space(@xsi:type) = ''"
+                >Error: Service Referral - 7.1.6.1.2.2 Result Group Specimen Detail (SPECIMEN) -
+                "Result Group Specimen Detail (SPECIMEN) / Physical Details (PHYSICAL PROPERTIES OF AN OBJECT) / Weight OR Result Group Specimen Detail (SPECIMEN) / Physical Details (PHYSICAL PROPERTIES OF AN OBJECT) / DIMENSIONS / Volume" -
+                The 'quantity' tag 'xsi:type' attribute shall contain a value.
+                Refer to section 7.1.6.1.2.2 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</report>
+
+            <report test="
+                @xsi:type and normalize-space(@xsi:type) != '' and 
+                normalize-space(@xsi:type) != 'PQ' and
+                not(substring-before(normalize-space(@xsi:type), ':') != '' and
+                    substring-after(normalize-space(@xsi:type), ':') = 'PQ')"
+                >Error: Service Referral - 7.1.6.1.2.2 Result Group Specimen Detail (SPECIMEN) -
+                "Result Group Specimen Detail (SPECIMEN) / Physical Details (PHYSICAL PROPERTIES OF AN OBJECT) / Weight OR Result Group Specimen Detail (SPECIMEN) / Physical Details (PHYSICAL PROPERTIES OF AN OBJECT) / DIMENSIONS / Volume" -
+                The 'quantity' tag 'xsi:type' attribute shall contain the value 'PQ'.
+                Refer to section 7.1.6.1.2.2 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</report>
+
+        </rule>
+
+
+        <rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code = '101.20117']/cda:component/cda:section[cda:code/@code = '102.16144']/cda:entry/cda:observation[@classCode = 'OBS']/cda:entryRelationship/cda:organizer[@classCode = 'BATTERY']/cda:component/cda:observation[cda:code/@code = '102.16156.231.1.2']/cda:specimen/cda:specimenRole/cda:specimenPlayingEntity/cda:desc">
+
+            <report test="@xsi:type and normalize-space(@xsi:type) = ''"
+                >Error: Service Referral - 7.1.6.1.2.2 Result Group Specimen Detail (SPECIMEN) -
+                "Result Group Specimen Detail (SPECIMEN) / Physical Details (PHYSICAL PROPERTIES OF AN OBJECT) / Description (Object Description)" -
+                The 'desc' tag 'xsi:type' attribute shall contain a value.
+                Refer to section 7.1.6.1.2.2 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</report>
+
+            <report test="
+                @xsi:type and normalize-space(@xsi:type) != '' and 
+                normalize-space(@xsi:type) != 'ST' and
+                not(substring-before(normalize-space(@xsi:type), ':') != '' and
+                    substring-after(normalize-space(@xsi:type), ':') = 'ST')"
+                >Error: Service Referral - 7.1.6.1.2.2 Result Group Specimen Detail (SPECIMEN) -
+                "Result Group Specimen Detail (SPECIMEN) / Physical Details (PHYSICAL PROPERTIES OF AN OBJECT) / Description (Object Description)" -
+                The 'desc' tag 'xsi:type' attribute shall contain the value 'ST'.
+                Refer to section 7.1.6.1.2.2 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</report>
+
+        </rule>
+
+
+        <rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code = '101.20117']/cda:component/cda:section[cda:code/@code = '102.16144']/cda:entry/cda:observation[@classCode = 'OBS']/cda:entryRelationship/cda:organizer[@classCode = 'BATTERY']/cda:component/cda:observation[cda:code/@code = '102.16156.231.1.2']/cda:entryRelationship[cda:observation/cda:code/@code = '103.16171']">
+
+            <assert test="@typeCode"
+                >Error: Service Referral - 7.1.6.1.2.2 Result Group Specimen Detail (SPECIMEN) -
+                "Result Group Specimen Detail (SPECIMEN) / COLLECTION AND HANDLING / Sampling Preconditions" -
+                The 'entryRelationship' tag 'typeCode' attribute is missing.
+                Refer to section 7.1.6.1.2.2 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</assert>
+
+            <assert test="not(@typeCode) or normalize-space(@typeCode) != ''"
+                >Error: Service Referral - 7.1.6.1.2.2 Result Group Specimen Detail (SPECIMEN) -
+                "Result Group Specimen Detail (SPECIMEN) / COLLECTION AND HANDLING / Sampling Preconditions" -
+                The 'entryRelationship' tag 'typeCode' attribute shall contain a value.
+                Refer to section 7.1.6.1.2.2 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</assert>
+
+            <assert test="
+                not(@typeCode) or normalize-space(@typeCode) = '' or @typeCode = 'COMP'"
+                >Error: Service Referral - 7.1.6.1.2.2 Result Group Specimen Detail (SPECIMEN) -
+                "Result Group Specimen Detail (SPECIMEN) / COLLECTION AND HANDLING / Sampling Preconditions" -
+                The 'entryRelationship' tag 'typeCode' attribute shall contain the value 'COMP'.
+                Refer to section 7.1.6.1.2.2 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</assert>
+
+            <report test="count(cda:observation) > 1"
+                >Error: Service Referral - 7.1.6.1.2.2 Result Group Specimen Detail (SPECIMEN) -
+                "Result Group Specimen Detail (SPECIMEN) / COLLECTION AND HANDLING / Sampling Preconditions" -
+                The 'observation' tag shall appear only once.
+                Refer to section 7.1.6.1.2.2 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</report>
+
+        </rule>
+
+
+        <rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code = '101.20117']/cda:component/cda:section[cda:code/@code = '102.16144']/cda:entry/cda:observation[@classCode = 'OBS']/cda:entryRelationship/cda:organizer[@classCode = 'BATTERY']/cda:component/cda:observation[cda:code/@code = '102.16156.231.1.2']/cda:entryRelationship/cda:observation[cda:code/@code = '103.16171']">
+
+            <assert test="@classCode"
+                >Error: Service Referral - 7.1.6.1.2.2 Result Group Specimen Detail (SPECIMEN) -
+                "Result Group Specimen Detail (SPECIMEN) / COLLECTION AND HANDLING / Sampling Preconditions" -
+                The 'observation' tag 'classCode' attribute is missing.
+                Refer to section 7.1.6.1.2.2 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</assert>
+
+            <assert test="not(@classCode) or normalize-space(@classCode) != ''"
+                >Error: Service Referral - 7.1.6.1.2.2 Result Group Specimen Detail (SPECIMEN) -
+                "Result Group Specimen Detail (SPECIMEN) / COLLECTION AND HANDLING / Sampling Preconditions" -
+                The 'observation' tag 'classCode' attribute shall contain a value.
+                Refer to section 7.1.6.1.2.2 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</assert>
+
+            <assert test="
+                not(@classCode) or normalize-space(@classCode) = '' or @classCode = 'OBS'"
+                >Error: Service Referral - 7.1.6.1.2.2 Result Group Specimen Detail (SPECIMEN) -
+                "Result Group Specimen Detail (SPECIMEN) / COLLECTION AND HANDLING / Sampling Preconditions" -
+                The 'observation' tag 'classCode' attribute shall contain the value 'OBS'.
+                Refer to section 7.1.6.1.2.2 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</assert>
+
+            <assert test="@moodCode"
+                >Error: Service Referral - 7.1.6.1.2.2 Result Group Specimen Detail (SPECIMEN) -
+                "Result Group Specimen Detail (SPECIMEN) / COLLECTION AND HANDLING / Sampling Preconditions" -
+                The 'observation' tag 'moodCode' attribute is missing.
+                Refer to section 7.1.6.1.2.2 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</assert>
+
+            <assert test="not(@moodCode) or normalize-space(@moodCode) != ''"
+                >Error: Service Referral - 7.1.6.1.2.2 Result Group Specimen Detail (SPECIMEN) -
+                "Result Group Specimen Detail (SPECIMEN) / COLLECTION AND HANDLING / Sampling Preconditions" -
+                The 'observation' tag 'moodCode' attribute shall contain a value.
+                Refer to section 7.1.6.1.2.2 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</assert>
+
+            <assert test="
+                not(@moodCode) or normalize-space(@moodCode) = '' or @moodCode = 'EVN'"
+                >Error: Service Referral - 7.1.6.1.2.2 Result Group Specimen Detail (SPECIMEN) -
+                "Result Group Specimen Detail (SPECIMEN) / COLLECTION AND HANDLING / Sampling Preconditions" -
+                The 'observation' tag 'moodCode' attribute shall contain the value 'EVN'.
+                Refer to section 7.1.6.1.2.2 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</assert>
+
+            <report test="count(cda:code) > 1"
+                >Error: Service Referral - 7.1.6.1.2.2 Result Group Specimen Detail (SPECIMEN) -
+                "Result Group Specimen Detail (SPECIMEN) / COLLECTION AND HANDLING / Sampling Preconditions" -
+                The 'code' tag shall appear only once.
+                Refer to section 7.1.6.1.2.2 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</report>
+
+            <assert test="cda:value"
+                >Error: Service Referral - 7.1.6.1.2.2 Result Group Specimen Detail (SPECIMEN) -
+                "Result Group Specimen Detail (SPECIMEN) / COLLECTION AND HANDLING / Sampling Preconditions" -
+                The 'value' tag is missing.
+                Refer to section 7.1.6.1.2.2 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</assert>
+
+            <report test="count(cda:value) > 1"
+                >Error: Service Referral - 7.1.6.1.2.2 Result Group Specimen Detail (SPECIMEN) -
+                "Result Group Specimen Detail (SPECIMEN) / COLLECTION AND HANDLING / Sampling Preconditions" -
+                The 'value' tag shall appear only once.
+                Refer to section 7.1.6.1.2.2 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</report>
+
+        </rule>
+
+
+        <rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code = '101.20117']/cda:component/cda:section[cda:code/@code = '102.16144']/cda:entry/cda:observation[@classCode = 'OBS']/cda:entryRelationship/cda:organizer[@classCode = 'BATTERY']/cda:component/cda:observation[cda:code/@code = '102.16156.231.1.2']/cda:entryRelationship/cda:observation/cda:code[@code = '103.16171']">
+
+            <assert test="@codeSystem"
+                >Error: Service Referral - 7.1.6.1.2.2 Result Group Specimen Detail (SPECIMEN) -
+                "Result Group Specimen Detail (SPECIMEN) / COLLECTION AND HANDLING / Sampling Preconditions" -
+                The 'code' tag 'codeSystem' attribute is missing.
+                Refer to section 7.1.6.1.2.2 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</assert>
+
+            <assert test="
+                not(@codeSystem) or normalize-space(@codeSystem) = '' or @codeSystem = '1.2.36.1.2001.1001.101'"
+                >Error: Service Referral - 7.1.6.1.2.2 Result Group Specimen Detail (SPECIMEN) -
+                "Result Group Specimen Detail (SPECIMEN) / COLLECTION AND HANDLING / Sampling Preconditions" -
+                The 'code' tag 'codeSystem' attribute shall contain the value '1.2.36.1.2001.1001.101'.
+                Refer to section 7.1.6.1.2.2 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</assert>
+
+            <assert test="not(@displayName) or normalize-space(@displayName) != ''"
+                >Error: Service Referral - 7.1.6.1.2.2 Result Group Specimen Detail (SPECIMEN) -
+                "Result Group Specimen Detail (SPECIMEN) / COLLECTION AND HANDLING / Sampling Preconditions" -
+                The 'code' tag 'displayName' attribute shall contain a value.
+                Refer to section 7.1.6.1.2.2 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</assert>
+
+            <assert test="
+                not(@displayName) or normalize-space(@displayName) = '' or translate(@displayName, 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ') = &quot;SAMPLING PRECONDITIONS&quot;"
+                >Error: Service Referral - 7.1.6.1.2.2 Result Group Specimen Detail (SPECIMEN) -
+                "Result Group Specimen Detail (SPECIMEN) / COLLECTION AND HANDLING / Sampling Preconditions" -
+                The 'code' tag 'displayName' attribute shall contain the value 'Sampling Preconditions'.
+                Refer to section 7.1.6.1.2.2 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</assert>
+
+            <assert test="@displayName"
+                >Error: Service Referral - 7.1.6.1.2.2 Result Group Specimen Detail (SPECIMEN) -
+                "Result Group Specimen Detail (SPECIMEN) / COLLECTION AND HANDLING / Sampling Preconditions" -
+                The 'code' tag 'displayName' attribute is missing.
+                Refer to section 7.1.6.1.2.2 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</assert>
+
+            <assert test="not(cda:translation)"
+                >Error: Service Referral - 7.1.6.1.2.2 Result Group Specimen Detail (SPECIMEN) -
+                "Result Group Specimen Detail (SPECIMEN) / COLLECTION AND HANDLING / Sampling Preconditions" -
+                The 'translation' tag shall not be present.
+                Refer to section 7.1.6.1.2.2 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</assert>
+
+        </rule>
+
+
+        <rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code = '101.20117']/cda:component/cda:section[cda:code/@code = '102.16144']/cda:entry/cda:observation[@classCode = 'OBS']/cda:entryRelationship/cda:organizer[@classCode = 'BATTERY']/cda:component/cda:observation[cda:code/@code = '102.16156.231.1.2']/cda:entryRelationship/cda:observation[cda:code/@code = '103.16171']/cda:value">
+
+            <report test="@xsi:type and normalize-space(@xsi:type) = ''"
+                >Error: Service Referral - 7.1.6.1.2.2 Result Group Specimen Detail (SPECIMEN) -
+                "Result Group Specimen Detail (SPECIMEN) / COLLECTION AND HANDLING / Sampling Preconditions" -
+                The 'value' tag 'xsi:type' attribute shall contain a value.
+                Refer to section 7.1.6.1.2.2 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</report>
+
+            <assert test="
+                not(@xsi:type) or normalize-space(@xsi:type) = '' or 
+                normalize-space(@xsi:type) = 'CD' or
+                (substring-before(normalize-space(@xsi:type), ':') != '' and
+                substring-after(normalize-space(@xsi:type), ':') = 'CD') or 
+                normalize-space(@xsi:type) = 'CE' or
+                (substring-before(normalize-space(@xsi:type), ':') != '' and
+                substring-after(normalize-space(@xsi:type), ':') = 'CE')"
+                >Error: Service Referral - 7.1.6.1.2.2 Result Group Specimen Detail (SPECIMEN) -
+            	"Result Group Specimen Detail (SPECIMEN) / COLLECTION AND HANDLING / Sampling Preconditions" - The 'value' tag 'xsi:type' attribute shall
+                contain the value 'CD' or 'CE'. Refer to section 7.1.6.1.2.2 of the
+            	Service_Referral_CDA_Implementation_Guide_v1.1.</assert>
+
+        </rule>
+
+
+        <rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code = '101.20117']/cda:component/cda:section[cda:code/@code = '102.16144']/cda:entry/cda:observation[@classCode = 'OBS']/cda:entryRelationship/cda:organizer[@classCode = 'BATTERY']/cda:component/cda:observation[cda:code/@code = '102.16156.231.1.2']/cda:entryRelationship[cda:observation/cda:code/@code = '103.16529']">
+
+            <assert test="@typeCode"
+                >Error: Service Referral - 7.1.6.1.2.2 Result Group Specimen Detail (SPECIMEN) -
+                "Result Group Specimen Detail (SPECIMEN) / HANDLING AND PROCESSING / Collection Setting" -
+                The 'entryRelationship' tag 'typeCode' attribute is missing.
+                Refer to section 7.1.6.1.2.2 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</assert>
+
+            <assert test="not(@typeCode) or normalize-space(@typeCode) != ''"
+                >Error: Service Referral - 7.1.6.1.2.2 Result Group Specimen Detail (SPECIMEN) -
+                "Result Group Specimen Detail (SPECIMEN) / HANDLING AND PROCESSING / Collection Setting" -
+                The 'entryRelationship' tag 'typeCode' attribute shall contain a value.
+                Refer to section 7.1.6.1.2.2 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</assert>
+
+            <assert test="
+                not(@typeCode) or normalize-space(@typeCode) = '' or @typeCode = 'COMP'"
+                >Error: Service Referral - 7.1.6.1.2.2 Result Group Specimen Detail (SPECIMEN) -
+                "Result Group Specimen Detail (SPECIMEN) / HANDLING AND PROCESSING / Collection Setting" -
+                The 'entryRelationship' tag 'typeCode' attribute shall contain the value 'COMP'.
+                Refer to section 7.1.6.1.2.2 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</assert>
+
+            <report test="count(cda:observation) > 1"
+                >Error: Service Referral - 7.1.6.1.2.2 Result Group Specimen Detail (SPECIMEN) -
+                "Result Group Specimen Detail (SPECIMEN) / HANDLING AND PROCESSING / Collection Setting" -
+                The 'observation' tag shall appear only once.
+                Refer to section 7.1.6.1.2.2 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</report>
+
+        </rule>
+
+
+        <rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code = '101.20117']/cda:component/cda:section[cda:code/@code = '102.16144']/cda:entry/cda:observation[@classCode = 'OBS']/cda:entryRelationship/cda:organizer[@classCode = 'BATTERY']/cda:component/cda:observation[cda:code/@code = '102.16156.231.1.2']/cda:entryRelationship/cda:observation[cda:code/@code = '103.16529']">
+
+            <assert test="@classCode"
+                >Error: Service Referral - 7.1.6.1.2.2 Result Group Specimen Detail (SPECIMEN) -
+                "Result Group Specimen Detail (SPECIMEN) / HANDLING AND PROCESSING / Collection Setting" -
+                The 'observation' tag 'classCode' attribute is missing.
+                Refer to section 7.1.6.1.2.2 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</assert>
+
+            <assert test="not(@classCode) or normalize-space(@classCode) != ''"
+                >Error: Service Referral - 7.1.6.1.2.2 Result Group Specimen Detail (SPECIMEN) -
+                "Result Group Specimen Detail (SPECIMEN) / HANDLING AND PROCESSING / Collection Setting" -
+                The 'observation' tag 'classCode' attribute shall contain a value.
+                Refer to section 7.1.6.1.2.2 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</assert>
+
+            <assert test="
+                not(@classCode) or normalize-space(@classCode) = '' or @classCode = 'OBS'"
+                >Error: Service Referral - 7.1.6.1.2.2 Result Group Specimen Detail (SPECIMEN) -
+                "Result Group Specimen Detail (SPECIMEN) / HANDLING AND PROCESSING / Collection Setting" -
+                The 'observation' tag 'classCode' attribute shall contain the value 'OBS'.
+                Refer to section 7.1.6.1.2.2 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</assert>
+
+            <assert test="@moodCode"
+                >Error: Service Referral - 7.1.6.1.2.2 Result Group Specimen Detail (SPECIMEN) -
+                "Result Group Specimen Detail (SPECIMEN) / HANDLING AND PROCESSING / Collection Setting" -
+                The 'observation' tag 'moodCode' attribute is missing.
+                Refer to section 7.1.6.1.2.2 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</assert>
+
+            <assert test="not(@moodCode) or normalize-space(@moodCode) != ''"
+                >Error: Service Referral - 7.1.6.1.2.2 Result Group Specimen Detail (SPECIMEN) -
+                "Result Group Specimen Detail (SPECIMEN) / HANDLING AND PROCESSING / Collection Setting" -
+                The 'observation' tag 'moodCode' attribute shall contain a value.
+                Refer to section 7.1.6.1.2.2 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</assert>
+
+            <assert test="
+                not(@moodCode) or normalize-space(@moodCode) = '' or @moodCode = 'EVN'"
+                >Error: Service Referral - 7.1.6.1.2.2 Result Group Specimen Detail (SPECIMEN) -
+                "Result Group Specimen Detail (SPECIMEN) / HANDLING AND PROCESSING / Collection Setting" -
+                The 'observation' tag 'moodCode' attribute shall contain the value 'EVN'.
+                Refer to section 7.1.6.1.2.2 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</assert>
+
+            <report test="count(cda:code) > 1"
+                >Error: Service Referral - 7.1.6.1.2.2 Result Group Specimen Detail (SPECIMEN) -
+                "Result Group Specimen Detail (SPECIMEN) / HANDLING AND PROCESSING / Collection Setting" -
+                The 'code' tag shall appear only once.
+                Refer to section 7.1.6.1.2.2 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</report>
+
+            <assert test="cda:value"
+                >Error: Service Referral - 7.1.6.1.2.2 Result Group Specimen Detail (SPECIMEN) -
+                "Result Group Specimen Detail (SPECIMEN) / HANDLING AND PROCESSING / Collection Setting" -
+                The 'value' tag is missing.
+                Refer to section 7.1.6.1.2.2 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</assert>
+
+            <report test="count(cda:value) > 1"
+                >Error: Service Referral - 7.1.6.1.2.2 Result Group Specimen Detail (SPECIMEN) -
+                "Result Group Specimen Detail (SPECIMEN) / HANDLING AND PROCESSING / Collection Setting" -
+                The 'value' tag shall appear only once.
+                Refer to section 7.1.6.1.2.2 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</report>
+
+        </rule>
+
+
+        <rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code = '101.20117']/cda:component/cda:section[cda:code/@code = '102.16144']/cda:entry/cda:observation[@classCode = 'OBS']/cda:entryRelationship/cda:organizer[@classCode = 'BATTERY']/cda:component/cda:observation[cda:code/@code = '102.16156.231.1.2']/cda:entryRelationship/cda:observation/cda:code[@code = '103.16529']">
+
+            <assert test="@codeSystem"
+                >Error: Service Referral - 7.1.6.1.2.2 Result Group Specimen Detail (SPECIMEN) -
+                "Result Group Specimen Detail (SPECIMEN) / HANDLING AND PROCESSING / Collection Setting" -
+                The 'code' tag 'codeSystem' attribute is missing.
+                Refer to section 7.1.6.1.2.2 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</assert>
+
+            <assert test="
+                not(@codeSystem) or normalize-space(@codeSystem) = '' or translate(@codeSystem, 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ') = &quot;1.2.36.1.2001.1001.101&quot;"
+                >Error: Service Referral - 7.1.6.1.2.2 Result Group Specimen Detail (SPECIMEN) -
+                "Result Group Specimen Detail (SPECIMEN) / HANDLING AND PROCESSING / Collection Setting" -
+                The 'code' tag 'codeSystem' attribute shall contain the value '1.2.36.1.2001.1001.101'.
+                Refer to section 7.1.6.1.2.2 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</assert>
+
+            <assert test="not(@displayName) or normalize-space(@displayName) != ''"
+                >Error: Service Referral - 7.1.6.1.2.2 Result Group Specimen Detail (SPECIMEN) -
+                "Result Group Specimen Detail (SPECIMEN) / HANDLING AND PROCESSING / Collection Setting" -
+                The 'code' tag 'displayName' attribute shall contain a value.
+                Refer to section 7.1.6.1.2.2 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</assert>
+
+            <assert test="
+                not(@displayName) or normalize-space(@displayName) = '' or translate(@displayName, 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ') = &quot;COLLECTION SETTING&quot;"
+                >Error: Service Referral - 7.1.6.1.2.2 Result Group Specimen Detail (SPECIMEN) -
+                "Result Group Specimen Detail (SPECIMEN) / HANDLING AND PROCESSING / Collection Setting" -
+                The 'code' tag 'displayName' attribute shall contain the value 'Collection Setting'.
+                Refer to section 7.1.6.1.2.2 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</assert>
+
+            <assert test="@displayName"
+                >Error: Service Referral - 7.1.6.1.2.2 Result Group Specimen Detail (SPECIMEN) -
+                "Result Group Specimen Detail (SPECIMEN) / HANDLING AND PROCESSING / Collection Setting" -
+                The 'code' tag 'displayName' attribute is missing.
+                Refer to section 7.1.6.1.2.2 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</assert>
+
+            <assert test="not(cda:translation)"
+                >Error: Service Referral - 7.1.6.1.2.2 Result Group Specimen Detail (SPECIMEN) -
+                "Result Group Specimen Detail (SPECIMEN) / HANDLING AND PROCESSING / Collection Setting" -
+                The 'translation' tag shall not be present.
+                Refer to section 7.1.6.1.2.2 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</assert>
+
+        </rule>
+
+
+        <rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code = '101.20117']/cda:component/cda:section[cda:code/@code = '102.16144']/cda:entry/cda:observation[@classCode = 'OBS']/cda:entryRelationship/cda:organizer[@classCode = 'BATTERY']/cda:component/cda:observation[cda:code/@code = '102.16156.231.1.2']/cda:entryRelationship/cda:observation[cda:code/@code = '103.16529']/cda:value">
+
+            <report test="@xsi:type and normalize-space(@xsi:type) = ''"
+                >Error: Service Referral - 7.1.6.1.2.2 Result Group Specimen Detail (SPECIMEN) -
+                "Result Group Specimen Detail (SPECIMEN) / HANDLING AND PROCESSING / Collection Setting" -
+                The 'value' tag 'xsi:type' attribute shall contain a value.
+                Refer to section 7.1.6.1.2.2 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</report>
+
+            <report test="
+                @xsi:type and normalize-space(@xsi:type) != '' and 
+                normalize-space(@xsi:type) != 'ST' and
+                not(substring-before(normalize-space(@xsi:type), ':') != '' and
+                    substring-after(normalize-space(@xsi:type), ':') = 'ST')"
+                >Error: Service Referral - 7.1.6.1.2.2 Result Group Specimen Detail (SPECIMEN) -
+                "Result Group Specimen Detail (SPECIMEN) / HANDLING AND PROCESSING / Collection Setting" -
+                The 'value' tag 'xsi:type' attribute shall contain the value 'ST'.
+                Refer to section 7.1.6.1.2.2 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</report>
+
+        </rule>
+
+
+        <rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code = '101.20117']/cda:component/cda:section[cda:code/@code = '102.16144']/cda:entry/cda:observation[@classCode = 'OBS']/cda:entryRelationship/cda:organizer[@classCode = 'BATTERY']/cda:component/cda:observation[cda:code/@code = '102.16156.231.1.2']/cda:entryRelationship[cda:observation/cda:code/@code = '103.11014']">
+
+            <assert test="@typeCode"
+                >Error: Service Referral - 7.1.6.1.2.2 Result Group Specimen Detail (SPECIMEN) -
+                "Result Group Specimen Detail (SPECIMEN) / HANDLING AND PROCESSING / Date and Time of Receipt (DateTime Received)" -
+                The 'entryRelationship' tag 'typeCode' attribute is missing.
+                Refer to section 7.1.6.1.2.2 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</assert>
+
+            <assert test="not(@typeCode) or normalize-space(@typeCode) != ''"
+                >Error: Service Referral - 7.1.6.1.2.2 Result Group Specimen Detail (SPECIMEN) -
+                "Result Group Specimen Detail (SPECIMEN) / HANDLING AND PROCESSING / Date and Time of Receipt (DateTime Received)" -
+                The 'entryRelationship' tag 'typeCode' attribute shall contain a value.
+                Refer to section 7.1.6.1.2.2 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</assert>
+
+            <assert test="
+                not(@typeCode) or normalize-space(@typeCode) = '' or @typeCode = 'COMP'"
+                >Error: Service Referral - 7.1.6.1.2.2 Result Group Specimen Detail (SPECIMEN) -
+                "Result Group Specimen Detail (SPECIMEN) / HANDLING AND PROCESSING / Date and Time of Receipt (DateTime Received)" -
+                The 'entryRelationship' tag 'typeCode' attribute shall contain the value 'COMP'.
+                Refer to section 7.1.6.1.2.2 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</assert>
+
+            <report test="count(cda:observation) > 1"
+                >Error: Service Referral - 7.1.6.1.2.2 Result Group Specimen Detail (SPECIMEN) -
+                "Result Group Specimen Detail (SPECIMEN) / HANDLING AND PROCESSING / Date and Time of Receipt (DateTime Received)" -
+                The 'observation' tag shall appear only once.
+                Refer to section 7.1.6.1.2.2 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</report>
+
+        </rule>
+
+
+        <rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code = '101.20117']/cda:component/cda:section[cda:code/@code = '102.16144']/cda:entry/cda:observation[@classCode = 'OBS']/cda:entryRelationship/cda:organizer[@classCode = 'BATTERY']/cda:component/cda:observation[cda:code/@code = '102.16156.231.1.2']/cda:entryRelationship/cda:observation[cda:code/@code = '103.11014']">
+
+            <assert test="@classCode"
+                >Error: Service Referral - 7.1.6.1.2.2 Result Group Specimen Detail (SPECIMEN) -
+                "Result Group Specimen Detail (SPECIMEN) / HANDLING AND PROCESSING / Date and Time of Receipt (DateTime Received)" -
+                The 'observation' tag 'classCode' attribute is missing.
+                Refer to section 7.1.6.1.2.2 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</assert>
+
+            <assert test="not(@classCode) or normalize-space(@classCode) != ''"
+                >Error: Service Referral - 7.1.6.1.2.2 Result Group Specimen Detail (SPECIMEN) -
+                "Result Group Specimen Detail (SPECIMEN) / HANDLING AND PROCESSING / Date and Time of Receipt (DateTime Received)" -
+                The 'observation' tag 'classCode' attribute shall contain a value.
+                Refer to section 7.1.6.1.2.2 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</assert>
+
+            <assert test="
+                not(@classCode) or normalize-space(@classCode) = '' or @classCode = 'OBS'"
+                >Error: Service Referral - 7.1.6.1.2.2 Result Group Specimen Detail (SPECIMEN) -
+                "Result Group Specimen Detail (SPECIMEN) / HANDLING AND PROCESSING / Date and Time of Receipt (DateTime Received)" -
+                The 'observation' tag 'classCode' attribute shall contain the value 'OBS'.
+                Refer to section 7.1.6.1.2.2 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</assert>
+
+            <assert test="@moodCode"
+                >Error: Service Referral - 7.1.6.1.2.2 Result Group Specimen Detail (SPECIMEN) -
+                "Result Group Specimen Detail (SPECIMEN) / HANDLING AND PROCESSING / Date and Time of Receipt (DateTime Received)" -
+                The 'observation' tag 'moodCode' attribute is missing.
+                Refer to section 7.1.6.1.2.2 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</assert>
+
+            <assert test="not(@moodCode) or normalize-space(@moodCode) != ''"
+                >Error: Service Referral - 7.1.6.1.2.2 Result Group Specimen Detail (SPECIMEN) -
+                "Result Group Specimen Detail (SPECIMEN) / HANDLING AND PROCESSING / Date and Time of Receipt (DateTime Received)" -
+                The 'observation' tag 'moodCode' attribute shall contain a value.
+                Refer to section 7.1.6.1.2.2 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</assert>
+
+            <assert test="
+                not(@moodCode) or normalize-space(@moodCode) = '' or @moodCode = 'EVN'"
+                >Error: Service Referral - 7.1.6.1.2.2 Result Group Specimen Detail (SPECIMEN) -
+                "Result Group Specimen Detail (SPECIMEN) / HANDLING AND PROCESSING / Date and Time of Receipt (DateTime Received)" -
+                The 'observation' tag 'moodCode' attribute shall contain the value 'EVN'.
+                Refer to section 7.1.6.1.2.2 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</assert>
+
+            <report test="count(cda:code) > 1"
+                >Error: Service Referral - 7.1.6.1.2.2 Result Group Specimen Detail (SPECIMEN) -
+                "Result Group Specimen Detail (SPECIMEN) / HANDLING AND PROCESSING / Date and Time of Receipt (DateTime Received)" -
+                The 'code' tag shall appear only once.
+                Refer to section 7.1.6.1.2.2 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</report>
+
+            <assert test="cda:value"
+                >Error: Service Referral - 7.1.6.1.2.2 Result Group Specimen Detail (SPECIMEN) -
+                "Result Group Specimen Detail (SPECIMEN) / HANDLING AND PROCESSING / Date and Time of Receipt (DateTime Received)" -
+                The 'value' tag is missing.
+                Refer to section 7.1.6.1.2.2 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</assert>
+
+            <report test="count(cda:value) > 1"
+                >Error: Service Referral - 7.1.6.1.2.2 Result Group Specimen Detail (SPECIMEN) -
+                "Result Group Specimen Detail (SPECIMEN) / HANDLING AND PROCESSING / Date and Time of Receipt (DateTime Received)" -
+                The 'value' tag shall appear only once.
+                Refer to section 7.1.6.1.2.2 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</report>
+
+        </rule>
+
+
+        <rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code = '101.20117']/cda:component/cda:section[cda:code/@code = '102.16144']/cda:entry/cda:observation[@classCode = 'OBS']/cda:entryRelationship/cda:organizer[@classCode = 'BATTERY']/cda:component/cda:observation[cda:code/@code = '102.16156.231.1.2']/cda:entryRelationship/cda:observation/cda:code[@code = '103.11014']">
+
+            <assert test="@codeSystem"
+                >Error: Service Referral - 7.1.6.1.2.2 Result Group Specimen Detail (SPECIMEN) -
+                "Result Group Specimen Detail (SPECIMEN) / HANDLING AND PROCESSING / Date and Time of Receipt (DateTime Received)" -
+                The 'code' tag 'codeSystem' attribute is missing.
+                Refer to section 7.1.6.1.2.2 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</assert>
+
+            <assert test="
+                not(@codeSystem) or normalize-space(@codeSystem) = '' or @codeSystem = '1.2.36.1.2001.1001.101'"
+                >Error: Service Referral - 7.1.6.1.2.2 Result Group Specimen Detail (SPECIMEN) -
+                "Result Group Specimen Detail (SPECIMEN) / HANDLING AND PROCESSING / Date and Time of Receipt (DateTime Received)" -
+                The 'code' tag 'codeSystem' attribute shall contain the value '1.2.36.1.2001.1001.101'.
+                Refer to section 7.1.6.1.2.2 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</assert>
+
+            <assert test="not(@displayName) or normalize-space(@displayName) != ''"
+                >Error: Service Referral - 7.1.6.1.2.2 Result Group Specimen Detail (SPECIMEN) -
+                "Result Group Specimen Detail (SPECIMEN) / HANDLING AND PROCESSING / Date and Time of Receipt (DateTime Received)" -
+                The 'code' tag 'displayName' attribute shall contain a value.
+                Refer to section 7.1.6.1.2.2 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</assert>
+
+            <assert test="
+                not(@displayName) or normalize-space(@displayName) = '' or translate(@displayName, 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ') = &quot;DATETIME RECEIVED&quot;"
+                >Error: Service Referral - 7.1.6.1.2.2 Result Group Specimen Detail (SPECIMEN) -
+                "Result Group Specimen Detail (SPECIMEN) / HANDLING AND PROCESSING / Date and Time of Receipt (DateTime Received)" -
+                The 'code' tag 'displayName' attribute shall contain the value 'DateTime Received'.
+                Refer to section 7.1.6.1.2.2 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</assert>
+
+            <assert test="@displayName"
+                >Error: Service Referral - 7.1.6.1.2.2 Result Group Specimen Detail (SPECIMEN) -
+                "Result Group Specimen Detail (SPECIMEN) / HANDLING AND PROCESSING / Date and Time of Receipt (DateTime Received)" -
+                The 'code' tag 'displayName' attribute is missing.
+                Refer to section 7.1.6.1.2.2 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</assert>
+
+            <assert test="not(cda:translation)"
+                >Error: Service Referral - 7.1.6.1.2.2 Result Group Specimen Detail (SPECIMEN) -
+                "Result Group Specimen Detail (SPECIMEN) / HANDLING AND PROCESSING / Date and Time of Receipt (DateTime Received)" -
+                The 'translation' tag shall not be present.
+                Refer to section 7.1.6.1.2.2 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</assert>
+
+        </rule>
+
+
+        <rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code = '101.20117']/cda:component/cda:section[cda:code/@code = '102.16144']/cda:entry/cda:observation[@classCode = 'OBS']/cda:entryRelationship/cda:organizer[@classCode = 'BATTERY']/cda:component/cda:observation[cda:code/@code = '102.16156.231.1.2']/cda:entryRelationship/cda:observation[cda:code/@code = '103.11014']/cda:value">
+
+            <report test="@xsi:type and normalize-space(@xsi:type) = ''"
+                >Error: Service Referral - 7.1.6.1.2.2 Result Group Specimen Detail (SPECIMEN) -
+                "Result Group Specimen Detail (SPECIMEN) / HANDLING AND PROCESSING / Date and Time of Receipt (DateTime Received)" -
+                The 'value' tag 'xsi:type' attribute shall contain a value.
+                Refer to section 7.1.6.1.2.2 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</report>
+
+            <report test="
+                @xsi:type and normalize-space(@xsi:type) != '' and 
+                normalize-space(@xsi:type) != 'TS' and
+                not(substring-before(normalize-space(@xsi:type), ':') != '' and
+                    substring-after(normalize-space(@xsi:type), ':') = 'TS')"
+                >Error: Service Referral - 7.1.6.1.2.2 Result Group Specimen Detail (SPECIMEN) -
+                "Result Group Specimen Detail (SPECIMEN) / HANDLING AND PROCESSING / Date and Time of Receipt (DateTime Received)" -
+                The 'value' tag 'xsi:type' attribute shall contain the value 'TS'.
+                Refer to section 7.1.6.1.2.2 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</report>
+
+        </rule>
+
+
+        <rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code = '101.20117']/cda:component/cda:section[cda:code/@code = '102.16144']/cda:entry/cda:observation[@classCode = 'OBS']/cda:entryRelationship/cda:organizer[@classCode = 'BATTERY']/cda:component/cda:observation[cda:code/@code = '102.16156.231.1.2']/cda:entryRelationship[cda:observation/cda:code/@code = '103.16187']">
+
+            <assert test="@typeCode"
+                >Error: Service Referral - 7.1.6.1.2.2 Result Group Specimen Detail (SPECIMEN) -
+                "Result Group Specimen Detail (SPECIMEN) / IDENTIFIERS / Parent Specimen Identifier" -
+                The 'entryRelationship' tag 'typeCode' attribute is missing.
+                Refer to section 7.1.6.1.2.2 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</assert>
+
+            <assert test="not(@typeCode) or normalize-space(@typeCode) != ''"
+                >Error: Service Referral - 7.1.6.1.2.2 Result Group Specimen Detail (SPECIMEN) -
+                "Result Group Specimen Detail (SPECIMEN) / IDENTIFIERS / Parent Specimen Identifier" -
+                The 'entryRelationship' tag 'typeCode' attribute shall contain a value.
+                Refer to section 7.1.6.1.2.2 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</assert>
+
+            <assert test="
+                not(@typeCode) or normalize-space(@typeCode) = '' or @typeCode = 'COMP'"
+                >Error: Service Referral - 7.1.6.1.2.2 Result Group Specimen Detail (SPECIMEN) -
+                "Result Group Specimen Detail (SPECIMEN) / IDENTIFIERS / Parent Specimen Identifier" -
+                The 'entryRelationship' tag 'typeCode' attribute shall contain the value 'COMP'.
+                Refer to section 7.1.6.1.2.2 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</assert>
+
+            <report test="count(cda:observation) > 1"
+                >Error: Service Referral - 7.1.6.1.2.2 Result Group Specimen Detail (SPECIMEN) -
+                "Result Group Specimen Detail (SPECIMEN) / IDENTIFIERS / Parent Specimen Identifier" -
+                The 'observation' tag shall appear only once.
+                Refer to section 7.1.6.1.2.2 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</report>
+
+        </rule>
+
+
+        <rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code = '101.20117']/cda:component/cda:section[cda:code/@code = '102.16144']/cda:entry/cda:observation[@classCode = 'OBS']/cda:entryRelationship/cda:organizer[@classCode = 'BATTERY']/cda:component/cda:observation[cda:code/@code = '102.16156.231.1.2']/cda:entryRelationship/cda:observation[cda:code/@code = '103.16187']">
+
+            <assert test="@classCode"
+                >Error: Service Referral - 7.1.6.1.2.2 Result Group Specimen Detail (SPECIMEN) -
+                "Result Group Specimen Detail (SPECIMEN) / IDENTIFIERS / Parent Specimen Identifier" -
+                The 'observation' tag 'classCode' attribute is missing.
+                Refer to section 7.1.6.1.2.2 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</assert>
+
+            <assert test="not(@classCode) or normalize-space(@classCode) != ''"
+                >Error: Service Referral - 7.1.6.1.2.2 Result Group Specimen Detail (SPECIMEN) -
+                "Result Group Specimen Detail (SPECIMEN) / IDENTIFIERS / Parent Specimen Identifier" -
+                The 'observation' tag 'classCode' attribute shall contain a value.
+                Refer to section 7.1.6.1.2.2 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</assert>
+
+            <assert test="
+                not(@classCode) or normalize-space(@classCode) = '' or @classCode = 'OBS'"
+                >Error: Service Referral - 7.1.6.1.2.2 Result Group Specimen Detail (SPECIMEN) -
+                "Result Group Specimen Detail (SPECIMEN) / IDENTIFIERS / Parent Specimen Identifier" -
+                The 'observation' tag 'classCode' attribute shall contain the value 'OBS'.
+                Refer to section 7.1.6.1.2.2 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</assert>
+
+            <assert test="@moodCode"
+                >Error: Service Referral - 7.1.6.1.2.2 Result Group Specimen Detail (SPECIMEN) -
+                "Result Group Specimen Detail (SPECIMEN) / IDENTIFIERS / Parent Specimen Identifier" -
+                The 'observation' tag 'moodCode' attribute is missing.
+                Refer to section 7.1.6.1.2.2 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</assert>
+
+            <assert test="not(@moodCode) or normalize-space(@moodCode) != ''"
+                >Error: Service Referral - 7.1.6.1.2.2 Result Group Specimen Detail (SPECIMEN) -
+                "Result Group Specimen Detail (SPECIMEN) / IDENTIFIERS / Parent Specimen Identifier" -
+                The 'observation' tag 'moodCode' attribute shall contain a value.
+                Refer to section 7.1.6.1.2.2 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</assert>
+
+            <assert test="
+                not(@moodCode) or normalize-space(@moodCode) = '' or @moodCode = 'EVN'"
+                >Error: Service Referral - 7.1.6.1.2.2 Result Group Specimen Detail (SPECIMEN) -
+                "Result Group Specimen Detail (SPECIMEN) / IDENTIFIERS / Parent Specimen Identifier" -
+                The 'observation' tag 'moodCode' attribute shall contain the value 'EVN'.
+                Refer to section 7.1.6.1.2.2 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</assert>
+
+            <report test="count(cda:code) > 1"
+                >Error: Service Referral - 7.1.6.1.2.2 Result Group Specimen Detail (SPECIMEN) -
+                "Result Group Specimen Detail (SPECIMEN) / IDENTIFIERS / Parent Specimen Identifier" -
+                The 'code' tag shall appear only once.
+                Refer to section 7.1.6.1.2.2 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</report>
+
+            <assert test="cda:specimen"
+                >Error: Service Referral - 7.1.6.1.2.2 Result Group Specimen Detail (SPECIMEN) -
+                "Result Group Specimen Detail (SPECIMEN) / IDENTIFIERS / Parent Specimen Identifier" -
+                The 'specimen' tag is missing.
+                Refer to section 7.1.6.1.2.2 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</assert>
+
+            <report test="count(cda:specimen) > 1"
+                >Error: Service Referral - 7.1.6.1.2.2 Result Group Specimen Detail (SPECIMEN) -
+                "Result Group Specimen Detail (SPECIMEN) / IDENTIFIERS / Parent Specimen Identifier" -
+                The 'specimen' tag shall appear only once.
+                Refer to section 7.1.6.1.2.2 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</report>
+
+        </rule>
+
+
+        <rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code = '101.20117']/cda:component/cda:section[cda:code/@code = '102.16144']/cda:entry/cda:observation[@classCode = 'OBS']/cda:entryRelationship/cda:organizer[@classCode = 'BATTERY']/cda:component/cda:observation[cda:code/@code = '102.16156.231.1.2']/cda:entryRelationship/cda:observation/cda:code[@code = '103.16187']">
+
+            <assert test="@codeSystem"
+                >Error: Service Referral - 7.1.6.1.2.2 Result Group Specimen Detail (SPECIMEN) -
+                "Result Group Specimen Detail (SPECIMEN) / IDENTIFIERS / Parent Specimen Identifier" -
+                The 'code' tag 'codeSystem' attribute is missing.
+                Refer to section 7.1.6.1.2.2 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</assert>
+
+            <assert test="
+                not(@codeSystem) or normalize-space(@codeSystem) = '' or @codeSystem = '1.2.36.1.2001.1001.101'"
+                >Error: Service Referral - 7.1.6.1.2.2 Result Group Specimen Detail (SPECIMEN) -
+                "Result Group Specimen Detail (SPECIMEN) / IDENTIFIERS / Parent Specimen Identifier" -
+                The 'code' tag 'codeSystem' attribute shall contain the value '1.2.36.1.2001.1001.101'.
+                Refer to section 7.1.6.1.2.2 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</assert>
+
+            <assert test="not(@displayName) or normalize-space(@displayName) != ''"
+                >Error: Service Referral - 7.1.6.1.2.2 Result Group Specimen Detail (SPECIMEN) -
+                "Result Group Specimen Detail (SPECIMEN) / IDENTIFIERS / Parent Specimen Identifier" -
+                The 'code' tag 'displayName' attribute shall contain a value.
+                Refer to section 7.1.6.1.2.2 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</assert>
+
+            <assert test="
+                not(@displayName) or normalize-space(@displayName) = '' or translate(@displayName, 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ') = &quot;PARENT SPECIMEN IDENTIFIER&quot;"
+                >Error: Service Referral - 7.1.6.1.2.2 Result Group Specimen Detail (SPECIMEN) -
+                "Result Group Specimen Detail (SPECIMEN) / IDENTIFIERS / Parent Specimen Identifier" -
+                The 'code' tag 'displayName' attribute shall contain the value 'Parent Specimen Identifier'.
+                Refer to section 7.1.6.1.2.2 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</assert>
+
+            <assert test="@displayName"
+                >Error: Service Referral - 7.1.6.1.2.2 Result Group Specimen Detail (SPECIMEN) -
+                "Result Group Specimen Detail (SPECIMEN) / IDENTIFIERS / Parent Specimen Identifier" -
+                The 'code' tag 'displayName' attribute is missing.
+                Refer to section 7.1.6.1.2.2 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</assert>
+
+            <assert test="not(cda:translation)"
+                >Error: Service Referral - 7.1.6.1.2.2 Result Group Specimen Detail (SPECIMEN) -
+                "Result Group Specimen Detail (SPECIMEN) / IDENTIFIERS / Parent Specimen Identifier" -
+                The 'translation' tag shall not be present.
+                Refer to section 7.1.6.1.2.2 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</assert>
+
+        </rule>
+
+
+        <rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code = '101.20117']/cda:component/cda:section[cda:code/@code = '102.16144']/cda:entry/cda:observation[@classCode = 'OBS']/cda:entryRelationship/cda:organizer[@classCode = 'BATTERY']/cda:component/cda:observation[cda:code/@code = '102.16156.231.1.2']/cda:entryRelationship/cda:observation[cda:code/@code = '103.16187']/cda:specimen">
+
+            <assert test="cda:specimenRole"
+                >Error: Service Referral - 7.1.6.1.2.2 Result Group Specimen Detail (SPECIMEN) -
+                "Result Group Specimen Detail (SPECIMEN) / IDENTIFIERS / Parent Specimen Identifier" -
+                The 'specimenRole' tag is missing.
+                Refer to section 7.1.6.1.2.2 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</assert>
+
+            <report test="count(cda:specimenRole) > 1"
+                >Error: Service Referral - 7.1.6.1.2.2 Result Group Specimen Detail (SPECIMEN) -
+                "Result Group Specimen Detail (SPECIMEN) / IDENTIFIERS / Parent Specimen Identifier" -
+                The 'specimenRole' tag shall appear only once.
+                Refer to section 7.1.6.1.2.2 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</report>
+
+        </rule>
+
+
+        <rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code = '101.20117']/cda:component/cda:section[cda:code/@code = '102.16144']/cda:entry/cda:observation[@classCode = 'OBS']/cda:entryRelationship/cda:organizer[@classCode = 'BATTERY']/cda:component/cda:observation[cda:code/@code = '102.16156.231.1.2']/cda:entryRelationship/cda:observation[cda:code/@code = '103.16187']/cda:specimen/cda:specimenRole">
+
+            <assert test="cda:id"
+                >Error: Service Referral - 7.1.6.1.2.2 Result Group Specimen Detail (SPECIMEN) -
+                "Result Group Specimen Detail (SPECIMEN) / IDENTIFIERS / Parent Specimen Identifier" -
+                The 'id' tag is missing.
+                Refer to section 7.1.6.1.2.2 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</assert>
+
+            <report test="count(cda:id) > 1"
+                >Error: Service Referral - 7.1.6.1.2.2 Result Group Specimen Detail (SPECIMEN) -
+                "Result Group Specimen Detail (SPECIMEN) / IDENTIFIERS / Parent Specimen Identifier" -
+                The 'id' tag shall appear only once.
+                Refer to section 7.1.6.1.2.2 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</report>
+
+        </rule>
+
+
+        <rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code = '101.20117']/cda:component/cda:section[cda:code/@code = '102.16144']/cda:entry/cda:observation[@classCode = 'OBS']/cda:entryRelationship/cda:organizer[@classCode = 'BATTERY']/cda:component/cda:observation[cda:code/@code = '102.16156.231.1.2']/cda:specimen/cda:specimenRole/cda:specimenPlayingEntity/ext:asSpecimenInContainer">
+
+            <assert test="@classCode"
+                >Error: Service Referral - 7.1.6.1.2.2 Result Group Specimen Detail (SPECIMEN) -
+                "Result Group Specimen Detail (SPECIMEN) / IDENTIFIERS / Container Identifier" -
+                The 'asSpecimenInContainer' tag 'classCode' attribute is missing.
+                Refer to section 7.1.6.1.2.2 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</assert>
+
+            <assert test="not(@classCode) or normalize-space(@classCode) != ''"
+                >Error: Service Referral - 7.1.6.1.2.2 Result Group Specimen Detail (SPECIMEN) -
+                "Result Group Specimen Detail (SPECIMEN) / IDENTIFIERS / Container Identifier" -
+                The 'asSpecimenInContainer' tag 'classCode' attribute shall contain a value.
+                Refer to section 7.1.6.1.2.2 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</assert>
+
+            <assert test="
+                not(@classCode) or normalize-space(@classCode) = '' or @classCode = 'CONT'"
+                >Error: Service Referral - 7.1.6.1.2.2 Result Group Specimen Detail (SPECIMEN) -
+                "Result Group Specimen Detail (SPECIMEN) / IDENTIFIERS / Container Identifier" -
+                The 'asSpecimenInContainer' tag 'classCode' attribute shall contain the value 'CONT'.
+                Refer to section 7.1.6.1.2.2 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</assert>
+
+            <assert test="ext:container"
+                >Error: Service Referral - 7.1.6.1.2.2 Result Group Specimen Detail (SPECIMEN) -
+                "Result Group Specimen Detail (SPECIMEN) / IDENTIFIERS / Container Identifier" -
+                The 'container' tag is missing.
+                Refer to section 7.1.6.1.2.2 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</assert>
+
+            <report test="count(ext:container) > 1"
+                >Error: Service Referral - 7.1.6.1.2.2 Result Group Specimen Detail (SPECIMEN) -
+                "Result Group Specimen Detail (SPECIMEN) / IDENTIFIERS / Container Identifier" -
+                The 'container' tag shall appear only once.
+                Refer to section 7.1.6.1.2.2 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</report>
+
+        </rule>
+
+
+        <rule context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code = '101.20117']/cda:component/cda:section[cda:code/@code = '102.16144']/cda:entry/cda:observation[@classCode = 'OBS']/cda:entryRelationship/cda:organizer[@classCode = 'BATTERY']/cda:component/cda:observation[cda:code/@code = '102.16156.231.1.2']/cda:specimen/cda:specimenRole/cda:specimenPlayingEntity/ext:asSpecimenInContainer/ext:container">
+
+            <assert test="ext:id"
+                >Error: Service Referral - 7.1.6.1.2.2 Result Group Specimen Detail (SPECIMEN) -
+                "Result Group Specimen Detail (SPECIMEN) / IDENTIFIERS / Container Identifier" -
+                The 'id' tag is missing.
+                Refer to section 7.1.6.1.2.2 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</assert>
+
+            <report test="count(ext:id) > 1"
+                >Error: Service Referral - 7.1.6.1.2.2 Result Group Specimen Detail (SPECIMEN) -
+                "Result Group Specimen Detail (SPECIMEN) / IDENTIFIERS / Container Identifier" -
+                The 'id' tag shall appear only once.
+                Refer to section 7.1.6.1.2.2 of the
+                Service_Referral_CDA_Implementation_Guide_v1.1.</report>
+
+        </rule>
+
+
+    </pattern>
+

@@ -1,0 +1,106 @@
+
+
+    <!-- e-Referral Clinical Document: 6.1.2 Subject of Care -->
+
+    <!-- Context: ClinicalDocument/recordTarget/patientRole/patient -->
+
+    <!-- Status: Last Reviewed: 13/12/2011
+         Status: Last Updated:  07/02/2012 -->
+
+
+    <pattern name="p-e-Referral_Subject_Of_Care_Birth_Order-errors"
+        id="p-e-Referral_Subject_Of_Care_Birth_Order-errors"
+        see="#p-e-Referral_Subject_Of_Care_Birth_Order-errors">
+        
+        <!--Updated NG 21/02/2012 ID:2021 -->
+
+        <!-- patient - 1..1 -->
+
+        <rule context="/cda:ClinicalDocument/cda:recordTarget/cda:patientRole/cda:patient">
+
+            <report test="(ext:multipleBirthInd[@value='true'] and not(ext:multipleBirthOrderNumber))"
+                >Error: e-Referral - 6.1.2 Subject Of  Care - "Subject of Care / Participant / Person or Organisation or Device / Person / Demographic Data / Birth Order" - 
+                The 'multipleBirthOrderNumber' tag is missing for the existence of 'BirthOrder'.
+                Refer to section 6.1.2 of the
+                e-Referral_CDA_Implementation_Guide_v2.2.</report>
+
+            <report test="(ext:multipleBirthInd[@value='false'] and (ext:multipleBirthOrderNumber))"
+                >Error: e-Referral - 6.1.2 Subject Of Care - "Subject of Care / Participant / Person or Organisation or Device / Person / Demographic Data / Birth Order" - 
+                The 'multipleBirthOrderNumber' tag shall not be present for the missing of 'BirthOrder'.
+                Refer to section 6.1.2 of the
+                e-Referral_CDA_Implementation_Guide_v2.2.</report>
+
+            <!-- multipleBirthInd - 0..1 -->
+
+            <report test="count(ext:multipleBirthInd) > 1">Error: e-Referral - 6.1.2 Subject Of Care
+                - "Participant / Person or Organisation or Device / Person / Demographic Data /
+                Birth Order" - The 'multipleBirthInd' tag shall appear only once. Refer to section
+                6.1.2 of the e-Referral_CDA_Implementation_Guide_v2.2.</report>
+
+            <!-- For 'multipleBirthInd' tag see below rule context:  
+                <rule context = "/cda:ClinicalDocument/cda:recordTarget/cda:patientRole/cda:patient/ext:multipleBirthInd"> -->
+
+            <!-- multipleBirthOrderNumber - 0..1 -->
+
+            <report test="count(ext:multipleBirthOrderNumber) > 1">Error: e-Referral - 6.1.2 Subject
+                Of Care - "Participant / Person or Organisation or Device / Person / Demographic
+                Data / Birth Order" - The 'multipleBirthOrderNumber' tag shall appear only once.
+                Refer to section 6.1.2 of the
+                e-Referral_CDA_Implementation_Guide_v2.2.</report>
+
+            <!-- For 'multipleBirthOrderNumber' tag see below rule context:  
+                <rule context = "/cda:ClinicalDocument/cda:recordTarget/cda:patientRole/cda:patient/ext:multipleBirthOrderNumber"> -->
+
+        </rule>
+
+
+        <!-- multipleBirthInd - 0..1 -->
+
+        <rule
+            context="/cda:ClinicalDocument/cda:recordTarget/cda:patientRole/cda:patient/ext:multipleBirthInd">
+
+            <!-- @value -->
+
+            <assert test="@value">Error: e-Referral - 6.1.2 Subject Of Care -
+                "Participant / Person or Organisation or Device / Person / Demographic Data / Birth
+                Order" - The 'multipleBirthInd' tag 'value' attribute is missing. Refer to section
+                6.1.2 of the e-Referral_CDA_Implementation_Guide_v2.2.</assert>
+
+            <report test="@value and not(@value = 'true' or @value = 'false')">Error: e-Referral -
+                6.1.2 Subject Of Care - "Participant / Person or Organisation or Device / Person /
+                Demographic Data / Birth Order" - The 'multipleBirthInd' tag 'value' attribute shall
+                contain an boolean value. Refer to section 6.1.2 of the
+                e-Referral_CDA_Implementation_Guide_v2.2.</report>
+
+        </rule>
+
+
+        <!-- multipleBirthOrderNumber - 0..1 -->
+
+        <rule
+            context="/cda:ClinicalDocument/cda:recordTarget/cda:patientRole/cda:patient/ext:multipleBirthOrderNumber">
+
+            <!-- @value -->
+
+            <assert test="@value">Error: e-Referral - 6.1.2 Subject Of Care - "Participant / Person
+                or Organisation or Device / Person / Demographic Data / Birth Order" - The
+                'multipleBirthOrderNumber' tag 'value' attribute is missing. Refer to section 6.1.2
+                of the e-Referral_CDA_Implementation_Guide_v2.2.</assert>
+
+            <report test="@value and not(number(@value))">Error: e-Referral - 6.1.2 Subject Of Care
+                - "Participant / Person or Organisation or Device / Person / Demographic Data /
+                Birth Order" - The 'multipleBirthOrderNumber' tag 'value' attribute shall contain an
+                integer value. Refer to section 6.1.2 of the
+                e-Referral_CDA_Implementation_Guide_v2.2.</report>
+
+            <report test="@value and number(@value) and not(floor(@value) = number(@value))">Error:
+                e-Referral - 6.1.2 Subject Of Care - "Participant / Person or Organisation or Device
+                / Person / Demographic Data / Birth Order" - The 'multipleBirthOrderNumber' tag
+                'value' attribute shall contain an integer value. Refer to section 6.1.2 of the
+                e-Referral_CDA_Implementation_Guide_v2.2.</report>
+
+        </rule>
+
+    </pattern>
+
+

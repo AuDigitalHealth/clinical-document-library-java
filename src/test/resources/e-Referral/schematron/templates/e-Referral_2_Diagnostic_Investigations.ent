@@ -1,0 +1,112 @@
+    <!-- e-Referral Clinical Document:  7.1.5 Diagnostic Investigations -->
+
+    <!-- Context: / ClinicalDocument / component / structuredBody - Diagnostic Investigations -->
+
+    <!-- Status: Last Reviewed: 
+         Status: Last Updated : 18/12/2012 -->
+
+    <pattern name="p-e-Referral_2_Diagnostic_Investigations-errors"
+        id="p-e-Referral_2_Diagnostic_Investigations-errors"
+        see="#p-e-Referral_2_Diagnostic_Investigations-errors">
+
+
+        <!-- DIAGNOSTIC INVESTIGATIONS -->
+        <!-- component[diag_inv]/section - 0..1 -->
+
+        <rule
+            context="/cda:ClinicalDocument/cda:component/cda:structuredBody[cda:component/cda:section/cda:code/@code = '101.20117']">
+
+            <report test="count(cda:component[cda:section/cda:code/@code = '101.20117']) > 1">Error:
+                e-Referral - 7.1.5 Diagnostic Investigations - The 'component' tag shall
+                appear only once. Refer to section 7.1.5 Diagnostic Investigations of the
+                e-Referral_CDA_Implementation_Guide_v2.2.</report>
+
+        </rule>
+
+
+
+        <rule
+            context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component[cda:section/cda:code/@code = '101.20117']">
+
+
+            <report test="count(cda:section[cda:code/@code = '101.20117']) > 1">Error: e-Referral -
+                7.1.5 Diagnostic Investigations - The 'section' tag shall appear only once.
+                Refer to section 7.1.5 Diagnostic Investigations of the
+                e-Referral_CDA_Implementation_Guide_v2.2.</report>
+
+        </rule>
+
+
+
+        <rule
+            context="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section[cda:code/@code = '101.20117']">
+            <!-- code -->
+
+            <report test="count(cda:code[@code = '101.20117']) > 1">Error: e-Referral - 7.1.5
+                Diagnostic Investigations - The 'code' tag shall appear only once. Refer to section
+                7.1.5 of the e-Referral_CDA_Implementation_Guide_v2.2.</report>
+
+            <!--   
+                Each instance of this section SHALL have at least one instance of 'PATHOLOGY
+                TEST RESULT' OR 'IMAGING EXAMINATION RESULT' OR 'Requested Service
+                (REQUESTED SERVICE)' OR 'Diagnostic Investigation'. (SCS requirement and FAQ Requirement)-->
+
+
+            <assert
+                test="cda:component/cda:section/cda:code[@code='102.16144'] | cda:component/cda:section/cda:code[@code='102.16145'] | cda:component/cda:section/cda:code[@code='102.20158'] | cda:component/cda:section/cda:code[@code='102.16029']"
+                >Error: e-Referral - 7.1.5 Diagnostic Investigations - Each instance of 'Diagnostic
+                Investigations' section SHALL have at least one instance of 'Pathology Test Result'
+                or 'Imaging Examination Result' or 'Requested Service' or 'Diagnostic Investigation'. Refer to section 7.1.5 of
+                the e-Referral_CDA_Implementation_Guide_v2.2.</assert>
+            
+            <!-- SV - Updated - 01/03/2012 - Mantis ID 2499 --> 
+            
+            <assert test = "cda:title">Error: e-Referral - 7.1.5 Diagnostic Investigations - The 'title' tag is missing.
+                Refer to section 7.1.5 of the e-Referral_CDA_Implementation_Guide_v2.2.</assert>
+           
+           <!-- Updated RV on 10/04/2012 - Mantis Id 3038 -->
+            <report test="cda:title and not(translate(cda:title, 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ') = 'DIAGNOSTIC INVESTIGATIONS')">
+                Error: e-Referral - 7.1.5 Diagnostic Investigations - The 'title' tag shall contain the value 'Diagnostic Investigations'.
+                Refer to section 7.1.5 of the e-Referral_CDA_Implementation_Guide_v2.2.</report>
+            <!-- Update ended Mantis Id 3038 -->
+            
+            <!--End of SV's - Update - 01/03/2012 - Mantis ID 2499 -->  
+
+        </rule>
+
+        <rule context="cda:code[@code = '101.20117']">
+
+
+            <assert test="/cda:ClinicalDocument/cda:component/cda:structuredBody/cda:component/cda:section/cda:code[@code = '101.20117']"
+                >Error: e-Referral - 7.1.5 Diagnostic Investigations - 
+				The '/ClinicalDocument/component/structuredBody/component/section/code/@code = "101.20117"' path - 
+				1 or more tags are missing. Refer to section 7.1.5 Diagnostic Investigations of the
+                e-Referral_CDA_Implementation_Guide_v2.2.</assert>
+
+            <!-- code -->
+
+            <assert test="@codeSystem = '1.2.36.1.2001.1001.101'">Error: e-Referral - 7.1.5
+                Diagnostic Investigations - The 'code' tag 'codeSystem' attribute shall be
+                '1.2.36.1.2001.1001.101'. Refer to section 7.1.5 of the
+                e-Referral_CDA_Implementation_Guide_v2.2.</assert>
+
+            <assert
+                test="translate(@codeSystemName, 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ') = 'NCTIS DATA COMPONENTS'"
+                >Error: e-Referral - 7.1.5 Diagnostic Investigations - The 'code' tag 
+                'codeSystemName' attribute shall contain the value 'NCTIS Data Components'. Refer to section
+                7.1.5 of the e-Referral_CDA_Implementation_Guide_v2.2.</assert>
+
+            <assert
+                test="translate(@displayName, 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ') = 'DIAGNOSTIC INVESTIGATIONS'"
+                >Error: e-Referral - 7.1.5 Diagnostic Investigations - The 'code' tag 
+                'displayName' attribute shall contain the value 'Diagnostic Investigations'. Refer to section
+                7.1.5 of the e-Referral_CDA_Implementation_Guide_v2.2.</assert>
+
+            <!-- 'title'  tag -->
+            <!-- Validated/Tested in the e-Referral_1B_CDA_Narratives file -->
+
+        </rule>
+
+    </pattern>
+
+

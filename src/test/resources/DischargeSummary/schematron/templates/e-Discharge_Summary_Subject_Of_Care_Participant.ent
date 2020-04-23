@@ -1,0 +1,28 @@
+    <!-- e-Discharge Summary Clinical Document:  6.1.2 Subject of Care -->
+
+    <!-- Context: ClinicalDocument/Subject of Care -->
+
+    <!-- Status: Last Reviewed: Not reviewed.
+         Status: Last Updated : 14/02/2012 -->
+
+
+    <pattern name="p-e-Discharge_Summary_Subject_Of_Care_Participant-errors"
+        id="p-e-Discharge_Summary_Subject_Of_Care_Participant-errors"
+        see="#p-e-Discharge_Summary_Subject_Of_Care_Participant-errors">
+
+        <rule context="/cda:ClinicalDocument/cda:recordTarget/cda:patientRole">
+
+            <!-- Participant - 1..1 -->
+
+            <assert test="cda:patient">Error: e-Discharge Summary - 6.1.2 Subject of Care - "Subject
+                of Care / Participant" - The 'patient' tag is missing. Refer to section 6.1.2 of the
+                e-Discharge_Summary_CDA_Implementation_Guide_v3.4.</assert>
+
+            <report test="count(cda:patient) > 1">Error: e-Discharge Summary - 6.1.2 Subject of Care
+                - "Subject of Care / Participant" - The 'patient' tag shall appear only once. Refer
+                to section 6.1.2 of the
+                e-Discharge_Summary_CDA_Implementation_Guide_v3.4.</report>
+
+        </rule>
+        
+    </pattern>

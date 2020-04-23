@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+The purpose of this file is to provide supporting information
+for validating that document instances conform to the Level 1 and
+Level 2 and Level 3 CDA Implementation Guides.
+
+The top level element of this file is systems, and it is made up
+of one or more system elements. Each system element describes
+a vocabulary or coding domain, and provides the name and root OID
+for that domain.  Within the system element are code elements that
+provide the code value and display name for a given coded value.
+-->
+
+<systems>
+
+  <system codeSystemName="AS_5017-2006_Health_Care_Client_Identifier_Sex" root="">
+    <code code="M" displayName="Male"
+      codeSystemName="AS 5017-2006 Health Care Client Identifier Sex"
+      codeSystem="2.16.840.1.113883.13.68"/>
+    <code code="F" displayName="Female"
+      codeSystemName="AS 5017-2006 Health Care Client Identifier Sex"
+      codeSystem="2.16.840.1.113883.13.68"/>
+    <code code="I" displayName="Intersex or Indeterminate"
+      codeSystemName="AS 5017-2006 Health Care Client Identifier Sex"
+      codeSystem="2.16.840.1.113883.13.68"/>
+    <code code="N" displayName="Not Stated/Inadequately Described"
+      codeSystemName="AS 5017-2006 Health Care Client Identifier Sex"
+      codeSystem="2.16.840.1.113883.13.68"/>
+  </system>
+
+  <system codeSystemName="AS_5017-2006_Health_Care_Client_Identifier_Geographic_Area" root="">
+    <code code="L" displayName="Local Client (Unit Record) Identifier"
+      codeSystemName="AS 5017-2006 Health Care Client Identifier Geographic Area"
+      codeSystem="2.16.840.1.113883.13.63"/>
+    <code code="A" displayName="Area/Region/District Identifier"
+      codeSystemName="AS 5017-2006 Health Care Client Identifier Geographic Area"
+      codeSystem="2.16.840.1.113883.13.63"/>
+    <code code="S" displayName="State or Territory Identifier"
+      codeSystemName="AS 5017-2006 Health Care Client Identifier Geographic Area"
+      codeSystem="2.16.840.1.113883.13.63"/>
+    <code code="N" displayName="National Identifier"
+      codeSystemName="AS 5017-2006 Health Care Client Identifier Geographic Area"
+      codeSystem="2.16.840.1.113883.13.63"/>
+  </system>
+
+  <system codeSystemName="Australian_State_Territory_Identifier_-_Postal" root="">
+    <code code="NSW"/>
+    <code code="VIC"/>
+    <code code="QLD"/>
+    <code code="SA"/>
+    <code code="WA"/>
+    <code code="TAS"/>
+    <code code="NT"/>
+    <code code="ACT"/>
+    <code code="U"/>
+  </system>
+
+  <system codeSystemName="NCTIS_Document_Status_Values" root="">
+    <code code="I" displayName="Interim" codeSystemName="NCTIS Document Status Values"
+      codeSystem="1.2.36.1.2001.1001.101.104.20104"/>
+    <code code="F" displayName="Final" codeSystemName="NCTIS Document Status Values"
+      codeSystem="1.2.36.1.2001.1001.101.104.20104"/>
+    <code code="W" displayName="Withdrawn" codeSystemName="NCTIS Document Status Values"
+      codeSystem="1.2.36.1.2001.1001.101.104.20104"/>
+  </system>
+
+  <system codeSystemName="METeOR_Indigenous_Status" root="">
+    <code code="1" displayName="Aboriginal but not Torres Strait Islander origin"
+      codeSystemName="METeOR Indigenous Status" codeSystem="2.16.840.1.113883.3.879.291036"/>
+    <code code="2" displayName="Torres Strait Islander but not Aboriginal origin"
+      codeSystemName="METeOR Indigenous Status" codeSystem="2.16.840.1.113883.3.879.291036"/>
+    <code code="3" displayName="Both Aboriginal and Torres Strait Islander origin"
+      codeSystemName="METeOR Indigenous Status" codeSystem="2.16.840.1.113883.3.879.291036"/>
+    <code code="4" displayName="Neither Aboriginal nor Torres Strait Islander origin"
+      codeSystemName="METeOR Indigenous Status" codeSystem="2.16.840.1.113883.3.879.291036"/>
+    <code code="9" displayName="Not stated/inadequately described"
+      codeSystemName="METeOR Indigenous Status" codeSystem="2.16.840.1.113883.3.879.291036"/>
+  </system>
+
+  <system codeSystemName="Medicare_Provider_Number_Practice_Location" root="">
+    <code code="0" displayName="0"/>
+    <code code="1" displayName="1"/>
+    <code code="2" displayName="2"/>
+    <code code="3" displayName="3"/>
+    <code code="4" displayName="4"/>
+    <code code="5" displayName="5"/>
+    <code code="6" displayName="6"/>
+    <code code="7" displayName="7"/>
+    <code code="8" displayName="8"/>
+    <code code="9" displayName="9"/>
+
+    <code code="10" displayName="A"/>
+    <code code="11" displayName="B"/>
+    <code code="12" displayName="C"/>
+    <code code="13" displayName="D"/>
+    <code code="14" displayName="E"/>
+    <code code="15" displayName="F"/>
+    <code code="16" displayName="G"/>
+    <code code="17" displayName="H"/>
+
+    <code code="18" displayName="J"/>
+    <code code="19" displayName="K"/>
+    <code code="20" displayName="L"/>
+    <code code="21" displayName="M"/>
+    <code code="22" displayName="N"/>
+
+    <code code="23" displayName="P"/>
+    <code code="24" displayName="Q"/>
+    <code code="25" displayName="R"/>
+
+    <code code="26" displayName="T"/>
+    <code code="27" displayName="U"/>
+    <code code="28" displayName="V"/>
+    <code code="29" displayName="W"/>
+    <code code="30" displayName="X"/>
+    <code code="31" displayName="Y"/>
+  </system>
+
+  <system codeSystemName="Medicare_Provider_Number_Check_Digit" root="">
+    <code code="0" displayName="Y"/>
+    <code code="1" displayName="X"/>
+    <code code="2" displayName="W"/>
+    <code code="3" displayName="T"/>
+    <code code="4" displayName="L"/>
+    <code code="5" displayName="K"/>
+    <code code="6" displayName="J"/>
+    <code code="7" displayName="H"/>
+    <code code="8" displayName="F"/>
+    <code code="9" displayName="B"/>
+    <code code="10" displayName="A"/>
+  </system>
+
+  <system codeSystemName="Coded_DataType_NullFlavor_Abnormal_Values" root="">
+    <code code="INV" displayName="Invalid"/>
+    <code code="OTH" displayName="Other"/>
+    <code code="NINF" displayName="Negative infinity"/>
+    <code code="PINF" displayName="Positive infinity"/>
+    <code code="UNC" displayName="Unencoded"/>
+    <code code="DER" displayName="Derived"/>
+    <code code="QS" displayName="Sufficient quantity"/>
+    <code code="TRC" displayName="Trace"/>
+  </system>
+
+</systems>
