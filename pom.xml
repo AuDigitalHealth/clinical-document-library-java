@@ -9,13 +9,13 @@
 
     <developers>
         <developer>
-            <name>Philip Wilford</name>
-            <email>Philip.Wilford@digitalhealth.gov.au</email>
+            <name>Admin Open Source</name>
+            <email>admin.opensource@digitalhealth.gov.au</email>
             <organization>Australian Digital Health Agency</organization>
             <url>www.digitalhealth.gov.au</url>
             <organizationUrl>www.digitalhealth.gov.au</organizationUrl>
             <roles>
-                <role>Manager</role>
+                <role>Admin</role>
             </roles>
             <timezone>UTC+10:00</timezone>
         </developer>
@@ -28,7 +28,7 @@
             scm:git:https://github.com/AuDigitalHealth/clinical-document-library-java.git
         </developerConnection>
         <url>https://github.com/AuDigitalHealth/clinical-document-library-java.git</url>
-        <tag>clinical-document-library-2.0.0</tag>
+        <tag>HEAD</tag>
     </scm>
 
     <distributionManagement>
