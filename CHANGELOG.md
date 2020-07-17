@@ -26,7 +26,7 @@
    6. | Event Summary | &#10007; | &#10007; | &#10007; | &#10004;
    7. | Goals of Care | &#10007; | &#10007; | &#10007; | &#10004;
    8. | Pathology Report | &#10007; | &#10007; | &#10007; | &#10004;
-   9. | Pharmacist Shared Medicines List | &#10007; | &#10007; | &#10007; | &#10004;
+   9. | Pharmacist Shared Medicines List | &#10004; | &#10007; | &#10007; | &#10007;
    10. | Service Referral | &#10004; | &#10004; | &#10007; | &#10004;
    11. | Shared Health Summary | &#10007; | &#10007; | &#10007; | &#10004;
    12. | Specialist Letter | &#10004; | &#10004; | &#10004; | &#10004;
