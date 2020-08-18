@@ -257,29 +257,37 @@ public class EventSummaryCreator extends ClinicalDocumentCreator {
   }
 
   private POCDMT000040Component2 getCDABody() {
-    MedicalHistoryComponent medicalHistoryComponent =
-        new MedicalHistoryComponent(eventSummaryCodeMap);
-    AdverseReactionComponent adverseReactionComponent =
-        new AdverseReactionComponent(eventSummaryCodeMap);
-    DiagnosticInvestigationComponent diagnosticInvestigationComponent =
-        new DiagnosticInvestigationComponent(eventSummaryCodeMap);
+    MedicalHistoryComponent medicalHistoryComponent =         new MedicalHistoryComponent(eventSummaryCodeMap);
+    AdverseReactionComponent adverseReactionComponent =         new AdverseReactionComponent(eventSummaryCodeMap);
+    DiagnosticInvestigationComponent diagnosticInvestigationComponent =         new DiagnosticInvestigationComponent(eventSummaryCodeMap);
     MedicationComponent medicationComponent = new MedicationComponent(eventSummaryCodeMap);
     POCDMT000040Component2 component = objectFactory.createPOCDMT000040Component2();
     POCDMT000040StructuredBody structuredBody = objectFactory.createPOCDMT000040StructuredBody();
-    structuredBody.getComponent().add(getEventDetails());
-    structuredBody.getComponent().add(adverseReactionComponent.getAdverseReactions(
-        clinicalModel.getContent().getNewlyIdentifiedAdverseReactions()));
-    structuredBody.getComponent()
-        .add(medicationComponent.getMedications(clinicalModel.getContent().getMedications()));
-    structuredBody.getComponent().add(medicalHistoryComponent
-        .getMedicalHistory(clinicalModel.getContent().getMedicalHistory(),
-            "Diagnoses/Interventions"));
-    structuredBody.getComponent().add(getImmunisations());
-    structuredBody.getComponent().add(diagnosticInvestigationComponent
-            .getDiagnosticInvestigations(clinicalModel.getContent().getDiagnosticInvestigations()));
-    structuredBody.getComponent().add(new AdministrativeObservationsComponent()
-        .getComponent(clinicalModel.getContext().getSubjectOfCare(),
-            clinicalModel.getContext().getDocumentAuthor()));
+	// optional sections
+	if (null != getEventDetails()) {
+		structuredBody.getComponent().add(getEventDetails());
+	}
+	// optional sections
+	if (null != clinicalModel.getContent().getNewlyIdentifiedAdverseReactions()) {
+		structuredBody.getComponent().add(adverseReactionComponent.getAdverseReactions(clinicalModel.getContent().getNewlyIdentifiedAdverseReactions())); 
+	}
+	// optional sections
+	if (null != clinicalModel.getContent().getMedications()) {
+		structuredBody.getComponent().add(medicationComponent.getMedications(clinicalModel.getContent().getMedications()));
+    }
+	// optional sections
+	if (null != clinicalModel.getContent().getMedicalHistory()) {
+		structuredBody.getComponent().add(medicalHistoryComponent.getMedicalHistory(clinicalModel.getContent().getMedicalHistory(), "Diagnoses/Interventions"));
+	}
+	// optional sections
+	if (null != getImmunisations()) {
+		structuredBody.getComponent().add(getImmunisations());
+	}
+	// optional sections
+	if (null != clinicalModel.getContent().getDiagnosticInvestigations()) {
+		structuredBody.getComponent().add(diagnosticInvestigationComponent.getDiagnosticInvestigations(clinicalModel.getContent().getDiagnosticInvestigations()));
+	}
+    structuredBody.getComponent().add(new AdministrativeObservationsComponent().getComponent(clinicalModel.getContext().getSubjectOfCare(), clinicalModel.getContext().getDocumentAuthor()));
     component.setStructuredBody(structuredBody);
     return component;
   }

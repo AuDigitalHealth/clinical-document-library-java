@@ -176,8 +176,7 @@ public class EventSummaryMaxTest extends Base {
         eventSummaryContent.setNewlyIdentifiedAdverseReactions(getNewlyIdentifiedAdverseReactions());
         eventSummaryContent.setMedicalHistory(getDiagnosesOrInterventions());
         eventSummaryContent.setImmunisations(getImmunisations());
-        eventSummaryContent
-                .setDiagnosticInvestigations(getDiagnosticInvestigations(true, true, true, true));
+        eventSummaryContent.setDiagnosticInvestigations(getDiagnosticInvestigations(true, true, true, true));
         eventSummaryContent.setCustomNarrativeAdministrativeObservations(null);
         eventSummaryContent.setCustomNarrativeMedications(null);
         EventSummary eventSummary = new EventSummaryImpl();
