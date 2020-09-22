@@ -3,6 +3,8 @@
   = 1.2.2 = 
   =======
   + fixed optional date in Service Referral [SERVICE PROVIDER > Participation Period]
+  + fixed optional sections in event summary
+  + fixed mandatory hpii in DI
 
   = 1.2.1 = 
   =======

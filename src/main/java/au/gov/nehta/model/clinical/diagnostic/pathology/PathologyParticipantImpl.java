@@ -23,7 +23,8 @@ public class PathologyParticipantImpl extends QualifiedParticipantImpl implement
   public PathologyParticipantImpl(HPII entityIdentifier, ProviderPerson person,
       EmploymentOrganisation employment, ProviderAddress address,
       List<Telecom> electronicCommunicationDetail) {
-    ArgumentUtils.checkNotNull(entityIdentifier, "entityIdentifier");
+    // Comment out to allow relaxed HPII for Author
+//    ArgumentUtils.checkNotNull(entityIdentifier, "entityIdentifier");
 //		ArgumentUtils.checkNotNull( address, "address" );
 //		ArgumentUtils.checkNotNullNorEmpty( electronicCommunicationDetail, "electronicCommunicationDetail" );
     ArgumentUtils.checkNotNull(person, "person");
