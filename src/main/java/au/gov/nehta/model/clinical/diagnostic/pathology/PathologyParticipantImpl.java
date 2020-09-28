@@ -1,6 +1,7 @@
 package au.gov.nehta.model.clinical.diagnostic.pathology;
 
 import au.gov.nehta.common.utils.ArgumentUtils;
+import au.gov.nehta.model.cda.common.id.AsEntityIdentifier;
 import au.gov.nehta.model.cda.common.telecom.Telecom;
 import au.gov.nehta.model.cda.common.telecom.TelecomMedium;
 import au.gov.nehta.model.clinical.common.types.HPII;
@@ -23,8 +24,8 @@ public class PathologyParticipantImpl extends QualifiedParticipantImpl implement
   public PathologyParticipantImpl(HPII entityIdentifier, ProviderPerson person,
       EmploymentOrganisation employment, ProviderAddress address,
       List<Telecom> electronicCommunicationDetail) {
-    // Comment out to allow relaxed HPII for Author
-//    ArgumentUtils.checkNotNull(entityIdentifier, "entityIdentifier");
+
+    ArgumentUtils.checkNotNull(entityIdentifier, "entityIdentifier");
 //		ArgumentUtils.checkNotNull( address, "address" );
 //		ArgumentUtils.checkNotNullNorEmpty( electronicCommunicationDetail, "electronicCommunicationDetail" );
     ArgumentUtils.checkNotNull(person, "person");

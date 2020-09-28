@@ -4,7 +4,7 @@
   =======
   + fixed optional date in Service Referral [SERVICE PROVIDER > Participation Period]
   + fixed optional sections in event summary
-  + fixed mandatory hpii in DI
+  + relaxed the HPII type for path/di allowing for other identifiers
 
   = 1.2.1 = 
   =======

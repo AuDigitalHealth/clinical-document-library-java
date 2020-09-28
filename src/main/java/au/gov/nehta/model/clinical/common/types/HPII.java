@@ -15,6 +15,8 @@
 package au.gov.nehta.model.clinical.common.types;
 
 import au.gov.nehta.common.utils.ArgumentUtils;
+import au.gov.nehta.model.cda.common.code.CodeImpl;
+import au.gov.nehta.model.cda.common.code.Coded;
 import au.gov.nehta.model.cda.common.id.AsEntityIdentifier;
 import au.gov.nehta.model.cda.common.id.AsEntityIdentifierImpl;
 
@@ -55,5 +57,16 @@ public final class HPII extends AsEntityIdentifierImpl implements AsEntityIdenti
 		return hi.substring( 0, 4 ) + " " + hi.substring( 4, 8 ) + " " + hi.substring( 8, 12 ) + " " + hi.substring( 12, hi.length() );
 	}
 
+	/*
+	* To allow override of HPII for local Identifier for relaxed template packages
+	*/
+	public HPII (String rootId, String hl7IdOID, String hpiiNumber, String assigningAuthorityName, String assigningGeographicAreaName, String localId, String codeType, String displayName) {
+		super(rootId + hpiiNumber);
+		setAssigningAuthorityName( assigningAuthorityName);
+		setAssigningGeographicAreaName (assigningGeographicAreaName);
+		setAssigningGeographicAreaClassCode(PLC);
+		this.setExtension(localId);
+		this.setCode(new CodeImpl(codeType, hl7IdOID, Coded.HL7_CODE_SYSTEM, displayName));
 
+	}
 }
