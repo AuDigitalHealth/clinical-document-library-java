@@ -215,7 +215,8 @@ public class PharmacistSharedMedicinesListCreator extends ClinicalDocumentCreato
     // Construct clinical document with headers
     POCDMT000040ClinicalDocument clinicalDocument =
         HeaderUtil.createClinicalDocument(cdaModel.getBaseClinicalDocument(), new DateTime());
-    clinicalDocument.setId(CDATypeUtil.getII(UUID.randomUUID().toString()));
+	//Set by caller
+    //clinicalDocument.setId(CDATypeUtil.getII(UUID.randomUUID().toString()));
     clinicalDocument.setCode(SectionEntryCodeSet.PHARMACIST_SHARED_MEDICINES_LIST);
     clinicalDocument.setCompletionCode(
         Converter.convertToCECode(cdaModel.getCompletionClinicalDocument().getCompletionCode()));

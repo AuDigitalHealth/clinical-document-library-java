@@ -103,7 +103,8 @@ public class AdvanceCarePlanningCreator extends ClinicalDocumentCreator {
     clinicalDocument.setCode(SectionEntryCodeSet.ADVANCE_CARE_PLANNING);
     clinicalDocument.setCompletionCode(
         Converter.convertToCECode(cdaModel.getCompletionClinicalDoucment().getCompletionCode()));
-    clinicalDocument.setId(CDATypeUtil.getII(UUID.randomUUID().toString()));
+	//Set by caller
+    //clinicalDocument.setId(CDATypeUtil.getII(UUID.randomUUID().toString()));
     //Legal Authenticator
     if (null != cdaModel.getLegalAuthenticator()) {
       clinicalDocument.setLegalAuthenticator(

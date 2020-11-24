@@ -81,7 +81,8 @@ public class AdvanceCareDirectiveCreator extends ClinicalDocumentCreator {
     clinicalDocument.setCode(SectionEntryCodeSet.ADVANCE_CARE_DIRECTIVE);
     clinicalDocument.setCompletionCode(
         Converter.convertToCECode(cdaModel.getCompletionClinicalDoucment().getCompletionCode()));
-    clinicalDocument.setId(CDATypeUtil.getII(UUID.randomUUID().toString()));
+	//Set by caller
+    //clinicalDocument.setId(CDATypeUtil.getII(UUID.randomUUID().toString()));
     clinicalDocument
         .setConfidentialityCode(CDATypeUtil.getNullCECode());
     //Legal Authenticator

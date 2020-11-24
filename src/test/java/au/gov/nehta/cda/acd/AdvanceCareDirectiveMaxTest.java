@@ -9,6 +9,7 @@ import static au.gov.nehta.cda.test.TestHelper.getSubjectOfCareParticipant;
 import static au.gov.nehta.model.schematron.SchematronResource.SchematronResources.ADVANCE_CARE_DIRECTIVE_3A;
 
 import au.gov.nehta.builder.acd.AdvanceCareDirectiveCreator;
+import au.gov.nehta.builder.util.CDATypeUtil;
 import au.gov.nehta.cda.test.Base;
 import au.gov.nehta.cda.test.TestHelper;
 import au.gov.nehta.model.cda.acd.AdvanceCareDirectiveCDAModel;
@@ -80,6 +81,7 @@ public class AdvanceCareDirectiveMaxTest extends Base {
     advanceCareDirective.setContext(context);
     advanceCareDirective.setContent(content);
     ClinicalDocument cdaClinicalDocument = ClinicalDocumentFactory.getAdvanceCareDirective();
+	cdaClinicalDocument.setClinicalDocumentId(CDATypeUtil.getUUID());
     cdaClinicalDocument.setVersionNumber(1);
     cdaClinicalDocument.setLanguageCode("en-AU");
     cdaClinicalDocument.setCompletionCode(DocumentStatusCode.FINAL);

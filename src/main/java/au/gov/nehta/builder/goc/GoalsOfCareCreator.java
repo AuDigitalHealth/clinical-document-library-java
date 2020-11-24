@@ -104,7 +104,8 @@ public class GoalsOfCareCreator extends ClinicalDocumentCreator {
     clinicalDocument.setCode(SectionEntryCodeSet.GOALS_OF_CARE);
     clinicalDocument.setCompletionCode(
         Converter.convertToCECode(cdaModel.getCompletionClinicalDoucment().getCompletionCode()));
-    clinicalDocument.setId(CDATypeUtil.getII(UUID.randomUUID().toString()));
+	//Set by caller
+    //clinicalDocument.setId(CDATypeUtil.getII(UUID.randomUUID().toString()));
     //Legal Authenticator
     if (null != cdaModel.getLegalAuthenticator()) {
       clinicalDocument.setLegalAuthenticator(

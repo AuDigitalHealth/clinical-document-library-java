@@ -84,6 +84,7 @@ public class GoalsOfCareMaxTest extends Base {
     content.setAdvanceCareInformationSection(advanceCareInformationSection);
     advanceCarePlanning.setContent(content);
     ClinicalDocument cdaClinicalDocument = ClinicalDocumentFactory.getGoalsOfCare();
+	cdaClinicalDocument.setClinicalDocumentId(CDATypeUtil.getUUID());
     cdaClinicalDocument.setLanguageCode("en-AU");
     cdaClinicalDocument.setCompletionCode(DocumentStatusCode.FINAL);
     AdvanceCarePlanningCDAModel advanceCarePlanningCDAModel = new AdvanceCarePlanningCDAModel(

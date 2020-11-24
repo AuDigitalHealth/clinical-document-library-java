@@ -11,6 +11,7 @@ import static au.gov.nehta.model.schematron.SchematronResource.SchematronResourc
 import static org.junit.Assert.assertEquals;
 
 import au.gov.nehta.builder.psml.PharmacistSharedMedicinesListCreator;
+import au.gov.nehta.builder.util.CDATypeUtil;
 import au.gov.nehta.cda.test.Base;
 import au.gov.nehta.cda.test.TestHelper;
 import au.gov.nehta.model.cda.common.code.CodeImpl;
@@ -115,6 +116,7 @@ public class PharmacistSharedMedicinesListMaxTest extends Base {
 
     ClinicalDocument cdaClinicalDocument = ClinicalDocumentFactory
         .getPharmacistSharedMedicinesList();
+	cdaClinicalDocument.setClinicalDocumentId(CDATypeUtil.getUUID());
     cdaClinicalDocument.setVersionNumber(1);
     cdaClinicalDocument.setLanguageCode("en-AU");
     cdaClinicalDocument.setCompletionCode(DocumentStatusCode.FINAL);
