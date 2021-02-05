@@ -4,12 +4,11 @@ import au.gov.nehta.model.cda.common.code.Coded;
 
 public interface AdverseReaction {
 
-  Coded getSubstanceOrAgent();
+    Coded getSubstanceOrAgent();
 
-  void setSubstanceOrAgent(Coded substanceOrAgent);
+    void setSubstanceOrAgent(Coded substanceOrAgent);
 
-  ReactionEvent getReactionEvent();
+    ReactionEvent getReactionEvent();
 
-  void setReactionEvent(ReactionEvent reactionEvent);
-
+    void setReactionEvent(ReactionEvent reactionEvent);
 }

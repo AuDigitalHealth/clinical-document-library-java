@@ -5,17 +5,17 @@ import java.util.List;
 
 public interface Recommendations {
 
-  List<Recommendation> getRecommendations();
+    List<Recommendation> getRecommendations();
 
-  StrucDocText getCustomNarrative();
+    StrucDocText getCustomNarrative();
 
-  void setCustomNarrative(StrucDocText customNarrative);
+    void setCustomNarrative(StrucDocText customNarrative);
 
-  List<Recommendation> getRecommendationList();
+    List<Recommendation> getRecommendationList();
 
-  RecommendationsExclusion getRecommendationsExclusion();
+    RecommendationsExclusion getRecommendationsExclusion();
 
-  void setRecommendations(List<Recommendation> recommendations);
+    void setRecommendations(List<Recommendation> recommendations);
 
-  void setRecommendationsExclusion(RecommendationsExclusion recommendationsExclusion);
+    void setRecommendationsExclusion(RecommendationsExclusion recommendationsExclusion);
 }

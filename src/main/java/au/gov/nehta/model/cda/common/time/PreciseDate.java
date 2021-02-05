@@ -1,25 +1,23 @@
 package au.gov.nehta.model.cda.common.time;
 
-import org.joda.time.DateTime;
+import java.time.ZonedDateTime;
 
 /**
- * A date with specified precision 
- *
+ * A date with specified precision
  */
 public interface PreciseDate {
 
-	/**
-	 * @return Precision the precision relevant to this date
-	 */
-	public Precision getPrecision();
+    /**
+     * @return Precision the precision relevant to this date
+     */
+    Precision getPrecision();
 
-	/* The Joda DateTime */
-	public DateTime getDateTime();
+    /* The ZonedDateTime */
+    ZonedDateTime getDateTime();
 
-	/**
-	 * Return a string representation using the narrative form of formatter specified
-	 * in the Precision 
-	 */
-	public String toNarrativeForm();
-
+    /**
+     * Return a string representation using the narrative form of formatter specified
+     * in the Precision
+     */
+    String toNarrativeForm();
 }

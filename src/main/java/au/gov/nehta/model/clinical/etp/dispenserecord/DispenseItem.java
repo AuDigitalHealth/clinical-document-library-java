@@ -1,8 +1,7 @@
 package au.gov.nehta.model.clinical.etp.dispenserecord;
 
+import java.time.ZonedDateTime;
 import java.util.List;
-
-import org.joda.time.DateTime;
 
 import au.gov.nehta.model.cda.common.code.Coded;
 import au.gov.nehta.model.clinical.common.types.UniqueIdentifier;
@@ -11,109 +10,108 @@ import au.gov.nehta.model.clinical.etp.common.item.QuantityUnitDescription;
 
 public interface DispenseItem {
 
-  /**
-   * @return the theraputicGood
-   */
-  public Coded getTheraputicGood();
+    /**
+     * @return the theraputicGood
+     */
+    Coded getTheraputicGood();
 
-  /**
-   * @return the eventDate
-   */
-  public DateTime getEventDate();
+    /**
+     * @return the eventDate
+     */
+    ZonedDateTime getEventDate();
 
-  /**
-   * @return the prescriptionItem
-   */
-  public UniqueIdentifier getPrescriptionItem();
+    /**
+     * @return the prescriptionItem
+     */
+    UniqueIdentifier getPrescriptionItem();
 
-  /**
-   * @return the dispenseItem
-   */
-  public UniqueIdentifier getDispenseItem();
+    /**
+     * @return the dispenseItem
+     */
+    UniqueIdentifier getDispenseItem();
 
-  /**
-   * @return the formula
-   */
-  public String getFormula();
+    /**
+     * @return the formula
+     */
+    String getFormula();
 
-  /**
-   * @return the labelInstruction
-   */
-  public String getLabelInstruction();
+    /**
+     * @return the labelInstruction
+     */
+    String getLabelInstruction();
 
-  /**
-   * @return the isbrandSubstitutionOccured
-   */
-  public Boolean isbrandSubstitutionOccured();
+    /**
+     * @return the isbrandSubstitutionOccured
+     */
+    Boolean isbrandSubstitutionOccured();
 
-  /**
-   * @return the maxRepeats
-   */
-  public Integer getMaxRepeats();
+    /**
+     * @return the maxRepeats
+     */
+    Integer getMaxRepeats();
 
-  /**
-   * @return the numberOfDispenses
-   */
-  public Integer getNumberOfThisDispense();
+    /**
+     * @return the numberOfDispenses
+     */
+    Integer getNumberOfThisDispense();
 
-  /**
-   * @return the closeTheGapId
-   */
-  public UniqueIdentifier getCloseTheGapId();
+    /**
+     * @return the closeTheGapId
+     */
+    UniqueIdentifier getCloseTheGapId();
 
-  /**
-   * @return the pbsItemCode
-   */
-  public Coded getPbsItemCode();
+    /**
+     * @return the pbsItemCode
+     */
+    Coded getPbsItemCode();
 
-  /**
-   * @return the pbsManufactureCode
-   */
-  public UniqueIdentifier getPbsManufactureCode();
+    /**
+     * @return the pbsManufactureCode
+     */
+    UniqueIdentifier getPbsManufactureCode();
 
-  /**
-   * @return the quantityDispensed
-   */
-  public QuantityUnitDescription getQuantityDispensed();
+    /**
+     * @return the quantityDispensed
+     */
+    QuantityUnitDescription getQuantityDispensed();
 
-  /**
-   * @return the extemporaneousIngredients
-   */
-  public List<Ingredient> getExtemporaneousIngredients();
+    /**
+     * @return the extemporaneousIngredients
+     */
+    List<Ingredient> getExtemporaneousIngredients();
 
-  /**
-   * @return the claimTypeCategory
-   */
-  public Coded getClaimTypeCategory();
+    /**
+     * @return the claimTypeCategory
+     */
+    Coded getClaimTypeCategory();
 
-  /**
-   * @return the underCoPayment
-   */
-  public Coded getUnderCoPayment();
+    /**
+     * @return the underCoPayment
+     */
+    Coded getUnderCoPayment();
 
-  /**
-   * @return the earlySupplyWithBenifit
-   */
-  public Boolean isEarlySupplyWithBenifit();
+    /**
+     * @return the earlySupplyWithBenifit
+     */
+    Boolean isEarlySupplyWithBenifit();
 
-  /**
-   * @return the additionalComments
-   */
-  public String getAdditionalComments();
+    /**
+     * @return the additionalComments
+     */
+    String getAdditionalComments();
 
-  /**
-   * @return the patientCategory
-   */
-  public Coded getPatientCategory();
+    /**
+     * @return the patientCategory
+     */
+    Coded getPatientCategory();
 
-  /**
-   * @return the racfId
-   */
-  public String getRacfId();
-  
-  /**
-   * @return the dispensing status
-   */
-  public DispensingStatusType getDispensingStatus();
+    /**
+     * @return the racfId
+     */
+    String getRacfId();
 
+    /**
+     * @return the dispensing status
+     */
+    DispensingStatusType getDispensingStatus();
 }

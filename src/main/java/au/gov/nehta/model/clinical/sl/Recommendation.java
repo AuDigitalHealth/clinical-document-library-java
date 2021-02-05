@@ -5,33 +5,33 @@ import au.gov.nehta.model.clinical.etp.common.participation.ParticipationService
 
 public class Recommendation {
 
-  private ParticipationServiceProvider addressee;
+    private ParticipationServiceProvider addressee;
 
-  private RestrictedTimeInterval timeFrame;
+    private RestrictedTimeInterval timeFrame;
 
-  private String recommendationNarrative;
+    private String recommendationNarrative;
 
-  public ParticipationServiceProvider getAddressee() {
-    return addressee;
-  }
+    public ParticipationServiceProvider getAddressee() {
+        return addressee;
+    }
 
-  public void setAddressee(ParticipationServiceProvider addressee) {
-    this.addressee = addressee;
-  }
+    public void setAddressee(ParticipationServiceProvider addressee) {
+        this.addressee = addressee;
+    }
 
-  public RestrictedTimeInterval getTimeFrame() {
-    return timeFrame;
-  }
+    public RestrictedTimeInterval getTimeFrame() {
+        return timeFrame;
+    }
 
-  public void setTimeFrame(RestrictedTimeInterval timeFrame) {
-    this.timeFrame = timeFrame;
-  }
+    public void setTimeFrame(RestrictedTimeInterval timeFrame) {
+        this.timeFrame = timeFrame;
+    }
 
-  public String getRecommendationNarrative() {
-    return recommendationNarrative;
-  }
+    public String getRecommendationNarrative() {
+        return recommendationNarrative;
+    }
 
-  public void setRecommendationNarrative(String recommendationNarrative) {
-    this.recommendationNarrative = recommendationNarrative;
-  }
+    public void setRecommendationNarrative(String recommendationNarrative) {
+        this.recommendationNarrative = recommendationNarrative;
+    }
 }

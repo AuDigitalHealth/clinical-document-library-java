@@ -17,17 +17,17 @@ package au.gov.nehta.model.clinical.common.participation;
 import java.util.List;
 
 public interface Person {
-	List<PersonName> getPersonName();
+    List<PersonName> getPersonName();
 
-//	RelationshipToSubjectOfCare getRelationshipToSubjectOfCare();
+// RelationshipToSubjectOfCare getRelationshipToSubjectOfCare();
 
-//	EmploymentDetail getEmploymentDetail();
+// EmploymentDetail getEmploymentDetail();
 
-	//DemographicData getDemographicData();
+    // DemographicData getDemographicData();
 
-//	void setRelationshipToSubjectOfCare( RelationshipToSubjectOfCare relationshipToSubjectOfCare );
+// void setRelationshipToSubjectOfCare( RelationshipToSubjectOfCare relationshipToSubjectOfCare );
 
-//	void setEmploymentDetail( EmploymentDetail employmentDetail );
+// void setEmploymentDetail( EmploymentDetail employmentDetail );
 
-	//void setDemographicData( DemographicData demographicData );
+    // void setDemographicData( DemographicData demographicData );
 }

@@ -21,46 +21,46 @@ import au.gov.nehta.common.utils.ArgumentUtils;
 import au.gov.nehta.model.cda.common.code.Code;
 
 public class EntitlementTypeImpl implements EntitlementType {
-	private String uncodedValue;
-	private boolean isCoded;
+    private String uncodedValue;
+    private boolean isCoded;
 
-	EntitlementTypeImpl( String uncodedValue ) {
-		ArgumentUtils.checkNotNull( uncodedValue, "uncodedValue" );
-		this.isCoded = false;
-		this.uncodedValue = uncodedValue;
-	}
+    EntitlementTypeImpl(String uncodedValue) {
+        ArgumentUtils.checkNotNull(uncodedValue, "uncodedValue");
+        this.isCoded = false;
+        this.uncodedValue = uncodedValue;
+    }
 
-	public boolean isCoded() {
-		return isCoded;
-	}
+    public boolean isCoded() {
+        return isCoded;
+    }
 
-	public String getUncodedValue() {
-		return uncodedValue;
-	}
+    public String getUncodedValue() {
+        return uncodedValue;
+    }
 
-	public String getOriginalText() {
-		throw new UnsupportedOperationException();
-	}
+    public String getOriginalText() {
+        throw new UnsupportedOperationException();
+    }
 
-	public String getCode() {
-		throw new UnsupportedOperationException();
-	}
+    public String getCode() {
+        throw new UnsupportedOperationException();
+    }
 
-	public String getCodeSystem() {
-		throw new UnsupportedOperationException();
-	}
+    public String getCodeSystem() {
+        throw new UnsupportedOperationException();
+    }
 
-	public String getCodeSystemName() {
-		throw new UnsupportedOperationException();
-	}
+    public String getCodeSystemName() {
+        throw new UnsupportedOperationException();
+    }
 
-	public String getCodeSystemVersion() {
-		throw new UnsupportedOperationException();
-	}
+    public String getCodeSystemVersion() {
+        throw new UnsupportedOperationException();
+    }
 
-	public String getDisplayName() {
-		throw new UnsupportedOperationException();
-	}
+    public String getDisplayName() {
+        throw new UnsupportedOperationException();
+    }
 
     @Override
     public List<Code> getTranslations() {

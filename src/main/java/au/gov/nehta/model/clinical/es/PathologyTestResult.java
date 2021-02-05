@@ -4,64 +4,65 @@ import au.gov.nehta.model.cda.common.code.Coded;
 import au.gov.nehta.model.cda.common.time.PreciseDate;
 import au.gov.nehta.model.clinical.etp.common.item.AttachedMedia;
 import au.net.electronichealth.ns.cda._2_0.StrucDocText;
+
 import java.util.List;
 
 public interface PathologyTestResult {
 
-  Coded getTestResultName();
+    Coded getTestResultName();
 
-  void setTestResultName(Coded testResultName);
+    void setTestResultName(Coded testResultName);
 
-  DiagnosticServiceSectionID getDiagnosticService();
+    DiagnosticServiceSectionID getDiagnosticService();
 
-  void setDiagnosticService(DiagnosticServiceSectionID diagnosticService);
+    void setDiagnosticService(DiagnosticServiceSectionID diagnosticService);
 
-  List<TestSpecimenDetail> getTestSpecimenDetails();
+    List<TestSpecimenDetail> getTestSpecimenDetails();
 
-  void setTestSpecimenDetails(List<TestSpecimenDetail> testSpecimenDetails);
+    void setTestSpecimenDetails(List<TestSpecimenDetail> testSpecimenDetails);
 
-  Coded getOverallPathologyTestResultStatus();
+    Coded getOverallPathologyTestResultStatus();
 
-  void setOverallPathologyTestResultStatus(Coded overallPathologyTestResultStatus);
+    void setOverallPathologyTestResultStatus(Coded overallPathologyTestResultStatus);
 
-  String getClinicalInformationProvided();
+    String getClinicalInformationProvided();
 
-  void setClinicalInformationProvided(String clinicalInformationProvided);
+    void setClinicalInformationProvided(String clinicalInformationProvided);
 
-  List<ResultGroup> getResultGroups();
+    List<ResultGroup> getResultGroups();
 
-  void setResultGroups(List<ResultGroup> resultGroups);
+    void setResultGroups(List<ResultGroup> resultGroups);
 
-  List<Coded> getPathologicalDiagnoses();
+    List<Coded> getPathologicalDiagnoses();
 
-  void setPathologicalDiagnoses(List<Coded> pathologicalDiagnoses);
+    void setPathologicalDiagnoses(List<Coded> pathologicalDiagnoses);
 
-  String getConclusion();
+    String getConclusion();
 
-  void setConclusion(String conclusion);
+    void setConclusion(String conclusion);
 
-  AttachedMedia getTestResultRepresentation();
+    AttachedMedia getTestResultRepresentation();
 
-  void setTestResultRepresentation(AttachedMedia testResultRepresentation);
+    void setTestResultRepresentation(AttachedMedia testResultRepresentation);
 
-  String getTestComment();
+    String getTestComment();
 
-  void setTestComment(String testComment);
+    void setTestComment(String testComment);
 
-  TestRequestDetails getTestRequestDetails();
+    TestRequestDetails getTestRequestDetails();
 
-  void setTestRequestDetails(TestRequestDetails testRequestDetails);
+    void setTestRequestDetails(TestRequestDetails testRequestDetails);
 
-  //Observation DateTime also known as Test Result DateTime in SpecialistLetter
-  PreciseDate getObservationDateTime();
+    // Observation DateTime also known as Test Result DateTime in SpecialistLetter
+    PreciseDate getObservationDateTime();
 
-  void setObservationDateTime(PreciseDate observationDateTime);
+    void setObservationDateTime(PreciseDate observationDateTime);
 
-  StrucDocText getCustomNarrative();
+    StrucDocText getCustomNarrative();
 
-  void setCustomNarrative(StrucDocText customNarrative);
+    void setCustomNarrative(StrucDocText customNarrative);
 
-  Class getExecutingClass();
+    Class<?> getExecutingClass();
 
-  void setExecutingClass(Class executingClass);
+    void setExecutingClass(Class<?> executingClass);
 }

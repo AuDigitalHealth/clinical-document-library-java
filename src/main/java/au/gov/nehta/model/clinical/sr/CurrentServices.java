@@ -15,23 +15,23 @@ import java.util.List;
  * </ul>
  */
 public class CurrentServices {
-  private List<RequestedService> currentServices;
-  private StrucDocText customNarrative;
 
-  public List<RequestedService> getCurrentServices() {
-    return currentServices;
-  }
+    private List<RequestedService> currentServices;
+    private StrucDocText customNarrative;
 
-  public void setCurrentServices(
-      List<RequestedService> currentServices) {
-    this.currentServices = currentServices;
-  }
+    public List<RequestedService> getCurrentServices() {
+        return currentServices;
+    }
 
-  public StrucDocText getCustomNarrative() {
-    return customNarrative;
-  }
+    public void setCurrentServices(List<RequestedService> currentServices) {
+        this.currentServices = currentServices;
+    }
 
-  public void setCustomNarrative(StrucDocText customNarrative) {
-    this.customNarrative = customNarrative;
-  }
+    public StrucDocText getCustomNarrative() {
+        return customNarrative;
+    }
+
+    public void setCustomNarrative(StrucDocText customNarrative) {
+        this.customNarrative = customNarrative;
+    }
 }

@@ -4,26 +4,25 @@ import au.gov.nehta.common.utils.ArgumentUtils;
 import au.gov.nehta.model.clinical.common.participation.PersonName;
 
 public class ProviderPersonImpl implements ProviderPerson {
-	private PersonName personName;
-	private ProviderEmploymentDetail employmentDetail;
 
+    private PersonName personName;
+    private ProviderEmploymentDetail employmentDetail;
 
-    public ProviderPersonImpl( PersonName personName ) {
-        ArgumentUtils.checkNotNull( personName, "personName" );
+    public ProviderPersonImpl(PersonName personName) {
+        ArgumentUtils.checkNotNull(personName, "personName");
         this.personName = personName;
     }
 
-	public PersonName getPersonName() {
-		return personName;
-	}
+    public PersonName getPersonName() {
+        return personName;
+    }
 
-	public ProviderEmploymentDetail getEmploymentDetail() {
-		return employmentDetail;
-	}
+    public ProviderEmploymentDetail getEmploymentDetail() {
+        return employmentDetail;
+    }
 
-
-	public void setEmploymentDetail( ProviderEmploymentDetail employmentDetail ) {
-		ArgumentUtils.checkNotNull( employmentDetail, "employmentDetail" );
-		this.employmentDetail = employmentDetail;
-	}
+    public void setEmploymentDetail(ProviderEmploymentDetail employmentDetail) {
+        ArgumentUtils.checkNotNull(employmentDetail, "employmentDetail");
+        this.employmentDetail = employmentDetail;
+    }
 }

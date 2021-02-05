@@ -17,21 +17,21 @@ package au.gov.nehta.model.clinical.diagnostic.pathology;
 import au.gov.nehta.common.utils.ArgumentUtils;
 
 public class PathologyResultReportImpl implements PathologyResultReport {
-	private final PathologyReportContext context;
-	private final PathologyReportContent content;
+    private final PathologyReportContext context;
+    private final PathologyReportContent content;
 
-	public PathologyResultReportImpl( PathologyReportContext context, PathologyReportContent content ) {
-		ArgumentUtils.checkNotNull( context, "context" );
-		ArgumentUtils.checkNotNull( content, "content" );
-		this.context = context;
-		this.content = content;
-	}
+    public PathologyResultReportImpl(PathologyReportContext context, PathologyReportContent content) {
+        ArgumentUtils.checkNotNull(context, "context");
+        ArgumentUtils.checkNotNull(content, "content");
+        this.context = context;
+        this.content = content;
+    }
 
-	public PathologyReportContext getContext() {
-		return context;
-	}
+    public PathologyReportContext getContext() {
+        return context;
+    }
 
-	public PathologyReportContent getContent() {
-		return content;
-	}
+    public PathologyReportContent getContent() {
+        return content;
+    }
 }

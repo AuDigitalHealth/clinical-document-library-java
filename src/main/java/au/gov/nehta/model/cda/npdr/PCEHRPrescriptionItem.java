@@ -17,11 +17,13 @@ package au.gov.nehta.model.cda.npdr;
 import au.gov.nehta.model.cda.common.code.Coded;
 import au.gov.nehta.model.clinical.etp.eprescription.PrescriptionItem;
 
-public interface PCEHRPrescriptionItem  extends PrescriptionItem{
-	
-    public Coded getProductFormCode();
-    public String getGenericName();
-    public String getQuantityDescription();
-    public String getTheraputicGoodStrength();  
-	
+public interface PCEHRPrescriptionItem extends PrescriptionItem {
+
+    Coded getProductFormCode();
+
+    String getGenericName();
+
+    String getQuantityDescription();
+
+    String getTheraputicGoodStrength();
 }

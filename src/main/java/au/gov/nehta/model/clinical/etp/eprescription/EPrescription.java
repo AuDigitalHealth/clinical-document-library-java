@@ -15,7 +15,8 @@
 package au.gov.nehta.model.clinical.etp.eprescription;
 
 public interface EPrescription {
-	EPrescriptionContext getContext();
 
-	EPrescriptionContent getContent();
+    EPrescriptionContext getContext();
+
+    EPrescriptionContent getContent();
 }

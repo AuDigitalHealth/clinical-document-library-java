@@ -5,5 +5,4 @@ public interface PharmacistSharedMedicinesListContent {
   Section getSection();
 
   void setSection(Section section);
-
 }

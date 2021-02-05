@@ -17,32 +17,33 @@ package au.gov.nehta.model.clinical.common.participation;
 import java.util.List;
 
 public interface PersonName {
-	public List<String> getNameTitle();
+    List<String> getNameTitle();
 
-	public String getFamilyName();
+    String getFamilyName();
 
-	public List<String> getGivenName();
+    List<String> getGivenName();
 
-	public 	List<String> getNameSuffix();
+    List<String> getNameSuffix();
 
-	public Boolean getPreferredNameIndicator();
+    Boolean getPreferredNameIndicator();
 
-	public List<PersonNameUsage> getPersonNameUsage();
+    List<PersonNameUsage> getPersonNameUsage();
 
-	public void setNameTitle( List<String> nameTitle );
+    void setNameTitle(List<String> nameTitle);
 
-	public void addNameTitle( String nameTitle );
+    void addNameTitle(String nameTitle);
 
-	public void setGivenName( List<String> givenName );
+    void setGivenName(List<String> givenName);
 
-	public void addGivenName( String givenName );
+    void addGivenName(String givenName);
 
-	public void setNameSuffix( List<String> nameSuffix );
+    void setNameSuffix(List<String> nameSuffix);
 
-	public void addNameSuffix( String nameSuffix );
+    void addNameSuffix(String nameSuffix);
 
-	public void setPreferredNameIndicator( Boolean preferredNameIndicator );
+    void setPreferredNameIndicator(Boolean preferredNameIndicator);
 
-	public void setPersonNameUsage( List<PersonNameUsage> personNameUsage );
-	public void addPersonNameUsage( PersonNameUsage personNameUsage );
+    void setPersonNameUsage(List<PersonNameUsage> personNameUsage);
+
+    void addPersonNameUsage(PersonNameUsage personNameUsage);
 }

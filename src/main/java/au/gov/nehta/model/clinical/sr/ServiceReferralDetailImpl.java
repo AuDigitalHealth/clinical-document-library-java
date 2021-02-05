@@ -5,48 +5,48 @@ import java.util.List;
 
 public class ServiceReferralDetailImpl implements ServiceReferralDetail {
 
-  private List<RequestedService> requestedServices;
-  private InterpreterRequiredAlert interpreterRequiredAlert;
-  private List<OtherAlert> otherAlerts;
-  private StrucDocText customNarrative;
+    private List<RequestedService> requestedServices;
+    private InterpreterRequiredAlert interpreterRequiredAlert;
+    private List<OtherAlert> otherAlerts;
+    private StrucDocText customNarrative;
 
-  @Override
-  public List<RequestedService> getRequestedServices() {
-    return requestedServices;
-  }
+    @Override
+    public List<RequestedService> getRequestedServices() {
+        return requestedServices;
+    }
 
-  @Override
-  public void setRequestedServices(List<RequestedService> requestedServices) {
-    this.requestedServices = requestedServices;
-  }
+    @Override
+    public void setRequestedServices(List<RequestedService> requestedServices) {
+        this.requestedServices = requestedServices;
+    }
 
-  @Override
-  public InterpreterRequiredAlert getInterpreterRequiredAlert() {
-    return interpreterRequiredAlert;
-  }
+    @Override
+    public InterpreterRequiredAlert getInterpreterRequiredAlert() {
+        return interpreterRequiredAlert;
+    }
 
-  @Override
-  public void setInterpreterRequiredAlert(InterpreterRequiredAlert interpreterRequiredAlert) {
-    this.interpreterRequiredAlert = interpreterRequiredAlert;
-  }
+    @Override
+    public void setInterpreterRequiredAlert(InterpreterRequiredAlert interpreterRequiredAlert) {
+        this.interpreterRequiredAlert = interpreterRequiredAlert;
+    }
 
-  @Override
-  public List<OtherAlert> getOtherAlert() {
-    return otherAlerts;
-  }
+    @Override
+    public List<OtherAlert> getOtherAlert() {
+        return otherAlerts;
+    }
 
-  @Override
-  public void setOtherAlert(List<OtherAlert> otherAlerts) {
-    this.otherAlerts = otherAlerts;
-  }
+    @Override
+    public void setOtherAlert(List<OtherAlert> otherAlerts) {
+        this.otherAlerts = otherAlerts;
+    }
 
-  @Override
-  public StrucDocText getCustomNarrative() {
-    return customNarrative;
-  }
+    @Override
+    public StrucDocText getCustomNarrative() {
+        return customNarrative;
+    }
 
-  @Override
-  public void setCustomNarrative(StrucDocText customNarrative) {
-    this.customNarrative = customNarrative;
-  }
+    @Override
+    public void setCustomNarrative(StrucDocText customNarrative) {
+        this.customNarrative = customNarrative;
+    }
 }

@@ -17,5 +17,4 @@ public interface Participant {
   void addElectronicCommunicationDetail(Telecom electronicCommunicationDetail);
 
   void setElectronicCommunicationDetail(List<Telecom> electronicCommunicationDetail);
-
 }

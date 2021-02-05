@@ -5,19 +5,19 @@ import java.util.List;
 
 public interface ServiceReferralDetail {
 
-  List<RequestedService> getRequestedServices();
+    List<RequestedService> getRequestedServices();
 
-  void setRequestedServices(List<RequestedService> requestedServices);
+    void setRequestedServices(List<RequestedService> requestedServices);
 
-  InterpreterRequiredAlert getInterpreterRequiredAlert();
+    InterpreterRequiredAlert getInterpreterRequiredAlert();
 
-  void setInterpreterRequiredAlert(InterpreterRequiredAlert interpreterRequiredAlert);
+    void setInterpreterRequiredAlert(InterpreterRequiredAlert interpreterRequiredAlert);
 
-  List<OtherAlert> getOtherAlert();
+    List<OtherAlert> getOtherAlert();
 
-  void setOtherAlert(List<OtherAlert> otherAlerts);
+    void setOtherAlert(List<OtherAlert> otherAlerts);
 
-  StrucDocText getCustomNarrative();
+    StrucDocText getCustomNarrative();
 
-  void setCustomNarrative(StrucDocText customNarrative);
+    void setCustomNarrative(StrucDocText customNarrative);
 }

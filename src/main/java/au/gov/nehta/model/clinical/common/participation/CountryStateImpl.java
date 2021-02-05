@@ -4,13 +4,12 @@ public class CountryStateImpl implements CountryState {
 
     private String country;
     private String state;
-    
+
     public CountryStateImpl(String country, String state) {
-        this.country =country;
+        this.country = country;
         this.state = state;
     }
-    
-    
+
     @Override
     public String getState() {
         return state;
@@ -22,13 +21,12 @@ public class CountryStateImpl implements CountryState {
     }
 
     @Override
-    public void setState( String state ) {
+    public void setState(String state) {
         this.state = state;
     }
 
     @Override
-    public void setCountry( String country ) {
-        this.country =country;
+    public void setCountry(String country) {
+        this.country = country;
     }
-
 }

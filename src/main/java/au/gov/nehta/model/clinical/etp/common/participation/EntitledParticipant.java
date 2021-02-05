@@ -6,7 +6,7 @@ public interface EntitledParticipant extends Participant {
   
     public List<Entitlement> getEntitlement();
 
-    public void addEntitlement( Entitlement entitlement );
+    public void addEntitlement(Entitlement entitlement);
 
-    public void setEntitlement( List<Entitlement> entitlement );
+    public void setEntitlement(List<Entitlement> entitlement);
 }

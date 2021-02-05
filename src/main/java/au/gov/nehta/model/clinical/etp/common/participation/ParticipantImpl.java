@@ -8,8 +8,8 @@ import au.gov.nehta.model.cda.common.telecom.Telecom;
 
 public abstract class ParticipantImpl {
     protected ProviderAddress address;
-    protected List<Telecom> electronicCommunicationDetail = new  ArrayList<Telecom>();
-    
+    protected List<Telecom> electronicCommunicationDetail = new ArrayList<>();
+
     public ProviderAddress getAddresses() {
         return address;
     }
@@ -18,19 +18,17 @@ public abstract class ParticipantImpl {
         return electronicCommunicationDetail;
     }
 
-    public void setAddress( ProviderAddress address ) {
-        ArgumentUtils.checkNotNull( address, "address" );
-        this.address=address;
+    public void setAddress(ProviderAddress address) {
+        ArgumentUtils.checkNotNull(address, "address");
+        this.address = address;
     }
 
-
-    public void addElectronicCommunicationDetail( Telecom communication ) {
-        electronicCommunicationDetail.add( communication );
+    public void addElectronicCommunicationDetail(Telecom communication) {
+        electronicCommunicationDetail.add(communication);
     }
 
-
-    public void setElectronicCommunicationDetail( List<Telecom> electronicCommunicationDetail ) {
-        ArgumentUtils.checkNotNull( electronicCommunicationDetail, "electronicCommunicationDetail" );
-        this.electronicCommunicationDetail=electronicCommunicationDetail;
+    public void setElectronicCommunicationDetail(List<Telecom> electronicCommunicationDetail) {
+        ArgumentUtils.checkNotNull(electronicCommunicationDetail, "electronicCommunicationDetail");
+        this.electronicCommunicationDetail = electronicCommunicationDetail;
     }
 }

@@ -16,25 +16,25 @@ package au.gov.nehta.model.clinical.common.participation;
 
 
 /**
- * The level of certainty or estimation of a date 
+ * The level of certainty or estimation of a date
  */
 public interface DateAccuracy {
-	
-	/**
-	 * The accuracy of the day component of a date 
-	 */
-	Boolean getDayAccuracyIndicator();
-	
-	/**
-	 * The accuracy of the month component of a date 
-	 */
-	Boolean getMonthAccuracyIndicator();
-	
-	/**
-	 * The accuracy of the year component of a date 
-	 */
-	Boolean getYearAccuracyIndicator();
-	
-	/* Used for the narrative rendering */
-	String toString();
+
+    /**
+     * The accuracy of the day component of a date
+     */
+    Boolean getDayAccuracyIndicator();
+
+    /**
+     * The accuracy of the month component of a date
+     */
+    Boolean getMonthAccuracyIndicator();
+
+    /**
+     * The accuracy of the year component of a date
+     */
+    Boolean getYearAccuracyIndicator();
+
+    /* Used for the narrative rendering */
+    String toString();
 }

@@ -17,49 +17,49 @@ package au.gov.nehta.model.clinical.common.participation;
 public interface StructuredAustralianAddressLine {
     String getUnitType();
 
-	String getUnitNumber();
+    String getUnitNumber();
 
-	String getAddressSiteName();
+    String getAddressSiteName();
 
-	String getLevelType();
+    String getLevelType();
 
-	String getLevelNumber();
+    String getLevelNumber();
 
-	String getStreetNumber();
+    String getStreetNumber();
 
-	String getLotNumber();
+    String getLotNumber();
 
-	String getStreetName();
+    String getStreetName();
 
-	String getStreetType();
+    String getStreetType();
 
-	String getStreetSuffix();
+    String getStreetSuffix();
 
-	String getPostalDeliveryType();
+    String getPostalDeliveryType();
 
-	String getPostalDeliveryNumber();
+    String getPostalDeliveryNumber();
 
-	void setUnitType( String unitType );
+    void setUnitType(String unitType);
 
-	void setUnitNumber( String unitNumber );
+    void setUnitNumber(String unitNumber);
 
-	void setAddressSiteName( String addressSiteName );
+    void setAddressSiteName(String addressSiteName);
 
-	void setLevelType( String levelType );
+    void setLevelType(String levelType);
 
-	void setLevelNumber( String levelNumber );
+    void setLevelNumber(String levelNumber);
 
-	void setStreetNumber( String streetNumber );
+    void setStreetNumber(String streetNumber);
 
-	void setLotNumber( String lotNumber );
+    void setLotNumber(String lotNumber);
 
-	void setStreetName( String streetName );
+    void setStreetName(String streetName);
 
-	void setStreetType( String streetType );
+    void setStreetType(String streetType);
 
-	void setStreetSuffix( String streetSuffix );
+    void setStreetSuffix(String streetSuffix);
 
-	void setPostalDeliveryType( String postalDeliveryType );
+    void setPostalDeliveryType(String postalDeliveryType);
 
-	void setPostalDeliveryNumber( String postalDeliveryNumber );
+    void setPostalDeliveryNumber(String postalDeliveryNumber);
 }

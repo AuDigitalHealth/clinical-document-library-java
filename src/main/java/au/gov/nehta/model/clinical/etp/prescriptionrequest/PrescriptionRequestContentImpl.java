@@ -19,40 +19,42 @@ import au.gov.nehta.model.clinical.etp.common.item.Logo;
 import au.gov.nehta.model.clinical.etp.eprescription.PrescriptionItem;
 
 public class PrescriptionRequestContentImpl implements PrescriptionRequestContent {
-	private PrescriberInstructionDetail prescriberInstructionDetail;
-	private PrescriptionItem prescriptionRequestItem;
-	private RequesterNote requesterNote;
-	private Logo logo;
+    private PrescriberInstructionDetail prescriberInstructionDetail;
+    private PrescriptionItem prescriptionRequestItem;
+    private RequesterNote requesterNote;
+    private Logo logo;
 
-	public PrescriptionRequestContentImpl( PrescriberInstructionDetail prescriberInstructionDetail, PrescriptionItem prescriptionRequestItem ) {
-		ArgumentUtils.checkNotNull( prescriberInstructionDetail, "prescriberInstructionDetail" );
-		ArgumentUtils.checkNotNull( prescriptionRequestItem, "prescriptionRequestItem" );
-		if( !prescriptionRequestItem.isRequestItem() ) throw new IllegalArgumentException( "Only a PrescriptionItem built as a prescriptionRequestItem  may be supplued to PrescriptionRequestContent" );
-		this.prescriberInstructionDetail = prescriberInstructionDetail;
-		this.prescriptionRequestItem = prescriptionRequestItem;
-	}
+    public PrescriptionRequestContentImpl(PrescriberInstructionDetail prescriberInstructionDetail, PrescriptionItem prescriptionRequestItem) {
 
-	public PrescriberInstructionDetail getPrescriberInstructionDetail() {
-		return prescriberInstructionDetail;
-	}
+        ArgumentUtils.checkNotNull(prescriberInstructionDetail, "prescriberInstructionDetail");
+        ArgumentUtils.checkNotNull(prescriptionRequestItem, "prescriptionRequestItem");
+        if (!prescriptionRequestItem.isRequestItem())
+            throw new IllegalArgumentException("Only a PrescriptionItem built as a prescriptionRequestItem  may be supplied to PrescriptionRequestContent");
+        this.prescriberInstructionDetail = prescriberInstructionDetail;
+        this.prescriptionRequestItem = prescriptionRequestItem;
+    }
 
-	public PrescriptionItem getPrescriptionRequestItem() {
-		return prescriptionRequestItem;
-	}
+    public PrescriberInstructionDetail getPrescriberInstructionDetail() {
+        return prescriberInstructionDetail;
+    }
 
-	public RequesterNote getRequesterNote() {
-		if (this.requesterNote == null) {
-			throw new IllegalStateException();
-		}
-		return this.requesterNote;
-	}
+    public PrescriptionItem getPrescriptionRequestItem() {
+        return prescriptionRequestItem;
+    }
 
-	public void setRequesterNote( RequesterNote requesterNote ) {
-		ArgumentUtils.checkNotNull( requesterNote, "requesterNote" );
-		this.requesterNote = requesterNote;
-	}
+    public RequesterNote getRequesterNote() {
+        if (this.requesterNote == null) {
+            throw new IllegalStateException();
+        }
+        return this.requesterNote;
+    }
 
-	/**
+    public void setRequesterNote(RequesterNote requesterNote) {
+        ArgumentUtils.checkNotNull(requesterNote, "requesterNote");
+        this.requesterNote = requesterNote;
+    }
+
+    /**
      * @return the logo
      */
     public Logo getLogo() {
@@ -62,11 +64,11 @@ public class PrescriptionRequestContentImpl implements PrescriptionRequestConten
     /**
      * @param logo the logo to set
      */
-    public void setLogo( Logo logo ) {
+    public void setLogo(Logo logo) {
         this.logo = logo;
     }
 
     public boolean hasRequesterNote() {
-		return this.requesterNote != null;
-	}
+        return this.requesterNote != null;
+    }
 }

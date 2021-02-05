@@ -4,22 +4,21 @@ import java.util.List;
 
 public interface Coded {
 
-  String HL7_CODE_SYSTEM = "Identifier Type (HL7)";
+    String HL7_CODE_SYSTEM = "Identifier Type (HL7)";
 
-  String getCode();
+    String getCode();
 
-  String getCodeSystem();
+    String getCodeSystem();
 
-  String getCodeSystemName();
+    String getCodeSystemName();
 
-  String getCodeSystemVersion();
+    String getCodeSystemVersion();
 
-  String getDisplayName();
+    String getDisplayName();
 
-  String getOriginalText();
+    String getOriginalText();
 
-  List<Code> getTranslations();
+    List<Code> getTranslations();
 
-  boolean isCoded();
-
+    boolean isCoded();
 }

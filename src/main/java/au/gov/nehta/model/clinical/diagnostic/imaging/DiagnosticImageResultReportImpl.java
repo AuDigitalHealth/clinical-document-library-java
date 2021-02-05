@@ -17,21 +17,21 @@ package au.gov.nehta.model.clinical.diagnostic.imaging;
 import au.gov.nehta.common.utils.ArgumentUtils;
 
 public class DiagnosticImageResultReportImpl implements DiagnosticImageResultReport {
-	private final DiagnosticImageReportContext context;
-	private final DiagnosticImageReportContent content;
+    private final DiagnosticImageReportContext context;
+    private final DiagnosticImageReportContent content;
 
-	public DiagnosticImageResultReportImpl( DiagnosticImageReportContext context, DiagnosticImageReportContent content ) {
-		ArgumentUtils.checkNotNull( context, "context" );
-		ArgumentUtils.checkNotNull( content, "content" );
-		this.context = context;
-		this.content = content;
-	}
+    public DiagnosticImageResultReportImpl(DiagnosticImageReportContext context, DiagnosticImageReportContent content) {
+        ArgumentUtils.checkNotNull(context, "context");
+        ArgumentUtils.checkNotNull(content, "content");
+        this.context = context;
+        this.content = content;
+    }
 
-	public DiagnosticImageReportContext getContext() {
-		return context;
-	}
+    public DiagnosticImageReportContext getContext() {
+        return context;
+    }
 
-	public DiagnosticImageReportContent getContent() {
-		return content;
-	}
+    public DiagnosticImageReportContent getContent() {
+        return content;
+    }
 }

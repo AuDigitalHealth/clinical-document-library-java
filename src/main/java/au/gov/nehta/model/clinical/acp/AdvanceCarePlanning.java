@@ -1,12 +1,11 @@
 package au.gov.nehta.model.clinical.acp;
 
 public interface AdvanceCarePlanning {
-  AdvanceCarePlanningContext getContext();
+    AdvanceCarePlanningContext getContext();
 
-  void setContext(AdvanceCarePlanningContext context);
+    void setContext(AdvanceCarePlanningContext context);
 
-  AdvanceCarePlanningContent getContent();
+    AdvanceCarePlanningContent getContent();
 
-  void setContent(AdvanceCarePlanningContent content);
-
+    void setContent(AdvanceCarePlanningContent content);
 }

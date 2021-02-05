@@ -1,71 +1,76 @@
 package au.gov.nehta.model.cda.diagnostic;
 
-import org.joda.time.DateTime;
-
 import au.gov.nehta.model.cda.common.custodian.Custodian;
 import au.gov.nehta.model.cda.common.document.BaseClinicalDocument;
 import au.gov.nehta.model.cda.common.document.ClinicalDocument;
 import au.gov.nehta.model.cda.common.id.LegalAuthenticator;
 import au.gov.nehta.model.common.CDAModelImpl;
 
-public class PathologyReportCdaModel extends CDAModelImpl{
+import java.time.ZonedDateTime;
 
-	private DateTime effectiveTime;
-    private ClinicalDocument pathClinicalDoucment;
-	
- //   private SubjectOfCareParticipant subject;
+public class PathologyReportCdaModel extends CDAModelImpl {
 
-    public PathologyReportCdaModel( ClinicalDocument clinicalDocument, LegalAuthenticator legalAuthenticator, Custodian custodian, 
-			String healthCareFacilityId, DateTime effectiveTime ) {
-	    super(null,legalAuthenticator,custodian);
-	    this.pathClinicalDoucment = clinicalDocument;
-		this.effectiveTime = effectiveTime;
-		
-		validate();
-	}
-    
-    public PathologyReportCdaModel( ClinicalDocument clinicalDocument,  Custodian custodian, 
-            String healthCareFacilityId, DateTime effectiveTime ) {
-        super(null,null,custodian);
-        this.pathClinicalDoucment = clinicalDocument;
+    private ZonedDateTime effectiveTime;
+    private ClinicalDocument pathClinicalDocument;
+
+    //   private SubjectOfCareParticipant subject;
+
+    public PathologyReportCdaModel(ClinicalDocument clinicalDocument,
+                                   LegalAuthenticator legalAuthenticator,
+                                   Custodian custodian,
+                                   String healthCareFacilityId,
+                                   ZonedDateTime effectiveTime) {
+
+        super(null, legalAuthenticator, custodian);
+        this.pathClinicalDocument = clinicalDocument;
         this.effectiveTime = effectiveTime;
-        
+
         validate();
     }
-    
+
+    public PathologyReportCdaModel(ClinicalDocument clinicalDocument,
+                                   Custodian custodian,
+                                   String healthCareFacilityId,
+                                   ZonedDateTime effectiveTime) {
+        super(null, null, custodian);
+        this.pathClinicalDocument = clinicalDocument;
+        this.effectiveTime = effectiveTime;
+
+        validate();
+    }
 
     private void validate() {
-        if(pathClinicalDoucment == null) throw new IllegalArgumentException( "PathologyClinicalDocument missing" );
-        if(pathClinicalDoucment.getCompletionCode() == null)throw new IllegalArgumentException( "PathologyClinicalDocument is missing completion code" );
-        if(pathClinicalDoucment.getClinicalDocumentId() == null)throw new IllegalArgumentException( "PathologyClinicalDocument is missing DocumentID code" );
-        if(pathClinicalDoucment.getTypeId() == null)throw new IllegalArgumentException( "PathologyClinicalDocument is missing typeID " );
-        if(pathClinicalDoucment.getTemplateIds() == null || pathClinicalDoucment.getTemplateIds().size() ==0)throw new IllegalArgumentException( "PathologyClinicalDocument is missing templateId " );
-        
-        if(effectiveTime == null)throw new IllegalArgumentException( "AuthorTime is missing" );
-        
+        if (pathClinicalDocument == null) throw new IllegalArgumentException("PathologyClinicalDocument missing");
+        if (pathClinicalDocument.getCompletionCode() == null)
+            throw new IllegalArgumentException("PathologyClinicalDocument is missing completion code");
+        if (pathClinicalDocument.getClinicalDocumentId() == null)
+            throw new IllegalArgumentException("PathologyClinicalDocument is missing DocumentID code");
+        if (pathClinicalDocument.getTypeId() == null)
+            throw new IllegalArgumentException("PathologyClinicalDocument is missing typeID ");
+        if (pathClinicalDocument.getTemplateIds() == null || pathClinicalDocument.getTemplateIds().size() == 0)
+            throw new IllegalArgumentException("PathologyClinicalDocument is missing templateId ");
+
+        if (effectiveTime == null) throw new IllegalArgumentException("AuthorTime is missing");
+
     }
-
-
 
     /**
-     * @return the pathClinicalDoucment
+     * @return the pathClinicalDocument
      */
     public ClinicalDocument getCompletionClinicalDoucment() {
-        return pathClinicalDoucment;
-    }
-    
-    
-    @Override
-    public BaseClinicalDocument getBaseClinicalDocument() {
-        return (BaseClinicalDocument) pathClinicalDoucment;
+        return pathClinicalDocument;
     }
 
-	public DateTime getAuthorTime() {
+    @Override
+    public BaseClinicalDocument getBaseClinicalDocument() {
+        return (BaseClinicalDocument) pathClinicalDocument;
+    }
+
+    public ZonedDateTime getAuthorTime() {
         return effectiveTime;
     }
 
-
-    public void setAuthorTime( DateTime authorTime ) {
+    public void setAuthorTime(ZonedDateTime authorTime) {
         this.effectiveTime = authorTime;
     }
 }

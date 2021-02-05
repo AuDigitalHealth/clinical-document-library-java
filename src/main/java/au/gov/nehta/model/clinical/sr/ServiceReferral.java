@@ -2,12 +2,11 @@ package au.gov.nehta.model.clinical.sr;
 
 public interface ServiceReferral {
 
-  ServiceReferralContext getContext();
+    ServiceReferralContext getContext();
 
-  void setContext(ServiceReferralContext context);
+    void setContext(ServiceReferralContext context);
 
-  ServiceReferralContent getContent();
+    ServiceReferralContent getContent();
 
-  void setContent(ServiceReferralContent content);
-
+    void setContent(ServiceReferralContent content);
 }

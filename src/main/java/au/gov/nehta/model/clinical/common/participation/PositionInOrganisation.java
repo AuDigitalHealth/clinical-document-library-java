@@ -17,7 +17,7 @@ package au.gov.nehta.model.clinical.common.participation;
 import au.gov.nehta.model.cda.common.code.Coded;
 
 public interface PositionInOrganisation extends Coded {
-	public final String CODE_SYSTEM = "1.2.36.1.2001.1001.101.104.16265";
-	public final String CODE_SYSTEM_NAME = "Position In Organisation Values";
-	public final String CODE_SYSTEM_VERSION = "2010";
+    String CODE_SYSTEM = "1.2.36.1.2001.1001.101.104.16265";
+    String CODE_SYSTEM_NAME = "Position In Organisation Values";
+    String CODE_SYSTEM_VERSION = "2010";
 }

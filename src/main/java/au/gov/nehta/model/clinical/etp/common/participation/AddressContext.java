@@ -13,6 +13,6 @@ public interface AddressContext {
     /** An address not restricted to any continent */
     Address getAddress();
     
-    /** The purpose of this Address, for example buisness or residential accomodation */
+    /** The purpose of this Address, for example business or residential accommodation */
     AddressPurpose getAddressPurpose();
 }

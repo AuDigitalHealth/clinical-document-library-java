@@ -16,115 +16,115 @@ package au.gov.nehta.model.clinical.common.participation;
 
 
 public class StructuredAustralianAddressLineImpl implements StructuredAustralianAddressLine {
-	private String australianUnitType;
-	private String australianUnitNumber;
-	private String australianAddressSiteName;
-	private String australianLevelType;
-	private String australianLevelNumber;
-	private String australianStreetNumber;
-	private String australianLotNumber;
-	private String australianStreetName;
-	private String australianStreetType;
-	private String australianStreetSuffix;
-	private String australianPostalDeliveryType;
-	private String australianPostalDeliveryNumber;
+    private String australianUnitType;
+    private String australianUnitNumber;
+    private String australianAddressSiteName;
+    private String australianLevelType;
+    private String australianLevelNumber;
+    private String australianStreetNumber;
+    private String australianLotNumber;
+    private String australianStreetName;
+    private String australianStreetType;
+    private String australianStreetSuffix;
+    private String australianPostalDeliveryType;
+    private String australianPostalDeliveryNumber;
 
-	public StructuredAustralianAddressLineImpl() {
-	}
+    public StructuredAustralianAddressLineImpl() {
+    }
 
-	public String getUnitType() {
-		return australianUnitType;
-	}
+    public String getUnitType() {
+        return australianUnitType;
+    }
 
-	public String getUnitNumber() {
-		return australianUnitNumber;
-	}
+    public String getUnitNumber() {
+        return australianUnitNumber;
+    }
 
-	public String getAddressSiteName() {
-		return australianAddressSiteName;
-	}
+    public String getAddressSiteName() {
+        return australianAddressSiteName;
+    }
 
-	public String getLevelType() {
-		return australianLevelType;
-	}
+    public String getLevelType() {
+        return australianLevelType;
+    }
 
-	public String getLevelNumber() {
-		return australianLevelNumber;
-	}
+    public String getLevelNumber() {
+        return australianLevelNumber;
+    }
 
-	public String getStreetNumber() {
-		return australianStreetNumber;
-	}
+    public String getStreetNumber() {
+        return australianStreetNumber;
+    }
 
-	public String getLotNumber() {
-		return australianLotNumber;
-	}
+    public String getLotNumber() {
+        return australianLotNumber;
+    }
 
-	public String getStreetName() {
-		return australianStreetName;
-	}
+    public String getStreetName() {
+        return australianStreetName;
+    }
 
-	public String getStreetType() {
-		return australianStreetType;
-	}
+    public String getStreetType() {
+        return australianStreetType;
+    }
 
-	public String getStreetSuffix() {
-		return australianStreetSuffix;
-	}
+    public String getStreetSuffix() {
+        return australianStreetSuffix;
+    }
 
-	public String getPostalDeliveryType() {
-		return australianPostalDeliveryType;
-	}
+    public String getPostalDeliveryType() {
+        return australianPostalDeliveryType;
+    }
 
-	public String getPostalDeliveryNumber() {
-		return australianPostalDeliveryNumber;
-	}
+    public String getPostalDeliveryNumber() {
+        return australianPostalDeliveryNumber;
+    }
 
-	public void setUnitType( String australianUnitType ) {
-		this.australianUnitType = australianUnitType;
-	}
+    public void setUnitType(String australianUnitType) {
+        this.australianUnitType = australianUnitType;
+    }
 
-	public void setUnitNumber( String australianUnitNumber ) {
-		this.australianUnitNumber = australianUnitNumber;
-	}
+    public void setUnitNumber(String australianUnitNumber) {
+        this.australianUnitNumber = australianUnitNumber;
+    }
 
-	public void setAddressSiteName( String australianAddressSiteName ) {
-		this.australianAddressSiteName = australianAddressSiteName;
-	}
+    public void setAddressSiteName(String australianAddressSiteName) {
+        this.australianAddressSiteName = australianAddressSiteName;
+    }
 
-	public void setLevelType( String australianLevelType ) {
-		this.australianLevelType = australianLevelType;
-	}
+    public void setLevelType(String australianLevelType) {
+        this.australianLevelType = australianLevelType;
+    }
 
-	public void setLevelNumber( String australianLevelNumber ) {
-		this.australianLevelNumber = australianLevelNumber;
-	}
+    public void setLevelNumber(String australianLevelNumber) {
+        this.australianLevelNumber = australianLevelNumber;
+    }
 
-	public void setStreetNumber( String australianStreetNumber ) {
-		this.australianStreetNumber = australianStreetNumber;
-	}
+    public void setStreetNumber(String australianStreetNumber) {
+        this.australianStreetNumber = australianStreetNumber;
+    }
 
-	public void setLotNumber( String australianLotNumber ) {
-		this.australianLotNumber = australianLotNumber;
-	}
+    public void setLotNumber(String australianLotNumber) {
+        this.australianLotNumber = australianLotNumber;
+    }
 
-	public void setStreetName( String australianStreetName ) {
-		this.australianStreetName = australianStreetName;
-	}
+    public void setStreetName(String australianStreetName) {
+        this.australianStreetName = australianStreetName;
+    }
 
-	public void setStreetType( String australianStreetType ) {
-		this.australianStreetType = australianStreetType;
-	}
+    public void setStreetType(String australianStreetType) {
+        this.australianStreetType = australianStreetType;
+    }
 
-	public void setStreetSuffix( String australianStreetSuffix ) {
-		this.australianStreetSuffix = australianStreetSuffix;
-	}
+    public void setStreetSuffix(String australianStreetSuffix) {
+        this.australianStreetSuffix = australianStreetSuffix;
+    }
 
-	public void setPostalDeliveryType( String australianPostalDeliveryType ) {
-		this.australianPostalDeliveryType = australianPostalDeliveryType;
-	}
+    public void setPostalDeliveryType(String australianPostalDeliveryType) {
+        this.australianPostalDeliveryType = australianPostalDeliveryType;
+    }
 
-	public void setPostalDeliveryNumber( String australianPostalDeliveryNumber ) {
-		this.australianPostalDeliveryNumber = australianPostalDeliveryNumber;
-	}
+    public void setPostalDeliveryNumber(String australianPostalDeliveryNumber) {
+        this.australianPostalDeliveryNumber = australianPostalDeliveryNumber;
+    }
 }

@@ -11,60 +11,56 @@ import au.gov.nehta.model.clinical.common.participation.Organisation;
 import au.gov.nehta.model.clinical.common.types.HPIO;
 
 public class DispensingOrganisationParticipantImpl extends OrganisationParticipantImpl implements DispensingOrganisationParticipant {
-	
-	private List<Entitlement> entitlement;
-	
 
-	public DispensingOrganisationParticipantImpl( HPIO entityIdentifier, ProviderAddress address, List<Telecom> electronicCommunicationDetail, Organisation organisation ) {
-		ArgumentUtils.checkNotNull( entityIdentifier, "entityIdentifier" );
-		ArgumentUtils.checkNotNull( address, "address" );
-		ArgumentUtils.checkNotNullNorEmpty( electronicCommunicationDetail, "electronicCommunicationDetail" );
-		ArgumentUtils.checkNotNull( organisation, "organisation" );
+    private List<Entitlement> entitlement;
 
-		if (!address.getAddressPurpose().equals( AddressPurpose.BUSINESS )) {
-			throw new IllegalArgumentException( "address must have an address purpose of BUSINESS" );
-		}
+    public DispensingOrganisationParticipantImpl(HPIO entityIdentifier, ProviderAddress address, List<Telecom> electronicCommunicationDetail, Organisation organisation) {
 
-		boolean containsTelephoneOrMobile = false;
+        ArgumentUtils.checkNotNull(entityIdentifier, "entityIdentifier");
+        ArgumentUtils.checkNotNull(address, "address");
+        ArgumentUtils.checkNotNullNorEmpty(electronicCommunicationDetail, "electronicCommunicationDetail");
+        ArgumentUtils.checkNotNull(organisation, "organisation");
 
-		for (Telecom electronicCommunicationDetailItem : electronicCommunicationDetail) {
-			if (containsTelephoneOrMobile) {
-				break;
-			} else {
-				TelecomMedium medium = electronicCommunicationDetailItem.getTelecomMedium();
-				if (medium.equals( TelecomMedium.TELEPHONE ) || medium.equals( TelecomMedium.MOBILE )) {
-					containsTelephoneOrMobile = true;
-				}
-			}
-		}
-		if (containsTelephoneOrMobile == false) {
-			throw new IllegalArgumentException( "electronicCommunicationDetail list must contain at least one item with an Electronic Communication Medium value of 'Telephone' or 'Mobile'" );
-		}
+        if (!address.getAddressPurpose().equals(AddressPurpose.BUSINESS)) {
+            throw new IllegalArgumentException("address must have an address purpose of BUSINESS");
+        }
 
-		this.entityIdentifier = entityIdentifier;
-		this.address = address;
-		this.electronicCommunicationDetail = electronicCommunicationDetail;
-		this.organisation = organisation;
-	}
+        boolean containsTelephoneOrMobile = false;
 
+        for (Telecom electronicCommunicationDetailItem : electronicCommunicationDetail) {
+            if (containsTelephoneOrMobile) {
+                break;
+            } else {
+                TelecomMedium medium = electronicCommunicationDetailItem.getTelecomMedium();
+                if (medium.equals(TelecomMedium.TELEPHONE) || medium.equals(TelecomMedium.MOBILE)) {
+                    containsTelephoneOrMobile = true;
+                }
+            }
+        }
+        if (containsTelephoneOrMobile == false) {
+            throw new IllegalArgumentException("electronicCommunicationDetail list must contain at least one item with an Electronic Communication Medium value of 'Telephone' or 'Mobile'");
+        }
 
-	public List<Entitlement> getEntitlement() {
-		return entitlement;
-	}
+        this.entityIdentifier = entityIdentifier;
+        this.address = address;
+        this.electronicCommunicationDetail = electronicCommunicationDetail;
+        this.organisation = organisation;
+    }
 
-	public void setEntitlement( List<Entitlement> entitlement ) {
-		ArgumentUtils.checkNotNull( entitlement, "entitlement" );
-		this.entitlement = entitlement;
-	}
+    public List<Entitlement> getEntitlement() {
+        return entitlement;
+    }
 
-	public void addEntitlement( Entitlement entitlement ) {
-		ArgumentUtils.checkNotNull( entitlement, "entitlement" );
-		if (this.entitlement == null) {
-			this.entitlement = new ArrayList<Entitlement>();
-		}
-		this.entitlement.add( entitlement );
-	}
+    public void setEntitlement(List<Entitlement> entitlement) {
+        ArgumentUtils.checkNotNull(entitlement, "entitlement");
+        this.entitlement = entitlement;
+    }
 
-	
-
+    public void addEntitlement(Entitlement entitlement) {
+        ArgumentUtils.checkNotNull(entitlement, "entitlement");
+        if (this.entitlement == null) {
+            this.entitlement = new ArrayList<>();
+        }
+        this.entitlement.add(entitlement);
+    }
 }

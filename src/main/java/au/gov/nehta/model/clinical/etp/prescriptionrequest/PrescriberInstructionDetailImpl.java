@@ -14,49 +14,53 @@
 
 package au.gov.nehta.model.clinical.etp.prescriptionrequest;
 
-import org.joda.time.DateTime;
+import java.time.ZonedDateTime;
 
 import au.gov.nehta.common.utils.ArgumentUtils;
 import au.gov.nehta.model.clinical.etp.common.participation.PrescriberInstructionRecipientParticipation;
 
 public class PrescriberInstructionDetailImpl implements PrescriberInstructionDetail {
-	private PrescriberInstructionRecipientParticipation prescriberInstructionRecipient;
-	private DateTime dateTimePrescriberInstructionReceived;
-	private String prescriberInstruction;
-	private PrescriberInstructionSource prescriberInstructionSource;
-	private PrescriberInstructionCommunicationMedium prescriberInstructionCommunicationMedium;
+    private PrescriberInstructionRecipientParticipation prescriberInstructionRecipient;
+    private ZonedDateTime dateTimePrescriberInstructionReceived;
+    private String prescriberInstruction;
+    private PrescriberInstructionSource prescriberInstructionSource;
+    private PrescriberInstructionCommunicationMedium prescriberInstructionCommunicationMedium;
 
-	public PrescriberInstructionDetailImpl( PrescriberInstructionRecipientParticipation prescriberInstructionRecipient, DateTime dateTimePrescriberInstructionReceived, String prescriberInstruction,
-			PrescriberInstructionSource prescriberInstructionSource, PrescriberInstructionCommunicationMedium prescriberInstructionCommunicationMedium ) {
-		ArgumentUtils.checkNotNull( prescriberInstructionRecipient, "prescriberInstructionRecipient" );
-		ArgumentUtils.checkNotNull( dateTimePrescriberInstructionReceived, "dateTimePrescriberInstructionReceived" );
-		ArgumentUtils.checkNotNull( prescriberInstruction, "prescriberInstruction" );
-		ArgumentUtils.checkNotNull( prescriberInstructionSource, "prescriberInstructionSource" );
-		ArgumentUtils.checkNotNull( prescriberInstructionCommunicationMedium, "prescriberInstructionCommunicationMedium" );
-		this.prescriberInstructionRecipient = prescriberInstructionRecipient;
-		this.dateTimePrescriberInstructionReceived = dateTimePrescriberInstructionReceived;
-		this.prescriberInstruction = prescriberInstruction;
-		this.prescriberInstructionSource = prescriberInstructionSource;
-		this.prescriberInstructionCommunicationMedium = prescriberInstructionCommunicationMedium;
-	}
+    public PrescriberInstructionDetailImpl(PrescriberInstructionRecipientParticipation prescriberInstructionRecipient,
+                                           ZonedDateTime dateTimePrescriberInstructionReceived,
+                                           String prescriberInstruction,
+                                           PrescriberInstructionSource prescriberInstructionSource,
+                                           PrescriberInstructionCommunicationMedium prescriberInstructionCommunicationMedium) {
 
-	public PrescriberInstructionRecipientParticipation getPrescriberInstructionRecipient() {
-		return prescriberInstructionRecipient;
-	}
+        ArgumentUtils.checkNotNull(prescriberInstructionRecipient, "prescriberInstructionRecipient");
+        ArgumentUtils.checkNotNull(dateTimePrescriberInstructionReceived, "dateTimePrescriberInstructionReceived");
+        ArgumentUtils.checkNotNull(prescriberInstruction, "prescriberInstruction");
+        ArgumentUtils.checkNotNull(prescriberInstructionSource, "prescriberInstructionSource");
+        ArgumentUtils.checkNotNull(prescriberInstructionCommunicationMedium, "prescriberInstructionCommunicationMedium");
+        this.prescriberInstructionRecipient = prescriberInstructionRecipient;
+        this.dateTimePrescriberInstructionReceived = dateTimePrescriberInstructionReceived;
+        this.prescriberInstruction = prescriberInstruction;
+        this.prescriberInstructionSource = prescriberInstructionSource;
+        this.prescriberInstructionCommunicationMedium = prescriberInstructionCommunicationMedium;
+    }
 
-	public DateTime getDateTimePrescriberInstructionReceived() {
-		return dateTimePrescriberInstructionReceived; 
-	}
+    public PrescriberInstructionRecipientParticipation getPrescriberInstructionRecipient() {
+        return prescriberInstructionRecipient;
+    }
 
-	public String getPrescriberInstruction() {
-		return prescriberInstruction;
-	}
+    public ZonedDateTime getDateTimePrescriberInstructionReceived() {
+        return dateTimePrescriberInstructionReceived;
+    }
 
-	public PrescriberInstructionSource getPrescriberInstructionSource() {
-		return prescriberInstructionSource;
-	}
+    public String getPrescriberInstruction() {
+        return prescriberInstruction;
+    }
 
-	public PrescriberInstructionCommunicationMedium getPrescriberInstructionCommunicationMedium() {
-		return prescriberInstructionCommunicationMedium;
-	}
+    public PrescriberInstructionSource getPrescriberInstructionSource() {
+        return prescriberInstructionSource;
+    }
+
+    public PrescriberInstructionCommunicationMedium getPrescriberInstructionCommunicationMedium() {
+        return prescriberInstructionCommunicationMedium;
+    }
 }

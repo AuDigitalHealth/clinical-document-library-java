@@ -16,21 +16,21 @@ package au.gov.nehta.model.clinical.etp.common.item;
 
 import au.gov.nehta.model.clinical.common.types.Ratio;
 
-public class DosageImpl  implements Dosage {
-	
-	private Ratio maxDose;
-	private QuantityUnitDescription doseQuantity;
-	
-	public DosageImpl() {
-	}
+public class DosageImpl implements Dosage {
 
-	public Ratio getMaxDose() {
-		return maxDose;
-	}
+    private Ratio maxDose;
+    private QuantityUnitDescription doseQuantity;
 
-	public void setMaxDose( Ratio maxDose ) {
-		this.maxDose=maxDose;
-	}
+    public DosageImpl() {
+    }
+
+    public Ratio getMaxDose() {
+        return maxDose;
+    }
+
+    public void setMaxDose(Ratio maxDose) {
+        this.maxDose = maxDose;
+    }
 
     @Override
     public QuantityUnitDescription getDoseQuantity() {
@@ -38,7 +38,7 @@ public class DosageImpl  implements Dosage {
     }
 
     @Override
-    public void setDoseQuantity( QuantityUnitDescription doseQuantity ) {
-        this.doseQuantity= doseQuantity;
+    public void setDoseQuantity(QuantityUnitDescription doseQuantity) {
+        this.doseQuantity = doseQuantity;
     }
 }

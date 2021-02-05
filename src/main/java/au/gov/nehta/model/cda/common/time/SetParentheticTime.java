@@ -12,23 +12,19 @@ import java.util.List;
  * A set-component that is itself made up of set of contained components that
  * are evaluated as one value.
  * <p>
- * 
- * 
- * @author NeHTA
  *
+ * @author NeHTA
  */
 public class SetParentheticTime extends SetComponentTime {
 
-	List<? extends SetComponentTime> components;
-	
-	public SetParentheticTime(List<? extends SetComponentTime> components) {
-		this.components = components;
-	}
+    List<? extends SetComponentTime> components;
 
-	public List<? extends SetComponentTime> getComponents() {
-		if(components==null) components = new ArrayList<SetComponentTime>();
-		return components;
-	}
-	
-	
+    public SetParentheticTime(List<? extends SetComponentTime> components) {
+        this.components = components;
+    }
+
+    public List<? extends SetComponentTime> getComponents() {
+        if (components == null) components = new ArrayList<>();
+        return components;
+    }
 }

@@ -1,9 +1,8 @@
 package au.gov.nehta.model.clinical.etp.dispenserecord;
 
+import java.time.ZonedDateTime;
 import java.util.ArrayList;
 import java.util.List;
-
-import org.joda.time.DateTime;
 
 import au.gov.nehta.model.cda.common.code.Coded;
 import au.gov.nehta.model.clinical.common.types.UniqueIdentifier;
@@ -13,45 +12,45 @@ import au.gov.nehta.model.clinical.etp.common.item.QuantityUnitDescription;
 public class DispenseItemImpl implements DispenseItem {
 
     Coded theraputicGood;
-    DateTime eventDate;
+    ZonedDateTime eventDate;
     UniqueIdentifier prescriptionItem;
     UniqueIdentifier dispenseItem;
-    
-    String formula;                 //optional
-    String labelInstruction;        //optional
-    
-    Boolean isbrandSubstitutionOccured; 
-    
-    Integer maxRepeats;
-    Integer numberOfThisDispense; 
-    
-    UniqueIdentifier closeTheGapId;           //optional    
-    
-    Coded pbsItemCode;               //optional
-    UniqueIdentifier pbsManufacturerCode;        //optional
-    
-    QuantityUnitDescription quantityDispensed; //optional
-    
-    List<Ingredient> extemporaneousIngredients = new ArrayList<Ingredient>();   //optional
-    
-    Coded claimTypeCategory;     
-    Coded underCoPayment;            //optional
-    Boolean earlySupplyWithBenifit;    //optional
-    
-    String additionalComments;      //optional
-    
-    Coded patientCategory;   
-    
-    String racfId;                  //optional
 
-    DispensingStatusType status; 
-    
+    String formula;                 // optional
+    String labelInstruction;        // optional
+
+    Boolean isbrandSubstitutionOccured;
+
+    Integer maxRepeats;
+    Integer numberOfThisDispense;
+
+    UniqueIdentifier closeTheGapId;           // optional    
+
+    Coded pbsItemCode;               // optional
+    UniqueIdentifier pbsManufacturerCode;        // optional
+
+    QuantityUnitDescription quantityDispensed; // optional
+
+    List<Ingredient> extemporaneousIngredients = new ArrayList<>();   // optional
+
+    Coded claimTypeCategory;
+    Coded underCoPayment;            // optional
+    Boolean earlySupplyWithBenifit;    // optional
+
+    String additionalComments;      // optional
+
+    Coded patientCategory;
+
+    String racfId;                  // optional
+
+    DispensingStatusType status;
+
     /**
-     * use the DispenseItemBuilder instead 
+     * use the DispenseItemBuilder instead
      */
-    protected DispenseItemImpl(){}
-    
-    
+    protected DispenseItemImpl() {
+    }
+
     /* (non-Javadoc)
      * @see au.gov.nehta.model.clinical.etp.dispenserecord.DispenseItems#getTheraputicGood()
      */
@@ -64,8 +63,8 @@ public class DispenseItemImpl implements DispenseItem {
      * @see au.gov.nehta.model.clinical.etp.dispenserecord.DispenseItems#getEventDate()
      */
     @Override
-    public DateTime getEventDate() {
-        return eventDate; 
+    public ZonedDateTime getEventDate() {
+        return eventDate;
     }
 
     /* (non-Javadoc)
@@ -212,178 +211,154 @@ public class DispenseItemImpl implements DispenseItem {
         return racfId;
     }
 
-
     public DispensingStatusType getDispensingStatus() {
         return status;
     }
 
-
     /**
-     * @param theraputicGood the theraputicGood to set
+     * @param therapeuticGood the therapeuticGood to set
      */
-    public void setTheraputicGood( Coded theraputicGood ) {
-        this.theraputicGood = theraputicGood;
+    public void setTheraputicGood(Coded therapeuticGood) {
+        this.theraputicGood = therapeuticGood;
     }
-
 
     /**
      * @param eventDate the eventDate to set
      */
-    public void setEventDate( DateTime eventDate ) {
-        this.eventDate = eventDate;  
+    public void setEventDate(ZonedDateTime eventDate) {
+        this.eventDate = eventDate;
     }
-
 
     /**
      * @param prescriptionItem the prescriptionItem to set
      */
-    public void setPrescriptionItem( UniqueIdentifier prescriptionItem ) {
+    public void setPrescriptionItem(UniqueIdentifier prescriptionItem) {
         this.prescriptionItem = prescriptionItem;
     }
-
 
     /**
      * @param dispenseItem the dispenseItem to set
      */
-    public void setDispenseItem( UniqueIdentifier dispenseItem ) {
+    public void setDispenseItem(UniqueIdentifier dispenseItem) {
         this.dispenseItem = dispenseItem;
     }
-
 
     /**
      * @param formula the formula to set
      */
-    public void setFormula( String formula ) {
+    public void setFormula(String formula) {
         this.formula = formula;
     }
-
 
     /**
      * @param labelInstruction the labelInstruction to set
      */
-    public void setLabelInstruction( String labelInstruction ) {
+    public void setLabelInstruction(String labelInstruction) {
         this.labelInstruction = labelInstruction;
     }
 
-
     /**
-     * @param isbrandSubstitutionOccured the isbrandSubstitutionOccured to set
+     * @param isbrandSubstitutionOccurred the isbrandSubstitutionOccured to set
      */
-    public void setIsbrandSubstitutionOccured( Boolean isbrandSubstitutionOccured ) {
-        this.isbrandSubstitutionOccured = isbrandSubstitutionOccured;
+    public void setIsbrandSubstitutionOccured(Boolean isbrandSubstitutionOccurred) {
+        this.isbrandSubstitutionOccured = isbrandSubstitutionOccurred;
     }
-
 
     /**
      * @param maxRepeats the maxRepeats to set
      */
-    public void setMaxRepeats( Integer maxRepeats ) {
+    public void setMaxRepeats(Integer maxRepeats) {
         this.maxRepeats = maxRepeats;
     }
-
 
     /**
      * @param numberOfThisDispense the numberOfThisDispense to set
      */
-    public void setNumberOfThisDispense( Integer numberOfThisDispense ) {
+    public void setNumberOfThisDispense(Integer numberOfThisDispense) {
         this.numberOfThisDispense = numberOfThisDispense;
     }
-
 
     /**
      * @param closeTheGapId the closeTheGapId to set
      */
-    public void setCloseTheGapId( UniqueIdentifier closeTheGapId ) {
+    public void setCloseTheGapId(UniqueIdentifier closeTheGapId) {
         this.closeTheGapId = closeTheGapId;
     }
-
 
     /**
      * @param pbsItemCode the pbsItemCode to set
      */
-    public void setPbsItemCode( Coded pbsItemCode ) {
+    public void setPbsItemCode(Coded pbsItemCode) {
         this.pbsItemCode = pbsItemCode;
     }
-
 
     /**
      * @param pbsManufacturerCode the pbsManufacturerCode to set
      */
-    public void setPbsManufacturerCode( UniqueIdentifier pbsManufacturerCode ) {
+    public void setPbsManufacturerCode(UniqueIdentifier pbsManufacturerCode) {
         this.pbsManufacturerCode = pbsManufacturerCode;
     }
-
 
     /**
      * @param quantityDispensed the quantityDispensed to set
      */
-    public void setQuantityDispensed( QuantityUnitDescription quantityDispensed ) {
+    public void setQuantityDispensed(QuantityUnitDescription quantityDispensed) {
         this.quantityDispensed = quantityDispensed;
     }
-
 
     /**
      * @param extemporaneousIngredients the extemporaneousIngredients to set
      */
-    public void setExtemporaneousIngredients( List<Ingredient> extemporaneousIngredients ) {
+    public void setExtemporaneousIngredients(List<Ingredient> extemporaneousIngredients) {
         this.extemporaneousIngredients = extemporaneousIngredients;
     }
-
 
     /**
      * @param claimTypeCategory the claimTypeCategory to set
      */
-    public void setClaimTypeCategory( Coded claimTypeCategory ) {
+    public void setClaimTypeCategory(Coded claimTypeCategory) {
         this.claimTypeCategory = claimTypeCategory;
     }
-
 
     /**
      * @param underCoPayment the underCoPayment to set
      */
-    public void setUnderCoPayment( Coded underCoPayment ) {
+    public void setUnderCoPayment(Coded underCoPayment) {
         this.underCoPayment = underCoPayment;
     }
 
-
     /**
-     * @param earlySupplyWithBenifit the earlySupplyWithBenifit to set
+     * @param earlySupplyWithBenefit the earlySupplyWithBenifit to set
      */
-    public void setEarlySupplyWithBenifit( Boolean earlySupplyWithBenifit ) {
-        this.earlySupplyWithBenifit = earlySupplyWithBenifit;
+    public void setEarlySupplyWithBenifit(Boolean earlySupplyWithBenefit) {
+        this.earlySupplyWithBenifit = earlySupplyWithBenefit;
     }
-
 
     /**
      * @param additionalComments the additionalComments to set
      */
-    public void setAdditionalComments( String additionalComments ) {
+    public void setAdditionalComments(String additionalComments) {
         this.additionalComments = additionalComments;
     }
-
 
     /**
      * @param patientCategory the patientCategory to set
      */
-    public void setPatientCategory( Coded patientCategory ) {
+    public void setPatientCategory(Coded patientCategory) {
         this.patientCategory = patientCategory;
     }
-
 
     /**
      * @param racfId the racfId to set
      */
-    public void setRacfId( String racfId ) {
+    public void setRacfId(String racfId) {
         this.racfId = racfId;
     }
-
 
     /**
      * @param status the status to set
      */
-    public void setStatus( DispensingStatusType status ) {
+    public void setStatus(DispensingStatusType status) {
         this.status = status;
     }
-
-    
 }

@@ -7,35 +7,31 @@ import au.gov.nehta.model.clinical.etp.common.participation.ParticipationService
 
 public interface SpecialistLetterContext {
 
-  SubjectOfCareParticipant getSubjectOfCare();
+    SubjectOfCareParticipant getSubjectOfCare();
 
-  DocumentAuthor getDocumentAuthor();
+    DocumentAuthor getDocumentAuthor();
 
-  PreciseDate getDateTimeAuthored();
+    PreciseDate getDateTimeAuthored();
 
-  PreciseDate getDateTimeSubjectOfCareSeen();
+    PreciseDate getDateTimeSubjectOfCareSeen();
 
-  PreciseDate getDateTimeAttested();
+    PreciseDate getDateTimeAttested();
 
-  ParticipationServiceProvider getUsualGP();
+    ParticipationServiceProvider getUsualGP();
 
-  ParticipationServiceProvider getReferrer();
+    ParticipationServiceProvider getReferrer();
 
-  void setSubjectOfCare(SubjectOfCareParticipant subjectOfCare);
+    void setSubjectOfCare(SubjectOfCareParticipant subjectOfCare);
 
-  void setSpecialistLetterAuthor(
-      DocumentAuthor documentAuthor);
+    void setSpecialistLetterAuthor(DocumentAuthor documentAuthor);
 
-  void setDateTimeAuthored(PreciseDate dateTimeAuthored);
+    void setDateTimeAuthored(PreciseDate dateTimeAuthored);
 
-  void setDateTimeSubjectOfCareSeen(
-      PreciseDate dateTimeSubjectOfCareSeen);
+    void setDateTimeSubjectOfCareSeen(PreciseDate dateTimeSubjectOfCareSeen);
 
-  void setDateTimeAttested(PreciseDate dateTimeAttested);
+    void setDateTimeAttested(PreciseDate dateTimeAttested);
 
-  void setUsualGP(
-      ParticipationServiceProvider usualGP);
+    void setUsualGP(ParticipationServiceProvider usualGP);
 
-  void setReferrer(
-      ParticipationServiceProvider referrer);
+    void setReferrer(ParticipationServiceProvider referrer);
 }

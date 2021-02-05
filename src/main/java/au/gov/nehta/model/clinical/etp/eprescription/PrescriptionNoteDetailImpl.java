@@ -17,14 +17,15 @@ package au.gov.nehta.model.clinical.etp.eprescription;
 import au.gov.nehta.common.utils.ArgumentUtils;
 
 public class PrescriptionNoteDetailImpl implements PrescriptionNoteDetail {
-	private final String note;
 
-	public PrescriptionNoteDetailImpl( String note ) {
-		ArgumentUtils.checkNotNull( note, "note" );
-		this.note = note;
-	}
+    private final String note;
 
-	public String getNote() {
-		return note;
-	}
+    public PrescriptionNoteDetailImpl(String note) {
+        ArgumentUtils.checkNotNull(note, "note");
+        this.note = note;
+    }
+
+    public String getNote() {
+        return note;
+    }
 }

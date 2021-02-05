@@ -3,24 +3,23 @@ package au.gov.nehta.model.clinical.ds;
 import au.net.electronichealth.ns.cda._2_0.StrucDocText;
 
 public interface Medications {
-  CurrentMedicationsOnDischarge getCurrentMedicationsOnDischarge();
-  CeasedMedications getCeasedMedications();
+    CurrentMedicationsOnDischarge getCurrentMedicationsOnDischarge();
 
-  void setCurrentMedicationsOnDischarge(
-      CurrentMedicationsOnDischarge currentMedicationsOnDischarge);
+    CeasedMedications getCeasedMedications();
 
-  void setCeasedMedications(CeasedMedications ceasedMedications);
+    void setCurrentMedicationsOnDischarge(CurrentMedicationsOnDischarge currentMedicationsOnDischarge);
 
-  StrucDocText getCustomNarrative();
+    void setCeasedMedications(CeasedMedications ceasedMedications);
 
-  void setCustomNarrative(StrucDocText customNarrative);
+    StrucDocText getCustomNarrative();
 
-  Medications addCurrentMedicationsOnDischargeAsNarrative(StrucDocText narrative);
+    void setCustomNarrative(StrucDocText customNarrative);
 
-  Medications addCeasedMedicationsOnDischargeAsNarrative(StrucDocText narrative);
+    Medications addCurrentMedicationsOnDischargeAsNarrative(StrucDocText narrative);
 
-  StrucDocText getCurrentMedicationsOnDischargeCustomNarrative();
+    Medications addCeasedMedicationsOnDischargeAsNarrative(StrucDocText narrative);
 
-  StrucDocText getCeasedMedicationsCustomNarrative();
+    StrucDocText getCurrentMedicationsOnDischargeCustomNarrative();
 
+    StrucDocText getCeasedMedicationsCustomNarrative();
 }

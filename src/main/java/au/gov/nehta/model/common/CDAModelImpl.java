@@ -8,74 +8,73 @@ import java.util.List;
 
 public class CDAModelImpl implements CDAModel {
 
-  protected BaseClinicalDocument clinicalDocument;
-  protected LegalAuthenticator legalAuthenticator;
-  protected Custodian custodian;
-  protected List<InformationRecipient> informationRecipients;
+    protected BaseClinicalDocument clinicalDocument;
+    protected LegalAuthenticator legalAuthenticator;
+    protected Custodian custodian;
+    protected List<InformationRecipient> informationRecipients;
 
-  public CDAModelImpl() {
-  }
+    public CDAModelImpl() {
+    }
 
-  public CDAModelImpl(BaseClinicalDocument clinicalDocument, LegalAuthenticator legalAuthenticator,
-      Custodian custodian) {
-    this.clinicalDocument = clinicalDocument;
-    this.legalAuthenticator = legalAuthenticator;
-    this.custodian = custodian;
-  }
+    public CDAModelImpl(BaseClinicalDocument clinicalDocument,
+        LegalAuthenticator legalAuthenticator,
+        Custodian custodian) {
 
-  public CDAModelImpl(BaseClinicalDocument clinicalDocument,
-      LegalAuthenticator legalAuthenticator) {
-    this.clinicalDocument = clinicalDocument;
-    this.legalAuthenticator = legalAuthenticator;
-  }
+        this.clinicalDocument = clinicalDocument;
+        this.legalAuthenticator = legalAuthenticator;
+        this.custodian = custodian;
+    }
 
-  /* (non-Javadoc)
-   * @see au.gov.nehta.model.common.bCDAModel#getBaseClinicalDocument()
-   */
-  @Override
-  public BaseClinicalDocument getBaseClinicalDocument() {
-    return clinicalDocument;
-  }
+    public CDAModelImpl(BaseClinicalDocument clinicalDocument,
+        LegalAuthenticator legalAuthenticator) {
 
-  /* (non-Javadoc)
-   * @see au.gov.nehta.model.common.bCDAModel#getLegalAuthenticator()
-   */
-  @Override
-  public LegalAuthenticator getLegalAuthenticator() {
-    return legalAuthenticator;
-  }
+        this.clinicalDocument = clinicalDocument;
+        this.legalAuthenticator = legalAuthenticator;
+    }
 
-  public void setLegalAuthenticator(LegalAuthenticator legalAuthenticator) {
-    this.legalAuthenticator = legalAuthenticator;
-  }
+    /* (non-Javadoc)
+    * @see au.gov.nehta.model.common.bCDAModel#getBaseClinicalDocument()
+    */
+    @Override
+    public BaseClinicalDocument getBaseClinicalDocument() {
+        return clinicalDocument;
+    }
 
-  /* (non-Javadoc)
-   * @see au.gov.nehta.model.common.bCDAModel#getCustodian()
-   */
-  @Override
-  public Custodian getCustodian() {
-    return custodian;
-  }
+    /* (non-Javadoc)
+    * @see au.gov.nehta.model.common.bCDAModel#getLegalAuthenticator()
+    */
+    @Override
+    public LegalAuthenticator getLegalAuthenticator() {
+        return legalAuthenticator;
+    }
 
-  public void setCustodian(Custodian custodian) {
-    this.custodian = custodian;
-  }
+    public void setLegalAuthenticator(LegalAuthenticator legalAuthenticator) {
+        this.legalAuthenticator = legalAuthenticator;
+    }
 
+    /* (non-Javadoc)
+    * @see au.gov.nehta.model.common.bCDAModel#getCustodian()
+    */
+    @Override
+    public Custodian getCustodian() {
+        return custodian;
+    }
 
-  @Override
-  public List<InformationRecipient> getInformationRecipients() {
-    return informationRecipients;
-  }
-
-  public void setInformationRecipients(
-      List<InformationRecipient> informationRecipients) {
-    this.informationRecipients = informationRecipients;
-  }
+    public void setCustodian(Custodian custodian) {
+        this.custodian = custodian;
+    }
 
 
+    @Override
+    public List<InformationRecipient> getInformationRecipients() {
+        return informationRecipients;
+    }
 
-  public void setClinicalDocument(
-      BaseClinicalDocument clinicalDocument) {
-    this.clinicalDocument = clinicalDocument;
-  }
+    public void setInformationRecipients(List<InformationRecipient> informationRecipients) {
+        this.informationRecipients = informationRecipients;
+    }
+
+    public void setClinicalDocument(BaseClinicalDocument clinicalDocument) {
+        this.clinicalDocument = clinicalDocument;
+    }
 }

@@ -17,19 +17,17 @@ package au.gov.nehta.model.clinical.common.participation;
 import java.util.List;
 
 /**
- * 
  * @author NeHTA
- *
  */
-public interface AustralianAddress extends InternationalAddress{
-    
-    public static final String COUNTRY = "Australia";
-    
-	List<String> getUnstructuredAddressLines();
-	
-	String getDeliveryPointIdentifier();
-	
-	//StructuredAustralianAddressLine getStructuredAddress();
-	//void setStructuredAddressLine( StructuredAustralianAddressLine structuredAustralianAddressLine );
-	void setDeliveryPointIdentifier( String australianDeliveryPointIdentifier );
+public interface AustralianAddress extends InternationalAddress {
+
+    String COUNTRY = "Australia";
+
+    List<String> getUnstructuredAddressLines();
+
+    String getDeliveryPointIdentifier();
+
+    //StructuredAustralianAddressLine getStructuredAddress();
+    //void setStructuredAddressLine( StructuredAustralianAddressLine structuredAustralianAddressLine );
+    void setDeliveryPointIdentifier(String australianDeliveryPointIdentifier);
 }

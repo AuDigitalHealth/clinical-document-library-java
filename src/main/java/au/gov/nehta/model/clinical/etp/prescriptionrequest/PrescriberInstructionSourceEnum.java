@@ -15,22 +15,25 @@
 package au.gov.nehta.model.clinical.etp.prescriptionrequest;
 
 public enum PrescriberInstructionSourceEnum {
-	STANDING_ORDER( "1", "standing order" ), PROTOCOL( "2", "protocol" ), MEDICAL_RECORD( "3", "medical record" ), MEDICATION_CHART( "4", "medication chart" ), VERBAL_INSTRUCTION( "5",
-			"verbal instruction" );
+    STANDING_ORDER("1", "standing order"),
+    PROTOCOL("2", "protocol"),
+    MEDICAL_RECORD("3", "medical record"),
+    MEDICATION_CHART("4", "medication chart"),
+    VERBAL_INSTRUCTION("5", "verbal instruction");
 
-	private final String code;
-	private final String descriptor;
+    private final String code;
+    private final String descriptor;
 
-	PrescriberInstructionSourceEnum( String code, String descriptor ) {
-		this.code = code;
-		this.descriptor = descriptor;
-	}
+    PrescriberInstructionSourceEnum(String code, String descriptor) {
+        this.code = code;
+        this.descriptor = descriptor;
+    }
 
-	public String getCode() {
-		return code;
-	}
+    public String getCode() {
+        return code;
+    }
 
-	public String getDescriptor() {
-		return descriptor;
-	}
+    public String getDescriptor() {
+        return descriptor;
+    }
 }

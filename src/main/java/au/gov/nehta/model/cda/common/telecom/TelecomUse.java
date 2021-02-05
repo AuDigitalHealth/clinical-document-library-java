@@ -15,44 +15,46 @@
 package au.gov.nehta.model.cda.common.telecom;
 
 public enum TelecomUse {
-	BUSINESS( "1", "Business" ), PERSONAL( "2", "Personal" ), BUSINESS_AND_PERSONAL( "3", "Both Business and Personal" );
+    BUSINESS("1", "Business"),
+    PERSONAL("2", "Personal"),
+    BUSINESS_AND_PERSONAL("3", "Both Business and Personal");
 
-	private final String CODE_SYSTEM = "1.2.36.1.2001.1001.101.104.10272";
-	private final String CODE_SYSTEM_NAME = "AS 5017 (2006) - Healthcare Client Identification: Electronic Communication Usage Code; AS 4846 (2006) - Healthcare Provider Identification: Electronic Communication Usage Code";
-	private final String CODE_SYSTEM_VERSION = "2006";
-	private final String code;
-	private final String descriptor;
+    private final String CODE_SYSTEM = "1.2.36.1.2001.1001.101.104.10272";
+    private final String CODE_SYSTEM_NAME = "AS 5017 (2006) - Healthcare Client Identification: Electronic Communication Usage Code; AS 4846 (2006) - Healthcare Provider Identification: Electronic Communication Usage Code";
+    private final String CODE_SYSTEM_VERSION = "2006";
+    private final String code;
+    private final String descriptor;
 
-	TelecomUse( String code, String descriptor ) {
-		this.code = code;
-		this.descriptor = descriptor;
-	}
+    TelecomUse(String code, String descriptor) {
+        this.code = code;
+        this.descriptor = descriptor;
+    }
 
-	public String getCode() {
-		return code;
-	}
+    public String getCode() {
+        return code;
+    }
 
-	public String getDescriptor() {
-		return descriptor;
-	}
+    public String getDescriptor() {
+        return descriptor;
+    }
 
-	public String getOriginalText() {
-		return descriptor;
-	}
+    public String getOriginalText() {
+        return descriptor;
+    }
 
-	public String getCodeSystem() {
-		return CODE_SYSTEM;
-	}
+    public String getCodeSystem() {
+        return CODE_SYSTEM;
+    }
 
-	public String getCodeSystemName() {
-		return CODE_SYSTEM_NAME;
-	}
+    public String getCodeSystemName() {
+        return CODE_SYSTEM_NAME;
+    }
 
-	public String getCodeSystemVersion() {
-		return CODE_SYSTEM_VERSION;
-	}
+    public String getCodeSystemVersion() {
+        return CODE_SYSTEM_VERSION;
+    }
 
-	public String getDisplayName() {
-		return descriptor;
-	}
+    public String getDisplayName() {
+        return descriptor;
+    }
 }

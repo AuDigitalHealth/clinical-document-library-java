@@ -5,12 +5,11 @@ import au.gov.nehta.model.clinical.es.ReactionEvent;
 
 public interface AdverseReaction {
 
-  Coded getSubstanceOrAgent();
+    Coded getSubstanceOrAgent();
 
-  void setSubstanceOrAgent(Coded substanceOrAgent);
+    void setSubstanceOrAgent(Coded substanceOrAgent);
 
-  ReactionEvent getReactionEvent();
+    ReactionEvent getReactionEvent();
 
-  void setReactionEvent(ReactionEvent reactionEvent);
-
+    void setReactionEvent(ReactionEvent reactionEvent);
 }

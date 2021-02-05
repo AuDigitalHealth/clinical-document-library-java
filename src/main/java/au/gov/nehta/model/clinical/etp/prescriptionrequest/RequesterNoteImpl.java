@@ -17,14 +17,14 @@ package au.gov.nehta.model.clinical.etp.prescriptionrequest;
 import au.gov.nehta.common.utils.ArgumentUtils;
 
 public class RequesterNoteImpl implements RequesterNote {
-	private final String note;
+    private final String note;
 
-	public RequesterNoteImpl( String note ) {
-		ArgumentUtils.checkNotNull( note, "note" );
-		this.note = note;
-	}
+    public RequesterNoteImpl(String note) {
+        ArgumentUtils.checkNotNull(note, "note");
+        this.note = note;
+    }
 
-	public String getNote() {
-		return note;
-	}
+    public String getNote() {
+        return note;
+    }
 }

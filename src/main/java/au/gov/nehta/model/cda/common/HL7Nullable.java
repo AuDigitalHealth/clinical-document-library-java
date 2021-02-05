@@ -4,8 +4,8 @@ import au.net.electronichealth.ns.cda._2_0.NullFlavor;
 
 
 /**
- * HL7 has the concept of a null flavour which many objects extend from
- * This class is intended as a base to provide Null Falvour to all that need it.
+ * HL7 has the concept of a null flavour which many objects extend from.
+ * This class is intended as a base to provide Null Flavour to all that need it.
  * 
  * This class is not intended to be used directly, but extended from.
  *
@@ -14,9 +14,8 @@ public class HL7Nullable {
     
     private NullFlavor flavour;
     
-
-    public void setNullFlavour( NullFlavor flavour ) {
-        this.flavour=flavour;
+    public void setNullFlavour(NullFlavor flavour) {
+        this.flavour = flavour;
     }
 
     public NullFlavor getNullFlavour() {
@@ -30,5 +29,4 @@ public class HL7Nullable {
     public boolean doesNotHaveNullFlavour(){
         return flavour != null;
     }
-
 }

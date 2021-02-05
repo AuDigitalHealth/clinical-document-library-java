@@ -16,17 +16,17 @@ package au.gov.nehta.model.clinical.common.participation;
 
 public interface Organisation {
 
-  String getOrganisationName();
+    String getOrganisationName();
 
-  String getDepartmentUnit();
+    String getDepartmentUnit();
 
-  String getId();
+    String getId();
 
-  OrganisationNameUsage getOrganisationNameUsage();
+    OrganisationNameUsage getOrganisationNameUsage();
 
-  void setDepartmentUnit(String departmentUnit);
+    void setDepartmentUnit(String departmentUnit);
 
-  void setId(String id);
+    void setId(String id);
 
-  void setOrganisationNameUsage(OrganisationNameUsage organisationNameUsage);
+    void setOrganisationNameUsage(OrganisationNameUsage organisationNameUsage);
 }

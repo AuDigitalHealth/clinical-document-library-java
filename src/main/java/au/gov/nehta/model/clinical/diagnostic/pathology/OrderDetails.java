@@ -8,11 +8,10 @@ public interface OrderDetails {
     /**
      * @return the order
      */
-    public abstract Coded getOrder();
+    Coded getOrder();
 
     /**
      * @return the id
      */
-    public abstract UniqueIdentifier getId();
-
+    UniqueIdentifier getId();
 }

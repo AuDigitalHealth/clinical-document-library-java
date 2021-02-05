@@ -14,8 +14,6 @@
 
 package au.gov.nehta.model.clinical.etp.prescriptionrequest;
 
-import org.joda.time.DateTime;
-
 import au.gov.nehta.common.utils.ArgumentUtils;
 import au.gov.nehta.model.clinical.common.SubjectOfCareParticipant;
 import au.gov.nehta.model.clinical.etp.common.participation.DispenserParticipation;
@@ -23,59 +21,66 @@ import au.gov.nehta.model.clinical.etp.common.participation.DispensingOrganisati
 import au.gov.nehta.model.clinical.etp.common.participation.PrescriberOrganisationParticipation;
 import au.gov.nehta.model.clinical.etp.common.participation.PrescriberParticipation;
 
+import java.time.ZonedDateTime;
+
 public class PrescriptionRequestContextImpl implements PrescriptionRequestContext {
-	private SubjectOfCareParticipant subjectOfCare;
-	private DispenserParticipation dispenser;
-	private DispensingOrganisationParticipation dispensingOrganisation;
-	private PrescriberParticipation prescriber;
-	private PrescriberOrganisationParticipation prescriberOrganisation;
-	private PrescriptionRequestIdentifier prescriptionRequestIdentifier;
-	private DateTime dateTimePrescriptionRequestWritten;
+    private SubjectOfCareParticipant subjectOfCare;
+    private DispenserParticipation dispenser;
+    private DispensingOrganisationParticipation dispensingOrganisation;
+    private PrescriberParticipation prescriber;
+    private PrescriberOrganisationParticipation prescriberOrganisation;
+    private PrescriptionRequestIdentifier prescriptionRequestIdentifier;
+    private ZonedDateTime dateTimePrescriptionRequestWritten;
 
-	public PrescriptionRequestContextImpl( SubjectOfCareParticipant subjectOfCare, DispenserParticipation dispenser, DispensingOrganisationParticipation dispensingOrganisation,
-			PrescriberParticipation prescriber, PrescriberOrganisationParticipation prescriberOrganisation, PrescriptionRequestIdentifier prescriptionRequestIdentifier,
-			DateTime dateTimePrescriptionRequestWritten ) {
-		ArgumentUtils.checkNotNull( subjectOfCare, "subjectOfCare" );
-		ArgumentUtils.checkNotNull( dispenser, "dispenser" );
-		ArgumentUtils.checkNotNull( dispensingOrganisation, "dispensingOrganisation" );
-		ArgumentUtils.checkNotNull( prescriber, "prescriber" );
-		ArgumentUtils.checkNotNull( prescriberOrganisation, "prescriberOrganisation" );
-		ArgumentUtils.checkNotNull( prescriptionRequestIdentifier, "prescriptionRequestIdentifier" );
-		ArgumentUtils.checkNotNull( dateTimePrescriptionRequestWritten, "dateTimePrescriptionRequestWritten" );
-		this.subjectOfCare = subjectOfCare;
-		this.dispenser = dispenser;
-		this.dispensingOrganisation = dispensingOrganisation;
-		this.prescriber = prescriber;
-		this.prescriberOrganisation = prescriberOrganisation;
-		this.prescriptionRequestIdentifier = prescriptionRequestIdentifier;
-		this.dateTimePrescriptionRequestWritten =  dateTimePrescriptionRequestWritten;
-	}
+    public PrescriptionRequestContextImpl(SubjectOfCareParticipant subjectOfCare,
+                                          DispenserParticipation dispenser,
+                                          DispensingOrganisationParticipation dispensingOrganisation,
+                                          PrescriberParticipation prescriber,
+                                          PrescriberOrganisationParticipation prescriberOrganisation,
+                                          PrescriptionRequestIdentifier prescriptionRequestIdentifier,
+                                          ZonedDateTime dateTimePrescriptionRequestWritten) {
 
-	public SubjectOfCareParticipant getSubjectOfCare() {
-		return subjectOfCare;
-	}
+        ArgumentUtils.checkNotNull(subjectOfCare, "subjectOfCare");
+        ArgumentUtils.checkNotNull(dispenser, "dispenser");
+        ArgumentUtils.checkNotNull(dispensingOrganisation, "dispensingOrganisation");
+        ArgumentUtils.checkNotNull(prescriber, "prescriber");
+        ArgumentUtils.checkNotNull(prescriberOrganisation, "prescriberOrganisation");
+        ArgumentUtils.checkNotNull(prescriptionRequestIdentifier, "prescriptionRequestIdentifier");
+        ArgumentUtils.checkNotNull(dateTimePrescriptionRequestWritten, "dateTimePrescriptionRequestWritten");
+        this.subjectOfCare = subjectOfCare;
+        this.dispenser = dispenser;
+        this.dispensingOrganisation = dispensingOrganisation;
+        this.prescriber = prescriber;
+        this.prescriberOrganisation = prescriberOrganisation;
+        this.prescriptionRequestIdentifier = prescriptionRequestIdentifier;
+        this.dateTimePrescriptionRequestWritten = dateTimePrescriptionRequestWritten;
+    }
 
-	public DispenserParticipation getDispenser() {
-		return dispenser;
-	}
+    public SubjectOfCareParticipant getSubjectOfCare() {
+        return subjectOfCare;
+    }
 
-	public DispensingOrganisationParticipation getDispensingOrganisation() {
-		return dispensingOrganisation;
-	}
+    public DispenserParticipation getDispenser() {
+        return dispenser;
+    }
 
-	public PrescriberParticipation getPrescriber() {
-		return prescriber;
-	}
+    public DispensingOrganisationParticipation getDispensingOrganisation() {
+        return dispensingOrganisation;
+    }
 
-	public PrescriberOrganisationParticipation getPrescriberOrganisation() {
-		return prescriberOrganisation;
-	}
+    public PrescriberParticipation getPrescriber() {
+        return prescriber;
+    }
 
-	public PrescriptionRequestIdentifier getPrescriptionRequestIdentifier() {
-		return prescriptionRequestIdentifier;
-	}
+    public PrescriberOrganisationParticipation getPrescriberOrganisation() {
+        return prescriberOrganisation;
+    }
 
-	public DateTime getDateTimePrescriptionRequestWritten() {
-		return  dateTimePrescriptionRequestWritten; //clone
-	}
+    public PrescriptionRequestIdentifier getPrescriptionRequestIdentifier() {
+        return prescriptionRequestIdentifier;
+    }
+
+    public ZonedDateTime getDateTimePrescriptionRequestWritten() {
+        return dateTimePrescriptionRequestWritten; //clone
+    }
 }

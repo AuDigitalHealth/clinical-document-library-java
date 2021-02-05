@@ -2,11 +2,11 @@ package au.gov.nehta.model.clinical.ds;
 
 public interface DischargeSummary {
 
-  DischargeSummaryContext getContext();
+    DischargeSummaryContext getContext();
 
-  void setContext(DischargeSummaryContext dischargeSummaryContext);
+    void setContext(DischargeSummaryContext dischargeSummaryContext);
 
-  DischargeSummaryContent getContent();
+    DischargeSummaryContent getContent();
 
-  void setContent(DischargeSummaryContent dischargeSummaryContent);
+    void setContent(DischargeSummaryContent dischargeSummaryContent);
 }

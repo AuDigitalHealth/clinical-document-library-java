@@ -15,7 +15,7 @@
 package au.gov.nehta.model.clinical.etp.dispenserecord;
 
 public interface DispenseRecord {
-	public DispenseRecordContext getContext();
+    public DispenseRecordContext getContext();
 
-	public DispenseItem getContent();
+    public DispenseItem getContent();
 }

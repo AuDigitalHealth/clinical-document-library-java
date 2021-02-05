@@ -5,15 +5,15 @@ import au.gov.nehta.model.clinical.etp.common.item.AttachedMedia;
 
 public interface RelatedDocument {
 
-  Coded getLinkNature();
+    Coded getLinkNature();
 
-  void setLinkNature(Coded linkNature);
+    void setLinkNature(Coded linkNature);
 
-  AttachedMedia getDocumentTarget();
+    AttachedMedia getDocumentTarget();
 
-  void setDocumentTarget(AttachedMedia documentTarget);
+    void setDocumentTarget(AttachedMedia documentTarget);
 
-  DocumentDetail getDocumentDetail();
+    DocumentDetail getDocumentDetail();
 
-  void setDocumentDetail(DocumentDetail documentDetail);
+    void setDocumentDetail(DocumentDetail documentDetail);
 }

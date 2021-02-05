@@ -11,71 +11,69 @@ import java.util.List;
 
 public interface RequestedService {
 
-  Coded getReasonForService();
+    Coded getReasonForService();
 
-  void setReasonForService(Coded reasonForService);
+    void setReasonForService(Coded reasonForService);
 
-  String getReasonForServiceDesc();
+    String getReasonForServiceDesc();
 
-  void setReasonForServiceDesc(String reasonForServiceDesc);
+    void setReasonForServiceDesc(String reasonForServiceDesc);
 
-  Coded getServiceCategory();
+    Coded getServiceCategory();
 
-  void setServiceCategory(Coded serviceCategory);
+    void setServiceCategory(Coded serviceCategory);
 
-  Coded getServiceDesc();
+    Coded getServiceDesc();
 
-  void setServiceDesc(Coded serviceDesc);
+    void setServiceDesc(Coded serviceDesc);
 
-  Coded getRequestUrgency();
+    Coded getRequestUrgency();
 
-  void setRequestUrgency(Coded requestUrgency);
+    void setRequestUrgency(Coded requestUrgency);
 
-  String getRequestUrgencyNotes();
+    String getRequestUrgencyNotes();
 
-  void setRequestUrgencyNotes(String requestUrgencyNotes);
+    void setRequestUrgencyNotes(String requestUrgencyNotes);
 
-  RestrictedTimeInterval getServiceCommencementWindow();
+    RestrictedTimeInterval getServiceCommencementWindow();
 
-  void setServiceCommencementWindow(RestrictedTimeInterval serviceCommencementWindow);
+    void setServiceCommencementWindow(RestrictedTimeInterval serviceCommencementWindow);
 
-  EventTypes getServiceBookingStatus();
+    EventTypes getServiceBookingStatus();
 
-  void setServiceBookingStatus(EventTypes serviceBookingStatus);
+    void setServiceBookingStatus(EventTypes serviceBookingStatus);
 
-  ParticipationServiceProvider getServiceProvider();
+    ParticipationServiceProvider getServiceProvider();
 
-  void setServiceProvider(ParticipationServiceProvider serviceProvider);
+    void setServiceProvider(ParticipationServiceProvider serviceProvider);
 
-  RestrictedTimeInterval getRequestValidityPeriod();
+    RestrictedTimeInterval getRequestValidityPeriod();
 
-  void setRequestValidityPeriod(RestrictedTimeInterval requestValidityPeriod);
+    void setRequestValidityPeriod(RestrictedTimeInterval requestValidityPeriod);
 
-  PreciseDate getRequestedServiceDateTime();
+    PreciseDate getRequestedServiceDateTime();
 
-  void setRequestedServiceDateTime(PreciseDate requestedServiceDateTime);
+    void setRequestedServiceDateTime(PreciseDate requestedServiceDateTime);
 
-  String getServiceComment();
+    String getServiceComment();
 
-  void setServiceComment(String serviceComment);
+    void setServiceComment(String serviceComment);
 
-  XDocumentActMood getServiceBookingStatusMoodCode();
+    XDocumentActMood getServiceBookingStatusMoodCode();
 
-  PreciseDate getDateTimeServiceScheduled();
+    PreciseDate getDateTimeServiceScheduled();
 
-  void setDateTimeServiceScheduled(PreciseDate dateTimeServiceScheduled);
+    void setDateTimeServiceScheduled(PreciseDate dateTimeServiceScheduled);
 
-  void setIncludePrioriyCode(Boolean includePrioriyCode);
-  
-  public Boolean getIncludePrioriyCode();
+    void setIncludePrioriyCode(Boolean includePriorityCode);
 
-  void setSubjectOfCareInstructionDesc(List<String> subjectOfCareInstructionDesc);
+    public Boolean getIncludePrioriyCode();
 
-  List<String> getSubjectOfCareInstructionDesc();
+    void setSubjectOfCareInstructionDesc(List<String> subjectOfCareInstructionDesc);
 
-  StrucDocText getCustomNarrative();
+    List<String> getSubjectOfCareInstructionDesc();
 
-  void setCustomNarrative(StrucDocText customNarrative);
+    StrucDocText getCustomNarrative();
 
-
+    void setCustomNarrative(StrucDocText customNarrative);
 }

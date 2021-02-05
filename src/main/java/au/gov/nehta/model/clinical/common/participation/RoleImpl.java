@@ -18,30 +18,30 @@ import au.gov.nehta.common.utils.ArgumentUtils;
 import au.gov.nehta.model.cda.common.code.CodeImpl;
 import au.gov.nehta.model.cda.common.code.Coded;
 
-public class RoleImpl implements Role{
-	private Coded code;
-    
-	public RoleImpl(){
-	    
-	}
-	
-	public RoleImpl( String uncodedValue ) {
-	    CodeImpl c = new CodeImpl();
-	    c.setOriginalText( uncodedValue );
-	    this.code = c;
-	}
-	
-	public RoleImpl( Coded code ) {
+public class RoleImpl implements Role {
+    private Coded code;
+
+    public RoleImpl() {
+
+    }
+
+    public RoleImpl(String uncodedValue) {
+        CodeImpl c = new CodeImpl();
+        c.setOriginalText(uncodedValue);
+        this.code = c;
+    }
+
+    public RoleImpl(Coded code) {
         this.code = code;
     }
 
-	public RoleImpl( ANZSCO_1ED_2006 codedValue ) {
-		ArgumentUtils.checkNotNull( codedValue, "codedValue" );
-		this.code = codedValue;
-	}
-	
-	public RoleImpl( OccupationImpl codedValue ) {
-        ArgumentUtils.checkNotNull( codedValue, "codedValue" );
+    public RoleImpl(ANZSCO_1ED_2006 codedValue) {
+        ArgumentUtils.checkNotNull(codedValue, "codedValue");
+        this.code = codedValue;
+    }
+
+    public RoleImpl(OccupationImpl codedValue) {
+        ArgumentUtils.checkNotNull(codedValue, "codedValue");
         this.code = codedValue;
     }
 
@@ -49,5 +49,4 @@ public class RoleImpl implements Role{
     public Coded getCode() {
         return code;
     }
-
 }

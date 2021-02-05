@@ -15,65 +15,64 @@
 package au.gov.nehta.model.clinical.common.participation;
 
 /**
- * The level of certainty or estimation of a date 
+ * The level of certainty or estimation of a date
  */
 public class DateAccuracyImpl implements DateAccuracy {
-	private final Boolean dayAccuracyIndicator;
-	private final Boolean monthAccuracyIndicator;
-	private final Boolean yearAccuracyIndicator;
+    private final Boolean dayAccuracyIndicator;
+    private final Boolean monthAccuracyIndicator;
+    private final Boolean yearAccuracyIndicator;
 
-	public DateAccuracyImpl( boolean dayAccurate, boolean monthAccurate, boolean yearAccurate ) {
-		this.dayAccuracyIndicator = dayAccurate;
-		this.monthAccuracyIndicator = monthAccurate;
-		this.yearAccuracyIndicator = yearAccurate;
-	}
+    public DateAccuracyImpl(boolean dayAccurate, boolean monthAccurate, boolean yearAccurate) {
+        this.dayAccuracyIndicator = dayAccurate;
+        this.monthAccuracyIndicator = monthAccurate;
+        this.yearAccuracyIndicator = yearAccurate;
+    }
 
-	/**
-	 * The accuracy of the day component of a date 
-	 */
-	public Boolean getDayAccuracyIndicator() {
-		return dayAccuracyIndicator;
-	}
+    /**
+     * The accuracy of the day component of a date
+     */
+    public Boolean getDayAccuracyIndicator() {
+        return dayAccuracyIndicator;
+    }
 
-	/**
-	 * The accuracy of the month component of a date 
-	 */
-	public Boolean getMonthAccuracyIndicator() {
-		return monthAccuracyIndicator;
-	}
+    /**
+     * The accuracy of the month component of a date
+     */
+    public Boolean getMonthAccuracyIndicator() {
+        return monthAccuracyIndicator;
+    }
 
-	
-	
-	/**
-	 * The accuracy of the year component of a date 
-	 */
-	public Boolean getYearAccuracyIndicator() {
-		return yearAccuracyIndicator;
-	}
-	
-	
-	/* Used for the narrative rendering in the UUA format */
-	@Override
-	public String toString() {
-	    StringBuilder codeStringBuilder = new StringBuilder();
+
+    /**
+     * The accuracy of the year component of a date
+     */
+    public Boolean getYearAccuracyIndicator() {
+        return yearAccuracyIndicator;
+    }
+
+
+    /* Used for the narrative rendering in the UUA format */
+    @Override
+    public String toString() {
+        StringBuilder codeStringBuilder = new StringBuilder();
 
         if (getDayAccuracyIndicator()) {
-            codeStringBuilder.append( "A" );
+            codeStringBuilder.append("A");
         } else {
-            codeStringBuilder.append( "U" );
+            codeStringBuilder.append("U");
         }
 
         if (getMonthAccuracyIndicator()) {
-            codeStringBuilder.append( "A" );
+            codeStringBuilder.append("A");
         } else {
-            codeStringBuilder.append( "U" );
+            codeStringBuilder.append("U");
         }
 
         if (getYearAccuracyIndicator()) {
-            codeStringBuilder.append( "A" );
+            codeStringBuilder.append("A");
         } else {
-            codeStringBuilder.append( "U" );
+            codeStringBuilder.append("U");
         }
-	    return codeStringBuilder.toString();
-	}
+        return codeStringBuilder.toString();
+    }
 }

@@ -4,8 +4,8 @@ package au.gov.nehta.model.cda.common.code;
 public class ResultStatusCode extends CodeImpl implements Coded {
     
 
-    public final static String CODE_SYSTEM_NAME = "NCTIS Result Status Values";
-    public final static String CODE_SYSTEM = "1.2.36.1.2001.1001.101.104.16501";
+    public static final String CODE_SYSTEM_NAME = "NCTIS Result Status Values";
+    public static final String CODE_SYSTEM = "1.2.36.1.2001.1001.101.104.16501";
     
     public static final  ResultStatusCode REGISTERED = new ResultStatusCode(ResultStatus.REGISTERED);
     public static final  ResultStatusCode INTERIM = new ResultStatusCode(ResultStatus.INTERIM);

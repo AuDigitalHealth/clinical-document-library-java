@@ -6,7 +6,7 @@ import au.gov.nehta.model.cda.common.id.AsEntityIdentifier;
 import au.gov.nehta.model.clinical.common.participation.PersonName;
 
 public interface Person {
-	AsEntityIdentifier getAsEntityIdentifier();
+    AsEntityIdentifier getAsEntityIdentifier();
 
-	List<PersonName> getName();
+    List<PersonName> getName();
 }

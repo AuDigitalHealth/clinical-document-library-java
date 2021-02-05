@@ -5,16 +5,15 @@ import au.gov.nehta.model.cda.common.time.RestrictedTimeInterval;
 
 public interface MedicationHistory {
 
-  Coded getItemStatus();
+    Coded getItemStatus();
 
-  ChangeDetail getChangeDetail();
+    ChangeDetail getChangeDetail();
 
-  RestrictedTimeInterval getMedicationDuration();
+    RestrictedTimeInterval getMedicationDuration();
 
-  void setItemStatus(Coded itemStatus);
+    void setItemStatus(Coded itemStatus);
 
-  void setChangeDetail(ChangeDetail changeDetail);
+    void setChangeDetail(ChangeDetail changeDetail);
 
-  void setMedicationDuration(
-      RestrictedTimeInterval medicationDuration);
+    void setMedicationDuration(RestrictedTimeInterval medicationDuration);
 }

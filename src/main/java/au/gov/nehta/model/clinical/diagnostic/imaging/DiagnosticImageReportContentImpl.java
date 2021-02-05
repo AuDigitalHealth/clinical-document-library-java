@@ -23,12 +23,12 @@ import au.gov.nehta.model.clinical.diagnostic.pathology.DocumentParticipant;
 import au.gov.nehta.model.clinical.diagnostic.pathology.ReportDocument;
 
 public class DiagnosticImageReportContentImpl implements DiagnosticImageReportContent {
-	private List<ImagingExaminationResult> imagingResults;
-	//private AuthorisationToPost authorisationToPost;
-	private UniqueIdentifier id = UniqueIdentifierImpl.random();
-	private ReportDocument doc;
-	private DocumentParticipant reportingRadiologist;
-//	  
+    private List<ImagingExaminationResult> imagingResults;
+    // private AuthorisationToPost authorisationToPost;
+    private UniqueIdentifier id = UniqueIdentifierImpl.random();
+    private ReportDocument doc;
+    private DocumentParticipant reportingRadiologist;
+//      
 //    public DiagnosticImageReportContentImpl(List<ImagingExaminationResult> imagingResults, ReportDocument doc, DocumentParticipant reportingRadiologist /*, AuthorisationToPost authorisationToPost */) {
 //        ArgumentUtils.checkNotNullNorEmpty( imagingResults, " imagingResults" );
 //        ArgumentUtils.checkNotNull( authorisationToPost, "AuthorisationToPost" );
@@ -41,16 +41,15 @@ public class DiagnosticImageReportContentImpl implements DiagnosticImageReportCo
 //
 //    }
 
-    public DiagnosticImageReportContentImpl( List<ImagingExaminationResult> imagingResults, ReportDocument doc, DocumentParticipant reportingRadiologist ) {
-        ArgumentUtils.checkNotNullNorEmpty( imagingResults, "imagingResults" );
-        ArgumentUtils.checkNotNull( doc, "Document" );
-        ArgumentUtils.checkNotNull( reportingRadiologist, " reportingRadiologist" );
+    public DiagnosticImageReportContentImpl(List<ImagingExaminationResult> imagingResults, ReportDocument doc, DocumentParticipant reportingRadiologist) {
+        ArgumentUtils.checkNotNullNorEmpty(imagingResults, "imagingResults");
+        ArgumentUtils.checkNotNull(doc, "Document");
+        ArgumentUtils.checkNotNull(reportingRadiologist, " reportingRadiologist");
         this.imagingResults = imagingResults;
         this.doc = doc;
         this.reportingRadiologist = reportingRadiologist;
     }
-    
-    
+
     @Override
     public List<ImagingExaminationResult> getImagingExaminationResults() {
         return imagingResults;
@@ -61,22 +60,20 @@ public class DiagnosticImageReportContentImpl implements DiagnosticImageReportCo
 //        return authorisationToPost;
 //    }
 
-
     @Override
     public UniqueIdentifier getId() {
         return id;
     }
 
-
     /**
      * Set the ID for the Pathology Section of the CDA document.
      * If not explicitly set this will become a random UUID.
+     *
      * @param id
      */
-    public void setId( UniqueIdentifier id ) {
+    public void setId(UniqueIdentifier id) {
         this.id = id;
     }
-
 
     @Override
     public ReportDocument getRelatedDocument() {

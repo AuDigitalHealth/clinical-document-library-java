@@ -19,50 +19,51 @@ import java.util.UUID;
 import au.gov.nehta.common.utils.ArgumentUtils;
 
 public class OrganisationImpl implements Organisation {
-	private String organisationName;
-	private String departmentUnit;
-	private OrganisationNameUsage organisationNameUsage;
-	private String id = UUID.randomUUID().toString();
-	
-	
-	public OrganisationImpl( String organisationName ) {
-		ArgumentUtils.checkNotNull( organisationName, "organisationName" );
-		this.organisationName = organisationName;
-	}
-	public OrganisationImpl( String organisationName,OrganisationNameUsage organisationNameUsage ) {
-        ArgumentUtils.checkNotNull( organisationName, "organisationName" );
-        ArgumentUtils.checkNotNull( organisationNameUsage, "organisationNameUsage" );
+    private String organisationName;
+    private String departmentUnit;
+    private OrganisationNameUsage organisationNameUsage;
+    private String id = UUID.randomUUID().toString();
+
+
+    public OrganisationImpl(String organisationName) {
+        ArgumentUtils.checkNotNull(organisationName, "organisationName");
         this.organisationName = organisationName;
-        this.organisationNameUsage=organisationNameUsage;
     }
 
-	public String getOrganisationName() {
-		return organisationName;
-	}
+    public OrganisationImpl(String organisationName, OrganisationNameUsage organisationNameUsage) {
+        ArgumentUtils.checkNotNull(organisationName, "organisationName");
+        ArgumentUtils.checkNotNull(organisationNameUsage, "organisationNameUsage");
+        this.organisationName = organisationName;
+        this.organisationNameUsage = organisationNameUsage;
+    }
 
-	public String getDepartmentUnit() {
-		return departmentUnit;
-	}
+    public String getOrganisationName() {
+        return organisationName;
+    }
 
-	public OrganisationNameUsage getOrganisationNameUsage() {
-		return organisationNameUsage;
-	}
+    public String getDepartmentUnit() {
+        return departmentUnit;
+    }
 
-	public void setDepartmentUnit( String departmentUnit ) {
-		ArgumentUtils.checkNotNull( departmentUnit, "departmentUnit" );
-		this.departmentUnit = departmentUnit;
-	}
+    public OrganisationNameUsage getOrganisationNameUsage() {
+        return organisationNameUsage;
+    }
 
-	public void setOrganisationNameUsage( OrganisationNameUsage organisationNameUsage ) {
-		ArgumentUtils.checkNotNull( organisationNameUsage, "organisationNameUsage" );
-		this.organisationNameUsage = organisationNameUsage;
-	}
+    public void setDepartmentUnit(String departmentUnit) {
+        ArgumentUtils.checkNotNull(departmentUnit, "departmentUnit");
+        this.departmentUnit = departmentUnit;
+    }
 
-	public String getId() {
-		return id;
-	}
+    public void setOrganisationNameUsage(OrganisationNameUsage organisationNameUsage) {
+        ArgumentUtils.checkNotNull(organisationNameUsage, "organisationNameUsage");
+        this.organisationNameUsage = organisationNameUsage;
+    }
 
-	public void setId( String id ) {
-		this.id = id;
-	}
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
 }

@@ -17,23 +17,23 @@ package au.gov.nehta.model.clinical.common.participation;
 import java.util.List;
 
 public interface EmploymentDetail {
-	List<String> getEmployerOrganisation();
+    List<String> getEmployerOrganisation();
 
-	EmploymentType getEmploymentType();
+    EmploymentType getEmploymentType();
 
-	List<Occupation> getOccupation();
+    List<Occupation> getOccupation();
 
-	PositionInOrganisation getPositionInOrganisation();
+    PositionInOrganisation getPositionInOrganisation();
 
-	void addEmployerOrganisation( String employerOrganisation );
+    void addEmployerOrganisation(String employerOrganisation);
 
-	void setEmployerOrganisation( List<String> employerOrganisation );
+    void setEmployerOrganisation(List<String> employerOrganisation);
 
-	void addOccupation( Occupation occupation );
+    void addOccupation(Occupation occupation);
 
-	void setOccupation( List<Occupation> occupation );
+    void setOccupation(List<Occupation> occupation);
 
-	void setEmploymentType( EmploymentType employmentType );
+    void setEmploymentType(EmploymentType employmentType);
 
-	void setPositionInOrganisation( PositionInOrganisation positionInOrganisation );
+    void setPositionInOrganisation(PositionInOrganisation positionInOrganisation);
 }

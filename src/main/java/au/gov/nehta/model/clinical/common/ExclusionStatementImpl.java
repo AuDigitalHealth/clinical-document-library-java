@@ -8,35 +8,34 @@ import au.gov.nehta.model.cda.common.code.Coded;
  */
 public class ExclusionStatementImpl implements ExclusionStatement {
 
-  private Coded globalStatement;
-  private Coded exclusionStatement;
+    private Coded globalStatement;
+    private Coded exclusionStatement;
 
 
-  public ExclusionStatementImpl() {
-  }
+    public ExclusionStatementImpl() {
+    }
 
-  public ExclusionStatementImpl(Coded exclusionStatement) {
-    this.exclusionStatement = exclusionStatement;
-  }
+    public ExclusionStatementImpl(Coded exclusionStatement) {
+        this.exclusionStatement = exclusionStatement;
+    }
 
-  @Override
-  public Coded getGlobalStatement() {
-    return globalStatement;
-  }
+    @Override
+    public Coded getGlobalStatement() {
+        return globalStatement;
+    }
 
-  @Override
-  public void setGlobalStatement(Coded globalStatement) {
-    this.globalStatement = globalStatement;
-  }
+    @Override
+    public void setGlobalStatement(Coded globalStatement) {
+        this.globalStatement = globalStatement;
+    }
 
-  @Override
-  public Coded getExclusionStatement() {
-    return exclusionStatement;
-  }
+    @Override
+    public Coded getExclusionStatement() {
+        return exclusionStatement;
+    }
 
-  @Override
-  public void setExclusionStatement(Coded exclusionStatement) {
-    this.exclusionStatement = exclusionStatement;
-  }
-
+    @Override
+    public void setExclusionStatement(Coded exclusionStatement) {
+        this.exclusionStatement = exclusionStatement;
+    }
 }

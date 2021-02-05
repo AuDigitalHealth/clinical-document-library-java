@@ -14,16 +14,15 @@
 
 package au.gov.nehta.model.clinical.common.types;
 
-
 public interface CodeableText extends EnumTuple {
-//	Boolean isCoded();
+//  Boolean isCoded();
 //
-//	String getUncodedValue();
-//	/*
-//	 * String getValueSet(); String getValueSetVersion(); List<String>
-//	 * getCodingRationale(); CodedText getSource(); List<CodeableText>
-//	 * getTranslation(); boolean hasValueSet(); boolean hasValueSetVersion();
-//	 * boolean hasCodingRationale(); boolean hasSource(); boolean
-//	 * hasTranslation();
-//	 */
+//  String getUncodedValue();
+//  /*
+//   * String getValueSet(); String getValueSetVersion(); List<String>
+//   * getCodingRationale(); CodedText getSource(); List<CodeableText>
+//   * getTranslation(); boolean hasValueSet(); boolean hasValueSetVersion();
+//   * boolean hasCodingRationale(); boolean hasSource(); boolean
+//   * hasTranslation();
+//   */
 }

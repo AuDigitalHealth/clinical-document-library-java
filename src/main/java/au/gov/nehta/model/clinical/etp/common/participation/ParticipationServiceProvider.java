@@ -11,11 +11,10 @@ public interface ParticipationServiceProvider {
 
     void setRole(Coded role);
 
-    //This is IServiceProvider Participant in .net
+    // This is IServiceProvider Participant in .net
     ServiceProvider getParticipant();
 
     void setParticipant(ServiceProvider participant);
 
     void setParticipationPeriod(RestrictedTimeInterval participationPeriod);
-
 }

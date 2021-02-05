@@ -1,7 +1,7 @@
 package au.gov.nehta.model.clinical.etp.common.participation;
 
-import org.joda.time.DateTime;
+import java.time.ZonedDateTime;
 
 public interface ProviderIndividualDateOfBirthDetail {
-    DateTime getDateOfBirth();
+    ZonedDateTime getDateOfBirth();
 }

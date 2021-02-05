@@ -12,10 +12,9 @@ public interface PathologyOrganisationParticipant extends Participant{
     
     /**
      * The involvement or role of the participant in the related action from a
-     * healthcare perspective rather than the specific participation perspective
+     * healthcare perspective rather than the specific participation perspective.
      * Role SHOULD have a value representing the type of Healthcare Facility
      * e.g. Hospital, Clinic.  
      */
     public Coded getHealthcareFacilityType();
-    
 }

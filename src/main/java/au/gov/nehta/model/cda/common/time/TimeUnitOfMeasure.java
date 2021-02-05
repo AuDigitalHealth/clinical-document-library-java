@@ -13,39 +13,36 @@
  */
 package au.gov.nehta.model.cda.common.time;
 
-
 public enum TimeUnitOfMeasure {
 
-	MILLISECOND( "millisecond", "ms" ),
-	SECOND( "second", "s" ),
-	MINUTE( "minute", "min" ),
-	HOUR( "hour", "h" ),
-	DAY( "day", "d" ),
-	//TROPICAL_YEAR( "tropical year", "a_t" ),
-	//MEAN_JULIAN_YEAR( "mean Julian year", "a_j" ),
-	MEAN_GREGORIAN_YEAR( "mean Gregorian year", "a_g" ),
-	YEAR( "year", "a" ),
-	WEEK( "week", "wk" ),
-	SYNODAL_MONTH( "synodal month", "mo_s" ),
-	//MEAN_JULIAN_MONTH( "mean Julian month", "mo_j" ),
-	MEAN_GREGORIAN_MONTH( "mean Gregorian month", "mo_g" ),
-	MONTH( "month", "mo" );
+    MILLISECOND("millisecond", "ms"),
+    SECOND("second", "s"),
+    MINUTE("minute", "min"),
+    HOUR("hour", "h"),
+    DAY("day", "d"),
+    // TROPICAL_YEAR( "tropical year", "a_t" ),
+    // MEAN_JULIAN_YEAR( "mean Julian year", "a_j" ),
+    MEAN_GREGORIAN_YEAR("mean Gregorian year", "a_g"),
+    YEAR("year", "a"),
+    WEEK("week", "wk"),
+    SYNODAL_MONTH("synodal month", "mo_s"),
+    // MEAN_JULIAN_MONTH( "mean Julian month", "mo_j" ),
+    MEAN_GREGORIAN_MONTH("mean Gregorian month", "mo_g"),
+    MONTH("month", "mo");
 
-	private String name;
-	private String code;
+    private String name;
+    private String code;
 
-	private TimeUnitOfMeasure( String name, String code ) {
-		this.name= name;
-		this.code=code;
-	}
+    private TimeUnitOfMeasure(String name, String code) {
+        this.name = name;
+        this.code = code;
+    }
 
-	public String getName() {
-		return name;
-	}
+    public String getName() {
+        return name;
+    }
 
-	public String getCode() {
-		return code;
-	}
-
-
+    public String getCode() {
+        return code;
+    }
 }

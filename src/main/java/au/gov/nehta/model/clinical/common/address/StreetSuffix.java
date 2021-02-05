@@ -6,30 +6,29 @@ public enum StreetSuffix {
 
     Undefined(null, null),
 
+    Central("Cn", "Central"),
 
-    Central("Cn","Central"),
+    East("E", "East"),
 
-    East("E","East"),
+    Extension("Ex", "Extension"),
 
-    Extension("Ex","Extension"),
+    Lower("Lr", "Lower"),
 
-    Lower("Lr","Lower"),
+    North("N", "North"),
 
-    North("N","North"),
+    NorthEast("Ne", "North East"),
 
-    NorthEast("Ne","North East"),
+    NorthWest("Nw", "North West"),
 
-    NorthWest("Nw","North West"),
+    South("S", "South"),
 
-    South("S","South"),
+    SouthEast("Se", "South East"),
 
-    SouthEast("Se","South East"),
+    SouthWest("Sw", "South West"),
 
-    SouthWest("Sw","South West"),
+    Upper("Up", "Upper"),
 
-    Upper("Up","Upper"),
-
-    West("W","West");
+    West("W", "West");
 
     private String code;
     private String name;
@@ -54,5 +53,4 @@ public enum StreetSuffix {
                 .add("name='" + name + "'")
                 .toString();
     }
-
 }

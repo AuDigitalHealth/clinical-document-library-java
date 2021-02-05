@@ -5,24 +5,23 @@ import java.util.List;
 
 public interface ResponseDetails {
 
-  StrucDocText getCustomNarrative();
+    StrucDocText getCustomNarrative();
 
-  void setCustomNarrative(StrucDocText customNarrative);
+    void setCustomNarrative(StrucDocText customNarrative);
 
-  List<Diagnosis> getDiagnoses();
+    List<Diagnosis> getDiagnoses();
 
-  List<Procedure> getProcedures();
+    List<Procedure> getProcedures();
 
-  List<OtherDiagnosisProcedureEntry> getOtherDiagnosisProcedureEntries();
+    List<OtherDiagnosisProcedureEntry> getOtherDiagnosisProcedureEntries();
 
-  ResponseNarrative getResponseNarrative();
+    ResponseNarrative getResponseNarrative();
 
-  void setDiagnoses(List<Diagnosis> diagnoses);
+    void setDiagnoses(List<Diagnosis> diagnoses);
 
-  void setProcedures(List<Procedure> procedures);
+    void setProcedures(List<Procedure> procedures);
 
-  void setOtherDiagnosisProcedureEntries(
-      List<OtherDiagnosisProcedureEntry> otherDiagnosisProcedureEntries);
+    void setOtherDiagnosisProcedureEntries(List<OtherDiagnosisProcedureEntry> otherDiagnosisProcedureEntries);
 
-  void setResponseNarrative(ResponseNarrative responseNarrative);
+    void setResponseNarrative(ResponseNarrative responseNarrative);
 }

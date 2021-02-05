@@ -15,5 +15,5 @@
 package au.gov.nehta.model.clinical.etp.prescriptionrequest;
 
 public interface RequesterNote {
-	String getNote();
+    String getNote();
 }

@@ -12,25 +12,25 @@ import au.gov.nehta.model.clinical.common.types.UniqueIdentifier;
  */
 public interface Immunisation {
 
-	/**
-	 * The vaccine which was the focus of the action.
-	 */
+    /**
+     * The vaccine which was the focus of the action.
+     */
     Coded getTheraputicGood();
 
-	/**
-	 * The sequence number specific to the action being recorded
-	 */
+    /**
+     * The sequence number specific to the action being recorded
+     */
     Integer getSequenceNumber();
 
-	/**
-	 * The point in time at which the Medication Action is completed.
-	 */
+    /**
+     * The point in time at which the Medication Action is completed.
+     */
     PreciseDate getMedicationActionDateTime();
-	
-	/**
-	 * This is a technical identifier that is used for system purposes such as
-	 * matching. If a suitable internal key is not available, a UUID may be
-	 * used.
-	 */
+
+    /**
+     * This is a technical identifier that is used for system purposes such as
+     * matching. If a suitable internal key is not available, a UUID may be
+     * used.
+     */
     UniqueIdentifier getID();
 }

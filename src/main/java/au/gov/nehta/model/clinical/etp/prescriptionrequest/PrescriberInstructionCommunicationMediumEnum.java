@@ -15,21 +15,24 @@
 package au.gov.nehta.model.clinical.etp.prescriptionrequest;
 
 public enum PrescriberInstructionCommunicationMediumEnum {
-	PHONE( "1", "phone" ), FAX( "2", "fax" ), EMAIL( "3", "email" ), FACE_TO_FACE( "4", "face-to-face" );
+    PHONE("1", "phone"),
+    FAX("2", "fax"),
+    EMAIL("3", "email"),
+    FACE_TO_FACE("4", "face-to-face");
 
-	private final String code;
-	private final String descriptor;
+    private final String code;
+    private final String descriptor;
 
-	PrescriberInstructionCommunicationMediumEnum( String code, String descriptor ) {
-		this.code = code;
-		this.descriptor = descriptor;
-	}
+    PrescriberInstructionCommunicationMediumEnum(String code, String descriptor) {
+        this.code = code;
+        this.descriptor = descriptor;
+    }
 
-	public String getCode() {
-		return code;
-	}
+    public String getCode() {
+        return code;
+    }
 
-	public String getDescriptor() {
-		return descriptor;
-	}
+    public String getDescriptor() {
+        return descriptor;
+    }
 }

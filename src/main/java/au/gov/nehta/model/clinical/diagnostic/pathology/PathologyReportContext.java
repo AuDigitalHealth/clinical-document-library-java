@@ -18,12 +18,15 @@ import au.gov.nehta.model.clinical.common.SubjectOfCareParticipant;
 import au.gov.nehta.model.clinical.etp.common.item.Logo;
 
 public interface PathologyReportContext {
-    public SubjectOfCareParticipant getSubjectOfCare();
-    public RequesterParticipation getRequester();
-    public OrderDetails getOrderDetails();
-    
-    public DocumentParticipant getAuthor();
-    public Logo getLogo();
-    public void setLogo(Logo logo);
+    SubjectOfCareParticipant getSubjectOfCare();
 
+    RequesterParticipation getRequester();
+
+    OrderDetails getOrderDetails();
+
+    DocumentParticipant getAuthor();
+
+    Logo getLogo();
+
+    void setLogo(Logo logo);
 }

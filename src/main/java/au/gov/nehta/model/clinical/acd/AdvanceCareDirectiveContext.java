@@ -6,19 +6,19 @@ import au.gov.nehta.model.clinical.common.SubjectOfCareParticipant;
 
 public interface AdvanceCareDirectiveContext {
 
-  DocumentAuthor getDocumentAuthor();
+    DocumentAuthor getDocumentAuthor();
 
-  void setDocumentAuthor(DocumentAuthor documentAuthor);
+    void setDocumentAuthor(DocumentAuthor documentAuthor);
 
-  SubjectOfCareParticipant getSubjectOfCare();
+    SubjectOfCareParticipant getSubjectOfCare();
 
-  void setSubjectOfCare(SubjectOfCareParticipant subjectOfCare);
+    void setSubjectOfCare(SubjectOfCareParticipant subjectOfCare);
 
-  PreciseDate getDateTimeAuthored();
+    PreciseDate getDateTimeAuthored();
 
-  void setDateTimeAuthored(PreciseDate dateTimeAuthored);
+    void setDateTimeAuthored(PreciseDate dateTimeAuthored);
 
-  void setDateTimeAttested(PreciseDate dateTimeAttested);
+    void setDateTimeAttested(PreciseDate dateTimeAttested);
 
-  PreciseDate getDateTimeAttested();
+    PreciseDate getDateTimeAttested();
 }

@@ -14,18 +14,18 @@
 
 package au.gov.nehta.model.clinical.etp.prescriptionrequest;
 
-import org.joda.time.DateTime;
+import java.time.ZonedDateTime;
 
 import au.gov.nehta.model.clinical.etp.common.participation.PrescriberInstructionRecipientParticipation;
 
 public interface PrescriberInstructionDetail {
-	PrescriberInstructionRecipientParticipation getPrescriberInstructionRecipient();
+    PrescriberInstructionRecipientParticipation getPrescriberInstructionRecipient();
 
-	DateTime getDateTimePrescriberInstructionReceived();
+    ZonedDateTime getDateTimePrescriberInstructionReceived();
 
-	String getPrescriberInstruction();
+    String getPrescriberInstruction();
 
-	PrescriberInstructionSource getPrescriberInstructionSource();
+    PrescriberInstructionSource getPrescriberInstructionSource();
 
-	PrescriberInstructionCommunicationMedium getPrescriberInstructionCommunicationMedium();
+    PrescriberInstructionCommunicationMedium getPrescriberInstructionCommunicationMedium();
 }

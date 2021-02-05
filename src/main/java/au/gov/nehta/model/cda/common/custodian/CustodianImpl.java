@@ -2,17 +2,17 @@ package au.gov.nehta.model.cda.common.custodian;
 
 
 public class CustodianImpl implements Custodian {
-	private AssignedCustodian assignedCustodian;
+    private AssignedCustodian assignedCustodian;
 
-	private CustodianImpl( AssignedCustodian assignedCustodian ) {
-		this.assignedCustodian = assignedCustodian;
-	}
+    private CustodianImpl(AssignedCustodian assignedCustodian) {
+        this.assignedCustodian = assignedCustodian;
+    }
 
-	public static Custodian getInstance( AssignedCustodian assignedCustodian ) {
-		return (Custodian) new CustodianImpl( assignedCustodian );
-	}
+    public static Custodian getInstance(AssignedCustodian assignedCustodian) {
+        return new CustodianImpl(assignedCustodian);
+    }
 
-	public AssignedCustodian getAssignedCustodian() {
-		return assignedCustodian;
-	}
+    public AssignedCustodian getAssignedCustodian() {
+        return assignedCustodian;
+    }
 }

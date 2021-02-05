@@ -13,9 +13,8 @@
  */
 package au.gov.nehta.model.cda.common.time;
 
-import org.joda.time.DateTime;
-import org.joda.time.format.DateTimeFormat;
-import org.joda.time.format.DateTimeFormatter;
+import java.time.ZonedDateTime;
+import java.time.format.DateTimeFormatter;
 
 /**
  * An enumeration representing time accuracy
@@ -23,32 +22,31 @@ import org.joda.time.format.DateTimeFormatter;
  * @author NeHTA
  */
 public enum Precision implements Comparable<Precision> {
-  //Mental note:
-  //be careful when adding new values as the ordinal value
-  //will be used for comparison
+    // Mental note:
+    // be careful when adding new values as the ordinal value
+    // will be used for comparison
 
-  MILLISECOND("yyyyMMddHHmmss.SSSZ", "d MMM yyyy HH:mm:ss.SSS Z"),
-  SECOND("yyyyMMddHHmmssZ", "d MMM yyyy HH:mm:ss Z"),
-  MINUTE("yyyyMMddHHmmZ", "d MMM yyyy HH:mm Z"),
-  HOUR("yyyyMMddHHZ", "d MMM yyyy HH:mm Z"),
-  DAY("yyyyMMdd", "d MMM yyyy"),
-  MONTH("yyyyMM", "MMM yyyy"),
-  YEAR("yyyy", "yyyy");
+    MILLISECOND("yyyyMMddHHmmss.SSSZ", "d MMM yyyy HH:mm:ss.SSS Z"),
+    SECOND("yyyyMMddHHmmssZ", "d MMM yyyy HH:mm:ss Z"),
+    MINUTE("yyyyMMddHHmmZ", "d MMM yyyy HH:mm Z"),
+    HOUR("yyyyMMddHHZ", "d MMM yyyy HH:mm Z"),
+    DAY("yyyyMMdd", "d MMM yyyy"),
+    MONTH("yyyyMM", "MMM yyyy"),
+    YEAR("yyyy", "yyyy");
 
-  DateTimeFormatter format;
-  DateTimeFormatter narrativeForm;
+    DateTimeFormatter format;
+    DateTimeFormatter narrativeForm;
 
-  Precision(String timeformat, String narrativeFormat) {
-    format = DateTimeFormat.forPattern(timeformat);
-    narrativeForm = DateTimeFormat.forPattern(narrativeFormat);
-  }
+    Precision(String timeFormat, String narrativeFormat) {
+        format = DateTimeFormatter.ofPattern(timeFormat);
+        narrativeForm = DateTimeFormatter.ofPattern(narrativeFormat);
+    }
 
-  public String format(DateTime d) {
-    return format.print(d);
-  }
+    public String format(ZonedDateTime d) {
+        return d.format(format);
+    }
 
-  public String narrativeForm(DateTime d) {
-    return narrativeForm.print(d);
-  }
-
+    public String narrativeForm(ZonedDateTime d) {
+        return d.format(narrativeForm);
+    }
 }

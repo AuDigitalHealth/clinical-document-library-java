@@ -1,26 +1,24 @@
 package au.gov.nehta.model.cda.common.address;
 
 public enum PostalAddressUseEnum {
-	WORKPLACE( "WP", "Work Place" ), 
-	POSTAL_ADDRESS( "PST", "Postal Address" ), 
-	TEMPORARY_ADDRESS( "TMP", "Temporary Address" ),
-	HOME_ADDRESS( "H", "Home Address" );
-	
-	
-	
-	private String code;
-	private String descriptor;
+    WORKPLACE("WP", "Work Place"),
+    POSTAL_ADDRESS("PST", "Postal Address"),
+    TEMPORARY_ADDRESS("TMP", "Temporary Address"),
+    HOME_ADDRESS("H", "Home Address");
 
-	PostalAddressUseEnum( String code, String descriptor ) {
-		this.code = code;
-		this.descriptor = descriptor;
-	}
+    private String code;
+    private String descriptor;
 
-	public String getCode() {
-		return this.code;
-	}
+    PostalAddressUseEnum(String code, String descriptor) {
+        this.code = code;
+        this.descriptor = descriptor;
+    }
 
-	public String getDescriptor() {
-		return descriptor;
-	}
+    public String getCode() {
+        return this.code;
+    }
+
+    public String getDescriptor() {
+        return descriptor;
+    }
 }

@@ -31,7 +31,7 @@ public interface OtherTestResult {
 
     void setReportContent(String reportContent);
 
-  Class getExecutingClass();
+    Class<?> getExecutingClass();
 
-  void setExecutingClass(Class executingClass);
+    void setExecutingClass(Class<?> executingClass);
 }

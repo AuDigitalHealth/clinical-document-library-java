@@ -6,11 +6,12 @@ import au.gov.nehta.common.utils.ArgumentUtils;
 import au.gov.nehta.model.clinical.common.types.HPII;
 
 public abstract class QualifiedParticipantImpl extends ParticipantImpl implements QualifiedParticipant {
+
     protected String qualifications;
     protected HPII entityIdentifier;
-    private String authorID =  UUID.randomUUID().toString();
-    
-    
+    private String authorID = UUID.randomUUID().toString();
+
+
     @Override
     public HPII getEntityIdentifiers() {
         return entityIdentifier;
@@ -22,22 +23,21 @@ public abstract class QualifiedParticipantImpl extends ParticipantImpl implement
     }
 
     @Override
-    public void setQualifications( String qualifications ) {
-        ArgumentUtils.checkNotNullNorBlank( qualifications, "qualifications" );
+    public void setQualifications(String qualifications) {
+        ArgumentUtils.checkNotNullNorBlank(qualifications, "qualifications");
         this.qualifications = qualifications;
     }
-  
+
     /**
-     * defaults to random UUID if not Explicitly set
+     * Defaults to random UUID if not Explicitly set.
      */
-	@Override
-	public String getAssignedAuthorId() {
-		return authorID;
-	}
+    @Override
+    public String getAssignedAuthorId() {
+        return authorID;
+    }
 
-	@Override
-	public void setAssignedAuthorId(String id) {
-		this.authorID=id;
-	}
-
+    @Override
+    public void setAssignedAuthorId(String id) {
+        this.authorID = id;
+    }
 }

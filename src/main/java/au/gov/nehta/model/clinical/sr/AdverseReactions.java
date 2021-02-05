@@ -5,8 +5,7 @@ import au.gov.nehta.model.clinical.shs.ExclusionStatement;
 
 public interface AdverseReactions extends NewlyIdentifiedAdverseReactions {
 
-  ExclusionStatement getExclusionStatement();
+    ExclusionStatement getExclusionStatement();
 
-  void setExclusionStatement(ExclusionStatement exclusionStatement);
-
+    void setExclusionStatement(ExclusionStatement exclusionStatement);
 }

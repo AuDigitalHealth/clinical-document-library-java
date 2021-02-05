@@ -20,55 +20,55 @@ import au.gov.nehta.common.utils.ArgumentUtils;
 import au.gov.nehta.model.cda.common.code.Code;
 
 public class PositionInOrganisationImpl implements PositionInOrganisation {
-	private boolean isCoded;
-	private String uncodedValue;
-	private ANZSCO_1ED_2006 codedValue;
+    private boolean isCoded;
+    private String uncodedValue;
+    private ANZSCO_1ED_2006 codedValue;
 
-	PositionInOrganisationImpl( String uncodedValue ) {
-		ArgumentUtils.checkNotNull( uncodedValue, "uncodedValue" );
-		this.isCoded = false;
-		this.uncodedValue = uncodedValue;
-	}
+    PositionInOrganisationImpl(String uncodedValue) {
+        ArgumentUtils.checkNotNull(uncodedValue, "uncodedValue");
+        this.isCoded = false;
+        this.uncodedValue = uncodedValue;
+    }
 
-	PositionInOrganisationImpl( ANZSCO_1ED_2006 codedValue ) {
-		ArgumentUtils.checkNotNull( codedValue, "codedValue" );
-		this.isCoded = true;
-		this.codedValue = codedValue;
-	}
+    PositionInOrganisationImpl(ANZSCO_1ED_2006 codedValue) {
+        ArgumentUtils.checkNotNull(codedValue, "codedValue");
+        this.isCoded = true;
+        this.codedValue = codedValue;
+    }
 
-	public boolean isCoded() {
-		return isCoded;
-	}
+    public boolean isCoded() {
+        return isCoded;
+    }
 
-	public String getUncodedValue() {
-		return uncodedValue;
-	}
+    public String getUncodedValue() {
+        return uncodedValue;
+    }
 
-	public String getOriginalText() {
-		return codedValue.getDescriptor();
-	}
+    public String getOriginalText() {
+        return codedValue.getDescriptor();
+    }
 
-	public String getCode() {
-		return codedValue.getCode();
-	}
+    public String getCode() {
+        return codedValue.getCode();
+    }
 
-	public String getCodeSystem() {
-		return CODE_SYSTEM;
-	}
+    public String getCodeSystem() {
+        return CODE_SYSTEM;
+    }
 
-	public String getCodeSystemName() {
-		return CODE_SYSTEM_NAME;
-	}
+    public String getCodeSystemName() {
+        return CODE_SYSTEM_NAME;
+    }
 
-	public String getCodeSystemVersion() {
-		return CODE_SYSTEM_VERSION;
-	}
+    public String getCodeSystemVersion() {
+        return CODE_SYSTEM_VERSION;
+    }
 
-	public String getDisplayName() {
-		return codedValue.getDescriptor();
-	}
-	
-	 @Override
+    public String getDisplayName() {
+        return codedValue.getDescriptor();
+    }
+
+    @Override
     public List<Code> getTranslations() {
         return codedValue.getTranslations();
     }

@@ -7,8 +7,12 @@ import au.gov.nehta.model.cda.common.id.AsEntityIdentifier;
 import au.gov.nehta.model.clinical.common.participation.Organisation;
 
 public interface EmploymentOrganisation extends Organisation {
-        public List<? extends AsEntityIdentifier> getOrganisationIdentifiers();
-        public Coded getEmployementType();
-        public Coded  getOccupation();
-        public Coded getPositionInOrganisation();
+
+    List<? extends AsEntityIdentifier> getOrganisationIdentifiers();
+
+    Coded getEmployementType();
+
+    Coded getOccupation();
+
+    Coded getPositionInOrganisation();
 }

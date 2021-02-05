@@ -6,17 +6,16 @@ import au.net.electronichealth.ns.cda._2_0.XActRelationshipDocument;
 
 public interface RelatedDocument {
 
-    public Code getDocumentCode();
+    Code getDocumentCode();
 
-    public UniqueIdentifier getParentDocumentId();
+    UniqueIdentifier getParentDocumentId();
 
-    public UniqueIdentifier getSetId();
+    UniqueIdentifier getSetId();
 
     /**
      * @return the versionNumber
      */
-    public Integer getVersionNumber();
+    Integer getVersionNumber();
 
-    public XActRelationshipDocument getTypeCode();
-
+    XActRelationshipDocument getTypeCode();
 }

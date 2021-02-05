@@ -21,53 +21,53 @@ import au.gov.nehta.common.utils.ArgumentUtils;
 import au.gov.nehta.model.cda.common.code.Code;
 
 public class PrescriberInstructionSourceImpl implements PrescriberInstructionSource {
-	private boolean isCoded;
-	private String uncodedValue;
-	private PrescriberInstructionSourceEnum codedValue;
+    private boolean isCoded;
+    private String uncodedValue;
+    private PrescriberInstructionSourceEnum codedValue;
 
-	PrescriberInstructionSourceImpl( String uncodedValue ) {
-		ArgumentUtils.checkNotNull( uncodedValue, "uncodedValue" );
-		this.isCoded = false;
-		this.uncodedValue = uncodedValue;
-	}
+    PrescriberInstructionSourceImpl(String uncodedValue) {
+        ArgumentUtils.checkNotNull(uncodedValue, "uncodedValue");
+        this.isCoded = false;
+        this.uncodedValue = uncodedValue;
+    }
 
-	public PrescriberInstructionSourceImpl( PrescriberInstructionSourceEnum prescriberInstructionSourceEnum ) {
-		ArgumentUtils.checkNotNull( prescriberInstructionSourceEnum, "prescriberInstructionSourceEnum" );
-		this.isCoded = true;
-		this.codedValue = prescriberInstructionSourceEnum;
-	}
+    public PrescriberInstructionSourceImpl(PrescriberInstructionSourceEnum prescriberInstructionSourceEnum) {
+        ArgumentUtils.checkNotNull(prescriberInstructionSourceEnum, "prescriberInstructionSourceEnum");
+        this.isCoded = true;
+        this.codedValue = prescriberInstructionSourceEnum;
+    }
 
-	public boolean isCoded() {
-		return isCoded;
-	}
+    public boolean isCoded() {
+        return isCoded;
+    }
 
-	public String getUncodedValue() {
-		return uncodedValue;
-	}
+    public String getUncodedValue() {
+        return uncodedValue;
+    }
 
-	public String getOriginalText() {
-		return codedValue.getDescriptor();
-	}
+    public String getOriginalText() {
+        return codedValue.getDescriptor();
+    }
 
-	public String getCode() {
-		return codedValue.getCode();
-	}
+    public String getCode() {
+        return codedValue.getCode();
+    }
 
-	public String getCodeSystem() {
-		return CODE_SYSTEM;
-	}
+    public String getCodeSystem() {
+        return CODE_SYSTEM;
+    }
 
-	public String getCodeSystemName() {
-		return CODE_SYSTEM_NAME;
-	}
+    public String getCodeSystemName() {
+        return CODE_SYSTEM_NAME;
+    }
 
-	public String getCodeSystemVersion() {
-		return CODE_SYSTEM_VERSION;
-	}
+    public String getCodeSystemVersion() {
+        return CODE_SYSTEM_VERSION;
+    }
 
-	public String getDisplayName() {
-		return codedValue.getDescriptor();
-	}
+    public String getDisplayName() {
+        return codedValue.getDescriptor();
+    }
 
     @Override
     public List<Code> getTranslations() {

@@ -7,11 +7,11 @@ public class ParticipationServiceProviderImpl implements ParticipationServicePro
 
     private Coded role;
     private ServiceProvider participant;
-  private RestrictedTimeInterval participationPeriod;
+    private RestrictedTimeInterval participationPeriod;
 
     @Override
     public RestrictedTimeInterval getParticipationPeriod() {
-      return participationPeriod;
+        return participationPeriod;
     }
 
     @Override
@@ -31,7 +31,7 @@ public class ParticipationServiceProviderImpl implements ParticipationServicePro
 
     @Override
     public void setParticipationPeriod(RestrictedTimeInterval participationPeriod) {
-      this.participationPeriod = participationPeriod;
+        this.participationPeriod = participationPeriod;
     }
 
     @Override

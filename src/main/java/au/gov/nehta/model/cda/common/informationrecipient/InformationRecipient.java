@@ -4,6 +4,5 @@ import au.gov.nehta.model.cda.common.id.IntendedRecipient;
 
 public interface InformationRecipient {
 
-  IntendedRecipient getIntendedRecipient();
-
+    IntendedRecipient getIntendedRecipient();
 }

@@ -6,9 +6,9 @@ import au.gov.nehta.model.clinical.common.participation.InternationalAddress;
 
 public interface Address extends AustralianAddress, InternationalAddress {
 
-  AddressAbsentIndicator getAddressAbsentIndicator();
+    AddressAbsentIndicator getAddressAbsentIndicator();
 
-  AustralianAddress getAustralianAddress();
+    AustralianAddress getAustralianAddress();
 
-  InternationalAddress getInternationalAddress();
+    InternationalAddress getInternationalAddress();
 }

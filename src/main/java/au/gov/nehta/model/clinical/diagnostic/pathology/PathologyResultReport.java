@@ -15,7 +15,7 @@
 package au.gov.nehta.model.clinical.diagnostic.pathology;
 
 public interface PathologyResultReport {
-    public PathologyReportContext getContext();
+    PathologyReportContext getContext();
 
-    public PathologyReportContent getContent();
+    PathologyReportContent getContent();
 }

@@ -1,5 +1,17 @@
 # Change Log/Revision History
 
+  = 2.0.1 =
+  =========
+  + references to AMTCode (v2) removed where AMTv3Code alternative is available and required for conformity
+  + removed dependency on Joda Time and replaced with java.time equivalents
+  + removed dependency on Schematron allowing library to be used without it
+  + removed dependency on nehta-smi-common-utils-1.2.jar and incorporated three classes into project instead
+  + removed dependency on nehta-vendorlibrary-java-common-1.0.1.jar
+  + removed dependency on nehta-rpvis-compiled-xsd-cda-common-2.1.jar (stored locally
+  + added dependency on cda-schema-2.1.1.jar available through Maven repository
+  + changed street number in common/address/AustralianAddress to allow for nulls and updated code to handle nulls
+  + code cleanup
+
   = 1.2.2 = 
   =======
   + fixed optional date in Service Referral [SERVICE PROVIDER > Participation Period]
@@ -53,7 +65,7 @@
   
   + added the 'Date time of Dispense Event' to the narrative
   + added the entitlement duration to 'Subject of Care Entitlements'
-  - removed the dispsne quantity field from the body and narrative
+  - removed the dispense quantity field from the body and narrative
   + added the dispense item identifier to the 'supply/id' field
   
   = 0.2 = 

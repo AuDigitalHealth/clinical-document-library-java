@@ -5,27 +5,28 @@ import au.gov.nehta.model.cda.common.code.Coded;
 import au.gov.nehta.model.cda.common.org.Organization;
 import au.gov.nehta.model.cda.common.person.Person;
 import au.gov.nehta.model.cda.common.telecom.Telecom;
+
 import java.util.List;
 
 public interface IntendedRecipient {
 
-  String getId();
+    String getId();
 
-  Coded getCode();
+    Coded getCode();
 
-  List<PostalAddress> getAddress();
+    List<PostalAddress> getAddress();
 
-  List<Telecom> getTelecom();
+    List<Telecom> getTelecom();
 
-  Person getAssignedPerson();
+    Person getAssignedPerson();
 
-  Organization getRepresentedOrganization();
+    Organization getRepresentedOrganization();
 
-  void setCode(Coded code);
+    void setCode(Coded code);
 
-  void setAddress(List<PostalAddress> address);
+    void setAddress(List<PostalAddress> address);
 
-  void setTelecom(List<Telecom> telecom);
+    void setTelecom(List<Telecom> telecom);
 
-  void setRepresentedOrganization(Organization representedOrganization);
+    void setRepresentedOrganization(Organization representedOrganization);
 }

@@ -14,25 +14,21 @@
 
 package au.gov.nehta.model.clinical.common.participation;
 
-
 public class AustralianAddressImpl extends InternationalAddressImpl implements AustralianAddress {
-	private String australianDeliveryPointIdentifier;
-	
-	public AustralianAddressImpl(){
-	    super.setCountry( COUNTRY );
-	}
 
-  
+    private String australianDeliveryPointIdentifier;
+
+    public AustralianAddressImpl() {
+        super.setCountry(COUNTRY);
+    }
+
     @Override
     public String getDeliveryPointIdentifier() {
         return australianDeliveryPointIdentifier;
     }
-    
+
     @Override
     public void setDeliveryPointIdentifier(String dpid) {
-        this.australianDeliveryPointIdentifier=dpid;
+        this.australianDeliveryPointIdentifier = dpid;
     }
-
- 
-
 }

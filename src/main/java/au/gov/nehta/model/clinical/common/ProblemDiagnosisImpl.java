@@ -12,109 +12,103 @@ import au.gov.nehta.model.clinical.common.types.UniqueIdentifierImpl;
  */
 public class ProblemDiagnosisImpl implements ProblemDiagnosis {
 
-  private Coded identification;
-  private PreciseDate dateOfOnset;
-  private PreciseDate remissionDate;
-  private String comment;
-  private UniqueIdentifier id = UniqueIdentifierImpl.random();
+    private Coded identification;
+    private PreciseDate dateOfOnset;
+    private PreciseDate remissionDate;
+    private String comment;
+    private UniqueIdentifier id = UniqueIdentifierImpl.random();
 
+    /**
+     * @param identification Identification of the problem or diagnosis. a <i>(preferably but not
+     *                       mandatory a <b>SNOMED CT-AU</b>) </i> code
+     * @param dateOfOnset    optional Estimated or actual date the Problem/Diagnosis began, in the
+     *                       opinion of the clinician.
+     * @param remissionDate  optional Estimated or actual date the Problem/Diagnosis began, in the
+     *                       opinion of the clinician.
+     * @param comment        optional
+     *                       <p>
+     *                       The date or estimated date that the problem/diagnosis resolved or went into remission, as
+     *                       indicated/identified by the clinician.
+     */
+    public ProblemDiagnosisImpl(Coded identification, PreciseDate dateOfOnset,
+                                PreciseDate remissionDate, String comment) {
+        ArgumentUtils.checkNotNull(identification, "identification");
+        this.identification = identification;
+        this.dateOfOnset = dateOfOnset;
+        this.remissionDate = remissionDate;
+        this.comment = comment;
+    }
 
-  /**
-   * @param identification Identification of the problem or diagnosis. a <i>(preferably but not
-   * mandatory a <b>SNOMED CT-AU</b>) </i> code
-   * @param dateOfOnset optional Estimated or actual date the Problem/Diagnosis began, in the
-   * opinion of the clinician.
-   * @param remissionDate optional Estimated or actual date the Problem/Diagnosis began, in the
-   * opinion of the clinician.
-   * @param comment optional
-   *
-   * The date or estimated date that the problem/diagnosis resolved or went into remission, as
-   * indicated/identified by the clinician.
-   */
-  public ProblemDiagnosisImpl(Coded identification, PreciseDate dateOfOnset,
-      PreciseDate remissionDate, String comment) {
-    ArgumentUtils.checkNotNull(identification, "identification");
-    this.identification = identification;
-    this.dateOfOnset = dateOfOnset;
-    this.remissionDate = remissionDate;
-    this.comment = comment;
-  }
+    /**
+     * Identification of the problem or diagnosis. Should be a snomed ct-au code
+     */
+    @Override
+    public Coded getIdentification() {
+        return identification;
+    }
 
+    /**
+     * optional
+     * <p>
+     * Estimated or actual date the Problem/Diagnosis began, in the opinion of the clinician.
+     */
+    @Override
+    public PreciseDate getDateOfOnset() {
+        return dateOfOnset;
+    }
 
-  /**
-   * Identification of the problem or diagnosis. Should be a snomed ct-au code
-   */
-  @Override
-  public Coded getIdentification() {
-    return identification;
-  }
+    /**
+     * optional
+     * <p>
+     * The date or estimated date that the problem/diagnosis resolved or went into remission, as
+     * indicated/identified by the clinician.
+     */
+    @Override
+    public PreciseDate getDateOfRemission() {
+        return remissionDate;
+    }
 
-  /**
-   * optional
-   *
-   * Estimated or actual date the Problem/Diagnosis began, in the opinion of the clinician.
-   */
-  @Override
-  public PreciseDate getDateOfOnset() {
-    return dateOfOnset;
-  }
+    /**
+     * optional Additional narrative about the problem or diagnosis not captured in other fields.
+     */
+    @Override
+    public String getComment() {
+        return comment;
+    }
 
+    /**
+     * Random UUID unless explicitly set
+     * <p>
+     * This is a technical identifier that is used for system purposes such as matching. If a suitable
+     * internal key is not available, a UUID may be used.
+     */
+    @Override
+    public UniqueIdentifier getID() {
+        return id;
+    }
 
-  /**
-   * optional
-   *
-   * The date or estimated date that the problem/diagnosis resolved or went into remission, as
-   * indicated/identified by the clinician.
-   */
-  @Override
-  public PreciseDate getDateOfRemission() {
-    return remissionDate;
-  }
+    @Override
+    public void setID(UniqueIdentifier id) {
+        this.id = id;
+    }
 
+    @Override
+    public void setIdentification(Coded identification) {
+        this.identification = identification;
+    }
 
-  /**
-   * optional Additional narrative about the problem or diagnosis not captured in other fields.
-   */
-  @Override
-  public String getComment() {
-    return comment;
-  }
+    @Override
+    public void setDateOfOnset(PreciseDate dateOfOnset) {
+        this.dateOfOnset = dateOfOnset;
+    }
 
+    @Override
+    public void setRemissionDate(PreciseDate remissionDate) {
+        this.remissionDate = remissionDate;
+    }
 
-  /**
-   * Random UUID unless explicitly set
-   *
-   * This is a technical identifier that is used for system purposes such as matching. If a suitable
-   * internal key is not available, a UUID may be used.
-   */
-  @Override
-  public UniqueIdentifier getID() {
-    return id;
-  }
-
-  @Override
-  public void setID(UniqueIdentifier id) {
-    this.id = id;
-  }
-
-  @Override
-  public void setIdentification(Coded identification) {
-    this.identification = identification;
-  }
-
-  @Override
-  public void setDateOfOnset(PreciseDate dateOfOnset) {
-    this.dateOfOnset = dateOfOnset;
-  }
-
-  @Override
-  public void setRemissionDate(PreciseDate remissionDate) {
-    this.remissionDate = remissionDate;
-  }
-
-  @Override
-  public void setComment(String comment) {
-    this.comment = comment;
-  }
-
+    @Override
+    public void setComment(String comment) {
+        this.comment = comment;
+    }
 }

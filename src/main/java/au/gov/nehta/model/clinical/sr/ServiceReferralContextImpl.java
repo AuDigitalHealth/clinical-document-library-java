@@ -8,93 +8,94 @@ import java.util.List;
 
 public class ServiceReferralContextImpl implements ServiceReferralContext {
 
-  private SubjectOfCareParticipant subjectOfCare;
-  private DocumentAuthor documentAuthor;
-  private List<RelatedDocument> relatedDocuments;
-  private String documentTitle;
-  private List<ParticipationServiceProvider> patientNominatedContacts;
-  private ParticipationServiceProvider primaryCareGiver;
-  private List<ParticipationServiceProvider> interestedParties;
-  private PreciseDate dateTimeAttested;
+    private SubjectOfCareParticipant subjectOfCare;
+    private DocumentAuthor documentAuthor;
+    private List<RelatedDocument> relatedDocuments;
+    private String documentTitle;
+    private List<ParticipationServiceProvider> patientNominatedContacts;
+    private ParticipationServiceProvider primaryCareGiver;
+    private List<ParticipationServiceProvider> interestedParties;
+    private PreciseDate dateTimeAttested;
 
-  @Override
-  public SubjectOfCareParticipant getSubjectOfCare() {
-    return subjectOfCare;
-  }
+    @Override
+    public SubjectOfCareParticipant getSubjectOfCare() {
+        return subjectOfCare;
+    }
 
-  @Override
-  public void setSubjectOfCare(SubjectOfCareParticipant subjectOfCare) {
-    this.subjectOfCare = subjectOfCare;
-  }
+    @Override
+    public void setSubjectOfCare(SubjectOfCareParticipant subjectOfCare) {
+        this.subjectOfCare = subjectOfCare;
+    }
 
-  @Override
-  public DocumentAuthor getDocumentAuthor() {
-    return documentAuthor;
-  }
+    @Override
+    public DocumentAuthor getDocumentAuthor() {
+        return documentAuthor;
+    }
 
-  @Override
-  public void setDocumentAuthor(DocumentAuthor documentAuthor) {
-    this.documentAuthor = documentAuthor;
-  }
+    @Override
+    public void setDocumentAuthor(DocumentAuthor documentAuthor) {
+        this.documentAuthor = documentAuthor;
+    }
 
-  @Override
-  public List<RelatedDocument> getRelatedDocuments() {
-    return relatedDocuments;
-  }
+    @Override
+    public List<RelatedDocument> getRelatedDocuments() {
+        return relatedDocuments;
+    }
 
-  @Override
-  public void setRelatedDocuments(List<RelatedDocument> relatedDocuments) {
-    this.relatedDocuments = relatedDocuments;
-  }
+    @Override
+    public void setRelatedDocuments(List<RelatedDocument> relatedDocuments) {
+        this.relatedDocuments = relatedDocuments;
+    }
 
-  @Override
-  public String getDocumentTitle() {
-    return documentTitle;
-  }
+    @Override
+    public String getDocumentTitle() {
+        return documentTitle;
+    }
 
-  @Override
-  public void setDocumentTitle(String documentTitle) {
-    this.documentTitle = documentTitle;
-  }
+    @Override
+    public void setDocumentTitle(String documentTitle) {
+        this.documentTitle = documentTitle;
+    }
 
-  @Override
-  public List<ParticipationServiceProvider> getPatientNominatedContacts() {
-    return patientNominatedContacts;
-  }
+    @Override
+    public List<ParticipationServiceProvider> getPatientNominatedContacts() {
+        return patientNominatedContacts;
+    }
 
-  @Override
-  public void setPatientNominatedContacts(
-      List<ParticipationServiceProvider> patientNominatedContacts) {
-    this.patientNominatedContacts = patientNominatedContacts;
-  }
+    @Override
+    public void setPatientNominatedContacts(
+        List<ParticipationServiceProvider> patientNominatedContacts) {
 
-  @Override
-  public ParticipationServiceProvider getPrimaryCareGiver() {
-    return primaryCareGiver;
-  }
+        this.patientNominatedContacts = patientNominatedContacts;
+    }
 
-  @Override
-  public void setPrimaryCareGiver(ParticipationServiceProvider primaryCareGiver) {
-    this.primaryCareGiver = primaryCareGiver;
-  }
+    @Override
+    public ParticipationServiceProvider getPrimaryCareGiver() {
+        return primaryCareGiver;
+    }
 
-  @Override
-  public List<ParticipationServiceProvider> getInterestedParties() {
-    return interestedParties;
-  }
+    @Override
+    public void setPrimaryCareGiver(ParticipationServiceProvider primaryCareGiver) {
+        this.primaryCareGiver = primaryCareGiver;
+    }
 
-  @Override
-  public void setInterestedParties(List<ParticipationServiceProvider> interestedParties) {
-    this.interestedParties = interestedParties;
-  }
+    @Override
+    public List<ParticipationServiceProvider> getInterestedParties() {
+        return interestedParties;
+    }
 
-  @Override
-  public PreciseDate getDateTimeAttested() {
-    return dateTimeAttested;
-  }
+    @Override
+    public void setInterestedParties(List<ParticipationServiceProvider> interestedParties) {
+        this.interestedParties = interestedParties;
+    }
 
-  @Override
-  public void setDateTimeAttested(PreciseDate dateTimeAttested) {
-    this.dateTimeAttested = dateTimeAttested;
-  }
+    @Override
+    public PreciseDate getDateTimeAttested() {
+        return dateTimeAttested;
+    }
+
+    @Override
+    public void setDateTimeAttested(PreciseDate dateTimeAttested) {
+        this.dateTimeAttested = dateTimeAttested;
+    }
 }

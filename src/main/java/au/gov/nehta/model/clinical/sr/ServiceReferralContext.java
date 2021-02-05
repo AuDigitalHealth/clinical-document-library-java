@@ -8,35 +8,35 @@ import java.util.List;
 
 public interface ServiceReferralContext {
 
-  SubjectOfCareParticipant getSubjectOfCare();
+    SubjectOfCareParticipant getSubjectOfCare();
 
-  void setSubjectOfCare(SubjectOfCareParticipant subjectOfCare);
+    void setSubjectOfCare(SubjectOfCareParticipant subjectOfCare);
 
-  DocumentAuthor getDocumentAuthor();
+    DocumentAuthor getDocumentAuthor();
 
-  void setDocumentAuthor(DocumentAuthor documentAuthor);
+    void setDocumentAuthor(DocumentAuthor documentAuthor);
 
-  List<RelatedDocument> getRelatedDocuments();
+    List<RelatedDocument> getRelatedDocuments();
 
-  void setRelatedDocuments(List<RelatedDocument> relatedDocuments);
+    void setRelatedDocuments(List<RelatedDocument> relatedDocuments);
 
-  String getDocumentTitle();
+    String getDocumentTitle();
 
-  void setDocumentTitle(String documentTitle);
+    void setDocumentTitle(String documentTitle);
 
-  List<ParticipationServiceProvider> getPatientNominatedContacts();
+    List<ParticipationServiceProvider> getPatientNominatedContacts();
 
-  void setPatientNominatedContacts(List<ParticipationServiceProvider> patientNominatedContacts);
+    void setPatientNominatedContacts(List<ParticipationServiceProvider> patientNominatedContacts);
 
-  ParticipationServiceProvider getPrimaryCareGiver();
+    ParticipationServiceProvider getPrimaryCareGiver();
 
-  void setPrimaryCareGiver(ParticipationServiceProvider primaryCareGiver);
+    void setPrimaryCareGiver(ParticipationServiceProvider primaryCareGiver);
 
-  List<ParticipationServiceProvider> getInterestedParties();
+    List<ParticipationServiceProvider> getInterestedParties();
 
-  void setInterestedParties(List<ParticipationServiceProvider> interestedParties);
+    void setInterestedParties(List<ParticipationServiceProvider> interestedParties);
 
-  PreciseDate getDateTimeAttested();
+    PreciseDate getDateTimeAttested();
 
-  void setDateTimeAttested(PreciseDate dateTimeAttested);
+    void setDateTimeAttested(PreciseDate dateTimeAttested);
 }

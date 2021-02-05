@@ -7,10 +7,10 @@ public interface ClinicalDocument extends BaseClinicalDocument {
     /**
      * get Document Status
      */
-    public DocumentStatusCode getCompletionCode();
-    
+    DocumentStatusCode getCompletionCode();
+
     /**
      * set Document Status
      */
-    public void setCompletionCode(DocumentStatusCode  code);
+    void setCompletionCode(DocumentStatusCode code);
 }

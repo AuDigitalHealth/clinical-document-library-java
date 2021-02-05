@@ -19,16 +19,14 @@ import java.util.List;
 import au.gov.nehta.common.utils.ArgumentUtils;
 
 public class PersonImpl implements Person {
-	private List<PersonName> personName;
+    private List<PersonName> personName;
 
-	PersonImpl( List<PersonName> personName ) {
-		ArgumentUtils.checkNotNull( personName, "personName" );
-		this.personName = personName;
-	}
+    PersonImpl(List<PersonName> personName) {
+        ArgumentUtils.checkNotNull(personName, "personName");
+        this.personName = personName;
+    }
 
-	public List<PersonName> getPersonName() {
-		return personName;
-	}
-
-
+    public List<PersonName> getPersonName() {
+        return personName;
+    }
 }

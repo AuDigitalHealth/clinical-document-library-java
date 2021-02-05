@@ -17,21 +17,21 @@ package au.gov.nehta.model.clinical.etp.prescriptionrequest;
 import au.gov.nehta.common.utils.ArgumentUtils;
 
 public class PrescriptionRequestImpl implements PrescriptionRequest {
-	private PrescriptionRequestContext context;
-	private PrescriptionRequestContent content;
+    private PrescriptionRequestContext context;
+    private PrescriptionRequestContent content;
 
-	public PrescriptionRequestImpl( PrescriptionRequestContext context, PrescriptionRequestContent content ) {
-		ArgumentUtils.checkNotNull( context, "context" );
-		ArgumentUtils.checkNotNull( content, "content" );
-		this.context = context;
-		this.content = content;
-	}
+    public PrescriptionRequestImpl(PrescriptionRequestContext context, PrescriptionRequestContent content) {
+        ArgumentUtils.checkNotNull(context, "context");
+        ArgumentUtils.checkNotNull(content, "content");
+        this.context = context;
+        this.content = content;
+    }
 
-	public PrescriptionRequestContext getContext() {
-		return context;
-	}
+    public PrescriptionRequestContext getContext() {
+        return context;
+    }
 
-	public PrescriptionRequestContent getContent() {
-		return content;
-	}
+    public PrescriptionRequestContent getContent() {
+        return content;
+    }
 }

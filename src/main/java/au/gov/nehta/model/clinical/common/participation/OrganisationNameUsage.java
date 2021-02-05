@@ -18,51 +18,57 @@ import au.gov.nehta.model.clinical.common.types.EnumTuple;
 
 public enum OrganisationNameUsage implements EnumTuple {
 
-	//TODO Revisit enum equivalent .net - Codes dont seem to be similar
+    // TODO Revisit enum equivalent .net - Codes don't seem to be similar
 
-	ORGANISATIONAL_UNIT_SECTION_DIVISION_NAME( "Organisational unit/section/division name", "B" ), SERVICE_LOCATION_NAME( "Service location name", "M" ), BUSINESS_NAME( "Business name", "T" ), LOCALLY_USED_NAME(
-			"Locally used name", "R" ), ABBREVIATED_NAME( "Abbreviated name", "R" ), ENTERPRISE_NAME( "Enterprise name", "R" ), OTHER( "Other", "R" ), UNKNOWN( "Unknown", "U" );
+    ORGANISATIONAL_UNIT_SECTION_DIVISION_NAME("Organisational unit/section/division name", "B"),
+    SERVICE_LOCATION_NAME("Service location name", "M"),
+    BUSINESS_NAME("Business name", "T"),
+    LOCALLY_USED_NAME("Locally used name", "R"),
+    ABBREVIATED_NAME("Abbreviated name", "R"),
+    ENTERPRISE_NAME("Enterprise name", "R"),
+    OTHER("Other", "R"),
+    UNKNOWN("Unknown", "U");
 
-	private final String CODE_SYSTEM = "1.2.36.1.2001.1001.101.104.16283";
-	private final String CODE_SYSTEM_NAME = "AS 4846 (2006) - Healthcare Provider Identification: Organization [sic] Name Usage Values";
-	private final String CODE_SYSTEM_VERSION = "2006";
-	private final String descriptor;
-	private final String code;
+    private final String CODE_SYSTEM = "1.2.36.1.2001.1001.101.104.16283";
+    private final String CODE_SYSTEM_NAME = "AS 4846 (2006) - Healthcare Provider Identification: Organization [sic] Name Usage Values";
+    private final String CODE_SYSTEM_VERSION = "2006";
+    private final String descriptor;
+    private final String code;
 
-	OrganisationNameUsage( String descriptor, String code ) {
-		this.descriptor = descriptor;
-		this.code = code;
-	}
+    OrganisationNameUsage(String descriptor, String code) {
+        this.descriptor = descriptor;
+        this.code = code;
+    }
 
-	public String getDescriptor() {
-		return descriptor;
-	}
+    public String getDescriptor() {
+        return descriptor;
+    }
 
-	public String getCode() {
-		return code;
-	}
+    public String getCode() {
+        return code;
+    }
 
-	public String getOriginalText() {
-		return descriptor;
-	}
+    public String getOriginalText() {
+        return descriptor;
+    }
 
-	public String getCodeSystem() {
-		return CODE_SYSTEM;
-	}
+    public String getCodeSystem() {
+        return CODE_SYSTEM;
+    }
 
-	public String getCodeSystemName() {
-		return CODE_SYSTEM_NAME;
-	}
+    public String getCodeSystemName() {
+        return CODE_SYSTEM_NAME;
+    }
 
-	public String getCodeSystemVersion() {
-		return CODE_SYSTEM_VERSION;
-	}
+    public String getCodeSystemVersion() {
+        return CODE_SYSTEM_VERSION;
+    }
 
-	public String getDisplayName() {
-		return descriptor;
-	}
+    public String getDisplayName() {
+        return descriptor;
+    }
 
-	public boolean hasDisplayName() {
-		return true;
-	}
+    public boolean hasDisplayName() {
+        return true;
+    }
 }

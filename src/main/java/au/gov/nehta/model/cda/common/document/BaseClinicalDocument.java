@@ -6,30 +6,30 @@ import au.gov.nehta.model.cda.common.id.TemplateId;
 import au.gov.nehta.model.cda.common.id.TypeId;
 
 public interface BaseClinicalDocument {
-    
-    public TypeId getTypeId();
 
-    public List<TemplateId> getTemplateIds();
+    TypeId getTypeId();
 
-    public String getLanguageCode();
+    List<TemplateId> getTemplateIds();
 
-    public String getSetId();
+    String getLanguageCode();
 
-    public Integer getVersionNumber();
+    String getSetId();
 
-    public String getTitle();
-	
-    public String getClinicalDocumentId();
+    Integer getVersionNumber();
 
-    public void setTitle( String title );
+    String getTitle();
 
-    public void setLanguageCode( String languageCode );
+    String getClinicalDocumentId();
 
-    public void setVersionNumber( Integer versionNumber );
+    void setTitle(String title);
 
-    public void setSetId( String setId );
-	
-    public void setClinicalDocumentId(String id); 
+    void setLanguageCode(String languageCode);
 
-    public void addTemplateId( TemplateId templateId );
+    void setVersionNumber(Integer versionNumber);
+
+    void setSetId(String setId);
+
+    void setClinicalDocumentId(String id);
+
+    void addTemplateId(TemplateId templateId);
 }

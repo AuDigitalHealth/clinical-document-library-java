@@ -15,14 +15,14 @@ package au.gov.nehta.model.cda.common.time;
 
 
 /**
- * This class models the Time interval IVL_TS HL7 class the creation is restricted to only allow
- * valid combinations of dates
+ * This class models the Time interval IVL_TS HL7 class. The creation is restricted to only allow
+ * valid combinations of dates.
  *
  * <pre>
  *  example:
  *
  *  //a new day with today's date, ignoring hours minutes and seconds
- *  PrecisionDate high = new PrescisionDate(Precision.day);
+ *  PrecisionDate high = new PrecisionDate(Precision.day);
  *  RestrictedTimeInterval = RestrictedTimeInterval.getHighInstance(high);
  *
  * </pre>

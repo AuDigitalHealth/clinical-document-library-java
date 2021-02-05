@@ -61,366 +61,334 @@ import au.net.electronichealth.ns.cda._2_0.StrucDocText;
 import au.net.electronichealth.ns.ci.cda.extensions._3.Coverage2;
 
 public class PathologyReportCreator extends ClinicalDocumentCreator {
-    
-	private static final String PATHOLOGY_TEST_RESULT = "Pathology Test Result";
+
+    private static final String PATHOLOGY_TEST_RESULT = "Pathology Test Result";
 
     private static final String PATHOLOGY_TITLE = "Pathology";
 
     private static final String ADMINISTRATIVE_OBSERVATIONS_SECTION_TITLE = "Administrative Observations";
 
+    private PathologyReportCdaModel cdaModel;
+    private PathologyResultReport clinicalModel;
 
-	private PathologyReportCdaModel cdaModel;
-	private PathologyResultReport clinicalModel;
+    public PathologyReportCreator(PathologyReportCdaModel cdaModel, PathologyResultReport clinicalModel) {
+        this.cdaModel = cdaModel;
+        this.clinicalModel = clinicalModel;
 
-	public PathologyReportCreator( PathologyReportCdaModel cdaModel, PathologyResultReport clinicalModel  ) {
-		this.cdaModel = cdaModel;
-		this.clinicalModel=clinicalModel;
-		
-		//for schematron checking
+        // For schematron checking
         this.resource = SchematronResources.PATHOLOGY_REPORT_3B.resource();
-		  
-	}
+    }
 
-	/**
-	 * add the NeHTA Generic Stylesheet as an xml processing instruction  
-	 */
-	public void addStyleSheet(Document doc) {
-		addStylesheet( "NEHTA_Generic_CDA_Stylesheet.xsl", doc); 
-	}
+    /**
+     * Add the NeHTA Generic Stylesheet as an xml processing instruction.
+     */
+    public void addStyleSheet(Document doc) {
+        addStylesheet("NEHTA_Generic_CDA_Stylesheet.xsl", doc);
+    }
 
-	/**
-	 * @return
-	 * @throws ParserConfigurationException
-	 * @throws JAXBException
-	 * @throws SchematronValidationException 
-	 */
-	public Document create() throws ParserConfigurationException, JAXBException, SchematronValidationException {
-		// Construct clinical document with headers
-		POCDMT000040ClinicalDocument clinicalDocument = HeaderUtil.createClinicalDocument( cdaModel.getBaseClinicalDocument() );
-		clinicalDocument.setCode( SectionEntryCodeSet.PATHOLOGY_RESULT_REPORT);
-		clinicalDocument.setCompletionCode( Converter.convertToCECode( cdaModel.getCompletionClinicalDoucment().getCompletionCode() ) );
+    /**
+     * @return Document pathology report
+     * @throws ParserConfigurationException
+     * @throws JAXBException
+     * @throws SchematronValidationException
+     */
+    public Document create() throws ParserConfigurationException, JAXBException, SchematronValidationException {
 
-		// Construct Legal Authenticator
-		if(cdaModel.getLegalAuthenticator() != null){
-		    clinicalDocument.setLegalAuthenticator( HeaderUtil.createLegalAuthenticator( cdaModel.getLegalAuthenticator() ) );
-		}
-		
-		
-		// Construct Custodian
-		clinicalDocument.setCustodian( HeaderUtil.createCustodian( this.cdaModel.getCustodian().getAssignedCustodian().getRepresentedCustodianOrganization() ) );
-		
-		// Construct the Requester (EntitledParticipant)
-		clinicalDocument.getParticipant().add( HeaderUtil.createParticipant( this.clinicalModel.getContext().getRequester() ));
+        // Construct clinical document with headers
+        POCDMT000040ClinicalDocument clinicalDocument = HeaderUtil.createClinicalDocument(cdaModel.getBaseClinicalDocument());
+        clinicalDocument.setCode(SectionEntryCodeSet.PATHOLOGY_RESULT_REPORT);
+        clinicalDocument.setCompletionCode(Converter.convertToCECode(cdaModel.getCompletionClinicalDoucment().getCompletionCode()));
 
-		// Construct Author (Prescriber)
-		POCDMT000040Author clinicalDocumentAuthor = getDocumentAuthor();
-		clinicalDocument.getAuthor().add( clinicalDocumentAuthor );
-
-		
-		//order detials
-		clinicalDocument.getInFulfillmentOf().add( getInFulFillment() );
-		
-		// Construct Record Target
-		clinicalDocument.getRecordTarget().add( createRecordTarget( clinicalModel.getContext().getSubjectOfCare() ) );
-
-		clinicalDocument.setComponent( getStructuredBody( ) );
-		Document doc = CreatorUtil.convertClinicalDocumentToDomDocument( clinicalDocument );
-		
-		
-		
-		
-		 //If strict checking is enabled, check this document.
-        if(isStrict()){
-            check( doc );
+        // Construct Legal Authenticator
+        if (cdaModel.getLegalAuthenticator() != null) {
+            clinicalDocument.setLegalAuthenticator(HeaderUtil.createLegalAuthenticator(cdaModel.getLegalAuthenticator()));
         }
-        
-		return doc;
-	}
-	
-	// extended Subject Of Care
-    public static POCDMT000040RecordTarget createRecordTarget( SubjectOfCareParticipant subjectOfCareParticipant ) {
+
+        // Construct Custodian
+        clinicalDocument.setCustodian(HeaderUtil.createCustodian(this.cdaModel.getCustodian().getAssignedCustodian().getRepresentedCustodianOrganization()));
+
+        // Construct the Requester (EntitledParticipant)
+        clinicalDocument.getParticipant().add(HeaderUtil.createParticipant(this.clinicalModel.getContext().getRequester()));
+
+        // Construct Author (Prescriber)
+        POCDMT000040Author clinicalDocumentAuthor = getDocumentAuthor();
+        clinicalDocument.getAuthor().add(clinicalDocumentAuthor);
+
+        // Order details
+        clinicalDocument.getInFulfillmentOf().add(getInFulFillment());
+
+        // Construct Record Target
+        clinicalDocument.getRecordTarget().add(createRecordTarget(clinicalModel.getContext().getSubjectOfCare()));
+
+        clinicalDocument.setComponent(getStructuredBody());
+        Document doc = CreatorUtil.convertClinicalDocumentToDomDocument(clinicalDocument);
+
+        // If strict checking is enabled, check this document. (Requires Schematron library.)
+//        if (isStrict()) {
+//            check(doc);
+//        }
+
+        return doc;
+    }
+
+    // extended Subject Of Care
+    public static POCDMT000040RecordTarget createRecordTarget(SubjectOfCareParticipant subjectOfCareParticipant) {
+
         String patientRoleId = subjectOfCareParticipant.getPatientRoleId();
-        
+
         POCDMT000040RecordTarget recordTarget = new POCDMT000040RecordTarget();
 
-        recordTarget.setTypeCode( ParticipationType.RCT );
+        recordTarget.setTypeCode(ParticipationType.RCT);
 
         POCDMT000040Patient patient = new POCDMT000040Patient();
 
-        patient.getAsEntityIdentifier().addAll( Converter.getAsEntityIdentifier( subjectOfCareParticipant.getEntityIdentifiers() ) );
-        
+        patient.getAsEntityIdentifier().addAll(Converter.getAsEntityIdentifier(subjectOfCareParticipant.getEntityIdentifiers()));
+
         SubjectOfCarePerson person = subjectOfCareParticipant.getPerson();
-        
-        HeaderUtil.mapSOCPerson( patient, person );
-        
-        if(person instanceof ExtendedSubjectOfCarePerson){
-        	HeaderUtil.mapPersonExtensions( patient, (ExtendedSubjectOfCarePerson)person );
-        } 
-        
-         
-        POCDMT000040PatientRole patientRole = new POCDMT000040PatientRole();
-         
-        patientRole.setClassCode( RoleClass.PAT );
-        patientRole.getId().add( CDATypeUtil.getII( patientRoleId ) );
-        patientRole.setPatient( patient );
-        for(AddressContext ctx: subjectOfCareParticipant.getAddresses()){
-        	patientRole.getAddr().add( AddressConverter.convert( ctx ) );
-        }
-        if (subjectOfCareParticipant.getElectronicCommunicationDetail() != null) {
-            patientRole.getTelecom().addAll( Converter.convert( subjectOfCareParticipant.getElectronicCommunicationDetail() ) );
+
+        HeaderUtil.mapSOCPerson(patient, person);
+
+        if (person instanceof ExtendedSubjectOfCarePerson) {
+            HeaderUtil.mapPersonExtensions(patient, (ExtendedSubjectOfCarePerson) person);
         }
 
-        recordTarget.setPatientRole( patientRole );
+        POCDMT000040PatientRole patientRole = new POCDMT000040PatientRole();
+
+        patientRole.setClassCode(RoleClass.PAT);
+        patientRole.getId().add(CDATypeUtil.getII(patientRoleId));
+        patientRole.setPatient(patient);
+        for (AddressContext ctx : subjectOfCareParticipant.getAddresses()) {
+            patientRole.getAddr().add(AddressConverter.convert(ctx));
+        }
+        if (subjectOfCareParticipant.getElectronicCommunicationDetail() != null) {
+            patientRole.getTelecom().addAll(Converter.convert(subjectOfCareParticipant.getElectronicCommunicationDetail()));
+        }
+
+        recordTarget.setPatientRole(patientRole);
 
         return recordTarget;
     }
 
-	
-
     private POCDMT000040InFulfillmentOf getInFulFillment() {
+
         PathologyReportContext context = this.clinicalModel.getContext();
-        if (context == null || context.getOrderDetails() == null)
-        {
+        if (context == null || context.getOrderDetails() == null) {
             return null;
         }
-            
+
         POCDMT000040InFulfillmentOf fulfillment = new POCDMT000040InFulfillmentOf();
-        fulfillment.setTypeCode( ActRelationshipFulfills.FLFS );
+        fulfillment.setTypeCode(ActRelationshipFulfills.FLFS);
         POCDMT000040Order order = new POCDMT000040Order();
-        order.setCode(Converter.convertToCECode( context.getOrderDetails().getOrder() ));
-        order.setClassCode( ActClassRoot.ACT );
-        order.setMoodCode( ActMood.RQO );
-        if(context.getOrderDetails().getId() != null){
-            order.getId().add( Converter.getII( context.getOrderDetails().getId() )  );
+        order.setCode(Converter.convertToCECode(context.getOrderDetails().getOrder()));
+        order.setClassCode(ActClassRoot.ACT);
+        order.setMoodCode(ActMood.RQO);
+        if (context.getOrderDetails().getId() != null) {
+            order.getId().add(Converter.getII(context.getOrderDetails().getId()));
         }
-        fulfillment.setOrder( order );
-        
+        fulfillment.setOrder(order);
+
         return fulfillment;
     }
 
     private POCDMT000040Author getDocumentAuthor() {
-		DocumentParticipant authorParticipation = this.clinicalModel.getContext().getAuthor();
-		AuthorParticipant authorParticipant = this.clinicalModel.getContext().getAuthor().getParticipant();
-		
-	 
-	    POCDMT000040Person authorParticipantPerson = ClinicalModelConverter.getAuthorPerson( authorParticipant );
-	    POCDMT000040Author author= HeaderUtil.createAuthorWithTime( 
-        		authorParticipant.getAssignedAuthorId(), 
-                authorParticipation.getRole(), 
+
+        DocumentParticipant authorParticipation = this.clinicalModel.getContext().getAuthor();
+        AuthorParticipant authorParticipant = this.clinicalModel.getContext().getAuthor().getParticipant();
+
+        POCDMT000040Person authorParticipantPerson = ClinicalModelConverter.getAuthorPerson(authorParticipant);
+        POCDMT000040Author author = HeaderUtil.createAuthorWithTime(
+                authorParticipant.getAssignedAuthorId(),
+                authorParticipation.getRole(),
                 authorParticipant.getAddresses(),
-                authorParticipant.getElectronicCommunicationDetail(), 
+                authorParticipant.getElectronicCommunicationDetail(),
                 authorParticipantPerson,
                 this.cdaModel.getAuthorTime()
-                );
-	 
-		return author;
-	}
-    
-    private POCDMT000040Author getReportingPathologist(DocumentParticipant reportingPathologist){
-        POCDMT000040Author author=null;
-        
-        if( reportingPathologist !=null
-                && reportingPathologist.getParticipant() != null
-                ){
-        
-        POCDMT000040Person authorParticipantPerson = ClinicalModelConverter.getAuthorPerson( reportingPathologist.getParticipant() );
-         author= HeaderUtil.createAuthorWithTime( 
-        		 reportingPathologist.getParticipant().getAssignedAuthorId(), 
-                reportingPathologist.getRole(), 
-                reportingPathologist.getParticipant().getAddresses(),
-                reportingPathologist.getParticipant().getElectronicCommunicationDetail(), 
-                authorParticipantPerson,
-                this.cdaModel.getAuthorTime()
-                );
-     
+        );
+
+        return author;
+    }
+
+    private POCDMT000040Author getReportingPathologist(DocumentParticipant reportingPathologist) {
+
+        POCDMT000040Author author = null;
+
+        if (reportingPathologist != null
+                && reportingPathologist.getParticipant() != null) {
+
+            POCDMT000040Person authorParticipantPerson = ClinicalModelConverter.getAuthorPerson(reportingPathologist.getParticipant());
+            author = HeaderUtil.createAuthorWithTime(
+                    reportingPathologist.getParticipant().getAssignedAuthorId(),
+                    reportingPathologist.getRole(),
+                    reportingPathologist.getParticipant().getAddresses(),
+                    reportingPathologist.getParticipant().getElectronicCommunicationDetail(),
+                    authorParticipantPerson,
+                    this.cdaModel.getAuthorTime()
+            );
+
         }
         return author;
     }
-    
-   
-
-	private POCDMT000040Component2 getStructuredBody(  ) {
-		POCDMT000040Component2 structuredBodyComponent = new POCDMT000040Component2();
-	
-		POCDMT000040StructuredBody structuredBody = new POCDMT000040StructuredBody();
-		
-		 
-		structuredBody.getComponent().add( getPathologySection() );
-		
-
-		// Administrative Observations
-		structuredBody.getComponent().add( getAdministrativeObservationsSection() );
-		
-		
-		Logo logo = clinicalModel.getContext().getLogo();
-        if(logo != null){
-	       structuredBody.getComponent().add( EntryCreator.getLogo(logo) );
-		}
-
-		structuredBodyComponent.setStructuredBody( structuredBody );
-		return structuredBodyComponent;
-	}
 
 
+    private POCDMT000040Component2 getStructuredBody() {
+
+        POCDMT000040Component2 structuredBodyComponent = new POCDMT000040Component2();
+
+        POCDMT000040StructuredBody structuredBody = new POCDMT000040StructuredBody();
+
+        structuredBody.getComponent().add(getPathologySection());
+
+        // Administrative Observations
+        structuredBody.getComponent().add(getAdministrativeObservationsSection());
+
+        Logo logo = clinicalModel.getContext().getLogo();
+        if (logo != null) {
+            structuredBody.getComponent().add(EntryCreator.getLogo(logo));
+        }
+
+        structuredBodyComponent.setStructuredBody(structuredBody);
+        return structuredBodyComponent;
+    }
 
     private POCDMT000040Component3 getPathologySection() {
-		POCDMT000040Component3 pathComponent = new POCDMT000040Component3();
-		pathComponent.setTypeCode( ActRelationshipHasComponent.COMP );
-		POCDMT000040Section pathologySection = new POCDMT000040Section();
 
-		
-		PathologyReportContext context = clinicalModel.getContext();
-     
+        POCDMT000040Component3 pathComponent = new POCDMT000040Component3();
+        pathComponent.setTypeCode(ActRelationshipHasComponent.COMP);
+        POCDMT000040Section pathologySection = new POCDMT000040Section();
 
-		DocumentParticipant reportingPathologist = clinicalModel.getContent().getReportingPathologist();
-		if (reportingPathologist.getParticipant().getEntitlement() != null) {
-			List<Coverage2> reqEntitlements = ClinicalModelConverter.getParticpantEntitlements( 
-					reportingPathologist.getParticipant().getEntitlement(),
-					reportingPathologist.getParticipant().getAssignedAuthorId() );
-			pathologySection.getCoverage2().addAll( reqEntitlements );
-		}
+        PathologyReportContext context = clinicalModel.getContext();
 
-		PathologyReportContent content = this.clinicalModel.getContent();
+        DocumentParticipant reportingPathologist = clinicalModel.getContent().getReportingPathologist();
+        if (reportingPathologist.getParticipant().getEntitlement() != null) {
+            List<Coverage2> reqEntitlements = ClinicalModelConverter.getParticpantEntitlements(
+                    reportingPathologist.getParticipant().getEntitlement(),
+                    reportingPathologist.getParticipant().getAssignedAuthorId());
+            pathologySection.getCoverage2().addAll(reqEntitlements);
+        }
+
+        PathologyReportContent content = this.clinicalModel.getContent();
         List<PathologyResult> pathologyResults = content.getPathologyResults();
-		
-		for(PathologyResult result:pathologyResults){
-    		//pathology test result
-    		POCDMT000040Component5 pathologyTestResult = new POCDMT000040Component5();
-    		POCDMT000040Section testSection = new POCDMT000040Section();
-    		testSection.setClassCode( ActClass.DOCSECT );
-    		testSection.setMoodCode( ActMood.EVN );
-    		testSection.setTitle( CDATypeUtil.getST( PATHOLOGY_TEST_RESULT  ) );
-    		
-            testSection.setId( Converter.getII( result.getId() ));
-            testSection.setText(  PathologyReportCreatorUtil.getTestResultNarrativeBlock( result) );
-            testSection.setCode( SectionEntryCodeSet.PATHOLOGY_TEST_RESULT_SECTION );
-            
-            //Pathology Test result
+
+        for (PathologyResult result : pathologyResults) {
+            // Pathology test result
+            POCDMT000040Component5 pathologyTestResult = new POCDMT000040Component5();
+            POCDMT000040Section testSection = new POCDMT000040Section();
+            testSection.setClassCode(ActClass.DOCSECT);
+            testSection.setMoodCode(ActMood.EVN);
+            testSection.setTitle(CDATypeUtil.getST(PATHOLOGY_TEST_RESULT));
+
+            testSection.setId(Converter.getII(result.getId()));
+            testSection.setText(PathologyReportCreatorUtil.getTestResultNarrativeBlock(result));
+            testSection.setCode(SectionEntryCodeSet.PATHOLOGY_TEST_RESULT_SECTION);
+
+            // Pathology Test result
             POCDMT000040Entry testResult = EntryCreator.getPathologyTestResult(result);
-            testSection.getEntry().add( testResult );
-            
-        
-            
-         
-            pathologyTestResult.setSection( testSection );
-            pathologySection.getComponent().add( pathologyTestResult );
-		}
-		
-		pathologySection.setCode( SectionEntryCodeSet.PATHOLOGY_SECTION );
-		pathologySection.setTitle( CDATypeUtil.getST( PATHOLOGY_TITLE ) );
-		pathologySection.setText( PathologyReportCreatorUtil.getDocument( context.getAuthor()   ,content.getRelatedDocument() ) );
-		pathologySection.setClassCode( ActClass.DOCSECT );
-		pathologySection.setMoodCode( ActMood.EVN );
-		
-	     //Reporting pathologist
-		pathologySection.getAuthor().add( getReportingPathologist(content.getReportingPathologist()) );
-     
-		pathologySection.setId( Converter.getII(  content.getId() ));
-	    POCDMT000040Entry relatedDocument = EntryCreator.getPathologyDocumentEntry(content.getRelatedDocument());
-        pathologySection.getEntry().add( relatedDocument );
-        
-		pathComponent.setSection( pathologySection );
-		
-		
-		
-		
-		// Add section components to Structured Body
-		return pathComponent;
-	}
+            testSection.getEntry().add(testResult);
 
+            pathologyTestResult.setSection(testSection);
+            pathologySection.getComponent().add(pathologyTestResult);
+        }
 
+        pathologySection.setCode(SectionEntryCodeSet.PATHOLOGY_SECTION);
+        pathologySection.setTitle(CDATypeUtil.getST(PATHOLOGY_TITLE));
+        pathologySection.setText(PathologyReportCreatorUtil.getDocument(context.getAuthor(), content.getRelatedDocument()));
+        pathologySection.setClassCode(ActClass.DOCSECT);
+        pathologySection.setMoodCode(ActMood.EVN);
+
+        // Reporting pathologist
+        pathologySection.getAuthor().add(getReportingPathologist(content.getReportingPathologist()));
+
+        pathologySection.setId(Converter.getII(content.getId()));
+        POCDMT000040Entry relatedDocument = EntryCreator.getPathologyDocumentEntry(content.getRelatedDocument());
+        pathologySection.getEntry().add(relatedDocument);
+
+        pathComponent.setSection(pathologySection);
+
+        // Add section components to Structured Body
+        return pathComponent;
+    }
 
     private POCDMT000040Component3 getAdministrativeObservationsSection() {
-		POCDMT000040Component3 administrativeObservationsSectionComponent = new POCDMT000040Component3();
 
-		
-		SubjectOfCareDemographicData subjectOfCareDemographicData = this.clinicalModel.getContext().getSubjectOfCare().getPerson().getDemographicData();
+        POCDMT000040Component3 administrativeObservationsSectionComponent = new POCDMT000040Component3();
 
-		POCDMT000040Section administrativeObservationsSection = new POCDMT000040Section();
-		administrativeObservationsSection.setCode( SectionEntryCodeSet.ADMINISTRATIVE_OBSERVATIONS );
-		administrativeObservationsSection.setTitle( CDATypeUtil.getST( ADMINISTRATIVE_OBSERVATIONS_SECTION_TITLE ) );
+        SubjectOfCareDemographicData subjectOfCareDemographicData = this.clinicalModel.getContext().getSubjectOfCare().getPerson().getDemographicData();
 
-		SubjectOfCareParticipant soc = clinicalModel.getContext().getSubjectOfCare();
-		List<Entitlement> subjectOfCareEntitlement = soc.getEntitlements();
-		if (subjectOfCareEntitlement != null) {
-			List<Coverage2> subjectOfCareEntitlements = ClinicalModelConverter
-					.getSubjectOfCareEntitlements(soc);
-			administrativeObservationsSection.getCoverage2().addAll(
-					subjectOfCareEntitlements);
-		}
-		
-		
-		 // Administrative Observations entries
-		if (subjectOfCareDemographicData != null){
-		    
-		
-	        Boolean isSubjectOfCareDateOfBirthCalculatedFromAge = subjectOfCareDemographicData.getDateOfBirthDetail().getDateOfBirthIsCalculatedFromAge();
-	        if (isSubjectOfCareDateOfBirthCalculatedFromAge != null) {
-	            POCDMT000040Entry calcAgeEntry = EntryCreator.createSubjectOfCareCalcAgeEntry( isSubjectOfCareDateOfBirthCalculatedFromAge );
-	            administrativeObservationsSection.getEntry().add( calcAgeEntry );
-	        }
+        POCDMT000040Section administrativeObservationsSection = new POCDMT000040Section();
+        administrativeObservationsSection.setCode(SectionEntryCodeSet.ADMINISTRATIVE_OBSERVATIONS);
+        administrativeObservationsSection.setTitle(CDATypeUtil.getST(ADMINISTRATIVE_OBSERVATIONS_SECTION_TITLE));
 
-	        DateAccuracy subjectOfCareDateOfBirthAccuracyIndicator = subjectOfCareDemographicData.getDateOfBirthDetail().getDateOfBirthAccuracyIndicator();
-	        if (subjectOfCareDateOfBirthAccuracyIndicator != null) {
-	            POCDMT000040Entry dateOfBirthAccuracyEntry = EntryCreator.createSubjectOfCareDateOfBirthAccuracyEntry( subjectOfCareDateOfBirthAccuracyIndicator );
-	            administrativeObservationsSection.getEntry().add( dateOfBirthAccuracyEntry );
-	        }
-	        
-	        if(subjectOfCareDemographicData instanceof ExtendedDemographicData){
-	            ExtendedDemographicData ext = (ExtendedDemographicData) subjectOfCareDemographicData;
-    	        DateOfDeath dateOfDeath = ext.getDateOfDeath();
-    	        if(dateOfDeath != null){
-                    if ( dateOfDeath.getDateOfDeathAccuracyIndicator() != null ) {
-                        POCDMT000040Entry dodAccuracyEntry = EntryCreator.createDeathDateAccuracyEntry( dateOfDeath.getDateOfDeathAccuracyIndicator() );
-                        administrativeObservationsSection.getEntry().add( dodAccuracyEntry );
-                    }
-                    
-                    if(dateOfDeath.getDeathNotificationSource() != null ){
-                        POCDMT000040Entry dodSource = EntryCreator.createDeathSourceCodeEntry( dateOfDeath.getDeathNotificationSource()  );
-                        administrativeObservationsSection.getEntry().add( dodSource );
-                    }
-    	        }
-    	        
-    	        if(ext.getMothersOriginalFamilyName() != null ){
-    	            POCDMT000040Entry dodSource = EntryCreator.createMothersMaidenNameEntry( ext.getMothersOriginalFamilyName() );
-                    administrativeObservationsSection.getEntry().add( dodSource );
-    	        }
-	        }
-		    
-		    
-			POCDMT000040Entry ageEntry = EntryCreator.createSubjectOfCareAgeEntry( Integer.toString( subjectOfCareDemographicData.getAgeInYears()) );
-			administrativeObservationsSection.getEntry().add( ageEntry );
+        SubjectOfCareParticipant soc = clinicalModel.getContext().getSubjectOfCare();
+        List<Entitlement> subjectOfCareEntitlement = soc.getEntitlements();
+        if (subjectOfCareEntitlement != null) {
+            List<Coverage2> subjectOfCareEntitlements = ClinicalModelConverter
+                    .getSubjectOfCareEntitlements(soc);
+            administrativeObservationsSection.getCoverage2().addAll(
+                    subjectOfCareEntitlements);
+        }
 
-			if (subjectOfCareDemographicData.isAgeAccurate() != null) {
-				POCDMT000040Entry ageAccuracyEntry = EntryCreator.createSubjectOfCareAgeAccuracyEntry( subjectOfCareDemographicData.isAgeAccurate() );
-				administrativeObservationsSection.getEntry().add( ageAccuracyEntry );
-			}
-			
-			Integer subjectOfCareBirthPlurality = subjectOfCareDemographicData.getBirthPlurality();
-	        if (subjectOfCareBirthPlurality != null) {
-	            POCDMT000040Entry birthPluralityEntry = EntryCreator.createSubjectOfCareBirthPluralityEntry( subjectOfCareBirthPlurality );
-	            administrativeObservationsSection.getEntry().add( birthPluralityEntry );
-	        }
-	        
-	        // Administrative Observations narrative block
-	        StrucDocText administrativeObservationsSectionNarrativeBlock =null;
-	        if(subjectOfCareDemographicData instanceof ExtendedDemographicData){
-	            administrativeObservationsSectionNarrativeBlock = StructuredBodyUtil.getAdministrativeObservationsNarrativeBlock( (ExtendedDemographicData)subjectOfCareDemographicData );
-            }else{
-    	        administrativeObservationsSectionNarrativeBlock = StructuredBodyUtil.getAdministrativeObservationsNarrativeBlock( subjectOfCareDemographicData );
+        // Administrative Observations entries
+        if (subjectOfCareDemographicData != null) {
+
+            Boolean isSubjectOfCareDateOfBirthCalculatedFromAge = subjectOfCareDemographicData.getDateOfBirthDetail().getDateOfBirthIsCalculatedFromAge();
+            if (isSubjectOfCareDateOfBirthCalculatedFromAge != null) {
+                POCDMT000040Entry calcAgeEntry = EntryCreator.createSubjectOfCareCalcAgeEntry(isSubjectOfCareDateOfBirthCalculatedFromAge);
+                administrativeObservationsSection.getEntry().add(calcAgeEntry);
             }
-	        
-	        administrativeObservationsSection.setText( administrativeObservationsSectionNarrativeBlock );
-            administrativeObservationsSectionComponent.setSection( administrativeObservationsSection );
-	       
-	        
-		}
 
-		
+            DateAccuracy subjectOfCareDateOfBirthAccuracyIndicator = subjectOfCareDemographicData.getDateOfBirthDetail().getDateOfBirthAccuracyIndicator();
+            if (subjectOfCareDateOfBirthAccuracyIndicator != null) {
+                POCDMT000040Entry dateOfBirthAccuracyEntry = EntryCreator.createSubjectOfCareDateOfBirthAccuracyEntry(subjectOfCareDateOfBirthAccuracyIndicator);
+                administrativeObservationsSection.getEntry().add(dateOfBirthAccuracyEntry);
+            }
 
-	
+            if (subjectOfCareDemographicData instanceof ExtendedDemographicData) {
+                ExtendedDemographicData ext = (ExtendedDemographicData) subjectOfCareDemographicData;
+                DateOfDeath dateOfDeath = ext.getDateOfDeath();
+                if (dateOfDeath != null) {
+                    if (dateOfDeath.getDateOfDeathAccuracyIndicator() != null) {
+                        POCDMT000040Entry dodAccuracyEntry = EntryCreator.createDeathDateAccuracyEntry(dateOfDeath.getDateOfDeathAccuracyIndicator());
+                        administrativeObservationsSection.getEntry().add(dodAccuracyEntry);
+                    }
 
-		return administrativeObservationsSectionComponent;
-	}
+                    if (dateOfDeath.getDeathNotificationSource() != null) {
+                        POCDMT000040Entry dodSource = EntryCreator.createDeathSourceCodeEntry(dateOfDeath.getDeathNotificationSource());
+                        administrativeObservationsSection.getEntry().add(dodSource);
+                    }
+                }
+
+                if (ext.getMothersOriginalFamilyName() != null) {
+                    POCDMT000040Entry dodSource = EntryCreator.createMothersMaidenNameEntry(ext.getMothersOriginalFamilyName());
+                    administrativeObservationsSection.getEntry().add(dodSource);
+                }
+            }
+
+            POCDMT000040Entry ageEntry = EntryCreator.createSubjectOfCareAgeEntry(Integer.toString(subjectOfCareDemographicData.getAgeInYears()));
+            administrativeObservationsSection.getEntry().add(ageEntry);
+
+            if (subjectOfCareDemographicData.isAgeAccurate() != null) {
+                POCDMT000040Entry ageAccuracyEntry = EntryCreator.createSubjectOfCareAgeAccuracyEntry(subjectOfCareDemographicData.isAgeAccurate());
+                administrativeObservationsSection.getEntry().add(ageAccuracyEntry);
+            }
+
+            Integer subjectOfCareBirthPlurality = subjectOfCareDemographicData.getBirthPlurality();
+            if (subjectOfCareBirthPlurality != null) {
+                POCDMT000040Entry birthPluralityEntry = EntryCreator.createSubjectOfCareBirthPluralityEntry(subjectOfCareBirthPlurality);
+                administrativeObservationsSection.getEntry().add(birthPluralityEntry);
+            }
+
+            // Administrative Observations narrative block
+            StrucDocText administrativeObservationsSectionNarrativeBlock = null;
+            if (subjectOfCareDemographicData instanceof ExtendedDemographicData) {
+                administrativeObservationsSectionNarrativeBlock = StructuredBodyUtil.getAdministrativeObservationsNarrativeBlock((ExtendedDemographicData) subjectOfCareDemographicData);
+            } else {
+                administrativeObservationsSectionNarrativeBlock = StructuredBodyUtil.getAdministrativeObservationsNarrativeBlock(subjectOfCareDemographicData);
+            }
+
+            administrativeObservationsSection.setText(administrativeObservationsSectionNarrativeBlock);
+            administrativeObservationsSectionComponent.setSection(administrativeObservationsSection);
+        }
+
+        return administrativeObservationsSectionComponent;
+    }
 }
-

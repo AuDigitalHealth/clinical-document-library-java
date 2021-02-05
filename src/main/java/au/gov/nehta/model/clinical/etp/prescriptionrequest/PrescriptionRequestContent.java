@@ -18,16 +18,17 @@ import au.gov.nehta.model.clinical.etp.common.item.Logo;
 import au.gov.nehta.model.clinical.etp.eprescription.PrescriptionItem;
 
 public interface PrescriptionRequestContent {
-	PrescriberInstructionDetail getPrescriberInstructionDetail();
+    PrescriberInstructionDetail getPrescriberInstructionDetail();
 
-	PrescriptionItem getPrescriptionRequestItem();
+    PrescriptionItem getPrescriptionRequestItem();
 
-	RequesterNote getRequesterNote();
-	Logo getLogo();
+    RequesterNote getRequesterNote();
 
-    void setLogo( Logo logo );
+    Logo getLogo();
 
-	void setRequesterNote( RequesterNote requesterNote );
+    void setLogo(Logo logo);
 
-	boolean hasRequesterNote();
+    void setRequesterNote(RequesterNote requesterNote);
+
+    boolean hasRequesterNote();
 }

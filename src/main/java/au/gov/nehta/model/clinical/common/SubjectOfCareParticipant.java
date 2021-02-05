@@ -4,6 +4,7 @@ import au.gov.nehta.model.cda.common.id.AsEntityIdentifier;
 import au.gov.nehta.model.cda.common.telecom.Telecom;
 import au.gov.nehta.model.clinical.etp.common.participation.AddressContext;
 import au.gov.nehta.model.clinical.etp.common.participation.Entitlement;
+
 import java.util.List;
 
 /**
@@ -21,25 +22,25 @@ import java.util.List;
  */
 public interface SubjectOfCareParticipant {
 
-  String getPatientRoleId();
+    String getPatientRoleId();
 
-  void setPatientRoleId(String id);
+    void setPatientRoleId(String id);
 
-  List<? extends AsEntityIdentifier> getEntityIdentifiers();
+    List<? extends AsEntityIdentifier> getEntityIdentifiers();
 
-  List<AddressContext> getAddresses();
+    List<AddressContext> getAddresses();
 
-  List<Telecom> getElectronicCommunicationDetail();
+    List<Telecom> getElectronicCommunicationDetail();
 
-  SubjectOfCarePerson getPerson();
+    SubjectOfCarePerson getPerson();
 
-  List<Entitlement> getEntitlements();
+    List<Entitlement> getEntitlements();
 
-  void setEntitlements(List<Entitlement> entitlement);
+    void setEntitlements(List<Entitlement> entitlement);
 
-  void setElectronicCommunicationDetails(List<Telecom> electronicCommunicationDetail);
+    void setElectronicCommunicationDetails(List<Telecom> electronicCommunicationDetail);
 
-  void addElectronicCommunicationDetail(Telecom electronicCommunicationDetail);
+    void addElectronicCommunicationDetail(Telecom electronicCommunicationDetail);
 
-  void addEntitlement(Entitlement entitlement);
+    void addEntitlement(Entitlement entitlement);
 }

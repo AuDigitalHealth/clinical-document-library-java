@@ -11,71 +11,71 @@ import au.gov.nehta.model.cda.common.person.Person;
 import au.gov.nehta.model.cda.common.telecom.Telecom;
 
 public class AssignedEntityImpl implements AssignedEntity {
-	private String id;
-	private Coded code;
-	private List<PostalAddress> address = new ArrayList<PostalAddress>(1);
-	private List<Telecom> telecom = new ArrayList<Telecom>(2) ;
-	private Person assignedPerson;
-	private Organization representedOrganization;
+    private String id;
+    private Coded code;
+    private List<PostalAddress> address = new ArrayList<>(1);
+    private List<Telecom> telecom = new ArrayList<>(2);
+    private Person assignedPerson;
+    private Organization representedOrganization;
 
-	public AssignedEntityImpl(String id){
-		this.id=id;
-	}
-	
-	private AssignedEntityImpl( String id, Person assignedPerson, Organization representedOrganization ) {
-		this.id = id;
-		this.assignedPerson = assignedPerson;
-		this.representedOrganization = representedOrganization;
-	}
+    public AssignedEntityImpl(String id) {
+        this.id = id;
+    }
 
-	public static AssignedEntity getInstance( String id, Person assignedPerson, Organization representedOrganization ) {
-		ArgumentUtils.checkNotNull( assignedPerson, "AssignedEntity Person" );
-		ArgumentUtils.checkNotNull( representedOrganization, "AssignedEntity representedOrganization " );
-		ArgumentUtils.checkNotNull( assignedPerson.getAsEntityIdentifier(), "AssignedEntity, Person asEntityIdentifier" );
-		return (AssignedEntity) new AssignedEntityImpl( id, assignedPerson, representedOrganization );
-	}
+    private AssignedEntityImpl(String id, Person assignedPerson, Organization representedOrganization) {
+        this.id = id;
+        this.assignedPerson = assignedPerson;
+        this.representedOrganization = representedOrganization;
+    }
 
-	public String getId() {
-		return id;
-	}
-	
-	public void setId(String id){
-		this.id=id;
-	} 
+    public static AssignedEntity getInstance(String id, Person assignedPerson, Organization representedOrganization) {
+        ArgumentUtils.checkNotNull(assignedPerson, "AssignedEntity Person");
+        ArgumentUtils.checkNotNull(representedOrganization, "AssignedEntity representedOrganization ");
+        ArgumentUtils.checkNotNull(assignedPerson.getAsEntityIdentifier(), "AssignedEntity, Person asEntityIdentifier");
+        return new AssignedEntityImpl(id, assignedPerson, representedOrganization);
+    }
 
-	public Coded getCode() {
-		return code;
-	}
+    public String getId() {
+        return id;
+    }
 
-	public List<PostalAddress> getAddress() {
-		return address;
-	}
+    public void setId(String id) {
+        this.id = id;
+    }
 
-	public List<Telecom> getTelecom() {
-		return telecom;
-	}
+    public Coded getCode() {
+        return code;
+    }
 
-	public Person getAssignedPerson() {
-		return assignedPerson;
-	}
+    public List<PostalAddress> getAddress() {
+        return address;
+    }
 
-	public Organization getRepresentedOrganization() {
-		return representedOrganization;
-	}
+    public List<Telecom> getTelecom() {
+        return telecom;
+    }
 
-	public void setCode( Coded code ) {
-		this.code = code;
-	}
+    public Person getAssignedPerson() {
+        return assignedPerson;
+    }
 
-	public void setAddress( List<PostalAddress> address ) {
-		this.address = address;
-	}
+    public Organization getRepresentedOrganization() {
+        return representedOrganization;
+    }
 
-	public void setTelecom( List<Telecom> telecom ) {
-		this.telecom = telecom;
-	}
+    public void setCode(Coded code) {
+        this.code = code;
+    }
 
-	public void setRepresentedOrganization( Organization representedOrganization ) {
-		this.representedOrganization = representedOrganization;
-	}
+    public void setAddress(List<PostalAddress> address) {
+        this.address = address;
+    }
+
+    public void setTelecom(List<Telecom> telecom) {
+        this.telecom = telecom;
+    }
+
+    public void setRepresentedOrganization(Organization representedOrganization) {
+        this.representedOrganization = representedOrganization;
+    }
 }

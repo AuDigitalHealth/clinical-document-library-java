@@ -17,13 +17,13 @@ package au.gov.nehta.model.clinical.common.participation;
 import au.gov.nehta.model.cda.common.time.PreciseDate;
 
 public interface DateOfBirthDetail {
-	PreciseDate getDateOfBirth();
+    PreciseDate getDateOfBirth();
 
-	Boolean getDateOfBirthIsCalculatedFromAge();
+    Boolean getDateOfBirthIsCalculatedFromAge();
 
-	DateAccuracy getDateOfBirthAccuracyIndicator();
+    DateAccuracy getDateOfBirthAccuracyIndicator();
 
-	void setDateOfBirthIsCalculatedFromAge( boolean dateOfBirthIsCalculatedFromAge );
+    void setDateOfBirthIsCalculatedFromAge(boolean dateOfBirthIsCalculatedFromAge);
 
-	void setDateOfBirthAccuracyIndicator( DateAccuracy dateOfBirthAccuracyIndicator );
+    void setDateOfBirthAccuracyIndicator(DateAccuracy dateOfBirthAccuracyIndicator);
 }

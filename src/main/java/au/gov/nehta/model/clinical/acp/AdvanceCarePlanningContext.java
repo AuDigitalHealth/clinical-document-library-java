@@ -5,15 +5,15 @@ import au.gov.nehta.model.clinical.common.SubjectOfCareParticipant;
 
 public interface AdvanceCarePlanningContext {
 
-  DocumentAuthor getDocumentAuthor();
+    DocumentAuthor getDocumentAuthor();
 
-  void setDocumentAuthor(DocumentAuthor documentAuthor);
+    void setDocumentAuthor(DocumentAuthor documentAuthor);
 
-  SubjectOfCareParticipant getSubjectOfCare();
+    SubjectOfCareParticipant getSubjectOfCare();
 
-  void setSubjectOfCare(SubjectOfCareParticipant subjectOfCare);
+    void setSubjectOfCare(SubjectOfCareParticipant subjectOfCare);
 
-  String getDocumentTitle();
+    String getDocumentTitle();
 
-  void setDocumentTitle(String documentTitle);
+    void setDocumentTitle(String documentTitle);
 }

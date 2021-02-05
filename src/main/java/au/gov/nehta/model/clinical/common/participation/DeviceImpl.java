@@ -17,14 +17,14 @@ package au.gov.nehta.model.clinical.common.participation;
 import au.gov.nehta.common.utils.ArgumentUtils;
 
 public class DeviceImpl implements Device {
-	private String deviceName;
+    private String deviceName;
 
-	DeviceImpl( String deviceName ) {
-		ArgumentUtils.checkNotNull( deviceName, "deviceName" );
-		this.deviceName = deviceName;
-	}
+    DeviceImpl(String deviceName) {
+        ArgumentUtils.checkNotNull(deviceName, "deviceName");
+        this.deviceName = deviceName;
+    }
 
-	public String getDeviceName() {
-		return deviceName;
-	}
+    public String getDeviceName() {
+        return deviceName;
+    }
 }

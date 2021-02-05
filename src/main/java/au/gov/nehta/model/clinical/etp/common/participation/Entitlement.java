@@ -11,8 +11,7 @@ public interface Entitlement {
 
   EntitlementType getEntitlementType();
 
-  void setEntitlementType(
-      EntitlementType entitlementType);
+  void setEntitlementType(EntitlementType entitlementType);
 
   RestrictedTimeInterval getEntitlementValidityDuration();
 

@@ -7,100 +7,100 @@ import au.net.electronichealth.ns.cda._2_0.StrucDocText;
 
 public class OtherTestResultImpl implements OtherTestResult {
 
-  private Coded reportName;
-  private Coded reportStatus;
-  private StrucDocText customNarrative;
-  private PreciseDate reportDate;
-  private AttachedMedia reportFile;
-  private String reportContent;
-  private Class executingClass;
+    private Coded reportName;
+    private Coded reportStatus;
+    private StrucDocText customNarrative;
+    private PreciseDate reportDate;
+    private AttachedMedia reportFile;
+    private String reportContent;
+    private Class<?> executingClass;
 
-  public OtherTestResultImpl(Coded reportName, Coded reportStatus,
-      PreciseDate reportDate, AttachedMedia reportFie) {
-    this.reportName = reportName;
-    this.reportStatus = reportStatus;
-    this.reportDate = reportDate;
-    this.reportFile = reportFie;
-    this.reportContent = null;
-  }
+    public OtherTestResultImpl(Coded reportName, Coded reportStatus,
+                               PreciseDate reportDate, AttachedMedia reportFie) {
+        this.reportName = reportName;
+        this.reportStatus = reportStatus;
+        this.reportDate = reportDate;
+        this.reportFile = reportFie;
+        this.reportContent = null;
+    }
 
-  public OtherTestResultImpl(Coded reportName, Coded reportStatus,
-      PreciseDate reportDate, String reportContent) {
-    this.reportName = reportName;
-    this.reportStatus = reportStatus;
-    this.reportDate = reportDate;
-    this.reportContent = reportContent;
-    this.reportFile = null;
-  }
+    public OtherTestResultImpl(Coded reportName, Coded reportStatus,
+                               PreciseDate reportDate, String reportContent) {
+        this.reportName = reportName;
+        this.reportStatus = reportStatus;
+        this.reportDate = reportDate;
+        this.reportContent = reportContent;
+        this.reportFile = null;
+    }
 
-  @Override
-  public Coded getReportName() {
-    return reportName;
-  }
+    @Override
+    public Coded getReportName() {
+        return reportName;
+    }
 
-  public void setReportName(Coded reportName) {
-    this.reportName = reportName;
-  }
+    public void setReportName(Coded reportName) {
+        this.reportName = reportName;
+    }
 
-  @Override
-  public Coded getReportStatus() {
-    return reportStatus;
-  }
+    @Override
+    public Coded getReportStatus() {
+        return reportStatus;
+    }
 
-  @Override
-  public void setReportStatus(Coded reportStatus) {
-    this.reportStatus = reportStatus;
-  }
+    @Override
+    public void setReportStatus(Coded reportStatus) {
+        this.reportStatus = reportStatus;
+    }
 
-  @Override
-  public StrucDocText getCustomNarrative() {
-    return customNarrative;
-  }
+    @Override
+    public StrucDocText getCustomNarrative() {
+        return customNarrative;
+    }
 
-  @Override
-  public void setCustomNarrative(StrucDocText customNarrative) {
-    this.customNarrative = customNarrative;
-  }
+    @Override
+    public void setCustomNarrative(StrucDocText customNarrative) {
+        this.customNarrative = customNarrative;
+    }
 
-  @Override
-  public PreciseDate getReportDate() {
-    return reportDate;
-  }
+    @Override
+    public PreciseDate getReportDate() {
+        return reportDate;
+    }
 
-  @Override
-  public void setReportDate(PreciseDate reportDate) {
-    this.reportDate = reportDate;
-  }
+    @Override
+    public void setReportDate(PreciseDate reportDate) {
+        this.reportDate = reportDate;
+    }
 
-  @Override
-  public AttachedMedia getReportFile() {
-    return reportFile;
-  }
+    @Override
+    public AttachedMedia getReportFile() {
+        return reportFile;
+    }
 
-  @Override
-  public void setReportFile(AttachedMedia reportFile) {
-    this.reportFile = reportFile;
-    this.reportContent = null;
-  }
+    @Override
+    public void setReportFile(AttachedMedia reportFile) {
+        this.reportFile = reportFile;
+        this.reportContent = null;
+    }
 
-  @Override
-  public String getReportContent() {
-    return reportContent;
-  }
+    @Override
+    public String getReportContent() {
+        return reportContent;
+    }
 
-  @Override
-  public void setReportContent(String reportContent) {
-    this.reportContent = reportContent;
-    this.reportFile = null;
-  }
+    @Override
+    public void setReportContent(String reportContent) {
+        this.reportContent = reportContent;
+        this.reportFile = null;
+    }
 
-  @Override
-  public Class getExecutingClass() {
-    return executingClass;
-  }
+    @Override
+    public Class<?> getExecutingClass() {
+        return executingClass;
+    }
 
-  @Override
-  public void setExecutingClass(Class executingClass) {
-    this.executingClass = executingClass;
-  }
+    @Override
+    public void setExecutingClass(Class<?> executingClass) {
+        this.executingClass = executingClass;
+    }
 }

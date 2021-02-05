@@ -18,7 +18,7 @@ import au.gov.nehta.model.clinical.etp.eprescription.BodyHeight;
 import au.gov.nehta.model.clinical.etp.eprescription.BodyWeight;
 
 public interface Observations {
-	BodyHeight getBodyHeight();
-	BodyWeight getBodyWeight();
+    BodyHeight getBodyHeight();
 
+    BodyWeight getBodyWeight();
 }

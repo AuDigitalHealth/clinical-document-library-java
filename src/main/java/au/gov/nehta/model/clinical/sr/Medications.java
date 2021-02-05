@@ -6,18 +6,17 @@ import java.util.List;
 
 public interface Medications {
 
-  /* Used with SpecialistLetter */
-  ExclusionStatement getExclusionStatement();
+    /* Used with SpecialistLetter. */
+    ExclusionStatement getExclusionStatement();
 
-  /* Used with SpecialistLetter */
-  void setExclusionStatement(ExclusionStatement exclusionStatement);
+    /* Used with SpecialistLetter. */
+    void setExclusionStatement(ExclusionStatement exclusionStatement);
 
-  List<KnownMedication> getKnownMedications();
+    List<KnownMedication> getKnownMedications();
 
-  StrucDocText getCustomNarrative();
+    StrucDocText getCustomNarrative();
 
-  void setCustomNarrative(StrucDocText customNarrative);
+    void setCustomNarrative(StrucDocText customNarrative);
 
-  void setKnownMedications(List<KnownMedication> knownMedications);
-
+    void setKnownMedications(List<KnownMedication> knownMedications);
 }

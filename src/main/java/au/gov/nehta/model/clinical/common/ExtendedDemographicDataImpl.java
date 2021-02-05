@@ -10,38 +10,37 @@ public class ExtendedDemographicDataImpl extends SubjectOfCareDemographicDataImp
     private DateOfDeath dateOfDeath;
     private String mothersOriginalFamilyName;
     private CountryState birthPlace;
-    
+
     public ExtendedDemographicDataImpl() {
     }
-    
+
     /**
      * This is a convenience constructor that will calculate the age from the date of birth
-     * 
+     *
      * @param sex
      * @param dateOfBirthDetail
      */
-    public ExtendedDemographicDataImpl( Sex sex, DateOfBirthDetail dateOfBirthDetail ) {
-        super(sex,dateOfBirthDetail);
+    public ExtendedDemographicDataImpl(Sex sex, DateOfBirthDetail dateOfBirthDetail) {
+        super(sex, dateOfBirthDetail);
     }
-    
+
     /**
      * This is a constructor that will calculate the dateOfBirth from an age in years.
-     * It will also set Age accuracy UUA and the DOBIsCalucaltedFromAge flag
-     * 
+     * It will also set Age accuracy UUA and the DOBIsCalculatedFromAge flag
+     *
      * @param sex
-     * @param dateOfBirthDetail
+     * @param age
      */
-    public ExtendedDemographicDataImpl( Sex sex, int age ) {
-        super(sex,age);
+    public ExtendedDemographicDataImpl(Sex sex, int age) {
+        super(sex, age);
     }
-    
-    
+
     @Override
     public DateOfDeath getDateOfDeath() {
         return dateOfDeath;
     }
 
-    public void setDateOfDeath( DateOfDeath dateOfDeath ) {
+    public void setDateOfDeath(DateOfDeath dateOfDeath) {
         this.dateOfDeath = dateOfDeath;
     }
 
@@ -49,7 +48,7 @@ public class ExtendedDemographicDataImpl extends SubjectOfCareDemographicDataImp
         return mothersOriginalFamilyName;
     }
 
-    public void setMothersOriginalFamilyName( String mothersOriginalFamilyName ) {
+    public void setMothersOriginalFamilyName(String mothersOriginalFamilyName) {
         this.mothersOriginalFamilyName = mothersOriginalFamilyName;
     }
 
@@ -57,8 +56,7 @@ public class ExtendedDemographicDataImpl extends SubjectOfCareDemographicDataImp
         return birthPlace;
     }
 
-    public void setBirthPlace( CountryState birthPlace ) {
+    public void setBirthPlace(CountryState birthPlace) {
         this.birthPlace = birthPlace;
     }
-
 }

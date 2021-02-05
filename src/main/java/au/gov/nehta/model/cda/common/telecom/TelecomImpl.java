@@ -19,87 +19,83 @@ import java.util.regex.Pattern;
 import au.gov.nehta.common.utils.ArgumentUtils;
 
 public class TelecomImpl implements Telecom {
-	private TelecomMedium medium;
-	private String value;
-	private TelecomUse use;
-	private static final Pattern p = Pattern.compile( "\\D" );
-	
-	
-	public TelecomImpl( TelecomMedium medium, String communicationvalue,TelecomUse usageCode ) {
-		ArgumentUtils.checkNotNull( medium, "Telecom medium" );
-		ArgumentUtils.checkNotNull( communicationvalue, "Telecom  value" );
-		ArgumentUtils.checkNotNull( usageCode, "Telecom  use" );
-		
-		
-		//check that telephone numbers contain only digits
-		// 22/01 Removed this check as not required
-		//if(TelecomMedium.TELEPHONE.equals( medium )){
-		//    if(p.matcher( communicationvalue ).find() ){
-		//        throw new IllegalArgumentException( "Telephone '"+communicationvalue+"' contains a non digit character " );
-		//    }
-		//}
-		
-		this.medium = medium;
-		this.value = communicationvalue;
-		this.use = usageCode;
-	}
-	
+    private TelecomMedium medium;
+    private String value;
+    private TelecomUse use;
+    private static final Pattern p = Pattern.compile("\\D");
 
-	/**
-	 * A convenience constructor that defaults to Medium type of TelecomMedium.Telephone
-	 * @param value
-	 * @param use
-	 */
-    public TelecomImpl( String value,TelecomUse use ) {
-        this(TelecomMedium.TELEPHONE, value, use);
+    public TelecomImpl(TelecomMedium medium, String communicationValue, TelecomUse usageCode) {
+        ArgumentUtils.checkNotNull(medium, "Telecom medium");
+        ArgumentUtils.checkNotNull(communicationValue, "Telecom value");
+        ArgumentUtils.checkNotNull(usageCode, "Telecom use");
+
+        // check that telephone numbers contain only digits
+        // 22/01 Removed this check as not required
+        // if(TelecomMedium.TELEPHONE.equals( medium )){
+        //    if(p.matcher( communicationValue ).find() ){
+        //        throw new IllegalArgumentException( "Telephone '" + communicationValue + "' contains a non digit character " );
+        //    }
+        //}
+
+        this.medium = medium;
+        this.value = communicationValue;
+        this.use = usageCode;
     }
-    
+
     /**
-     * A convenience constructor that defaults to Medium type of TelecomMedium.Telephone and a TelecomUse.Business
-     */
-    public TelecomImpl( String value  ) {
-        this(TelecomMedium.TELEPHONE, value, TelecomUse.BUSINESS);
-    }
-    
-    /**
-     * A convenience constructor that defaults to a TelecomUse.Business
+     * A convenience constructor that defaults to Medium type of TelecomMedium.Telephone
+     *
      * @param value
      * @param use
      */
-    public TelecomImpl( TelecomMedium medium, String value  ) {
+    public TelecomImpl(String value, TelecomUse use) {
+        this(TelecomMedium.TELEPHONE, value, use);
+    }
+
+    /**
+     * A convenience constructor that defaults to Medium type of TelecomMedium.Telephone and a TelecomUse.Business
+     */
+    public TelecomImpl(String value) {
+        this(TelecomMedium.TELEPHONE, value, TelecomUse.BUSINESS);
+    }
+
+    /**
+     * A convenience constructor that defaults to a TelecomUse.Business
+     *
+     * @param value
+     * @param medium
+     */
+    public TelecomImpl(TelecomMedium medium, String value) {
         this(medium, value, TelecomUse.BUSINESS);
     }
-    
+
     /**
-      * A convenience constructor that defaults to Medium type of TelecomMedium.Telephone and a TelecomUse.Business
+     * A convenience constructor that defaults to Medium type of TelecomMedium.Telephone and a TelecomUse.Business
      */
-    public static TelecomImpl phone(String value){
-    	return new TelecomImpl(TelecomMedium.TELEPHONE, value, TelecomUse.BUSINESS);
-    }
-    
-    
-    /**
-      * A convenience constructor that defaults to Medium type of TelecomMedium.Fax and a TelecomUse.Business
-     */
-    public static TelecomImpl fax(String value){
-    	return new TelecomImpl(TelecomMedium.FAX, value, TelecomUse.BUSINESS);
+    public static TelecomImpl phone(String value) {
+        return new TelecomImpl(TelecomMedium.TELEPHONE, value, TelecomUse.BUSINESS);
     }
 
-	public TelecomMedium getTelecomMedium() {
-		return medium;
-	}
+    /**
+     * A convenience constructor that defaults to Medium type of TelecomMedium.Fax and a TelecomUse.Business
+     */
+    public static TelecomImpl fax(String value) {
+        return new TelecomImpl(TelecomMedium.FAX, value, TelecomUse.BUSINESS);
+    }
 
-	public String getTelecomValue() {
-		return value;
-	}
+    public TelecomMedium getTelecomMedium() {
+        return medium;
+    }
 
-	public TelecomUse getTelecomUse() {
-		return use;
-	}
+    public String getTelecomValue() {
+        return value;
+    }
 
-	public void setTelecomUse( TelecomUse electronicCommunicationUsageCode ) {
-		this.use = electronicCommunicationUsageCode;
-	}
+    public TelecomUse getTelecomUse() {
+        return use;
+    }
 
-  
+    public void setTelecomUse(TelecomUse electronicCommunicationUsageCode) {
+        this.use = electronicCommunicationUsageCode;
+    }
 }

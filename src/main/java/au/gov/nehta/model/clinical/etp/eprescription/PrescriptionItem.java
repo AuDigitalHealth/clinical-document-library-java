@@ -14,10 +14,6 @@
 
 package au.gov.nehta.model.clinical.etp.eprescription;
 
-import java.util.List;
-
-import org.joda.time.DateTime;
-
 import au.gov.nehta.model.cda.common.code.Code;
 import au.gov.nehta.model.cda.common.code.Coded;
 import au.gov.nehta.model.cda.common.code.PBSPrescriptionTypeCode;
@@ -25,128 +21,120 @@ import au.gov.nehta.model.cda.common.time.PreciseDate;
 import au.gov.nehta.model.cda.common.time.SetComponentTime;
 import au.gov.nehta.model.cda.common.time.SimplifiedPeriodicIntervalTime;
 import au.gov.nehta.model.clinical.common.types.UniqueIdentifier;
-import au.gov.nehta.model.clinical.etp.common.item.Dosage;
-import au.gov.nehta.model.clinical.etp.common.item.Ingredient;
-import au.gov.nehta.model.clinical.etp.common.item.MedicalBenefitCategoryType;
-import au.gov.nehta.model.clinical.etp.common.item.PrescriptionItemIdentifier;
-import au.gov.nehta.model.clinical.etp.common.item.QuantityUnitDescription;
+import au.gov.nehta.model.clinical.etp.common.item.*;
+
+import java.time.ZonedDateTime;
+import java.util.List;
 
 public interface PrescriptionItem {
-    DateTime getDateTimePrescriptionWritten();
 
-	DateTime getDateTimePrescriptionExpires();
+    ZonedDateTime getDateTimePrescriptionWritten();
 
-	PrescriptionItemIdentifier getPrescriptionItemIdentifier();
+    ZonedDateTime getDateTimePrescriptionExpires();
 
-	Coded getPbsRpbsItemCode();
+    PrescriptionItemIdentifier getPrescriptionItemIdentifier();
 
-	String getFormula();
+    Coded getPbsRpbsItemCode();
 
-	Dosage getDosage();
+    String getFormula();
 
-	String getDirections();
+    Dosage getDosage();
 
-	QuantityUnitDescription getDispenseQuantity();
-	UniqueIdentifier getDispensItemIdentifier();
+    String getDirections();
 
-	Boolean getBrandSubstituteAllowed();
+    QuantityUnitDescription getDispenseQuantity();
 
-	Integer getMaximumNumberOfRepeats();
+    UniqueIdentifier getDispensItemIdentifier();
 
-	SimplifiedPeriodicIntervalTime getMinimumIntervalBetweenRepeats();
+    Boolean getBrandSubstituteAllowed();
 
-	MedicalBenefitCategoryType getMedicalBenefitCategoryType();
+    Integer getMaximumNumberOfRepeats();
 
-	GroundsForConcurrentSupply getGroundsForConcurrentSupply();
+    SimplifiedPeriodicIntervalTime getMinimumIntervalBetweenRepeats();
 
+    MedicalBenefitCategoryType getMedicalBenefitCategoryType();
 
-	UniqueIdentifier getStateAuthorityNumber();
+    GroundsForConcurrentSupply getGroundsForConcurrentSupply();
 
-	String getReasonForTherapeuticGood();
+    UniqueIdentifier getStateAuthorityNumber();
 
-	String getAdditionalComments();
-	
-	String getTimingDescription();
-	
-	Boolean getPRN();
-	
-	List<SetComponentTime> getStructuredTime();
-	
-	PreciseDate getStartCriterion();
-	
-	PreciseDate getStopCriterion();
-	
-	Boolean isLongTerm();
-	Code getMethodCode();
-	Code getRouteCode();
-	Code getApproachSiteCode();
-	
-	UniqueIdentifier getCloseTheGapBenifitId();
-	
-	UniqueIdentifier getPbsAuthorityApprovalNumber();
-	UniqueIdentifier getPbsRpbsManufacturerCode();
+    String getReasonForTherapeuticGood();
 
-	UniqueIdentifier getPbsAuthorityPrescriptionNumber();
-	UniqueIdentifier getStreamlinedAuthorityApprovalNumber();
+    String getAdditionalComments();
+
+    String getTimingDescription();
+
+    Boolean getPRN();
+
+    List<SetComponentTime> getStructuredTime();
+
+    PreciseDate getStartCriterion();
+
+    PreciseDate getStopCriterion();
+
+    Boolean isLongTerm();
+
+    Code getMethodCode();
+
+    Code getRouteCode();
+
+    Code getApproachSiteCode();
+
+    UniqueIdentifier getCloseTheGapBenifitId();
+
+    UniqueIdentifier getPbsAuthorityApprovalNumber();
+
+    UniqueIdentifier getPbsRpbsManufacturerCode();
+
+    UniqueIdentifier getPbsAuthorityPrescriptionNumber();
+
+    UniqueIdentifier getStreamlinedAuthorityApprovalNumber();
 
     PBSPrescriptionTypeCode getPbsType();
-	UniqueIdentifier getMedicationInstructionIdentifier();
-	
-	boolean isRequestItem();
-	
-	List<Ingredient> getExtemporaneousIngredients();
-	 
-	 
-	/**
-	void setPbsAuthorityPrescriptionNumber(UniqueIdentifier number);
-    void setStreamlinedAuthorityApprovalNumber(UniqueIdentifier number);
-	void setPbsAuthorityApprovalNumber(UniqueIdentifier pbsAan);
-    void setPbsRpbsManufacturerCode( UniqueIdentifier pbsRpbsManufacturerCode );
-	 
 
-	void setCloseTheGapBenefitId(UniqueIdentifier ctgBenefitID);
-	void setDispenseQuantity(DispenseQuantity quantity);
-	void setDispensItemIdentifier(UniqueIdentifier dispensItemIdentifier);
-	
-	void setMethodCode(Code code);
-	void setRouteCode(Code code);
-	void setApproachSiteCode(Code code);
-	
-	void setLongTerm(Boolean longTerm);
-	
-	void setFormula( String formula );
+    UniqueIdentifier getMedicationInstructionIdentifier();
 
-	void setDosage( Dosage dosage );
+    boolean isRequestItem();
 
-	void setDirections( String instructionsForUse );
+    List<Ingredient> getExtemporaneousIngredients();
 
-	void setMinimumIntervalBetweenRepeats( TimeQuantity timeInterval );
+    /**
+     void setPbsAuthorityPrescriptionNumber(UniqueIdentifier number);
+     void setStreamlinedAuthorityApprovalNumber(UniqueIdentifier number);
+     void setPbsAuthorityApprovalNumber(UniqueIdentifier pbsAan);
+     void setPbsRpbsManufacturerCode( UniqueIdentifier pbsRpbsManufacturerCode );
 
-	void setStateAuthorityNumber( UniqueIdentifier stateAuthorityNumber );
 
-	void setReasonForTherapeuticGood( String reasonForTherapeuticGood );
+     void setCloseTheGapBenefitId(UniqueIdentifier ctgBenefitID);
+     void setDispenseQuantity(DispenseQuantity quantity);
+     void setDispensItemIdentifier(UniqueIdentifier dispensItemIdentifier);
 
-	void setAdditionalComments( String additionalComments );
+     void setMethodCode(Code code);
+     void setRouteCode(Code code);
+     void setApproachSiteCode(Code code);
 
-	void setTimingDescription(String timingDescripition );
-	
-	void setPRN(Boolean prn);
-	
-	void setStartCriterion(PrecisionDate start);
-	 void addExtemporaneousIngredient( Ingredient extemporaneousIngredient );
-	void setStopCriterion(PrecisionDate stop);
-	**/
+     void setLongTerm(Boolean longTerm);
 
-   
+     void setFormula( String formula );
 
-   
+     void setDosage( Dosage dosage );
 
-    
+     void setDirections( String instructionsForUse );
 
-   
+     void setMinimumIntervalBetweenRepeats( TimeQuantity timeInterval );
 
-   
-	
+     void setStateAuthorityNumber( UniqueIdentifier stateAuthorityNumber );
 
-	
+     void setReasonForTherapeuticGood( String reasonForTherapeuticGood );
+
+     void setAdditionalComments( String additionalComments );
+
+     void setTimingDescription(String timingDescripition );
+
+     void setPRN(Boolean prn);
+
+     void setStartCriterion(PrecisionDate start);
+     void addExtemporaneousIngredient( Ingredient extemporaneousIngredient );
+     void setStopCriterion(PrecisionDate stop);
+     **/
 }

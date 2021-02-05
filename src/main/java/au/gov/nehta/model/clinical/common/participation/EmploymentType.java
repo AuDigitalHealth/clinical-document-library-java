@@ -17,48 +17,50 @@ package au.gov.nehta.model.clinical.common.participation;
 import au.gov.nehta.model.clinical.common.types.EnumTuple;
 
 public enum EmploymentType implements EnumTuple {
-	FULL_TIME( "1", "Full-time" ), PART_TIME( "2", "Part-time" ), CASUAL( "3", "Casual" );
+    FULL_TIME("1", "Full-time"),
+    PART_TIME("2", "Part-time"),
+    CASUAL("3", "Casual");
 
-	private final String CODE_SYSTEM = "None";
-	private final String CODE_SYSTEM_NAME = "None";
-	private final String CODE_SYSTEM_VERSION = "None";
-	private final String code;
-	private final String descriptor;
+    private final String CODE_SYSTEM = "None";
+    private final String CODE_SYSTEM_NAME = "None";
+    private final String CODE_SYSTEM_VERSION = "None";
+    private final String code;
+    private final String descriptor;
 
-	EmploymentType( String code, String descriptor ) {
-		this.code = code;
-		this.descriptor = descriptor;
-	}
+    EmploymentType(String code, String descriptor) {
+        this.code = code;
+        this.descriptor = descriptor;
+    }
 
-	public String getCode() {
-		return code;
-	}
+    public String getCode() {
+        return code;
+    }
 
-	public String getDescriptor() {
-		return descriptor;
-	}
+    public String getDescriptor() {
+        return descriptor;
+    }
 
-	public String getOriginalText() {
-		return descriptor;
-	}
+    public String getOriginalText() {
+        return descriptor;
+    }
 
-	public String getCodeSystem() {
-		return CODE_SYSTEM;
-	}
+    public String getCodeSystem() {
+        return CODE_SYSTEM;
+    }
 
-	public String getCodeSystemName() {
-		return CODE_SYSTEM_NAME;
-	}
+    public String getCodeSystemName() {
+        return CODE_SYSTEM_NAME;
+    }
 
-	public String getCodeSystemVersion() {
-		return CODE_SYSTEM_VERSION;
-	}
+    public String getCodeSystemVersion() {
+        return CODE_SYSTEM_VERSION;
+    }
 
-	public String getDisplayName() {
-		return descriptor;
-	}
+    public String getDisplayName() {
+        return descriptor;
+    }
 
-	public boolean hasDisplayName() {
-		return true;
-	}
+    public boolean hasDisplayName() {
+        return true;
+    }
 }

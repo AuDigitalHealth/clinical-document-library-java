@@ -18,47 +18,46 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class InternationalAddressImpl implements InternationalAddress {
-	private List<String> addressLines = new ArrayList<String>(3);
-	private String stateProvince;
-	private String postcode;
-	private String country;
-	private String city;
+
+    private static final int STD_NUM_OF_ADDRESS_LINES = 3;
+    private List<String> addressLines = new ArrayList<>(STD_NUM_OF_ADDRESS_LINES);
+    private String stateProvince;
+    private String postcode;
+    private String country;
+    private String city;
 
     private String additionalLocator;
 
-
     public InternationalAddressImpl() {
-	}
-    
-    /**
-     * get all address lines
-     */
-    @Override
-	public List<String> getUnstructuredAddressLines() {
-		return addressLines;
-	}
-	
+    }
 
     /**
-     * replace the address lines with an alternative
+     * Get all address lines
      */
     @Override
-    public void setUnstructuredAddressLines( List<String> addressLines ) {
+    public List<String> getUnstructuredAddressLines() {
+        return addressLines;
+    }
+
+    /**
+     * Replace the address lines with an alternative
+     */
+    @Override
+    public void setUnstructuredAddressLines(List<String> addressLines) {
         this.addressLines = addressLines;
     }
 
     /**
-     * add an address line to the existing address lines 
+     * Add an address line to the existing address lines
      */
     @Override
-    public void addUnstructuredAddressLine( String addressLine ) {
+    public void addUnstructuredAddressLine(String addressLine) {
         if (this.addressLines == null) {
-            this.addressLines = new ArrayList<String>(3);
+            this.addressLines = new ArrayList<>(3);
         }
-        this.addressLines.add( addressLine );
+        this.addressLines.add(addressLine);
     }
 
-     
     /**
      * @return the additionalLocator
      */
@@ -71,7 +70,7 @@ public class InternationalAddressImpl implements InternationalAddress {
      * @param additionalLocator the additionalLocator to set
      */
     @Override
-    public void setAdditionalLocator( String additionalLocator ) {
+    public void setAdditionalLocator(String additionalLocator) {
         this.additionalLocator = additionalLocator;
     }
 
@@ -87,7 +86,7 @@ public class InternationalAddressImpl implements InternationalAddress {
      * @param city the city to set
      */
     @Override
-    public void setCity( String city ) {
+    public void setCity(String city) {
         this.city = city;
     }
 
@@ -115,22 +114,21 @@ public class InternationalAddressImpl implements InternationalAddress {
     /**
      * @param stateProvince the stateProvince to set
      */
-    public void setState( String stateProvince ) {
+    public void setState(String stateProvince) {
         this.stateProvince = stateProvince;
     }
 
     /**
      * @param postcode the postcode to set
      */
-    public void setPostcode( String postcode ) {
+    public void setPostcode(String postcode) {
         this.postcode = postcode;
     }
 
     /**
      * @param country the country to set
      */
-    public void setCountry( String country ) {
+    public void setCountry(String country) {
         this.country = country;
     }
-
 }

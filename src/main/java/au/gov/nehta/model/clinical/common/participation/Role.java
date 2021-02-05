@@ -17,5 +17,5 @@ package au.gov.nehta.model.clinical.common.participation;
 import au.gov.nehta.model.cda.common.code.Coded;
 
 public interface Role {
-	Coded getCode();
+    Coded getCode();
 }

@@ -5,27 +5,23 @@ import au.gov.nehta.model.clinical.common.types.UniqueIdentifier;
 import au.net.electronichealth.ns.cda._2_0.XActRelationshipDocument;
 
 /**
- * An object representing a CDA document being replaced 
- *
+ * An object representing a CDA document being replaced
  */
-public class ReplacementRelatedDocument extends RelatedDocumentImpl{
+public class ReplacementRelatedDocument extends RelatedDocumentImpl {
 
     /**
-     * An object representing a CDA document being replace 
-     * 
+     * An object representing a CDA document being replace
+     *
      * @param parentDocumentId this UniqueIdentifier of the document being replaced.
      * @param replacementSetID the SetID of the document being replaced, this should match the current cda setID
-     * @param 
+     * @param version          the version number of the document
      */
-    public ReplacementRelatedDocument(UniqueIdentifier parentDocumentId, UniqueIdentifier replacementSetID, int version){
+    public ReplacementRelatedDocument(UniqueIdentifier parentDocumentId, UniqueIdentifier replacementSetID, int version) {
         super(parentDocumentId, XActRelationshipDocument.RPLC);
-        
-        ArgumentUtils.checkNotNull( replacementSetID, "Replacement Document replacementSetID" );
-        this.setSetId( replacementSetID );
-        this.setVersionNumber( version );
-        
+
+        ArgumentUtils.checkNotNull(replacementSetID, "Replacement Document replacementSetID");
+        this.setSetId(replacementSetID);
+        this.setVersionNumber(version);
+
     }
-    
-   
-   
 }

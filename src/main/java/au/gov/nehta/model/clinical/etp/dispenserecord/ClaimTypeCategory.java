@@ -21,49 +21,49 @@ import au.gov.nehta.model.cda.common.code.Code;
 import au.gov.nehta.model.cda.common.code.Coded;
 
 public enum ClaimTypeCategory implements Coded {
-	GENERAL_BENEFIT( "1", "G - General benefit." ), 
-	CONCESSIONAL_OR_SAFETY_NET_CONCESSION_BENEFIT( "2", "C - Concessional or Safety Net Concession benefit." ),
-	SAFETY_NET_ENTITLEMENT_CARD_BENEFIT("3", "E - Safety Net ParticipantEntitlement Card benefit." ), 
-	RPBS_BENEFIT( "4", "R - RPBS benefit." ), 
-	CLOSING_THE_GAP_BENEFIT( "5", "CTG - Closing the Gap benefit." ),
-	NO_BENEFIT( "9","No Benefit - This item is not covered by any Medicare registered benefit." );
+    GENERAL_BENEFIT("1", "G - General benefit."),
+    CONCESSIONAL_OR_SAFETY_NET_CONCESSION_BENEFIT("2", "C - Concessional or Safety Net Concession benefit."),
+    SAFETY_NET_ENTITLEMENT_CARD_BENEFIT("3", "E - Safety Net ParticipantEntitlement Card benefit."),
+    RPBS_BENEFIT("4", "R - RPBS benefit."),
+    CLOSING_THE_GAP_BENEFIT("5", "CTG - Closing the Gap benefit."),
+    NO_BENEFIT("9", "No Benefit - This item is not covered by any Medicare registered benefit.");
 
-	private final String CODE_SYSTEM = "1.2.36.1.2001.1001.101.104.16060";
-	private final String CODE_SYSTEM_NAME = "Claim Category Type Values";
-//	private final String CODE_SYSTEM_VERSION = "2010";
-	private String code;
-	private String displayName;
-	private String originalText;
+    private final String CODE_SYSTEM = "1.2.36.1.2001.1001.101.104.16060";
+    private final String CODE_SYSTEM_NAME = "Claim Category Type Values";
+    //    private final String CODE_SYSTEM_VERSION = "2010";
+    private String code;
+    private String displayName;
+    private String originalText;
 
+    ClaimTypeCategory(String code, String displayName) {
+        this.code = code;
+        this.displayName = displayName;
+    }
 
-	ClaimTypeCategory( String code, String displayName) {
-		this.code = code;
-		this.displayName = displayName;
-	}
+    @Override
+    public String getCode() {
+        return code;
+    }
 
-	   @Override
-	public String getCode() {
-		return code;
-	}
-	   @Override
-	public String getCodeSystem() {
-		return CODE_SYSTEM;
-	}
-	  
-	 @Override
-	public String getCodeSystemName() {
-		return CODE_SYSTEM_NAME;
-	}
-	 
-	 @Override
-	    public String getCodeSystemVersion() {
-	        return null;
-	    }
-	   
-	@Override
-	public String getDisplayName() {
-		return displayName;
-	}
+    @Override
+    public String getCodeSystem() {
+        return CODE_SYSTEM;
+    }
+
+    @Override
+    public String getCodeSystemName() {
+        return CODE_SYSTEM_NAME;
+    }
+
+    @Override
+    public String getCodeSystemVersion() {
+        return null;
+    }
+
+    @Override
+    public String getDisplayName() {
+        return displayName;
+    }
 
     @Override
     public boolean isCoded() {
@@ -79,6 +79,4 @@ public enum ClaimTypeCategory implements Coded {
     public List<Code> getTranslations() {
         return Collections.emptyList();
     }
-    
-    
 }

@@ -5,72 +5,73 @@ import au.gov.nehta.model.cda.common.document.BaseClinicalDocument;
 import au.gov.nehta.model.cda.common.document.ClinicalDocument;
 import au.gov.nehta.model.cda.common.id.LegalAuthenticator;
 import au.gov.nehta.model.common.CDAModelImpl;
-import org.joda.time.DateTime;
+
+import java.time.ZonedDateTime;
 
 public class EventSummaryModel extends CDAModelImpl {
 
-  private DateTime effectiveTime;
-  private ClinicalDocument pathClinicalDoucment;
+    private ZonedDateTime effectiveTime;
+    private ClinicalDocument pathClinicalDocument;
 
-  public EventSummaryModel(
-      ClinicalDocument clinicalDocument,
-      LegalAuthenticator legalAuthenticator,
-      Custodian custodian,
-      DateTime effectiveTime) {
-    super(null, legalAuthenticator, custodian);
-    this.pathClinicalDoucment = clinicalDocument;
-    this.effectiveTime = effectiveTime;
-    validate();
-  }
-
-  public EventSummaryModel(
-      ClinicalDocument clinicalDocument, Custodian custodian, DateTime effectiveTime) {
-    super(null, null, custodian);
-    this.pathClinicalDoucment = clinicalDocument;
-    this.effectiveTime = effectiveTime;
-    validate();
-  }
-
-  private void validate() {
-    if (pathClinicalDoucment == null) {
-      throw new IllegalArgumentException("PathologyClinicalDocument missing");
-    }
-    if (pathClinicalDoucment.getCompletionCode() == null) {
-      throw new IllegalArgumentException("PathologyClinicalDocument is missing completion code");
-    }
-    if (pathClinicalDoucment.getClinicalDocumentId() == null) {
-      throw new IllegalArgumentException("PathologyClinicalDocument is missing DocumentID code");
-    }
-    if (pathClinicalDoucment.getTypeId() == null) {
-      throw new IllegalArgumentException("PathologyClinicalDocument is missing typeID ");
-    }
-    if (pathClinicalDoucment.getTemplateIds() == null
-        || pathClinicalDoucment.getTemplateIds().size() == 0) {
-      throw new IllegalArgumentException("PathologyClinicalDocument is missing templateId ");
+    public EventSummaryModel(
+            ClinicalDocument clinicalDocument,
+            LegalAuthenticator legalAuthenticator,
+            Custodian custodian,
+            ZonedDateTime effectiveTime) {
+        super(null, legalAuthenticator, custodian);
+        this.pathClinicalDocument = clinicalDocument;
+        this.effectiveTime = effectiveTime;
+        validate();
     }
 
-    if (effectiveTime == null) {
-      throw new IllegalArgumentException("AuthorTime is missing");
+    public EventSummaryModel(
+            ClinicalDocument clinicalDocument, Custodian custodian, ZonedDateTime effectiveTime) {
+        super(null, null, custodian);
+        this.pathClinicalDocument = clinicalDocument;
+        this.effectiveTime = effectiveTime;
+        validate();
     }
-  }
 
-  /**
-   * @return the pathClinicalDoucment
-   */
-  public ClinicalDocument getCompletionClinicalDoucment() {
-    return pathClinicalDoucment;
-  }
+    private void validate() {
+        if (pathClinicalDocument == null) {
+            throw new IllegalArgumentException("PathologyClinicalDocument missing");
+        }
+        if (pathClinicalDocument.getCompletionCode() == null) {
+            throw new IllegalArgumentException("PathologyClinicalDocument is missing completion code");
+        }
+        if (pathClinicalDocument.getClinicalDocumentId() == null) {
+            throw new IllegalArgumentException("PathologyClinicalDocument is missing DocumentID code");
+        }
+        if (pathClinicalDocument.getTypeId() == null) {
+            throw new IllegalArgumentException("PathologyClinicalDocument is missing typeID ");
+        }
+        if (pathClinicalDocument.getTemplateIds() == null
+                || pathClinicalDocument.getTemplateIds().size() == 0) {
+            throw new IllegalArgumentException("PathologyClinicalDocument is missing templateId ");
+        }
 
-  @Override
-  public BaseClinicalDocument getBaseClinicalDocument() {
-    return pathClinicalDoucment;
-  }
+        if (effectiveTime == null) {
+            throw new IllegalArgumentException("AuthorTime is missing");
+        }
+    }
 
-  public DateTime getAuthorTime() {
-    return effectiveTime;
-  }
+    /**
+     * @return the pathClinicalDocument
+     */
+    public ClinicalDocument getCompletionClinicalDoucment() {
+        return pathClinicalDocument;
+    }
 
-  public void setAuthorTime(DateTime authorTime) {
-    this.effectiveTime = authorTime;
-  }
+    @Override
+    public BaseClinicalDocument getBaseClinicalDocument() {
+        return pathClinicalDocument;
+    }
+
+    public ZonedDateTime getAuthorTime() {
+        return effectiveTime;
+    }
+
+    public void setAuthorTime(ZonedDateTime authorTime) {
+        this.effectiveTime = authorTime;
+    }
 }

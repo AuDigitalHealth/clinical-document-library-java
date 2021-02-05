@@ -4,24 +4,23 @@ import au.gov.nehta.model.cda.common.code.Code;
 import au.gov.nehta.model.clinical.common.types.UniqueIdentifierImpl;
 
 public class AsEntityIdentifierImpl extends UniqueIdentifierImpl implements AsEntityIdentifier {
-    
-   
-    //Default values for the following fields
-	private String classCode = AsEntityIdentifier.CLASS_CODE_IDENT;
-	private String assigningGeographicAreaClassCode =AsEntityIdentifier.PLC;
-	
-	private String assigningGeographicAreaName;
-	private Code code;
-    
 
-    public AsEntityIdentifierImpl() {  }
-    
-	public AsEntityIdentifierImpl( String root ) {
-		super(root);
-	}
-	
-	public AsEntityIdentifierImpl( String root, String extension ) {
-	    super(root,extension);
+    // Default values for the following fields
+    private String classCode = AsEntityIdentifier.CLASS_CODE_IDENT;
+    private String assigningGeographicAreaClassCode = AsEntityIdentifier.PLC;
+
+    private String assigningGeographicAreaName;
+    private Code code;
+
+    public AsEntityIdentifierImpl() {
+    }
+
+    public AsEntityIdentifierImpl(String root) {
+        super(root);
+    }
+
+    public AsEntityIdentifierImpl(String root, String extension) {
+        super(root, extension);
     }
 
     @Override
@@ -35,7 +34,7 @@ public class AsEntityIdentifierImpl extends UniqueIdentifierImpl implements AsEn
     }
 
     @Override
-    public void setAssigningGeographicAreaName( String assigningGeographicAreaName ) {
+    public void setAssigningGeographicAreaName(String assigningGeographicAreaName) {
         this.assigningGeographicAreaName = assigningGeographicAreaName;
     }
 
@@ -45,7 +44,7 @@ public class AsEntityIdentifierImpl extends UniqueIdentifierImpl implements AsEn
     }
 
     @Override
-    public void setCode( Code code ) {
+    public void setCode(Code code) {
         this.code = code;
     }
 
@@ -55,14 +54,12 @@ public class AsEntityIdentifierImpl extends UniqueIdentifierImpl implements AsEn
     }
 
     @Override
-    public void setAssigningGeographicAreaClassCode( String assigningGeographicAreaClassCode ) {
+    public void setAssigningGeographicAreaClassCode(String assigningGeographicAreaClassCode) {
         this.assigningGeographicAreaClassCode = assigningGeographicAreaClassCode;
     }
 
     @Override
-    public void setClassCode( String classCode ) {
+    public void setClassCode(String classCode) {
         this.classCode = classCode;
     }
-
-
 }

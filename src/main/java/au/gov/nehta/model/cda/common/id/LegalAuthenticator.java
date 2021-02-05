@@ -1,10 +1,10 @@
 package au.gov.nehta.model.cda.common.id;
 
-import org.joda.time.DateTime;
+import java.time.ZonedDateTime;
 
 
 public interface LegalAuthenticator {
-    DateTime getAuthenticationTime();
+    ZonedDateTime getAuthenticationTime();
 
-	AssignedEntity getAssignedEntity();
+    AssignedEntity getAssignedEntity();
 }

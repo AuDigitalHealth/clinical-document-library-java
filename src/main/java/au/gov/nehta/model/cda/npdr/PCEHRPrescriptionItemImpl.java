@@ -17,56 +17,46 @@ package au.gov.nehta.model.cda.npdr;
 import au.gov.nehta.model.cda.common.code.Coded;
 import au.gov.nehta.model.clinical.etp.eprescription.PrescriptionItemImpl;
 
-public class PCEHRPrescriptionItemImpl  extends  PrescriptionItemImpl implements PCEHRPrescriptionItem {
+public class PCEHRPrescriptionItemImpl extends PrescriptionItemImpl implements PCEHRPrescriptionItem {
 
     private Coded productFormCode;
-    private String genericName; 
-    private String theraputicGoodStrength;
+    private String genericName;
+    private String therapeuticGoodStrength;
     private String qtyDesc;
-    
+
     @Override
     public String getGenericName() {
         return genericName;
     }
-    
 
     @Override
     public Coded getProductFormCode() {
         return productFormCode;
     }
-    
+
     @Override
     public String getQuantityDescription() {
         return qtyDesc;
     }
-    
+
     @Override
     public String getTheraputicGoodStrength() {
-        return theraputicGoodStrength;
+        return therapeuticGoodStrength;
     }
 
-    public void setQuantityDescription( String qtyDesc ) {
-        this.qtyDesc=qtyDesc;
+    public void setQuantityDescription(String qtyDesc) {
+        this.qtyDesc = qtyDesc;
     }
-    
 
-    public void setProductFormCode( Coded productFormCode ) {
+    public void setProductFormCode(Coded productFormCode) {
         this.productFormCode = productFormCode;
     }
 
-
-    public void setGenericName( String genericName ) {
-      this.genericName=genericName;
+    public void setGenericName(String genericName) {
+        this.genericName = genericName;
     }
 
-    
-
-
-    public void setTheraputicGoodStrength( String theraputicGoodStrength ) {
-        this.theraputicGoodStrength = theraputicGoodStrength;
+    public void setTheraputicGoodStrength(String therapeuticGoodStrength) {
+        this.therapeuticGoodStrength = therapeuticGoodStrength;
     }
-
-
-    
-
 }

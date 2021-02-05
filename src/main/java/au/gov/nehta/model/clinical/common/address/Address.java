@@ -4,21 +4,17 @@ import au.gov.nehta.model.clinical.common.participation.AddressPurpose;
 
 public interface Address {
 
-  AustralianAddress getAustralianAddress();
+    AustralianAddress getAustralianAddress();
 
-  void setAustralianAddress(
-      AustralianAddress australianAddress);
+    void setAustralianAddress(AustralianAddress australianAddress);
 
-  InternationalAddress getInternationalAddress();
+    InternationalAddress getInternationalAddress();
 
-  void setInternationalAddress(
-      InternationalAddress internationalAddress);
+    void setInternationalAddress(InternationalAddress internationalAddress);
 
-  AddressAbsentIndicator getAddressAbsentIndicator();
+    AddressAbsentIndicator getAddressAbsentIndicator();
 
+    void setAddressAbsentIndicator(AddressAbsentIndicator addressAbsentIndicator);
 
-  void setAddressAbsentIndicator(
-      AddressAbsentIndicator addressAbsentIndicator);
-
-  AddressPurpose getAddressPurpose();
+    AddressPurpose getAddressPurpose();
 }

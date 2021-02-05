@@ -6,42 +6,40 @@ import au.gov.nehta.model.clinical.common.types.UniqueIdentifier;
 
 public class DocumentDetails {
 
-  private DocumentAuthor documentAuthor;
-  private String documentTitle;
-  private UniqueIdentifier documentIdentifier;
-  private Coded documentType;
+    private DocumentAuthor documentAuthor;
+    private String documentTitle;
+    private UniqueIdentifier documentIdentifier;
+    private Coded documentType;
 
-  public DocumentAuthor getDocumentAuthor() {
-    return documentAuthor;
-  }
+    public DocumentAuthor getDocumentAuthor() {
+        return documentAuthor;
+    }
 
-  public void setDocumentAuthor(DocumentAuthor documentAuthor) {
-    this.documentAuthor = documentAuthor;
-  }
+    public void setDocumentAuthor(DocumentAuthor documentAuthor) {
+        this.documentAuthor = documentAuthor;
+    }
 
-  public UniqueIdentifier getDocumentIdentifier() {
-    return documentIdentifier;
-  }
+    public UniqueIdentifier getDocumentIdentifier() {
+        return documentIdentifier;
+    }
 
-  public void setDocumentIdentifier(
-      UniqueIdentifier documentIdentifier) {
-    this.documentIdentifier = documentIdentifier;
-  }
+    public void setDocumentIdentifier(UniqueIdentifier documentIdentifier) {
+        this.documentIdentifier = documentIdentifier;
+    }
 
-  public String getDocumentTitle() {
-    return documentTitle;
-  }
+    public String getDocumentTitle() {
+        return documentTitle;
+    }
 
-  public void setDocumentTitle(String documentTitle) {
-    this.documentTitle = documentTitle;
-  }
+    public void setDocumentTitle(String documentTitle) {
+        this.documentTitle = documentTitle;
+    }
 
+    public Coded getDocumentType() {
+        return documentType;
+    }
 
-  public Coded getDocumentType() {
-    return documentType;
-  }
-
-  public void setDocumentType(Coded documentType) {
-    this.documentType = documentType;
-  }
+    public void setDocumentType(Coded documentType) {
+        this.documentType = documentType;
+    }
 }

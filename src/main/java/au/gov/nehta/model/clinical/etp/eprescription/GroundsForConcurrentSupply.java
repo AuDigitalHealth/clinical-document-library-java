@@ -17,53 +17,53 @@ package au.gov.nehta.model.clinical.etp.eprescription;
 import au.gov.nehta.model.clinical.common.types.EnumTuple;
 
 public enum GroundsForConcurrentSupply implements EnumTuple {
-  PURSUANT_TO_REGULATION_24("1",
-      "Supply is in accord with Regulation 24 of the National Health (Pharmaceutical Benefits) Regulations 1960."), HARDSHIP_CONDITIONS_APPLY(
-      "2",
-      "Supply is in accord with the Hardship conditions provision of RPBS prescribing guidelines."), NO_GROUNDS(
-      "3", "There are no grounds for concurrent supply.");
+    PURSUANT_TO_REGULATION_24("1",
+            "Supply is in accord with Regulation 24 of the National Health (Pharmaceutical Benefits) Regulations 1960."),
+    HARDSHIP_CONDITIONS_APPLY("2",
+            "Supply is in accord with the Hardship conditions provision of RPBS prescribing guidelines."),
+    NO_GROUNDS("3",
+            "There are no grounds for concurrent supply.");
 
-  private final String CODE_SYSTEM = "1.2.36.1.2001.1001.101.103.16139";
-  private final String CODE_SYSTEM_NAME = "NEHTA";
-  private final String CODE_SYSTEM_VERSION = "2010";
-  private final String code;
-  private final String descriptor;
+    private final String CODE_SYSTEM = "1.2.36.1.2001.1001.101.103.16139";
+    private final String CODE_SYSTEM_NAME = "NEHTA";
+    private final String CODE_SYSTEM_VERSION = "2010";
+    private final String code;
+    private final String descriptor;
 
+    GroundsForConcurrentSupply(String code, String descriptor) {
+        this.code = code;
+        this.descriptor = descriptor;
+    }
 
-  GroundsForConcurrentSupply(String code, String descriptor) {
-    this.code = code;
-    this.descriptor = descriptor;
-  }
+    public String getCode() {
+        return code;
+    }
 
-  public String getCode() {
-    return code;
-  }
+    public String getDescriptor() {
+        return descriptor;
+    }
 
-  public String getDescriptor() {
-    return descriptor;
-  }
+    public String getOriginalText() {
+        return descriptor;
+    }
 
-  public String getOriginalText() {
-    return descriptor;
-  }
+    public String getCodeSystem() {
+        return CODE_SYSTEM;
+    }
 
-  public String getCodeSystem() {
-    return CODE_SYSTEM;
-  }
+    public String getCodeSystemName() {
+        return CODE_SYSTEM_NAME;
+    }
 
-  public String getCodeSystemName() {
-    return CODE_SYSTEM_NAME;
-  }
+    public String getCodeSystemVersion() {
+        return CODE_SYSTEM_VERSION;
+    }
 
-  public String getCodeSystemVersion() {
-    return CODE_SYSTEM_VERSION;
-  }
+    public String getDisplayName() {
+        return descriptor;
+    }
 
-  public String getDisplayName() {
-    return descriptor;
-  }
-
-  public boolean hasDisplayName() {
-    return true;
-  }
+    public boolean hasDisplayName() {
+        return true;
+    }
 }

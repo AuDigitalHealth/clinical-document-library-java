@@ -20,63 +20,63 @@ import java.util.List;
 import au.gov.nehta.common.utils.ArgumentUtils;
 
 public class EmploymentDetailImpl implements EmploymentDetail {
-	private List<String> employerOrganisation;
-	private EmploymentType employmentType;
-	private List<Occupation> occupation;
-	private PositionInOrganisation positionInOrganisation;
+    private List<String> employerOrganisation;
+    private EmploymentType employmentType;
+    private List<Occupation> occupation;
+    private PositionInOrganisation positionInOrganisation;
 
-	EmploymentDetailImpl() {
-	}
+    EmploymentDetailImpl() {
+    }
 
-	public List<String> getEmployerOrganisation() {
-		return employerOrganisation;
-	}
+    public List<String> getEmployerOrganisation() {
+        return employerOrganisation;
+    }
 
-	public EmploymentType getEmploymentType() {
-		return employmentType;
-	}
+    public EmploymentType getEmploymentType() {
+        return employmentType;
+    }
 
-	public List<Occupation> getOccupation() {
-		return occupation;
-	}
+    public List<Occupation> getOccupation() {
+        return occupation;
+    }
 
-	public PositionInOrganisation getPositionInOrganisation() {
-		return positionInOrganisation;
-	}
+    public PositionInOrganisation getPositionInOrganisation() {
+        return positionInOrganisation;
+    }
 
-	public void addEmployerOrganisation( String employerOrganisation ) {
-		ArgumentUtils.checkNotNull( employerOrganisation, "employerOrganisation" );
-		if (this.employerOrganisation == null) {
-			this.employerOrganisation = new ArrayList<String>();
-		}
-		this.employerOrganisation.add( employerOrganisation );
-	}
+    public void addEmployerOrganisation(String employerOrganisation) {
+        ArgumentUtils.checkNotNull(employerOrganisation, "employerOrganisation");
+        if (this.employerOrganisation == null) {
+            this.employerOrganisation = new ArrayList<>();
+        }
+        this.employerOrganisation.add(employerOrganisation);
+    }
 
-	public void addOccupation( Occupation occupation ) {
-		ArgumentUtils.checkNotNull( occupation, "occupation" );
-		if (this.occupation == null) {
-			this.occupation = new ArrayList<Occupation>();
-		}
-		this.occupation.add( occupation );
-	}
+    public void addOccupation(Occupation occupation) {
+        ArgumentUtils.checkNotNull(occupation, "occupation");
+        if (this.occupation == null) {
+            this.occupation = new ArrayList<>();
+        }
+        this.occupation.add(occupation);
+    }
 
-	public void setEmployerOrganisation( List<String> employerOrganisation ) {
-		ArgumentUtils.checkNotNull( employerOrganisation, "employerOrganisation" );
-		this.employerOrganisation = employerOrganisation;
-	}
+    public void setEmployerOrganisation(List<String> employerOrganisation) {
+        ArgumentUtils.checkNotNull(employerOrganisation, "employerOrganisation");
+        this.employerOrganisation = employerOrganisation;
+    }
 
-	public void setOccupation( List<Occupation> occupation ) {
-		ArgumentUtils.checkNotNull( occupation, "occupation" );
-		this.occupation = occupation;
-	}
+    public void setOccupation(List<Occupation> occupation) {
+        ArgumentUtils.checkNotNull(occupation, "occupation");
+        this.occupation = occupation;
+    }
 
-	public void setEmploymentType( EmploymentType employmentType ) {
-		ArgumentUtils.checkNotNull( employmentType, "employmentType" );
-		this.employmentType = employmentType;
-	}
+    public void setEmploymentType(EmploymentType employmentType) {
+        ArgumentUtils.checkNotNull(employmentType, "employmentType");
+        this.employmentType = employmentType;
+    }
 
-	public void setPositionInOrganisation( PositionInOrganisation positionInOrganisation ) {
-		ArgumentUtils.checkNotNull( positionInOrganisation, "positionInOrganisation" );
-		this.positionInOrganisation = positionInOrganisation;
-	}
+    public void setPositionInOrganisation(PositionInOrganisation positionInOrganisation) {
+        ArgumentUtils.checkNotNull(positionInOrganisation, "positionInOrganisation");
+        this.positionInOrganisation = positionInOrganisation;
+    }
 }

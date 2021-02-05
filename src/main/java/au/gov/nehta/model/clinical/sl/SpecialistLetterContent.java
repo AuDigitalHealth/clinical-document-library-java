@@ -8,54 +8,54 @@ import au.net.electronichealth.ns.cda._2_0.StrucDocText;
 
 public interface SpecialistLetterContent {
 
-  /* Response Details */
-  ResponseDetails getResponseDetails();
+    /* Response Details */
+    ResponseDetails getResponseDetails();
 
-  /* Recommendations */
-  Recommendations getRecommendations();
+    /* Recommendations */
+    Recommendations getRecommendations();
 
-  /* Medications */
-  Medications getMedications();
+    /* Medications */
+    Medications getMedications();
 
-  void setMedications(Medications medications);
+    void setMedications(Medications medications);
 
-  StrucDocText getCustomNarrativeMedications();
+    StrucDocText getCustomNarrativeMedications();
 
-  void setCustomNarrativeMedications(StrucDocText customNarrativeMedications);
+    void setCustomNarrativeMedications(StrucDocText customNarrativeMedications);
 
-  /* Adverse Reactions */
-  NewlyIdentifiedAdverseReactions getNewlyIdentifiedAdverseReactions();
+    /* Adverse Reactions */
+    NewlyIdentifiedAdverseReactions getNewlyIdentifiedAdverseReactions();
 
-  /* Diagnostic Investigations */
-  DiagnosticInvestigations getDiagnosticInvestigations();
+    /* Diagnostic Investigations */
+    DiagnosticInvestigations getDiagnosticInvestigations();
 
-  void setResponseDetails(ResponseDetails responseDetails);
+    void setResponseDetails(ResponseDetails responseDetails);
 
-  void setRecommendations(Recommendations recommendations);
+    void setRecommendations(Recommendations recommendations);
 
-  void setNewlyIdentifiedAdverseReactions(
+    void setNewlyIdentifiedAdverseReactions(
       NewlyIdentifiedAdverseReactions newlyIdentifiedAdverseReactions);
 
-  void setDiagnosticInvestigations(
+    void setDiagnosticInvestigations(
       DiagnosticInvestigations diagnosticInvestigations);
 
-  /**
-   * Attribute only to be initialized while opting for Format 1A of Specialist Letter
-   * @return @{@link AttachedMedia}
-   */
-  AttachedMedia getReportFile();
+    /**
+    * Attribute only to be initialized while opting for Format 1A of Specialist Letter.
+    * @return @{@link AttachedMedia}
+    */
+    AttachedMedia getReportFile();
 
-  /**
-   * Attribute only to be initialized while opting for Format 1A of Specialist Letter
-   * @param reportFile @{@link AttachedMedia}
-   */
-  void setReportFile(AttachedMedia reportFile);
+    /**
+    * Attribute only to be initialized while opting for Format 1A of Specialist Letter.
+    * @param reportFile @{@link AttachedMedia}
+    */
+    void setReportFile(AttachedMedia reportFile);
 
-  StrucDocText getCustomNarrativeText();
+    StrucDocText getCustomNarrativeText();
 
-  void setCustomNarrativeText(StrucDocText customNarrativeText);
+    void setCustomNarrativeText(StrucDocText customNarrativeText);
 
-  String getCustomNarrativeTitle();
+    String getCustomNarrativeTitle();
 
-  void setCustomNarrativeTitle(String customNarrativeTitle);
+    void setCustomNarrativeTitle(String customNarrativeTitle);
 }

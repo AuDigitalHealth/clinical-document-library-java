@@ -15,7 +15,7 @@
 package au.gov.nehta.model.clinical.etp.prescriptionrequest;
 
 public interface PrescriptionRequest {
-	PrescriptionRequestContext getContext();
+    PrescriptionRequestContext getContext();
 
-	PrescriptionRequestContent getContent();
+    PrescriptionRequestContent getContent();
 }

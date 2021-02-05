@@ -44,8 +44,7 @@ public class PersonOrOrganizationImpl implements PersonOrOrganization {
   }
 
   @Override
-  public void setElectronicCommunicationDetails(
-      List<ElectronicCommunicationDetail> electronicCommunicationDetails) {
+  public void setElectronicCommunicationDetails(List<ElectronicCommunicationDetail> electronicCommunicationDetails) {
     this.electronicCommunicationDetails = electronicCommunicationDetails;
   }
 

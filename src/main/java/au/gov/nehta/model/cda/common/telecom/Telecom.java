@@ -15,11 +15,11 @@
 package au.gov.nehta.model.cda.common.telecom;
 
 public interface Telecom {
-	TelecomMedium getTelecomMedium();
+    TelecomMedium getTelecomMedium();
 
-	TelecomUse getTelecomUse();
+    TelecomUse getTelecomUse();
 
-	String getTelecomValue();
+    String getTelecomValue();
 
-	void setTelecomUse( TelecomUse use );
+    void setTelecomUse(TelecomUse use);
 }

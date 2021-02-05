@@ -62,8 +62,4 @@ public class Creator {
         er.setTypeCode( XActRelationshipEntryRelationship.COMP );
         return er;
     }
-
-
-
-
 }

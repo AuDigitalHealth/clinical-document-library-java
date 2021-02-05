@@ -17,7 +17,7 @@ package au.gov.nehta.model.clinical.etp.prescriptionrequest;
 import au.gov.nehta.model.cda.common.code.Coded;
 
 public interface PrescriberInstructionSource extends Coded {
-	public final String CODE_SYSTEM = "1.2.36.1.2001.1001.101";
-	public final String CODE_SYSTEM_NAME = "NCTIS Data Components";
-	public final String CODE_SYSTEM_VERSION = "TBD";
+    public final String CODE_SYSTEM = "1.2.36.1.2001.1001.101";
+    public final String CODE_SYSTEM_NAME = "NCTIS Data Components";
+    public final String CODE_SYSTEM_VERSION = "TBD";
 }

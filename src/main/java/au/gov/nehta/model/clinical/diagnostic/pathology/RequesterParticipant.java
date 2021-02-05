@@ -5,23 +5,22 @@ import au.gov.nehta.model.clinical.etp.common.participation.Entitlement;
 import au.gov.nehta.model.clinical.etp.common.participation.PathologyOrganisationParticipant;
 import au.gov.nehta.model.clinical.etp.common.participation.ProviderPerson;
 import au.gov.nehta.model.clinical.etp.common.participation.QualifiedParticipant;
+
 import java.util.List;
 
 public interface RequesterParticipant extends PathologyOrganisationParticipant,
-    QualifiedParticipant {
+        QualifiedParticipant {
 
-  @Override
-  AsEntityIdentifier getEntityIdentifiers();
+    @Override
+    AsEntityIdentifier getEntityIdentifiers();
 
-  List<AsEntityIdentifier> getOrganisationIdentifiers();
+    List<AsEntityIdentifier> getOrganisationIdentifiers();
 
-  ProviderPerson getPerson();
+    ProviderPerson getPerson();
 
-  List<Entitlement> getEntitlement();
+    List<Entitlement> getEntitlement();
 
-  void setEntitlement(List<Entitlement> entitlement);
+    void setEntitlement(List<Entitlement> entitlement);
 
-  void addEntitlement(Entitlement entitlement);
-
-
+    void addEntitlement(Entitlement entitlement);
 }

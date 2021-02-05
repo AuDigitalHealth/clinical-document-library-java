@@ -22,10 +22,11 @@ import au.gov.nehta.model.clinical.etp.common.participation.DispensingOrganisati
 public interface DispenseRecordContext {
     SubjectOfCareParticipant getSubjectOfCare();
 
-	DispenserParticipation getDispenser();
+    DispenserParticipation getDispenser();
 
-	DispensingOrganisationParticipation getDispensingOrganisation();
-	
-	Logo getLogo();
-	void setLogo(Logo logo);
+    DispensingOrganisationParticipation getDispensingOrganisation();
+
+    Logo getLogo();
+
+    void setLogo(Logo logo);
 }

@@ -4,7 +4,7 @@ import au.gov.nehta.model.clinical.common.participation.Role;
 
 public interface DispenserParticipation {
 
-	public Role getRole();
+    public Role getRole();
 
-	public DispenserParticipant getParticipant();
+    public DispenserParticipant getParticipant();
 }

@@ -17,21 +17,22 @@ package au.gov.nehta.model.clinical.etp.eprescription;
 import au.gov.nehta.common.utils.ArgumentUtils;
 
 public class EPrescriptionImpl implements EPrescription {
-	private final EPrescriptionContext context;
-	private final EPrescriptionContent content;
 
-	public EPrescriptionImpl( EPrescriptionContext context, EPrescriptionContent content ) {
-		ArgumentUtils.checkNotNull( context, "context" );
-		ArgumentUtils.checkNotNull( content, "content" );
-		this.context = context;
-		this.content = content;
-	}
+    private final EPrescriptionContext context;
+    private final EPrescriptionContent content;
 
-	public EPrescriptionContext getContext() {
-		return context;
-	}
+    public EPrescriptionImpl(EPrescriptionContext context, EPrescriptionContent content) {
+        ArgumentUtils.checkNotNull(context, "context");
+        ArgumentUtils.checkNotNull(content, "content");
+        this.context = context;
+        this.content = content;
+    }
 
-	public EPrescriptionContent getContent() {
-		return content;
-	}
+    public EPrescriptionContext getContext() {
+        return context;
+    }
+
+    public EPrescriptionContent getContent() {
+        return content;
+    }
 }

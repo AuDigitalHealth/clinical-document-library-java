@@ -2,8 +2,7 @@ package au.gov.nehta.model.clinical.acp;
 
 public interface AdvanceCarePlanningContent {
 
-  AdvanceCareInformationSection getAdvanceCareInformationSection();
+    AdvanceCareInformationSection getAdvanceCareInformationSection();
 
-  void setAdvanceCareInformationSection(
-      AdvanceCareInformationSection advanceCareInformationSection);
+    void setAdvanceCareInformationSection(AdvanceCareInformationSection advanceCareInformationSection);
 }

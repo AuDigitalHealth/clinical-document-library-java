@@ -4,17 +4,16 @@ import au.net.electronichealth.ns.cda._2_0.StrucDocText;
 
 public interface Plan {
 
-  ArrangedServices getArrangedServices();
+    ArrangedServices getArrangedServices();
 
-  RecordOfRecommendationsAndInfoProvided getRecordOfRecommendationsAndInfoProvided();
+    RecordOfRecommendationsAndInfoProvided getRecordOfRecommendationsAndInfoProvided();
 
-  void setArrangedServices(ArrangedServices arrangedServices);
+    void setArrangedServices(ArrangedServices arrangedServices);
 
-  void setRecordOfRecommendationsAndInfoProvided(
-      RecordOfRecommendationsAndInfoProvided recordOfRecommendationsAndInfoProvided);
+    void setRecordOfRecommendationsAndInfoProvided(
+            RecordOfRecommendationsAndInfoProvided recordOfRecommendationsAndInfoProvided);
 
+    StrucDocText getCustomNarrative();
 
-  StrucDocText getCustomNarrative();
-
-  void setCustomNarrative(StrucDocText customNarrative);
+    void setCustomNarrative(StrucDocText customNarrative);
 }

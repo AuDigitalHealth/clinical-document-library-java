@@ -15,5 +15,5 @@
 package au.gov.nehta.model.clinical.common.participation;
 
 public interface Device {
-	String getDeviceName();
+    String getDeviceName();
 }

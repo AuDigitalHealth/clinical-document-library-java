@@ -19,43 +19,44 @@ import au.gov.nehta.model.cda.common.prescription.Observations;
 import au.gov.nehta.model.clinical.etp.common.item.Logo;
 
 public class EPrescriptionContentImpl implements EPrescriptionContent {
-	private PrescriptionItem prescriptionItem;
-	private Observations observations;
-	private PrescriptionNoteDetail prescriptionNoteDetail;
-	private Logo logo;
-	
-	public EPrescriptionContentImpl( PrescriptionItem prescriptionItem ) {
-		ArgumentUtils.checkNotNull( prescriptionItem, "prescriptionItem" );
-		this.prescriptionItem = prescriptionItem;
-	}
 
-	public PrescriptionItem getPrescriptionItem() {
-		return prescriptionItem;
-	}
+    private PrescriptionItem prescriptionItem;
+    private Observations observations;
+    private PrescriptionNoteDetail prescriptionNoteDetail;
+    private Logo logo;
 
-	public Observations getObservations() {
-		return observations;
-	}
+    public EPrescriptionContentImpl(PrescriptionItem prescriptionItem) {
+        ArgumentUtils.checkNotNull(prescriptionItem, "prescriptionItem");
+        this.prescriptionItem = prescriptionItem;
+    }
 
-	public PrescriptionNoteDetail getPrescriptionNoteDetail() {
-		return this.prescriptionNoteDetail;
-	}
+    public PrescriptionItem getPrescriptionItem() {
+        return prescriptionItem;
+    }
 
-	public void setObservations( Observations observations ) {
-		this.observations = observations;
-	}
+    public Observations getObservations() {
+        return observations;
+    }
 
-	public void setPrescriptionNoteDetail( PrescriptionNoteDetail prescriptionNoteDetail ) {
-		this.prescriptionNoteDetail = prescriptionNoteDetail;
-	}
+    public PrescriptionNoteDetail getPrescriptionNoteDetail() {
+        return this.prescriptionNoteDetail;
+    }
 
-	public boolean hasObservations() {
-		return this.observations != null;
-	}
+    public void setObservations(Observations observations) {
+        this.observations = observations;
+    }
 
-	public boolean hasPrescriptionNoteDetail() {
-		return this.prescriptionNoteDetail != null;
-	}
+    public void setPrescriptionNoteDetail(PrescriptionNoteDetail prescriptionNoteDetail) {
+        this.prescriptionNoteDetail = prescriptionNoteDetail;
+    }
+
+    public boolean hasObservations() {
+        return this.observations != null;
+    }
+
+    public boolean hasPrescriptionNoteDetail() {
+        return this.prescriptionNoteDetail != null;
+    }
 
     @Override
     public Logo getLogo() {
@@ -63,8 +64,8 @@ public class EPrescriptionContentImpl implements EPrescriptionContent {
     }
 
     @Override
-    public void setLogo( Logo logo ) {
-        ArgumentUtils.checkNotNull( logo, "prescription item logo" );
-        this.logo=logo;
+    public void setLogo(Logo logo) {
+        ArgumentUtils.checkNotNull(logo, "prescription item logo");
+        this.logo = logo;
     }
 }

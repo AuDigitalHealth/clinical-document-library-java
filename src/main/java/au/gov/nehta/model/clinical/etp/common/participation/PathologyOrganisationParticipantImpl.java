@@ -16,5 +16,4 @@ public abstract class PathologyOrganisationParticipantImpl extends ParticipantIm
     public Organisation getOrganisation() {
         return organisation;
     }
-
 }

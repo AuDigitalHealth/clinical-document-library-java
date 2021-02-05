@@ -8,31 +8,27 @@ import au.gov.nehta.model.clinical.etp.common.participation.ParticipationService
 
 public interface DischargeSummaryContext {
 
-  DocumentAuthor getDocumentAuthor();
+    DocumentAuthor getDocumentAuthor();
 
-  SubjectOfCareParticipant getSubjectOfCare();
+    SubjectOfCareParticipant getSubjectOfCare();
 
-  ParticipationServiceProvider getFacility();
+    ParticipationServiceProvider getFacility();
 
-  RestrictedTimeInterval getEncounterPeriod();
+    RestrictedTimeInterval getEncounterPeriod();
 
-  PreciseDate getDateTimeAttested();
+    PreciseDate getDateTimeAttested();
 
-  String getCareSetting();
+    String getCareSetting();
 
+    void setDocumentAuthor(DocumentAuthor documentAuthor);
 
-  void setDocumentAuthor(DocumentAuthor documentAuthor);
+    void setSubjectOfCareParticipant(SubjectOfCareParticipant subjectOfCareParticipant);
 
-  void setSubjectOfCareParticipant(
-      SubjectOfCareParticipant subjectOfCareParticipant);
+    void setFacility(ParticipationServiceProvider facility);
 
-  void setFacility(
-      ParticipationServiceProvider facility);
+    void setEncounterPeriod(RestrictedTimeInterval encounterPeriod);
 
-  void setEncounterPeriod(RestrictedTimeInterval encounterPeriod);
+    void setDateTimeAttested(PreciseDate dateTimeAttested);
 
-  void setDateTimeAttested(PreciseDate dateTimeAttested);
-
-  void setCareSetting(String careSetting);
-
+    void setCareSetting(String careSetting);
 }

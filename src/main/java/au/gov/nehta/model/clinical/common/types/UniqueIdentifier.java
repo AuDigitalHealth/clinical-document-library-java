@@ -18,16 +18,15 @@ import au.net.electronichealth.ns.cda._2_0.NullFlavor;
 
 public interface UniqueIdentifier {
 
-	String getRoot();
+    String getRoot();
 
-	String getExtension();
-	
-	String getAssigningAuthorityName();
+    String getExtension();
 
-	String getAssigningGeographicArea();
+    String getAssigningAuthorityName();
 
-	Boolean getDisplayable();
-	
-	NullFlavor getNullFlavour();
-	
+    String getAssigningGeographicArea();
+
+    Boolean getDisplayable();
+
+    NullFlavor getNullFlavour();
 }

@@ -32,7 +32,7 @@ public class AttachedMedia {
    * - au.gov.nehta.model.cda.common.id.TemplateId - au.gov.nehta.builder.psml.PharmacistSharedMedicinesListCreator.getPSMLSection()
    *
    * Where each entry in the list of attached media requires a template id to be present as per
-   * example xml example below :
+   * example xml below :
    *
    * <entry>
    * <templateId root="1.2.36.1.2001.1001.101.102.16883"/>

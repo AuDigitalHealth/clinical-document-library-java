@@ -2,11 +2,11 @@ package au.gov.nehta.model.clinical.acd;
 
 public interface AdvanceCareDirective {
 
-  AdvanceCareDirectiveContext getContext();
+    AdvanceCareDirectiveContext getContext();
 
-  void setContext(AdvanceCareDirectiveContext context);
+    void setContext(AdvanceCareDirectiveContext context);
 
-  AdvanceCareDirectiveContent getContent();
+    AdvanceCareDirectiveContent getContent();
 
-  void setContent(AdvanceCareDirectiveContent content);
+    void setContent(AdvanceCareDirectiveContent content);
 }

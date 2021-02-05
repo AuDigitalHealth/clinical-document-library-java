@@ -8,40 +8,40 @@ import au.gov.nehta.model.clinical.common.participation.RoleImpl;
 
 /**
  * Combines a participant and their role.
- * @author NeHTA
  *
+ * @author NeHTA
  */
 public class DispenserParticipationImpl implements DispenserParticipation {
-	private Role role;
-	private DispenserParticipant participant;
-	
-	public static final Role PHARMACIST = new RoleImpl(pharmaCode());
-	
+    private Role role;
+    private DispenserParticipant participant;
+
+    public static final Role PHARMACIST = new RoleImpl(pharmaCode());
+
     /**
-     * creates a new DispenserParticipation impl with a default role of DispenserParticipationImpl.PHARMACIST
-     * the role code may be overriden via the setRole() method.
-     * 
+     * Creates a new DispenserParticipation impl with a default role of DispenserParticipationImpl.PHARMACIST
+     * The role code may be overridden via the setRole() method.
+     *
      * @param participant DispenserParticipant
      */
-	public DispenserParticipationImpl( DispenserParticipant participant ) {
-		ArgumentUtils.checkNotNull( participant, "participant" );
-		this.role = PHARMACIST;
-		this.participant = participant;
-	}
-
-	public Role getRole() {
-		return role;
-	}
-	
-	public void setRole(Role role) {
-        this.role=role;
+    public DispenserParticipationImpl(DispenserParticipant participant) {
+        ArgumentUtils.checkNotNull(participant, "participant");
+        this.role = PHARMACIST;
+        this.participant = participant;
     }
 
-	public DispenserParticipant getParticipant() {
-		return participant;
-	}
-	
-	private static final Coded pharmaCode(){
-	    return ANZSCO_1ED_2006.PHARMACISTS;
-	}
+    public Role getRole() {
+        return role;
+    }
+
+    public void setRole(Role role) {
+        this.role = role;
+    }
+
+    public DispenserParticipant getParticipant() {
+        return participant;
+    }
+
+    private static final Coded pharmaCode() {
+        return ANZSCO_1ED_2006.PHARMACISTS;
+    }
 }

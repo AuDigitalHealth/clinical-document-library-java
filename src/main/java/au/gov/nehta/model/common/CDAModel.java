@@ -8,12 +8,11 @@ import java.util.List;
 
 public interface CDAModel {
 
-	public abstract BaseClinicalDocument getBaseClinicalDocument();
+    BaseClinicalDocument getBaseClinicalDocument();
 
-	public abstract LegalAuthenticator getLegalAuthenticator();
+    LegalAuthenticator getLegalAuthenticator();
 
-	public abstract Custodian getCustodian();
+    Custodian getCustodian();
 
-	public abstract List<InformationRecipient> getInformationRecipients();
-
+    List<InformationRecipient> getInformationRecipients();
 }

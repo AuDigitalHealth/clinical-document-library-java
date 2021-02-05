@@ -21,43 +21,39 @@ import au.gov.nehta.model.clinical.common.types.UniqueIdentifier;
 import au.gov.nehta.model.clinical.common.types.UniqueIdentifierImpl;
 
 public class PathologyReportContentImpl implements PathologyReportContent {
-	private List<PathologyResult> pathologyResults;
-	private UniqueIdentifier id = UniqueIdentifierImpl.random();
-	private ReportDocument doc;
-	private DocumentParticipant author;
-	  
+    private List<PathologyResult> pathologyResults;
+    private UniqueIdentifier id = UniqueIdentifierImpl.random();
+    private ReportDocument doc;
+    private DocumentParticipant author;
 
-    public PathologyReportContentImpl( List<PathologyResult> pathologyResults, ReportDocument doc, DocumentParticipant author ) {
-        ArgumentUtils.checkNotNullNorEmpty( pathologyResults, "pathologyResults" );
-        ArgumentUtils.checkNotNull( doc, "Document" );
-        ArgumentUtils.checkNotNull( author, "Author" );
+    public PathologyReportContentImpl(List<PathologyResult> pathologyResults, ReportDocument doc, DocumentParticipant author) {
+        ArgumentUtils.checkNotNullNorEmpty(pathologyResults, "pathologyResults");
+        ArgumentUtils.checkNotNull(doc, "Document");
+        ArgumentUtils.checkNotNull(author, "Author");
         this.pathologyResults = pathologyResults;
         this.doc = doc;
         this.author = author;
     }
-    
-    
+
     @Override
     public List<PathologyResult> getPathologyResults() {
         return pathologyResults;
     }
-
 
     @Override
     public UniqueIdentifier getId() {
         return id;
     }
 
-
     /**
      * Set the ID for the Pathology Section of the CDA document.
      * If not explicitly set this will become a random UUID.
-     * @param id
+     *
+     * @param id UniqueIdentifier for the id of the Pathology section.
      */
-    public void setId( UniqueIdentifier id ) {
+    public void setId(UniqueIdentifier id) {
         this.id = id;
     }
-
 
     @Override
     public ReportDocument getRelatedDocument() {

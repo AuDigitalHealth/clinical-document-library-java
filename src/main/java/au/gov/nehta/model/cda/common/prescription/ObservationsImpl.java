@@ -17,29 +17,28 @@ package au.gov.nehta.model.cda.common.prescription;
 import au.gov.nehta.model.clinical.etp.eprescription.BodyHeight;
 import au.gov.nehta.model.clinical.etp.eprescription.BodyWeight;
 
-
 public class ObservationsImpl implements Observations {
-	private final BodyWeight bodyWeight;
-	private final BodyHeight bodyHeight;
+    private final BodyWeight bodyWeight;
+    private final BodyHeight bodyHeight;
 
-	public ObservationsImpl(BodyHeight bodyHeight,BodyWeight bodyWeight) {
-	    this.bodyHeight=bodyHeight;
-	    this.bodyWeight=bodyWeight;
-	}
+    public ObservationsImpl(BodyHeight bodyHeight, BodyWeight bodyWeight) {
+        this.bodyHeight = bodyHeight;
+        this.bodyWeight = bodyWeight;
+    }
 
-	public BodyWeight getBodyWeight() {
-		return bodyWeight;
-	}
+    public BodyWeight getBodyWeight() {
+        return bodyWeight;
+    }
 
-	public BodyHeight getBodyHeight() {
-		return bodyHeight;
-	}
+    public BodyHeight getBodyHeight() {
+        return bodyHeight;
+    }
 
-	public boolean hasBodyWeight() {
-		return this.bodyWeight != null;
-	}
+    public boolean hasBodyWeight() {
+        return this.bodyWeight != null;
+    }
 
-	public boolean hasBodyHeight() {
-		return this.bodyHeight != null;
-	}
+    public boolean hasBodyHeight() {
+        return this.bodyHeight != null;
+    }
 }

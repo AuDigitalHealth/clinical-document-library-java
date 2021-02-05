@@ -1,17 +1,16 @@
 package au.gov.nehta.model.clinical.common;
 
 import au.gov.nehta.model.cda.common.code.Coded;
-import java.util.List;
 
+import java.util.List;
 
 public interface ReactionEvent {
 
-  List<Coded> getManifestations();
+    List<Coded> getManifestations();
 
-  void setManifestations(List<Coded> manifestations);
+    void setManifestations(List<Coded> manifestations);
 
-  Coded getReactionType();
+    Coded getReactionType();
 
-  void setReactionType(Coded reactionType);
-
+    void setReactionType(Coded reactionType);
 }

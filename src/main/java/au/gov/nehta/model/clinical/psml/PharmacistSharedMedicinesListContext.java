@@ -7,28 +7,27 @@ import au.gov.nehta.model.clinical.etp.common.participation.ParticipationService
 
 public interface PharmacistSharedMedicinesListContext {
 
-  DocumentAuthor getDocumentAuthor();
+    DocumentAuthor getDocumentAuthor();
 
-  void setDocumentAuthor(DocumentAuthor documentAuthor);
+    void setDocumentAuthor(DocumentAuthor documentAuthor);
 
-  SubjectOfCareParticipant getSubjectOfCare();
+    SubjectOfCareParticipant getSubjectOfCare();
 
-  void setSubjectOfCare(SubjectOfCareParticipant subjectOfCare);
+    void setSubjectOfCare(SubjectOfCareParticipant subjectOfCare);
 
-  PreciseDate getDateTimeAuthored();
+    PreciseDate getDateTimeAuthored();
 
-  void setDateTimeAuthored(PreciseDate dateTimeAuthored);
+    void setDateTimeAuthored(PreciseDate dateTimeAuthored);
 
-  void setDateTimeAttested(PreciseDate dateTimeAttested);
+    void setDateTimeAttested(PreciseDate dateTimeAttested);
 
-  PreciseDate getDateTimeAttested();
+    PreciseDate getDateTimeAttested();
 
-  ParticipationServiceProvider getParticipant();
+    ParticipationServiceProvider getParticipant();
 
-  void setParticipant(ParticipationServiceProvider participant);
+    void setParticipant(ParticipationServiceProvider participant);
 
-  ParticipationServiceProvider getFacility();
+    ParticipationServiceProvider getFacility();
 
-  void setFacility(ParticipationServiceProvider participationServiceProvider);
-
+    void setFacility(ParticipationServiceProvider participationServiceProvider);
 }

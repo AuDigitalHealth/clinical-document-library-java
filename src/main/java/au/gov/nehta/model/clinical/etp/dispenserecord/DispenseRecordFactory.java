@@ -18,41 +18,41 @@ package au.gov.nehta.model.clinical.etp.dispenserecord;
  * @deprecated
  */
 public class DispenseRecordFactory {
-//	public static DispenseRecord createDispenseRecord( DispenseRecordContext context, DispenseRecordContent content ) {
-//		return (DispenseRecord) new DispenseRecordImpl( context, content );
-//	}
+//    public static DispenseRecord createDispenseRecord( DispenseRecordContext context, DispenseRecordContent content ) {
+//        return (DispenseRecord) new DispenseRecordImpl( context, content );
+//    }
 
-//	public static DispenseRecordContext createDispenseRecordContext( SubjectOfCareParticipation subjectOfCare, DispenserParticipation dispenser,
-//			DispensingOrganisationParticipation dispensingOrganisation ) {
-//		return (DispenseRecordContext) new DispenseRecordContextImpl( subjectOfCare, dispenser, dispensingOrganisation );
-//	}
+//    public static DispenseRecordContext createDispenseRecordContext( SubjectOfCareParticipation subjectOfCare, DispenserParticipation dispenser,
+//            DispensingOrganisationParticipation dispensingOrganisation ) {
+//        return (DispenseRecordContext) new DispenseRecordContextImpl( subjectOfCare, dispenser, dispensingOrganisation );
+//    }
 
-//	public static DispenseRecordContent createDispenseRecordContent( DispenseItem dispenseItem ) {
-//		return (DispenseRecordContent) new DispenseRecordContentImpl( dispenseItem );
-//	}
+//    public static DispenseRecordContent createDispenseRecordContent( DispenseItem dispenseItem ) {
+//        return (DispenseRecordContent) new DispenseRecordContentImpl( dispenseItem );
+//    }
 
-//	public static DispenseItem createDispenseItem( DispenseItemIdentifier dispenseItemIdentifier, Date dispenseEventTime, PrescriptionItemIdentifier prescriptionItemIdentifier,
-//			Code therapeuticGoodIdentification, String quantityOfTherapeuticGood, Boolean brandSubstitutionOccurred, Integer maximumNumberOfRepeats,
-//			Integer numberOfThisDispense, ClaimCategoryType claimCategoryType ) {
+//    public static DispenseItem createDispenseItem( DispenseItemIdentifier dispenseItemIdentifier, Date dispenseEventTime, PrescriptionItemIdentifier prescriptionItemIdentifier,
+//            Code therapeuticGoodIdentification, String quantityOfTherapeuticGood, Boolean brandSubstitutionOccurred, Integer maximumNumberOfRepeats,
+//            Integer numberOfThisDispense, ClaimCategoryType claimCategoryType ) {
 //
-//		return (DispenseItem) new DispenseItemImpl( dispenseItemIdentifier, dispenseEventTime, prescriptionItemIdentifier, therapeuticGoodIdentification, quantityOfTherapeuticGood,
-//				brandSubstitutionOccurred, maximumNumberOfRepeats, numberOfThisDispense, claimCategoryType );
-//	}
+//        return (DispenseItem) new DispenseItemImpl( dispenseItemIdentifier, dispenseEventTime, prescriptionItemIdentifier, therapeuticGoodIdentification, quantityOfTherapeuticGood,
+//                brandSubstitutionOccurred, maximumNumberOfRepeats, numberOfThisDispense, claimCategoryType );
+//    }
 
-//	public static DispenseItemIdentifier createDispenseItemIdentifier() {
-//		return new DispenseItemIdentifier();
-//	}
+//    public static DispenseItemIdentifier createDispenseItemIdentifier() {
+//        return new DispenseItemIdentifier();
+//    }
 //
-//	public static DispenseItemIdentifier createDispenseItemIdentifier( String root ) {
-//		DispenseItemIdentifier dispenseItemIdentifier = new DispenseItemIdentifier();
-//		dispenseItemIdentifier.setRoot( root );
-//		return dispenseItemIdentifier;
-//	}
+//    public static DispenseItemIdentifier createDispenseItemIdentifier( String root ) {
+//        DispenseItemIdentifier dispenseItemIdentifier = new DispenseItemIdentifier();
+//        dispenseItemIdentifier.setRoot( root );
+//        return dispenseItemIdentifier;
+//    }
 //
-//	public static DispenseItemIdentifier createDispenseItemIdentifier( String root, String extension ) {
-//		DispenseItemIdentifier dispenseItemIdentifier = new DispenseItemIdentifier();
-//		dispenseItemIdentifier.setRoot( root );
-//		dispenseItemIdentifier.setExtension( extension );
-//		return dispenseItemIdentifier;
-//	}
+//    public static DispenseItemIdentifier createDispenseItemIdentifier( String root, String extension ) {
+//        DispenseItemIdentifier dispenseItemIdentifier = new DispenseItemIdentifier();
+//        dispenseItemIdentifier.setRoot( root );
+//        dispenseItemIdentifier.setExtension( extension );
+//        return dispenseItemIdentifier;
+//    }
 }

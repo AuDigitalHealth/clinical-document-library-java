@@ -1,6 +1,5 @@
 package au.gov.nehta.model.clinical.sr;
 
-
 import au.gov.nehta.model.clinical.common.MedicalHistory;
 import au.gov.nehta.model.clinical.es.DiagnosticInvestigations;
 import au.gov.nehta.model.clinical.es.Medications;
@@ -9,39 +8,39 @@ import au.net.electronichealth.ns.cda._2_0.StrucDocText;
 
 public interface ServiceReferralContent {
 
-  ServiceReferralDetail getServiceReferralDetail();
+    ServiceReferralDetail getServiceReferralDetail();
 
-  void setServiceReferralDetail(ServiceReferralDetail serviceReferralDetail);
+    void setServiceReferralDetail(ServiceReferralDetail serviceReferralDetail);
 
-  CurrentServices getCurrentServices();
+    CurrentServices getCurrentServices();
 
-  void setCurrentServices(CurrentServices currentServices);
+    void setCurrentServices(CurrentServices currentServices);
 
-  AdverseReactions getAdverseReactions();
+    AdverseReactions getAdverseReactions();
 
-  void setAdverseReactions(AdverseReactions adverseReactions);
+    void setAdverseReactions(AdverseReactions adverseReactions);
 
-  Medications getMedications();
+    Medications getMedications();
 
-  void setMedications(Medications medications);
+    void setMedications(Medications medications);
 
-  MedicalHistory getPastAndCurrentMedicalHistory();
+    MedicalHistory getPastAndCurrentMedicalHistory();
 
-  void setPastAndCurrentMedicalHistory(MedicalHistory pastAndCurrentMedicalHistory);
+    void setPastAndCurrentMedicalHistory(MedicalHistory pastAndCurrentMedicalHistory);
 
-  DiagnosticInvestigations getDiagnosticInvestigations();
+    DiagnosticInvestigations getDiagnosticInvestigations();
 
-  void setDiagnosticInvestigations(DiagnosticInvestigations diagnosticInvestigations);
+    void setDiagnosticInvestigations(DiagnosticInvestigations diagnosticInvestigations);
 
-  void setReportFile(AttachedMedia reportFile);
+    void setReportFile(AttachedMedia reportFile);
 
-  AttachedMedia getReportFile();
+    AttachedMedia getReportFile();
 
-  void setCustomNarrativeText(StrucDocText customNarrativeText);
+    void setCustomNarrativeText(StrucDocText customNarrativeText);
 
-  StrucDocText getCustomNarrativeText();
+    StrucDocText getCustomNarrativeText();
 
-  void setCustomNarrativeTitle(String customNarrativeTitle);
+    void setCustomNarrativeTitle(String customNarrativeTitle);
 
-  String getCustomNarrativeTitle();
+    String getCustomNarrativeTitle();
 }

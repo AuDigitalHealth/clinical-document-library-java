@@ -29,7 +29,7 @@ public abstract class OrganisationParticipantImpl extends ParticipantImpl implem
     }
 
 
-    public void setHealthCareFacilityID( String healthCareFacilityID ) {
+    public void setHealthCareFacilityID(String healthCareFacilityID) {
         this.healthCareFacilityID = healthCareFacilityID;
     }
 }

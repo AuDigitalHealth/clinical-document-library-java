@@ -6,12 +6,11 @@ import au.gov.nehta.model.common.CDAModel;
 
 public interface ReferralModel extends CDAModel {
 
-	public abstract ClinicalDocument getClinicalDocument();
-	
-	public abstract ReferralAuthor getAuthor();
+    public abstract ClinicalDocument getClinicalDocument();
 
-	public abstract ReferralParticipant getReferee();
+    public abstract ReferralAuthor getAuthor();
 
-	public abstract SubjectOfCareParticipant getSubjectOfCare();
+    public abstract ReferralParticipant getReferee();
 
+    public abstract SubjectOfCareParticipant getSubjectOfCare();
 }

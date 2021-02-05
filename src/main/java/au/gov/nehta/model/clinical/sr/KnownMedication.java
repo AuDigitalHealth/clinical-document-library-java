@@ -4,20 +4,19 @@ import au.gov.nehta.model.cda.common.code.Coded;
 
 public interface KnownMedication {
 
-  Coded getTherapeuticGoodIdentification();
+    Coded getTherapeuticGoodIdentification();
 
-  void setTherapeuticGoodIdentification(Coded therapeuticGoodIdentification);
+    void setTherapeuticGoodIdentification(Coded therapeuticGoodIdentification);
 
-  String getDirections();
+    String getDirections();
 
-  void setDirections(String directions);
+    void setDirections(String directions);
 
-  String getClinicalIndication();
+    String getClinicalIndication();
 
-  void setClinicalIndication(String clinicalIndication);
+    void setClinicalIndication(String clinicalIndication);
 
-  String getMedicationInstructionComment();
+    String getMedicationInstructionComment();
 
-  void setMedicationInstructionComment(String medicationInstructionComment);
-
+    void setMedicationInstructionComment(String medicationInstructionComment);
 }

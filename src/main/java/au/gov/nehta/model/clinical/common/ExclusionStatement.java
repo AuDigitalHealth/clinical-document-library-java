@@ -4,13 +4,11 @@ import au.gov.nehta.model.cda.common.code.Coded;
 
 public interface ExclusionStatement {
 
-  Coded getGlobalStatement();
+    Coded getGlobalStatement();
 
-  void setGlobalStatement(Coded globalStatement);
+    void setGlobalStatement(Coded globalStatement);
 
-  Coded getExclusionStatement();
+    Coded getExclusionStatement();
 
-  void setExclusionStatement(Coded exclusionStatement);
-
-
+    void setExclusionStatement(Coded exclusionStatement);
 }

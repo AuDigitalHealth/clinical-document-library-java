@@ -13,26 +13,26 @@
  */
 package au.gov.nehta.model.clinical.etp.prescriptionrequest;
 
-import org.joda.time.DateTime;
-
 import au.gov.nehta.model.clinical.common.SubjectOfCareParticipant;
 import au.gov.nehta.model.clinical.etp.common.participation.DispenserParticipation;
 import au.gov.nehta.model.clinical.etp.common.participation.DispensingOrganisationParticipation;
 import au.gov.nehta.model.clinical.etp.common.participation.PrescriberOrganisationParticipation;
 import au.gov.nehta.model.clinical.etp.common.participation.PrescriberParticipation;
 
+import java.time.ZonedDateTime;
+
 public interface PrescriptionRequestContext {
-	SubjectOfCareParticipant getSubjectOfCare();
+    SubjectOfCareParticipant getSubjectOfCare();
 
-	DispenserParticipation getDispenser();
+    DispenserParticipation getDispenser();
 
-	DispensingOrganisationParticipation getDispensingOrganisation();
+    DispensingOrganisationParticipation getDispensingOrganisation();
 
-	PrescriberParticipation getPrescriber();
+    PrescriberParticipation getPrescriber();
 
-	PrescriberOrganisationParticipation getPrescriberOrganisation();
+    PrescriberOrganisationParticipation getPrescriberOrganisation();
 
-	PrescriptionRequestIdentifier getPrescriptionRequestIdentifier();
+    PrescriptionRequestIdentifier getPrescriptionRequestIdentifier();
 
-	DateTime getDateTimePrescriptionRequestWritten();
+    ZonedDateTime getDateTimePrescriptionRequestWritten();
 }

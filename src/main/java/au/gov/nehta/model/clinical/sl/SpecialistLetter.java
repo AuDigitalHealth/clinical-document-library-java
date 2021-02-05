@@ -3,11 +3,11 @@ package au.gov.nehta.model.clinical.sl;
 
 public interface SpecialistLetter {
 
-  SpecialistLetterContext getContext();
+    SpecialistLetterContext getContext();
 
-  void setContext(SpecialistLetterContext specialistLetterContext);
+    void setContext(SpecialistLetterContext specialistLetterContext);
 
-  SpecialistLetterContent getContent();
+    SpecialistLetterContent getContent();
 
-  void setContent(SpecialistLetterContent specialistLetterContent);
+    void setContent(SpecialistLetterContent specialistLetterContent);
 }

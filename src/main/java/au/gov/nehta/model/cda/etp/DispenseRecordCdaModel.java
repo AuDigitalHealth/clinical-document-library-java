@@ -7,14 +7,17 @@ import au.gov.nehta.model.common.CDAModelImpl;
 
 public class DispenseRecordCdaModel extends CDAModelImpl {
 
-	public DispenseRecordCdaModel( BaseClinicalDocument clinicalDocument, LegalAuthenticator legalAuthenticator, Custodian custodian, String assignedAuthorId,
-			String healthCareFacilityId ) {
-	    super(clinicalDocument,legalAuthenticator,custodian);
-	    
-	}
-	
-	public DispenseRecordCdaModel( BaseClinicalDocument clinicalDocument, LegalAuthenticator legalAuthenticator, Custodian custodian,  String assignedAuthorId
-           ) {
-	    super(clinicalDocument,legalAuthenticator,custodian);
+    public DispenseRecordCdaModel(BaseClinicalDocument clinicalDocument,
+                                  LegalAuthenticator legalAuthenticator,
+                                  Custodian custodian, String assignedAuthorId,
+                                  String healthCareFacilityId) {
+        super(clinicalDocument, legalAuthenticator, custodian);
+
+    }
+
+    public DispenseRecordCdaModel(BaseClinicalDocument clinicalDocument,
+                                  LegalAuthenticator legalAuthenticator,
+                                  Custodian custodian, String assignedAuthorId) {
+        super(clinicalDocument, legalAuthenticator, custodian);
     }
 }

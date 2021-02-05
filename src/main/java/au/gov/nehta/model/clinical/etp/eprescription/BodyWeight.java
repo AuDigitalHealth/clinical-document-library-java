@@ -17,9 +17,10 @@ package au.gov.nehta.model.clinical.etp.eprescription;
 import au.gov.nehta.model.cda.common.time.PreciseDate;
 
 public interface BodyWeight {
-	public String getValue();
 
-	public PreciseDate getDateTimeOfObservation();
+    public String getValue();
 
-	public String getUnit();
+    public PreciseDate getDateTimeOfObservation();
+
+    public String getUnit();
 }

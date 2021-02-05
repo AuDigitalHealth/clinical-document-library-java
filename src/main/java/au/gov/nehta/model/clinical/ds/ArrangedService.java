@@ -7,22 +7,22 @@ import au.net.electronichealth.ns.cda._2_0.XDocumentActMood;
 
 public interface ArrangedService {
 
-  Coded getArrangedServiceDesc();
+    Coded getArrangedServiceDesc();
 
-  RestrictedTimeInterval getServiceCommencementWindow();
+    RestrictedTimeInterval getServiceCommencementWindow();
 
-  EventTypes getServiceBookingStatus();
+    EventTypes getServiceBookingStatus();
 
-  Protocol getProtocol();
+    Protocol getProtocol();
 
-  void setArrangedServiceDesc(Coded arrangedServiceDesc);
+    void setArrangedServiceDesc(Coded arrangedServiceDesc);
 
-  void setServiceCommencementWindow(
-      RestrictedTimeInterval serviceCommencementWindow);
+    void setServiceCommencementWindow(
+            RestrictedTimeInterval serviceCommencementWindow);
 
-  void setServiceBookingStatus(EventTypes serviceBookingStatus);
+    void setServiceBookingStatus(EventTypes serviceBookingStatus);
 
-  void setProtocol(Protocol protocol);
+    void setProtocol(Protocol protocol);
 
-  XDocumentActMood getServiceBookingStatusMoodCode();
+    XDocumentActMood getServiceBookingStatusMoodCode();
 }

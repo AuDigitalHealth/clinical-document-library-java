@@ -21,59 +21,59 @@ import au.gov.nehta.model.cda.common.code.Code;
 import au.gov.nehta.model.cda.common.code.Coded;
 
 public final class OccupationImpl implements Occupation {
-	private Boolean isCoded;
-	private String uncodedValue;
-	private Coded codedValue;
+    private Boolean isCoded;
+    private String uncodedValue;
+    private Coded codedValue;
 
-	public OccupationImpl( String uncodedValue ) {
-		ArgumentUtils.checkNotNull( uncodedValue, "uncodedValue" );
-		this.isCoded = false;
-		this.uncodedValue = uncodedValue;
-	}
+    public OccupationImpl(String uncodedValue) {
+        ArgumentUtils.checkNotNull(uncodedValue, "uncodedValue");
+        this.isCoded = false;
+        this.uncodedValue = uncodedValue;
+    }
 
-	public OccupationImpl( ANZSCO_1ED_2006 codedValue ) {
-		ArgumentUtils.checkNotNull( codedValue, "codedValue" );
-		this.isCoded = true;
-		this.codedValue = codedValue;
-	}
-	
-	public OccupationImpl( Coded codedValue ) {
-        ArgumentUtils.checkNotNull( codedValue, "codedValue" );
+    public OccupationImpl(ANZSCO_1ED_2006 codedValue) {
+        ArgumentUtils.checkNotNull(codedValue, "codedValue");
         this.isCoded = true;
         this.codedValue = codedValue;
     }
 
-	public boolean isCoded() {
-		return isCoded;
-	}
+    public OccupationImpl(Coded codedValue) {
+        ArgumentUtils.checkNotNull(codedValue, "codedValue");
+        this.isCoded = true;
+        this.codedValue = codedValue;
+    }
 
-	public String getUncodedValue() {
-		return uncodedValue;
-	}
+    public boolean isCoded() {
+        return isCoded;
+    }
 
-	public String getOriginalText() {
-		return codedValue.getOriginalText();
-	}
+    public String getUncodedValue() {
+        return uncodedValue;
+    }
 
-	public String getCode() {
-		return codedValue.getCode();
-	}
-	
-	public String getCodeSystem() {
-		return codedValue.getCodeSystem();
-	}
+    public String getOriginalText() {
+        return codedValue.getOriginalText();
+    }
 
-	public String getCodeSystemName() {
-		return codedValue.getCodeSystemName();
-	}
+    public String getCode() {
+        return codedValue.getCode();
+    }
 
-	public String getCodeSystemVersion() {
-		return codedValue.getCodeSystemVersion();
-	}
+    public String getCodeSystem() {
+        return codedValue.getCodeSystem();
+    }
 
-	public String getDisplayName() {
-		return codedValue.getDisplayName();
-	}
+    public String getCodeSystemName() {
+        return codedValue.getCodeSystemName();
+    }
+
+    public String getCodeSystemVersion() {
+        return codedValue.getCodeSystemVersion();
+    }
+
+    public String getDisplayName() {
+        return codedValue.getDisplayName();
+    }
 
     @Override
     public List<Code> getTranslations() {

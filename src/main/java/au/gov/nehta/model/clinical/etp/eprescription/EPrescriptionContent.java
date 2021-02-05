@@ -18,20 +18,22 @@ import au.gov.nehta.model.cda.common.prescription.Observations;
 import au.gov.nehta.model.clinical.etp.common.item.Logo;
 
 public interface EPrescriptionContent {
-	PrescriptionItem getPrescriptionItem();
 
-	Observations getObservations();
+    PrescriptionItem getPrescriptionItem();
 
-	PrescriptionNoteDetail getPrescriptionNoteDetail();
-	
-	Logo getLogo();
+    Observations getObservations();
 
-	void setLogo( Logo logo );
-	void setObservations( Observations observations );
+    PrescriptionNoteDetail getPrescriptionNoteDetail();
 
-	void setPrescriptionNoteDetail( PrescriptionNoteDetail prescriptionNoteDetail );
+    Logo getLogo();
 
-	boolean hasObservations();
+    void setLogo(Logo logo);
 
-	boolean hasPrescriptionNoteDetail();
+    void setObservations(Observations observations);
+
+    void setPrescriptionNoteDetail(PrescriptionNoteDetail prescriptionNoteDetail);
+
+    boolean hasObservations();
+
+    boolean hasPrescriptionNoteDetail();
 }

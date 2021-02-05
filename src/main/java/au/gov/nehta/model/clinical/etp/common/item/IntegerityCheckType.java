@@ -16,16 +16,16 @@ public enum IntegerityCheckType{
     private String digest;
     
     IntegerityCheckType(String digest){
-      this.digest=digest;
+      this.digest = digest;
     }
     
     public byte[] check(File file) {
-        byte[] check=null;
-        MessageDigest md=null;
+        byte[] check = null;
+        MessageDigest md = null;
         try {
-            md =  MessageDigest.getInstance(digest);
+            md = MessageDigest.getInstance(digest);
         } catch (NoSuchAlgorithmException e) {
-            System.err.print( "Error bootstrapping integrity check with digest type "+digest );
+            System.err.print( "Error bootstrapping integrity check with digest type " + digest );
             throw new RuntimeException(e);
         }
         
@@ -38,7 +38,7 @@ public enum IntegerityCheckType{
             md.update(b ); 
             check = md.digest();
         }catch(IOException e){
-            System.err.println("Error opening file "+file.getName());
+            System.err.println("Error opening file " + file.getName());
             throw new RuntimeException(e);
         }
         
@@ -50,22 +50,17 @@ public enum IntegerityCheckType{
     }
 
     public byte[] check( byte[] b ) {
-        byte[] check=null;
-        MessageDigest md=null;
+        byte[] check = null;
+        MessageDigest md = null;
         
         try {
             md =  MessageDigest.getInstance(digest);
             md.update(b ); 
             check = md.digest();
         } catch (NoSuchAlgorithmException e) {
-            System.err.print( "Error bootstrapping integrity check with digest type "+digest );
+            System.err.print( "Error bootstrapping integrity check with digest type " + digest );
             throw new RuntimeException(e);
         }
-        
-       
-     
-       
-      
         
         return check;
     }

@@ -16,6 +16,7 @@ package au.gov.nehta.model.clinical.common.types;
 
 
 public interface EnumTuple {
-    public String getCode(); 
-    public String getDescriptor();
+    String getCode();
+
+    String getDescriptor();
 }

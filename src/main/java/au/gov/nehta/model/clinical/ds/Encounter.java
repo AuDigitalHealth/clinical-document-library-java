@@ -4,43 +4,43 @@ import au.gov.nehta.model.cda.common.code.Coded;
 import au.gov.nehta.model.cda.common.time.RestrictedTimeInterval;
 import au.gov.nehta.model.clinical.etp.common.participation.ParticipationServiceProvider;
 import au.net.electronichealth.ns.cda._2_0.StrucDocText;
+
 import java.util.List;
 
 public interface Encounter {
 
-  RestrictedTimeInterval getEncounterPeriod();
+    RestrictedTimeInterval getEncounterPeriod();
 
-  Coded getSeparationMode();
+    Coded getSeparationMode();
 
-  List<Coded> getSpecialtyList();
+    List<Coded> getSpecialtyList();
 
-  String getLocationOfDischarge();
+    String getLocationOfDischarge();
 
-  /**
-   * Responsible Health Professional At Time Of Discharge
-   *
-   * @return @{@link ParticipationServiceProvider}
-   */
-  ParticipationServiceProvider getResponsibleHealthProfessionalAtDischarge();
+    /**
+     * Responsible Health Professional At Time Of Discharge
+     *
+     * @return @{@link ParticipationServiceProvider}
+     */
+    ParticipationServiceProvider getResponsibleHealthProfessionalAtDischarge();
 
-  List<ParticipationServiceProvider> getOtherParticipants();
+    List<ParticipationServiceProvider> getOtherParticipants();
 
-  void setEncounterPeriod(RestrictedTimeInterval encounterPeriod);
+    void setEncounterPeriod(RestrictedTimeInterval encounterPeriod);
 
-  void setSeparationMode(Coded separationMode);
+    void setSeparationMode(Coded separationMode);
 
-  void setSpecialtyList(List<Coded> specialtyList);
+    void setSpecialtyList(List<Coded> specialtyList);
 
-  void setLocationOfDischarge(String locationOfDischarge);
+    void setLocationOfDischarge(String locationOfDischarge);
 
-  void setResponsibleHealthProfessionalAtDischarge(
-      ParticipationServiceProvider responsibleHealthProfessionalAtDischarge);
+    void setResponsibleHealthProfessionalAtDischarge(
+            ParticipationServiceProvider responsibleHealthProfessionalAtDischarge);
 
-  void setOtherParticipant(
-      List<ParticipationServiceProvider> otherParticipants);
+    void setOtherParticipant(
+            List<ParticipationServiceProvider> otherParticipants);
 
-  StrucDocText getCustomNarrative();
+    StrucDocText getCustomNarrative();
 
-  void setCustomNarrative(StrucDocText customNarrative);
-
+    void setCustomNarrative(StrucDocText customNarrative);
 }

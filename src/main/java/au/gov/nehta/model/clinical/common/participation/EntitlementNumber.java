@@ -18,5 +18,5 @@ import au.gov.nehta.model.clinical.common.types.UniqueIdentifier;
 import au.gov.nehta.model.clinical.common.types.UniqueIdentifierImpl;
 
 public class EntitlementNumber extends UniqueIdentifierImpl implements UniqueIdentifier {
-	
+
 }

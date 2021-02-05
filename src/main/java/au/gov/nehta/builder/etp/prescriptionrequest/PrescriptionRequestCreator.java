@@ -58,203 +58,202 @@ import au.net.electronichealth.ns.cda._2_0.StrucDocText;
 import au.net.electronichealth.ns.ci.cda.extensions._3.Coverage2;
 
 public class PrescriptionRequestCreator extends ClinicalDocumentCreator {
-	// Constants
-//	private static final String INSTRUCTION_SECTION_TITLE = "Prescription Request Source Instruction";
+    // Constants
+//    private static final String INSTRUCTION_SECTION_TITLE = "Prescription Request Source Instruction";
 
-	private PrescriptionRequestCdaModel cdaModel;
-	private PrescriptionRequest clinicalModel;
+    private PrescriptionRequestCdaModel cdaModel;
+    private PrescriptionRequest clinicalModel;
 
-	public PrescriptionRequestCreator( PrescriptionRequestCdaModel cdaModel, PrescriptionRequest clinicalModel ) {
-		this.cdaModel = cdaModel;
-		this.clinicalModel = clinicalModel;
-		
-		this.resource = SchematronResources.PRESCRIPTION_REQUEST_3B.resource();
-	}
-	
-	/**
+    public PrescriptionRequestCreator(PrescriptionRequestCdaModel cdaModel, PrescriptionRequest clinicalModel) {
+        this.cdaModel = cdaModel;
+        this.clinicalModel = clinicalModel;
+
+        this.resource = SchematronResources.PRESCRIPTION_REQUEST_3B.resource();
+    }
+
+    /**
      * Create the prescription request DOM document with a default stylesheet of
      * NEHTA_Generic_CDA_Stylesheet.xsl
-     * 
+     *
      * @return
      * @throws ParserConfigurationException
      * @throws JAXBException
-	 * @throws SchematronValidationException 
+     * @throws SchematronValidationException
      */
-	//not yet release
-	private Document create()throws ParserConfigurationException, JAXBException, SchematronValidationException{
-	    return create( "NEHTA_Generic_CDA_Stylesheet.xsl" );
-	}
+    //not yet release
+    private Document create() throws ParserConfigurationException, JAXBException, SchematronValidationException {
+        return create("NEHTA_Generic_CDA_Stylesheet.xsl");
+    }
 
-	//not yet released
-	private Document create(String stylesheetName) throws ParserConfigurationException, JAXBException, SchematronValidationException {
-		// Construct clinical document with headers
-		POCDMT000040ClinicalDocument clinicalDocument = HeaderUtil
-				.createClinicalDocument( cdaModel.getBaseClinicalDocument() );
-		clinicalDocument.setCode( SectionEntryCodeSet.PRESCRIPTION_REQUEST );
+    // not yet released
+    private Document create(String stylesheetName) throws ParserConfigurationException, JAXBException, SchematronValidationException {
+        // Construct clinical document with headers
+        POCDMT000040ClinicalDocument clinicalDocument = HeaderUtil
+                .createClinicalDocument(cdaModel.getBaseClinicalDocument());
+        clinicalDocument.setCode(SectionEntryCodeSet.PRESCRIPTION_REQUEST);
 
-		// Construct Legal Authenticator
-		clinicalDocument.setLegalAuthenticator( HeaderUtil.createLegalAuthenticator( cdaModel.getLegalAuthenticator() ) );
+        // Construct Legal Authenticator
+        clinicalDocument.setLegalAuthenticator(HeaderUtil.createLegalAuthenticator(cdaModel.getLegalAuthenticator()));
 
-		// Construct Custodian
-		clinicalDocument.setCustodian( HeaderUtil.createCustodian( this.cdaModel.getCustodian().getAssignedCustodian().getRepresentedCustodianOrganization() ) );
+        // Construct Custodian
+        clinicalDocument.setCustodian(HeaderUtil.createCustodian(this.cdaModel.getCustodian().getAssignedCustodian().getRepresentedCustodianOrganization()));
 
-		// Construct Encompassing Encounter (including Prescriber Organisation)
-		DispensingOrganisationParticipant org = this.clinicalModel.getContext().getDispensingOrganisation().getParticipant();
-		clinicalDocument.setComponentOf( HeaderUtil.createEncompassingEncounter( this.clinicalModel.getContext().getDispensingOrganisation().getRole(),
-				ClinicalModelConverter.getDispensingOrganization( org ), org.getHealthCareFacilityID() ) );
+        // Construct Encompassing Encounter (including Prescriber Organisation)
+        DispensingOrganisationParticipant org = this.clinicalModel.getContext().getDispensingOrganisation().getParticipant();
+        clinicalDocument.setComponentOf(HeaderUtil.createEncompassingEncounter(this.clinicalModel.getContext().getDispensingOrganisation().getRole(),
+                ClinicalModelConverter.getDispensingOrganization(org), org.getHealthCareFacilityID()));
 
-		// Construct Author (Dispenser)
-		final POCDMT000040Author clinicalDocumentAuthor = getAuthor();
-		clinicalDocument.getAuthor().add( clinicalDocumentAuthor );
+        // Construct Author (Dispenser)
+        final POCDMT000040Author clinicalDocumentAuthor = getAuthor();
+        clinicalDocument.getAuthor().add(clinicalDocumentAuthor);
 
-		// Construct Record Target
-		clinicalDocument.getRecordTarget().add( HeaderUtil.createRecordTarget( clinicalModel.getContext().getSubjectOfCare() ) );
+        // Construct Record Target
+        clinicalDocument.getRecordTarget().add(HeaderUtil.createRecordTarget(clinicalModel.getContext().getSubjectOfCare()));
 
-		clinicalDocument.setComponent( getStructuredBody() );
+        clinicalDocument.setComponent(getStructuredBody());
 
-        Document doc = CreatorUtil.convertClinicalDocumentToDomDocument( clinicalDocument );
+        Document doc = CreatorUtil.convertClinicalDocumentToDomDocument(clinicalDocument);
         addStylesheet(stylesheetName, doc);
 
-        // If strict checking is enabled, check this document.
-        if (isStrict()) {
-            check( doc );
-        }
+        // If strict checking is enabled, check this document. (Requires Schematron library.)
+//        if (isStrict()) {
+//            check( doc );
+//        }
 
         return doc;
-		 
-	}
 
-	private POCDMT000040Author getAuthor() {
-		DispenserParticipation dispenserParticipation = this.clinicalModel.getContext().getDispenser();
-		DispenserParticipant dispenserParticipant = dispenserParticipation.getParticipant();
-		POCDMT000040Person dispenserParticipantPerson = ClinicalModelConverter.getDispenserPerson( dispenserParticipant );
+    }
 
-		return HeaderUtil.createAuthorWithCurrentTime( dispenserParticipant.getAssignedAuthorId(), dispenserParticipation.getRole(), dispenserParticipant.getAddresses(),
-				dispenserParticipant.getElectronicCommunicationDetail(), dispenserParticipantPerson
-				);
-	}
+    private POCDMT000040Author getAuthor() {
+        DispenserParticipation dispenserParticipation = this.clinicalModel.getContext().getDispenser();
+        DispenserParticipant dispenserParticipant = dispenserParticipation.getParticipant();
+        POCDMT000040Person dispenserParticipantPerson = ClinicalModelConverter.getDispenserPerson(dispenserParticipant);
 
-	private POCDMT000040Component2 getStructuredBody() {
-		POCDMT000040Component2 structuredBodyComponent = new POCDMT000040Component2();
-		POCDMT000040StructuredBody structuredBody = new POCDMT000040StructuredBody();
+        return HeaderUtil.createAuthorWithCurrentTime(dispenserParticipant.getAssignedAuthorId(), dispenserParticipation.getRole(), dispenserParticipant.getAddresses(),
+                dispenserParticipant.getElectronicCommunicationDetail(), dispenserParticipantPerson
+        );
+    }
 
-		// Prescriber / Instruction
-		structuredBody.getComponent().add( getInstructionSection() );
+    private POCDMT000040Component2 getStructuredBody() {
+        POCDMT000040Component2 structuredBodyComponent = new POCDMT000040Component2();
+        POCDMT000040StructuredBody structuredBody = new POCDMT000040StructuredBody();
 
-		// Prescription Request Item
-		structuredBody.getComponent().add( getRequestItemSection() );
+        // Prescriber / Instruction
+        structuredBody.getComponent().add(getInstructionSection());
+
+        // Prescription Request Item
+        structuredBody.getComponent().add(getRequestItemSection());
 
 
-        if(clinicalModel.getContent().getLogo() != null){
-           structuredBody.getComponent().add( getLogo() );
+        if (clinicalModel.getContent().getLogo() != null) {
+            structuredBody.getComponent().add(getLogo());
         }
-        structuredBodyComponent.setStructuredBody( structuredBody );
-		
-		return structuredBodyComponent;
-	}
+        structuredBodyComponent.setStructuredBody(structuredBody);
 
-	private POCDMT000040Component3 getInstructionSection() {
-		POCDMT000040Component3 instructionSectionComponent = new POCDMT000040Component3();
-		POCDMT000040Section instructionSection = new POCDMT000040Section();
-		PrescriberInstructionDetail prescriberInstructionDetail = this.clinicalModel.getContent().getPrescriberInstructionDetail();
-		String prescriberInstructionRecipientParticipantId = this.cdaModel.getPrescriberInstructionRecipientParticipantId();
-		final PrescriberParticipation prescriber = this.clinicalModel.getContext().getPrescriber();
-		final PrescriberOrganisationParticipation prescriberOrganisation = this.clinicalModel.getContext().getPrescriberOrganisation();
-		final List<Entitlement> prescriberEntitlement = prescriber.getParticipant().getEntitlement();
+        return structuredBodyComponent;
+    }
 
-		if (prescriberEntitlement != null && prescriberEntitlement.isEmpty() == false) {
-			List<Coverage2> entitlements = ClinicalModelConverter.getParticpantEntitlements( prescriberEntitlement, prescriber.getParticipant().getParticipantID() );
-			instructionSection.getCoverage2().addAll( entitlements );
-		}
+    private POCDMT000040Component3 getInstructionSection() {
+        POCDMT000040Component3 instructionSectionComponent = new POCDMT000040Component3();
+        POCDMT000040Section instructionSection = new POCDMT000040Section();
+        PrescriberInstructionDetail prescriberInstructionDetail = this.clinicalModel.getContent().getPrescriberInstructionDetail();
+        String prescriberInstructionRecipientParticipantId = this.cdaModel.getPrescriberInstructionRecipientParticipantId();
+        final PrescriberParticipation prescriber = this.clinicalModel.getContext().getPrescriber();
+        final PrescriberOrganisationParticipation prescriberOrganisation = this.clinicalModel.getContext().getPrescriberOrganisation();
+        final List<Entitlement> prescriberEntitlement = prescriber.getParticipant().getEntitlement();
 
-		POCDMT000040Entry substanceAdministrationEntry = EntryCreator.getSubstanceAdministrationEntry( prescriberInstructionDetail, prescriberInstructionRecipientParticipantId );
+        if (prescriberEntitlement != null && prescriberEntitlement.isEmpty() == false) {
+            List<Coverage2> entitlements = ClinicalModelConverter.getParticpantEntitlements(prescriberEntitlement, prescriber.getParticipant().getParticipantID());
+            instructionSection.getCoverage2().addAll(entitlements);
+        }
 
-		instructionSection.getEntry().add( substanceAdministrationEntry );
+        POCDMT000040Entry substanceAdministrationEntry = EntryCreator.getSubstanceAdministrationEntry(prescriberInstructionDetail, prescriberInstructionRecipientParticipantId);
 
-		final StrucDocText instructionSectionNarrativeBlock = PrescriptionRequestCreatorUtil.getInstructionSectionNarrativeBlock( prescriberInstructionDetail, prescriber, prescriberOrganisation );
-		instructionSection.setText( instructionSectionNarrativeBlock );
-		instructionSection.getAuthor().add( getInstructionAuthor() );
-		instructionSection.setCode( SectionEntryCodeSet.PRESCRIBER_INSTRUCTION_DETAIL );
-		instructionSection.setTitle( CDATypeUtil.getST( SectionEntryCodeSet.PRESCRIBER_INSTRUCTION_DETAIL.getDisplayName() ) );
-		instructionSectionComponent.setSection( instructionSection );
+        instructionSection.getEntry().add(substanceAdministrationEntry);
 
-		return instructionSectionComponent;
-	}
-	
-   private POCDMT000040Component3 getLogo() {
+        final StrucDocText instructionSectionNarrativeBlock = PrescriptionRequestCreatorUtil.getInstructionSectionNarrativeBlock(prescriberInstructionDetail, prescriber, prescriberOrganisation);
+        instructionSection.setText(instructionSectionNarrativeBlock);
+        instructionSection.getAuthor().add(getInstructionAuthor());
+        instructionSection.setCode(SectionEntryCodeSet.PRESCRIBER_INSTRUCTION_DETAIL);
+        instructionSection.setTitle(CDATypeUtil.getST(SectionEntryCodeSet.PRESCRIBER_INSTRUCTION_DETAIL.getDisplayName()));
+        instructionSectionComponent.setSection(instructionSection);
+
+        return instructionSectionComponent;
+    }
+
+    private POCDMT000040Component3 getLogo() {
         POCDMT000040Component3 LogoSectionComponent = new POCDMT000040Component3();
         POCDMT000040Section section = new POCDMT000040Section();
-        
-        POCDMT000040Entry logoentry = EntryCreator.getLogoEntry(  clinicalModel.getContent().getLogo()  );
-        section.getEntry().add( logoentry );
-        LogoSectionComponent.setSection( section );
+
+        POCDMT000040Entry logoentry = EntryCreator.getLogoEntry(clinicalModel.getContent().getLogo());
+        section.getEntry().add(logoentry);
+        LogoSectionComponent.setSection(section);
 
         return LogoSectionComponent;
     }
 
-	private POCDMT000040Author getInstructionAuthor() {
-		PrescriberParticipation prescriber = this.clinicalModel.getContext().getPrescriber();
-		DefaultParticipant prescriberParticipant = prescriber.getParticipant();
-		PrescriberOrganisationParticipation prescriberOrganisationParticipation = this.clinicalModel.getContext().getPrescriberOrganisation();
-		PrescriberOrganisationParticipant prescriberOrganisationParticipant = prescriberOrganisationParticipation.getParticipant();
+    private POCDMT000040Author getInstructionAuthor() {
+        PrescriberParticipation prescriber = this.clinicalModel.getContext().getPrescriber();
+        DefaultParticipant prescriberParticipant = prescriber.getParticipant();
+        PrescriberOrganisationParticipation prescriberOrganisationParticipation = this.clinicalModel.getContext().getPrescriberOrganisation();
+        PrescriberOrganisationParticipant prescriberOrganisationParticipant = prescriberOrganisationParticipation.getParticipant();
 
-		POCDMT000040Person authorPerson = ClinicalModelConverter.getPrescriberPerson( prescriberParticipant );
+        POCDMT000040Person authorPerson = ClinicalModelConverter.getPrescriberPerson(prescriberParticipant);
 
-        final POCDMT000040Author author = HeaderUtil.createAuthorNullFlavourTime( prescriberParticipant.getParticipantID(), prescriber.getRole(), prescriberParticipant.getAddresses(),
-                prescriberParticipant.getElectronicCommunicationDetail(), authorPerson );
+        final POCDMT000040Author author = HeaderUtil.createAuthorNullFlavourTime(prescriberParticipant.getParticipantID(), prescriber.getRole(), prescriberParticipant.getAddresses(),
+                prescriberParticipant.getElectronicCommunicationDetail(), authorPerson);
 
-		final POCDMT000040Organization prescriberOrganization = ClinicalModelConverter.getPrescriberOrganization( prescriberOrganisationParticipant );
-		prescriberOrganization.setStandardIndustryClassCode( Converter.convertToCECode( prescriberOrganisationParticipation.getRole().getCode() ) );
+        final POCDMT000040Organization prescriberOrganization = ClinicalModelConverter.getPrescriberOrganization(prescriberOrganisationParticipant);
+        prescriberOrganization.setStandardIndustryClassCode(Converter.convertToCECode(prescriberOrganisationParticipation.getRole().getCode()));
 
-		author.getAssignedAuthor().setRepresentedOrganization( prescriberOrganization );
+        author.getAssignedAuthor().setRepresentedOrganization(prescriberOrganization);
 
-		return author;
-	}
+        return author;
+    }
 
-	private POCDMT000040Component3 getRequestItemSection() {
-		POCDMT000040Component3 requestItemSectionComponent = new POCDMT000040Component3();
-		POCDMT000040Section requestItemSection = new POCDMT000040Section();
+    private POCDMT000040Component3 getRequestItemSection() {
+        POCDMT000040Component3 requestItemSectionComponent = new POCDMT000040Component3();
+        POCDMT000040Section requestItemSection = new POCDMT000040Section();
 
-		PrescriptionItem prescriptionRequestItem = this.clinicalModel.getContent().getPrescriptionRequestItem();
-		RequesterNote requesterNote = this.clinicalModel.getContent().getRequesterNote();
-		DispensingOrganisationParticipant org = this.clinicalModel.getContext().getDispensingOrganisation().getParticipant();
-		List<Entitlement> dispensingOrganisationEntitlement = org.getEntitlement();
-		List<Entitlement> subjectOfCareEntitlement = this.clinicalModel.getContext().getSubjectOfCare().getEntitlements();
+        PrescriptionItem prescriptionRequestItem = this.clinicalModel.getContent().getPrescriptionRequestItem();
+        RequesterNote requesterNote = this.clinicalModel.getContent().getRequesterNote();
+        DispensingOrganisationParticipant org = this.clinicalModel.getContext().getDispensingOrganisation().getParticipant();
+        List<Entitlement> dispensingOrganisationEntitlement = org.getEntitlement();
+        List<Entitlement> subjectOfCareEntitlement = this.clinicalModel.getContext().getSubjectOfCare().getEntitlements();
 
-		POCDMT000040Entry substanceAdministrationEntry = EntryCreator.getPRSubstanceAdministrationEntry( prescriptionRequestItem );
-		
-		//override the status code
-		CS statusCode = new CS();
-        statusCode.setCode( "suspended" );
-        substanceAdministrationEntry.getSubstanceAdministration().setStatusCode( statusCode );
-        
-		requestItemSection.getEntry().add( substanceAdministrationEntry );
+        POCDMT000040Entry substanceAdministrationEntry = EntryCreator.getPRSubstanceAdministrationEntry(prescriptionRequestItem);
 
-		if (org.getEntitlement() != null) {
-			List<Coverage2> dispensingOrganisationEntitlements = ClinicalModelConverter.getDispensingOrganisationEntitlements( dispensingOrganisationEntitlement,
-					org.getHealthCareFacilityID() );
-			requestItemSection.getCoverage2().addAll( dispensingOrganisationEntitlements );
-		}
+        // override the status code
+        CS statusCode = new CS();
+        statusCode.setCode("suspended");
+        substanceAdministrationEntry.getSubstanceAdministration().setStatusCode(statusCode);
 
-		if (subjectOfCareEntitlement != null) {
-			List<Coverage2> subjectOfCareEntitlements = ClinicalModelConverter.getSubjectOfCareEntitlements( this.clinicalModel.getContext().getSubjectOfCare() );
-			requestItemSection.getCoverage2().addAll( subjectOfCareEntitlements );
-		}
+        requestItemSection.getEntry().add(substanceAdministrationEntry);
 
-		if (requesterNote != null) {
-			POCDMT000040Entry noteEntry = EntryCreator.getNoteEntry( requesterNote.getNote(), SectionEntryCodeSet.REQUESTER_NOTE );
-			requestItemSection.getEntry().add( noteEntry );
-		}
+        if (org.getEntitlement() != null) {
+            List<Coverage2> dispensingOrganisationEntitlements = ClinicalModelConverter.getDispensingOrganisationEntitlements(dispensingOrganisationEntitlement,
+                    org.getHealthCareFacilityID());
+            requestItemSection.getCoverage2().addAll(dispensingOrganisationEntitlements);
+        }
 
-		final StrucDocText requestItemSectionNarrativeBlock = PrescriptionRequestCreatorUtil.getPrescriptionRequestItemSectionNarrativeBlock( prescriptionRequestItem, requesterNote,
-				subjectOfCareEntitlement, dispensingOrganisationEntitlement );
-		requestItemSection.setText( requestItemSectionNarrativeBlock );
-		requestItemSection.setCode( SectionEntryCodeSet.PRESCRIPTION_REQUEST_ITEM );
-		requestItemSection.setTitle( CDATypeUtil.getST( SectionEntryCodeSet.PRESCRIPTION_REQUEST_ITEM.getDisplayName() ) );
-		requestItemSectionComponent.setSection( requestItemSection );
+        if (subjectOfCareEntitlement != null) {
+            List<Coverage2> subjectOfCareEntitlements = ClinicalModelConverter.getSubjectOfCareEntitlements(this.clinicalModel.getContext().getSubjectOfCare());
+            requestItemSection.getCoverage2().addAll(subjectOfCareEntitlements);
+        }
 
-		// Add section components to Structured Body
-		return requestItemSectionComponent;
-	}
+        if (requesterNote != null) {
+            POCDMT000040Entry noteEntry = EntryCreator.getNoteEntry(requesterNote.getNote(), SectionEntryCodeSet.REQUESTER_NOTE);
+            requestItemSection.getEntry().add(noteEntry);
+        }
 
+        final StrucDocText requestItemSectionNarrativeBlock = PrescriptionRequestCreatorUtil.getPrescriptionRequestItemSectionNarrativeBlock(prescriptionRequestItem, requesterNote,
+                subjectOfCareEntitlement, dispensingOrganisationEntitlement);
+        requestItemSection.setText(requestItemSectionNarrativeBlock);
+        requestItemSection.setCode(SectionEntryCodeSet.PRESCRIPTION_REQUEST_ITEM);
+        requestItemSection.setTitle(CDATypeUtil.getST(SectionEntryCodeSet.PRESCRIPTION_REQUEST_ITEM.getDisplayName()));
+        requestItemSectionComponent.setSection(requestItemSection);
+
+        // Add section components to Structured Body
+        return requestItemSectionComponent;
+    }
 }

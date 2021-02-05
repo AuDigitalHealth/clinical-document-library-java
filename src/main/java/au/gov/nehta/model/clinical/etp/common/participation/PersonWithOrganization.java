@@ -8,5 +8,4 @@ public interface PersonWithOrganization extends Person {
     EmploymentOrganization getEmploymentOrganisation();
 
     void setEmploymentOrganisation(EmploymentOrganization employmentOrganisation);
-
 }

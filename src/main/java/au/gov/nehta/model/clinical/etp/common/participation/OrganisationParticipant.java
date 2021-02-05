@@ -8,5 +8,4 @@ public interface OrganisationParticipant extends Participant{
     public Organisation getOrganisation();
     
     public String getHealthCareFacilityID();
-    
 }

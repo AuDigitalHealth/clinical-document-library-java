@@ -17,60 +17,55 @@ import au.gov.nehta.common.utils.ArgumentUtils;
 import au.gov.nehta.model.clinical.common.types.RealQuantity;
 
 /**
- * A class to model time widths as in IVL_TS elements
- * 
- * @author NeHTA
+ * A class to model time widths as in IVL_TS elements.
  *
+ * @author NeHTA
  */
-public class TimeQuantity extends RealQuantity{
-	
-	private String narrativeOverride;
-	
-	/**
-	 * Create a width for the measurement of time.
-	 * 
-	 * 
-	 * example:
-	 * <pre> 
-	 *   Width width = new Width(2, TimeUnitOfMeasure.Week);
-	 * </pre>
-	 * will generate the CDA model of the IVL_TS element
-	 * <pre>
-	 * <effectiveTime>
-	 * 	 <width unit='wk' value='2' />
-     * 
-	 *  &lt;effectiveTime&gt;
-	 *  &nbsp;&nbsp;&lt;width unit='wk' value='2' / &gt;...
-	 *  </pre>
-	 * indicating a 2 week interval 
-	 * <p>
-	 * 
-	 * @param unit a unit of time, eg weeks
-	 * @param value the amount of time int the width eg 2 weeks
-	 */
-	public TimeQuantity(double value, TimeUnitOfMeasure unit ){
-		super(value,""); //unit might be null, check first
-		ArgumentUtils.checkNotNull( unit, "Time quantity TimeUnitOfMeasure " );
-		ArgumentUtils.checkNotNull( value, "Time quantity  value" );
-		
-		setUnit( unit.getCode() );
-	}
+public class TimeQuantity extends RealQuantity {
 
+    private String narrativeOverride;
 
-	/**
-	 * @return a string to use for the narrative, if any
-	 */
-	public String getNarrative() {
-		return narrativeOverride;
-	}
+    /**
+     * Create a width for the measurement of time.
+     * <p>
+     * <p>
+     * example:
+     * <pre>
+     *   Width width = new Width(2, TimeUnitOfMeasure.Week);
+     * </pre>
+     * will generate the CDA model of the IVL_TS element
+     * <pre>
+     * <effectiveTime>
+     *   <width unit='wk' value='2' />
+     *
+     *  &lt;effectiveTime&gt;
+     *  &nbsp;&nbsp;&lt;width unit='wk' value='2' / &gt;...
+     *  </pre>
+     * indicating a 2 week interval
+     * <p>
+     *
+     * @param unit  a unit of time, eg weeks
+     * @param value the amount of time int the width eg 2 weeks
+     */
+    public TimeQuantity(double value, TimeUnitOfMeasure unit) {
+        super(value, ""); //unit might be null, check first
+        ArgumentUtils.checkNotNull(unit, "Time quantity TimeUnitOfMeasure ");
+        ArgumentUtils.checkNotNull(value, "Time quantity value");
 
+        setUnit(unit.getCode());
+    }
 
-	/**
-	 * 
-	 * @param narrativeOverride  a string to use for the narrative text for this time
-	 */
-	public void setNarrative( String narrativeOverride ) {
-		this.narrativeOverride = narrativeOverride;
-	}
+    /**
+     * @return a string to use for the narrative, if any
+     */
+    public String getNarrative() {
+        return narrativeOverride;
+    }
 
+    /**
+     * @param narrativeOverride a string to use for the narrative text for this time
+     */
+    public void setNarrative(String narrativeOverride) {
+        this.narrativeOverride = narrativeOverride;
+    }
 }

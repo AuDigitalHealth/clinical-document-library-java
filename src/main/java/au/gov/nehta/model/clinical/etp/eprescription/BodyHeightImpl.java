@@ -18,26 +18,27 @@ import au.gov.nehta.common.utils.ArgumentUtils;
 import au.gov.nehta.model.cda.common.time.PreciseDate;
 
 public class BodyHeightImpl implements BodyHeight {
-	private String bodyHeight;
-	private PreciseDate dateTimeOfObservation;
-	private String UNIT = "cm";
 
-	public BodyHeightImpl( String bodyHeight, PreciseDate dateTimeOfObservation ) {
-		ArgumentUtils.checkNotNull( bodyHeight, "bodyHeight" );
-		ArgumentUtils.checkNotNull( dateTimeOfObservation, "dateTimeOfObservation" );
-		this.bodyHeight = bodyHeight;
-		this.dateTimeOfObservation = dateTimeOfObservation;
-	}
+    private String bodyHeight;
+    private PreciseDate dateTimeOfObservation;
+    private String UNIT = "cm";
 
-	public String getValue() {
-		return bodyHeight;
-	}
+    public BodyHeightImpl(String bodyHeight, PreciseDate dateTimeOfObservation) {
+        ArgumentUtils.checkNotNull(bodyHeight, "bodyHeight");
+        ArgumentUtils.checkNotNull(dateTimeOfObservation, "dateTimeOfObservation");
+        this.bodyHeight = bodyHeight;
+        this.dateTimeOfObservation = dateTimeOfObservation;
+    }
 
-	public PreciseDate getDateTimeOfObservation() {
-		return dateTimeOfObservation;
-	}
+    public String getValue() {
+        return bodyHeight;
+    }
 
-	public String getUnit() {
-		return UNIT;
-	}
+    public PreciseDate getDateTimeOfObservation() {
+        return dateTimeOfObservation;
+    }
+
+    public String getUnit() {
+        return UNIT;
+    }
 }

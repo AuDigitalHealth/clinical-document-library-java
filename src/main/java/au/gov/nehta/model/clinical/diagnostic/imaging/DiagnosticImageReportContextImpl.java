@@ -20,35 +20,35 @@ import au.gov.nehta.model.clinical.diagnostic.pathology.DocumentParticipant;
 import au.gov.nehta.model.clinical.diagnostic.pathology.RequesterParticipation;
 import au.gov.nehta.model.clinical.etp.common.item.Logo;
 
-public class  DiagnosticImageReportContextImpl implements DiagnosticImageReportContext {
+public class DiagnosticImageReportContextImpl implements DiagnosticImageReportContext {
 
-	private SubjectOfCareParticipant subjectOfCare;
-	private RequesterParticipation requester;
-	private DocumentParticipant author;
-	private DiagnosticImageOrderDetails order;
-	private Logo logo;
-	
-	public DiagnosticImageReportContextImpl( 
-	        SubjectOfCareParticipant subjectOfCare, RequesterParticipation requesterParticipation, DocumentParticipant author, DiagnosticImageOrderDetails order	) {
-		ArgumentUtils.checkNotNull( subjectOfCare, "subjectOfCare" );
-		ArgumentUtils.checkNotNull( requesterParticipation, "requester" );
-		ArgumentUtils.checkNotNull( author, "DocumentParticipant" );
-		ArgumentUtils.checkNotNull( order, "OrderDetails" );
-		this.subjectOfCare = subjectOfCare;
-		this.requester = requesterParticipation;
-		this.author = author;
-		this.order=order;
-	}
-	
-	@Override
-	public SubjectOfCareParticipant getSubjectOfCare() {
-		return subjectOfCare;
-	}
-	 
-	@Override
-	public RequesterParticipation getRequester() {
-		return requester;
-	}
+    private SubjectOfCareParticipant subjectOfCare;
+    private RequesterParticipation requester;
+    private DocumentParticipant author;
+    private DiagnosticImageOrderDetails order;
+    private Logo logo;
+
+    public DiagnosticImageReportContextImpl(
+            SubjectOfCareParticipant subjectOfCare, RequesterParticipation requesterParticipation, DocumentParticipant author, DiagnosticImageOrderDetails order) {
+        ArgumentUtils.checkNotNull(subjectOfCare, "subjectOfCare");
+        ArgumentUtils.checkNotNull(requesterParticipation, "requester");
+        ArgumentUtils.checkNotNull(author, "DocumentParticipant");
+        ArgumentUtils.checkNotNull(order, "OrderDetails");
+        this.subjectOfCare = subjectOfCare;
+        this.requester = requesterParticipation;
+        this.author = author;
+        this.order = order;
+    }
+
+    @Override
+    public SubjectOfCareParticipant getSubjectOfCare() {
+        return subjectOfCare;
+    }
+
+    @Override
+    public RequesterParticipation getRequester() {
+        return requester;
+    }
 
     @Override
     public DocumentParticipant getAuthor() {
@@ -66,9 +66,7 @@ public class  DiagnosticImageReportContextImpl implements DiagnosticImageReportC
     }
 
     @Override
-    public void setLogo( Logo logo ) {
-        this.logo=logo;
+    public void setLogo(Logo logo) {
+        this.logo = logo;
     }
-    
-
 }

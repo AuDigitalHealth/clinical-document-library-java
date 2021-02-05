@@ -5,16 +5,16 @@ package au.gov.nehta.model.schematron;
  */
 public class SchematronResource {
 
-  /**
-   * default locations
-   **/
-  private static final String CCD_3B = "ccd-3B.sch";
-  private static final String CCD_3A = "ccd-3A.sch";
-  private static final String CCD_1A = "ccd-1A.sch";
-  private static final String CCD_1B = "ccd-1B.sch";
-  private static final String CCD_2 = "ccd-2.sch";
+    /**
+     * Default locations.
+     **/
+    private static final String CCD_3B = "ccd-3B.sch";
+    private static final String CCD_3A = "ccd-3A.sch";
+    private static final String CCD_1A = "ccd-1A.sch";
+    private static final String CCD_1B = "ccd-1B.sch";
+    private static final String CCD_2 = "ccd-2.sch";
 
-  public enum SchematronResources {
+    public enum SchematronResources {
     ADVANCE_CARE_DIRECTIVE_3A(new SchematronResource("resources/AdvanceCareDirective/", CCD_3A)),
     PCEHR_DISPENSE_3B(new SchematronResource("resources/PCEHR-DispenseRecord/", CCD_3B)),
     PCEHR_PRESCRIPTION_3B(new SchematronResource("resources/PCEHR-PrescriptionRecord/", CCD_3B)),
@@ -47,49 +47,45 @@ public class SchematronResource {
     PSML_3A(new SchematronResource("resources/PharmacistSharedMedicines/", CCD_1A)),
     SHARED_HEALTH_SUMMARY_3B(new SchematronResource("resources/SharedHealthSummary/", CCD_3B));
 
+        private SchematronResource resource;
 
-    private SchematronResource resource;
+        SchematronResources(SchematronResource r) {
+            this.resource = r;
+        }
 
+        public SchematronResource resource() {
+            return resource;
+        }
 
-    SchematronResources(SchematronResource r) {
-      this.resource = r;
     }
 
-    public SchematronResource resource() {
-      return resource;
+    private final String templatePath;
+    private final String schematron;
+
+    /**
+    * A class representing resources associated with schematron checking.
+    *
+    * @param templatePath - the  location for the schematron template eg:
+    * resources/PCEHR-DispenseRecord/
+    * @param schematron - the  file of the schematron definition for a particular CDA document eg:
+    * ccd-3B.sch
+    */
+    public SchematronResource(String templatePath, String schematron) {
+        this.templatePath = templatePath;
+        this.schematron = schematron;
     }
 
-  }
+    /**
+    * @return the schema location
+    */
+    public String getTemplatePath() {
+        return templatePath;
+    }
 
-  private final String templatePath;
-  private final String schematron;
-
-
-  /**
-   * A class representing resources associated with schematron checking.
-   *
-   * @param templatePath - the  location for the schematron template eg:
-   * resources/PCEHR-DispenseRecord/
-   * @param schematron - the  file of the schematron definition for a particular CDA document eg:
-   * ccd-3B.sch
-   */
-  public SchematronResource(String templatePath, String schematron) {
-    this.templatePath = templatePath;
-    this.schematron = schematron;
-  }
-
-  /**
-   * @return the schema location
-   */
-  public String getTemplatePath() {
-    return templatePath;
-  }
-
-  /**
-   * @return the schematron location
-   */
-  public String getSchematron() {
-    return schematron;
-  }
-
+    /**
+    * @return the schematron location
+    */
+    public String getSchematron() {
+        return schematron;
+    }
 }

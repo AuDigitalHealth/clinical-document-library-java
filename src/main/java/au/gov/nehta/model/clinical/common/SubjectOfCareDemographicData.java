@@ -5,27 +5,27 @@ import au.gov.nehta.model.clinical.common.participation.IndigenousStatus;
 import au.gov.nehta.model.clinical.common.participation.Sex;
 
 public interface SubjectOfCareDemographicData {
-	Sex getSex();
+    Sex getSex();
 
-	DateOfBirthDetail getDateOfBirthDetail();
+    DateOfBirthDetail getDateOfBirthDetail();
 
-	int getAgeInYears();
+    int getAgeInYears();
 
-	Boolean isAgeAccurate();
-	
-	Integer getBirthPlurality();
+    Boolean isAgeAccurate();
 
-	Integer getBirthOrder();
+    Integer getBirthPlurality();
 
-	IndigenousStatus getIndigenousStatus();
-	
-	 void setAgeAccurate(Boolean  isAgeAccurate );
+    Integer getBirthOrder();
 
-	void setAgeInYears( int ageDetail );
+    IndigenousStatus getIndigenousStatus();
 
-	void setBirthPlurality( Integer birthPlurality );
+    void setAgeAccurate(Boolean isAgeAccurate);
 
-	void setBirthOrder( Integer birthOrder );
+    void setAgeInYears(int ageDetail);
 
-	void setIndigenousStatus( IndigenousStatus indigenousStatus );
+    void setBirthPlurality(Integer birthPlurality);
+
+    void setBirthOrder(Integer birthOrder);
+
+    void setIndigenousStatus(IndigenousStatus indigenousStatus);
 }

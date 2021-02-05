@@ -19,10 +19,10 @@ import au.gov.nehta.model.clinical.etp.common.participation.PrescriberOrganisati
 import au.gov.nehta.model.clinical.etp.common.participation.PrescriberParticipation;
 
 public interface EPrescriptionContext {
+
     SubjectOfCareParticipant getSubjectOfCare();
 
     PrescriberParticipation getPrescriber();
 
     PrescriberOrganisationParticipation getPrescriberOrganisation();
-
 }

@@ -22,34 +22,34 @@ import au.gov.nehta.model.clinical.etp.common.participation.DispensingOrganisati
 
 public class DispenseRecordContextImpl implements DispenseRecordContext {
 
-	private final SubjectOfCareParticipant subjectOfCare;
-	private final DispenserParticipation dispenser;
-	private DispensingOrganisationParticipation dispensingOrganisation;
+    private final SubjectOfCareParticipant subjectOfCare;
+    private final DispenserParticipation dispenser;
+    private DispensingOrganisationParticipation dispensingOrganisation;
     private Logo logo;
 
-	public DispenseRecordContextImpl( SubjectOfCareParticipant subjectOfCare, DispenserParticipation dispenser, DispensingOrganisationParticipation dispensingOrganisation ) {
-		ArgumentUtils.checkNotNull( subjectOfCare, "subjectOfCare" );
-		ArgumentUtils.checkNotNull( dispenser, "dispenser" );
-		ArgumentUtils.checkNotNull( dispensingOrganisation, "dispensingOrganisation" );
-		this.subjectOfCare = subjectOfCare;
-		this.dispenser = dispenser;
-		this.dispensingOrganisation = dispensingOrganisation;
-	}
+    public DispenseRecordContextImpl(SubjectOfCareParticipant subjectOfCare, DispenserParticipation dispenser, DispensingOrganisationParticipation dispensingOrganisation) {
+        ArgumentUtils.checkNotNull(subjectOfCare, "subjectOfCare");
+        ArgumentUtils.checkNotNull(dispenser, "dispenser");
+        ArgumentUtils.checkNotNull(dispensingOrganisation, "dispensingOrganisation");
+        this.subjectOfCare = subjectOfCare;
+        this.dispenser = dispenser;
+        this.dispensingOrganisation = dispensingOrganisation;
+    }
 
-	public SubjectOfCareParticipant getSubjectOfCare() {
-		return subjectOfCare;
-	}
+    public SubjectOfCareParticipant getSubjectOfCare() {
+        return subjectOfCare;
+    }
 
-	public DispenserParticipation getDispenser() {
-		return dispenser;
-	}
+    public DispenserParticipation getDispenser() {
+        return dispenser;
+    }
 
-	public DispensingOrganisationParticipation getDispensingOrganisation() {
-		return dispensingOrganisation;
-	}
-	
-	public void setLogo(Logo logo) {
-        this.logo=logo;
+    public DispensingOrganisationParticipation getDispensingOrganisation() {
+        return dispensingOrganisation;
+    }
+
+    public void setLogo(Logo logo) {
+        this.logo = logo;
     }
 
     @Override

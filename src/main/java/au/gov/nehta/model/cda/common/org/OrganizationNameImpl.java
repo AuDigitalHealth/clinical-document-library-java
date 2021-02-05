@@ -1,44 +1,44 @@
 package au.gov.nehta.model.cda.common.org;
 
 public class OrganizationNameImpl implements OrganizationName {
-	private String value;
-	private OrganizationNameUseEnum use;
+    private String value;
+    private OrganizationNameUseEnum use;
 
-	private OrganizationNameImpl( String value, OrganizationNameUseEnum use ) {
-		this.value = value;
-		this.use = use;
-	}
+    private OrganizationNameImpl(String value, OrganizationNameUseEnum use) {
+        this.value = value;
+        this.use = use;
+    }
 
-	public OrganizationNameImpl() {
-	}
-	
-	public OrganizationNameImpl(String name){
-	    this.value=name;
-	}
+    public OrganizationNameImpl() {
+    }
 
-	public static OrganizationName getInstance( String value, OrganizationNameUseEnum use ) {
+    public OrganizationNameImpl(String name) {
+        this.value = name;
+    }
 
-		return (OrganizationName) new OrganizationNameImpl( value, use );
-	}
+    public static OrganizationName getInstance(String value, OrganizationNameUseEnum use) {
 
-	public static OrganizationName getInstance() {
+        return new OrganizationNameImpl(value, use);
+    }
 
-		return (OrganizationName) new OrganizationNameImpl();
-	}
+    public static OrganizationName getInstance() {
 
-	public String getValue() {
-		return value;
-	}
+        return new OrganizationNameImpl();
+    }
 
-	public OrganizationNameUseEnum getUse() {
-		return use;
-	}
+    public String getValue() {
+        return value;
+    }
 
-	public void setValue( String value ) {
-		this.value = value;
-	}
+    public OrganizationNameUseEnum getUse() {
+        return use;
+    }
 
-	public void setUse( OrganizationNameUseEnum use ) {
-		this.use = use;
-	}
+    public void setValue(String value) {
+        this.value = value;
+    }
+
+    public void setUse(OrganizationNameUseEnum use) {
+        this.use = use;
+    }
 }

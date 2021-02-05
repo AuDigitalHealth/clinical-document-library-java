@@ -22,54 +22,53 @@ import au.gov.nehta.model.clinical.etp.common.participation.AddressContext;
  * It may also indicate a nullflavor address - "noFixedAddress"
  */
 public class AddressContextImpl implements AddressContext {
-	protected Boolean noFixedAddressIndicator;
-	protected Address address;
-	protected AddressPurpose addressPurpose;
+    protected Boolean noFixedAddressIndicator;
+    protected Address address;
+    protected AddressPurpose addressPurpose;
 
-	public AddressContextImpl( Boolean noFixedAddressIndicator ) {
-		ArgumentUtils.checkNotNull( noFixedAddressIndicator, "noFixedAddressIndicator" );
-		this.noFixedAddressIndicator = noFixedAddressIndicator;
-	}
+    public AddressContextImpl(Boolean noFixedAddressIndicator) {
+        ArgumentUtils.checkNotNull(noFixedAddressIndicator, "noFixedAddressIndicator");
+        this.noFixedAddressIndicator = noFixedAddressIndicator;
+    }
 
-	public AddressContextImpl(   Address address, AddressPurpose addressPurpose ) {
-		ArgumentUtils.checkNotNull( addressPurpose, "addressPurpose" );
-		ArgumentUtils.checkNotNull( address, "address " );
-		this.noFixedAddressIndicator = false;
-		this.address = address;
-		this.addressPurpose = addressPurpose;
-	}
-
-    public AddressContextImpl(  AustralianAddress address, AddressPurpose addressPurpose ) {
-        ArgumentUtils.checkNotNull( addressPurpose, "addressPurpose" );
-        ArgumentUtils.checkNotNull( address, "address " );
-        
-        if(address.getUnstructuredAddressLines()!= null && 
-           address.getUnstructuredAddressLines().size() > 2){
-            throw new IllegalArgumentException( "Address may not have more than 2 unstructured address lines" );
-        }
-        
+    public AddressContextImpl(Address address, AddressPurpose addressPurpose) {
+        ArgumentUtils.checkNotNull(addressPurpose, "addressPurpose");
+        ArgumentUtils.checkNotNull(address, "address ");
         this.noFixedAddressIndicator = false;
         this.address = address;
         this.addressPurpose = addressPurpose;
     }
-	
+
+    public AddressContextImpl(AustralianAddress address, AddressPurpose addressPurpose) {
+        ArgumentUtils.checkNotNull(addressPurpose, "addressPurpose");
+        ArgumentUtils.checkNotNull(address, "address ");
+
+        if (address.getUnstructuredAddressLines() != null &&
+                address.getUnstructuredAddressLines().size() > 2) {
+            throw new IllegalArgumentException("Address may not have more than 2 unstructured address lines");
+        }
+
+        this.noFixedAddressIndicator = false;
+        this.address = address;
+        this.addressPurpose = addressPurpose;
+    }
 
     /**
-     * a convenience method that returns an empty address 
+     * A convenience method that returns an empty address
      */
-    public static AddressContextImpl noFixedAddress(){
-    	return new AddressContextImpl(true);
+    public static AddressContextImpl noFixedAddress() {
+        return new AddressContextImpl(true);
     }
-    
-	public Boolean getNoFixedAddressIndicator() {
-		return this.noFixedAddressIndicator;
-	}
 
-	public Address getAddress() {
-		return this.address;
-	}
+    public Boolean getNoFixedAddressIndicator() {
+        return this.noFixedAddressIndicator;
+    }
 
-	public AddressPurpose getAddressPurpose() {
-		return this.addressPurpose;
-	}
+    public Address getAddress() {
+        return this.address;
+    }
+
+    public AddressPurpose getAddressPurpose() {
+        return this.addressPurpose;
+    }
 }

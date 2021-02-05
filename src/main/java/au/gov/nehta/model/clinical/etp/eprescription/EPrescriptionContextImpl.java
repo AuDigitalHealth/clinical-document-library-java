@@ -21,30 +21,32 @@ import au.gov.nehta.model.clinical.etp.common.participation.PrescriberParticipat
 
 public class EPrescriptionContextImpl implements EPrescriptionContext {
 
-	private SubjectOfCareParticipant subjectOfCare;
-	private PrescriberParticipation prescriber;
-	private PrescriberOrganisationParticipation prescriberOrganisation;
+    private SubjectOfCareParticipant subjectOfCare;
+    private PrescriberParticipation prescriber;
+    private PrescriberOrganisationParticipation prescriberOrganisation;
 
-	public EPrescriptionContextImpl( 
-	        SubjectOfCareParticipant subjectOfCare, PrescriberParticipation prescriber, PrescriberOrganisationParticipation prescriberOrganisation	) {
-		ArgumentUtils.checkNotNull( subjectOfCare, "subjectOfCare" );
-		ArgumentUtils.checkNotNull( prescriber, "prescriber" );
-		ArgumentUtils.checkNotNull( prescriberOrganisation, "prescriberOrganisation" );
-		this.subjectOfCare = subjectOfCare;
-		this.prescriber = prescriber;
-		this.prescriberOrganisation = prescriberOrganisation;
-	}
+    public EPrescriptionContextImpl(
+            SubjectOfCareParticipant subjectOfCare,
+            PrescriberParticipation prescriber,
+            PrescriberOrganisationParticipation prescriberOrganisation) {
 
-	public SubjectOfCareParticipant getSubjectOfCare() {
-		return subjectOfCare;
-	}
+        ArgumentUtils.checkNotNull(subjectOfCare, "subjectOfCare");
+        ArgumentUtils.checkNotNull(prescriber, "prescriber");
+        ArgumentUtils.checkNotNull(prescriberOrganisation, "prescriberOrganisation");
+        this.subjectOfCare = subjectOfCare;
+        this.prescriber = prescriber;
+        this.prescriberOrganisation = prescriberOrganisation;
+    }
 
-	public PrescriberParticipation getPrescriber() {
-		return prescriber;
-	}
+    public SubjectOfCareParticipant getSubjectOfCare() {
+        return subjectOfCare;
+    }
 
-	public PrescriberOrganisationParticipation getPrescriberOrganisation() {
-		return prescriberOrganisation;
-	}
+    public PrescriberParticipation getPrescriber() {
+        return prescriber;
+    }
 
+    public PrescriberOrganisationParticipation getPrescriberOrganisation() {
+        return prescriberOrganisation;
+    }
 }
