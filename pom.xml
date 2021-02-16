@@ -59,9 +59,9 @@
         <!-- This is left here as a placeholder to assist anyone who wishes
          to plug the schematron checker back in to test their output -->
         <!-- dependency>
-            <groupId>au.gov.digitalhealth</groupId>
+            <groupId>au.gov.nehta</groupId>
             <artifactId>schematron-check</artifactId>
-            <version>1.1</version>
+            <version>1.1.0</version>
         </dependency -->
         <dependency>
             <groupId>junit</groupId>
