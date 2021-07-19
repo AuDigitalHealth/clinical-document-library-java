@@ -19,6 +19,7 @@ import org.w3c.dom.Document;
 import javax.xml.bind.JAXBException;
 import javax.xml.parsers.ParserConfigurationException;
 import java.io.File;
+import java.io.IOException;
 import java.time.ZonedDateTime;
 
 import static au.gov.nehta.cda.test.TestHelper.*;
@@ -41,13 +42,13 @@ public class AdvanceCarePlanningMaxTest extends Base {
             File f = new File(DOCUMENT_FILE_NAME);
             Assert.assertTrue(f.exists());
             Assert.assertTrue(f.length() > 0L);
-        } catch (SchematronValidationException | JAXBException | ParserConfigurationException e) {
+        } catch (SchematronValidationException | JAXBException | ParserConfigurationException | IOException e) {
             e.printStackTrace();
         }
     }
 
     private void generateMax()
-            throws SchematronValidationException, JAXBException, ParserConfigurationException {
+        throws SchematronValidationException, JAXBException, ParserConfigurationException, IOException {
         ZonedDateTime now = ZonedDateTime.now();
         AdvanceCarePlanning advanceCarePlanning = new AdvanceCarePlanningImpl();
         AdvanceCarePlanningContext context = new AdvanceCarePlanningContextImpl();

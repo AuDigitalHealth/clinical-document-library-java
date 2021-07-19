@@ -11,7 +11,12 @@ import au.gov.nehta.model.cda.common.time.Precision;
 import au.gov.nehta.model.cda.common.time.PrecisionDate;
 import au.gov.nehta.model.cda.sr.ServiceReferralCDAModel;
 import au.gov.nehta.model.clinical.etp.common.item.AttachedMedia;
-import au.gov.nehta.model.clinical.sr.*;
+import au.gov.nehta.model.clinical.sr.ServiceReferral;
+import au.gov.nehta.model.clinical.sr.ServiceReferralContent;
+import au.gov.nehta.model.clinical.sr.ServiceReferralContentImpl;
+import au.gov.nehta.model.clinical.sr.ServiceReferralContext;
+import au.gov.nehta.model.clinical.sr.ServiceReferralContextImpl;
+import au.gov.nehta.model.clinical.sr.ServiceReferralImpl;
 import au.gov.nehta.model.schematron.SchematronValidationException;
 import org.junit.Assert;
 import org.junit.Test;
@@ -20,10 +25,15 @@ import org.w3c.dom.Document;
 import javax.xml.bind.JAXBException;
 import javax.xml.parsers.ParserConfigurationException;
 import java.io.File;
+import java.io.IOException;
 import java.time.ZonedDateTime;
 import java.util.UUID;
 
-import static au.gov.nehta.cda.test.TestHelper.*;
+import static au.gov.nehta.cda.test.TestHelper.getCustodian;
+import static au.gov.nehta.cda.test.TestHelper.getDocumentAuthor;
+import static au.gov.nehta.cda.test.TestHelper.getInformationRecipients;
+import static au.gov.nehta.cda.test.TestHelper.getLegalAuthenticator;
+import static au.gov.nehta.cda.test.TestHelper.getSubjectOfCareParticipant;
 import static au.gov.nehta.model.schematron.SchematronResource.SchematronResources.SERVICE_REFERRAL_1A;
 
 public class ServiceReferral1ATest extends Base {
@@ -34,18 +44,22 @@ public class ServiceReferral1ATest extends Base {
 
     @Test
     public void test_1A_Service_Referral_Creation() {
-        generate1A();
-//        SchematronCheckResult check =
+        try {
+            generate1A();
+            //        SchematronCheckResult check =
 //                Schematron.check(SCHEMATRON_TEMPLATE_PATH, SCHEMATRON, DOCUMENT_FILE_NAME);
 //        show(check);
 //        assertEquals(0, check.schemaErrors.size());
 //        assertEquals(0, check.schematronErrors.size());
-        File f = new File(DOCUMENT_FILE_NAME);
-        Assert.assertTrue(f.exists());
-        Assert.assertTrue(f.length() > 0L);
+            File f = new File(DOCUMENT_FILE_NAME);
+            Assert.assertTrue(f.exists());
+            Assert.assertTrue(f.length() > 0L);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
-    public void generate1A() {
+    public void generate1A() throws IOException {
         ServiceReferralContext serviceReferralContext = new ServiceReferralContextImpl();
         serviceReferralContext.setDocumentAuthor(getDocumentAuthor(now));
         serviceReferralContext.setSubjectOfCare(getSubjectOfCareParticipant());

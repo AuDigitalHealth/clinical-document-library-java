@@ -14,7 +14,12 @@ import au.gov.nehta.model.cda.common.time.PrecisionDate;
 import au.gov.nehta.model.cda.common.time.RestrictedTimeInterval;
 import au.gov.nehta.model.cda.ds.DischargeSummaryCDAModel;
 import au.gov.nehta.model.clinical.common.DocumentAuthor;
-import au.gov.nehta.model.clinical.ds.*;
+import au.gov.nehta.model.clinical.ds.DischargeSummary;
+import au.gov.nehta.model.clinical.ds.DischargeSummaryContent;
+import au.gov.nehta.model.clinical.ds.DischargeSummaryContentImpl;
+import au.gov.nehta.model.clinical.ds.DischargeSummaryContext;
+import au.gov.nehta.model.clinical.ds.DischargeSummaryContextImpl;
+import au.gov.nehta.model.clinical.ds.DischargeSummaryImpl;
 import au.gov.nehta.model.clinical.etp.common.item.AttachedMedia;
 import au.gov.nehta.model.clinical.etp.common.participation.ParticipationServiceProvider;
 import au.gov.nehta.model.clinical.etp.common.participation.ParticipationServiceProviderImpl;
@@ -26,12 +31,17 @@ import org.w3c.dom.Document;
 import javax.xml.bind.JAXBException;
 import javax.xml.parsers.ParserConfigurationException;
 import java.io.File;
+import java.io.IOException;
 import java.time.LocalDate;
 import java.time.ZoneId;
 import java.time.ZonedDateTime;
 import java.util.UUID;
 
-import static au.gov.nehta.cda.test.TestHelper.*;
+import static au.gov.nehta.cda.test.TestHelper.getCustodian;
+import static au.gov.nehta.cda.test.TestHelper.getDocumentAuthor;
+import static au.gov.nehta.cda.test.TestHelper.getInformationRecipients;
+import static au.gov.nehta.cda.test.TestHelper.getLegalAuthenticator;
+import static au.gov.nehta.cda.test.TestHelper.getSubjectOfCareParticipant;
 import static au.gov.nehta.model.schematron.SchematronResource.SchematronResources.DISCHARGE_SUMMARY_1A;
 
 public class DischargeSummary1ATest extends Base {
@@ -42,18 +52,23 @@ public class DischargeSummary1ATest extends Base {
 
     @Test
     public void test_Discharge_Summary__Format_1A_Creation() {
-        generate1A();
+        try {
+            generate1A();
+
 //        SchematronCheckResult check =
 //                Schematron.check(SCHEMATRON_TEMPLATE_PATH, SCHEMATRON, DOCUMENT_FILE_NAME);
 //        show(check);
 //        Assert.assertEquals(0, check.schemaErrors.size());
 //        Assert.assertEquals(0, check.schematronErrors.size());
-        File f = new File(DOCUMENT_FILE_NAME);
-        Assert.assertTrue(f.exists());
-        Assert.assertTrue(f.length() > 0L);
+            File f = new File(DOCUMENT_FILE_NAME);
+            Assert.assertTrue(f.exists());
+            Assert.assertTrue(f.length() > 0L);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
-    private void generate1A() {
+    private void generate1A() throws IOException {
         ZonedDateTime now = ZonedDateTime.now();
         DocumentAuthor documentAuthor = getDocumentAuthor(now);
 

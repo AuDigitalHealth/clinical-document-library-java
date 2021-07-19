@@ -46,6 +46,7 @@ import javax.xml.bind.JAXBException;
 import javax.xml.parsers.ParserConfigurationException;
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.time.LocalDate;
 import java.time.ZoneId;
 import java.time.ZonedDateTime;
@@ -73,13 +74,13 @@ public class EventSummaryMaxTest extends Base {
             File f = new File(DOCUMENT_FILE_NAME);
             Assert.assertTrue(f.exists());
             Assert.assertTrue(f.length() > 0L);
-        } catch (SchematronValidationException | JAXBException | ParserConfigurationException | FileNotFoundException e) {
+        } catch (SchematronValidationException | JAXBException | ParserConfigurationException | IOException e) {
             e.printStackTrace();
         }
     }
 
     private void generateMax()
-            throws SchematronValidationException, JAXBException, ParserConfigurationException, FileNotFoundException {
+        throws SchematronValidationException, JAXBException, ParserConfigurationException, IOException {
         ZonedDateTime now = ZonedDateTime.now();
         DocumentAuthor documentAuthor = getDocumentAuthor(now);
 
@@ -154,7 +155,7 @@ public class EventSummaryMaxTest extends Base {
                                                                  boolean showImagingExaminationResults,
                                                                  boolean showRequestedServices,
                                                                  boolean showOtherTestResults)
-            throws FileNotFoundException {
+        throws IOException {
         DiagnosticInvestigations diagnosticInvestigations = new DiagnosticInvestigationsImpl();
         // Pathology Test Results
         if (showPathologyTestResults) {
@@ -187,7 +188,7 @@ public class EventSummaryMaxTest extends Base {
         return diagnosticInvestigations;
     }
 
-    private OtherTestResult getOtherTestResultWithReportFile() {
+    private OtherTestResult getOtherTestResultWithReportFile() throws IOException {
         AttachedMedia reportFile;
         if (!new File(ATTACHMENTS_DIR + "radiologyreport.pdf").exists()) {
             reportFile = new AttachedMedia(
@@ -454,7 +455,7 @@ public class EventSummaryMaxTest extends Base {
         return referenceRangeDetails;
     }
 
-    private TestSpecimenDetail getTestSpecimenDetail() throws FileNotFoundException {
+    private TestSpecimenDetail getTestSpecimenDetail() throws IOException {
         TestSpecimenDetail testSpecimenDetail = new TestSpecimenDetailImpl();
         List<AnatomicalSite> anatomicalSites = new ArrayList<>();
 
@@ -491,7 +492,7 @@ public class EventSummaryMaxTest extends Base {
         return testSpecimenDetail;
     }
 
-    static AnatomicalSite getAnatomicalSite(String s) throws FileNotFoundException {
+    static AnatomicalSite getAnatomicalSite(String s) throws IOException {
         AnatomicalSite anatomicalSite = new AnatomicalSiteImpl();
         anatomicalSite.setAnatomicalLocationImages(new ArrayList<AttachedMedia>() {{
             // add(getAttachedMedia(s, Optional.empty()));
@@ -507,7 +508,7 @@ public class EventSummaryMaxTest extends Base {
         return anatomicalSite;
     }
 
-    private ExaminationRequestDetails getExaminationRequestDetails() throws FileNotFoundException {
+    private ExaminationRequestDetails getExaminationRequestDetails() throws IOException {
         // Image Details
         ImageDetails imageDetail = new ImageDetailsImpl();
         imageDetail.setSubjectPosition("Subject Pos");
@@ -541,7 +542,7 @@ public class EventSummaryMaxTest extends Base {
         return examinationRequestDetails;
     }
 
-    private ImagingExaminationResult getImagingExaminationResult() throws FileNotFoundException {
+    private ImagingExaminationResult getImagingExaminationResult() throws IOException {
 
         List<AnatomicalSite> anatomicalSites = new ArrayList<>();
         anatomicalSites.add(getAnatomicalSite("ImagingExaminationResult"));

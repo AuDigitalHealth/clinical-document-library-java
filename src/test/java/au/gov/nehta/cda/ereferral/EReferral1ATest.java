@@ -1,6 +1,14 @@
 package au.gov.nehta.cda.ereferral;
 
-import au.gov.nehta.builder.ereferral.*;
+import au.gov.nehta.builder.ereferral.EReferralCreator;
+import au.gov.nehta.builder.ereferral.ReferralAuthor;
+import au.gov.nehta.builder.ereferral.ReferralAuthorImpl;
+import au.gov.nehta.builder.ereferral.ReferralDocument;
+import au.gov.nehta.builder.ereferral.ReferralDocumentImpl;
+import au.gov.nehta.builder.ereferral.ReferralModel;
+import au.gov.nehta.builder.ereferral.ReferralModelImpl;
+import au.gov.nehta.builder.ereferral.ReferralParticipant;
+import au.gov.nehta.builder.ereferral.ReferralParticipantImpl;
 import au.gov.nehta.builder.util.UUIDTool;
 import au.gov.nehta.cda.test.Base;
 import au.gov.nehta.cda.test.TestHelper;
@@ -8,7 +16,12 @@ import au.gov.nehta.model.cda.common.address.PostalAddressImpl;
 import au.gov.nehta.model.cda.common.address.PostalAddressUseEnum;
 import au.gov.nehta.model.cda.common.code.CodeImpl;
 import au.gov.nehta.model.cda.common.code.DocumentStatusCode;
-import au.gov.nehta.model.cda.common.custodian.*;
+import au.gov.nehta.model.cda.common.custodian.AssignedCustodian;
+import au.gov.nehta.model.cda.common.custodian.AssignedCustodianImpl;
+import au.gov.nehta.model.cda.common.custodian.Custodian;
+import au.gov.nehta.model.cda.common.custodian.CustodianImpl;
+import au.gov.nehta.model.cda.common.custodian.CustodianOrganization;
+import au.gov.nehta.model.cda.common.custodian.CustodianOrganizationImpl;
 import au.gov.nehta.model.cda.common.document.ClinicalDocument;
 import au.gov.nehta.model.cda.common.document.ClinicalDocumentFactory;
 import au.gov.nehta.model.cda.common.id.AsEntityIdentifier;
@@ -20,12 +33,48 @@ import au.gov.nehta.model.cda.common.telecom.Telecom;
 import au.gov.nehta.model.cda.common.telecom.TelecomImpl;
 import au.gov.nehta.model.cda.common.telecom.TelecomMedium;
 import au.gov.nehta.model.cda.common.telecom.TelecomUse;
-import au.gov.nehta.model.clinical.common.*;
-import au.gov.nehta.model.clinical.common.participation.*;
-import au.gov.nehta.model.clinical.common.types.*;
+import au.gov.nehta.model.clinical.common.SubjectOfCareDemographicData;
+import au.gov.nehta.model.clinical.common.SubjectOfCareDemographicDataImpl;
+import au.gov.nehta.model.clinical.common.SubjectOfCareParticipant;
+import au.gov.nehta.model.clinical.common.SubjectOfCareParticipantImpl;
+import au.gov.nehta.model.clinical.common.SubjectOfCarePerson;
+import au.gov.nehta.model.clinical.common.SubjectOfCarePersonImpl;
+import au.gov.nehta.model.clinical.common.participation.ANZSCO_1ED_2006;
+import au.gov.nehta.model.clinical.common.participation.ANZSCO_1ED_REV1;
+import au.gov.nehta.model.clinical.common.participation.AddressContextImpl;
+import au.gov.nehta.model.clinical.common.participation.AddressPurpose;
+import au.gov.nehta.model.clinical.common.participation.AustralianAddress;
+import au.gov.nehta.model.clinical.common.participation.AustralianAddressImpl;
+import au.gov.nehta.model.clinical.common.participation.AustralianStateTerritory;
+import au.gov.nehta.model.clinical.common.participation.DateAccuracy;
+import au.gov.nehta.model.clinical.common.participation.DateAccuracyImpl;
+import au.gov.nehta.model.clinical.common.participation.DateOfBirthDetail;
+import au.gov.nehta.model.clinical.common.participation.DateOfBirthDetailImpl;
+import au.gov.nehta.model.clinical.common.participation.IndigenousStatus;
+import au.gov.nehta.model.clinical.common.participation.NameSuffix;
+import au.gov.nehta.model.clinical.common.participation.NameTitle;
+import au.gov.nehta.model.clinical.common.participation.OccupationImpl;
+import au.gov.nehta.model.clinical.common.participation.Organisation;
+import au.gov.nehta.model.clinical.common.participation.OrganisationImpl;
+import au.gov.nehta.model.clinical.common.participation.OrganisationNameUsage;
+import au.gov.nehta.model.clinical.common.participation.PersonName;
+import au.gov.nehta.model.clinical.common.participation.PersonNameImpl;
+import au.gov.nehta.model.clinical.common.participation.PersonNameUsage;
+import au.gov.nehta.model.clinical.common.participation.Sex;
+import au.gov.nehta.model.clinical.common.types.HPII;
+import au.gov.nehta.model.clinical.common.types.HPIO;
+import au.gov.nehta.model.clinical.common.types.IHI;
+import au.gov.nehta.model.clinical.common.types.UniqueIdentifier;
+import au.gov.nehta.model.clinical.common.types.UniqueIdentifierImpl;
 import au.gov.nehta.model.clinical.diagnostic.pathology.EmploymentOrganisationImpl;
 import au.gov.nehta.model.clinical.etp.common.item.AttachedMedia;
-import au.gov.nehta.model.clinical.etp.common.participation.*;
+import au.gov.nehta.model.clinical.etp.common.participation.AddressContext;
+import au.gov.nehta.model.clinical.etp.common.participation.ProviderAddress;
+import au.gov.nehta.model.clinical.etp.common.participation.ProviderAddressImpl;
+import au.gov.nehta.model.clinical.etp.common.participation.ProviderEmploymentDetail;
+import au.gov.nehta.model.clinical.etp.common.participation.ProviderEmploymentDetailImpl;
+import au.gov.nehta.model.clinical.etp.common.participation.ProviderPerson;
+import au.gov.nehta.model.clinical.etp.common.participation.ProviderPersonImpl;
 import au.gov.nehta.model.schematron.SchematronResource.SchematronResources;
 import au.gov.nehta.model.schematron.SchematronValidationException;
 import org.junit.Assert;
@@ -35,10 +84,15 @@ import org.w3c.dom.Document;
 import javax.xml.bind.JAXBException;
 import javax.xml.parsers.ParserConfigurationException;
 import java.io.File;
+import java.io.IOException;
 import java.time.LocalDate;
 import java.time.ZoneId;
 import java.time.ZonedDateTime;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
+import java.util.UUID;
 
 import static au.gov.nehta.model.schematron.SchematronResource.SchematronResources.SERVICE_REFERRAL_1A;
 
@@ -51,19 +105,24 @@ public class EReferral1ATest extends Base {
     @Test
     public void test_E_REFERRAL_1A_Creation()
             throws ParserConfigurationException, JAXBException, SchematronValidationException {
-        generate1A();
+        try {
+            generate1A();
+
 //        SchematronCheckResult check = Schematron
 //                .check(SCHEMATRON_TEMPLATE_PATH, SCHEMATRON, DOCUMENT_FILE_NAME);
 //        show(check);
 //        assertEquals(0, check.schemaErrors.size());
-        // RDS disabled Assert.assertTrue( check.schematronErrors.size() == 0 );
-        File f = new File(DOCUMENT_FILE_NAME);
-        Assert.assertTrue(f.exists());
-        Assert.assertTrue(f.length() > 0L);
+            // RDS disabled Assert.assertTrue( check.schematronErrors.size() == 0 );
+            File f = new File(DOCUMENT_FILE_NAME);
+            Assert.assertTrue(f.exists());
+            Assert.assertTrue(f.length() > 0L);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     private void generate1A()
-            throws ParserConfigurationException, JAXBException, SchematronValidationException {
+        throws ParserConfigurationException, JAXBException, SchematronValidationException, IOException {
         String documentID = UUID.randomUUID().toString();
 
         // ***************************

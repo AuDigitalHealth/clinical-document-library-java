@@ -14,7 +14,12 @@ import au.gov.nehta.model.clinical.common.DocumentAuthor;
 import au.gov.nehta.model.clinical.etp.common.item.AttachedMedia;
 import au.gov.nehta.model.clinical.etp.common.participation.ParticipationServiceProvider;
 import au.gov.nehta.model.clinical.etp.common.participation.ParticipationServiceProviderImpl;
-import au.gov.nehta.model.clinical.sl.*;
+import au.gov.nehta.model.clinical.sl.SpecialistLetter;
+import au.gov.nehta.model.clinical.sl.SpecialistLetterContent;
+import au.gov.nehta.model.clinical.sl.SpecialistLetterContentImpl;
+import au.gov.nehta.model.clinical.sl.SpecialistLetterContext;
+import au.gov.nehta.model.clinical.sl.SpecialistLetterContextImpl;
+import au.gov.nehta.model.clinical.sl.SpecialistLetterImpl;
 import au.gov.nehta.model.schematron.SchematronValidationException;
 import org.junit.Assert;
 import org.junit.Test;
@@ -23,10 +28,15 @@ import org.w3c.dom.Document;
 import javax.xml.bind.JAXBException;
 import javax.xml.parsers.ParserConfigurationException;
 import java.io.File;
+import java.io.IOException;
 import java.time.ZonedDateTime;
 import java.util.UUID;
 
-import static au.gov.nehta.cda.test.TestHelper.*;
+import static au.gov.nehta.cda.test.TestHelper.getCustodian;
+import static au.gov.nehta.cda.test.TestHelper.getDocumentAuthor;
+import static au.gov.nehta.cda.test.TestHelper.getInformationRecipients;
+import static au.gov.nehta.cda.test.TestHelper.getLegalAuthenticator;
+import static au.gov.nehta.cda.test.TestHelper.getSubjectOfCareParticipant;
 import static au.gov.nehta.model.schematron.SchematronResource.SchematronResources.SPECIALIST_LETTER_1A;
 
 public class SpecialistLetter1ATest extends Base {
@@ -37,19 +47,24 @@ public class SpecialistLetter1ATest extends Base {
 
     @Test
     public void test_1A_Specialist_Letter_Creation() {
-        generate1A();
-        String SCHEMATRON_TEMPLATE_PATH = "src/test/resources/SpecialistLetter";
+        try {
+            generate1A();
+
+            String SCHEMATRON_TEMPLATE_PATH = "src/test/resources/SpecialistLetter";
 //        SchematronCheckResult check =
 //                Schematron.check(SCHEMATRON_TEMPLATE_PATH, SCHEMATRON, DOCUMENT_FILE_NAME);
 //        show(check);
 //        assertEquals(0, check.schemaErrors.size());
 //        assertEquals(0, check.schematronErrors.size());
-        File f = new File(DOCUMENT_FILE_NAME);
-        Assert.assertTrue(f.exists());
-        Assert.assertTrue(f.length() > 0L);
+            File f = new File(DOCUMENT_FILE_NAME);
+            Assert.assertTrue(f.exists());
+            Assert.assertTrue(f.length() > 0L);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
-    public void generate1A() {
+    public void generate1A() throws IOException {
 
         // Prepare Specialist Letter Context
         ParticipationServiceProvider usualGP = new ParticipationServiceProviderImpl();

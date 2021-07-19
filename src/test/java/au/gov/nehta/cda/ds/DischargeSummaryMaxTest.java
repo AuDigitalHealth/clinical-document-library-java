@@ -43,6 +43,7 @@ import javax.xml.bind.JAXBException;
 import javax.xml.parsers.ParserConfigurationException;
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.time.LocalDate;
 import java.time.ZoneId;
 import java.time.ZonedDateTime;
@@ -71,13 +72,13 @@ public class DischargeSummaryMaxTest extends Base {
             File f = new File(DOCUMENT_FILE_NAME);
             Assert.assertTrue(f.exists());
             Assert.assertTrue(f.length() > 0L);
-        } catch (SchematronValidationException | ParserConfigurationException | JAXBException | FileNotFoundException e) {
+        } catch (SchematronValidationException | ParserConfigurationException | JAXBException | IOException e) {
             e.printStackTrace();
         }
     }
 
     private void generateMax()
-            throws SchematronValidationException, JAXBException, ParserConfigurationException, FileNotFoundException {
+        throws SchematronValidationException, JAXBException, ParserConfigurationException, IOException {
         ZonedDateTime now = ZonedDateTime.now();
         DocumentAuthor documentAuthor = TestHelper.getDocumentAuthor(now);
 
@@ -125,7 +126,7 @@ public class DischargeSummaryMaxTest extends Base {
         TestHelper.printToFile(cdaString, DOCUMENT_FILE_NAME);
     }
 
-    private Event getEvent() throws FileNotFoundException {
+    private Event getEvent() throws IOException {
         DiagnosticInvestigations diagnosticInvestigations = getDiagnosticInvestigations(true, true,
                 true, true);
         diagnosticInvestigations.setRequestedServices(null);

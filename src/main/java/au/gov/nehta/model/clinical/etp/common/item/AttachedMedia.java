@@ -18,7 +18,7 @@ public class AttachedMedia {
   private POCDMT000040Observation observationReference;
   private TemplateId templateId;
 
-  public AttachedMedia(File file) {
+  public AttachedMedia(File file) throws IOException {
     this(file, IntegerityCheckType.SHA_1);
   }
 
@@ -43,33 +43,47 @@ public class AttachedMedia {
    * </observationMedia>
    * </entry>
    */
-  public AttachedMedia(File file, TemplateId templateId) {
-    this(file, IntegerityCheckType.SHA_1);
+  public AttachedMedia(File file, TemplateId templateId) throws IOException {
+    this(file.getName(),
+          Files.probeContentType(file.toPath()),
+          IntegerityCheckType.SHA_1.check(file),
+          IntegerityCheckType.SHA_1,
+          null,
+          null,
+          templateId);
+  }
+
+  public AttachedMedia(File file, IntegerityCheckType checkType) throws IOException {
+    this(file, Files.probeContentType(file.toPath()), checkType);
+  }
+
+  public AttachedMedia(File file, String mediaType, IntegerityCheckType checkType) {
+    this(file.getName(),
+          mediaType,
+          checkType.check(file),
+          checkType,
+          null,
+          null,
+          null);
+    ArgumentUtils.checkNotNull(file, "logo file");
+  }
+
+
+  public AttachedMedia(String fileName,
+                       String mediaType,
+                       byte[] integrityCheck,
+                       IntegerityCheckType integrityCheckType,
+                       POCDMT000040ObservationMedia observationMediaReference,
+                       POCDMT000040Observation observationReference,
+                       TemplateId templateId) {
+    this.fileName = fileName;
+    this.mediaType = mediaType;
+    this.integrityCheck = integrityCheck;
+    this.integrityCheckType = integrityCheckType;
+    this.observationMediaReference = observationMediaReference;
+    this.observationReference = observationReference;
     this.templateId = templateId;
   }
-
-  public AttachedMedia(File file, IntegerityCheckType checkType) {
-    ArgumentUtils.checkNotNull(file, "logo file");
-    /*try {
-      final MessageDigest messageDigest = MessageDigest.getInstance("SHA-1");
-//      integrityCheck = getFileChecksum(messageDigest, file);
-    } catch (NoSuchAlgorithmException e) {
-      e.printStackTrace();
-    } catch (IOException e) {
-      e.printStackTrace();
-    }*/
-    integrityCheck = checkType.check(file);
-    integrityCheckType = checkType;
-
-//         mediaType = new MimetypesFileTypeMap().getContentType(file);
-    try {
-      mediaType = Files.probeContentType(file.toPath());
-    } catch (IOException e) {
-      e.printStackTrace();
-    }
-    fileName = file.getName();
-  }
-
 
   /**
    * @return the fileName
@@ -125,4 +139,20 @@ public class AttachedMedia {
     this.templateId = templateId;
   }
 
+
+  public void setFileName(String fileName) {
+    this.fileName = fileName;
+  }
+
+  public void setMediaType(String mediaType) {
+    this.mediaType = mediaType;
+  }
+
+  public void setIntegrityCheck(byte[] integrityCheck) {
+    this.integrityCheck = integrityCheck;
+  }
+
+  public void setIntegrityCheckType(IntegerityCheckType integrityCheckType) {
+    this.integrityCheckType = integrityCheckType;
+  }
 }

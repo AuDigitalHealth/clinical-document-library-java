@@ -1,5 +1,10 @@
 # Change Log/Revision History
 
+  = 2.0.2 =
+  =========
+  + Added throws IOException to the Test files and helper files
+  + New PdfMedia.java for when the attachment type is known to be PDF.
+  
   = 2.0.1 =
   =========
   + references to AMTCode (v2) removed where AMTv3Code alternative is available and required for conformity

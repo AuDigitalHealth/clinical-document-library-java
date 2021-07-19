@@ -7,11 +7,31 @@ import au.gov.nehta.cda.test.TestHelper;
 import au.gov.nehta.model.cda.common.address.PostalAddress;
 import au.gov.nehta.model.cda.common.address.PostalAddressImpl;
 import au.gov.nehta.model.cda.common.address.PostalAddressUseEnum;
-import au.gov.nehta.model.cda.common.code.*;
-import au.gov.nehta.model.cda.common.custodian.*;
+import au.gov.nehta.model.cda.common.code.Code;
+import au.gov.nehta.model.cda.common.code.CodeImpl;
+import au.gov.nehta.model.cda.common.code.DiagnosticServiceCode;
+import au.gov.nehta.model.cda.common.code.DocumentStatusCode;
+import au.gov.nehta.model.cda.common.code.SNOMEDCode;
+import au.gov.nehta.model.cda.common.code.SNOMED_AU_Code;
+import au.gov.nehta.model.cda.common.code.SNOMED_CT_ResultStatusCode;
+import au.gov.nehta.model.cda.common.code.SourceOfDeathNotificationCode;
+import au.gov.nehta.model.cda.common.custodian.AssignedCustodian;
+import au.gov.nehta.model.cda.common.custodian.AssignedCustodianImpl;
+import au.gov.nehta.model.cda.common.custodian.Custodian;
+import au.gov.nehta.model.cda.common.custodian.CustodianImpl;
+import au.gov.nehta.model.cda.common.custodian.CustodianOrganization;
+import au.gov.nehta.model.cda.common.custodian.CustodianOrganizationImpl;
 import au.gov.nehta.model.cda.common.document.ClinicalDocument;
 import au.gov.nehta.model.cda.common.document.ClinicalDocumentFactory;
-import au.gov.nehta.model.cda.common.id.*;
+import au.gov.nehta.model.cda.common.id.AsEntityIdentifier;
+import au.gov.nehta.model.cda.common.id.AsEntityIdentifierImpl;
+import au.gov.nehta.model.cda.common.id.AssignedEntity;
+import au.gov.nehta.model.cda.common.id.AssignedEntityImpl;
+import au.gov.nehta.model.cda.common.id.LegalAuthenticator;
+import au.gov.nehta.model.cda.common.id.LegalAuthenticatorImpl;
+import au.gov.nehta.model.cda.common.id.MedicareCardIdentifier;
+import au.gov.nehta.model.cda.common.id.MedicarePrescriberNumber;
+import au.gov.nehta.model.cda.common.id.TemplateIdImpl;
 import au.gov.nehta.model.cda.common.org.Organization;
 import au.gov.nehta.model.cda.common.org.OrganizationImpl;
 import au.gov.nehta.model.cda.common.org.OrganizationName;
@@ -22,16 +42,82 @@ import au.gov.nehta.model.cda.common.telecom.Telecom;
 import au.gov.nehta.model.cda.common.telecom.TelecomImpl;
 import au.gov.nehta.model.cda.common.telecom.TelecomMedium;
 import au.gov.nehta.model.cda.common.telecom.TelecomUse;
-import au.gov.nehta.model.cda.common.time.*;
+import au.gov.nehta.model.cda.common.time.Precision;
+import au.gov.nehta.model.cda.common.time.PrecisionDate;
+import au.gov.nehta.model.cda.common.time.RestrictedTimeInterval;
+import au.gov.nehta.model.cda.common.time.TimeQuantity;
+import au.gov.nehta.model.cda.common.time.TimeUnitOfMeasure;
 import au.gov.nehta.model.cda.diagnostic.PathologyReportCdaModel;
-import au.gov.nehta.model.clinical.common.*;
-import au.gov.nehta.model.clinical.common.participation.*;
-import au.gov.nehta.model.clinical.common.types.*;
-import au.gov.nehta.model.clinical.diagnostic.pathology.*;
+import au.gov.nehta.model.clinical.common.ExtendedDemographicDataImpl;
+import au.gov.nehta.model.clinical.common.ExtendedSubjectOfCarePerson;
+import au.gov.nehta.model.clinical.common.SubjectOfCareParticipant;
+import au.gov.nehta.model.clinical.common.SubjectOfCareParticipantImpl;
+import au.gov.nehta.model.clinical.common.SubjectOfCarePerson;
+import au.gov.nehta.model.clinical.common.participation.ANZSCO_1ED_REV1;
+import au.gov.nehta.model.clinical.common.participation.AddressContextImpl;
+import au.gov.nehta.model.clinical.common.participation.AddressPurpose;
+import au.gov.nehta.model.clinical.common.participation.AustralianAddress;
+import au.gov.nehta.model.clinical.common.participation.AustralianAddressImpl;
+import au.gov.nehta.model.clinical.common.participation.AustralianStateTerritory;
+import au.gov.nehta.model.clinical.common.participation.CountryEnum;
+import au.gov.nehta.model.clinical.common.participation.CountryStateImpl;
+import au.gov.nehta.model.clinical.common.participation.DateAccuracy;
+import au.gov.nehta.model.clinical.common.participation.DateAccuracyImpl;
+import au.gov.nehta.model.clinical.common.participation.DateOfBirthDetail;
+import au.gov.nehta.model.clinical.common.participation.DateOfBirthDetailImpl;
+import au.gov.nehta.model.clinical.common.participation.DateOfDeathImpl;
+import au.gov.nehta.model.clinical.common.participation.IndigenousStatus;
+import au.gov.nehta.model.clinical.common.participation.NameSuffix;
+import au.gov.nehta.model.clinical.common.participation.NameTitle;
+import au.gov.nehta.model.clinical.common.participation.Occupation;
+import au.gov.nehta.model.clinical.common.participation.OccupationImpl;
+import au.gov.nehta.model.clinical.common.participation.Organisation;
+import au.gov.nehta.model.clinical.common.participation.OrganisationImpl;
+import au.gov.nehta.model.clinical.common.participation.OrganisationNameUsage;
+import au.gov.nehta.model.clinical.common.participation.PersonName;
+import au.gov.nehta.model.clinical.common.participation.PersonNameImpl;
+import au.gov.nehta.model.clinical.common.participation.PersonNameUsage;
+import au.gov.nehta.model.clinical.common.participation.Role;
+import au.gov.nehta.model.clinical.common.participation.RoleImpl;
+import au.gov.nehta.model.clinical.common.participation.Sex;
+import au.gov.nehta.model.clinical.common.types.HPII;
+import au.gov.nehta.model.clinical.common.types.HPIO;
+import au.gov.nehta.model.clinical.common.types.IHI;
+import au.gov.nehta.model.clinical.common.types.UniqueIdentifier;
+import au.gov.nehta.model.clinical.common.types.UniqueIdentifierImpl;
+import au.gov.nehta.model.clinical.diagnostic.pathology.DocumentParticipant;
+import au.gov.nehta.model.clinical.diagnostic.pathology.DocumentParticipantImpl;
+import au.gov.nehta.model.clinical.diagnostic.pathology.EmploymentOrganisationImpl;
+import au.gov.nehta.model.clinical.diagnostic.pathology.OrderDetails;
+import au.gov.nehta.model.clinical.diagnostic.pathology.OrderDetailsImpl;
+import au.gov.nehta.model.clinical.diagnostic.pathology.PathologyParticipantImpl;
+import au.gov.nehta.model.clinical.diagnostic.pathology.PathologyReportContent;
+import au.gov.nehta.model.clinical.diagnostic.pathology.PathologyReportContentImpl;
+import au.gov.nehta.model.clinical.diagnostic.pathology.PathologyReportContext;
+import au.gov.nehta.model.clinical.diagnostic.pathology.PathologyReportContextImpl;
+import au.gov.nehta.model.clinical.diagnostic.pathology.PathologyResult;
+import au.gov.nehta.model.clinical.diagnostic.pathology.PathologyResultImpl;
+import au.gov.nehta.model.clinical.diagnostic.pathology.PathologyResultReport;
+import au.gov.nehta.model.clinical.diagnostic.pathology.PathologyResultReportImpl;
+import au.gov.nehta.model.clinical.diagnostic.pathology.ReportDocument;
+import au.gov.nehta.model.clinical.diagnostic.pathology.ReportDocumentImpl;
+import au.gov.nehta.model.clinical.diagnostic.pathology.RequesterParticipant;
+import au.gov.nehta.model.clinical.diagnostic.pathology.RequesterParticipantImpl;
+import au.gov.nehta.model.clinical.diagnostic.pathology.RequesterParticipation;
+import au.gov.nehta.model.clinical.diagnostic.pathology.RequesterParticipationImpl;
+import au.gov.nehta.model.clinical.diagnostic.pathology.SpecimenDetailImpl;
 import au.gov.nehta.model.clinical.etp.common.item.AttachedMedia;
 import au.gov.nehta.model.clinical.etp.common.item.Logo;
+import au.gov.nehta.model.clinical.etp.common.participation.AddressContext;
+import au.gov.nehta.model.clinical.etp.common.participation.Entitlement;
+import au.gov.nehta.model.clinical.etp.common.participation.EntitlementImpl;
 import au.gov.nehta.model.clinical.etp.common.participation.EntitlementType;
-import au.gov.nehta.model.clinical.etp.common.participation.*;
+import au.gov.nehta.model.clinical.etp.common.participation.ProviderAddress;
+import au.gov.nehta.model.clinical.etp.common.participation.ProviderAddressImpl;
+import au.gov.nehta.model.clinical.etp.common.participation.ProviderEmploymentDetail;
+import au.gov.nehta.model.clinical.etp.common.participation.ProviderEmploymentDetailImpl;
+import au.gov.nehta.model.clinical.etp.common.participation.ProviderPerson;
+import au.gov.nehta.model.clinical.etp.common.participation.ProviderPersonImpl;
 import au.gov.nehta.model.schematron.SchematronValidationException;
 import au.net.electronichealth.ns.cda._2_0.NullFlavor;
 import org.junit.Assert;
@@ -41,6 +127,7 @@ import org.w3c.dom.Document;
 import javax.xml.bind.JAXBException;
 import javax.xml.parsers.ParserConfigurationException;
 import java.io.File;
+import java.io.IOException;
 import java.time.LocalDate;
 import java.time.ZoneId;
 import java.time.ZonedDateTime;
@@ -59,7 +146,9 @@ public class PathologyReportMaxPersonAuthorPathologistTest extends Base {
     @Test
     public void test_MAX_PathologyReportCreation()
             throws ParserConfigurationException, JAXBException, SchematronValidationException {
-        generateMax();
+        try {
+            generateMax();
+
 //        SchematronCheckResult check = Schematron.check(
 //                SCHEMATRON_TEMPLATE_PATH, SCHEMATRON, DOCUMENT_FILE_NAME);
 //
@@ -68,13 +157,16 @@ public class PathologyReportMaxPersonAuthorPathologistTest extends Base {
 //        System.out.println("schematronErrors errors:" + check.schematronErrors.size());
 //        Assert.assertEquals(check.schemaErrors.size(), 0);
 //        Assert.assertEquals(check.schematronErrors.size(), 0);
-        File f = new File(DOCUMENT_FILE_NAME);
-        Assert.assertTrue(f.exists());
-        Assert.assertTrue(f.length() > 0L);
+            File f = new File(DOCUMENT_FILE_NAME);
+            Assert.assertTrue(f.exists());
+            Assert.assertTrue(f.length() > 0L);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     public void generateMax()
-            throws ParserConfigurationException, JAXBException, SchematronValidationException {
+        throws ParserConfigurationException, JAXBException, SchematronValidationException, IOException {
 
         ZonedDateTime now = ZonedDateTime.now();
 

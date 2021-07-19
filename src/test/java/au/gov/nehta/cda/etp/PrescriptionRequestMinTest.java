@@ -38,6 +38,7 @@ import org.junit.Test;
 import org.w3c.dom.Document;
 
 import java.io.File;
+import java.io.IOException;
 import java.time.LocalDate;
 import java.time.ZoneId;
 import java.time.ZonedDateTime;
@@ -50,7 +51,7 @@ public class PrescriptionRequestMinTest extends Base {
 
     @Test
     @Ignore
-    public void test_MIN_PrescriptionRequestCreation() {
+    public void test_MIN_PrescriptionRequestCreation() throws IOException {
         // Setup context
         // Subject Of Care
         AsEntityIdentifier ihi = new IHI("8003600300001283");

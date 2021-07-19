@@ -40,6 +40,7 @@ import javax.xml.bind.JAXBException;
 import javax.xml.parsers.ParserConfigurationException;
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.time.LocalDate;
 import java.time.ZoneId;
 import java.time.ZonedDateTime;
@@ -69,13 +70,13 @@ public class ServiceReferralMaxTest extends Base {
             File f = new File(DOCUMENT_FILE_NAME);
             Assert.assertTrue(f.exists());
             Assert.assertTrue(f.length() > 0L);
-        } catch (SchematronValidationException | ParserConfigurationException | JAXBException | FileNotFoundException e) {
+        } catch (SchematronValidationException | ParserConfigurationException | JAXBException | IOException e) {
             e.printStackTrace();
         }
     }
 
     private void generateMax()
-            throws SchematronValidationException, JAXBException, ParserConfigurationException, FileNotFoundException {
+        throws SchematronValidationException, JAXBException, ParserConfigurationException, IOException {
         ZonedDateTime now = ZonedDateTime.now();
         PreciseDate dateTimeAttested = new PrecisionDate(Precision.DAY, now.minusHours(6));
         DocumentAuthor documentAuthor = TestHelper.getDocumentAuthor(now);
@@ -97,7 +98,7 @@ public class ServiceReferralMaxTest extends Base {
 
     }
 
-    private ServiceReferralContent getContent() throws FileNotFoundException {
+    private ServiceReferralContent getContent() throws IOException {
         AttachedMedia reportFile = TestHelper.getAttachedMediaPDF("radiologyreport.pdf");
         ServiceReferralContent content = new ServiceReferralContentImpl(reportFile);
         content.setCurrentServices(getCurrentServices());
@@ -393,7 +394,7 @@ public class ServiceReferralMaxTest extends Base {
     }
 
     private ServiceReferralContext getContext(PreciseDate dateTimeAttested,
-                                              DocumentAuthor documentAuthor) {
+                                              DocumentAuthor documentAuthor) throws IOException {
         ServiceReferralContext context = new ServiceReferralContextImpl();
         context.setDateTimeAttested(dateTimeAttested);
         context.setDocumentAuthor(documentAuthor);
@@ -406,7 +407,7 @@ public class ServiceReferralMaxTest extends Base {
         return context;
     }
 
-    private List<RelatedDocument> getRelatedDocuments() {
+    private List<RelatedDocument> getRelatedDocuments() throws IOException {
         List<RelatedDocument> relatedDocuments = new LinkedList<>();
         RelatedDocument relatedDocument = new RelatedDocumentImpl();
         relatedDocument.setDocumentDetail(new DocumentDetail() {{

@@ -48,7 +48,7 @@ import java.util.*;
  * conformant to level 1A.
  */
 public class SampleDocumentCreation_eReferral_1A {
-    public static void main(String[] args) throws ParserConfigurationException, JAXBException, SchematronValidationException {
+    public static void main(String[] args) throws ParserConfigurationException, JAXBException, SchematronValidationException, IOException {
         String documentID = UUID.randomUUID().toString();
 
         // ***************************

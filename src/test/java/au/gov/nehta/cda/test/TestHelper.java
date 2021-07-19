@@ -771,7 +771,7 @@ public class TestHelper {
         return referenceRangeDetails;
     }
 
-    public static OtherTestResult getOtherTestResultWithReportFile() {
+    public static OtherTestResult getOtherTestResultWithReportFile() throws IOException {
         AttachedMedia reportFile = getAttachedMediaPDF("radiologyreport.pdf");
         return new OtherTestResultImpl(new CodeImpl() {{
             setOriginalText("Report Name (with attachment)");
@@ -814,7 +814,7 @@ public class TestHelper {
     public static DiagnosticInvestigations getDiagnosticInvestigations(
             boolean showPathologyTestResults,
             boolean showImagingExaminationResults, boolean showRequestedServices,
-            boolean showOtherTestResults) throws FileNotFoundException {
+            boolean showOtherTestResults) throws IOException {
         DiagnosticInvestigations diagnosticInvestigations = new DiagnosticInvestigationsImpl();
         // Pathology Test Results
         if (showPathologyTestResults) {
@@ -860,7 +860,7 @@ public class TestHelper {
     }
 
     public static ImagingExaminationResult getImagingExaminationResult()
-            throws FileNotFoundException {
+        throws IOException {
         List<AnatomicalSite> anatomicalSites = new ArrayList<>();
         anatomicalSites.add(getAnatomicalSite("ImagingExaminationResult"));
         ImagingExaminationResult imagingExaminationResult = new ImagingExaminationResultImpl();
@@ -921,7 +921,7 @@ public class TestHelper {
     }
 
     public static ExaminationRequestDetails getExaminationRequestDetails()
-            throws FileNotFoundException {
+        throws IOException {
         //Image Details
         ImageDetails imageDetail = new ImageDetailsImpl();
         imageDetail.setSubjectPosition("Subject Pos");
@@ -955,7 +955,7 @@ public class TestHelper {
         return examinationRequestDetails;
     }
 
-    public static AnatomicalSite getAnatomicalSite(String s) throws FileNotFoundException {
+    public static AnatomicalSite getAnatomicalSite(String s) throws IOException {
         AnatomicalSite anatomicalSite = new AnatomicalSiteImpl();
         anatomicalSite.setAnatomicalLocationImages(new ArrayList<AttachedMedia>() {{
             add(getAttachedMedia(s, Optional.empty()));
@@ -1046,7 +1046,7 @@ public class TestHelper {
         return requestedService;
     }
 
-    public static AttachedMedia getAttachedMediaPDF(String fileName) {
+    public static AttachedMedia getAttachedMediaPDF(String fileName) throws IOException {
         File media;
         if (!new File(String.format("%s/%s", ATTACHMENTS_DIR, fileName)).exists()) {
             media = new File(String.format("src/%s/%s", ATTACHMENTS_DIR, fileName));

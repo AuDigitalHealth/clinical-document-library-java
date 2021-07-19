@@ -32,6 +32,7 @@ import org.w3c.dom.Document;
 import javax.xml.bind.JAXBException;
 import javax.xml.parsers.ParserConfigurationException;
 import java.io.File;
+import java.io.IOException;
 import java.time.LocalDate;
 import java.time.ZoneId;
 import java.time.ZonedDateTime;
@@ -64,13 +65,13 @@ public class ServiceReferral2Test extends Base {
             File f = new File(DOCUMENT_FILE_NAME);
             Assert.assertTrue(f.exists());
             Assert.assertTrue(f.length() > 0L);
-        } catch (SchematronValidationException | ParserConfigurationException | JAXBException e) {
+        } catch (SchematronValidationException | ParserConfigurationException | JAXBException | IOException e) {
             e.printStackTrace();
         }
     }
 
     public void generate2()
-            throws SchematronValidationException, JAXBException, ParserConfigurationException {
+        throws SchematronValidationException, JAXBException, ParserConfigurationException, IOException {
 
         DocumentAuthor documentAuthor = TestHelper.getDocumentAuthor(now);
         PreciseDate dateTimeAttested = new PrecisionDate(Precision.DAY, now.minusHours(6));
@@ -232,7 +233,7 @@ public class ServiceReferral2Test extends Base {
     }
 
     private ServiceReferralContext getContext(PreciseDate dateTimeAttested,
-                                              DocumentAuthor documentAuthor) {
+                                              DocumentAuthor documentAuthor) throws IOException {
         ServiceReferralContext context = new ServiceReferralContextImpl();
         context.setDateTimeAttested(dateTimeAttested);
         context.setDocumentAuthor(documentAuthor);
@@ -607,7 +608,7 @@ public class ServiceReferral2Test extends Base {
         return primaryCareGiver;
     }
 
-    private List<RelatedDocument> getRelatedDocuments() {
+    private List<RelatedDocument> getRelatedDocuments() throws IOException {
         List<RelatedDocument> relatedDocuments = new LinkedList<>();
         RelatedDocument relatedDocument = new RelatedDocumentImpl();
         relatedDocument.setDocumentDetail(new DocumentDetail() {{

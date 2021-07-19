@@ -38,6 +38,7 @@ import javax.xml.bind.JAXBException;
 import javax.xml.parsers.ParserConfigurationException;
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.time.LocalDate;
 import java.time.ZoneId;
 import java.time.ZonedDateTime;
@@ -67,13 +68,13 @@ public class EReferral3ATest extends Base {
             File f = new File(DOCUMENT_FILE_NAME);
             Assert.assertTrue(f.exists());
             Assert.assertTrue(f.length() > 0L);
-        } catch (SchematronValidationException | ParserConfigurationException | JAXBException | FileNotFoundException e) {
+        } catch (SchematronValidationException | ParserConfigurationException | JAXBException | IOException e) {
             e.printStackTrace();
         }
     }
 
     private void generateMax()
-            throws SchematronValidationException, JAXBException, ParserConfigurationException, FileNotFoundException {
+        throws SchematronValidationException, JAXBException, ParserConfigurationException, IOException {
         ZonedDateTime now = ZonedDateTime.now();
         PreciseDate dateTimeAttested = new PrecisionDate(Precision.DAY, now.minusHours(6));
         DocumentAuthor documentAuthor = TestHelper.getDocumentAuthor(now);
@@ -93,7 +94,7 @@ public class EReferral3ATest extends Base {
         TestHelper.printToFile(cdaString, DOCUMENT_FILE_NAME);
     }
 
-    private EReferralContent getContent() throws FileNotFoundException {
+    private EReferralContent getContent() throws IOException {
         EReferralContent content = new EReferralContentImpl();
         TestHelper.executingClass = EReferral.class;
         DiagnosticInvestigations diagnosticInvestigations = getDiagnosticInvestigations(true,

@@ -44,6 +44,7 @@ import org.junit.Test;
 import javax.xml.bind.JAXBException;
 import javax.xml.parsers.ParserConfigurationException;
 import java.io.File;
+import java.io.IOException;
 import java.time.LocalDate;
 import java.time.ZoneId;
 import java.time.ZonedDateTime;
@@ -62,7 +63,9 @@ public class DispenseRecordMaxTest extends Base {
     public void test_MAX_DispenseRecordCreation()
             throws ParserConfigurationException, JAXBException,
             SchematronValidationException {
-        generateMax();
+        try {
+            generateMax();
+
 //        SchematronCheckResult check = Schematron
 //                .check(SCHEMATRON_TEMPLATE_PATH, SCHEMATRON, DOCUMENT_FILE_NAME);
 //
@@ -70,10 +73,13 @@ public class DispenseRecordMaxTest extends Base {
 //
 //        assertEquals(0, check.schemaErrors.size());
 //        assertEquals(0, check.schematronErrors.size());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     public void generateMax()
-            throws ParserConfigurationException, JAXBException, SchematronValidationException {
+        throws ParserConfigurationException, JAXBException, SchematronValidationException, IOException {
         // Setup context
         // Subject Of Care
         IHI ihi = new IHI("8003600300001283");

@@ -14,6 +14,7 @@ import au.gov.nehta.model.clinical.etp.common.item.AttachedMedia;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.time.ZoneId;
@@ -32,7 +33,7 @@ public class EventSummaryTestHelper {
     }
 
     public static PathologyTestResult createPathologyResults(Boolean mandatorySectionsOnly)
-            throws FileNotFoundException {
+        throws IOException {
 
         // It is best to think of PathologyTestResult as one Report/Panel or OBR in a HL7 V2 ORU Message
         PathologyTestResult pathologyTestResult = new PathologyTestResultImpl();
@@ -1012,7 +1013,7 @@ public class EventSummaryTestHelper {
 
     public static AttachedMedia getAttachedMedia(String fileNameStr,
                                                  Optional<String> attachmentDirOverrideValue)
-            throws FileNotFoundException {
+        throws IOException {
         File media = new File(String.format("%sx-ray%s.jpg", attachmentDir, fileNameStr));
         if (media.exists()) {
             return new AttachedMedia(media);

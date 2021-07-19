@@ -120,6 +120,7 @@ import au.gov.nehta.model.schematron.SchematronValidationException;
 import au.net.electronichealth.ns.cda._2_0.NullFlavor;
 
 import java.io.File;
+import java.io.IOException;
 import java.io.StringWriter;
 import java.time.LocalDate;
 import java.time.ZoneId;
@@ -142,7 +143,7 @@ import org.w3c.dom.Document;
 public class SamplePathologyCreation_3A {
 
     public static void main(String[] args)
-            throws ParserConfigurationException, JAXBException, SchematronValidationException {
+        throws ParserConfigurationException, JAXBException, SchematronValidationException, IOException {
         ZonedDateTime now = ZonedDateTime.now();
 
         // ***************************

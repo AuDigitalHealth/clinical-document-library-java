@@ -26,6 +26,7 @@ import org.w3c.dom.Document;
 import javax.xml.bind.JAXBException;
 import javax.xml.parsers.ParserConfigurationException;
 import java.io.File;
+import java.io.IOException;
 import java.time.LocalDate;
 import java.time.ZoneId;
 import java.time.ZonedDateTime;
@@ -53,13 +54,13 @@ public class PharmacistSharedMedicinesListMaxTest extends Base {
             File f = new File(DOCUMENT_FILE_NAME);
             Assert.assertTrue(f.exists());
             Assert.assertTrue(f.length() > 0L);
-        } catch (SchematronValidationException | ParserConfigurationException | JAXBException e) {
+        } catch (SchematronValidationException | ParserConfigurationException | JAXBException | IOException e) {
             e.printStackTrace();
         }
     }
 
     private void generateMax()
-            throws SchematronValidationException, JAXBException, ParserConfigurationException {
+        throws SchematronValidationException, JAXBException, ParserConfigurationException, IOException {
         ZonedDateTime now = ZonedDateTime.now();
 
         PharmacistSharedMedicinesList pharmacistSharedMedicinesList = new PharmacistSharedMedicinesListImpl();
